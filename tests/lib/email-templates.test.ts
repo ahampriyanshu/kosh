@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   escapeHtml,
+  formatDisplayDate,
   renderMidSessionEmail,
   renderDailyEmail,
   renderRecapEmail,
@@ -101,6 +102,15 @@ describe('escapeHtml', () => {
   });
 });
 
+describe('formatDisplayDate', () => {
+  it('formats ISO date strings with ordinal day labels', () => {
+    expect(formatDisplayDate('2027-06-15')).toBe('15th June, 2027');
+    expect(formatDisplayDate('2027-06-01')).toBe('1st June, 2027');
+    expect(formatDisplayDate('2027-06-22')).toBe('22nd June, 2027');
+    expect(formatDisplayDate('2027-06-13')).toBe('13th June, 2027');
+  });
+});
+
 describe('email templates', () => {
   it('renders a branded, responsive daily brief with escaped content', () => {
     const html = renderDailyEmail(dailyContent);
@@ -109,7 +119,9 @@ describe('email templates', () => {
     expect(html).toContain('role="presentation"');
     expect(html).toContain('@media only screen and (max-width: 600px)');
     expect(html).toContain('Kosh');
-    expect(html).toContain('Daily Brief - 2026-06-14');
+    expect(html).toContain('Daily Brief');
+    expect(html).toContain('14th June, 2026');
+    expect(html).not.toContain('Daily Brief - 2026-06-14');
     expect(html).toContain('Market Outlook');
     expect(html).toContain('Top Recommendation');
     expect(html).toContain('FII / DII Flow');
@@ -121,7 +133,9 @@ describe('email templates', () => {
   it('renders mid-session alerts and portfolio scan details', () => {
     const html = renderMidSessionEmail(midSessionContent);
 
-    expect(html).toContain('Mid-Session - 2026-06-14');
+    expect(html).toContain('Mid-Session');
+    expect(html).toContain('14th June, 2026');
+    expect(html).not.toContain('Mid-Session - 2026-06-14');
     expect(html).toContain('Sell Alerts');
     expect(html).toContain('Portfolio Scan');
     expect(html).toContain('High');
