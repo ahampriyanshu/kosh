@@ -64,7 +64,7 @@ On-demand research:        browser  →  /api/research (Next.js serverless route
 | `next`, `react`, `tailwindcss`, `shadcn/ui` | Dashboard + research API route | No |
 | `papaparse` | CSV parsing (**Phase 2 only**) | No |
 
-Total external API keys: **2** — `GOOGLE_AI_API_KEY`, `RESEND_API_KEY`. Both are GitHub repository secrets (used by the Actions). `GOOGLE_AI_API_KEY` is also a Vercel environment variable (used by the `/api/research` route).
+Total external API keys: **2** — `GOOGLE_GENERATIVE_AI_API_KEY` (the exact name the `@ai-sdk/google` provider reads automatically), `RESEND_API_KEY`. Both are GitHub repository secrets (used by the Actions). `GOOGLE_GENERATIVE_AI_API_KEY` is also a Vercel environment variable (used by the `/api/research` route).
 
 ## Schedules
 
