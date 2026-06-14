@@ -34,13 +34,15 @@ function renderEmailHtml(content: MorningContent): string {
 
 export async function runMorning(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
+  // ~6 months of daily candles — enough for the 50-day trend SMA — relative to the run date.
+  const period1 = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
   const watchlist = await getWatchlist();
 
   const summaries: TechSummary[] = [];
   const priceSnapshot: Record<string, number> = {};
   for (const stock of watchlist.stocks) {
     const quote = await getQuote(stock.ticker);
-    const candles = await getHistorical(stock.ticker, '2025-12-01');
+    const candles = await getHistorical(stock.ticker, period1);
     const closes = candles.map((c) => c.close);
     const rsiSeries = rsi(closes);
     priceSnapshot[stock.ticker] = quote.price;
