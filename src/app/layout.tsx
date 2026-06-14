@@ -4,6 +4,7 @@ import { JetBrains_Mono, Lato, Poppins } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
+import { ThemeToggle } from '../components/ThemeToggle';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -66,18 +67,20 @@ export default function RootLayout({
                     <Link href="/" className="brand-name">
                       Kosh
                     </Link>
-                    <span className="brand-kicker">Indian market intelligence</span>
                   </div>
                   <NavBar />
-                  <time className="header-meta">
-                    {new Date().toLocaleDateString('en-IN', {
-                      weekday: 'short',
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric',
-                      timeZone: 'Asia/Kolkata',
-                    })}
-                  </time>
+                  <div className="header-actions">
+                    <ThemeToggle />
+                    <time className="header-meta">
+                      {new Date().toLocaleDateString('en-IN', {
+                        weekday: 'short',
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric',
+                        timeZone: 'Asia/Kolkata',
+                      })}
+                    </time>
+                  </div>
                 </div>
               </header>
 
