@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdtemp, rm, readFile } from 'node:fs/promises';
+import { mkdtemp, rm, readFile, readdir } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { computeChecksum, writeReport, readReport, readManifest } from '../../lib/storage';
@@ -66,7 +66,19 @@ describe('storage', () => {
 
   it('leaves no .tmp files behind', async () => {
     await writeReport(makeEnvelope('2026-06-14-morning'));
-    const raw = await readFile(path.join(dir, 'briefings', '2026-06-14-morning.json'), 'utf8');
-    expect(JSON.parse(raw).id).toBe('2026-06-14-morning');
+    const entries = await readdir(path.join(dir, 'briefings'));
+    expect(entries.some((f) => f.endsWith('.tmp'))).toBe(false);
+    expect(entries).toContain('2026-06-14-morning.json');
+  });
+
+  it('rejects an envelope with an unsafe id (path traversal)', async () => {
+    await expect(writeReport(makeEnvelope('../evil'))).rejects.toThrow();
+  });
+
+  it('throws on checksum mismatch when reading a tampered report', async () => {
+    const env = makeEnvelope('2026-06-14-morning');
+    env.checksum = 'sha256:' + '0'.repeat(64); // wrong on purpose
+    await writeReport(env); // writeReport does not verify checksum
+    await expect(readReport('2026-06-14-morning')).rejects.toThrow(/checksum/i);
   });
 });

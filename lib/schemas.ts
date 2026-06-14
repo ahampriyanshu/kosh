@@ -40,9 +40,9 @@ export type SourceData = z.infer<typeof SourceDataSchema>;
 
 export const ReportEnvelopeSchema = z.object({
   schemaVersion: z.number().int().positive(),
-  id: z.string(),
+  id: z.string().regex(/^[A-Za-z0-9_-]+$/),
   type: ReportTypeSchema,
-  generatedAt: z.string(),
+  generatedAt: z.string().datetime(),
   sourceData: SourceDataSchema,
   content: z.unknown(), // type-specific; callers validate with the matching content schema
   emailSent: z.boolean(),

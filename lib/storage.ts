@@ -8,8 +8,15 @@ import {
   type Manifest,
 } from './schemas';
 
+// Integrity model (single-process, sequential cron use):
+// - Writes are atomic per file (temp + rename). The report file and manifest are
+//   written in two steps and are NOT jointly atomic; a crash between them can orphan
+//   a report file (no manifest entry). Acceptable here because jobs run one at a time.
+// - writeReport trusts the caller-supplied envelope.checksum; readReport verifies it,
+//   so post-write corruption is detected on read.
+
 function dataDir(): string {
-  return process.env.KOSH_DATA_DIR ?? path.join(process.cwd(), 'data');
+  return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
 }
 function briefingsDir(): string {
   return path.join(dataDir(), 'briefings');
@@ -56,12 +63,17 @@ export async function writeReport(envelope: ReportEnvelope): Promise<void> {
   };
   manifest.reports = manifest.reports.filter((r) => r.id !== valid.id);
   manifest.reports.push(entry);
-  manifest.reports.sort((a, b) => (a.id < b.id ? 1 : -1)); // newest id first
+  manifest.reports.sort((a, b) => b.id.localeCompare(a.id)); // newest id first
   manifest.latest = { ...manifest.latest, [valid.type]: valid.id };
   await atomicWriteJson(manifestPath(), ManifestSchema.parse(manifest));
 }
 
 export async function readReport(id: string): Promise<ReportEnvelope> {
   const raw = await readFile(path.join(briefingsDir(), `${id}.json`), 'utf8');
-  return ReportEnvelopeSchema.parse(JSON.parse(raw)); // validate on read
+  const envelope = ReportEnvelopeSchema.parse(JSON.parse(raw)); // validate shape on read
+  const expected = computeChecksum(envelope.content);
+  if (envelope.checksum !== expected) {
+    throw new Error(`Checksum mismatch for report ${id}: stored ${envelope.checksum}, computed ${expected}`);
+  }
+  return envelope;
 }
