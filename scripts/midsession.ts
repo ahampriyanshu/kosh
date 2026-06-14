@@ -95,7 +95,8 @@ export async function runMidSession(now: Date = new Date()): Promise<void> {
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `${date}-midsession`,
+    id: `midsession-${date}`,
+    dateKey: date,
     type: 'midsession',
     generatedAt: now.toISOString(),
     sourceData: {

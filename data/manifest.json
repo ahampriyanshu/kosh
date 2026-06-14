@@ -1,30 +1,33 @@
 {
   "reports": [
     {
-      "id": "2026-W24-weekly",
+      "id": "weekly-2026-W24",
       "type": "weekly",
+      "dateKey": "2026-W24",
       "date": "2026-06-14",
-      "path": "briefings/2026-W24-weekly.json",
+      "path": "reports/2026/06/weekly/weekly-2026-W24.json",
       "checksum": "sha256:d8e6c3acbf8e9f6b9d63198e6e70992af8f22926a0da5048d0d1359e0cce2d67"
     },
     {
-      "id": "2026-06-14-morning",
-      "type": "morning",
+      "id": "midsession-2026-06-14",
+      "type": "midsession",
+      "dateKey": "2026-06-14",
       "date": "2026-06-14",
-      "path": "briefings/2026-06-14-morning.json",
-      "checksum": "sha256:4ab0cd68ab0913c90c3054d61b351de66a7eb983f4d6a046363b2613e73ece8e"
+      "path": "reports/2026/06/midsession/midsession-2026-06-14.json",
+      "checksum": "sha256:e43eb92f40d39572f987ef352ea22e7968a03fb4f1f7040e32ab75aff6a4f57f"
     },
     {
-      "id": "2026-06-14-midsession",
-      "type": "midsession",
+      "id": "daily-2026-06-14",
+      "type": "daily",
+      "dateKey": "2026-06-14",
       "date": "2026-06-14",
-      "path": "briefings/2026-06-14-midsession.json",
-      "checksum": "sha256:e43eb92f40d39572f987ef352ea22e7968a03fb4f1f7040e32ab75aff6a4f57f"
+      "path": "reports/2026/06/daily/daily-2026-06-14.json",
+      "checksum": "sha256:4ab0cd68ab0913c90c3054d61b351de66a7eb983f4d6a046363b2613e73ece8e"
     }
   ],
   "latest": {
-    "morning": "2026-06-14-morning",
-    "weekly": "2026-W24-weekly",
-    "midsession": "2026-06-14-midsession"
+    "daily": "daily-2026-06-14",
+    "midsession": "midsession-2026-06-14",
+    "weekly": "weekly-2026-W24"
   }
 }

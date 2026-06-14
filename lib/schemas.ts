@@ -1,12 +1,12 @@
 import { z } from 'zod';
 
-export const ReportTypeSchema = z.enum(['morning', 'midsession', 'weekly', 'monthly', 'research']);
+export const ReportTypeSchema = z.enum(['daily', 'midsession', 'retro', 'weekly', 'monthly', 'research']);
 export type ReportType = z.infer<typeof ReportTypeSchema>;
 
 export const SignalSchema = z.enum(['bullish', 'bearish', 'neutral']);
 export type Signal = z.infer<typeof SignalSchema>;
 
-export const MorningContentSchema = z.object({
+export const DailyContentSchema = z.object({
   date: z.string(),
   marketOutlook: z.string(),
   stocksToWatch: z
@@ -29,7 +29,7 @@ export const MorningContentSchema = z.object({
   sectorMovers: z.array(z.object({ sector: z.string(), note: z.string() })),
   fiiDiiSentiment: z.string(),
 });
-export type MorningContent = z.infer<typeof MorningContentSchema>;
+export type DailyContent = z.infer<typeof DailyContentSchema>;
 
 export const SourceDataSchema = z.object({
   tickers: z.array(z.string()),
@@ -42,6 +42,7 @@ export const ReportEnvelopeSchema = z.object({
   schemaVersion: z.number().int().positive(),
   id: z.string().regex(/^[A-Za-z0-9_-]+$/),
   type: ReportTypeSchema,
+  dateKey: z.string().min(1),
   generatedAt: z.string().datetime(),
   sourceData: SourceDataSchema,
   content: z.unknown(), // type-specific; callers validate with the matching content schema
@@ -64,6 +65,7 @@ export type Watchlist = z.infer<typeof WatchlistSchema>;
 export const ManifestEntrySchema = z.object({
   id: z.string(),
   type: ReportTypeSchema,
+  dateKey: z.string().min(1),
   date: z.string(),
   path: z.string(),
   checksum: z.string(),
@@ -72,7 +74,7 @@ export type ManifestEntry = z.infer<typeof ManifestEntrySchema>;
 
 export const ManifestSchema = z.object({
   reports: z.array(ManifestEntrySchema),
-  // string-keyed (not enum-keyed) so a partial map like { morning: "..." } types cleanly
+  // string-keyed (not enum-keyed) so a partial map like { daily: "..." } types cleanly
   latest: z.record(z.string(), z.string()).default({}),
 });
 export type Manifest = z.infer<typeof ManifestSchema>;
@@ -161,3 +163,24 @@ export const ResearchContentSchema = z.object({
   }),
 });
 export type ResearchContent = z.infer<typeof ResearchContentSchema>;
+
+export const PortfolioSchema = z.object({
+  asOf: z.string(),
+  holdings: z.array(
+    z.object({
+      ticker: z.string(),
+      name: z.string(),
+      qty: z.number().nonnegative(),
+      avgCost: z.number().nonnegative(),
+    }),
+  ),
+});
+export type Portfolio = z.infer<typeof PortfolioSchema>;
+
+export const UniverseEntrySchema = z.object({
+  ticker: z.string().regex(/\.(NS|BO)$/),
+  name: z.string(),
+  sector: z.string(),
+});
+export type UniverseEntry = z.infer<typeof UniverseEntrySchema>;
+export const UniverseSchema = z.array(UniverseEntrySchema);

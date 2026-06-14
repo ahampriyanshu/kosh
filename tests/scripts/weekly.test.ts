@@ -49,11 +49,12 @@ describe('runWeekly', () => {
     const first = h.writeReport.mock.calls[0][0];
     const second = h.writeReport.mock.calls[1][0];
 
-    expect(first.id).toBe('2026-W24-weekly');
+    expect(first.id).toBe('weekly-2026-W24');
+    expect(first.dateKey).toBe('2026-W24');
     expect(first.type).toBe('weekly');
     expect(first.emailSent).toBe(false);
 
-    expect(second.id).toBe('2026-W24-weekly');
+    expect(second.id).toBe('weekly-2026-W24');
     expect(second.type).toBe('weekly');
     expect(second.emailSent).toBe(true);
 

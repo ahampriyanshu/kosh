@@ -58,7 +58,8 @@ describe('runResearch', () => {
 
     expect(vi.mocked(writeReport)).toHaveBeenCalledTimes(2);
     const firstCall = vi.mocked(writeReport).mock.calls[0][0];
-    expect(firstCall.id).toBe('2026-06-14-research-TCS-NS');
+    expect(firstCall.id).toBe('research-TCS-NS-2026-06-14');
+    expect(firstCall.dateKey).toBe('TCS-NS-2026-06-14');
     expect(firstCall.type).toBe('research');
     expect(firstCall.emailSent).toBe(false);
 
@@ -72,7 +73,7 @@ describe('runResearch', () => {
     h.requests.splice(0);
     h.requests.push({ ticker: 'TCS.NS' });
     h.manifestReports.splice(0);
-    h.manifestReports.push({ id: '2026-06-14-research-TCS-NS' });
+    h.manifestReports.push({ id: 'research-TCS-NS-2026-06-14' });
 
     await runResearch(new Date('2026-06-14T02:30:00.000Z'));
 

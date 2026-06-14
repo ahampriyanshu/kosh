@@ -1,7 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
-  MorningContentSchema,
+  DailyContentSchema,
   ReportEnvelopeSchema,
+  ManifestEntrySchema,
   WatchlistSchema,
   ManifestSchema,
   MidSessionContentSchema,
@@ -13,7 +14,7 @@ import {
 } from '../../lib/schemas';
 
 describe('schemas', () => {
-  const validMorning = {
+  const validDaily = {
     date: '2026-06-14',
     marketOutlook: 'Nifty flat amid global cues.',
     stocksToWatch: [
@@ -30,32 +31,33 @@ describe('schemas', () => {
     fiiDiiSentiment: 'FIIs net buyers',
   };
 
-  it('accepts valid morning content', () => {
-    expect(MorningContentSchema.parse(validMorning)).toBeTruthy();
+  it('accepts valid daily content', () => {
+    expect(DailyContentSchema.parse(validDaily)).toBeTruthy();
   });
 
   it('rejects confidence outside 0..1', () => {
-    const bad = { ...validMorning, topRecommendation: { ...validMorning.topRecommendation, confidence: 2 } };
-    expect(() => MorningContentSchema.parse(bad)).toThrow();
+    const bad = { ...validDaily, topRecommendation: { ...validDaily.topRecommendation, confidence: 2 } };
+    expect(() => DailyContentSchema.parse(bad)).toThrow();
   });
 
   it('rejects more than 5 stocks to watch', () => {
     const six = Array.from({ length: 6 }, () => ({ ticker: 'X.NS', name: 'X', reason: 'r', signal: 'neutral' }));
-    expect(() => MorningContentSchema.parse({ ...validMorning, stocksToWatch: six })).toThrow();
+    expect(() => DailyContentSchema.parse({ ...validDaily, stocksToWatch: six })).toThrow();
   });
 
   it('validates a full report envelope', () => {
     const env = {
       schemaVersion: 1,
-      id: '2026-06-14-morning',
-      type: 'morning',
+      id: '2026-06-14-daily',
+      type: 'daily',
+      dateKey: '2026-06-14',
       generatedAt: '2026-06-14T02:30:00.000Z',
       sourceData: { tickers: ['TCS.NS'], priceSnapshot: { 'TCS.NS': 3900 }, searchTimestamp: '2026-06-14T02:29:00.000Z' },
-      content: validMorning,
+      content: validDaily,
       emailSent: false,
       checksum: 'sha256:abc',
     };
-    expect(ReportEnvelopeSchema.parse(env).id).toBe('2026-06-14-morning');
+    expect(ReportEnvelopeSchema.parse(env).id).toBe('2026-06-14-daily');
   });
 
   it('accepts a watchlist and an empty manifest', () => {
@@ -151,6 +153,17 @@ describe('ReportTypeSchema — research', () => {
   });
 });
 
+describe('ReportTypeSchema', () => {
+  it('accepts the six v2 report types', () => {
+    for (const t of ['daily', 'midsession', 'retro', 'weekly', 'monthly', 'research']) {
+      expect(ReportTypeSchema.parse(t)).toBe(t);
+    }
+  });
+  it('rejects the retired morning type', () => {
+    expect(ReportTypeSchema.safeParse('morning').success).toBe(false);
+  });
+});
+
 describe('ResearchContentSchema', () => {
   const validResearch = {
     ticker: 'TCS.NS',
@@ -190,5 +203,23 @@ describe('ResearchRequestSchema', () => {
       ticker: 'TCS.NS',
       note: 'x',
     });
+  });
+});
+
+describe('envelope dateKey', () => {
+  it('requires a dateKey on the envelope', () => {
+    const base = {
+      schemaVersion: 1, id: 'daily-2026-06-14', type: 'daily',
+      generatedAt: '2026-06-14T02:30:00.000Z',
+      sourceData: { tickers: [], priceSnapshot: {}, searchTimestamp: '2026-06-14T02:29:00.000Z' },
+      content: {}, emailSent: false, checksum: 'sha256:' + '0'.repeat(64),
+    };
+    expect(ReportEnvelopeSchema.safeParse(base).success).toBe(false); // missing dateKey
+    expect(ReportEnvelopeSchema.safeParse({ ...base, dateKey: '2026-06-14' }).success).toBe(true);
+  });
+  it('requires a dateKey on manifest entries', () => {
+    const entry = { id: 'daily-2026-06-14', type: 'daily', date: '2026-06-14', path: 'reports/2026/06/daily/daily-2026-06-14.json', checksum: 'sha256:x' };
+    expect(ManifestEntrySchema.safeParse(entry).success).toBe(false); // missing dateKey
+    expect(ManifestEntrySchema.safeParse({ ...entry, dateKey: '2026-06-14' }).success).toBe(true);
   });
 });

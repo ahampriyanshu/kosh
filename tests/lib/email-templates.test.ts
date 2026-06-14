@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest';
 import {
   escapeHtml,
   renderMidSessionEmail,
-  renderMorningEmail,
+  renderDailyEmail,
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
-import type { MidSessionContent, MorningContent, RecapContent, ResearchContent } from '../../lib/schemas';
+import type { MidSessionContent, DailyContent, RecapContent, ResearchContent } from '../../lib/schemas';
 
-const morningContent: MorningContent = {
+const dailyContent: DailyContent = {
   date: '2026-06-14',
   marketOutlook: 'Banks lead while <script>alert("x")</script> stays risky.',
   stocksToWatch: [
@@ -102,14 +102,14 @@ describe('escapeHtml', () => {
 });
 
 describe('email templates', () => {
-  it('renders a branded, responsive morning brief with escaped content', () => {
-    const html = renderMorningEmail(morningContent);
+  it('renders a branded, responsive daily brief with escaped content', () => {
+    const html = renderDailyEmail(dailyContent);
 
     expect(html).toContain('<!doctype html>');
     expect(html).toContain('role="presentation"');
     expect(html).toContain('@media only screen and (max-width: 600px)');
     expect(html).toContain('Kosh');
-    expect(html).toContain('Morning Brief - 2026-06-14');
+    expect(html).toContain('Daily Brief - 2026-06-14');
     expect(html).toContain('Market Outlook');
     expect(html).toContain('Top Recommendation');
     expect(html).toContain('FII / DII Flow');

@@ -55,11 +55,12 @@ describe('runMonthly', () => {
     const first = h.writeReport.mock.calls[0][0];
     const second = h.writeReport.mock.calls[1][0];
 
-    expect(first.id).toBe('2026-06-monthly');
+    expect(first.id).toBe('monthly-2026-06');
+    expect(first.dateKey).toBe('2026-06');
     expect(first.type).toBe('monthly');
     expect(first.emailSent).toBe(false);
 
-    expect(second.id).toBe('2026-06-monthly');
+    expect(second.id).toBe('monthly-2026-06');
     expect(second.type).toBe('monthly');
     expect(second.emailSent).toBe(true);
 

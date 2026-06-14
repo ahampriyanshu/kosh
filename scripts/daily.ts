@@ -5,9 +5,9 @@ import { rsi, trend } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
-import { renderMorningEmail } from '../lib/email-templates';
+import { renderDailyEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
-import { MorningContentSchema, type ReportEnvelope } from '../lib/schemas';
+import { DailyContentSchema, type ReportEnvelope } from '../lib/schemas';
 
 interface TechSummary {
   ticker: string;
@@ -17,7 +17,7 @@ interface TechSummary {
   trend: string;
 }
 
-export async function runMorning(now: Date = new Date()): Promise<void> {
+export async function runDaily(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   // ~6 months of daily candles — enough for the 50-day trend SMA — relative to the run date.
   const period1 = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -51,20 +51,21 @@ export async function runMorning(now: Date = new Date()): Promise<void> {
     `and FII/DII flows.\n\nWatchlist technical snapshot:\n${techBlock}`;
 
   const buildStructurePrompt = (research: string) =>
-    `Turn the following research into a structured morning brief for ${date}. ` +
+    `Turn the following research into a structured daily brief for ${date}. ` +
     `Pick at most 5 stocks to watch from the watchlist, any exit signals, one buy recommendation ` +
     `with a 0..1 confidence, sector movers, and an FII/DII sentiment line.\n\nResearch:\n${research}`;
 
   const searchTimestamp = now.toISOString();
-  const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, MorningContentSchema);
+  const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, DailyContentSchema);
 
   // Validate on write (content), independent of the LLM layer.
-  const content = MorningContentSchema.parse(object);
+  const content = DailyContentSchema.parse(object);
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `${date}-morning`,
-    type: 'morning',
+    id: `daily-${date}`,
+    dateKey: date,
+    type: 'daily',
     generatedAt: now.toISOString(),
     sourceData: {
       tickers: watchlist.stocks.map((s) => s.ticker),
@@ -79,17 +80,17 @@ export async function runMorning(now: Date = new Date()): Promise<void> {
   await writeReport({ ...base, emailSent: false });
 
   // 2) email after the report is saved
-  await sendReportEmail(`Kosh Morning Brief — ${date}`, renderMorningEmail(content));
+  await sendReportEmail(`Kosh Daily Brief — ${date}`, renderDailyEmail(content));
 
   // 3) record that the email was sent
   await writeReport({ ...base, emailSent: true });
 
-  console.log(`Morning brief ${base.id} written and emailed.`);
+  console.log(`Daily brief ${base.id} written and emailed.`);
 }
 
-// Auto-run only when executed directly (tsx scripts/morning.ts), not when imported by tests.
+// Auto-run only when executed directly (tsx scripts/daily.ts), not when imported by tests.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runMorning()
+  runDaily()
     .then(() => process.exit(0))
     .catch((e) => {
       console.error(e);

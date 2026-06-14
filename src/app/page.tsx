@@ -1,26 +1,26 @@
 import { getLatest } from '../lib/reports';
-import type { MorningContent, MidSessionContent } from '../../lib/schemas';
-import { MorningView } from '../components/MorningView';
+import type { DailyContent, MidSessionContent } from '../../lib/schemas';
+import { DailyView } from '../components/DailyView';
 import { SeverityBadge } from '../components/SeverityBadge';
 
 export default async function TodayPage() {
-  const [morning, midsession] = await Promise.all([
-    getLatest('morning'),
+  const [daily, midsession] = await Promise.all([
+    getLatest('daily'),
     getLatest('midsession'),
   ]);
 
-  if (!morning) {
+  if (!daily) {
     return (
       <div className="py-20 text-center">
         <p className="font-display text-2xl text-[var(--color-faint)] mb-2">No briefing yet.</p>
         <p className="text-sm text-[var(--color-faint)]">
-          The morning brief will appear here once generated.
+          The daily brief will appear here once generated.
         </p>
       </div>
     );
   }
 
-  const morningContent = morning.content as MorningContent;
+  const dailyContent = daily.content as DailyContent;
 
   // Check if midsession is from today
   const today = new Date().toISOString().slice(0, 10);
@@ -34,7 +34,7 @@ export default async function TodayPage() {
       {/* Page header */}
       <div className="mb-8">
         <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Morning Brief
+          Daily Brief
         </p>
         <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
           Today&rsquo;s Market Briefing
@@ -42,8 +42,8 @@ export default async function TodayPage() {
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
 
-      {/* Morning report */}
-      <MorningView content={morningContent} generatedAt={morning.generatedAt} />
+      {/* Daily report */}
+      <DailyView content={dailyContent} generatedAt={daily.generatedAt} />
 
       {/* Mid-session alerts (today only) */}
       {midContent && midContent.alerts.length > 0 && (

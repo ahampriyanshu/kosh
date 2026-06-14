@@ -1,4 +1,4 @@
-import type { MorningContent } from '../../lib/schemas';
+import type { DailyContent } from '../../lib/schemas';
 import { SignalBadge } from './SignalBadge';
 
 function formatIST(isoStr: string): string {
@@ -19,12 +19,12 @@ function confidencePct(c: number): string {
   return `${Math.round(c * 100)}%`;
 }
 
-interface MorningViewProps {
-  content: MorningContent;
+interface DailyViewProps {
+  content: DailyContent;
   generatedAt?: string;
 }
 
-export function MorningView({ content, generatedAt }: MorningViewProps) {
+export function DailyView({ content, generatedAt }: DailyViewProps) {
   return (
     <div className="space-y-8">
       {/* Date line */}

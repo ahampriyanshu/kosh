@@ -3,11 +3,8 @@ import type { ManifestEntry } from '../../lib/schemas';
 import { VerificationBadge } from './VerificationBadge';
 
 const TYPE_LABELS: Record<string, string> = {
-  morning: 'Morning Brief',
-  midsession: 'Mid-Session',
-  weekly: 'Weekly Recap',
-  monthly: 'Monthly Recap',
-  research: 'Research',
+  daily: 'Daily Brief', midsession: 'Mid-Session', retro: 'Weekly Retrospective',
+  weekly: 'Weekly Outlook', monthly: 'Monthly Outlook', research: 'Research',
 };
 
 function formatDate(dateStr: string): string {
@@ -47,10 +44,7 @@ export function ReportCard({
       : typeLabel;
 
   return (
-    <Link
-      href={`/reports/${entry.id}`}
-      className="block group"
-    >
+    <Link href={`/reports/${entry.type}/${entry.dateKey}`} className="block group">
       <article className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4 hover:border-[var(--color-brand)] hover:shadow-sm transition-all duration-150">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">

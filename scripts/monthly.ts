@@ -30,7 +30,8 @@ export async function runMonthly(now: Date = new Date()): Promise<void> {
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `${period}-monthly`,
+    id: `monthly-${period}`,
+    dateKey: period,
     type: 'monthly',
     generatedAt: now.toISOString(),
     sourceData: {
