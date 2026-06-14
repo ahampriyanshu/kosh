@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ReportTypeSchema = z.enum(['daily', 'midsession', 'weekly', 'monthly', 'research']);
+export const ReportTypeSchema = z.enum(['daily', 'midsession', 'retro', 'weekly', 'monthly', 'research']);
 export type ReportType = z.infer<typeof ReportTypeSchema>;
 
 export const SignalSchema = z.enum(['bullish', 'bearish', 'neutral']);

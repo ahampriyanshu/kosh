@@ -151,6 +151,17 @@ describe('ReportTypeSchema — research', () => {
   });
 });
 
+describe('ReportTypeSchema', () => {
+  it('accepts the six v2 report types', () => {
+    for (const t of ['daily', 'midsession', 'retro', 'weekly', 'monthly', 'research']) {
+      expect(ReportTypeSchema.parse(t)).toBe(t);
+    }
+  });
+  it('rejects the retired morning type', () => {
+    expect(ReportTypeSchema.safeParse('morning').success).toBe(false);
+  });
+});
+
 describe('ResearchContentSchema', () => {
   const validResearch = {
     ticker: 'TCS.NS',
