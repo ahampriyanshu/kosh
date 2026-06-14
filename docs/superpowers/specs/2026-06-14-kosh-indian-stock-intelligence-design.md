@@ -93,7 +93,7 @@ For each watchlist stock, the script fetches live intraday data and flags candid
 - Price breaks below a key support level (recent swing low / SMA).
 - Price near a circuit-breaker band.
 
-Flagged candidates are passed to Gemini, which judges **noise vs. signal** with reasoning. A confirmed signal becomes a sell alert: written to `data/alerts/` and emailed immediately. The deterministic rules gate the LLM call (cost control); the LLM provides the judgment and explanation.
+Flagged candidates are passed to Gemini, which judges **noise vs. signal** with reasoning. A confirmed signal becomes a sell alert: recorded in the midsession report's `content.alerts[]` and emailed. The deterministic rules gate the LLM call (cost control); the LLM provides the judgment and explanation. The Alerts page aggregates `content.alerts` across all midsession reports.
 
 ### Self-verification loop (weekly & monthly)
 
@@ -195,15 +195,12 @@ data/                  # the document database (committed by Actions)
   watchlist.json       # edited manually; the tracked universe
   research-requests.ts # typed TS list of tickers to research (edit + commit to trigger)
   manifest.json        # index of all reports
-  briefings/
+  briefings/           # ALL report types live here, flat, keyed by typed id
     2026-06-14-morning.json
-    2026-06-14-midsession.json
+    2026-06-14-midsession.json      # sell-alerts embedded in content.alerts
     2026-W24-weekly.json
     2026-06-monthly.json
-  research/
     2026-06-14-research-TATAMOTORS-NS.json
-  alerts/
-    2026-06-14.json
 
 scripts/               # job runners (thin orchestrators)
   morning.ts
