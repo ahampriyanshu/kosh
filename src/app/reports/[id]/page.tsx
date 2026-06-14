@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { getManifest, getReport } from '../../../lib/reports';
 import type {
-  MorningContent,
+  DailyContent,
   MidSessionContent,
   RecapContent,
   ResearchContent,
 } from '../../../../lib/schemas';
-import { MorningView } from '../../../components/MorningView';
+import { DailyView } from '../../../components/DailyView';
 import { MidSessionView } from '../../../components/MidSessionView';
 import { RecapView } from '../../../components/RecapView';
 import { ResearchView } from '../../../components/ResearchView';
@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 const TYPE_TITLES: Record<string, string> = {
-  morning: 'Morning Brief',
+  daily: 'Daily Brief',
   midsession: 'Mid-Session',
   weekly: 'Weekly Recap',
   monthly: 'Monthly Recap',
@@ -88,9 +88,9 @@ export default async function ReportPage({ params }: ReportPageProps) {
       </div>
 
       {/* Type-switched content view */}
-      {envelope.type === 'morning' && (
-        <MorningView
-          content={envelope.content as MorningContent}
+      {envelope.type === 'daily' && (
+        <DailyView
+          content={envelope.content as DailyContent}
           generatedAt={envelope.generatedAt}
         />
       )}

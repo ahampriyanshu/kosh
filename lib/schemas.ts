@@ -1,12 +1,12 @@
 import { z } from 'zod';
 
-export const ReportTypeSchema = z.enum(['morning', 'midsession', 'weekly', 'monthly', 'research']);
+export const ReportTypeSchema = z.enum(['daily', 'midsession', 'weekly', 'monthly', 'research']);
 export type ReportType = z.infer<typeof ReportTypeSchema>;
 
 export const SignalSchema = z.enum(['bullish', 'bearish', 'neutral']);
 export type Signal = z.infer<typeof SignalSchema>;
 
-export const MorningContentSchema = z.object({
+export const DailyContentSchema = z.object({
   date: z.string(),
   marketOutlook: z.string(),
   stocksToWatch: z
@@ -29,7 +29,7 @@ export const MorningContentSchema = z.object({
   sectorMovers: z.array(z.object({ sector: z.string(), note: z.string() })),
   fiiDiiSentiment: z.string(),
 });
-export type MorningContent = z.infer<typeof MorningContentSchema>;
+export type DailyContent = z.infer<typeof DailyContentSchema>;
 
 export const SourceDataSchema = z.object({
   tickers: z.array(z.string()),
@@ -72,7 +72,7 @@ export type ManifestEntry = z.infer<typeof ManifestEntrySchema>;
 
 export const ManifestSchema = z.object({
   reports: z.array(ManifestEntrySchema),
-  // string-keyed (not enum-keyed) so a partial map like { morning: "..." } types cleanly
+  // string-keyed (not enum-keyed) so a partial map like { daily: "..." } types cleanly
   latest: z.record(z.string(), z.string()).default({}),
 });
 export type Manifest = z.infer<typeof ManifestSchema>;

@@ -3,7 +3,7 @@ import type { ManifestEntry } from '../../lib/schemas';
 import { VerificationBadge } from './VerificationBadge';
 
 const TYPE_LABELS: Record<string, string> = {
-  morning: 'Morning Brief',
+  daily: 'Daily Brief',
   midsession: 'Mid-Session',
   weekly: 'Weekly Recap',
   monthly: 'Monthly Recap',

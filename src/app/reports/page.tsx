@@ -2,9 +2,9 @@ import { getManifest, getAllReports } from '../../lib/reports';
 import type { ReportType, MidSessionContent, RecapContent, ManifestEntry } from '../../../lib/schemas';
 import { ReportCard } from '../../components/ReportCard';
 
-const TYPE_ORDER: ReportType[] = ['morning', 'midsession', 'weekly', 'monthly', 'research'];
+const TYPE_ORDER: ReportType[] = ['daily', 'midsession', 'weekly', 'monthly', 'research'];
 const TYPE_HEADINGS: Record<ReportType, string> = {
-  morning: 'Morning Briefs',
+  daily: 'Daily Briefs',
   midsession: 'Mid-Session',
   weekly: 'Weekly Recaps',
   monthly: 'Monthly Recaps',

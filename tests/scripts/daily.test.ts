@@ -21,9 +21,9 @@ vi.mock('../../lib/storage', () => ({
 }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));
 
-import { runMorning } from '../../scripts/morning';
+import { runDaily } from '../../scripts/daily';
 
-const morningContent = {
+const dailyContent = {
   date: '2026-06-14',
   marketOutlook: 'flat',
   stocksToWatch: [{ ticker: 'TCS.NS', name: 'TCS', reason: 'r', signal: 'bullish' }],
@@ -40,21 +40,21 @@ beforeEach(() => {
   h.getHistorical.mockResolvedValue([{ date: new Date(), open: 1, high: 1, low: 1, close: 3900, volume: 1 }]);
   h.rsi.mockReturnValue([55]);
   h.trend.mockReturnValue('bullish');
-  h.generateGroundedObject.mockResolvedValue({ object: morningContent, sources: [] });
+  h.generateGroundedObject.mockResolvedValue({ object: dailyContent, sources: [] });
   h.writeReport.mockResolvedValue(undefined);
   h.sendReportEmail.mockResolvedValue(undefined);
 });
 
-describe('runMorning', () => {
+describe('runDaily', () => {
   it('writes the report, emails it, then re-writes with emailSent=true', async () => {
-    await runMorning(new Date('2026-06-14T02:30:00.000Z'));
+    await runDaily(new Date('2026-06-14T02:30:00.000Z'));
 
     expect(h.writeReport).toHaveBeenCalledTimes(2);
     const first = h.writeReport.mock.calls[0][0];
     const second = h.writeReport.mock.calls[1][0];
 
-    expect(first.id).toBe('2026-06-14-morning');
-    expect(first.type).toBe('morning');
+    expect(first.id).toBe('2026-06-14-daily');
+    expect(first.type).toBe('daily');
     expect(first.emailSent).toBe(false);
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
@@ -70,10 +70,10 @@ describe('runMorning', () => {
 
   it('validates LLM content against the schema (rejects bad confidence)', async () => {
     h.generateGroundedObject.mockResolvedValue({
-      object: { ...morningContent, topRecommendation: { ...morningContent.topRecommendation, confidence: 9 } },
+      object: { ...dailyContent, topRecommendation: { ...dailyContent.topRecommendation, confidence: 9 } },
       sources: [],
     });
-    await expect(runMorning(new Date('2026-06-14T02:30:00.000Z'))).rejects.toThrow();
+    await expect(runDaily(new Date('2026-06-14T02:30:00.000Z'))).rejects.toThrow();
     expect(h.sendReportEmail).not.toHaveBeenCalled();
   });
 });

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  MorningContentSchema,
+  DailyContentSchema,
   ReportEnvelopeSchema,
   WatchlistSchema,
   ManifestSchema,
@@ -13,7 +13,7 @@ import {
 } from '../../lib/schemas';
 
 describe('schemas', () => {
-  const validMorning = {
+  const validDaily = {
     date: '2026-06-14',
     marketOutlook: 'Nifty flat amid global cues.',
     stocksToWatch: [
@@ -30,32 +30,32 @@ describe('schemas', () => {
     fiiDiiSentiment: 'FIIs net buyers',
   };
 
-  it('accepts valid morning content', () => {
-    expect(MorningContentSchema.parse(validMorning)).toBeTruthy();
+  it('accepts valid daily content', () => {
+    expect(DailyContentSchema.parse(validDaily)).toBeTruthy();
   });
 
   it('rejects confidence outside 0..1', () => {
-    const bad = { ...validMorning, topRecommendation: { ...validMorning.topRecommendation, confidence: 2 } };
-    expect(() => MorningContentSchema.parse(bad)).toThrow();
+    const bad = { ...validDaily, topRecommendation: { ...validDaily.topRecommendation, confidence: 2 } };
+    expect(() => DailyContentSchema.parse(bad)).toThrow();
   });
 
   it('rejects more than 5 stocks to watch', () => {
     const six = Array.from({ length: 6 }, () => ({ ticker: 'X.NS', name: 'X', reason: 'r', signal: 'neutral' }));
-    expect(() => MorningContentSchema.parse({ ...validMorning, stocksToWatch: six })).toThrow();
+    expect(() => DailyContentSchema.parse({ ...validDaily, stocksToWatch: six })).toThrow();
   });
 
   it('validates a full report envelope', () => {
     const env = {
       schemaVersion: 1,
-      id: '2026-06-14-morning',
-      type: 'morning',
+      id: '2026-06-14-daily',
+      type: 'daily',
       generatedAt: '2026-06-14T02:30:00.000Z',
       sourceData: { tickers: ['TCS.NS'], priceSnapshot: { 'TCS.NS': 3900 }, searchTimestamp: '2026-06-14T02:29:00.000Z' },
-      content: validMorning,
+      content: validDaily,
       emailSent: false,
       checksum: 'sha256:abc',
     };
-    expect(ReportEnvelopeSchema.parse(env).id).toBe('2026-06-14-morning');
+    expect(ReportEnvelopeSchema.parse(env).id).toBe('2026-06-14-daily');
   });
 
   it('accepts a watchlist and an empty manifest', () => {

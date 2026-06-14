@@ -36,7 +36,7 @@ const footerSections = [
   {
     title: 'Workflow',
     links: [
-      { label: 'Morning Brief', href: '/reports' },
+      { label: 'Daily Brief', href: '/reports' },
       { label: 'Mid-Session', href: '/alerts' },
       { label: 'Weekly Recap', href: '/reports' },
     ],

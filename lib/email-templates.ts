@@ -1,7 +1,7 @@
 import type {
   AlertSeverity,
   MidSessionContent,
-  MorningContent,
+  DailyContent,
   RecapContent,
   ResearchContent,
   Signal,
@@ -189,7 +189,7 @@ function renderShell(options: {
 </html>`;
 }
 
-export function renderMorningEmail(content: MorningContent): string {
+export function renderDailyEmail(content: DailyContent): string {
   const rec = content.topRecommendation;
   const watchCards = content.stocksToWatch.map((stock) =>
     card(
@@ -224,8 +224,8 @@ export function renderMorningEmail(content: MorningContent): string {
     : '';
 
   return renderShell({
-    title: `Morning Brief - ${content.date}`,
-    eyebrow: 'Morning Brief',
+    title: `Daily Brief - ${content.date}`,
+    eyebrow: 'Daily Brief',
     preheader: content.marketOutlook,
     children:
       section('Market Outlook', paragraph(content.marketOutlook, colors.text)) +
