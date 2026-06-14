@@ -80,7 +80,7 @@ export async function runDaily(now: Date = new Date()): Promise<void> {
   await writeReport({ ...base, emailSent: false });
 
   // 2) email after the report is saved
-  await sendReportEmail(`Kosh Daily Brief — ${date}`, renderDailyEmail(content));
+  await sendReportEmail('Kosh Digest', renderDailyEmail(content));
 
   // 3) record that the email was sent
   await writeReport({ ...base, emailSent: true });

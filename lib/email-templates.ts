@@ -63,6 +63,35 @@ function formatPct(value: number): string {
   return `${sign}${value.toFixed(2)}%`;
 }
 
+export function formatDisplayDate(value: string): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(value);
+  if (!match) return value;
+
+  const [, year, monthValue, dayValue] = match;
+  const monthIndex = Number(monthValue) - 1;
+  const day = Number(dayValue);
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  if (!months[monthIndex] || day < 1 || day > 31) return value;
+
+  const teen = day % 100 >= 11 && day % 100 <= 13;
+  const suffix = teen ? 'th' : day % 10 === 1 ? 'st' : day % 10 === 2 ? 'nd' : day % 10 === 3 ? 'rd' : 'th';
+  return `${day}${suffix} ${months[monthIndex]}, ${year}`;
+}
+
 function badge(label: string, fg: string, bg: string, border: string): string {
   return `<span style="${font};display:inline-block;font-size:12px;font-weight:700;line-height:16px;color:${fg};background:${bg};border:1px solid ${border};border-radius:6px;padding:2px 8px;vertical-align:middle">${escapeHtml(label)}</span>`;
 }
@@ -224,8 +253,8 @@ export function renderDailyEmail(content: DailyContent): string {
     : '';
 
   return renderShell({
-    title: `Daily Brief - ${content.date}`,
-    eyebrow: 'Daily Brief',
+    title: 'Daily Brief',
+    eyebrow: formatDisplayDate(content.date),
     preheader: content.marketOutlook,
     children:
       section('Market Outlook', paragraph(content.marketOutlook, colors.text)) +
@@ -273,8 +302,8 @@ export function renderMidSessionEmail(content: MidSessionContent): string {
     .join('');
 
   return renderShell({
-    title: `Mid-Session - ${content.date}`,
-    eyebrow: 'Mid-Session',
+    title: 'Mid-Session',
+    eyebrow: formatDisplayDate(content.date),
     preheader: content.summary,
     children:
       section('Session Summary', paragraph(content.summary, colors.text)) +

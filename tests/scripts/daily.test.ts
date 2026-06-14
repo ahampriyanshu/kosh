@@ -59,6 +59,7 @@ describe('runDaily', () => {
     expect(first.emailSent).toBe(false);
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Digest', expect.any(String));
     expect(second.emailSent).toBe(true);
 
     expect(h.sendReportEmail.mock.invocationCallOrder[0]).toBeGreaterThan(
