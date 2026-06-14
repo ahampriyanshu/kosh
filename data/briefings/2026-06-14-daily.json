@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-06-14-daily",
+  "type": "daily",
+  "generatedAt": "2026-06-14T17:41:43.860Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1296.4,
+      "TCS.NS": 2161.1,
+      "INFY.NS": 1118.5,
+      "HDFCBANK.NS": 771.95,
+      "ICICIBANK.NS": 1340
+    },
+    "searchTimestamp": "2026-06-14T17:41:43.860Z"
+  },
+  "content": {
+    "date": "2026-06-14",
+    "marketOutlook": "The Indian market concluded the previous week on a positive note, snapping a two-week losing streak. Sentiment is cautiously optimistic, supported by improving technical structures and favorable global cues, particularly a significant de-escalation of US-Iran tensions.",
+    "stocksToWatch": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "reason": "Bearish technical trend and a 'Sell' rating, coupled with recent price declines, suggest continued pressure. However, lower crude oil prices could positively impact its O2C business.",
+        "signal": "bearish"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "reason": "Negative news regarding employee well-being and governance could further impact investor sentiment, reinforcing the existing bearish technical trend.",
+        "signal": "bearish"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "reason": "While AI collaborations are positive, the recent ex-dividend event and a generally bearish trend in the IT sector could keep the stock under pressure.",
+        "signal": "bearish"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "reason": "Strong institutional interest and a forthcoming dividend are supportive factors, but the stock's neutral technical trend suggests near-term consolidation.",
+        "signal": "neutral"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "reason": "With a bullish technical trend and continued institutional buying, ICICI Bank appears well-positioned for positive momentum, benefiting from broader banking sector strength.",
+        "signal": "bullish"
+      }
+    ],
+    "exitSignals": [],
+    "topRecommendation": {
+      "ticker": "ICICIBANK.NS",
+      "action": "buy",
+      "reasoning": "ICICI Bank exhibits a bullish technical trend and has seen increased exposure from flexicap funds, indicating strong institutional confidence. This positioning, combined with the overall strength in the banking sector, makes it a favorable pick for continued positive momentum.",
+      "confidence": 0.8
+    },
+    "sectorMovers": [
+      {
+        "sector": "Oil & Gas",
+        "note": "Sharp decline in crude oil prices is positive for oil marketing companies and raw material reliant sectors, but potentially negative for upstream exploration and production."
+      },
+      {
+        "sector": "Banking",
+        "note": "Demonstrated strong performance last week with Nifty Bank gaining 4.25%, supported by increased institutional exposure in major banking stocks like HDFC Bank and ICICI Bank."
+      },
+      {
+        "sector": "IT Services",
+        "note": "While AI collaborations are positive, the sector faces headwinds from broader IT sector pressure, OpenAI related news, and specific employee-related issues for some companies."
+      }
+    ],
+    "fiiDiiSentiment": "On June 12, FIIs remained net sellers in the cash segment (₹1,082.18 crore), while DIIs continued as strong net buyers (₹5,341.29 crore), maintaining a consistent trend of DII buying offsetting FII outflows month-to-date in June 2026."
+  },
+  "emailSent": false,
+  "checksum": "sha256:77e1a5ebe8dac1c819e4b442ed3175f752b3fbe5c7eb1be8599c10dcfa04e91e"
+}
