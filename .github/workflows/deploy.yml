@@ -29,22 +29,8 @@ jobs:
 
       - run: npm ci
 
-      # Project site (user.github.io/REPO) needs basePath '/REPO'; a user/org root
-      # site (REPO == user.github.io) needs an empty basePath.
-      - name: Compute base path
-        id: bp
-        run: |
-          REPO="${{ github.event.repository.name }}"
-          if [[ "$REPO" == *.github.io ]]; then
-            echo "path=" >> "$GITHUB_OUTPUT"
-          else
-            echo "path=/$REPO" >> "$GITHUB_OUTPUT"
-          fi
-
       - name: Build static export
         run: npx next build
-        env:
-          PAGES_BASE_PATH: ${{ steps.bp.outputs.path }}
 
       # Prevent GitHub Pages' Jekyll from stripping Next's _next/ directory.
       - run: touch out/.nojekyll
