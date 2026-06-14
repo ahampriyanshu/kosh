@@ -1,15 +1,15 @@
-name: Morning Brief
+name: Weekly Recap
 
 on:
   schedule:
-    - cron: '30 2 * * 1-5' # 08:00 IST, weekdays
+    - cron: '30 15 * * 0' # Sun 21:00 IST
   workflow_dispatch: {}
 
 permissions:
   contents: write
 
 jobs:
-  brief:
+  weekly:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx tsx scripts/morning.ts
+      - run: npx tsx scripts/weekly.ts
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           KOSH_GOOGLE_MODEL: ${{ vars.KOSH_GOOGLE_MODEL }}
@@ -30,10 +30,10 @@ jobs:
           KOSH_EMAIL_REPLY_TO: ${{ secrets.KOSH_EMAIL_REPLY_TO }}
           KOSH_EMAIL_TO: ${{ secrets.KOSH_EMAIL_TO }}
 
-      - name: Commit briefing
+      - name: Commit report
         run: |
           git config user.name "kosh-bot"
           git config user.email "kosh-bot@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "chore(data): morning brief $(date -u +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "chore(data): weekly recap $(date -u +%Y-%m-%d)"
           git push
