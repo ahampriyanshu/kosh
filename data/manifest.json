@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "weekly-2026-W25",
+      "type": "weekly",
+      "dateKey": "2026-W25",
+      "date": "2026-06-14",
+      "path": "reports/2026/06/weekly/weekly-2026-W25.json",
+      "checksum": "sha256:c073bbbdfb932e7eb6c5d5bb057c3001fcde80d44b1c8436f806ac098bce7381"
+    },
+    {
       "id": "weekly-2026-W24",
       "type": "weekly",
       "dateKey": "2026-W24",
@@ -17,6 +25,14 @@
       "checksum": "sha256:e43eb92f40d39572f987ef352ea22e7968a03fb4f1f7040e32ab75aff6a4f57f"
     },
     {
+      "id": "daily-2026-06-15",
+      "type": "daily",
+      "dateKey": "2026-06-15",
+      "date": "2026-06-14",
+      "path": "reports/2026/06/daily/daily-2026-06-15.json",
+      "checksum": "sha256:1adf3f3de3381330c7d786eb354a1fc902576570ba4825151ef33d7e29848868"
+    },
+    {
       "id": "daily-2026-06-14",
       "type": "daily",
       "dateKey": "2026-06-14",
@@ -26,8 +42,8 @@
     }
   ],
   "latest": {
-    "daily": "daily-2026-06-14",
+    "daily": "daily-2026-06-15",
     "midsession": "midsession-2026-06-14",
-    "weekly": "weekly-2026-W24"
+    "weekly": "weekly-2026-W25"
   }
 }
