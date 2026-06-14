@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-06-14-morning",
+  "type": "morning",
+  "generatedAt": "2026-06-14T09:47:59.054Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1293,
+      "TCS.NS": 2161.4,
+      "INFY.NS": 1116.4,
+      "HDFCBANK.NS": 772.45,
+      "ICICIBANK.NS": 1340.8
+    },
+    "searchTimestamp": "2026-06-14T09:47:59.054Z"
+  },
+  "content": {
+    "date": "2026-06-14",
+    "marketOutlook": "Indian markets are poised for a positive opening on Monday, June 16, 2026, primarily driven by strong global cues. Optimism surrounding a potential US-Iran ceasefire agreement has led to a significant drop in crude oil prices, which is a major positive for India, easing inflation and current account deficit concerns. However, persistent selling by Foreign Institutional Investors (FIIs) remains a key area of concern, though strong buying from Domestic Institutional Investors (DIIs) continues to provide a crucial support base.",
+    "stocksToWatch": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "reason": "Exhibits a bearish technical trend and has received a 'Sell' rating from MarketsMojo, despite potential benefits from falling crude prices.",
+        "signal": "bearish"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "reason": "Reflects a bearish technical trend, compounded by recent negative news regarding a workplace harassment case and broader industry challenges from AI disruption.",
+        "signal": "bearish"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "reason": "Maintaining a neutral technical trend, but poised for potential benefits from RBI's measures to attract foreign currency inflows. Flexicap funds also increased their exposure.",
+        "signal": "neutral"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "reason": "Displays a bullish technical trend, supported by a resilient banking sector experiencing strong credit growth and increased exposure from flexicap funds.",
+        "signal": "bullish"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "reason": "Shows a bearish technical trend amidst challenges from AI disruption and a notable trimming of holdings by flexicap funds, indicating cautious institutional sentiment.",
+        "signal": "bearish"
+      }
+    ],
+    "exitSignals": [],
+    "topRecommendation": {
+      "ticker": "ICICIBANK.NS",
+      "action": "buy",
+      "reasoning": "ICICI Bank exhibits a strong bullish technical trend and is backed by a resilient banking sector experiencing robust credit growth. Furthermore, flexicap funds increased their holdings in May 2026, indicating positive institutional confidence in its performance.",
+      "confidence": 0.85
+    },
+    "sectorMovers": [
+      {
+        "sector": "Oil & Gas",
+        "note": "The sharp decline in crude oil prices due to the potential US-Iran ceasefire is a significant positive, easing inflationary pressures and reducing input costs across industries."
+      },
+      {
+        "sector": "Banking & Financials",
+        "note": "Demonstrates resilience with strong credit growth (16.2% YoY), especially in retail and SME segments, despite challenges in deposit growth. Expected to be a key revenue tailwind."
+      },
+      {
+        "sector": "IT Services",
+        "note": "Facing disruption from AI, leading to potential revenue deflation in traditional services but also creating a substantial new AI-led market. Increased M&A activity reflects adaptation efforts."
+      }
+    ],
+    "fiiDiiSentiment": "On Friday, June 13, 2026, Foreign Institutional Investors (FIIs) were net sellers of ₹1,082.20 crore, extending their year-to-date selling streak. Domestic Institutional Investors (DIIs) provided strong counter-support as net buyers of ₹5,341.30 crore, absorbing the FII outflows."
+  },
+  "emailSent": true,
+  "checksum": "sha256:4ab0cd68ab0913c90c3054d61b351de66a7eb983f4d6a046363b2613e73ece8e"
+}
