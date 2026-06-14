@@ -176,3 +176,11 @@ export const PortfolioSchema = z.object({
   ),
 });
 export type Portfolio = z.infer<typeof PortfolioSchema>;
+
+export const UniverseEntrySchema = z.object({
+  ticker: z.string().regex(/\.(NS|BO)$/),
+  name: z.string(),
+  sector: z.string(),
+});
+export type UniverseEntry = z.infer<typeof UniverseEntrySchema>;
+export const UniverseSchema = z.array(UniverseEntrySchema);
