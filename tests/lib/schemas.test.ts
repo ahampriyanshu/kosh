@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   DailyContentSchema,
   ReportEnvelopeSchema,
+  ManifestEntrySchema,
   WatchlistSchema,
   ManifestSchema,
   MidSessionContentSchema,
@@ -49,6 +50,7 @@ describe('schemas', () => {
       schemaVersion: 1,
       id: '2026-06-14-daily',
       type: 'daily',
+      dateKey: '2026-06-14',
       generatedAt: '2026-06-14T02:30:00.000Z',
       sourceData: { tickers: ['TCS.NS'], priceSnapshot: { 'TCS.NS': 3900 }, searchTimestamp: '2026-06-14T02:29:00.000Z' },
       content: validDaily,
@@ -201,5 +203,23 @@ describe('ResearchRequestSchema', () => {
       ticker: 'TCS.NS',
       note: 'x',
     });
+  });
+});
+
+describe('envelope dateKey', () => {
+  it('requires a dateKey on the envelope', () => {
+    const base = {
+      schemaVersion: 1, id: 'daily-2026-06-14', type: 'daily',
+      generatedAt: '2026-06-14T02:30:00.000Z',
+      sourceData: { tickers: [], priceSnapshot: {}, searchTimestamp: '2026-06-14T02:29:00.000Z' },
+      content: {}, emailSent: false, checksum: 'sha256:' + '0'.repeat(64),
+    };
+    expect(ReportEnvelopeSchema.safeParse(base).success).toBe(false); // missing dateKey
+    expect(ReportEnvelopeSchema.safeParse({ ...base, dateKey: '2026-06-14' }).success).toBe(true);
+  });
+  it('requires a dateKey on manifest entries', () => {
+    const entry = { id: 'daily-2026-06-14', type: 'daily', date: '2026-06-14', path: 'reports/2026/06/daily/daily-2026-06-14.json', checksum: 'sha256:x' };
+    expect(ManifestEntrySchema.safeParse(entry).success).toBe(false); // missing dateKey
+    expect(ManifestEntrySchema.safeParse({ ...entry, dateKey: '2026-06-14' }).success).toBe(true);
   });
 });

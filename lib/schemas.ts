@@ -42,6 +42,7 @@ export const ReportEnvelopeSchema = z.object({
   schemaVersion: z.number().int().positive(),
   id: z.string().regex(/^[A-Za-z0-9_-]+$/),
   type: ReportTypeSchema,
+  dateKey: z.string().min(1),
   generatedAt: z.string().datetime(),
   sourceData: SourceDataSchema,
   content: z.unknown(), // type-specific; callers validate with the matching content schema
@@ -64,6 +65,7 @@ export type Watchlist = z.infer<typeof WatchlistSchema>;
 export const ManifestEntrySchema = z.object({
   id: z.string(),
   type: ReportTypeSchema,
+  dateKey: z.string().min(1),
   date: z.string(),
   path: z.string(),
   checksum: z.string(),
