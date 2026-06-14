@@ -6,6 +6,7 @@ import { sma } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
+import { renderMidSessionEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
 import {
   AlertSchema,
@@ -30,18 +31,6 @@ interface Flag {
 
 function avg(nums: number[]): number {
   return nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : 0;
-}
-
-function renderEmailHtml(content: MidSessionContent): string {
-  const alertRows = content.alerts.length
-    ? content.alerts.map((a) => `<li><b>${a.ticker}</b> [${a.severity}] — ${a.reason}</li>`).join('')
-    : '<li>No sell alerts.</li>';
-  return `
-    <h2>Kosh Mid-Session — ${content.date}</h2>
-    <p>${content.summary}</p>
-    <h3>Sell alerts</h3>
-    <ul>${alertRows}</ul>
-  `;
 }
 
 export async function runMidSession(now: Date = new Date()): Promise<void> {
@@ -121,7 +110,7 @@ export async function runMidSession(now: Date = new Date()): Promise<void> {
   await writeReport({ ...base, emailSent: false });
   await sendReportEmail(
     `Kosh Mid-Session — ${date}${alerts.length ? ` — ${alerts.length} sell alert${alerts.length > 1 ? 's' : ''}` : ''}`,
-    renderEmailHtml(content),
+    renderMidSessionEmail(content),
   );
   await writeReport({ ...base, emailSent: true });
   console.log(`Mid-session ${base.id} written and emailed (${alerts.length} alerts).`);

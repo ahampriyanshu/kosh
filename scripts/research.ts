@@ -3,22 +3,12 @@ import { researchRequests } from '../data/research-requests';
 import { buildResearch } from '../lib/research';
 import { readManifest, writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
+import { renderResearchEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
-import type { ReportEnvelope, ResearchContent } from '../lib/schemas';
+import type { ReportEnvelope } from '../lib/schemas';
 
 function slug(ticker: string): string {
   return ticker.replace(/[^A-Za-z0-9]/g, '-');
-}
-
-function renderEmailHtml(c: ResearchContent): string {
-  const r = c.recommendation;
-  return (
-    `<h2>Kosh Research — ${c.ticker} (${c.name})</h2>` +
-    `<p><b>Call:</b> ${r.action.toUpperCase()} — ${r.reasoning} (confidence ${Math.round(r.confidence * 100)}%)</p>` +
-    `<h3>Fundamental</h3><p>${c.fundamental}</p>` +
-    `<h3>Technical</h3><p>${c.technical}</p>` +
-    `<h3>Sentiment</h3><p>${c.sentiment}</p>`
-  );
 }
 
 export async function runResearch(now: Date = new Date()): Promise<void> {
@@ -50,7 +40,7 @@ export async function runResearch(now: Date = new Date()): Promise<void> {
         checksum: computeChecksum(content),
       };
       await writeReport({ ...base, emailSent: false });
-      await sendReportEmail(`Kosh Research — ${req.ticker}`, renderEmailHtml(content));
+      await sendReportEmail(`Kosh Research — ${req.ticker}`, renderResearchEmail(content));
       await writeReport({ ...base, emailSent: true });
       done++;
       console.log(`Researched ${req.ticker} → ${id}.`);

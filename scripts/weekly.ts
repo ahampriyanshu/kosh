@@ -2,20 +2,9 @@ import { pathToFileURL } from 'node:url';
 import { buildRecap } from '../lib/recap';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
+import { renderRecapEmail } from '../lib/email-templates';
 import { istWeekId, istDateString } from '../lib/time';
-import type { ReportEnvelope, RecapContent } from '../lib/schemas';
-
-function renderEmailHtml(content: RecapContent, title: string): string {
-  const retro = content.retrospective
-    ? `<h3>Retrospective (${content.retrospective.hits}/${content.retrospective.total} hit)</h3><p>${content.retrospective.summary}</p>`
-    : '';
-  const watch = content.outlook.stocksToWatch
-    .map((s) => `<li><b>${s.ticker}</b> (${s.signal}) — ${s.reason}</li>`)
-    .join('');
-  const rec = content.outlook.recommendation;
-  return `<h2>${title}</h2>${retro}<h3>Outlook</h3><p>${content.outlook.themes.join('; ')}</p><ul>${watch}</ul>` +
-    `<p><b>Call:</b> ${rec.action.toUpperCase()} ${rec.ticker} — ${rec.reasoning}</p>`;
-}
+import type { ReportEnvelope } from '../lib/schemas';
 
 export async function runWeekly(now: Date = new Date()): Promise<void> {
   const period = istWeekId(now);
@@ -43,7 +32,7 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
   };
 
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(`Kosh Weekly — ${period}`, renderEmailHtml(content, `Kosh Weekly Recap — ${period}`));
+  await sendReportEmail(`Kosh Weekly — ${period}`, renderRecapEmail(content, `Kosh Weekly Recap — ${period}`));
   await writeReport({ ...base, emailSent: true });
   console.log(`Weekly ${base.id} written and emailed.`);
 }

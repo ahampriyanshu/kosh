@@ -2,26 +2,15 @@ import { pathToFileURL } from 'node:url';
 import { buildRecap } from '../lib/recap';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
+import { renderRecapEmail } from '../lib/email-templates';
 import { isFirstOfMonthIST, istParts } from '../lib/time';
-import type { ReportEnvelope, RecapContent } from '../lib/schemas';
+import type { ReportEnvelope } from '../lib/schemas';
 
 function prevMonthId(now: Date): string {
   const { year, month } = istParts(now);
   const py = month === 1 ? year - 1 : year;
   const pm = month === 1 ? 12 : month - 1;
   return `${py}-${String(pm).padStart(2, '0')}`;
-}
-
-function renderEmailHtml(content: RecapContent, title: string): string {
-  const retro = content.retrospective
-    ? `<h3>Retrospective (${content.retrospective.hits}/${content.retrospective.total} hit)</h3><p>${content.retrospective.summary}</p>`
-    : '';
-  const watch = content.outlook.stocksToWatch
-    .map((s) => `<li><b>${s.ticker}</b> (${s.signal}) — ${s.reason}</li>`)
-    .join('');
-  const rec = content.outlook.recommendation;
-  return `<h2>${title}</h2>${retro}<h3>Outlook</h3><p>${content.outlook.themes.join('; ')}</p><ul>${watch}</ul>` +
-    `<p><b>Call:</b> ${rec.action.toUpperCase()} ${rec.ticker} — ${rec.reasoning}</p>`;
 }
 
 export async function runMonthly(now: Date = new Date()): Promise<void> {
@@ -54,7 +43,7 @@ export async function runMonthly(now: Date = new Date()): Promise<void> {
   };
 
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(`Kosh Monthly — ${period}`, renderEmailHtml(content, `Kosh Monthly Recap — ${period}`));
+  await sendReportEmail(`Kosh Monthly — ${period}`, renderRecapEmail(content, `Kosh Monthly Recap — ${period}`));
   await writeReport({ ...base, emailSent: true });
   console.log(`Monthly ${base.id} written and emailed.`);
 }

@@ -5,8 +5,9 @@ import { rsi, trend } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
+import { renderMorningEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
-import { MorningContentSchema, type MorningContent, type ReportEnvelope } from '../lib/schemas';
+import { MorningContentSchema, type ReportEnvelope } from '../lib/schemas';
 
 interface TechSummary {
   ticker: string;
@@ -14,22 +15,6 @@ interface TechSummary {
   price: number;
   rsi: number | null;
   trend: string;
-}
-
-function renderEmailHtml(content: MorningContent): string {
-  const rows = content.stocksToWatch
-    .map((s) => `<li><b>${s.ticker}</b> (${s.signal}) — ${s.reason}</li>`)
-    .join('');
-  return `
-    <h2>Kosh Morning Brief — ${content.date}</h2>
-    <p><b>Outlook:</b> ${content.marketOutlook}</p>
-    <p><b>Top pick:</b> ${content.topRecommendation.ticker} —
-       ${content.topRecommendation.reasoning}
-       (confidence ${Math.round(content.topRecommendation.confidence * 100)}%)</p>
-    <h3>Watch today</h3>
-    <ul>${rows}</ul>
-    <p><b>FII/DII:</b> ${content.fiiDiiSentiment}</p>
-  `;
 }
 
 export async function runMorning(now: Date = new Date()): Promise<void> {
@@ -94,7 +79,7 @@ export async function runMorning(now: Date = new Date()): Promise<void> {
   await writeReport({ ...base, emailSent: false });
 
   // 2) email after the report is saved
-  await sendReportEmail(`Kosh Morning Brief — ${date}`, renderEmailHtml(content));
+  await sendReportEmail(`Kosh Morning Brief — ${date}`, renderMorningEmail(content));
 
   // 3) record that the email was sent
   await writeReport({ ...base, emailSent: true });
