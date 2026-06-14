@@ -19,7 +19,8 @@ export async function runResearch(now: Date = new Date()): Promise<void> {
   let done = 0;
   let failed = 0;
   for (const req of researchRequests) {
-    const id = `${date}-research-${slug(req.ticker)}`;
+    const dateKey = `${slug(req.ticker)}-${date}`;
+    const id = `research-${dateKey}`;
     if (existing.has(id)) {
       console.log(`Skipping ${req.ticker} — already researched today (${id}).`);
       continue;
@@ -29,6 +30,7 @@ export async function runResearch(now: Date = new Date()): Promise<void> {
       const base: Omit<ReportEnvelope, 'emailSent'> = {
         schemaVersion: 1,
         id,
+        dateKey,
         type: 'research',
         generatedAt: now.toISOString(),
         sourceData: {

@@ -69,7 +69,8 @@ describe('runMidSession', () => {
 
     expect(first.content.alerts).toEqual([]);
     expect(first.emailSent).toBe(false);
-    expect(first.id).toMatch(/-midsession$/);
+    expect(first.id).toMatch(/^midsession-/);
+    expect(first.dateKey).toBeTruthy();
     expect(first.type).toBe('midsession');
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);

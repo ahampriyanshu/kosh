@@ -53,7 +53,8 @@ describe('runDaily', () => {
     const first = h.writeReport.mock.calls[0][0];
     const second = h.writeReport.mock.calls[1][0];
 
-    expect(first.id).toBe('2026-06-14-daily');
+    expect(first.id).toBe('daily-2026-06-14');
+    expect(first.dateKey).toBe('2026-06-14');
     expect(first.type).toBe('daily');
     expect(first.emailSent).toBe(false);
 

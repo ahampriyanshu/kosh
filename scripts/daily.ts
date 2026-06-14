@@ -63,7 +63,8 @@ export async function runDaily(now: Date = new Date()): Promise<void> {
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `${date}-daily`,
+    id: `daily-${date}`,
+    dateKey: date,
     type: 'daily',
     generatedAt: now.toISOString(),
     sourceData: {

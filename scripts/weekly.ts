@@ -19,7 +19,8 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `${period}-weekly`,
+    id: `weekly-${period}`,
+    dateKey: period,
     type: 'weekly',
     generatedAt: now.toISOString(),
     sourceData: {
