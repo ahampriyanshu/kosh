@@ -1,0 +1,42 @@
+name: Research
+
+on:
+  push:
+    paths:
+      - 'data/research-requests.ts'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx tsx scripts/research.ts
+        env:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+          KOSH_GOOGLE_MODEL: ${{ vars.KOSH_GOOGLE_MODEL }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          KOSH_EMAIL_FROM: ${{ secrets.KOSH_EMAIL_FROM }}
+          KOSH_EMAIL_REPLY_TO: ${{ secrets.KOSH_EMAIL_REPLY_TO }}
+          KOSH_EMAIL_TO: ${{ secrets.KOSH_EMAIL_TO }}
+
+      # Commits only data/briefings + data/manifest.json (not research-requests.ts),
+      # so this push does not retrigger this workflow (path filter excludes them).
+      - name: Commit reports
+        run: |
+          git config user.name "kosh-bot"
+          git config user.email "kosh-bot@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "chore(data): research $(date -u +%Y-%m-%d)"
+          git push
