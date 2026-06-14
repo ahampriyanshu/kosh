@@ -4,5 +4,6 @@ const config: NextConfig = {
   basePath: process.env.PAGES_BASE_PATH || '',
   trailingSlash: true,
   images: { unoptimized: true },
+  devIndicators: false,
 };
 export default config;

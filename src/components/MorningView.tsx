@@ -111,8 +111,8 @@ export function MorningView({ content, generatedAt }: MorningViewProps) {
           </h2>
           <div className="space-y-2">
             {content.sectorMovers.map((s) => (
-              <div key={s.sector} className="flex gap-3 py-2">
-                <span className="font-sans text-xs font-semibold uppercase tracking-wide text-[var(--color-brand)] w-36 shrink-0 pt-0.5">
+              <div key={s.sector} className="flex flex-col gap-1 py-2 sm:flex-row sm:gap-3">
+                <span className="font-sans text-xs font-semibold uppercase tracking-wide text-[var(--color-brand)] shrink-0 pt-0.5 sm:w-36">
                   {s.sector}
                 </span>
                 <p className="text-sm text-[var(--color-muted)] leading-relaxed">{s.note}</p>
@@ -130,8 +130,8 @@ export function MorningView({ content, generatedAt }: MorningViewProps) {
           </h2>
           <div className="space-y-2">
             {content.exitSignals.map((es) => (
-              <div key={es.ticker} className="flex gap-3 py-2">
-                <span className="font-mono text-sm font-semibold text-[var(--color-bearish)] w-32 shrink-0">
+              <div key={es.ticker} className="flex flex-col gap-1 py-2 sm:flex-row sm:gap-3">
+                <span className="font-mono text-sm font-semibold text-[var(--color-bearish)] shrink-0 sm:w-32">
                   {es.ticker.replace('.NS', '')}
                 </span>
                 <p className="text-sm text-[var(--color-muted)]">{es.reason}</p>
