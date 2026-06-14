@@ -4,6 +4,9 @@ import {
   ReportEnvelopeSchema,
   WatchlistSchema,
   ManifestSchema,
+  MidSessionContentSchema,
+  RecapContentSchema,
+  OutlookSchema,
 } from '../../lib/schemas';
 
 describe('schemas', () => {
@@ -55,5 +58,86 @@ describe('schemas', () => {
   it('accepts a watchlist and an empty manifest', () => {
     expect(WatchlistSchema.parse({ stocks: [{ ticker: 'TCS.NS', name: 'TCS' }] }).stocks).toHaveLength(1);
     expect(ManifestSchema.parse({ reports: [], latest: {} }).reports).toEqual([]);
+  });
+});
+
+describe('MidSessionContentSchema', () => {
+  const validMidSession = {
+    date: '2026-06-14',
+    evaluated: [
+      { ticker: 'TCS.NS', name: 'TCS', price: 3900, changePct: 1.2, note: 'holding steady' },
+    ],
+    alerts: [
+      { ticker: 'INFY.NS', name: 'Infosys', reason: 'dropped 3%+', severity: 'high', triggeredRules: ['drawdown>3%'] },
+    ],
+    summary: 'Market choppy but IT holding.',
+  };
+
+  it('accepts a valid MidSessionContent with a high-severity alert', () => {
+    expect(MidSessionContentSchema.parse(validMidSession)).toBeTruthy();
+  });
+
+  it('rejects an alert with an invalid severity', () => {
+    const bad = {
+      ...validMidSession,
+      alerts: [{ ...validMidSession.alerts[0], severity: 'critical' }],
+    };
+    expect(() => MidSessionContentSchema.parse(bad)).toThrow();
+  });
+});
+
+describe('RecapContentSchema', () => {
+  const validOutlook = {
+    themes: ['rate cuts likely', 'IT recovery'],
+    stocksToWatch: [
+      { ticker: 'TCS.NS', name: 'TCS', reason: 'breakout setup', signal: 'bullish' },
+    ],
+    recommendation: {
+      ticker: 'RELIANCE.NS',
+      action: 'buy',
+      reasoning: 'oversold bounce expected',
+      confidence: 0.8,
+    },
+  };
+
+  it('accepts a valid RecapContent with retrospective: null (first-run case)', () => {
+    const recap = {
+      period: '2026-W24',
+      retrospective: null,
+      outlook: validOutlook,
+    };
+    expect(RecapContentSchema.parse(recap)).toBeTruthy();
+  });
+
+  it('accepts a valid RecapContent with a populated retrospective', () => {
+    const recap = {
+      period: '2026-W24',
+      retrospective: {
+        calls: [
+          { ticker: 'TCS.NS', predicted: 'bullish', actual: 'bullish', hit: true, why: 'breakout played out' },
+        ],
+        hits: 1,
+        total: 1,
+        summary: 'Good week.',
+      },
+      outlook: validOutlook,
+    };
+    expect(RecapContentSchema.parse(recap)).toBeTruthy();
+  });
+});
+
+describe('OutlookSchema', () => {
+  it('rejects recommendation with confidence > 1', () => {
+    const bad = {
+      themes: ['theme'],
+      stocksToWatch: [],
+      recommendation: {
+        ticker: 'X.NS',
+        action: 'hold',
+        reasoning: 'uncertain',
+        confidence: 1.5,
+      },
+    };
+    expect(() => OutlookSchema.parse(bad)).toThrow();
   });
 });

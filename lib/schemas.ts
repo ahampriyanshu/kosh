@@ -76,3 +76,66 @@ export const ManifestSchema = z.object({
   latest: z.record(z.string(), z.string()).default({}),
 });
 export type Manifest = z.infer<typeof ManifestSchema>;
+
+export const AlertSeveritySchema = z.enum(['high', 'medium', 'low']);
+export type AlertSeverity = z.infer<typeof AlertSeveritySchema>;
+
+export const AlertSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  reason: z.string(),
+  severity: AlertSeveritySchema,
+  triggeredRules: z.array(z.string()),
+});
+export type Alert = z.infer<typeof AlertSchema>;
+
+export const MidSessionContentSchema = z.object({
+  date: z.string(),
+  evaluated: z.array(
+    z.object({
+      ticker: z.string(),
+      name: z.string(),
+      price: z.number(),
+      changePct: z.number(),
+      note: z.string(),
+    }),
+  ),
+  alerts: z.array(AlertSchema),
+  summary: z.string(),
+});
+export type MidSessionContent = z.infer<typeof MidSessionContentSchema>;
+
+export const RecapCallSchema = z.object({
+  ticker: z.string(),
+  predicted: z.string(),
+  actual: z.string(),
+  hit: z.boolean(),
+  why: z.string(),
+});
+
+export const RetrospectiveSchema = z.object({
+  calls: z.array(RecapCallSchema),
+  hits: z.number().int().nonnegative(),
+  total: z.number().int().nonnegative(),
+  summary: z.string(),
+});
+
+export const OutlookSchema = z.object({
+  themes: z.array(z.string()),
+  stocksToWatch: z.array(
+    z.object({ ticker: z.string(), name: z.string(), reason: z.string(), signal: SignalSchema }),
+  ),
+  recommendation: z.object({
+    ticker: z.string(),
+    action: z.enum(['buy', 'sell', 'hold']),
+    reasoning: z.string(),
+    confidence: z.number().min(0).max(1),
+  }),
+});
+
+export const RecapContentSchema = z.object({
+  period: z.string(),
+  retrospective: RetrospectiveSchema.nullable(),
+  outlook: OutlookSchema,
+});
+export type RecapContent = z.infer<typeof RecapContentSchema>;
