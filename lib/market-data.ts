@@ -1,15 +1,6 @@
 import YahooFinance from 'yahoo-finance2';
 
-// The installed yahoo-finance2 build only exposes `quote` and `autoc` as typed
-// methods. `chart` and `search` exist in the full upstream package but are
-// absent from this build's type declarations. We cast the instance through
-// `unknown` / `any` when calling those methods so TypeScript remains clean
-// while the runtime behaviour is preserved (and fully mocked in tests).
 const yf = new YahooFinance();
-
-// Shorthand: cast to any for methods absent from this build's type declarations.
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const yfAny = yf as any;
 
 export interface Quote {
   price: number;
@@ -49,9 +40,9 @@ export async function getHistorical(
   period1: string,
   interval: '1d' | '1wk' | '1mo' = '1d',
 ): Promise<Candle[]> {
-  // Cast through a local shape: chart()'s return type is a union over its options
-  // overloads and may not narrow on `return: 'array'`. This isolates that here.
-  const result = (await yfAny.chart(ticker, { period1, interval, return: 'array' })) as unknown as {
+  // chart()'s return type is a union over its options overloads and may not
+  // narrow on `return: 'array'`; isolate that with a local-shape cast.
+  const result = (await yf.chart(ticker, { period1, interval, return: 'array' })) as unknown as {
     quotes: RawCandle[];
   };
   return result.quotes
@@ -67,7 +58,7 @@ export async function getHistorical(
 }
 
 export async function searchTicker(query: string): Promise<string[]> {
-  const res = (await yfAny.search(query)) as unknown as { quotes?: Array<{ symbol?: string }> };
+  const res = (await yf.search(query)) as unknown as { quotes?: Array<{ symbol?: string }> };
   return (res.quotes ?? [])
     .map((q) => q.symbol)
     .filter((s): s is string => Boolean(s));
