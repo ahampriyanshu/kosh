@@ -472,6 +472,38 @@ select {
   gap: var(--spacing-3);
 }
 
+.subscribe-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.subscribe-link:hover {
+  color: var(--color-link);
+}
+
+.scroll-to-top {
+  background: none;
+  border: none;
+  color: var(--color-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: var(--spacing-2);
+  transition: color 0.2s ease;
+}
+
+.scroll-to-top:hover {
+  color: var(--color-link);
+}
+
 .theme-toggle {
   background: none;
   border: none;

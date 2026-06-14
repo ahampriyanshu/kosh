@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FooterActions } from './FooterActions';
 
 const financialArticles = [
   {
@@ -12,14 +13,6 @@ const financialArticles = [
   {
     label: 'Technical Analysis for Dummies',
     href: 'https://ahampriyanshu.com/blog/expermenting-with-personal-finance/equity-markets-for-dummies-techincal-analysis',
-  },
-  {
-    label: 'Term Insurance for Dummies',
-    href: 'https://ahampriyanshu.com/blog/expermenting-with-personal-finance/term-insurance-for-dummies',
-  },
-  {
-    label: 'Health Insurance for Dummies',
-    href: 'https://ahampriyanshu.com/blog/expermenting-with-personal-finance/health-insurance-for-dummies',
   },
 ];
 
@@ -57,7 +50,7 @@ export function Footer() {
         <div className="footer-main">
           <div className="footer-left">
             <div className="footer-section footer-articles">
-              <h4 className="footer-section-title">Financial Articles</h4>
+              <h4 className="footer-section-title">Learn</h4>
               <ul className="footer-links">
                 {financialArticles.map((article) => (
                   <li key={article.href}>
@@ -102,9 +95,7 @@ export function Footer() {
             <strong>ahampriyanshu</strong>
           </a>
         </p>
-        <div className="footer-actions">
-          <p className="font-mono">&copy; {new Date().getFullYear()} Kosh</p>
-        </div>
+        <FooterActions />
       </div>
     </footer>
   );
