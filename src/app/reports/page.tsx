@@ -2,13 +2,14 @@ import { getManifest, getAllReports } from '../../lib/reports';
 import type { ReportType, MidSessionContent, RecapContent, ManifestEntry } from '../../../lib/schemas';
 import { ReportCard } from '../../components/ReportCard';
 
-const TYPE_ORDER: ReportType[] = ['daily', 'midsession', 'weekly', 'monthly', 'research'];
+const TYPE_ORDER: ReportType[] = ['daily', 'midsession', 'weekly', 'monthly', 'research', 'retro'];
 const TYPE_HEADINGS: Record<ReportType, string> = {
   daily: 'Daily Briefs',
   midsession: 'Mid-Session',
   weekly: 'Weekly Recaps',
   monthly: 'Monthly Recaps',
   research: 'Research',
+  retro: 'Retrospectives',
 };
 
 export default async function ReportsPage() {
