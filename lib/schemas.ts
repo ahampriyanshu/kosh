@@ -163,3 +163,16 @@ export const ResearchContentSchema = z.object({
   }),
 });
 export type ResearchContent = z.infer<typeof ResearchContentSchema>;
+
+export const PortfolioSchema = z.object({
+  asOf: z.string(),
+  holdings: z.array(
+    z.object({
+      ticker: z.string(),
+      name: z.string(),
+      qty: z.number().nonnegative(),
+      avgCost: z.number().nonnegative(),
+    }),
+  ),
+});
+export type Portfolio = z.infer<typeof PortfolioSchema>;
