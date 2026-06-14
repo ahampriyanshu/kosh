@@ -6,7 +6,7 @@
 
 Kosh is a personal stock-intelligence tool for an Indian software developer investing in NSE/BSE stocks. It generates curated, AI-written market briefings on a schedule, emails them, and serves them from a static dashboard. The product spine is the **morning briefing**: open the app to see "what's interesting today."
 
-The app is a single Next.js project on Vercel. The scheduled briefings need no always-on backend: GitHub Actions runs the compute on a cron schedule, writes results as validated JSON files committed to the repo, and emails them. Pushing those commits triggers Vercel to rebuild, regenerating the static briefing pages from the JSON. The one dynamic feature — on-demand single-stock research — is a Next.js serverless API route in the same app, holding the Gemini key and running live analysis. Cost is $0 (Vercel Hobby + GitHub Actions free tier).
+There is no always-on server and no Vercel. **GitHub is the single source of truth.** GitHub Actions runs all compute — scheduled (cron) and event-triggered (push) — writing results as validated JSON committed to the repo and emailing them. A Next.js **static export** is published to **GitHub Pages**; it reads the committed JSON at build time and renders it. Even single-stock research is **pseudo-dynamic**: you add a ticker to a requests file and commit; that push triggers an Action that deep-evaluates the stock, writes a report, emails it, and the static UI shows it on the next build. Cost is $0 (GitHub Actions + GitHub Pages free tiers).
 
 ## Goals
 
@@ -15,7 +15,7 @@ The app is a single Next.js project on Vercel. The scheduled briefings need no a
 - Weekly and monthly recaps that **verify their own past predictions** before looking forward.
 - All reports persisted with database-level integrity discipline (consistency over availability).
 - A dashboard to read the latest briefing and browse every past report.
-- An on-demand research route: enter any ticker, get live fundamental + technical + sentiment analysis.
+- Pseudo-dynamic single-stock research: request a ticker via a committed file → an Action produces a fundamental + technical + sentiment report you can read in the UI.
 - Email delivery of every report to a hardcoded recipient list.
 - A minimal, professional UI that loads without layout shift and looks genuinely polished.
 
@@ -36,21 +36,22 @@ Single user (the developer). No authentication, no multi-tenancy. All schedule t
 ## Architecture
 
 ```
-Scheduled briefings:
+Scheduled briefings (cron):
 GitHub Actions (cron)  →  TS compute script  →  validated JSON in data/  →  git commit + email
                                                                                     │
-                                                       push to main → Vercel auto-deploy (Git integration)
+Pseudo-dynamic research (push):                                                     │
+edit data/research-requests.ts + commit  →  research.yml  →  report JSON + email ───┤
                                                                                     │
-                                          Next.js builds: briefing pages pre-rendered (SSG) from data/
+                                              push to main  →  deploy.yml (GitHub Actions)
                                                                                     │
-On-demand research:        browser  →  /api/research (Next.js serverless route, holds key)  →  Yahoo + Gemini
+                                  Next.js static export (output: 'export') reads data/  →  GitHub Pages
 ```
 
-- **Compute layer:** TypeScript scripts run by GitHub Actions. Each fetches market data, calls Gemini, validates output, writes JSON atomically, commits, and emails.
-- **Data layer:** JSON files in the repo's `data/` directory. The repo *is* the document database; git history *is* the audit log.
-- **Serving layer:** A single Next.js 15 app on Vercel. Briefing pages are statically generated (SSG) from `data/` at build time, so they paint instantly. Vercel's Git integration auto-deploys on every push to `main` — including the commits the cron jobs make — so no separate deploy workflow is needed.
-- **Dynamic layer:** The single-stock research endpoint is a Next.js Route Handler (`/api/research`) running on Vercel's **Node** serverless runtime (not Edge). It holds the Gemini key as a Vercel env var, reuses the shared `lib/` modules, and is same-origin with the frontend (no CORS). It stores nothing.
-- **Intelligence:** Gemini 3.1 Pro (`gemini-3.1-pro-preview`) via the Vercel AI SDK (`@ai-sdk/google`), with Google Search grounding for real-time news, sentiment, analyst ratings, and fundamentals — no separate news or fundamentals API.
+- **Compute layer:** TypeScript scripts run by GitHub Actions — both cron-scheduled (briefings) and push-triggered (research). Each fetches market data, calls Gemini, validates output, writes JSON atomically, commits, and emails.
+- **Data layer:** JSON files in the repo's `data/` directory. The repo *is* the document database; git history *is* the audit log. Research **requests** are a typed TS file (`data/research-requests.ts`); research **reports** are JSON like every other report.
+- **Serving layer:** A Next.js 15 **static export** (`output: 'export'`, no server). It reads `data/` at build time and renders fully static HTML. `deploy.yml` (a GitHub Actions workflow) builds it and publishes to **GitHub Pages** on every push to `main` — including the commits the jobs make.
+- **Research as a job, not a server:** There is no serverless route. A push that changes `data/research-requests.ts` triggers `research.yml`, which runs `scripts/research.ts` to deep-evaluate each requested ticker that lacks a current report, writes the report, emails it, and commits. The static UI displays committed research reports — no live API, no exposed key.
+- **Intelligence:** Gemini 3.1 Pro (`gemini-3.1-pro-preview`) via the Vercel AI SDK (`@ai-sdk/google`), with Google Search grounding for real-time news, sentiment, analyst ratings, and fundamentals — no separate news or fundamentals API. (The AI SDK is just an npm library here; nothing about it requires Vercel hosting.)
 
 ### Dependencies
 
@@ -61,10 +62,10 @@ On-demand research:        browser  →  /api/research (Next.js serverless route
 | `@ai-sdk/google` + `ai` | Gemini 3.1 Pro, structured output, search grounding | Gemini |
 | `zod` | Schema validation (write + read) | No |
 | `resend` | Email delivery | Resend |
-| `next`, `react`, `tailwindcss`, `shadcn/ui` | Dashboard + research API route | No |
+| `next`, `react`, `tailwindcss`, `shadcn/ui` | Static dashboard (`output: 'export'`) | No |
 | `papaparse` | CSV parsing (**Phase 2 only**) | No |
 
-Total external API keys: **2** — `GOOGLE_GENERATIVE_AI_API_KEY` (the exact name the `@ai-sdk/google` provider reads automatically), `RESEND_API_KEY`. Both are GitHub repository secrets (used by the Actions). `GOOGLE_GENERATIVE_AI_API_KEY` is also a Vercel environment variable (used by the `/api/research` route).
+Total external API keys: **2** — `GOOGLE_GENERATIVE_AI_API_KEY` (the exact name the `@ai-sdk/google` provider reads automatically), `RESEND_API_KEY`. Both are **GitHub repository secrets** used only by the Actions (compute side). The static site holds no secrets — it ships only committed JSON.
 
 ## Schedules
 
@@ -77,7 +78,9 @@ All times IST. GitHub cron is UTC, so each workflow's cron expression is offset 
 | Weekly | Sun 21:00 | `30 15 * * 0` | Retrospective on last week's calls + next-week outlook. |
 | Monthly | ~1st, 00:00 | `30 18 28-31 * *` | Retrospective on last month's calls + next-month outlook. |
 
-Deployment is not a scheduled job: Vercel's Git integration auto-deploys whenever a cron job's commit lands on `main`. No `deploy.yml` is needed.
+Two non-cron workflows complete the set:
+- **`research.yml`** — triggered `on: push` to `data/research-requests.ts` (plus `workflow_dispatch`). Runs `scripts/research.ts`.
+- **`deploy.yml`** — triggered `on: push` to `main`. Builds the Next.js static export and publishes to GitHub Pages. Every job's commit lands on `main`, so new reports go live automatically.
 
 **Monthly cron caveat:** GitHub cron cannot express "last day of month." `monthly.yml` runs at `30 18` UTC on days 28–31. Because that UTC instant is already `00:00` IST of the *next* day, the script converts "now" to IST and proceeds only when the **IST date is the 1st** (otherwise exits early). This fires exactly once per month — on the IST 1st — and handles 28/29/30/31-day months and leap years correctly.
 
@@ -104,31 +107,42 @@ Before generating a new outlook, the recap looks back:
 
 The report is stored with both sections: `retrospective` and `outlook`. The first run of each type has no prior report and produces `outlook` only.
 
-## Single-Stock Research
+## Single-Stock Research (pseudo-dynamic)
 
-A dynamic route where the user enters any NSE/BSE ticker and gets a live, on-demand analysis — independent of the watchlist and the schedules.
+Deep, on-demand analysis of any NSE/BSE ticker — independent of the watchlist and the schedules — but produced by an Action, not a live server. The interaction model is "request via commit, read via static page."
 
-**Flow:** The `/research` page has a ticker input. On submit, it calls the same-origin Next.js route `POST /api/research { ticker }`. The route handler:
+**Request file:** `data/research-requests.ts` — a typed TS module exporting an array of requests:
 
-1. Resolves and validates the ticker (suggests the correct `.NS`/`.BO` suffix if ambiguous).
-2. Fetches quote + historical OHLCV via `lib/market-data.ts`.
-3. Computes indicators (RSI, MACD, Bollinger, SMA/EMA) via `lib/indicators.ts`.
-4. Calls Gemini (`lib/llm.ts`, search grounding) to produce three sections — **fundamental**, **technical**, **sentiment** — plus a synthesized view, validated against a Zod schema.
-5. Returns the structured result. The page renders it.
+```ts
+import type { ResearchRequest } from '../lib/schemas-types'; // or inline the type
+export const researchRequests: ResearchRequest[] = [
+  { ticker: 'TATAMOTORS.NS' },
+  { ticker: 'IRCTC.NS', note: 'checking the post-results dip' },
+];
+```
+
+You edit this file and commit (locally, or straight from the GitHub web UI). It is TS (not JSON) so it is typed and ergonomic to edit; `scripts/research.ts` imports it directly via `tsx`.
+
+**Flow (`research.yml`, triggered on push to the requests file):**
+
+1. Import `researchRequests`; read the manifest.
+2. For each requested ticker that lacks a **current** research report (idempotent by `ticker + IST date`), evaluate it; skip those already done today.
+3. Per ticker: resolve/validate the ticker → `getQuote` + `getHistorical` (`lib/market-data.ts`) → indicators (`lib/indicators.ts`) → Gemini grounded analysis (`lib/llm.ts`) producing **fundamental**, **technical**, **sentiment**, and a synthesized **recommendation**, validated against `ResearchContentSchema`.
+4. Write the report via `storage.ts` (envelope `type: 'research'`, id `${date}-research-${slug(ticker)}`), update the manifest, commit, and email it.
 
 **Properties:**
-- The route is **stateless** — it stores nothing and writes no files. Research results are not persisted in Phase 1 (no archive entry); the page renders the live response.
-- It reuses the exact same `lib/` modules as the cron scripts — no duplicated data or analysis logic. The handler is a thin wrapper around them.
-- Same-origin with the frontend, so no CORS. A basic rate limit (and validated input) guards the Gemini key from abuse.
-- It must declare the **Node** runtime (`export const runtime = 'nodejs'`), not Edge, because `yahoo-finance2` needs Node APIs. This is the one runtime gotcha; Vercel's default Node serverless runtime satisfies it.
-- The frontend handles three states explicitly — idle, loading (skeleton, reserved layout), result/error — with no layout shift between them.
+- Reuses the exact same `lib/` modules as the cron scripts — `lib/research.ts` composes them; `scripts/research.ts` is the thin job runner. No duplicated analysis logic.
+- The Gemini key lives only in the Action (GitHub secret) — never shipped to the browser.
+- Research reports are first-class reports: stored, manifested, archived, and viewable like any briefing.
+- Idempotent: re-committing the requests file only evaluates tickers missing a report for today; finished ones are skipped (so you can append without recomputing the list).
+- The static **Research** page lists completed research reports (newest first) and links to each report's detail view; it also shows the one-line "how to request" instruction.
 
 ## UI / UX Principles
 
 The dashboard must look genuinely professional, not like a data dump. Non-negotiables:
 
 - **Minimal and focused.** Restrained palette, generous whitespace, clear typographic hierarchy, no decoration that doesn't carry information. Every screen has one obvious primary thing to read.
-- **No layout shift.** Reserve space for all async content. Skeleton loaders match the final content's dimensions. Images/sparklines have fixed boxes. Target CLS ≈ 0. Static briefing pages are pre-rendered so they paint instantly; only `/research` has a loading state, and that state holds its layout.
+- **No layout shift.** Every page is statically pre-rendered from committed JSON, so content paints instantly with no client-side fetching. Images/sparklines have fixed boxes. Target CLS ≈ 0.
 - **Consistent system.** One component library (shadcn/ui + Tailwind), one spacing scale, one type scale, one set of status colors (bullish/bearish/neutral, severity levels) reused everywhere. A report card looks the same on Today, Archive, and Detail.
 - **Readable density.** Financial data is dense; lean on tables, small-caps labels, and tabular numerals so figures align. Color encodes direction but is never the only signal (icons/sign too, for accessibility).
 - **Responsive.** Works on a phone (morning read over coffee) and desktop equally.
@@ -170,44 +184,49 @@ A single committed index of all reports: `{ id, type, date, path, checksum }` pe
 
 ```
 .github/workflows/
-  morning.yml          # 8 AM IST weekdays
-  midsession.yml       # 2 PM IST weekdays
-  weekly.yml           # Sun 9 PM IST
-  monthly.yml          # ~1st 12 AM IST (28–31 guard)
-                       # (no deploy.yml — Vercel auto-deploys on push)
+  morning.yml          # 8 AM IST weekdays (cron)
+  midsession.yml       # 2 PM IST weekdays (cron)
+  weekly.yml           # Sun 9 PM IST (cron)
+  monthly.yml          # ~1st 12 AM IST (cron, 28–31 guard)
+  research.yml         # on push to data/research-requests.ts (+ dispatch)
+  deploy.yml           # on push to main → build static export → GitHub Pages
 
 data/                  # the document database (committed by Actions)
   watchlist.json       # edited manually; the tracked universe
+  research-requests.ts # typed TS list of tickers to research (edit + commit to trigger)
   manifest.json        # index of all reports
   briefings/
     2026-06-14-morning.json
     2026-06-14-midsession.json
     2026-W24-weekly.json
     2026-06-monthly.json
+  research/
+    2026-06-14-research-TATAMOTORS-NS.json
   alerts/
     2026-06-14.json
 
-scripts/               # cron compute (thin orchestrators)
+scripts/               # job runners (thin orchestrators)
   morning.ts
   midsession.ts
   weekly.ts
   monthly.ts
+  research.ts          # push-triggered; evaluates requested tickers
 
-lib/                   # shared by scripts AND the Next.js app (incl. the API route)
-  schemas.ts           # Zod: envelope + all content shapes + research shape (single source of truth)
+lib/                   # shared by scripts AND the Next.js static build
+  schemas.ts           # Zod: envelope + all content shapes (morning/midsession/weekly/monthly/research/alert) — single source of truth
   storage.ts           # atomic read/write, manifest, checksum
-  market-data.ts       # yahoo-finance2 wrapper: getQuote, getHistorical, getIntraday
+  market-data.ts       # yahoo-finance2 wrapper: getQuote, getHistorical
   indicators.ts        # technicalindicators wrapper: pure compute functions
-  llm.ts               # Gemini client: generateStructured(prompt, schema) w/ grounding
+  llm.ts               # Gemini client: grounded research + structured output
   email.ts             # Resend wrapper: report → HTML → send to recipient list
   watchlist.ts         # read/parse watchlist.json
+  recap.ts             # shared weekly/monthly self-verification builder
   research.ts          # compose market-data + indicators + llm → research result
 
-src/                   # Next.js app (Vercel)
+src/                   # Next.js static export (output: 'export')
   app/
     page.tsx           # Today
-    research/page.tsx  # Single-stock research UI (calls /api/research)
-    api/research/route.ts  # serverless research endpoint (runtime = 'nodejs')
+    research/page.tsx  # lists completed research reports
     reports/page.tsx   # Archive
     reports/[id]/page.tsx  # Report detail (generateStaticParams from manifest)
     watchlist/page.tsx
@@ -217,7 +236,7 @@ src/                   # Next.js app (Vercel)
   components/          # ReportCard, ReportView, BriefingSection, AlertBadge, VerificationBadge, …
 ```
 
-`lib/` sits at the repo root because two consumers share it: the cron scripts and the Next.js app (its pages at build time and its `/api/research` route at request time).
+`lib/` sits at the repo root because two consumers share it: the job scripts and the Next.js static build (which reads `data/` at build time only). No code runs at request time — the deployed site is pure static files.
 
 ## Module Boundaries
 
@@ -230,17 +249,17 @@ Each unit has one purpose, a defined interface, and is testable in isolation.
 - **`storage.ts`** — The only module that touches the `data/` filesystem. Owns atomicity, checksums, and the manifest. Returns/accepts validated documents.
 - **`email.ts`** — The only module that talks to Resend. Renders a report to HTML and sends it.
 - **`watchlist.ts`** — Reads the tracked universe.
-- **`research.ts`** — Composes `market-data` + `indicators` + `llm` into a single research result. Pure orchestration, no I/O of its own beyond those modules. Used by the API route; trivially testable.
-- **Cron scripts** — Orchestrate the above; contain no I/O logic of their own beyond sequencing. `weekly.ts` and `monthly.ts` share a recap builder since their shape is identical.
-- **`src/app/api/research/route.ts`** — A thin HTTP boundary: parse request, rate-limit, call `research.ts`, return JSON. No analysis logic lives here. Declares the Node runtime.
-- **Next.js `lib/reports.ts`** — The serving side's only data-access point; reads via `storage.ts`/manifest at build time.
+- **`research.ts`** — Composes `market-data` + `indicators` + `llm` into a single research result. Pure orchestration, no I/O of its own beyond those modules. Used by `scripts/research.ts`; trivially testable.
+- **`recap.ts`** — The shared weekly/monthly self-verification builder (load prior report → fetch actuals → retrospective → outlook). `weekly.ts` and `monthly.ts` are thin wrappers that pass it a period.
+- **Job scripts** (`morning`/`midsession`/`weekly`/`monthly`/`research`) — Orchestrate the lib modules; contain no I/O logic of their own beyond sequencing and the persist→email→mark-sent flow.
+- **Next.js `lib/reports.ts`** — The static build's only data-access point; reads via `storage.ts`/manifest at build time.
 
-## Pages (Phase 1)
+## Pages (all statically rendered from committed JSON)
 
 1. **Today** — landing page; latest morning briefing + any mid-session alerts for the day.
-2. **Research** — ticker input → live fundamental + technical + sentiment analysis via `/api/research`. Idle / loading / result states with no layout shift.
+2. **Research** — list of completed single-stock research reports (newest first), each linking to its detail view; plus the one-line "edit `data/research-requests.ts` and commit to request" instruction.
 3. **Reports Archive** — every past report, filterable by type, newest-first, with verification badges (e.g. `✓ 7/10 calls hit`) on weekly/monthly.
-4. **Report Detail** — full rendered view of one report; weekly/monthly show retrospective + outlook.
+4. **Report Detail** — full rendered view of one report; weekly/monthly show retrospective + outlook; research shows fundamental/technical/sentiment/recommendation.
 5. **Watchlist** — read-only view of the tracked stocks from `watchlist.json`.
 6. **Alerts** — history of sell alerts with reason and severity.
 
@@ -251,20 +270,20 @@ Every cron job, after a successful commit, sends the report as an HTML email via
 ## Error Handling
 
 - **Validation failure (write):** abort the job, exit non-zero, write nothing, send nothing. The GitHub Action shows red; the last good report remains live.
-- **Validation/read failure (serve):** the Vercel build fails loudly rather than deploying a broken page; the previous deployment stays live.
+- **Validation/read failure (build):** `deploy.yml`'s `next build` fails loudly rather than publishing a broken page; the previously deployed GitHub Pages site stays live.
 - **Data-source failure (Yahoo/Gemini):** the script retries with backoff; on persistent failure it aborts (no partial report). The previous report stays as the latest.
 - **Email failure after commit:** logged and surfaced as a job warning; the report is already persisted and viewable, so data is never lost. The job records `emailSent: false` for later inspection.
-- **Research route failure (bad ticker / source down / LLM error):** returns a structured error response with a clear message; the `/research` page shows an inline error in the reserved result area without breaking layout. Nothing is persisted, so a failed lookup has no lasting effect — the user can simply retry.
+- **Research job failure (bad ticker / source down / LLM error):** that ticker is skipped with a logged error and the Action surfaces it (red run); other requested tickers still succeed. Nothing partial is written, so re-committing retries only the missing ones.
 
 ## Build Phasing (for the implementation plan)
 
 A natural order, each milestone independently verifiable:
 
-1. **Foundation** — scaffold repo; build `lib/` (schemas, storage, market-data, indicators, llm, email, watchlist); the morning job end-to-end (data → LLM → validated JSON → commit → email).
-2. **Remaining jobs** — mid-session with alert rules; weekly + monthly with the self-verification loop.
-3. **Dashboard** — Next.js app; the briefing pages (Today, Archive, Detail, Watchlist, Alerts) reading `data/` (SSG).
-4. **Research** — `lib/research.ts`; the `/api/research` route (Node runtime); the `/research` page wired to it.
-5. **CI/CD** — four GitHub Actions cron workflows; connect the repo to Vercel (auto-deploy on push); wire GitHub + Vercel secrets.
+1. **Foundation** ✅ *(done)* — scaffold; `lib/` (schemas, storage, market-data, indicators, llm, email, watchlist, time); the morning job end-to-end; `morning.yml`.
+2. **Remaining jobs** — extend `schemas.ts` (midsession/weekly/monthly/alert content) and `storage.ts` (alerts writer); `midsession.ts` (alert rules + LLM noise/signal); `recap.ts` + `weekly.ts` + `monthly.ts` (self-verification); their workflows.
+3. **Research job** — extend `schemas.ts` (research content + `'research'` type); `data/research-requests.ts`; `lib/research.ts`; `scripts/research.ts`; `research.yml`.
+4. **Dashboard** — Next.js static export (`output: 'export'`, `basePath` for the Pages project path); all six pages reading `data/` at build; the component system per the UI principles (use `frontend-design`).
+5. **Deploy** — `deploy.yml` building the export and publishing to GitHub Pages; enable Pages; confirm all six workflows green.
 
 ## Open Questions
 
