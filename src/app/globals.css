@@ -1,6 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
-  --color-foreground: #ededed;
+  /* ---------- Fonts ---------- */
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), "Courier New", monospace;
+
+  /* ---------- Palette: warm paper / editorial treasury ---------- */
+  --color-bg:        #FAF8F3;
+  --color-surface:   #FFFFFF;
+  --color-raised:    #FDFCF8;
+
+  --color-ink:       #211D18;
+  --color-muted:     #6B6560;
+  --color-faint:     #9A938A;
+
+  --color-hairline:  #E7E1D5;
+  --color-border:    #E7E1D5;
+
+  --color-brand:     #9A7B3F;   /* antique gold — wordmark, active nav, links */
+
+  /* signals */
+  --color-bullish:   #2E7D52;   /* forest green */
+  --color-bearish:   #B4452F;   /* oxblood */
+  --color-neutral:   #6B6560;
+
+  /* severities */
+  --color-high:      #B4452F;
+  --color-medium:    #B8862F;   /* amber */
+  --color-low:       #6B6560;
+
+  /* surface tints for signal/severity bg */
+  --color-bullish-bg: #EEF6F1;
+  --color-bearish-bg: #FAF0EE;
+  --color-neutral-bg: #F2F0EE;
+  --color-medium-bg:  #FDF5E8;
+}
+
+/* ---------- Base ---------- */
+html {
+  background-color: #FAF8F3;
+  color: #211D18;
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tabular numerals on all mono elements */
+.font-mono,
+[class*="font-mono"] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
 }
