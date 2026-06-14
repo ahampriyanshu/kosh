@@ -13,11 +13,13 @@ beforeEach(() => {
   process.env.RESEND_API_KEY = 'test-key';
   process.env.KOSH_EMAIL_TO = 'a@x.com, b@x.com';
   process.env.KOSH_EMAIL_FROM = 'Kosh <k@x.com>';
+  delete process.env.KOSH_EMAIL_REPLY_TO;
 });
 afterEach(() => {
   delete process.env.RESEND_API_KEY;
   delete process.env.KOSH_EMAIL_TO;
   delete process.env.KOSH_EMAIL_FROM;
+  delete process.env.KOSH_EMAIL_REPLY_TO;
 });
 
 describe('sendReportEmail', () => {
@@ -29,6 +31,21 @@ describe('sendReportEmail', () => {
       to: ['a@x.com', 'b@x.com'],
       subject: 'Subject',
       html: '<p>hi</p>',
+    });
+  });
+
+  it('sets replyTo when configured', async () => {
+    process.env.KOSH_EMAIL_REPLY_TO = 'Kosh <reply@x.com>';
+    h.sendMock.mockResolvedValue({ data: { id: '1' }, error: null });
+
+    await sendReportEmail('Subject', '<p>hi</p>');
+
+    expect(h.sendMock).toHaveBeenCalledWith({
+      from: 'Kosh <k@x.com>',
+      to: ['a@x.com', 'b@x.com'],
+      subject: 'Subject',
+      html: '<p>hi</p>',
+      replyTo: 'Kosh <reply@x.com>',
     });
   });
 
