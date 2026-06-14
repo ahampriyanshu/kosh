@@ -1,4 +1,4 @@
-# Kosh — Indian Market Intelligence
+# Kosh
 
 A personal, $0-to-run stock-intelligence tool for the Indian market (NSE/BSE). GitHub Actions generate AI-written market briefings on a schedule, commit them as validated JSON, and email them; a static Next.js dashboard on GitHub Pages renders the committed reports. **GitHub is the single source of truth** — there is no always-on server.
 

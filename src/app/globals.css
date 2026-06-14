@@ -503,6 +503,7 @@ select {
 
   .main-nav {
     order: 3;
+    flex: 0 0 100%;
     justify-content: flex-start;
     width: 100%;
   }

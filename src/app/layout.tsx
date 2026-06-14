@@ -28,8 +28,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Kosh — Indian Market Intelligence',
-  description: 'Daily briefings, watchlists, and research for Indian equity markets.',
+  title: 'Kosh',
+  description: 'Kosh',
 };
 
 export default function RootLayout({
