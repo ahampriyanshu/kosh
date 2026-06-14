@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-W24-weekly",
+  "type": "weekly",
+  "generatedAt": "2026-06-14T11:28:27.590Z",
+  "sourceData": {
+    "tickers": [
+      "HDFCBANK",
+      "RELIANCE",
+      "INFY",
+      "LT",
+      "HUL"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-06-14T11:28:27.590Z"
+  },
+  "content": {
+    "period": "2026-W24",
+    "retrospective": null,
+    "outlook": {
+      "themes": [
+        "Geopolitical Stability and Crude Oil Prices",
+        "Global Monetary Policy (US Fed FOMC)",
+        "Foreign Institutional Investor (FII) Flows and Rupee Volatility",
+        "Domestic Inflationary Pressures (WPI)",
+        "Monsoon Progress and Agricultural Impact"
+      ],
+      "stocksToWatch": [
+        {
+          "ticker": "HDFCBANK",
+          "name": "HDFC Bank Ltd.",
+          "reason": "Banking sector significantly outperformed in the previous week, driven by robust domestic economic data and DII support. Technicals for Bank Nifty show strong support and upward momentum.",
+          "signal": "bullish"
+        },
+        {
+          "ticker": "RELIANCE",
+          "name": "Reliance Industries Ltd.",
+          "reason": "Highly sensitive to crude oil prices and geopolitical developments. Declining crude oil prices due to de-escalation hopes are a positive, but geopolitical uncertainty remains a watch item.",
+          "signal": "neutral"
+        },
+        {
+          "ticker": "INFY",
+          "name": "Infosys Ltd.",
+          "reason": "IT sector faced pressure in the prior week. Outlook will be heavily influenced by global cues, particularly from the US Federal Reserve's FOMC meeting and any shifts in global growth forecasts.",
+          "signal": "neutral"
+        },
+        {
+          "ticker": "LT",
+          "name": "Larsen & Toubro Ltd.",
+          "reason": "Benefits from strong domestic economic growth and government focus on infrastructure. Continued resilience in the Indian economy provides a favorable environment for capital goods and infrastructure companies.",
+          "signal": "bullish"
+        },
+        {
+          "ticker": "HUL",
+          "name": "Hindustan Unilever Ltd.",
+          "reason": "FMCG sector is sensitive to rural demand and inflation. Concerns over below-average monsoon forecast and potential for higher energy/food prices could impact consumer spending.",
+          "signal": "neutral"
+        }
+      ],
+      "recommendation": {
+        "ticker": "HDFCBANK",
+        "action": "buy",
+        "reasoning": "The banking sector showed exceptional resilience and growth in the past week, with Bank Nifty surging over 4%. Strong domestic economic indicators and continued DII support for financial institutions, coupled with a positive technical outlook for the sector, make HDFC Bank a strong candidate for an upside move.",
+        "confidence": 0.75
+      }
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:d8e6c3acbf8e9f6b9d63198e6e70992af8f22926a0da5048d0d1359e0cce2d67"
+}

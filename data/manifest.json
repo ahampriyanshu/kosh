@@ -1,6 +1,13 @@
 {
   "reports": [
     {
+      "id": "2026-W24-weekly",
+      "type": "weekly",
+      "date": "2026-06-14",
+      "path": "briefings/2026-W24-weekly.json",
+      "checksum": "sha256:d8e6c3acbf8e9f6b9d63198e6e70992af8f22926a0da5048d0d1359e0cce2d67"
+    },
+    {
       "id": "2026-06-14-morning",
       "type": "morning",
       "date": "2026-06-14",
@@ -9,6 +16,7 @@
     }
   ],
   "latest": {
-    "morning": "2026-06-14-morning"
+    "morning": "2026-06-14-morning",
+    "weekly": "2026-W24-weekly"
   }
 }
