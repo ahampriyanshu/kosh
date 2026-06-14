@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ReportTypeSchema = z.enum(['morning', 'midsession', 'weekly', 'monthly']);
+export const ReportTypeSchema = z.enum(['morning', 'midsession', 'weekly', 'monthly', 'research']);
 export type ReportType = z.infer<typeof ReportTypeSchema>;
 
 export const SignalSchema = z.enum(['bullish', 'bearish', 'neutral']);
@@ -139,3 +139,25 @@ export const RecapContentSchema = z.object({
   outlook: OutlookSchema,
 });
 export type RecapContent = z.infer<typeof RecapContentSchema>;
+
+export const ResearchRequestSchema = z.object({
+  ticker: z.string(),
+  note: z.string().optional(),
+});
+export type ResearchRequest = z.infer<typeof ResearchRequestSchema>;
+
+export const ResearchContentSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  asOf: z.string(),
+  price: z.number(),
+  fundamental: z.string(),
+  technical: z.string(),
+  sentiment: z.string(),
+  recommendation: z.object({
+    action: z.enum(['buy', 'sell', 'hold']),
+    reasoning: z.string(),
+    confidence: z.number().min(0).max(1),
+  }),
+});
+export type ResearchContent = z.infer<typeof ResearchContentSchema>;

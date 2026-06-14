@@ -7,6 +7,9 @@ import {
   MidSessionContentSchema,
   RecapContentSchema,
   OutlookSchema,
+  ReportTypeSchema,
+  ResearchContentSchema,
+  ResearchRequestSchema,
 } from '../../lib/schemas';
 
 describe('schemas', () => {
@@ -139,5 +142,53 @@ describe('OutlookSchema', () => {
       },
     };
     expect(() => OutlookSchema.parse(bad)).toThrow();
+  });
+});
+
+describe('ReportTypeSchema — research', () => {
+  it("parses 'research' as a valid report type", () => {
+    expect(ReportTypeSchema.parse('research')).toBe('research');
+  });
+});
+
+describe('ResearchContentSchema', () => {
+  const validResearch = {
+    ticker: 'TCS.NS',
+    name: 'Tata Consultancy Services',
+    asOf: '2026-06-14',
+    price: 3900,
+    fundamental: 'Strong revenue growth, healthy margins.',
+    technical: 'Trading above 200-DMA, RSI neutral.',
+    sentiment: 'Positive analyst coverage post-results.',
+    recommendation: {
+      action: 'buy',
+      reasoning: 'Valuation reasonable relative to growth.',
+      confidence: 0.7,
+    },
+  };
+
+  it('parses a valid ResearchContent', () => {
+    expect(ResearchContentSchema.parse(validResearch)).toBeTruthy();
+  });
+
+  it('rejects confidence: 2 (out of range)', () => {
+    const bad = {
+      ...validResearch,
+      recommendation: { ...validResearch.recommendation, confidence: 2 },
+    };
+    expect(() => ResearchContentSchema.parse(bad)).toThrow();
+  });
+});
+
+describe('ResearchRequestSchema', () => {
+  it('parses { ticker } with note omitted', () => {
+    expect(ResearchRequestSchema.parse({ ticker: 'TCS.NS' })).toEqual({ ticker: 'TCS.NS' });
+  });
+
+  it('parses { ticker, note }', () => {
+    expect(ResearchRequestSchema.parse({ ticker: 'TCS.NS', note: 'x' })).toEqual({
+      ticker: 'TCS.NS',
+      note: 'x',
+    });
   });
 });
