@@ -1,0 +1,44 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+
+const h = vi.hoisted(() => ({ sendMock: vi.fn() }));
+
+vi.mock('resend', () => ({
+  Resend: vi.fn(() => ({ emails: { send: h.sendMock } })),
+}));
+
+import { sendReportEmail } from '../../lib/email';
+
+beforeEach(() => {
+  h.sendMock.mockReset();
+  process.env.RESEND_API_KEY = 'test-key';
+  process.env.KOSH_EMAIL_TO = 'a@x.com, b@x.com';
+  process.env.KOSH_EMAIL_FROM = 'Kosh <k@x.com>';
+});
+afterEach(() => {
+  delete process.env.RESEND_API_KEY;
+  delete process.env.KOSH_EMAIL_TO;
+  delete process.env.KOSH_EMAIL_FROM;
+});
+
+describe('sendReportEmail', () => {
+  it('sends to the parsed recipient list', async () => {
+    h.sendMock.mockResolvedValue({ data: { id: '1' }, error: null });
+    await sendReportEmail('Subject', '<p>hi</p>');
+    expect(h.sendMock).toHaveBeenCalledWith({
+      from: 'Kosh <k@x.com>',
+      to: ['a@x.com', 'b@x.com'],
+      subject: 'Subject',
+      html: '<p>hi</p>',
+    });
+  });
+
+  it('throws when Resend returns an error', async () => {
+    h.sendMock.mockResolvedValue({ data: null, error: { message: 'boom' } });
+    await expect(sendReportEmail('S', '<p>x</p>')).rejects.toThrow(/boom/);
+  });
+
+  it('throws when no recipients are configured', async () => {
+    delete process.env.KOSH_EMAIL_TO;
+    await expect(sendReportEmail('S', '<p>x</p>')).rejects.toThrow(/KOSH_EMAIL_TO/);
+  });
+});
