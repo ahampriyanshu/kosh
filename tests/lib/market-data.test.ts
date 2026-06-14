@@ -14,7 +14,7 @@ vi.mock('yahoo-finance2', () => ({
   })),
 }));
 
-import { getQuote, getHistorical, searchTicker } from '../../lib/market-data';
+import { getQuote, getHistorical, searchTicker, getQuoteDetail } from '../../lib/market-data';
 
 beforeEach(() => {
   h.quoteMock.mockReset();
@@ -44,5 +44,22 @@ describe('market-data', () => {
   it('returns symbols from search', async () => {
     h.searchMock.mockResolvedValue({ quotes: [{ symbol: 'TCS.NS' }, { symbol: 'TCS.BO' }, {}] });
     expect(await searchTicker('TCS')).toEqual(['TCS.NS', 'TCS.BO']);
+  });
+
+  it('maps a quote to {price, currency, name, previousClose, volume}', async () => {
+    h.quoteMock.mockResolvedValue({
+      regularMarketPrice: 100,
+      currency: 'INR',
+      shortName: 'X',
+      regularMarketPreviousClose: 110,
+      regularMarketVolume: 5000,
+    });
+    expect(await getQuoteDetail('X.NS')).toEqual({
+      price: 100,
+      currency: 'INR',
+      name: 'X',
+      previousClose: 110,
+      volume: 5000,
+    });
   });
 });

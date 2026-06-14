@@ -57,6 +57,29 @@ export async function getHistorical(
     }));
 }
 
+export interface QuoteDetail extends Quote {
+  previousClose: number;
+  volume: number;
+}
+
+export async function getQuoteDetail(ticker: string): Promise<QuoteDetail> {
+  const q = (await yf.quote(ticker)) as unknown as {
+    regularMarketPrice?: number;
+    currency?: string;
+    shortName?: string;
+    longName?: string;
+    regularMarketPreviousClose?: number;
+    regularMarketVolume?: number;
+  };
+  return {
+    price: q.regularMarketPrice ?? 0,
+    currency: q.currency ?? 'INR',
+    name: q.shortName ?? q.longName ?? ticker,
+    previousClose: q.regularMarketPreviousClose ?? 0,
+    volume: q.regularMarketVolume ?? 0,
+  };
+}
+
 export async function searchTicker(query: string): Promise<string[]> {
   const res = (await yf.search(query)) as unknown as { quotes?: Array<{ symbol?: string }> };
   return (res.quotes ?? [])
