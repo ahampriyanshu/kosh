@@ -1,12 +1,12 @@
 import { getLatest } from '../lib/reports';
-import type { DailyContent, MidSessionContent } from '../../lib/schemas';
+import type { DailyContent, RetroContent } from '../../lib/schemas';
 import { DailyView } from '../components/DailyView';
 import { SeverityBadge } from '../components/SeverityBadge';
 
 export default async function TodayPage() {
-  const [daily, midsession] = await Promise.all([
+  const [daily, retro] = await Promise.all([
     getLatest('daily'),
-    getLatest('midsession'),
+    getLatest('retro'),
   ]);
 
   if (!daily) {
@@ -22,11 +22,11 @@ export default async function TodayPage() {
 
   const dailyContent = daily.content as DailyContent;
 
-  // Check if midsession is from today
+  // Check if retro is from today
   const today = new Date().toISOString().slice(0, 10);
   const midContent =
-    midsession && (midsession.content as MidSessionContent).date === today
-      ? (midsession.content as MidSessionContent)
+    retro && (retro.content as RetroContent).date === today
+      ? (retro.content as RetroContent)
       : null;
 
   return (

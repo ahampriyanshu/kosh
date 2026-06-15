@@ -5,7 +5,7 @@ import {
   ManifestEntrySchema,
   WatchlistSchema,
   ManifestSchema,
-  MidSessionContentSchema,
+  RetroContentSchema,
   RecapContentSchema,
   OutlookSchema,
   ReportTypeSchema,
@@ -68,8 +68,8 @@ describe('schemas', () => {
   });
 });
 
-describe('MidSessionContentSchema', () => {
-  const validMidSession = {
+describe('RetroContentSchema', () => {
+  const validRetro = {
     date: '2026-06-14',
     evaluated: [
       { ticker: 'TCS.NS', name: 'TCS', price: 3900, changePct: 1.2, note: 'holding steady' },
@@ -80,16 +80,16 @@ describe('MidSessionContentSchema', () => {
     summary: 'Market choppy but IT holding.',
   };
 
-  it('accepts a valid MidSessionContent with a high-severity alert', () => {
-    expect(MidSessionContentSchema.parse(validMidSession)).toBeTruthy();
+  it('accepts a valid RetroContent with a high-severity alert', () => {
+    expect(RetroContentSchema.parse(validRetro)).toBeTruthy();
   });
 
   it('rejects an alert with an invalid severity', () => {
     const bad = {
-      ...validMidSession,
-      alerts: [{ ...validMidSession.alerts[0], severity: 'critical' }],
+      ...validRetro,
+      alerts: [{ ...validRetro.alerts[0], severity: 'critical' }],
     };
-    expect(() => MidSessionContentSchema.parse(bad)).toThrow();
+    expect(() => RetroContentSchema.parse(bad)).toThrow();
   });
 });
 
@@ -157,12 +157,13 @@ describe('ReportTypeSchema — research', () => {
 
 describe('ReportTypeSchema', () => {
   it('accepts the six v2 report types', () => {
-    for (const t of ['daily', 'midsession', 'retro', 'weekly', 'monthly', 'research']) {
+    for (const t of ['daily', 'retro', 'recap', 'weekly', 'monthly', 'research']) {
       expect(ReportTypeSchema.parse(t)).toBe(t);
     }
   });
-  it('rejects the retired morning type', () => {
+  it('rejects retired type names', () => {
     expect(ReportTypeSchema.safeParse('morning').success).toBe(false);
+    expect(ReportTypeSchema.safeParse('midsession').success).toBe(false);
   });
 });
 

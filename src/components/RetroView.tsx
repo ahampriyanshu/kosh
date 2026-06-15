@@ -1,12 +1,12 @@
-import type { MidSessionContent } from '../../lib/schemas';
+import type { RetroContent } from '../../lib/schemas';
 import { SeverityBadge } from './SeverityBadge';
 import { Pct } from './Pct';
 
-interface MidSessionViewProps {
-  content: MidSessionContent;
+interface RetroViewProps {
+  content: RetroContent;
 }
 
-export function MidSessionView({ content }: MidSessionViewProps) {
+export function RetroView({ content }: RetroViewProps) {
   return (
     <div className="space-y-8">
       {/* Summary */}

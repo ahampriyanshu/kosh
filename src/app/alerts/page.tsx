@@ -1,5 +1,5 @@
 import { getReportsByType } from '../../lib/reports';
-import type { MidSessionContent } from '../../../lib/schemas';
+import type { RetroContent } from '../../../lib/schemas';
 import { SeverityBadge } from '../../components/SeverityBadge';
 
 function formatDate(dateStr: string): string {
@@ -18,9 +18,9 @@ function formatDate(dateStr: string): string {
 }
 
 export default async function AlertsPage() {
-  const reports = await getReportsByType('midsession');
+  const reports = await getReportsByType('retro');
 
-  // Flatten all alerts across all midsession reports, newest report first
+  // Flatten all alerts across all retro reports, newest report first
   const sorted = [...reports].sort((a, b) => b.id.localeCompare(a.id));
 
   interface AlertRow {
@@ -34,7 +34,7 @@ export default async function AlertsPage() {
   }
 
   const allAlerts: AlertRow[] = sorted.flatMap((report) => {
-    const content = report.content as MidSessionContent;
+    const content = report.content as RetroContent;
     const date = content.date;
     return (content.alerts ?? []).map((alert) => ({
       reportId: report.id,

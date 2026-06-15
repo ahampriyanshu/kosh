@@ -3,7 +3,7 @@ import type { ManifestEntry } from '../../lib/schemas';
 import { VerificationBadge } from './VerificationBadge';
 
 const TYPE_LABELS: Record<string, string> = {
-  daily: 'Daily Brief', midsession: 'Mid-Session', retro: 'Weekly Retrospective',
+  daily: 'Daily Brief', retro: 'Mid-Session', recap: 'Weekly Recap',
   weekly: 'Weekly Outlook', monthly: 'Monthly Outlook', research: 'Research',
 };
 
@@ -55,7 +55,7 @@ export function ReportCard({
             {/* Title */}
             <h3 className="font-display text-base font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-brand)] transition-colors leading-snug">
               {title}
-              {entry.type === 'midsession' && alertCount !== undefined && alertCount > 0 && (
+              {entry.type === 'retro' && alertCount !== undefined && alertCount > 0 && (
                 <span className="ml-2 font-mono text-xs font-normal text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-1.5 py-0.5 rounded">
                   {alertCount} alert{alertCount !== 1 ? 's' : ''}
                 </span>

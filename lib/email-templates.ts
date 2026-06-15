@@ -1,6 +1,6 @@
 import type {
   AlertSeverity,
-  MidSessionContent,
+  RetroContent,
   DailyContent,
   RecapContent,
   ResearchContent,
@@ -275,7 +275,7 @@ export function renderDailyEmail(content: DailyContent): string {
   });
 }
 
-export function renderMidSessionEmail(content: MidSessionContent): string {
+export function renderRetroEmail(content: RetroContent): string {
   const alertCards = content.alerts.length
     ? content.alerts.map((alert) =>
         card(

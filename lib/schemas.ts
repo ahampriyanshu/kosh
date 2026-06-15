@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ReportTypeSchema = z.enum(['daily', 'midsession', 'retro', 'weekly', 'monthly', 'research']);
+export const ReportTypeSchema = z.enum(['daily', 'retro', 'recap', 'weekly', 'monthly', 'research']);
 export type ReportType = z.infer<typeof ReportTypeSchema>;
 
 export const SignalSchema = z.enum(['bullish', 'bearish', 'neutral']);
@@ -91,7 +91,7 @@ export const AlertSchema = z.object({
 });
 export type Alert = z.infer<typeof AlertSchema>;
 
-export const MidSessionContentSchema = z.object({
+export const RetroContentSchema = z.object({
   date: z.string(),
   evaluated: z.array(
     z.object({
@@ -105,7 +105,7 @@ export const MidSessionContentSchema = z.object({
   alerts: z.array(AlertSchema),
   summary: z.string(),
 });
-export type MidSessionContent = z.infer<typeof MidSessionContentSchema>;
+export type RetroContent = z.infer<typeof RetroContentSchema>;
 
 export const RecapCallSchema = z.object({
   ticker: z.string(),
