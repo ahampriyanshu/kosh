@@ -14,9 +14,10 @@ const CATEGORY_LABELS: Record<NewsCategory, string> = {
 
 interface NewsListProps {
   groups: MarketSnapshot['news'];
+  showCategoryLabels?: boolean;
 }
 
-export default function NewsList({ groups }: NewsListProps) {
+export default function NewsList({ groups, showCategoryLabels = true }: NewsListProps) {
   const nonEmpty = groups.filter((g) => g.items.length > 0);
   if (nonEmpty.length === 0) return null;
 
@@ -24,9 +25,11 @@ export default function NewsList({ groups }: NewsListProps) {
     <div className="space-y-6">
       {nonEmpty.map((group) => (
         <div key={group.category}>
-          <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-3">
-            {CATEGORY_LABELS[group.category]}
-          </h3>
+          {showCategoryLabels && (
+            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-3">
+              {CATEGORY_LABELS[group.category]}
+            </h3>
+          )}
           <ul className="space-y-4">
             {group.items.map((item, idx) => (
               <li

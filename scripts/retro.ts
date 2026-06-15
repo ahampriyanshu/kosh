@@ -109,10 +109,7 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
   };
 
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(
-    `Kosh Mid-Session — ${date}${alerts.length ? ` — ${alerts.length} sell alert${alerts.length > 1 ? 's' : ''}` : ''}`,
-    renderRetroEmail(content),
-  );
+  await sendReportEmail('Kosh Daily Retro', renderRetroEmail(content));
   await writeReport({ ...base, emailSent: true });
   console.log(`Mid-session ${base.id} written and emailed (${alerts.length} alerts).`);
 }

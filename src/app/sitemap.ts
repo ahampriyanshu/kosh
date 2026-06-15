@@ -13,9 +13,9 @@ const staticRoutes: Array<{
 }> = [
   { path: '/', changeFrequency: 'daily', priority: 1 },
   { path: '/reports/', changeFrequency: 'daily', priority: 0.9 },
+  { path: '/scorecard/', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/research/', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/portfolio/', changeFrequency: 'weekly', priority: 0.7 },
-  { path: '/alerts/', changeFrequency: 'daily', priority: 0.8 },
 ];
 
 function latestDate(dates: string[]): string | undefined {

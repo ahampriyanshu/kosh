@@ -27,7 +27,7 @@ export async function runDaily(now: Date = new Date()): Promise<void> {
     checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(`Kosh Daily Brief — ${date}`, renderDailyEmail(content));
+  await sendReportEmail('Kosh Daily Brief', renderDailyEmail(content));
   await writeReport({ ...base, emailSent: true });
   await deleteFeed(date); // clean up the feed slices after a successful publish
   console.log(`Daily brief ${base.id} written and emailed.`);

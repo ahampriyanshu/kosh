@@ -45,7 +45,7 @@ export async function runMonthly(now: Date = new Date()): Promise<void> {
     content, checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(`Kosh Monthly — ${period}`, renderMonthlyEmail(content, period));
+  await sendReportEmail('Kosh Monthly Digest', renderMonthlyEmail(content, period));
   await writeReport({ ...base, emailSent: true });
   console.log(`Monthly ${base.id} written and emailed.`);
 }

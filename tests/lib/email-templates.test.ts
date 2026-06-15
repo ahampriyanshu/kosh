@@ -140,8 +140,9 @@ describe('email templates', () => {
     const html = renderWeeklyEmail(weeklyContent, '2026-W25');
 
     expect(html).toContain('<!doctype html>');
-    expect(html).toContain('Weekly');
+    expect(html).toContain('Weekly Outlook');
     expect(html).toContain('2026-W25');
+    expect(html).not.toContain('Weekly — 2026-W25');
     expect(html).toContain('Themes');
     expect(html).toContain('Rotation into defensives');
     expect(html).toContain('Positional Bets');
@@ -154,8 +155,9 @@ describe('email templates', () => {
     const html = renderMonthlyEmail(monthlyContent, '2026-06');
 
     expect(html).toContain('<!doctype html>');
-    expect(html).toContain('Monthly');
+    expect(html).toContain('Monthly Digest');
     expect(html).toContain('2026-06');
+    expect(html).not.toContain('Monthly — 2026-06');
     expect(html).toContain('Sector Insights');
     expect(html).toContain('IT outperforming broader market');
     expect(html).toContain('Macro Themes');
@@ -169,7 +171,7 @@ describe('email templates', () => {
   it('renders mid-session alerts and portfolio scan details', () => {
     const html = renderRetroEmail(midSessionContent);
 
-    expect(html).toContain('Mid-Session');
+    expect(html).toContain('Daily Retro');
     expect(html).toContain('14th June, 2026');
     expect(html).not.toContain('Mid-Session - 2026-06-14');
     expect(html).toContain('Sell Alerts');
@@ -182,9 +184,11 @@ describe('email templates', () => {
   });
 
   it('renders recap grading results with hit count and graded tickers', () => {
-    const html = renderRecapEmail(recapContent, 'Kosh Weekly Recap - 2026-W24');
+    const html = renderRecapEmail(recapContent, 'Weekly Recap');
 
-    expect(html).toContain('Kosh Weekly Recap - 2026-W24');
+    expect(html).toContain('Weekly Recap');
+    expect(html).not.toContain('Kosh Weekly Recap - 2026-W24');
+    expect(html).not.toContain('Kosh Weekly Recap — 2026-W24');
     expect(html).toContain('Grading Results');
     expect(html).toContain('1/1 bets hit');
     expect(html).toContain('1/1 bets hit');
@@ -204,6 +208,8 @@ describe('email templates', () => {
     expect(html).toContain('Technical Analysis');
     expect(html).toContain('Sentiment');
     expect(html).toContain('Cash flow &lt; capex pressure.');
-    expect(html).toContain('ahampriyanshu.com');
+    expect(html).toContain('made by');
+    expect(html).toContain('>ahampriyanshu</a>');
+    expect(html).toContain('href="https://ahampriyanshu.com"');
   });
 });

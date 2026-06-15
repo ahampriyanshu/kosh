@@ -154,15 +154,6 @@ export default function RootLayout({
                   <NavBar />
                   <div className="header-actions">
                     <ThemeToggle />
-                    <time className="header-meta">
-                      {new Date().toLocaleDateString('en-IN', {
-                        weekday: 'short',
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                        timeZone: 'Asia/Kolkata',
-                      })}
-                    </time>
                   </div>
                 </div>
               </header>

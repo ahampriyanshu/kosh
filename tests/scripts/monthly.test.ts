@@ -46,5 +46,6 @@ describe('runMonthly', () => {
     expect(first.type).toBe('monthly');
     expect(first.content.sectorInsights).toEqual(['IT firm']);
     expect(first.content.ledgerRollup).toEqual({ hits: 3, total: 5, summary: expect.stringContaining('3/5') });
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Monthly Digest', expect.any(String));
   });
 });

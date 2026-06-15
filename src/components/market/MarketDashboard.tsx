@@ -1,216 +1,187 @@
 import type { MarketSnapshot } from '../../../lib/schemas';
 import { Section, ticker } from './Figure';
 import { IndexStrip } from './IndexStrip';
-import { GlobalCues } from './GlobalCues';
-import BreadthBar from './BreadthBar';
-import SectorHeatmap from './SectorHeatmap';
 import MoversTable from './MoversTable';
-import FlowsCard from './FlowsCard';
-import NewsList from './NewsList';
-import RecommendationsList from './RecommendationsList';
-import CorpActionsList from './CorpActionsList';
+
+type IndexQuote = MarketSnapshot['indianIndices'][number];
+type NearHigh = MarketSnapshot['near52wHigh'][number];
+type NearLow = MarketSnapshot['near52wLow'][number];
+
+// Hardcoded display order for the sectoral Nifty indices — looked up by name so
+// the order is stable on every rerun regardless of fetch order.
+const SECTOR_ORDER = [
+  'NIFTY BANK',
+  'NIFTY IT',
+  'NIFTY PHARMA',
+  'NIFTY AUTO',
+  'NIFTY METAL',
+  'NIFTY ENERGY',
+  'NIFTY REALTY',
+  'NIFTY FIN SERVICE',
+  'NIFTY FMCG',
+];
+
+// Fixed set + order for the headline "Market Cues" row.
+function buildCues(s: MarketSnapshot): IndexQuote[] {
+  const indian = (name: string) => s.indianIndices.find((i) => i.name === name);
+  const global = (name: string) => s.globalIndices.find((i) => i.name === name);
+  const commodity = (name: string) => s.commodities.find((c) => c.name === name);
+
+  const cues: IndexQuote[] = [];
+  const nifty = indian('NIFTY 50');
+  if (nifty) cues.push({ name: 'NIFTY 50', symbol: 'NIFTY50', ltp: nifty.ltp, changePct: nifty.changePct });
+  const sensex = indian('SENSEX');
+  if (sensex) cues.push({ name: 'SENSEX', symbol: 'SENSEX', ltp: sensex.ltp, changePct: sensex.changePct });
+  if (s.giftNifty) cues.push({ name: 'GIFT NIFTY', symbol: 'GIFTNIFTY', ltp: s.giftNifty.value, changePct: s.giftNifty.changePct });
+  const nasdaq = global('NASDAQ');
+  if (nasdaq) cues.push({ name: 'NASDAQ', symbol: 'NASDAQ', ltp: nasdaq.ltp, changePct: nasdaq.changePct });
+  const gold = commodity('Gold');
+  if (gold) cues.push({ name: 'GOLD', symbol: 'GOLD', ltp: gold.value, changePct: gold.changePct });
+  if (s.vix) cues.push({ name: 'INDIA VIX', symbol: 'INDIAVIX', ltp: s.vix.value, changePct: s.vix.changePct });
+  return cues;
+}
+
+function formatCrore(value: number): string {
+  const sign = value > 0 ? '+' : value < 0 ? '−' : '';
+  return `${sign}${Math.abs(value).toLocaleString('en-IN')} cr`;
+}
+
+function NearList({ rows, kind }: { rows: Array<NearHigh | NearLow>; kind: 'high' | 'low' }) {
+  if (rows.length === 0) {
+    return (
+      <p className="font-sans text-sm text-[var(--color-faint)] py-2">
+        No stocks within 2% of their 52-week {kind}.
+      </p>
+    );
+  }
+  return (
+    <div className="divide-y divide-[var(--color-hairline)]">
+      {rows.map((item) => {
+        const pct = kind === 'high' ? (item as NearHigh).pctFromHigh : (item as NearLow).pctFromLow;
+        return (
+          <div key={item.ticker} className="flex items-center justify-between py-2">
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="font-mono text-sm font-bold text-[var(--color-ink)]">{ticker(item.ticker)}</span>
+              <span className="font-sans text-sm text-[var(--color-muted)] truncate max-w-[140px]">{item.name}</span>
+            </div>
+            <div className="flex items-center gap-4 shrink-0">
+              <span className="font-mono text-sm tabular-nums text-[var(--color-ink)]">
+                {item.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </span>
+              <span
+                className="font-mono text-sm tabular-nums"
+                style={{ color: kind === 'high' ? 'var(--color-bearish)' : 'var(--color-bullish)' }}
+              >
+                {kind === 'high' ? '−' : '+'}
+                {pct.toFixed(2)}%
+              </span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 interface MarketDashboardProps {
   snapshot: MarketSnapshot;
 }
 
 export function MarketDashboard({ snapshot }: MarketDashboardProps) {
-  // Pre-compute presence flags
-  const hasIndices = snapshot.indianIndices.length > 0;
+  const cues = buildCues(snapshot);
+  const sectors = SECTOR_ORDER
+    .map((name) => snapshot.indianIndices.find((i) => i.name === name))
+    .filter((i): i is IndexQuote => Boolean(i));
 
-  const hasBreadthOrFlows =
-    snapshot.breadth !== null ||
-    snapshot.fiiDii !== null ||
-    snapshot.vix !== null ||
-    snapshot.giftNifty !== null ||
-    snapshot.bondYield !== null;
+  const topGainers = snapshot.topGainers.slice(0, 5);
+  const topLosers = snapshot.topLosers.slice(0, 5);
 
-  const hasSectors = snapshot.sectorRanking.length > 0;
-
-  const hasMovers = snapshot.topGainers.length > 0 || snapshot.topLosers.length > 0;
-
-  const hasMostActive = snapshot.mostActive.length > 0;
-
-  const hasNear52wHigh = snapshot.near52wHigh.length > 0;
-  const hasNear52wLow = snapshot.near52wLow.length > 0;
-  const hasVolumeShockers = snapshot.volumeShockers.length > 0;
-
-  const hasGlobalCues =
-    snapshot.globalIndices.length > 0 ||
-    snapshot.commodities.length > 0 ||
-    snapshot.currencies.length > 0;
-
-  const hasRecs = snapshot.streetRecommendations.length > 0;
-
-  const hasNews = snapshot.news.some((g) => g.items.length > 0);
-
-  const hasCorpActions = snapshot.corporateActions.length > 0;
+  const has52w = snapshot.near52wHigh.length > 0 || snapshot.near52wLow.length > 0;
 
   return (
     <div>
-      {/* Indices */}
-      {hasIndices && (
-        <Section title="Indices">
-          <IndexStrip indices={snapshot.indianIndices} />
+      {/* Market Cues */}
+      {cues.length > 0 && (
+        <Section title="Market Cues">
+          <IndexStrip indices={cues} />
         </Section>
       )}
 
-      {/* Breadth & Flows */}
-      {hasBreadthOrFlows && (
-        <Section title="Breadth & Flows">
-          <div className="grid sm:grid-cols-2 gap-4">
-            <BreadthBar breadth={snapshot.breadth} />
-            <FlowsCard
-              fiiDii={snapshot.fiiDii}
-              vix={snapshot.vix}
-              giftNifty={snapshot.giftNifty}
-              bondYield={snapshot.bondYield}
-            />
-          </div>
+      {/* Market Sectors */}
+      {sectors.length > 0 && (
+        <Section title="Market Sectors">
+          <IndexStrip indices={sectors} />
         </Section>
       )}
 
-      {/* Sectors */}
-      {hasSectors && (
-        <Section title="Sectors">
-          <SectorHeatmap sectors={snapshot.sectorRanking} />
-        </Section>
-      )}
-
-      {/* Top Movers */}
-      {hasMovers && (
-        <Section title="Top Movers">
+      {/* Top Gainers & Losers (top 5) */}
+      {(topGainers.length > 0 || topLosers.length > 0) && (
+        <Section title="Top Gainers & Losers">
           <div className="grid lg:grid-cols-2 gap-6">
-            <MoversTable title="Top Gainers" rows={snapshot.topGainers} />
-            <MoversTable title="Top Losers" rows={snapshot.topLosers} />
-          </div>
-        </Section>
-      )}
-
-      {/* Most Active */}
-      {hasMostActive && (
-        <Section title="Most Active">
-          <MoversTable title="Most Active" rows={snapshot.mostActive} />
-        </Section>
-      )}
-
-      {/* Near 52-Week High */}
-      {hasNear52wHigh && (
-        <Section title="Near 52-Week High" count={snapshot.near52wHigh.length}>
-          <div className="divide-y divide-[var(--color-hairline)]">
-            {snapshot.near52wHigh.map((item) => (
-              <div key={item.ticker} className="flex items-center justify-between py-2">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                    {ticker(item.ticker)}
-                  </span>
-                  <span className="font-sans text-sm text-[var(--color-muted)] truncate max-w-[160px]">
-                    {item.name}
-                  </span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm tabular-nums text-[var(--color-ink)]">
-                    {item.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </span>
-                  <span className="font-mono text-sm tabular-nums" style={{ color: 'var(--color-bearish)' }}>
-                    -{item.pctFromHigh.toFixed(2)}% from high
-                  </span>
-                </div>
+            {topGainers.length > 0 && (
+              <div>
+                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bullish)] mb-2">
+                  Top Gainers
+                </h3>
+                <MoversTable title="Top Gainers" rows={topGainers} />
               </div>
-            ))}
-          </div>
-        </Section>
-      )}
-
-      {/* Near 52-Week Low */}
-      {hasNear52wLow && (
-        <Section title="Near 52-Week Low" count={snapshot.near52wLow.length}>
-          <div className="divide-y divide-[var(--color-hairline)]">
-            {snapshot.near52wLow.map((item) => (
-              <div key={item.ticker} className="flex items-center justify-between py-2">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                    {ticker(item.ticker)}
-                  </span>
-                  <span className="font-sans text-sm text-[var(--color-muted)] truncate max-w-[160px]">
-                    {item.name}
-                  </span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm tabular-nums text-[var(--color-ink)]">
-                    {item.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </span>
-                  <span className="font-mono text-sm tabular-nums" style={{ color: 'var(--color-bullish)' }}>
-                    +{item.pctFromLow.toFixed(2)}% from low
-                  </span>
-                </div>
+            )}
+            {topLosers.length > 0 && (
+              <div>
+                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bearish)] mb-2">
+                  Top Losers
+                </h3>
+                <MoversTable title="Top Losers" rows={topLosers} />
               </div>
-            ))}
+            )}
           </div>
         </Section>
       )}
 
-      {/* Volume Shockers */}
-      {hasVolumeShockers && (
-        <Section title="Volume Shockers" count={snapshot.volumeShockers.length}>
-          <div className="divide-y divide-[var(--color-hairline)]">
-            {snapshot.volumeShockers.map((item) => (
-              <div key={item.ticker} className="flex items-center justify-between py-2">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                    {ticker(item.ticker)}
-                  </span>
-                  <span className="font-sans text-sm text-[var(--color-muted)] truncate max-w-[160px]">
-                    {item.name}
-                  </span>
-                </div>
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm tabular-nums text-[var(--color-ink)]">
-                    {item.volume >= 1_000_000
-                      ? `${(item.volume / 1_000_000).toFixed(2)}M`
-                      : item.volume >= 1_000
-                        ? `${(item.volume / 1_000).toFixed(1)}K`
-                        : item.volume.toLocaleString()}
-                  </span>
-                  <span className="font-mono text-sm tabular-nums text-[var(--color-brand)]">
-                    {item.ratio.toFixed(1)}× avg
-                  </span>
-                </div>
-              </div>
-            ))}
+      {/* 52-Week High & Low — always show both columns */}
+      {has52w && (
+        <Section title="52-Week High & Low">
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div>
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bullish)] mb-2">
+                Near 52-Week High
+              </h3>
+              <NearList rows={snapshot.near52wHigh} kind="high" />
+            </div>
+            <div>
+              <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bearish)] mb-2">
+                Near 52-Week Low
+              </h3>
+              <NearList rows={snapshot.near52wLow} kind="low" />
+            </div>
           </div>
         </Section>
       )}
 
-      {/* Global Cues */}
-      {hasGlobalCues && (
-        <Section title="Global Cues">
-          <GlobalCues
-            globalIndices={snapshot.globalIndices}
-            commodities={snapshot.commodities}
-            currencies={snapshot.currencies}
-          />
-        </Section>
-      )}
-
-      {/* Street Recommendations */}
-      {hasRecs && (
-        <Section title="Street Recommendations" count={snapshot.streetRecommendations.length}>
-          <RecommendationsList recs={snapshot.streetRecommendations} />
-        </Section>
-      )}
-
-      {/* News */}
-      {hasNews && (
-        <Section title="News">
-          <NewsList groups={snapshot.news} />
-        </Section>
-      )}
-
-      {/* Corporate Actions */}
-      {hasCorpActions && (
-        <Section title="Corporate Actions" count={snapshot.corporateActions.length}>
-          <CorpActionsList actions={snapshot.corporateActions} />
+      {/* FII / DII Activity */}
+      {snapshot.fiiDii && (
+        <Section title="FII / DII Activity">
+          <div className="grid grid-cols-2 gap-4 max-w-md">
+            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">FII Net</p>
+              <p
+                className="font-mono text-xl tabular-nums"
+                style={{ color: snapshot.fiiDii.fiiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
+              >
+                {formatCrore(snapshot.fiiDii.fiiNet)}
+              </p>
+            </div>
+            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">DII Net</p>
+              <p
+                className="font-mono text-xl tabular-nums"
+                style={{ color: snapshot.fiiDii.diiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
+              >
+                {formatCrore(snapshot.fiiDii.diiNet)}
+              </p>
+            </div>
+          </div>
+          <p className="font-mono text-xs text-[var(--color-faint)] mt-2">As of {snapshot.fiiDii.asOf}</p>
         </Section>
       )}
     </div>

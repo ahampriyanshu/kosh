@@ -203,14 +203,9 @@ function renderShell(options: {
             ${options.children}
             <tr>
               <td class="email-pad" style="padding:24px 32px 28px 32px;color:${colors.faint};font-size:12px;line-height:18px;border-top:1px solid ${colors.border}">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-                  <tr>
-                    <td style="${font};color:${colors.faint};font-size:12px;line-height:18px">Kosh</td>
-                    <td class="email-footer-link" align="right" style="${font};color:${colors.faint};font-size:12px;line-height:18px">
-                      <a href="https://ahampriyanshu.com" style="color:${colors.link};text-decoration:none">ahampriyanshu.com</a>
-                    </td>
-                  </tr>
-                </table>
+                <p style="${font};margin:0;color:${colors.faint};font-size:12px;line-height:18px">
+                  made by <a href="https://ahampriyanshu.com" style="color:${colors.link};text-decoration:none;font-weight:700">ahampriyanshu</a>
+                </p>
               </td>
             </tr>
           </table>
@@ -299,7 +294,7 @@ export function renderDailyEmail(content: DailyContent): string {
 
 export function renderWeeklyEmail(content: WeeklyContent, period: string): string {
   return renderShell({
-    title: `Weekly — ${period}`,
+    title: 'Weekly Outlook',
     eyebrow: `Week ${period}`,
     preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${period}`,
     children:
@@ -311,7 +306,7 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
 
 export function renderMonthlyEmail(content: MonthlyContent, period: string): string {
   return renderShell({
-    title: `Monthly — ${period}`,
+    title: 'Monthly Digest',
     eyebrow: `Month ${period}`,
     preheader: content.macroThemes.slice(0, 3).join('; ') || `Kosh Monthly ${period}`,
     children:
@@ -349,7 +344,7 @@ export function renderRetroEmail(content: RetroContent): string {
     .join('');
 
   return renderShell({
-    title: 'Mid-Session',
+    title: 'Daily Retro',
     eyebrow: formatDisplayDate(content.date),
     preheader: content.summary,
     children:
@@ -401,7 +396,7 @@ export function renderRecapEmail(content: RecapContent, title: string): string {
 
   return renderShell({
     title,
-    eyebrow: `Recap — ${escapeHtml(content.period)}`,
+    eyebrow: content.period,
     preheader: content.summary || title,
     children:
       section(

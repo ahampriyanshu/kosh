@@ -74,6 +74,7 @@ describe('runRetro', () => {
     expect(first.type).toBe('retro');
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Daily Retro', expect.any(String));
     expect(second.emailSent).toBe(true);
   });
 

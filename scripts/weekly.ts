@@ -21,7 +21,7 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
     content, checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(`Kosh Weekly — ${period}`, renderWeeklyEmail(content, period));
+  await sendReportEmail('Kosh Weekly Outlook', renderWeeklyEmail(content, period));
   await writeReport({ ...base, emailSent: true });
   console.log(`Weekly ${base.id} written and emailed.`);
 }

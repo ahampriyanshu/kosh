@@ -67,7 +67,7 @@ export async function runRecap(now: Date = new Date()): Promise<void> {
   };
   await writeReport({ ...base, emailSent: false });
   await appendLedgerEntry(month, ledgerEntry);
-  await sendReportEmail(`Kosh Recap — ${weekly.dateKey} (${hits}/${total} hit)`, renderRecapEmail(recapContent, `Kosh Weekly Recap — ${weekly.dateKey}`));
+  await sendReportEmail('Kosh Weekly Recap', renderRecapEmail(recapContent, 'Weekly Recap'));
   await writeReport({ ...base, emailSent: true });
   console.log(`Recap ${base.id} written and emailed (${hits}/${total} hit).`);
 }

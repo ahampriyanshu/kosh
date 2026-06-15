@@ -4,12 +4,10 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const NAV_ITEMS = [
-  { href: '/', label: 'Today' },
-  { href: '/research', label: 'Research' },
   { href: '/reports', label: 'Reports' },
   { href: '/scorecard', label: 'Scorecard' },
+  { href: '/research', label: 'Research' },
   { href: '/portfolio', label: 'Portfolio' },
-  { href: '/alerts', label: 'Alerts' },
 ];
 
 export function NavBar() {
@@ -18,8 +16,7 @@ export function NavBar() {
   return (
     <nav aria-label="Main navigation" className="main-nav">
       {NAV_ITEMS.map(({ href, label }) => {
-        const isActive =
-          href === '/' ? pathname === '/' : pathname.startsWith(href);
+        const isActive = pathname.startsWith(href);
         return (
           <Link
             key={href}

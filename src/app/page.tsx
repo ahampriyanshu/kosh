@@ -1,13 +1,9 @@
 import { getLatest } from '../lib/reports';
 import type { DailyContent, RetroContent } from '../../lib/schemas';
 import { MarketDashboard } from '../components/market/MarketDashboard';
+import { NewsDigest } from '../components/market/NewsDigest';
+import { Section } from '../components/market/Figure';
 import { SeverityBadge } from '../components/SeverityBadge';
-
-const MASTHEAD_ITEMS = [
-  { type: 'weekly', label: 'Weekly Outlook' },
-  { type: 'monthly', label: 'Monthly Outlook' },
-  { type: 'recap', label: 'Weekly Recap' },
-] as const;
 
 export default async function TodayPage() {
   const [daily, retro, weekly, monthly, recap] = await Promise.all([
@@ -37,14 +33,29 @@ export default async function TodayPage() {
     <div>
       {/* Page header */}
       <div className="mb-8">
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Indian Market
-        </p>
         <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
           Today
         </h1>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
+
+      {/* Masthead row: links to latest weekly / monthly / recap */}
+      {mastheadReports.length > 0 && (
+        <div className="grid sm:grid-cols-3 gap-3 mb-10">
+          {mastheadReports.map(({ type, label, report }) => (
+            <a
+              key={type}
+              href={`/reports/${type}/${report!.dateKey}`}
+              className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-3 hover:border-[var(--color-brand)] transition-colors block"
+            >
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-1">
+                {label}
+              </p>
+              <p className="font-mono text-sm text-[var(--color-ink)]">{report!.dateKey}</p>
+            </a>
+          ))}
+        </div>
+      )}
 
       {/* Mid-session alerts strip (today only) */}
       {midContent && midContent.alerts.length > 0 && (
@@ -76,44 +87,21 @@ export default async function TodayPage() {
         </section>
       )}
 
-      {/* Masthead row: links to latest weekly / monthly / recap */}
-      {mastheadReports.length > 0 && (
-        <div className="grid sm:grid-cols-3 gap-3 mb-10">
-          {mastheadReports.map(({ type, label, report }) => (
-            <a
-              key={type}
-              href={`/reports/${type}/${report!.dateKey}`}
-              className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-3 hover:border-[var(--color-brand)] transition-colors block"
-            >
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-1">
-                {label}
-              </p>
-              <p className="font-mono text-sm text-[var(--color-ink)]">{report!.dateKey}</p>
-            </a>
-          ))}
-        </div>
-      )}
-
       {/* Main dashboard */}
       {dailyContent ? (
         <div>
-          {/* Outlook lede */}
-          <p className="text-[var(--color-ink)] leading-relaxed mb-6">{dailyContent.outlook}</p>
-
-          {/* Key takeaways */}
-          {dailyContent.keyTakeaways.length > 0 && (
-            <ul className="space-y-2 mb-8">
-              {dailyContent.keyTakeaways.map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-                  <span className="text-sm text-[var(--color-muted)] leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          )}
+          {/* Small summary */}
+          <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-2">{dailyContent.outlook}</p>
 
           {/* Market dashboard */}
           <MarketDashboard snapshot={dailyContent.snapshot} />
+
+          {/* News — single section, theme-based headlines */}
+          {dailyContent.snapshot.news.some((g) => g.items.length > 0) && (
+            <Section title="News">
+              <NewsDigest groups={dailyContent.snapshot.news} />
+            </Section>
+          )}
         </div>
       ) : (
         <div className="py-20 text-center">

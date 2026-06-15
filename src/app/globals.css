@@ -219,9 +219,9 @@ select {
 }
 
 .header-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  justify-content: space-between;
   gap: var(--spacing-6);
 }
 
@@ -230,6 +230,7 @@ select {
   flex-direction: column;
   gap: 0.125rem;
   min-width: 11rem;
+  justify-self: start;
 }
 
 .brand-name {
@@ -250,7 +251,9 @@ select {
   gap: var(--spacing-7);
   align-items: center;
   justify-content: center;
-  flex: 1;
+  justify-self: center;
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .nav-link {
@@ -266,6 +269,7 @@ select {
   text-decoration: none;
   text-transform: capitalize;
   transition: color 0.2s ease;
+  flex: 0 0 auto;
   white-space: nowrap;
 }
 
@@ -278,20 +282,13 @@ select {
   font-weight: 600;
 }
 
-.header-meta {
-  color: var(--color-muted);
-  font-family: var(--font-jetbrains), Monaco, Menlo, "Courier New", monospace;
-  font-size: 0.75rem;
-  line-height: 1;
-  white-space: nowrap;
-}
-
 .header-actions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: var(--spacing-3);
-  min-width: 11rem;
+  min-width: 2.5rem;
+  justify-self: end;
 }
 
 .main-content {
@@ -524,29 +521,28 @@ select {
 
 @media (max-width: 968px) {
   .header-container {
-    align-items: center;
-    flex-wrap: wrap;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: var(--spacing-4);
   }
 
   .brand-lockup {
-    order: 1;
+    min-width: 0;
   }
 
   .main-nav {
-    order: 3;
-    flex: 0 0 100%;
-    justify-content: flex-start;
+    justify-self: stretch;
+    justify-content: center;
     width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .header-actions {
-    order: 2;
     min-width: 0;
-    margin-left: auto;
   }
 
-  .header-meta {
+  .main-nav::-webkit-scrollbar {
     display: none;
   }
 
@@ -572,14 +568,7 @@ select {
   }
 
   .main-nav {
-    gap: var(--spacing-4);
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .main-nav::-webkit-scrollbar {
-    display: none;
+    gap: var(--spacing-3);
   }
 
   .nav-link {
@@ -606,11 +595,12 @@ select {
   }
 
   .main-nav {
-    gap: var(--spacing-3);
+    justify-content: flex-start;
+    gap: var(--spacing-2);
   }
 
   .nav-link {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
   }
 
   .footer-left {

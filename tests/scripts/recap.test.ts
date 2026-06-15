@@ -40,6 +40,7 @@ describe('runRecap', () => {
     expect(rep.content.hits).toBe(1);
     expect(rep.content.total).toBe(1);
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Weekly Recap', expect.any(String));
   });
   it('skips gracefully when there is no prior weekly', async () => {
     h.readManifest.mockResolvedValue({ reports: [], latest: {} });

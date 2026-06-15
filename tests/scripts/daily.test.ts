@@ -39,6 +39,7 @@ describe('runDaily', () => {
     expect(first.content.snapshot.window).toBe('1d');
     expect(first.content.outlook).toBe('steady');
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Daily Brief', expect.any(String));
     expect(h.deleteFeed).toHaveBeenCalledTimes(1);            // cleanup last
   });
 });

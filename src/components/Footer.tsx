@@ -20,9 +20,9 @@ const footerSections = [
   {
     title: 'Reports',
     links: [
-      { label: 'Today', href: '/' },
+      { label: 'Dashboard', href: '/' },
       { label: 'Archive', href: '/reports' },
-      { label: 'Alerts', href: '/alerts' },
+      { label: 'Scorecard', href: '/scorecard' },
     ],
   },
   {
@@ -37,8 +37,8 @@ const footerSections = [
     title: 'Workflow',
     links: [
       { label: 'Daily Brief', href: '/reports' },
-      { label: 'Mid-Session', href: '/alerts' },
       { label: 'Weekly Recap', href: '/reports' },
+      { label: 'Monthly Outlook', href: '/reports' },
     ],
   },
 ];
