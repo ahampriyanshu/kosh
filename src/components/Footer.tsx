@@ -29,7 +29,7 @@ const footerSections = [
     title: 'Research',
     links: [
       { label: 'Stock Research', href: '/research' },
-      { label: 'Watchlist', href: '/watchlist' },
+      { label: 'Portfolio', href: '/portfolio' },
       { label: 'Data Manifest', href: '/reports' },
     ],
   },
