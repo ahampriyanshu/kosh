@@ -18,36 +18,27 @@ import {
   InternalsSliceSchema,
 } from '../../lib/schemas';
 
+const validDailySnapshot = {
+  asOf: '2026-06-14T02:30:00.000Z', window: '1d',
+  indianIndices: [], globalIndices: [], commodities: [], currencies: [],
+  topGainers: [], topLosers: [], mostActive: [], near52wHigh: [], near52wLow: [],
+  volumeShockers: [], sectorRanking: [], news: [], streetRecommendations: [], corporateActions: [],
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+};
+
 describe('schemas', () => {
   const validDaily = {
-    date: '2026-06-14',
-    marketOutlook: 'Nifty flat amid global cues.',
-    stocksToWatch: [
-      { ticker: 'TCS.NS', name: 'TCS', reason: 'breakout', signal: 'bullish' },
-    ],
-    exitSignals: [{ ticker: 'INFY.NS', reason: 'weak guidance' }],
-    topRecommendation: {
-      ticker: 'RELIANCE.NS',
-      action: 'buy',
-      reasoning: 'oversold + positive news',
-      confidence: 0.7,
-    },
-    sectorMovers: [{ sector: 'IT', note: 'recovering' }],
-    fiiDiiSentiment: 'FIIs net buyers',
+    snapshot: validDailySnapshot,
+    outlook: 'Nifty flat amid global cues.',
+    keyTakeaways: ['Markets steady', 'IT leading'],
   };
 
   it('accepts valid daily content', () => {
     expect(DailyContentSchema.parse(validDaily)).toBeTruthy();
   });
 
-  it('rejects confidence outside 0..1', () => {
-    const bad = { ...validDaily, topRecommendation: { ...validDaily.topRecommendation, confidence: 2 } };
-    expect(() => DailyContentSchema.parse(bad)).toThrow();
-  });
-
-  it('rejects more than 5 stocks to watch', () => {
-    const six = Array.from({ length: 6 }, () => ({ ticker: 'X.NS', name: 'X', reason: 'r', signal: 'neutral' }));
-    expect(() => DailyContentSchema.parse({ ...validDaily, stocksToWatch: six })).toThrow();
+  it('rejects daily content missing snapshot', () => {
+    expect(() => DailyContentSchema.parse({ outlook: 'steady', keyTakeaways: ['a'] })).toThrow();
   });
 
   it('validates a full report envelope', () => {

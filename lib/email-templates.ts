@@ -2,9 +2,12 @@ import type {
   AlertSeverity,
   RetroContent,
   DailyContent,
+  WeeklyContent,
+  MonthlyContent,
   RecapContent,
   ResearchContent,
   Signal,
+  MarketSnapshot,
 } from './schemas';
 
 const font = `font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
@@ -218,60 +221,104 @@ function renderShell(options: {
 </html>`;
 }
 
-export function renderDailyEmail(content: DailyContent): string {
-  const rec = content.topRecommendation;
-  const watchCards = content.stocksToWatch.map((stock) =>
-    card(
-      tickerLine(stock.ticker, stock.name, ` <span style="margin-left:6px">${signalBadge(stock.signal)}</span>`) +
-        paragraph(stock.reason),
-    ),
-  );
-  const sectors = content.sectorMovers
+function indexTable(snapshot: MarketSnapshot): string {
+  if (!snapshot.indianIndices.length) return paragraph('No index data available.');
+  const rows = snapshot.indianIndices
     .map(
-      (item) => `
+      (i) => `
         <tr>
-          <td style="${font};padding:8px 14px 8px 0;color:${colors.link};font-size:12px;line-height:18px;font-weight:800;text-transform:uppercase;vertical-align:top">${escapeHtml(item.sector)}</td>
-          <td style="${font};padding:8px 0;color:${colors.muted};font-size:14px;line-height:22px;vertical-align:top">${text(item.note)}</td>
+          <td style="${font};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px;vertical-align:top">${escapeHtml(i.name)}</td>
+          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px;vertical-align:top;white-space:nowrap">${escapeHtml(i.ltp.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:8px 0;font-size:14px;line-height:20px;vertical-align:top;white-space:nowrap;color:${i.changePct >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(i.changePct >= 0 ? '+' : '')}${escapeHtml(i.changePct.toFixed(2))}%</td>
         </tr>
       `,
     )
     .join('');
-  const exits = content.exitSignals.length
-    ? section(
-        'Exit Signals',
-        `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${content.exitSignals
-          .map(
-            (item) => `
-              <tr>
-                <td style="${mono};padding:6px 14px 6px 0;color:${colors.bearish};font-size:14px;font-weight:800;vertical-align:top">${escapeHtml(shortTicker(item.ticker))}</td>
-                <td style="${font};padding:6px 0;color:${colors.muted};font-size:14px;line-height:22px;vertical-align:top">${text(item.reason)}</td>
-              </tr>
-            `,
-          )
-          .join('')}</table>`,
-      )
-    : '';
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+    <tr>
+      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Index</th>
+      <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">LTP</th>
+      <th align="right" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
+    </tr>
+    ${rows}
+  </table>`;
+}
 
+function betRows(bets: Array<{ ticker: string; name?: string; action: string; signal: string; confidence: number; thesis: string }>): string {
+  if (!bets.length) return paragraph('No bets for this period.');
+  const rows = bets
+    .map(
+      (b) => `
+        <tr>
+          <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:800;vertical-align:top">${escapeHtml(shortTicker(b.ticker))}</td>
+          <td style="${font};padding:8px 10px 8px 0;vertical-align:top">${actionBadge(b.action)}</td>
+          <td style="${font};padding:8px 10px 8px 0;vertical-align:top">${signalBadge(b.signal as Signal)}</td>
+          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.faint};font-size:12px;vertical-align:top;white-space:nowrap">${escapeHtml(confidencePct(b.confidence))}</td>
+          <td style="${font};padding:8px 0;color:${colors.muted};font-size:13px;line-height:19px;vertical-align:top">${text(b.thesis)}</td>
+        </tr>
+      `,
+    )
+    .join('');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+    <tr>
+      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Ticker</th>
+      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Action</th>
+      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Signal</th>
+      <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Conf.</th>
+      <th align="left" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Thesis</th>
+    </tr>
+    ${rows}
+  </table>`;
+}
+
+function bulletList(items: string[]): string {
+  if (!items.length) return paragraph('Nothing to report.');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${items
+    .map(
+      (item) => `
+        <tr>
+          <td style="${font};padding:0 8px 8px 0;color:${colors.link};font-size:15px;line-height:22px;vertical-align:top">&#x2022;</td>
+          <td style="${font};padding:0 0 8px 0;color:${colors.muted};font-size:15px;line-height:22px;vertical-align:top">${text(item)}</td>
+        </tr>
+      `,
+    )
+    .join('')}</table>`;
+}
+
+export function renderDailyEmail(content: DailyContent): string {
   return renderShell({
     title: 'Daily Brief',
-    eyebrow: formatDisplayDate(content.date),
-    preheader: content.marketOutlook,
+    eyebrow: formatDisplayDate(content.snapshot.asOf.slice(0, 10)),
+    preheader: content.outlook,
     children:
-      section('Market Outlook', paragraph(content.marketOutlook, colors.text)) +
-      section(
-        'Top Recommendation',
-        card(
-          tickerLine(rec.ticker, undefined, ` <span style="margin-left:8px">${actionBadge(rec.action)}</span> <span style="${mono};margin-left:8px;color:${colors.faint};font-size:12px">Confidence: ${confidencePct(rec.confidence)}</span>`) +
-            paragraph(rec.reasoning),
-          colors.link,
-        ),
-      ) +
-      section('Stocks to Watch', `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cardStack(watchCards)}</table>`) +
-      section('FII / DII Flow', paragraph(content.fiiDiiSentiment)) +
-      (sectors
-        ? section('Sector Movers', `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${sectors}</table>`)
-        : '') +
-      exits,
+      section('Outlook', paragraph(content.outlook, colors.text)) +
+      section('Key Takeaways', bulletList(content.keyTakeaways)) +
+      section('Indian Indices', indexTable(content.snapshot)),
+  });
+}
+
+export function renderWeeklyEmail(content: WeeklyContent, period: string): string {
+  return renderShell({
+    title: `Weekly — ${period}`,
+    eyebrow: `Week ${period}`,
+    preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${period}`,
+    children:
+      section('Themes', bulletList(content.themes)) +
+      section('Positional Bets', betRows(content.positionalBets)) +
+      section('Indian Indices', indexTable(content.snapshot)),
+  });
+}
+
+export function renderMonthlyEmail(content: MonthlyContent, period: string): string {
+  return renderShell({
+    title: `Monthly — ${period}`,
+    eyebrow: `Month ${period}`,
+    preheader: content.macroThemes.slice(0, 3).join('; ') || `Kosh Monthly ${period}`,
+    children:
+      section('Sector Insights', bulletList(content.sectorInsights)) +
+      section('Macro Themes', bulletList(content.macroThemes)) +
+      section('Mid-Term Bets', betRows(content.midTermBets)) +
+      section('Indian Indices', indexTable(content.snapshot)),
   });
 }
 

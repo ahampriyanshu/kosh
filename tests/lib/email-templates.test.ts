@@ -4,31 +4,44 @@ import {
   formatDisplayDate,
   renderRetroEmail,
   renderDailyEmail,
+  renderWeeklyEmail,
+  renderMonthlyEmail,
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
-import type { RetroContent, DailyContent, RecapContent, ResearchContent } from '../../lib/schemas';
+import type { RetroContent, DailyContent, WeeklyContent, MonthlyContent, RecapContent, ResearchContent } from '../../lib/schemas';
+
+const sampleSnapshot = {
+  asOf: '2026-06-15T02:30:00.000Z', window: '1d' as const,
+  indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 23622.9, changePct: 1.99 }],
+  globalIndices: [], commodities: [], currencies: [], topGainers: [], topLosers: [],
+  mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [],
+  news: [], streetRecommendations: [], corporateActions: [],
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+};
 
 const dailyContent: DailyContent = {
-  date: '2026-06-14',
-  marketOutlook: 'Banks lead while <script>alert("x")</script> stays risky.',
-  stocksToWatch: [
-    {
-      ticker: 'TCS.NS',
-      name: 'Tata Consultancy Services',
-      reason: 'Breakout & relative strength.',
-      signal: 'bullish',
-    },
+  snapshot: sampleSnapshot,
+  outlook: 'Markets look steady with IT leading. <script>alert("x")</script>',
+  keyTakeaways: ['NIFTY 50 up 1.99%', 'IT sector leading', 'FII flows positive'],
+};
+
+const weeklyContent: WeeklyContent = {
+  snapshot: { ...sampleSnapshot, window: '7d' as const },
+  themes: ['Rotation into defensives', 'IT earnings season', 'Global rate cuts expected'],
+  positionalBets: [
+    { ticker: 'TCS.NS', name: 'TCS', thesis: 'Breakout on earnings', action: 'buy', signal: 'bullish', confidence: 0.72 },
   ],
-  exitSignals: [{ ticker: 'HDFCBANK.NS', reason: 'Lost the 50DMA <support> zone.' }],
-  topRecommendation: {
-    ticker: 'RELIANCE.NS',
-    action: 'buy',
-    reasoning: 'Risk reward is clean & volume confirms.',
-    confidence: 0.64,
-  },
-  sectorMovers: [{ sector: 'IT & Services', note: 'Defensives are firm.' }],
-  fiiDiiSentiment: 'FII selling moderated.',
+};
+
+const monthlyContent: MonthlyContent = {
+  snapshot: { ...sampleSnapshot, window: '1mo' as const },
+  sectorInsights: ['IT outperforming broader market', 'Banks consolidating'],
+  macroThemes: ['Rate cut cycle beginning', 'INR stabilising'],
+  midTermBets: [
+    { ticker: 'INFY.NS', name: 'Infosys', thesis: 'Re-rating on margin expansion', action: 'buy', signal: 'bullish', confidence: 0.65 },
+  ],
+  ledgerRollup: null,
 };
 
 const midSessionContent: RetroContent = {
@@ -120,14 +133,43 @@ describe('email templates', () => {
     expect(html).toContain('@media only screen and (max-width: 600px)');
     expect(html).toContain('Kosh');
     expect(html).toContain('Daily Brief');
-    expect(html).toContain('14th June, 2026');
-    expect(html).not.toContain('Daily Brief - 2026-06-14');
-    expect(html).toContain('Market Outlook');
-    expect(html).toContain('Top Recommendation');
-    expect(html).toContain('FII / DII Flow');
-    expect(html).toContain('Exit Signals');
+    expect(html).toContain('15th June, 2026');
+    expect(html).toContain('Outlook');
+    expect(html).toContain('Key Takeaways');
+    expect(html).toContain('Indian Indices');
+    expect(html).toContain('NIFTY 50');
     expect(html).toContain('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
     expect(html).not.toContain('<script>alert');
+  });
+
+  it('renders a weekly email with themes, bets, and index table', () => {
+    const html = renderWeeklyEmail(weeklyContent, '2026-W25');
+
+    expect(html).toContain('<!doctype html>');
+    expect(html).toContain('Weekly');
+    expect(html).toContain('2026-W25');
+    expect(html).toContain('Themes');
+    expect(html).toContain('Rotation into defensives');
+    expect(html).toContain('Positional Bets');
+    expect(html).toContain('TCS');
+    expect(html).toContain('Indian Indices');
+    expect(html).toContain('NIFTY 50');
+  });
+
+  it('renders a monthly email with sector insights, macro themes, bets, and index table', () => {
+    const html = renderMonthlyEmail(monthlyContent, '2026-06');
+
+    expect(html).toContain('<!doctype html>');
+    expect(html).toContain('Monthly');
+    expect(html).toContain('2026-06');
+    expect(html).toContain('Sector Insights');
+    expect(html).toContain('IT outperforming broader market');
+    expect(html).toContain('Macro Themes');
+    expect(html).toContain('Rate cut cycle beginning');
+    expect(html).toContain('Mid-Term Bets');
+    expect(html).toContain('INFY');
+    expect(html).toContain('Indian Indices');
+    expect(html).toContain('NIFTY 50');
   });
 
   it('renders mid-session alerts and portfolio scan details', () => {
