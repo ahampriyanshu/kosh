@@ -6,9 +6,9 @@ const TYPE_ORDER: ReportType[] = ['daily', 'retro', 'recap', 'weekly', 'monthly'
 const TYPE_HEADINGS: Record<ReportType, string> = {
   daily: 'Daily Briefs',
   retro: 'Mid-Session',
-  recap: 'Weekly Recap',
-  weekly: 'Weekly Recaps',
-  monthly: 'Monthly Recaps',
+  recap: 'Weekly Recaps',
+  weekly: 'Weekly Outlooks',
+  monthly: 'Monthly Outlooks',
   research: 'Research',
 };
 
