@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { mkdtemp, rm, access } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { readLedger, appendLedgerEntry } from '../../lib/ledger';
+import { readLedger, appendLedgerEntry, readAllLedgers } from '../../lib/ledger';
 import type { LedgerEntry } from '../../lib/schemas';
 
 let dir: string;
@@ -32,4 +32,15 @@ describe('ledger store', () => {
     await appendLedgerEntry('2026-06', entry('weekly-2026-W24'));
     expect((await readLedger('2026-06')).entries).toHaveLength(1);
   });
+});
+
+it('readAllLedgers returns every month newest-first', async () => {
+  const mk = (id: string) => ({ gradedOn: '2026-06-20', sourceReportId: id, bets: [], hits: 0, total: 0 });
+  await appendLedgerEntry('2026-05', mk('weekly-2026-W20'));
+  await appendLedgerEntry('2026-06', mk('weekly-2026-W24'));
+  const all = await readAllLedgers();
+  expect(all.map((l) => l.month)).toEqual(['2026-06', '2026-05']);
+});
+it('readAllLedgers is empty when no ledger dir exists', async () => {
+  expect(await readAllLedgers()).toEqual([]);
 });

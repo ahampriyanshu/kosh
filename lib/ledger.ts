@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { atomicWriteJson } from './storage';
 import { LedgerSchema, type Ledger, type LedgerEntry } from './schemas';
@@ -19,6 +19,25 @@ export async function readLedger(month: string): Promise<Ledger> {
     if ((e as NodeJS.ErrnoException)?.code === 'ENOENT') return { month, entries: [], summary: null };
     throw e;
   }
+}
+
+export async function readAllLedgers(): Promise<Ledger[]> {
+  const root = path.join(dataDir(), 'ledger');
+  let years: string[];
+  try {
+    years = await readdir(root);
+  } catch (e) {
+    if ((e as NodeJS.ErrnoException)?.code === 'ENOENT') return [];
+    throw e;
+  }
+  const months: string[] = [];
+  for (const y of years) {
+    let files: string[] = [];
+    try { files = await readdir(path.join(root, y)); } catch { continue; }
+    for (const f of files) if (f.endsWith('.json')) months.push(`${y}-${f.replace('.json', '')}`);
+  }
+  months.sort((a, b) => b.localeCompare(a)); // newest first
+  return Promise.all(months.map((m) => readLedger(m)));
 }
 
 export async function appendLedgerEntry(month: string, entry: LedgerEntry): Promise<void> {
