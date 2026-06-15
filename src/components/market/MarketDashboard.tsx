@@ -100,6 +100,33 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
 
   return (
     <div>
+      {/* FII / DII Activity */}
+      {snapshot.fiiDii && (
+        <Section title="FII / DII Activity">
+          <div className="grid grid-cols-2 gap-4 max-w-md">
+            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">FII Net</p>
+              <p
+                className="font-mono text-xl tabular-nums"
+                style={{ color: snapshot.fiiDii.fiiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
+              >
+                {formatCrore(snapshot.fiiDii.fiiNet)}
+              </p>
+            </div>
+            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">DII Net</p>
+              <p
+                className="font-mono text-xl tabular-nums"
+                style={{ color: snapshot.fiiDii.diiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
+              >
+                {formatCrore(snapshot.fiiDii.diiNet)}
+              </p>
+            </div>
+          </div>
+          <p className="font-mono text-xs text-[var(--color-faint)] mt-2">As of {snapshot.fiiDii.asOf}</p>
+        </Section>
+      )}
+
       {/* Market Cues */}
       {cues.length > 0 && (
         <Section title="Market Cues">
@@ -155,33 +182,6 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
               <NearList rows={snapshot.near52wLow} kind="low" />
             </div>
           </div>
-        </Section>
-      )}
-
-      {/* FII / DII Activity */}
-      {snapshot.fiiDii && (
-        <Section title="FII / DII Activity">
-          <div className="grid grid-cols-2 gap-4 max-w-md">
-            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">FII Net</p>
-              <p
-                className="font-mono text-xl tabular-nums"
-                style={{ color: snapshot.fiiDii.fiiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
-              >
-                {formatCrore(snapshot.fiiDii.fiiNet)}
-              </p>
-            </div>
-            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">DII Net</p>
-              <p
-                className="font-mono text-xl tabular-nums"
-                style={{ color: snapshot.fiiDii.diiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
-              >
-                {formatCrore(snapshot.fiiDii.diiNet)}
-              </p>
-            </div>
-          </div>
-          <p className="font-mono text-xs text-[var(--color-faint)] mt-2">As of {snapshot.fiiDii.asOf}</p>
         </Section>
       )}
     </div>

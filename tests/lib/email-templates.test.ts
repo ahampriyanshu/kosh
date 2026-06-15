@@ -128,10 +128,10 @@ describe('email templates', () => {
     expect(html).toContain('Kosh');
     expect(html).toContain('Daily Brief');
     expect(html).toContain('15th June, 2026');
-    expect(html).toContain('Outlook');
-    expect(html).toContain('Key Takeaways');
-    expect(html).toContain('Indian Indices');
+    expect(html).toContain('Summary');
+    expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
+    expect(html).not.toContain('Key Takeaways');
     expect(html).toContain('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
     expect(html).not.toContain('<script>alert');
   });

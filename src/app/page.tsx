@@ -93,15 +93,15 @@ export default async function TodayPage() {
           {/* Small summary */}
           <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-2">{dailyContent.outlook}</p>
 
-          {/* Market dashboard */}
-          <MarketDashboard snapshot={dailyContent.snapshot} />
-
           {/* News — single section, theme-based headlines */}
           {dailyContent.snapshot.news.some((g) => g.items.length > 0) && (
             <Section title="News">
               <NewsDigest groups={dailyContent.snapshot.news} />
             </Section>
           )}
+
+          {/* Market dashboard */}
+          <MarketDashboard snapshot={dailyContent.snapshot} />
         </div>
       ) : (
         <div className="py-20 text-center">

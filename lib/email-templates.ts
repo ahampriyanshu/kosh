@@ -280,15 +280,241 @@ function bulletList(items: string[]): string {
     .join('')}</table>`;
 }
 
+// ---- Daily dashboard helpers (mirror the web MarketDashboard) ----
+
+interface QuoteRow {
+  name: string;
+  value: number;
+  changePct: number;
+}
+
+// Fixed display order — stable across reruns regardless of fetch order.
+const SECTOR_ORDER = [
+  'NIFTY BANK',
+  'NIFTY IT',
+  'NIFTY PHARMA',
+  'NIFTY AUTO',
+  'NIFTY METAL',
+  'NIFTY ENERGY',
+  'NIFTY REALTY',
+  'NIFTY FIN SERVICE',
+  'NIFTY FMCG',
+];
+
+const NEWS_THEME_ORDER = [
+  'macro_policy',
+  'global_cues',
+  'earnings',
+  'sectoral',
+  'corporate_actions',
+  'stocks_in_focus',
+] as const;
+
+const NEWS_LABELS: Record<(typeof NEWS_THEME_ORDER)[number], string> = {
+  macro_policy: 'Macro & Policy',
+  global_cues: 'Global Cues',
+  earnings: 'Earnings',
+  sectoral: 'Sectoral',
+  corporate_actions: 'Corporate Actions',
+  stocks_in_focus: 'Stocks in Focus',
+};
+
+function cueRows(s: MarketSnapshot): QuoteRow[] {
+  const indian = (name: string) => s.indianIndices.find((i) => i.name === name);
+  const global = (name: string) => s.globalIndices.find((i) => i.name === name);
+  const commodity = (name: string) => s.commodities.find((c) => c.name === name);
+
+  const rows: QuoteRow[] = [];
+  const nifty = indian('NIFTY 50');
+  if (nifty) rows.push({ name: 'NIFTY 50', value: nifty.ltp, changePct: nifty.changePct });
+  const sensex = indian('SENSEX');
+  if (sensex) rows.push({ name: 'SENSEX', value: sensex.ltp, changePct: sensex.changePct });
+  if (s.giftNifty) rows.push({ name: 'GIFT NIFTY', value: s.giftNifty.value, changePct: s.giftNifty.changePct });
+  const nasdaq = global('NASDAQ');
+  if (nasdaq) rows.push({ name: 'NASDAQ', value: nasdaq.ltp, changePct: nasdaq.changePct });
+  const gold = commodity('Gold');
+  if (gold) rows.push({ name: 'GOLD', value: gold.value, changePct: gold.changePct });
+  if (s.vix) rows.push({ name: 'INDIA VIX', value: s.vix.value, changePct: s.vix.changePct });
+  return rows;
+}
+
+function sectorRows(s: MarketSnapshot): QuoteRow[] {
+  return SECTOR_ORDER.map((name) => {
+    const q = s.indianIndices.find((i) => i.name === name);
+    return q ? { name, value: q.ltp, changePct: q.changePct } : null;
+  }).filter((r): r is QuoteRow => r !== null);
+}
+
+function formatCrore(value: number): string {
+  const sign = value > 0 ? '+' : value < 0 ? '−' : '';
+  return `${sign}${Math.abs(value).toLocaleString('en-IN')} cr`;
+}
+
+function subLabel(label: string, color: string): string {
+  return `<div style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${color};margin:0 0 6px 0">${escapeHtml(label)}</div>`;
+}
+
+function quoteTable(rows: QuoteRow[]): string {
+  if (!rows.length) return paragraph('No data available.');
+  const body = rows
+    .map(
+      (r) => `
+        <tr>
+          <td style="${font};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px">${escapeHtml(r.name)}</td>
+          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px;white-space:nowrap">${escapeHtml(r.value.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:8px 0;font-size:14px;line-height:20px;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(formatPct(r.changePct))}</td>
+        </tr>
+      `,
+    )
+    .join('');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+    <tr>
+      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Name</th>
+      <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Last</th>
+      <th align="right" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
+    </tr>
+    ${body}
+  </table>`;
+}
+
+function moversTable(rows: Array<{ ticker: string; name: string; ltp: number; changePct: number }>): string {
+  const body = rows
+    .map(
+      (r) => `
+        <tr>
+          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:800;white-space:nowrap">${escapeHtml(shortTicker(r.ticker))}</td>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px">${escapeHtml(r.name)}</td>
+          <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(formatPct(r.changePct))}</td>
+        </tr>
+      `,
+    )
+    .join('');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${body}</table>`;
+}
+
+function gainersLosersBlock(s: MarketSnapshot): string {
+  const gainers = s.topGainers.slice(0, 5);
+  const losers = s.topLosers.slice(0, 5);
+  let out = '';
+  if (gainers.length) out += subLabel('Top Gainers', colors.bullish) + moversTable(gainers);
+  if (gainers.length && losers.length) out += '<div style="height:16px;line-height:16px">&nbsp;</div>';
+  if (losers.length) out += subLabel('Top Losers', colors.bearish) + moversTable(losers);
+  return out;
+}
+
+function near52List(
+  rows: Array<{ ticker: string; name: string; ltp: number; pctFromHigh?: number; pctFromLow?: number }>,
+  kind: 'high' | 'low',
+): string {
+  if (!rows.length) {
+    return `<p style="${font};margin:0;color:${colors.faint};font-size:13px;line-height:20px">No stocks within 2% of their 52-week ${kind}.</p>`;
+  }
+  const color = kind === 'high' ? colors.bearish : colors.bullish;
+  const sign = kind === 'high' ? '−' : '+';
+  const body = rows
+    .map((r) => {
+      const pct = kind === 'high' ? r.pctFromHigh ?? 0 : r.pctFromLow ?? 0;
+      return `
+        <tr>
+          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:800;white-space:nowrap">${escapeHtml(shortTicker(r.ticker))}</td>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px">${escapeHtml(r.name)}</td>
+          <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${color}">${sign}${escapeHtml(pct.toFixed(2))}%</td>
+        </tr>
+      `;
+    })
+    .join('');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${body}</table>`;
+}
+
+function fiftyTwoBlock(s: MarketSnapshot): string {
+  return (
+    subLabel('Near 52-Week High', colors.bullish) +
+    near52List(s.near52wHigh, 'high') +
+    '<div style="height:16px;line-height:16px">&nbsp;</div>' +
+    subLabel('Near 52-Week Low', colors.bearish) +
+    near52List(s.near52wLow, 'low')
+  );
+}
+
+function fiiDiiBlock(fd: NonNullable<MarketSnapshot['fiiDii']>): string {
+  const cell = (label: string, val: number) => `
+    <td width="50%" style="padding:0;vertical-align:top">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border};border-radius:8px">
+        <tr>
+          <td style="padding:12px 14px">
+            <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.faint};margin:0 0 2px 0">${escapeHtml(label)}</div>
+            <div style="${mono};font-size:18px;font-weight:800;color:${val >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(formatCrore(val))}</div>
+          </td>
+        </tr>
+      </table>
+    </td>`;
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+      <tr>
+        ${cell('FII Net', fd.fiiNet)}
+        <td style="width:12px">&nbsp;</td>
+        ${cell('DII Net', fd.diiNet)}
+      </tr>
+    </table>
+    <p style="${mono};margin:6px 0 0 0;color:${colors.faint};font-size:12px;line-height:18px">As of ${escapeHtml(fd.asOf)}</p>`;
+}
+
+function newsDigest(groups: MarketSnapshot['news'], limit = 6): string {
+  const byCategory = new Map(groups.map((g) => [g.category, g.items]));
+  const picks: Array<{ category: (typeof NEWS_THEME_ORDER)[number]; item: MarketSnapshot['news'][number]['items'][number] }> = [];
+
+  let round = 0;
+  let added = true;
+  while (picks.length < limit && added) {
+    added = false;
+    for (const category of NEWS_THEME_ORDER) {
+      const items = byCategory.get(category);
+      if (items && items[round]) {
+        picks.push({ category, item: items[round] });
+        added = true;
+        if (picks.length >= limit) break;
+      }
+    }
+    round += 1;
+  }
+
+  if (!picks.length) return paragraph('No notable headlines.');
+
+  return picks
+    .map(
+      ({ category, item }) => `
+        <div style="padding:10px 0;border-bottom:1px solid ${colors.border}">
+          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.link};margin:0 0 2px 0">${escapeHtml(NEWS_LABELS[category])}</div>
+          <div style="${font};font-size:15px;font-weight:700;line-height:21px;color:${colors.text}">${escapeHtml(item.headline)}</div>
+          <div style="${mono};font-size:12px;line-height:18px;color:${colors.faint};margin-top:2px">${escapeHtml(item.source)}</div>
+        </div>
+      `,
+    )
+    .join('');
+}
+
 export function renderDailyEmail(content: DailyContent): string {
+  const s = content.snapshot;
+  const cues = cueRows(s);
+  const sectors = sectorRows(s);
+  const hasMovers = s.topGainers.length > 0 || s.topLosers.length > 0;
+  const has52w = s.near52wHigh.length > 0 || s.near52wLow.length > 0;
+  const hasNews = s.news.some((g) => g.items.length > 0);
+
+  const parts: string[] = [section('Summary', paragraph(content.outlook, colors.text))];
+  if (hasNews) parts.push(section('News', newsDigest(s.news)));
+  if (s.fiiDii) parts.push(section('FII / DII Activity', fiiDiiBlock(s.fiiDii)));
+  if (cues.length) parts.push(section('Market Cues', quoteTable(cues)));
+  if (sectors.length) parts.push(section('Market Sectors', quoteTable(sectors)));
+  if (hasMovers) parts.push(section('Top Gainers & Losers', gainersLosersBlock(s)));
+  if (has52w) parts.push(section('52-Week High & Low', fiftyTwoBlock(s)));
+
   return renderShell({
     title: 'Daily Brief',
-    eyebrow: formatDisplayDate(content.snapshot.asOf.slice(0, 10)),
+    eyebrow: formatDisplayDate(s.asOf.slice(0, 10)),
     preheader: content.outlook,
-    children:
-      section('Outlook', paragraph(content.outlook, colors.text)) +
-      section('Key Takeaways', bulletList(content.keyTakeaways)) +
-      section('Indian Indices', indexTable(content.snapshot)),
+    children: parts.join(''),
   });
 }
 
