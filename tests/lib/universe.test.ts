@@ -10,4 +10,10 @@ describe('getUniverse', () => {
     const tickers = u.map((e) => e.ticker);
     expect(new Set(tickers).size).toBe(tickers.length);
   });
+
+  it('covers a broad universe across many sectors', () => {
+    const u = getUniverse();
+    expect(u.length).toBeGreaterThanOrEqual(50);
+    expect(new Set(u.map((e) => e.sector)).size).toBeGreaterThanOrEqual(8);
+  });
 });
