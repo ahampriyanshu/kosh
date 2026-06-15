@@ -11,6 +11,8 @@ import {
   ReportTypeSchema,
   ResearchContentSchema,
   ResearchRequestSchema,
+  MarketSnapshotSchema,
+  InternalsSliceSchema,
 } from '../../lib/schemas';
 
 describe('schemas', () => {
@@ -221,5 +223,32 @@ describe('envelope dateKey', () => {
     const entry = { id: 'daily-2026-06-14', type: 'daily', date: '2026-06-14', path: 'reports/2026/06/daily/daily-2026-06-14.json', checksum: 'sha256:x' };
     expect(ManifestEntrySchema.safeParse(entry).success).toBe(false); // missing dateKey
     expect(ManifestEntrySchema.safeParse({ ...entry, dateKey: '2026-06-14' }).success).toBe(true);
+  });
+});
+
+describe('MarketSnapshotSchema', () => {
+  const minimal = {
+    asOf: '2026-06-15T02:30:00.000Z', window: '1d',
+    indianIndices: [], globalIndices: [], commodities: [], currencies: [],
+    topGainers: [], topLosers: [], mostActive: [], near52wHigh: [], near52wLow: [],
+    volumeShockers: [], sectorRanking: [], news: [], streetRecommendations: [], corporateActions: [],
+    giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+  };
+  it('accepts a minimal empty snapshot', () => {
+    expect(MarketSnapshotSchema.safeParse(minimal).success).toBe(true);
+  });
+  it('rejects an invalid window', () => {
+    expect(MarketSnapshotSchema.safeParse({ ...minimal, window: 'daily' }).success).toBe(false);
+  });
+  it('accepts a populated internals slice', () => {
+    const internals = {
+      topGainers: [{ ticker: 'TCS.NS', name: 'TCS', ltp: 3900, changePct: 4.2 }],
+      topLosers: [], mostActive: [{ ticker: 'SBIN.NS', name: 'SBI', ltp: 800, changePct: 1.1, volume: 1000000 }],
+      near52wHigh: [{ ticker: 'INFY.NS', name: 'Infosys', ltp: 1900, pctFromHigh: 0.5 }],
+      near52wLow: [], volumeShockers: [{ ticker: 'ITC.NS', name: 'ITC', volume: 5e6, avgVolume: 2e6, ratio: 2.5 }],
+      sectorRanking: [{ sector: 'IT', changePct: 2.3 }],
+      breadth: { advances: 30, declines: 18, unchanged: 2, adRatio: 1.67 },
+    };
+    expect(InternalsSliceSchema.safeParse(internals).success).toBe(true);
   });
 });

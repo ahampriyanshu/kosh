@@ -3,6 +3,14 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'data/reports/**'
+      - 'data/snapshots/**'
+      - 'data/ledger/**'
+      - 'src/**'
+      - 'lib/**'
+      - 'next.config.ts'
+      - 'package.json'
   workflow_dispatch: {}
 
 # Allow the GITHUB_TOKEN to deploy to Pages, and read the repo.

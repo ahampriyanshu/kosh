@@ -1,0 +1,36 @@
+name: Feed — news
+
+on:
+  schedule:
+    - cron: '30 0 * * 1-5'   # 06:00 IST Mon-Fri
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx tsx scripts/feed-news.ts
+        env:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+          KOSH_GOOGLE_MODEL: ${{ vars.KOSH_GOOGLE_MODEL }}
+
+      - name: Commit slice
+        run: |
+          git config user.name "kosh-bot"
+          git config user.email "kosh-bot@users.noreply.github.com"
+          git pull --rebase --autostash
+          git add data/feed
+          git diff --staged --quiet || git commit -m "chore(feed): news $(date -u +%F)"
+          git push
