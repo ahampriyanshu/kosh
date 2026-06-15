@@ -1,5 +1,5 @@
 import type { MonthlyContent } from '../../lib/schemas';
-import { DigestView } from './DigestView';
+import { MarketDashboard } from './market/MarketDashboard';
 import { SignalBadge } from './SignalBadge';
 
 interface MonthlyViewProps {
@@ -142,13 +142,8 @@ export function MonthlyView({ content }: MonthlyViewProps) {
         </section>
       )}
 
-      {/* Snapshot digest */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-          Monthly Snapshot (30d)
-        </h2>
-        <DigestView snapshot={content.snapshot} />
-      </section>
+      {/* Market Dashboard */}
+      <MarketDashboard snapshot={content.snapshot} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { RetroContent } from '../../lib/schemas';
 import { SeverityBadge } from './SeverityBadge';
 import { Pct } from './Pct';
+import { ticker as tickerFn } from './market/Figure';
 
 interface RetroViewProps {
   content: RetroContent;
@@ -39,7 +40,7 @@ export function RetroView({ content }: RetroViewProps) {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
                       <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                        {alert.ticker.replace('.NS', '')}
+                        {tickerFn(alert.ticker)}
                       </span>
                       <span className="text-sm text-[var(--color-muted)]">{alert.name}</span>
                     </div>
@@ -94,7 +95,7 @@ export function RetroView({ content }: RetroViewProps) {
                     <td className="py-2.5 pr-4">
                       <div>
                         <span className="font-mono text-sm font-semibold text-[var(--color-ink)]">
-                          {ev.ticker.replace('.NS', '')}
+                          {tickerFn(ev.ticker)}
                         </span>
                         <div className="text-xs text-[var(--color-faint)] font-sans">{ev.name}</div>
                       </div>

@@ -1,58 +1,59 @@
 import { getLatest } from '../lib/reports';
 import type { DailyContent, RetroContent } from '../../lib/schemas';
-import { DailyView } from '../components/DailyView';
+import { MarketDashboard } from '../components/market/MarketDashboard';
 import { SeverityBadge } from '../components/SeverityBadge';
 
+const MASTHEAD_ITEMS = [
+  { type: 'weekly', label: 'Weekly Outlook' },
+  { type: 'monthly', label: 'Monthly Outlook' },
+  { type: 'recap', label: 'Weekly Recap' },
+] as const;
+
 export default async function TodayPage() {
-  const [daily, retro] = await Promise.all([
+  const [daily, retro, weekly, monthly, recap] = await Promise.all([
     getLatest('daily'),
     getLatest('retro'),
+    getLatest('weekly'),
+    getLatest('monthly'),
+    getLatest('recap'),
   ]);
 
-  if (!daily) {
-    return (
-      <div className="py-20 text-center">
-        <p className="font-display text-2xl text-[var(--color-faint)] mb-2">No briefing yet.</p>
-        <p className="text-sm text-[var(--color-faint)]">
-          The daily brief will appear here once generated.
-        </p>
-      </div>
-    );
-  }
-
-  const dailyContent = daily.content as DailyContent;
-
-  // Check if retro is from today
+  // Check if retro is from today (IST approximation)
   const today = new Date().toISOString().slice(0, 10);
   const midContent =
     retro && (retro.content as RetroContent).date === today
       ? (retro.content as RetroContent)
       : null;
 
+  const mastheadReports = [
+    { type: 'weekly', label: 'Weekly Outlook', report: weekly },
+    { type: 'monthly', label: 'Monthly Outlook', report: monthly },
+    { type: 'recap', label: 'Weekly Recap', report: recap },
+  ].filter((item) => item.report !== null);
+
+  const dailyContent = daily ? (daily.content as DailyContent) : null;
+
   return (
     <div>
       {/* Page header */}
       <div className="mb-8">
         <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Daily Brief
+          Indian Market
         </p>
         <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Today&rsquo;s Market Briefing
+          Today
         </h1>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
 
-      {/* Daily report */}
-      <DailyView content={dailyContent} generatedAt={daily.generatedAt} />
-
-      {/* Mid-session alerts (today only) */}
+      {/* Mid-session alerts strip (today only) */}
       {midContent && midContent.alerts.length > 0 && (
-        <section className="mt-12">
+        <section className="mb-8">
           <div className="mb-4 pb-2 border-b border-[var(--color-hairline)] flex items-center gap-3">
             <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
               Mid-Session Alerts
             </h2>
-            <span className="font-mono text-xs text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-2 py-0.5 rounded border border-[#F2D5CF]">
+            <span className="font-mono text-xs text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-2 py-0.5 rounded border border-[var(--color-bearish-bg)]">
               {midContent.alerts.length}
             </span>
           </div>
@@ -73,6 +74,54 @@ export default async function TodayPage() {
             ))}
           </div>
         </section>
+      )}
+
+      {/* Masthead row: links to latest weekly / monthly / recap */}
+      {mastheadReports.length > 0 && (
+        <div className="grid sm:grid-cols-3 gap-3 mb-10">
+          {mastheadReports.map(({ type, label, report }) => (
+            <a
+              key={type}
+              href={`/reports/${type}/${report!.dateKey}`}
+              className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-3 hover:border-[var(--color-brand)] transition-colors block"
+            >
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-1">
+                {label}
+              </p>
+              <p className="font-mono text-sm text-[var(--color-ink)]">{report!.dateKey}</p>
+            </a>
+          ))}
+        </div>
+      )}
+
+      {/* Main dashboard */}
+      {dailyContent ? (
+        <div>
+          {/* Outlook lede */}
+          <p className="text-[var(--color-ink)] leading-relaxed mb-6">{dailyContent.outlook}</p>
+
+          {/* Key takeaways */}
+          {dailyContent.keyTakeaways.length > 0 && (
+            <ul className="space-y-2 mb-8">
+              {dailyContent.keyTakeaways.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
+                  <span className="text-sm text-[var(--color-muted)] leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Market dashboard */}
+          <MarketDashboard snapshot={dailyContent.snapshot} />
+        </div>
+      ) : (
+        <div className="py-20 text-center">
+          <p className="font-display text-2xl text-[var(--color-faint)] mb-2">No briefing yet.</p>
+          <p className="text-sm text-[var(--color-faint)]">
+            The daily brief will appear here once generated.
+          </p>
+        </div>
       )}
     </div>
   );

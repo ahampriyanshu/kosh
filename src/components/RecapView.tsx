@@ -1,9 +1,6 @@
 import type { RecapContent } from '../../lib/schemas';
 import { VerificationBadge } from './VerificationBadge';
-
-function shortTicker(ticker: string): string {
-  return ticker.replace('.NS', '');
-}
+import { Pct, ticker as tickerFn } from './market/Figure';
 
 interface RecapViewProps {
   content: RecapContent;
@@ -61,24 +58,14 @@ export function RecapView({ content }: RecapViewProps) {
                       : bet.outcome === 'miss'
                       ? 'var(--color-bearish)'
                       : 'var(--color-muted)';
-                  const changePctColor =
-                    bet.changePct > 0
-                      ? 'var(--color-bullish)'
-                      : bet.changePct < 0
-                      ? 'var(--color-bearish)'
-                      : 'var(--color-muted)';
-                  const changePctStr =
-                    bet.changePct > 0
-                      ? `+${bet.changePct.toFixed(2)}%`
-                      : `${bet.changePct.toFixed(2)}%`;
 
                   return (
                     <tr key={`${bet.ticker}-${i}`} className="border-b border-[var(--color-hairline)] last:border-0">
                       <td className="py-3 pr-4">
                         <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                          {shortTicker(bet.ticker)}
+                          {tickerFn(bet.ticker)}
                         </span>
-                        {bet.name && bet.name !== shortTicker(bet.ticker) && (
+                        {bet.name && bet.name !== tickerFn(bet.ticker) && (
                           <span className="ml-1.5 text-xs text-[var(--color-muted)]">{bet.name}</span>
                         )}
                       </td>
@@ -98,13 +85,7 @@ export function RecapView({ content }: RecapViewProps) {
                                 : bet.action === 'sell'
                                 ? 'var(--color-bearish)'
                                 : 'var(--color-neutral)',
-                            border: `1px solid ${
-                              bet.action === 'buy'
-                                ? '#C8E6D8'
-                                : bet.action === 'sell'
-                                ? '#F2D5CF'
-                                : '#E2DFDC'
-                            }`,
+                            border: '1px solid var(--color-hairline)',
                           }}
                         >
                           {bet.action.toUpperCase()}
@@ -115,8 +96,8 @@ export function RecapView({ content }: RecapViewProps) {
                         {' → '}
                         {bet.exitRef.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
                       </td>
-                      <td className="py-3 pr-4 text-right font-mono text-sm font-semibold whitespace-nowrap" style={{ color: changePctColor }}>
-                        {changePctStr}
+                      <td className="py-3 pr-4 text-right whitespace-nowrap">
+                        <Pct value={bet.changePct} />
                       </td>
                       <td className="py-3">
                         <span className="font-sans text-xs font-semibold uppercase tracking-wider" style={{ color: outcomeColor }}>

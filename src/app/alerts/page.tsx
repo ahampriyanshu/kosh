@@ -1,6 +1,7 @@
 import { getReportsByType } from '../../lib/reports';
 import type { RetroContent } from '../../../lib/schemas';
 import { SeverityBadge } from '../../components/SeverityBadge';
+import { ticker as tickerFn } from '../../components/market/Figure';
 
 function formatDate(dateStr: string): string {
   try {
@@ -83,7 +84,7 @@ export default async function AlertsPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
                       <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                        {alert.ticker.replace('.NS', '')}
+                        {tickerFn(alert.ticker)}
                       </span>
                       <span className="text-sm text-[var(--color-muted)]">{alert.name}</span>
                       <time className="font-mono text-xs text-[var(--color-faint)] ml-auto shrink-0">

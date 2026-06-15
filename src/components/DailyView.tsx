@@ -1,5 +1,5 @@
 import type { DailyContent } from '../../lib/schemas';
-import { DigestView } from './DigestView';
+import { MarketDashboard } from './market/MarketDashboard';
 
 function formatIST(isoStr: string): string {
   try {
@@ -53,13 +53,8 @@ export function DailyView({ content, generatedAt }: DailyViewProps) {
         </section>
       )}
 
-      {/* Snapshot digest */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-          Market Snapshot
-        </h2>
-        <DigestView snapshot={content.snapshot} />
-      </section>
+      {/* Market Dashboard */}
+      <MarketDashboard snapshot={content.snapshot} />
     </div>
   );
 }
