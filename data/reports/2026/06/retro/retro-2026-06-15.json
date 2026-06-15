@@ -3,7 +3,7 @@
   "id": "retro-2026-06-15",
   "type": "retro",
   "dateKey": "2026-06-15",
-  "generatedAt": "2026-06-14T18:54:12.036Z",
+  "generatedAt": "2026-06-15T14:42:09.786Z",
   "sourceData": {
     "tickers": [
       "RELIANCE.NS",
@@ -13,13 +13,13 @@
       "ICICIBANK.NS"
     ],
     "priceSnapshot": {
-      "RELIANCE.NS": 1296.4,
-      "TCS.NS": 2161.1,
-      "INFY.NS": 1118.5,
-      "HDFCBANK.NS": 771.95,
-      "ICICIBANK.NS": 1340
+      "RELIANCE.NS": 1307,
+      "TCS.NS": 2162,
+      "INFY.NS": 1134.9,
+      "HDFCBANK.NS": 777.35,
+      "ICICIBANK.NS": 1327.6
     },
-    "searchTimestamp": "2026-06-14T18:54:12.036Z"
+    "searchTimestamp": "2026-06-15T14:42:09.786Z"
   },
   "content": {
     "date": "2026-06-15",
@@ -27,42 +27,42 @@
       {
         "ticker": "RELIANCE.NS",
         "name": "Reliance Industries",
-        "price": 1296.4,
-        "changePct": 2.64,
-        "note": "+2.6% vs prev close, vol 0.7x avg \u2014 flags: below 50DMA support"
+        "price": 1307,
+        "changePct": 1.08,
+        "note": "+1.1% vs prev close, vol 1.1x avg — flags: below 50DMA support"
       },
       {
         "ticker": "TCS.NS",
         "name": "Tata Consultancy Services",
-        "price": 2161.1,
-        "changePct": 1.19,
-        "note": "+1.2% vs prev close, vol 0.4x avg \u2014 flags: below 50DMA support"
+        "price": 2162,
+        "changePct": 0.03,
+        "note": "+0.0% vs prev close, vol 0.6x avg — flags: below 50DMA support"
       },
       {
         "ticker": "INFY.NS",
         "name": "Infosys",
-        "price": 1118.5,
-        "changePct": 0.35,
-        "note": "+0.3% vs prev close, vol 0.5x avg \u2014 flags: below 50DMA support"
+        "price": 1134.9,
+        "changePct": 1.66,
+        "note": "+1.7% vs prev close, vol 0.5x avg — flags: below 50DMA support"
       },
       {
         "ticker": "HDFCBANK.NS",
         "name": "HDFC Bank",
-        "price": 771.95,
-        "changePct": 3.67,
-        "note": "+3.7% vs prev close, vol 1.0x avg"
+        "price": 777.35,
+        "changePct": 0.63,
+        "note": "+0.6% vs prev close, vol 1.1x avg"
       },
       {
         "ticker": "ICICIBANK.NS",
         "name": "ICICI Bank",
-        "price": 1340,
-        "changePct": 1.75,
-        "note": "+1.7% vs prev close, vol 1.0x avg"
+        "price": 1327.6,
+        "changePct": -0.98,
+        "note": "-1.0% vs prev close, vol 0.9x avg"
       }
     ],
     "alerts": [],
-    "summary": "All detected alerts for RELIANCE.NS, TCS.NS, and INFY.NS are assessed as likely noise or technical retracements rather than genuine sell signals, primarily due to ex-dividend effects, low trading volume, and recent positive corporate news in a broadly bullish market."
+    "summary": "No genuine sell signals were identified among the watchlist stocks today; alerts were primarily attributed to market noise, pre-existing trends, or technical adjustments like ex-dividend effects."
   },
   "emailSent": true,
-  "checksum": "sha256:14c5dad41eccf2a912d5e00567915fea59212cbb8df9b5df7d4d3e06432ad42b"
+  "checksum": "sha256:586b517b93bb92a9fd42f658e671cf39657e11e8a26fa54f711990d36fd74bf5"
 }
