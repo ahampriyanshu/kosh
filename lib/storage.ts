@@ -34,7 +34,7 @@ export function computeChecksum(content: unknown): string {
   return 'sha256:' + createHash('sha256').update(JSON.stringify(content)).digest('hex');
 }
 
-async function atomicWriteJson(filePath: string, obj: unknown): Promise<void> {
+export async function atomicWriteJson(filePath: string, obj: unknown): Promise<void> {
   await mkdir(path.dirname(filePath), { recursive: true });
   const tmp = `${filePath}.tmp`;
   await writeFile(tmp, JSON.stringify(obj, null, 2), 'utf8');
