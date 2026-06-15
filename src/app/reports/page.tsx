@@ -76,15 +76,10 @@ export default async function ReportsPage() {
                       alertCount = c.alerts?.length ?? 0;
                     }
 
-                    if (
-                      envelope &&
-                      (entry.type === 'weekly' || entry.type === 'monthly')
-                    ) {
+                    if (envelope && entry.type === 'recap') {
                       const c = envelope.content as RecapContent;
-                      if (c.retrospective) {
-                        verificationHits = c.retrospective.hits;
-                        verificationTotal = c.retrospective.total;
-                      }
+                      verificationHits = c.hits;
+                      verificationTotal = c.total;
                     }
 
                     return (

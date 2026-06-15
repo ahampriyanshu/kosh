@@ -69,29 +69,23 @@ const midSessionContent: RetroContent = {
 
 const recapContent: RecapContent = {
   period: '2026-W24',
-  retrospective: {
-    calls: [],
-    hits: 2,
-    total: 3,
-    summary: 'Most defensive calls worked.',
-  },
-  outlook: {
-    themes: ['Rates & liquidity', 'IT earnings'],
-    stocksToWatch: [
-      {
-        ticker: 'INFY.NS',
-        name: 'Infosys',
-        reason: 'Momentum improved.',
-        signal: 'neutral',
-      },
-    ],
-    recommendation: {
-      ticker: 'INFY.NS',
-      action: 'hold',
-      reasoning: 'Wait for confirmation.',
-      confidence: 0.58,
+  sourceReportId: 'weekly-2026-W24',
+  graded: [
+    {
+      ticker: 'TCS.NS',
+      name: 'TCS',
+      thesis: 'momentum',
+      action: 'buy',
+      entryRef: 3800,
+      exitRef: 3950,
+      changePct: 3.95,
+      outcome: 'hit',
+      note: 'ran',
     },
-  },
+  ],
+  hits: 1,
+  total: 1,
+  summary: '1/1 bets hit',
 };
 
 const researchContent: ResearchContent = {
@@ -187,16 +181,16 @@ describe('email templates', () => {
     expect(html).toContain('Down on heavy volume<br>watch close.');
   });
 
-  it('renders recap retrospectives, themes, watches, and recommendations', () => {
+  it('renders recap grading results with hit count and graded tickers', () => {
     const html = renderRecapEmail(recapContent, 'Kosh Weekly Recap - 2026-W24');
 
     expect(html).toContain('Kosh Weekly Recap - 2026-W24');
-    expect(html).toContain('Retrospective');
-    expect(html).toContain('2/3 calls hit');
-    expect(html).toContain('Themes to Watch');
-    expect(html).toContain('Rates &amp; liquidity');
-    expect(html).toContain('Stocks to Watch');
-    expect(html).toContain('HOLD');
+    expect(html).toContain('Grading Results');
+    expect(html).toContain('1/1 bets hit');
+    expect(html).toContain('1/1 bets hit');
+    expect(html).toContain('TCS');
+    expect(html).toContain('Bet-by-Bet Breakdown');
+    expect(html).toContain('BUY');
   });
 
   it('renders research reports with the analysis sections', () => {
