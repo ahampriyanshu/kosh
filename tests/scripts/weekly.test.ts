@@ -1,71 +1,41 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-
 const h = vi.hoisted(() => ({
-  buildRecap: vi.fn(),
-  writeReport: vi.fn(),
-  sendReportEmail: vi.fn(),
+  loadWindowSnapshots: vi.fn(), aggregateSnapshots: vi.fn(),
+  buildWeeklyNarrative: vi.fn(), writeReport: vi.fn(), sendReportEmail: vi.fn(),
 }));
-
-vi.mock('../../lib/recap', () => ({ buildRecap: h.buildRecap }));
-vi.mock('../../lib/storage', () => ({
-  writeReport: h.writeReport,
-  computeChecksum: () => 'sha256:test',
-}));
+vi.mock('../../lib/feed/aggregate', () => ({ loadWindowSnapshots: h.loadWindowSnapshots, aggregateSnapshots: h.aggregateSnapshots }));
+vi.mock('../../lib/reports-narrative', () => ({ buildWeeklyNarrative: h.buildWeeklyNarrative }));
+vi.mock('../../lib/storage', () => ({ writeReport: h.writeReport, computeChecksum: () => 'sha256:test' }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));
-
+vi.mock('../../lib/email-templates', () => ({ renderWeeklyEmail: () => '<html></html>' }));
 import { runWeekly } from '../../scripts/weekly';
-import { istWeekId } from '../../lib/time';
+import { MarketSnapshotSchema } from '../../lib/schemas';
 
-const recapContent = {
-  period: '2026-W24',
-  retrospective: null,
-  outlook: {
-    themes: ['x'],
-    stocksToWatch: [{ ticker: 'AAPL', name: 'Apple', reason: 'test', signal: 'bullish' as const }],
-    recommendation: { ticker: 'AAPL', action: 'hold' as const, reasoning: 'test', confidence: 0.5 },
-  },
-};
-
+const NOW = new Date('2026-06-14T15:30:00.000Z'); // Sun 21:00 IST
+const snap = MarketSnapshotSchema.parse({
+  asOf: NOW.toISOString(), window: '7d',
+  indianIndices: [], globalIndices: [], commodities: [], currencies: [], topGainers: [], topLosers: [],
+  mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [],
+  news: [], streetRecommendations: [], corporateActions: [],
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+});
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
-  h.buildRecap.mockResolvedValue(recapContent);
-  h.writeReport.mockResolvedValue(undefined);
-  h.sendReportEmail.mockResolvedValue(undefined);
+  h.loadWindowSnapshots.mockResolvedValue([snap]);
+  h.aggregateSnapshots.mockReturnValue(snap);
+  h.buildWeeklyNarrative.mockResolvedValue({ themes: ['rotation'], positionalBets: [] });
+  h.writeReport.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
 });
 
 describe('runWeekly', () => {
-  it('writes the report, emails it, then re-writes with emailSent=true', async () => {
-    const now = new Date('2026-06-14T15:30:00.000Z'); // Sunday 21:00 IST
-    await runWeekly(now);
-
-    const expectedPeriod = istWeekId(now); // '2026-W24'
-    expect(expectedPeriod).toBe('2026-W24');
-
-    expect(h.buildRecap).toHaveBeenCalledTimes(1);
-    expect(h.buildRecap.mock.calls[0][0].type).toBe('weekly');
-    expect(h.buildRecap.mock.calls[0][0].period).toBe(expectedPeriod);
-
+  it('aggregates 7d snapshots and writes a forward weekly report', async () => {
+    await runWeekly(NOW);
+    expect(h.loadWindowSnapshots).toHaveBeenCalledWith(expect.any(String), 7);
     expect(h.writeReport).toHaveBeenCalledTimes(2);
     const first = h.writeReport.mock.calls[0][0];
-    const second = h.writeReport.mock.calls[1][0];
-
-    expect(first.id).toBe('weekly-2026-W24');
-    expect(first.dateKey).toBe('2026-W24');
     expect(first.type).toBe('weekly');
-    expect(first.emailSent).toBe(false);
-
-    expect(second.id).toBe('weekly-2026-W24');
-    expect(second.type).toBe('weekly');
-    expect(second.emailSent).toBe(true);
-
-    expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
-
-    // Order: writeReport(false) → sendReportEmail → writeReport(true)
-    expect(h.sendReportEmail.mock.invocationCallOrder[0]).toBeGreaterThan(
-      h.writeReport.mock.invocationCallOrder[0],
-    );
-    expect(h.sendReportEmail.mock.invocationCallOrder[0]).toBeLessThan(
-      h.writeReport.mock.invocationCallOrder[1],
-    );
+    expect(first.id).toMatch(/^weekly-2026-W/);
+    expect(first.content.themes).toEqual(['rotation']);
+    expect(first.content.snapshot.window).toBe('7d');
   });
 });

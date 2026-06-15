@@ -3,82 +3,117 @@
   "id": "daily-2026-06-15",
   "type": "daily",
   "dateKey": "2026-06-15",
-  "generatedAt": "2026-06-14T18:41:40.342Z",
+  "generatedAt": "2026-06-15T02:30:00.000Z",
   "sourceData": {
-    "tickers": [
-      "RELIANCE.NS",
-      "TCS.NS",
-      "INFY.NS",
-      "HDFCBANK.NS",
-      "ICICIBANK.NS"
-    ],
-    "priceSnapshot": {
-      "RELIANCE.NS": 1296.4,
-      "TCS.NS": 2161.1,
-      "INFY.NS": 1118.5,
-      "HDFCBANK.NS": 771.95,
-      "ICICIBANK.NS": 1340
-    },
-    "searchTimestamp": "2026-06-14T18:41:40.342Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-06-15T02:30:00.000Z"
   },
   "content": {
-    "date": "2026-06-15",
-    "marketOutlook": "The market is expected to open with mixed global cues. While potential softening in global crude oil prices due to easing geopolitical tensions and possible US-Iran negotiations offer some optimism, the final performance of US markets overnight and continued FII selling will be key determinants. Strong domestic institutional buying provides a counter-balance to FII outflows.",
-    "stocksToWatch": [
-      {
-        "ticker": "RELIANCE.NS",
-        "name": "Reliance Industries",
-        "reason": "MarketsMojo maintained a 'Sell' rating, citing flat financial grade and fair valuation, coupled with a bearish technical trend.",
-        "signal": "bearish"
+    "snapshot": {
+      "asOf": "2026-06-15T02:30:00.000Z",
+      "window": "1d",
+      "indianIndices": [
+        {
+          "name": "NIFTY 50",
+          "symbol": "^NSEI",
+          "ltp": 23622.9,
+          "changePct": 1.99
+        },
+        {
+          "name": "NIFTY BANK",
+          "symbol": "^NSEBANK",
+          "ltp": 56814.8,
+          "changePct": 1.2
+        },
+        {
+          "name": "NIFTY IT",
+          "symbol": "^CNXIT",
+          "ltp": 27795.75,
+          "changePct": 2.3
+        }
+      ],
+      "giftNifty": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 51202,
+          "changePct": 0.3
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 4238,
+          "changePct": 0.5
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 95.1,
+          "changePct": 0
+        }
+      ],
+      "bondYield": null,
+      "vix": {
+        "value": 14.7,
+        "changePct": -5.7
       },
-      {
-        "ticker": "TCS.NS",
-        "name": "Tata Consultancy Services",
-        "reason": "Facing investor anxiety over AI and geopolitical factors, with a bearish technical trend and concerns over potential hiring slowdowns despite new AI partnerships.",
-        "signal": "bearish"
+      "breadth": {
+        "advances": 45,
+        "declines": 13,
+        "unchanged": 0,
+        "adRatio": 3.46
       },
-      {
-        "ticker": "INFY.NS",
-        "name": "Infosys",
-        "reason": "Long-term bearish trend due to investor fears regarding AI threats and underperformance, despite new AI partnerships and recognition in banking IT services.",
-        "signal": "bearish"
+      "topGainers": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 9500,
+          "changePct": 5.68
+        }
+      ],
+      "topLosers": [
+        {
+          "ticker": "NESTLEIND.NS",
+          "name": "Nestle India",
+          "ltp": 2400,
+          "changePct": -3.23
+        }
+      ],
+      "mostActive": [],
+      "near52wHigh": [],
+      "near52wLow": [],
+      "volumeShockers": [],
+      "sectorRanking": [
+        {
+          "sector": "Realty",
+          "changePct": 4.4
+        },
+        {
+          "sector": "IT",
+          "changePct": 2
+        }
+      ],
+      "fiiDii": {
+        "fiiNet": -1200,
+        "diiNet": 980,
+        "unit": "crore",
+        "asOf": "2026-06-14"
       },
-      {
-        "ticker": "HDFCBANK.NS",
-        "name": "HDFC Bank",
-        "reason": "Mixed sentiment due to leadership uncertainty and regulatory scrutiny over government accounts, balanced by increasing market valuation and sound financials per RBI. Technical trend is neutral.",
-        "signal": "neutral"
-      },
-      {
-        "ticker": "ICICIBANK.NS",
-        "name": "ICICI Bank",
-        "reason": "Showed strong market capitalization gains last week and has a bullish technical trend, positioning it as a strong performer.",
-        "signal": "bullish"
-      }
-    ],
-    "exitSignals": [],
-    "topRecommendation": {
-      "ticker": "ICICIBANK.NS",
-      "action": "buy",
-      "reasoning": "ICICI Bank emerged as the top gainer among India's most valued companies last week, adding significant market capitalization amidst a broader market rally. Its technical snapshot indicates a bullish trend with a strong RSI, suggesting continued upward momentum.",
-      "confidence": 0.8
+      "news": [],
+      "streetRecommendations": [],
+      "corporateActions": []
     },
-    "sectorMovers": [
-      {
-        "sector": "Banking",
-        "note": "The RBI maintained the repo rate but lowered India's GDP forecast and raised inflation projections, while introducing a concessional swap facility to ease banks' funding costs amidst a deposit crunch."
-      },
-      {
-        "sector": "IT Services",
-        "note": "Faces continued investor anxiety over AI threats and geopolitical factors, leading to valuation erosion, despite efforts in AI adoption and partnerships."
-      },
-      {
-        "sector": "Oil & Gas",
-        "note": "Elevated crude oil prices remain a concern, prompting India to boost domestic hydrocarbon exploration and continue purchases of discounted Russian crude."
-      }
-    ],
-    "fiiDiiSentiment": "Foreign Institutional Investors (FIIs) were net sellers in the cash segment, largely offset by strong net buying from Domestic Institutional Investors (DIIs) for the period from May 15 to June 14, 2026."
+    "outlook": "Banks and IT lead a broad advance; breadth is firmly positive and VIX is cooling. Watch FII flows after the recent selling.",
+    "keyTakeaways": [
+      "Nifty 50 +1.99%, breadth 45:13 advances",
+      "Realty and IT the strongest sectors",
+      "DII buying offset continued FII outflows"
+    ]
   },
   "emailSent": true,
-  "checksum": "sha256:1adf3f3de3381330c7d786eb354a1fc902576570ba4825151ef33d7e29848868"
+  "checksum": "sha256:6f37208aa8f72967f75c1f44af03d493c22e186323ac7531e3436b4b65327234"
 }

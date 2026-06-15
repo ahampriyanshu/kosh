@@ -1,99 +1,38 @@
 import { pathToFileURL } from 'node:url';
-import { getWatchlist } from '../lib/watchlist';
-import { getQuote, getHistorical } from '../lib/market-data';
-import { rsi, trend } from '../lib/indicators';
-import { generateGroundedObject } from '../lib/llm';
+import { istDateString } from '../lib/time';
+import { buildSnapshot } from '../lib/feed/merge';
+import { writeSnapshot, deleteFeed } from '../lib/feed/store';
+import { buildDailyNarrative } from '../lib/reports-narrative';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
-import { istDateString } from '../lib/time';
 import { DailyContentSchema, type ReportEnvelope } from '../lib/schemas';
-
-interface TechSummary {
-  ticker: string;
-  name: string;
-  price: number;
-  rsi: number | null;
-  trend: string;
-}
 
 export async function runDaily(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
-  // ~6 months of daily candles — enough for the 50-day trend SMA — relative to the run date.
-  const period1 = new Date(now.getTime() - 180 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const watchlist = await getWatchlist();
+  const snapshot = await buildSnapshot(date, '1d', now.toISOString());
+  await writeSnapshot(date, snapshot);
 
-  const summaries: TechSummary[] = [];
-  const priceSnapshot: Record<string, number> = {};
-  for (const stock of watchlist.stocks) {
-    const quote = await getQuote(stock.ticker);
-    const candles = await getHistorical(stock.ticker, period1);
-    const closes = candles.map((c) => c.close);
-    const rsiSeries = rsi(closes);
-    priceSnapshot[stock.ticker] = quote.price;
-    summaries.push({
-      ticker: stock.ticker,
-      name: stock.name,
-      price: quote.price,
-      rsi: rsiSeries.length ? rsiSeries[rsiSeries.length - 1] : null,
-      trend: trend(closes),
-    });
-  }
-
-  const techBlock = summaries
-    .map((s) => `${s.ticker} (${s.name}): price ${s.price}, RSI ${s.rsi?.toFixed(1) ?? 'n/a'}, trend ${s.trend}`)
-    .join('\n');
-
-  const researchPrompt =
-    `You are an equity analyst covering the Indian market (NSE/BSE). ` +
-    `Using the latest news and market context, summarize what matters for these watchlist stocks ` +
-    `before the Indian market opens today (${date}). Include overnight global cues, sector themes, ` +
-    `and FII/DII flows.\n\nWatchlist technical snapshot:\n${techBlock}`;
-
-  const buildStructurePrompt = (research: string) =>
-    `Turn the following research into a structured daily brief for ${date}. ` +
-    `Pick at most 5 stocks to watch from the watchlist, any exit signals, one buy recommendation ` +
-    `with a 0..1 confidence, sector movers, and an FII/DII sentiment line.\n\nResearch:\n${research}`;
-
-  const searchTimestamp = now.toISOString();
-  const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, DailyContentSchema);
-
-  // Validate on write (content), independent of the LLM layer.
-  const content = DailyContentSchema.parse(object);
+  const narrative = await buildDailyNarrative(snapshot);
+  const content = DailyContentSchema.parse({ snapshot, outlook: narrative.outlook, keyTakeaways: narrative.keyTakeaways });
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
     id: `daily-${date}`,
-    dateKey: date,
     type: 'daily',
+    dateKey: date,
     generatedAt: now.toISOString(),
-    sourceData: {
-      tickers: watchlist.stocks.map((s) => s.ticker),
-      priceSnapshot,
-      searchTimestamp,
-    },
+    sourceData: { tickers: [], priceSnapshot: {}, searchTimestamp: now.toISOString() },
     content,
     checksum: computeChecksum(content),
   };
-
-  // 1) persist first (emailSent: false)
   await writeReport({ ...base, emailSent: false });
-
-  // 2) email after the report is saved
-  await sendReportEmail('Kosh Digest', renderDailyEmail(content));
-
-  // 3) record that the email was sent
+  await sendReportEmail(`Kosh Daily Brief — ${date}`, renderDailyEmail(content));
   await writeReport({ ...base, emailSent: true });
-
+  await deleteFeed(date); // clean up the feed slices after a successful publish
   console.log(`Daily brief ${base.id} written and emailed.`);
 }
 
-// Auto-run only when executed directly (tsx scripts/daily.ts), not when imported by tests.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runDaily()
-    .then(() => process.exit(0))
-    .catch((e) => {
-      console.error(e);
-      process.exit(1);
-    });
+  runDaily().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
 }

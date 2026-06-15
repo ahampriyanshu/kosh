@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import {
+  BetSchema,
   DailyContentSchema,
+  WeeklyContentSchema,
+  MonthlyContentSchema,
   ReportEnvelopeSchema,
   ManifestEntrySchema,
   WatchlistSchema,
@@ -15,36 +18,27 @@ import {
   InternalsSliceSchema,
 } from '../../lib/schemas';
 
+const validDailySnapshot = {
+  asOf: '2026-06-14T02:30:00.000Z', window: '1d',
+  indianIndices: [], globalIndices: [], commodities: [], currencies: [],
+  topGainers: [], topLosers: [], mostActive: [], near52wHigh: [], near52wLow: [],
+  volumeShockers: [], sectorRanking: [], news: [], streetRecommendations: [], corporateActions: [],
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+};
+
 describe('schemas', () => {
   const validDaily = {
-    date: '2026-06-14',
-    marketOutlook: 'Nifty flat amid global cues.',
-    stocksToWatch: [
-      { ticker: 'TCS.NS', name: 'TCS', reason: 'breakout', signal: 'bullish' },
-    ],
-    exitSignals: [{ ticker: 'INFY.NS', reason: 'weak guidance' }],
-    topRecommendation: {
-      ticker: 'RELIANCE.NS',
-      action: 'buy',
-      reasoning: 'oversold + positive news',
-      confidence: 0.7,
-    },
-    sectorMovers: [{ sector: 'IT', note: 'recovering' }],
-    fiiDiiSentiment: 'FIIs net buyers',
+    snapshot: validDailySnapshot,
+    outlook: 'Nifty flat amid global cues.',
+    keyTakeaways: ['Markets steady', 'IT leading'],
   };
 
   it('accepts valid daily content', () => {
     expect(DailyContentSchema.parse(validDaily)).toBeTruthy();
   });
 
-  it('rejects confidence outside 0..1', () => {
-    const bad = { ...validDaily, topRecommendation: { ...validDaily.topRecommendation, confidence: 2 } };
-    expect(() => DailyContentSchema.parse(bad)).toThrow();
-  });
-
-  it('rejects more than 5 stocks to watch', () => {
-    const six = Array.from({ length: 6 }, () => ({ ticker: 'X.NS', name: 'X', reason: 'r', signal: 'neutral' }));
-    expect(() => DailyContentSchema.parse({ ...validDaily, stocksToWatch: six })).toThrow();
+  it('rejects daily content missing snapshot', () => {
+    expect(() => DailyContentSchema.parse({ outlook: 'steady', keyTakeaways: ['a'] })).toThrow();
   });
 
   it('validates a full report envelope', () => {
@@ -251,5 +245,28 @@ describe('MarketSnapshotSchema', () => {
       breadth: { advances: 30, declines: 18, unchanged: 2, adRatio: 1.67 },
     };
     expect(InternalsSliceSchema.safeParse(internals).success).toBe(true);
+  });
+});
+
+const emptySnap = {
+  asOf: '2026-06-15T02:30:00.000Z', window: '1d',
+  indianIndices: [], globalIndices: [], commodities: [], currencies: [],
+  topGainers: [], topLosers: [], mostActive: [], near52wHigh: [], near52wLow: [],
+  volumeShockers: [], sectorRanking: [], news: [], streetRecommendations: [], corporateActions: [],
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+};
+describe('Phase 3 content schemas', () => {
+  it('BetSchema requires thesis + action + signal + confidence', () => {
+    expect(BetSchema.safeParse({ ticker: 'TCS.NS', name: 'TCS', thesis: 'x', action: 'buy', signal: 'bullish', confidence: 0.6 }).success).toBe(true);
+    expect(BetSchema.safeParse({ ticker: 'TCS.NS', name: 'TCS', thesis: 'x', action: 'maybe', signal: 'bullish', confidence: 0.6 }).success).toBe(false);
+  });
+  it('DailyContent embeds a snapshot + outlook + keyTakeaways', () => {
+    expect(DailyContentSchema.safeParse({ snapshot: emptySnap, outlook: 'steady', keyTakeaways: ['a', 'b'] }).success).toBe(true);
+  });
+  it('WeeklyContent is forward-only: snapshot + themes + positionalBets', () => {
+    expect(WeeklyContentSchema.safeParse({ snapshot: { ...emptySnap, window: '7d' }, themes: ['rotation'], positionalBets: [{ ticker: 'TCS.NS', name: 'TCS', thesis: 'x', action: 'buy', signal: 'bullish', confidence: 0.6 }] }).success).toBe(true);
+  });
+  it('MonthlyContent has sectorInsights, macroThemes, midTermBets, nullable ledgerRollup', () => {
+    expect(MonthlyContentSchema.safeParse({ snapshot: { ...emptySnap, window: '1mo' }, sectorInsights: ['IT firm'], macroThemes: ['rates'], midTermBets: [], ledgerRollup: null }).success).toBe(true);
   });
 });

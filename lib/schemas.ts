@@ -6,28 +6,20 @@ export type ReportType = z.infer<typeof ReportTypeSchema>;
 export const SignalSchema = z.enum(['bullish', 'bearish', 'neutral']);
 export type Signal = z.infer<typeof SignalSchema>;
 
+export const BetSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  thesis: z.string(),
+  action: z.enum(['buy', 'sell', 'hold']),
+  signal: SignalSchema,
+  confidence: z.number().min(0).max(1),
+});
+export type Bet = z.infer<typeof BetSchema>;
+
 export const DailyContentSchema = z.object({
-  date: z.string(),
-  marketOutlook: z.string(),
-  stocksToWatch: z
-    .array(
-      z.object({
-        ticker: z.string(),
-        name: z.string(),
-        reason: z.string(),
-        signal: SignalSchema,
-      }),
-    )
-    .max(5),
-  exitSignals: z.array(z.object({ ticker: z.string(), reason: z.string() })),
-  topRecommendation: z.object({
-    ticker: z.string(),
-    action: z.literal('buy'),
-    reasoning: z.string(),
-    confidence: z.number().min(0).max(1),
-  }),
-  sectorMovers: z.array(z.object({ sector: z.string(), note: z.string() })),
-  fiiDiiSentiment: z.string(),
+  snapshot: z.lazy(() => MarketSnapshotSchema),
+  outlook: z.string(),
+  keyTakeaways: z.array(z.string()),
 });
 export type DailyContent = z.infer<typeof DailyContentSchema>;
 
@@ -244,6 +236,29 @@ export const MarketSnapshotSchema = z.object({
   corporateActions: z.array(CorpActionSchema),
 });
 export type MarketSnapshot = z.infer<typeof MarketSnapshotSchema>;
+
+// ---- Phase 3 content schemas ----
+export const WeeklyContentSchema = z.object({
+  snapshot: MarketSnapshotSchema,
+  themes: z.array(z.string()),
+  positionalBets: z.array(BetSchema),
+});
+export type WeeklyContent = z.infer<typeof WeeklyContentSchema>;
+
+export const LedgerRollupSchema = z.object({
+  hits: z.number().int().nonnegative(),
+  total: z.number().int().nonnegative(),
+  summary: z.string(),
+});
+
+export const MonthlyContentSchema = z.object({
+  snapshot: MarketSnapshotSchema,
+  sectorInsights: z.array(z.string()),
+  macroThemes: z.array(z.string()),
+  midTermBets: z.array(BetSchema),
+  ledgerRollup: LedgerRollupSchema.nullable(),
+});
+export type MonthlyContent = z.infer<typeof MonthlyContentSchema>;
 
 // ---- Feed slices ----
 export const UniverseQuoteSchema = z.object({
