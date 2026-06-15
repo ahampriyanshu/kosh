@@ -24,7 +24,7 @@ jobs:
       - run: npx tsx scripts/feed-flows.ts
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
-          KOSH_GOOGLE_MODEL: ${{ vars.KOSH_GOOGLE_MODEL }}
+          KOSH_GOOGLE_MODEL: ${{ secrets.KOSH_GOOGLE_MODEL }}
 
       - name: Commit slice
         run: |
