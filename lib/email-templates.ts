@@ -371,51 +371,44 @@ export function renderRetroEmail(content: RetroContent): string {
 }
 
 export function renderRecapEmail(content: RecapContent, title: string): string {
-  const retro = content.retrospective
-    ? section(
-        'Retrospective',
-        card(
-          `<div style="${font};font-size:14px;line-height:20px;margin:0 0 8px 0;color:${colors.text};font-weight:800">${escapeHtml(content.retrospective.hits)}/${escapeHtml(content.retrospective.total)} calls hit</div>` +
-            paragraph(content.retrospective.summary),
-        ),
-      )
-    : section('Retrospective', paragraph('No prior calls to evaluate for this period.'));
-  const themes = content.outlook.themes.length
-    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${content.outlook.themes
-        .map(
-          (theme) => `
-            <tr>
-              <td style="${font};padding:0 8px 8px 0;color:${colors.link};font-size:15px;line-height:22px;vertical-align:top">-</td>
-              <td style="${font};padding:0 0 8px 0;color:${colors.muted};font-size:15px;line-height:22px;vertical-align:top">${text(theme)}</td>
-            </tr>
-          `,
-        )
-        .join('')}</table>`
-    : paragraph('No themes provided.');
-  const watchCards = content.outlook.stocksToWatch.map((stock) =>
-    card(
-      tickerLine(stock.ticker, stock.name, ` <span style="margin-left:6px">${signalBadge(stock.signal)}</span>`) +
-        paragraph(stock.reason),
-    ),
-  );
-  const rec = content.outlook.recommendation;
+  const hitsSummary = `<div style="${font};font-size:14px;line-height:20px;margin:0 0 8px 0;color:${colors.text};font-weight:800">${escapeHtml(String(content.hits))}/${escapeHtml(String(content.total))} bets hit</div>`;
+
+  const gradedRows = content.graded.length
+    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:12px">
+        <tr>
+          <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Ticker</th>
+          <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Action</th>
+          <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
+          <th align="left" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Outcome</th>
+        </tr>
+        ${content.graded
+          .map((bet) => {
+            const changePctStr = bet.changePct > 0 ? `+${bet.changePct.toFixed(2)}%` : `${bet.changePct.toFixed(2)}%`;
+            const changePctColor = bet.changePct > 0 ? colors.bullish : bet.changePct < 0 ? colors.bearish : colors.neutral;
+            const outcomeColor = bet.outcome === 'hit' ? colors.bullish : bet.outcome === 'miss' ? colors.bearish : colors.neutral;
+            return `
+              <tr>
+                <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:800;vertical-align:top">${escapeHtml(bet.ticker.replace('.NS', ''))}</td>
+                <td style="${font};padding:8px 10px 8px 0;vertical-align:top">${actionBadge(bet.action)}</td>
+                <td align="right" style="${mono};padding:8px 10px 8px 0;color:${changePctColor};font-size:13px;vertical-align:top;white-space:nowrap">${escapeHtml(changePctStr)}</td>
+                <td style="${font};padding:8px 0;color:${outcomeColor};font-size:13px;font-weight:700;vertical-align:top;text-transform:uppercase">${escapeHtml(bet.outcome)}</td>
+              </tr>
+            `;
+          })
+          .join('')}
+      </table>`
+    : paragraph('No bets to grade for this period.');
 
   return renderShell({
     title,
-    eyebrow: 'Recap',
-    preheader: content.outlook.themes.join('; ') || title,
+    eyebrow: `Recap — ${escapeHtml(content.period)}`,
+    preheader: content.summary || title,
     children:
-      retro +
-      section('Themes to Watch', themes) +
-      section('Stocks to Watch', `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cardStack(watchCards)}</table>`) +
       section(
-        'Recommendation',
-        card(
-          tickerLine(rec.ticker, undefined, ` <span style="margin-left:8px">${actionBadge(rec.action)}</span> <span style="${mono};margin-left:8px;color:${colors.faint};font-size:12px">Confidence: ${confidencePct(rec.confidence)}</span>`) +
-            paragraph(rec.reasoning),
-          rec.action === 'buy' ? colors.link : colors.border,
-        ),
-      ),
+        'Grading Results',
+        card(hitsSummary + paragraph(content.summary)),
+      ) +
+      section('Bet-by-Bet Breakdown', gradedRows),
   });
 }
 

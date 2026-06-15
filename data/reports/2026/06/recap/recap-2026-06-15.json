@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-06-15",
+  "type": "recap",
+  "dateKey": "2026-06-15",
+  "generatedAt": "2026-06-15T04:52:56.918Z",
+  "sourceData": {
+    "tickers": [
+      "BAJFINANCE.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-06-15T04:52:56.918Z"
+  },
+  "content": {
+    "period": "2026-W25",
+    "sourceReportId": "weekly-2026-W25",
+    "graded": [
+      {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance",
+        "thesis": "Momentum + sector leadership; reclaiming highs.",
+        "action": "buy",
+        "entryRef": 955,
+        "exitRef": 955,
+        "changePct": 0,
+        "outcome": "partial",
+        "note": "buy call moved +0%"
+      }
+    ],
+    "hits": 0,
+    "total": 1,
+    "summary": "0/1 positional bets hit over 2026-W25."
+  },
+  "emailSent": true,
+  "checksum": "sha256:b5706b26e8767ccc74281a7b34a6deb2b57f6c7f77eea8de61329b501ede9538"
+}

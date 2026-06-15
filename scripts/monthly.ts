@@ -5,6 +5,7 @@ import { buildMonthlyNarrative } from '../lib/reports-narrative';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderMonthlyEmail } from '../lib/email-templates';
+import { readLedger } from '../lib/ledger';
 import { MonthlyContentSchema, type ReportEnvelope } from '../lib/schemas';
 
 function prevMonthId(now: Date): string {
@@ -23,12 +24,18 @@ export async function runMonthly(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   const snapshot = aggregateSnapshots(await loadWindowSnapshots(date, 30), '1mo');
   const narrative = await buildMonthlyNarrative(snapshot);
+  const ledger = await readLedger(period);
+  const rollupHits = ledger.entries.reduce((a, e) => a + e.hits, 0);
+  const rollupTotal = ledger.entries.reduce((a, e) => a + e.total, 0);
+  const ledgerRollup = ledger.entries.length
+    ? { hits: rollupHits, total: rollupTotal, summary: `${rollupHits}/${rollupTotal} graded bets hit across ${ledger.entries.length} weekly recaps in ${period}.` }
+    : null;
   const content = MonthlyContentSchema.parse({
     snapshot,
     sectorInsights: narrative.sectorInsights,
     macroThemes: narrative.macroThemes,
     midTermBets: narrative.midTermBets,
-    ledgerRollup: null, // filled by Phase 3b
+    ledgerRollup,
   });
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {

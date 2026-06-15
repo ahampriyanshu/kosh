@@ -68,8 +68,8 @@ export function ReportCard({
           </time>
         </div>
 
-        {/* Verification badge for weekly/monthly */}
-        {(entry.type === 'weekly' || entry.type === 'monthly') &&
+        {/* Verification badge for recap */}
+        {entry.type === 'recap' &&
           verificationHits !== undefined &&
           verificationTotal !== undefined && (
             <div className="mt-2">

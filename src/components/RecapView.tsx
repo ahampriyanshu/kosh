@@ -1,9 +1,8 @@
 import type { RecapContent } from '../../lib/schemas';
-import { SignalBadge } from './SignalBadge';
 import { VerificationBadge } from './VerificationBadge';
 
-function confidencePct(c: number): string {
-  return `${Math.round(c * 100)}%`;
+function shortTicker(ticker: string): string {
+  return ticker.replace('.NS', '');
 }
 
 interface RecapViewProps {
@@ -11,160 +10,139 @@ interface RecapViewProps {
 }
 
 export function RecapView({ content }: RecapViewProps) {
-  const { retrospective, outlook } = content;
-
   return (
     <div className="space-y-8">
-      {/* Period */}
+      {/* Period eyebrow */}
       <p className="font-mono text-xs text-[var(--color-faint)]">{content.period}</p>
 
-      {/* Retrospective */}
-      {retrospective ? (
-        <section>
-          <div className="flex items-center gap-3 mb-4 pb-2 border-b border-[var(--color-hairline)]">
-            <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
-              Retrospective
-            </h2>
-            <VerificationBadge hits={retrospective.hits} total={retrospective.total} />
-          </div>
-          <p className="text-[var(--color-muted)] leading-relaxed mb-4">{retrospective.summary}</p>
-          {retrospective.calls.length > 0 && (
-            <div className="space-y-2">
-              {retrospective.calls.map((call, i) => (
-                <div
-                  key={`${call.ticker}-${i}`}
-                  className="flex gap-4 p-3 rounded-lg bg-[var(--color-raised)] border border-[var(--color-hairline)]"
-                >
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                    style={{
-                      backgroundColor: call.hit ? 'var(--color-bullish-bg)' : 'var(--color-bearish-bg)',
-                      border: `1px solid ${call.hit ? '#C8E6D8' : '#F2D5CF'}`,
-                    }}
-                  >
-                    <span
-                      className="text-xs"
-                      style={{ color: call.hit ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
-                    >
-                      {call.hit ? '✓' : '✗'}
-                    </span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                      <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                        {call.ticker}
-                      </span>
-                      <span className="font-sans text-xs text-[var(--color-muted)]">
-                        predicted: {call.predicted} → actual: {call.actual}
-                      </span>
-                    </div>
-                    <p className="text-sm text-[var(--color-muted)]">{call.why}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </section>
-      ) : (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-            Retrospective
+      {/* Hit-rate badge + summary */}
+      <section>
+        <div className="flex items-center gap-3 mb-4 pb-2 border-b border-[var(--color-hairline)]">
+          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
+            Grading Results
           </h2>
-          <p className="text-sm text-[var(--color-faint)] italic">
-            No prior-week calls to evaluate — this is the first recap.
-          </p>
-        </section>
-      )}
+          <VerificationBadge hits={content.hits} total={content.total} />
+        </div>
+        <p className="text-[var(--color-muted)] leading-relaxed">{content.summary}</p>
+      </section>
 
-      {/* Outlook: Themes */}
-      {outlook.themes.length > 0 && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-            Themes to Watch
-          </h2>
-          <ul className="space-y-1.5">
-            {outlook.themes.map((theme) => (
-              <li key={theme} className="flex items-start gap-2">
-                <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-                <span className="text-sm text-[var(--color-muted)] leading-relaxed">{theme}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {/* Outlook: Stocks to Watch */}
-      {outlook.stocksToWatch.length > 0 && (
+      {/* Graded bets table */}
+      {content.graded.length > 0 && (
         <section>
           <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-            Stocks to Watch
+            Bet-by-Bet Breakdown
           </h2>
-          <div className="space-y-3">
-            {outlook.stocksToWatch.map((stock) => (
-              <article
-                key={stock.ticker}
-                className="flex gap-4 p-4 rounded-lg bg-[var(--color-raised)] border border-[var(--color-hairline)]"
-              >
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1 flex-wrap">
-                    <span className="font-mono text-sm font-semibold text-[var(--color-ink)]">
-                      {stock.ticker}
-                    </span>
-                    <span className="text-sm text-[var(--color-muted)]">{stock.name}</span>
-                    <SignalBadge signal={stock.signal} />
-                  </div>
-                  <p className="text-sm text-[var(--color-muted)] leading-relaxed">{stock.reason}</p>
-                </div>
-              </article>
-            ))}
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-[var(--color-hairline)]">
+                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2 pr-4">
+                    Ticker
+                  </th>
+                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2 pr-4">
+                    Action
+                  </th>
+                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-2 pr-4">
+                    Entry → Exit
+                  </th>
+                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-2 pr-4">
+                    Change
+                  </th>
+                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2">
+                    Outcome
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {content.graded.map((bet, i) => {
+                  const outcomeColor =
+                    bet.outcome === 'hit'
+                      ? 'var(--color-bullish)'
+                      : bet.outcome === 'miss'
+                      ? 'var(--color-bearish)'
+                      : 'var(--color-muted)';
+                  const changePctColor =
+                    bet.changePct > 0
+                      ? 'var(--color-bullish)'
+                      : bet.changePct < 0
+                      ? 'var(--color-bearish)'
+                      : 'var(--color-muted)';
+                  const changePctStr =
+                    bet.changePct > 0
+                      ? `+${bet.changePct.toFixed(2)}%`
+                      : `${bet.changePct.toFixed(2)}%`;
+
+                  return (
+                    <tr key={`${bet.ticker}-${i}`} className="border-b border-[var(--color-hairline)] last:border-0">
+                      <td className="py-3 pr-4">
+                        <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
+                          {shortTicker(bet.ticker)}
+                        </span>
+                        {bet.name && bet.name !== shortTicker(bet.ticker) && (
+                          <span className="ml-1.5 text-xs text-[var(--color-muted)]">{bet.name}</span>
+                        )}
+                      </td>
+                      <td className="py-3 pr-4">
+                        <span
+                          className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
+                          style={{
+                            backgroundColor:
+                              bet.action === 'buy'
+                                ? 'var(--color-bullish-bg)'
+                                : bet.action === 'sell'
+                                ? 'var(--color-bearish-bg)'
+                                : 'var(--color-neutral-bg)',
+                            color:
+                              bet.action === 'buy'
+                                ? 'var(--color-bullish)'
+                                : bet.action === 'sell'
+                                ? 'var(--color-bearish)'
+                                : 'var(--color-neutral)',
+                            border: `1px solid ${
+                              bet.action === 'buy'
+                                ? '#C8E6D8'
+                                : bet.action === 'sell'
+                                ? '#F2D5CF'
+                                : '#E2DFDC'
+                            }`,
+                          }}
+                        >
+                          {bet.action.toUpperCase()}
+                        </span>
+                      </td>
+                      <td className="py-3 pr-4 text-right font-mono text-xs text-[var(--color-muted)] whitespace-nowrap">
+                        {bet.entryRef.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
+                        {' → '}
+                        {bet.exitRef.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
+                      </td>
+                      <td className="py-3 pr-4 text-right font-mono text-sm font-semibold whitespace-nowrap" style={{ color: changePctColor }}>
+                        {changePctStr}
+                      </td>
+                      <td className="py-3">
+                        <span className="font-sans text-xs font-semibold uppercase tracking-wider" style={{ color: outcomeColor }}>
+                          {bet.outcome}
+                        </span>
+                        {bet.note && (
+                          <p className="text-xs text-[var(--color-faint)] mt-0.5 leading-relaxed">{bet.note}</p>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
       )}
 
-      {/* Outlook: Recommendation */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Recommendation
-        </h2>
-        <div className="p-4 rounded-lg border-l-4 border-[var(--color-brand)] bg-[var(--color-raised)]">
-          <div className="flex items-center gap-3 mb-2 flex-wrap">
-            <span className="font-mono text-lg font-bold text-[var(--color-ink)]">
-              {outlook.recommendation.ticker}
-            </span>
-            <span
-              className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
-              style={{
-                backgroundColor:
-                  outlook.recommendation.action === 'buy'
-                    ? 'var(--color-bullish-bg)'
-                    : outlook.recommendation.action === 'sell'
-                    ? 'var(--color-bearish-bg)'
-                    : 'var(--color-neutral-bg)',
-                color:
-                  outlook.recommendation.action === 'buy'
-                    ? 'var(--color-bullish)'
-                    : outlook.recommendation.action === 'sell'
-                    ? 'var(--color-bearish)'
-                    : 'var(--color-neutral)',
-                border: `1px solid ${
-                  outlook.recommendation.action === 'buy'
-                    ? '#C8E6D8'
-                    : outlook.recommendation.action === 'sell'
-                    ? '#F2D5CF'
-                    : '#E2DFDC'
-                }`,
-              }}
-            >
-              {outlook.recommendation.action.toUpperCase()}
-            </span>
-            <span className="font-mono text-xs text-[var(--color-faint)]">
-              Confidence: {confidencePct(outlook.recommendation.confidence)}
-            </span>
-          </div>
-          <p className="text-sm text-[var(--color-muted)] leading-relaxed">
-            {outlook.recommendation.reasoning}
-          </p>
-        </div>
-      </section>
+      {content.graded.length === 0 && (
+        <section>
+          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
+            Bet-by-Bet Breakdown
+          </h2>
+          <p className="text-sm text-[var(--color-faint)] italic">No bets to grade for this period.</p>
+        </section>
+      )}
     </div>
   );
 }

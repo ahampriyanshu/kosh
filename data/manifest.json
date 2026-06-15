@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "recap-2026-06-15",
+      "type": "recap",
+      "dateKey": "2026-06-15",
+      "date": "2026-06-15",
+      "path": "reports/2026/06/recap/recap-2026-06-15.json",
+      "checksum": "sha256:b5706b26e8767ccc74281a7b34a6deb2b57f6c7f77eea8de61329b501ede9538"
+    },
+    {
       "id": "daily-2026-06-15",
       "type": "daily",
       "dateKey": "2026-06-15",
@@ -36,6 +44,7 @@
   "latest": {
     "retro": "retro-2026-06-15",
     "daily": "daily-2026-06-15",
-    "weekly": "weekly-2026-W25"
+    "weekly": "weekly-2026-W25",
+    "recap": "recap-2026-06-15"
   }
 }

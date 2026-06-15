@@ -6,9 +6,9 @@ const TYPE_ORDER: ReportType[] = ['daily', 'retro', 'recap', 'weekly', 'monthly'
 const TYPE_HEADINGS: Record<ReportType, string> = {
   daily: 'Daily Briefs',
   retro: 'Mid-Session',
-  recap: 'Weekly Recap',
-  weekly: 'Weekly Recaps',
-  monthly: 'Monthly Recaps',
+  recap: 'Weekly Recaps',
+  weekly: 'Weekly Outlooks',
+  monthly: 'Monthly Outlooks',
   research: 'Research',
 };
 
@@ -76,15 +76,10 @@ export default async function ReportsPage() {
                       alertCount = c.alerts?.length ?? 0;
                     }
 
-                    if (
-                      envelope &&
-                      (entry.type === 'weekly' || entry.type === 'monthly')
-                    ) {
+                    if (envelope && entry.type === 'recap') {
                       const c = envelope.content as RecapContent;
-                      if (c.retrospective) {
-                        verificationHits = c.retrospective.hits;
-                        verificationTotal = c.retrospective.total;
-                      }
+                      verificationHits = c.hits;
+                      verificationTotal = c.total;
                     }
 
                     return (

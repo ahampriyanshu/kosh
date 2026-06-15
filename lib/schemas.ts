@@ -99,40 +99,44 @@ export const RetroContentSchema = z.object({
 });
 export type RetroContent = z.infer<typeof RetroContentSchema>;
 
-export const RecapCallSchema = z.object({
+export const GradedBetSchema = z.object({
   ticker: z.string(),
-  predicted: z.string(),
-  actual: z.string(),
-  hit: z.boolean(),
-  why: z.string(),
+  name: z.string(),
+  thesis: z.string(),
+  action: z.enum(['buy', 'sell', 'hold']),
+  entryRef: z.number(),
+  exitRef: z.number(),
+  changePct: z.number(),
+  outcome: z.enum(['hit', 'miss', 'partial']),
+  note: z.string(),
 });
+export type GradedBet = z.infer<typeof GradedBetSchema>;
 
-export const RetrospectiveSchema = z.object({
-  calls: z.array(RecapCallSchema),
+export const RecapContentSchema = z.object({
+  period: z.string(),          // the weekly period graded, e.g. '2026-W24'
+  sourceReportId: z.string(),  // the weekly report whose bets were graded
+  graded: z.array(GradedBetSchema),
   hits: z.number().int().nonnegative(),
   total: z.number().int().nonnegative(),
   summary: z.string(),
 });
-
-export const OutlookSchema = z.object({
-  themes: z.array(z.string()),
-  stocksToWatch: z.array(
-    z.object({ ticker: z.string(), name: z.string(), reason: z.string(), signal: SignalSchema }),
-  ),
-  recommendation: z.object({
-    ticker: z.string(),
-    action: z.enum(['buy', 'sell', 'hold']),
-    reasoning: z.string(),
-    confidence: z.number().min(0).max(1),
-  }),
-});
-
-export const RecapContentSchema = z.object({
-  period: z.string(),
-  retrospective: RetrospectiveSchema.nullable(),
-  outlook: OutlookSchema,
-});
 export type RecapContent = z.infer<typeof RecapContentSchema>;
+
+export const LedgerEntrySchema = z.object({
+  gradedOn: z.string(),        // YYYY-MM-DD (the Saturday that graded it)
+  sourceReportId: z.string(),
+  bets: z.array(GradedBetSchema),
+  hits: z.number().int().nonnegative(),
+  total: z.number().int().nonnegative(),
+});
+export type LedgerEntry = z.infer<typeof LedgerEntrySchema>;
+
+export const LedgerSchema = z.object({
+  month: z.string(),           // '2026-06'
+  entries: z.array(LedgerEntrySchema),
+  summary: z.string().nullable(),
+});
+export type Ledger = z.infer<typeof LedgerSchema>;
 
 export const ResearchRequestSchema = z.object({
   ticker: z.string(),

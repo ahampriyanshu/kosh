@@ -1,0 +1,38 @@
+name: Recap (weekly grading)
+
+on:
+  schedule:
+    - cron: '30 4 * * 6'   # Saturday ~10:00 IST
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  recap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx tsx scripts/recap.ts
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          KOSH_EMAIL_FROM: ${{ secrets.KOSH_EMAIL_FROM }}
+          KOSH_EMAIL_REPLY_TO: ${{ secrets.KOSH_EMAIL_REPLY_TO }}
+          KOSH_EMAIL_TO: ${{ secrets.KOSH_EMAIL_TO }}
+
+      - name: Commit recap + ledger
+        run: |
+          git config user.name "kosh-bot"
+          git config user.email "kosh-bot@users.noreply.github.com"
+          git pull --rebase --autostash
+          git add -A data/
+          git diff --staged --quiet || git commit -m "chore(data): recap $(date -u +%F)"
+          git push

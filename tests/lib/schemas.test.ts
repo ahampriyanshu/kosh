@@ -10,12 +10,14 @@ import {
   ManifestSchema,
   RetroContentSchema,
   RecapContentSchema,
-  OutlookSchema,
   ReportTypeSchema,
   ResearchContentSchema,
   ResearchRequestSchema,
   MarketSnapshotSchema,
   InternalsSliceSchema,
+  GradedBetSchema,
+  LedgerSchema,
+  LedgerEntrySchema,
 } from '../../lib/schemas';
 
 const validDailySnapshot = {
@@ -87,59 +89,19 @@ describe('RetroContentSchema', () => {
   });
 });
 
-describe('RecapContentSchema', () => {
-  const validOutlook = {
-    themes: ['rate cuts likely', 'IT recovery'],
-    stocksToWatch: [
-      { ticker: 'TCS.NS', name: 'TCS', reason: 'breakout setup', signal: 'bullish' },
-    ],
-    recommendation: {
-      ticker: 'RELIANCE.NS',
-      action: 'buy',
-      reasoning: 'oversold bounce expected',
-      confidence: 0.8,
-    },
-  };
-
-  it('accepts a valid RecapContent with retrospective: null (first-run case)', () => {
-    const recap = {
-      period: '2026-W24',
-      retrospective: null,
-      outlook: validOutlook,
-    };
-    expect(RecapContentSchema.parse(recap)).toBeTruthy();
+describe('Phase 3b schemas', () => {
+  const gradedBet = { ticker: 'TCS.NS', name: 'TCS', thesis: 'momentum', action: 'buy', entryRef: 3800, exitRef: 3950, changePct: 3.95, outcome: 'hit', note: 'ran with the sector' };
+  it('GradedBetSchema validates a graded bet', () => {
+    expect(GradedBetSchema.safeParse(gradedBet).success).toBe(true);
+    expect(GradedBetSchema.safeParse({ ...gradedBet, outcome: 'maybe' }).success).toBe(false);
   });
-
-  it('accepts a valid RecapContent with a populated retrospective', () => {
-    const recap = {
-      period: '2026-W24',
-      retrospective: {
-        calls: [
-          { ticker: 'TCS.NS', predicted: 'bullish', actual: 'bullish', hit: true, why: 'breakout played out' },
-        ],
-        hits: 1,
-        total: 1,
-        summary: 'Good week.',
-      },
-      outlook: validOutlook,
-    };
-    expect(RecapContentSchema.parse(recap)).toBeTruthy();
+  it('RecapContentSchema is the grading shape', () => {
+    expect(RecapContentSchema.safeParse({ period: '2026-W24', sourceReportId: 'weekly-2026-W24', graded: [gradedBet], hits: 1, total: 1, summary: '1/1 bets hit' }).success).toBe(true);
   });
-});
-
-describe('OutlookSchema', () => {
-  it('rejects recommendation with confidence > 1', () => {
-    const bad = {
-      themes: ['theme'],
-      stocksToWatch: [],
-      recommendation: {
-        ticker: 'X.NS',
-        action: 'hold',
-        reasoning: 'uncertain',
-        confidence: 1.5,
-      },
-    };
-    expect(() => OutlookSchema.parse(bad)).toThrow();
+  it('LedgerSchema holds entries + nullable summary', () => {
+    const entry = { gradedOn: '2026-06-20', sourceReportId: 'weekly-2026-W24', bets: [gradedBet], hits: 1, total: 1 };
+    expect(LedgerEntrySchema.safeParse(entry).success).toBe(true);
+    expect(LedgerSchema.safeParse({ month: '2026-06', entries: [entry], summary: null }).success).toBe(true);
   });
 });
 
