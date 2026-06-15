@@ -3,15 +3,15 @@
   "id": "daily-2026-06-15",
   "type": "daily",
   "dateKey": "2026-06-15",
-  "generatedAt": "2026-06-15T13:25:45.417Z",
+  "generatedAt": "2026-06-15T18:28:00.415Z",
   "sourceData": {
     "tickers": [],
     "priceSnapshot": {},
-    "searchTimestamp": "2026-06-15T13:25:45.417Z"
+    "searchTimestamp": "2026-06-15T18:28:00.415Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-06-15T13:25:45.417Z",
+      "asOf": "2026-06-15T18:28:00.415Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -82,27 +82,27 @@
         }
       ],
       "giftNifty": {
-        "value": 23620,
-        "changePct": -0.32
+        "value": 23976.5,
+        "changePct": 0.36
       },
       "globalIndices": [
         {
           "name": "Dow Jones",
           "symbol": "^DJI",
-          "ltp": 51202.26,
-          "changePct": 0.69512147
+          "ltp": 51822.48,
+          "changePct": 1.2112958
         },
         {
           "name": "NASDAQ",
           "symbol": "^IXIC",
-          "ltp": 25888.844,
-          "changePct": 0.30664647
+          "ltp": 26657.086,
+          "changePct": 2.967461
         },
         {
           "name": "S&P 500",
           "symbol": "^GSPC",
-          "ltp": 7431.46,
-          "changePct": 0.5025514
+          "ltp": 7561.64,
+          "changePct": 1.7517349
         },
         {
           "name": "Nikkei 225",
@@ -119,38 +119,38 @@
         {
           "name": "FTSE 100",
           "symbol": "^FTSE",
-          "ltp": 10477.78,
-          "changePct": 0.057875372
+          "ltp": 10430.62,
+          "changePct": -0.39248195
         }
       ],
       "commodities": [
         {
           "name": "Gold",
-          "value": 4366.8,
-          "changePct": 3.0197227
+          "value": 4345.3,
+          "changePct": 2.5125036
         },
         {
           "name": "Silver",
-          "value": 70.96,
-          "changePct": 4.392856
+          "value": 70.205,
+          "changePct": 3.2821414
         },
         {
           "name": "Crude Oil",
-          "value": 80.29,
-          "changePct": -5.40763
+          "value": 80.42,
+          "changePct": -5.254476
         }
       ],
       "currencies": [
         {
           "pair": "USD/INR",
-          "value": 94.715,
-          "changePct": -0.40483928
+          "value": 94.7,
+          "changePct": -0.4206115
         }
       ],
       "bondYield": {
         "name": "India 10Y",
-        "value": 6.866,
-        "changeBps": -3.1
+        "value": 6.88,
+        "changeBps": -1
       },
       "vix": {
         "value": 14.3525,
@@ -468,10 +468,22 @@
           "category": "macro_policy",
           "items": [
             {
-              "headline": "India's Inflation Surges in May; RBI Holds Rates, Government Revises FDI Rules",
-              "summary": "India's Wholesale Price Index (WPI) inflation rose sharply to 9.68% and Consumer Price Index (CPI) inflation climbed to a 16-month high of 3.93% in May 2026, primarily due to higher food and fuel costs. Despite rising inflation, the Reserve Bank of India (RBI) maintained its interest rates unchanged. Concurrently, the government amended Foreign Exchange Management rules to increase the maximum individual overseas investor holding limit to below 10% and combined holding to 24% in listed Indian companies.",
-              "source": "Research text",
+              "headline": "RBI maintains repo rate at 5.25%, revises FY27 GDP growth downwards and inflation upwards",
+              "summary": "The RBI Monetary Policy Committee (MPC) unanimously decided to maintain the repo rate at 5.25% with a neutral stance. However, it revised the FY27 GDP growth forecast downwards to 6.6% from 6.9% and increased the FY27 inflation projection to 5.1% from 4.6%, citing external risks, commodity price shocks, and geopolitical tensions, prioritizing stability.",
+              "source": "Economic Times",
               "sentiment": "neutral"
+            },
+            {
+              "headline": "India's retail inflation hits 15-month high in May; forecasts suggest further rise",
+              "summary": "India's retail inflation (CPI) rose to a 15-month high of 3.93% in May 2026, up from 3.48% in April. Food inflation for May stood at 4.78%. Goldman Sachs forecasts June CPI at 4.4%. Prabhudas Lilladher warns of high probability of inflation exceeding RBI's 6% upper band in H2 FY27 due to El Niño and supply-chain disruptions.",
+              "source": "Moneycontrol",
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "Government and RBI to implement measures to attract foreign capital, prepared for monsoon",
+              "summary": "Finance Minister Nirmala Sitharaman stated that the government and RBI would implement additional measures to attract foreign capital into India, emphasizing continuous reforms for long-term economic growth. She also noted the government's preparedness for a 'not-so-good monsoon scenario'.",
+              "source": "Livemint",
+              "sentiment": "bullish"
             }
           ]
         },
@@ -479,10 +491,34 @@
           "category": "global_cues",
           "items": [
             {
-              "headline": "US-Iran Peace Deal Boosts Global Markets, Crude Oil Prices Tumble",
-              "summary": "A reported peace agreement between the United States and Iran, aimed at ending a four-month conflict and reopening the Strait of Hormuz, significantly boosted global investor sentiment. This led to Brent crude prices falling below $85 per barrel (down over 4%), while major Asian indices like Japan's Nikkei and South Korea's KOSPI registered strong gains. The Indian rupee also strengthened, gaining 40-58 paise against the US dollar.",
-              "source": "Research text",
+              "headline": "US-Iran peace deal announced, set to reopen Strait of Hormuz",
+              "summary": "President Donald Trump announced a peace deal between the US and Iran, expected to be formalized soon, which will de-escalate geopolitical tensions in the Middle East and reopen the Strait of Hormuz.",
+              "source": "Reuters",
               "sentiment": "bullish"
+            },
+            {
+              "headline": "Crude oil prices drop sharply by over 4% post US-Iran peace deal",
+              "summary": "Following the US-Iran peace deal announcement, global crude oil prices, specifically Brent crude, dropped sharply by over 4%, reaching their lowest levels since March and easing inflation concerns.",
+              "source": "Bloomberg",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Indian Rupee surges to highest level since May 8",
+              "summary": "The Indian Rupee surged to its highest level since May 8, opening at 94.68 per US dollar on Monday, reacting positively to global developments.",
+              "source": "Moneycontrol",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Asian markets react positively to global news; US markets also up",
+              "summary": "Asian markets responded positively to the global news, with Japan's Nikkei gaining 5.11% and South Korea's KOSPI up 5.46% on Monday. US markets also closed in positive territory on Friday.",
+              "source": "Reuters",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Investors to monitor US Fed FOMC meeting for interest rate cues",
+              "summary": "Investors will closely monitor the US Federal Open Market Committee (FOMC) meeting scheduled for June 16-17, 2026, for indications on interest rate policy, especially given recent resilient US jobs data.",
+              "source": "Wall Street Journal",
+              "sentiment": "neutral"
             }
           ]
         },
@@ -490,16 +526,25 @@
           "category": "earnings",
           "items": [
             {
-              "headline": "QYOU Media Inc. Reports Record Annual and Quarterly Revenue for FY25 and Q4 2025",
-              "summary": "QYOU Media Inc., a company with operations in India, reported record annual revenue of $32.17 million for FY 2025 and its highest quarterly revenue of $11.11 million for Q4 2025. While adjusted EBITDA saw an 80% decrease, the net loss improved by 73% year-on-year.",
-              "source": "Research text",
+              "headline": "Q4 FY26 earnings season continues, major companies to report",
+              "summary": "The Q4 FY26 earnings season is continuing, with several large-cap and PSU companies expected to announce results this week.",
+              "source": "Moneycontrol",
               "sentiment": "neutral"
             },
             {
-              "headline": "Several Companies Scheduled to Announce Audited Financial Results on June 15",
-              "summary": "Neopolitan Pizza and Foods, Shree Ram Proteins, Hindustan Adhesives, Bluegod Entertainment, and Laddu Gopal Online Services were all scheduled to announce their audited financial results on June 15, 2026.",
-              "source": "Research text",
+              "headline": "LIC and LG Electronics India among key companies reporting Q4 FY26 earnings this week",
+              "summary": "Life Insurance Corporation of India (LIC) and LG Electronics India are among the key companies scheduled to release their quarterly earnings this week, attracting investor attention.",
+              "source": "Business Standard",
+              "tickers": [
+                "LIC.NS"
+              ],
               "sentiment": "neutral"
+            },
+            {
+              "headline": "Indian corporates achieve robust 13.9% PAT growth in Q4 FY26: Emkay Global",
+              "summary": "Emkay Global's Q4 FY26 earnings report indicates that Indian corporates achieved a robust 13.9% year-on-year profit after tax (PAT) growth, supported by strong revenue expansion across various sectors.",
+              "source": "Emkay Global",
+              "sentiment": "bullish"
             }
           ]
         },
@@ -507,19 +552,28 @@
           "category": "sectoral",
           "items": [
             {
-              "headline": "Indian Benchmarks Rally Broadly on Global Cues; Realty, Auto, Financials Lead Gains",
-              "summary": "Indian benchmark indices, Nifty50 and Sensex, closed significantly higher, gaining nearly 1% each. The rally was broad-based, with Nifty MidCap and SmallCap also advancing. Realty, Auto, Consumer Durables, and Financials were strong performers, with Banking stocks and Oil Marketing Companies (OMCs) rallying due to the crude oil price crash. Nifty Pharma and Nifty Healthcare sectors showed relative weakness.",
-              "source": "Research text",
-              "tickers": [
-                "HDFCBANK.NS"
-              ],
+              "headline": "Indian markets see broad-based buying interest, most sectoral indices higher",
+              "summary": "Indian markets witnessed broad-based buying interest on Monday, with most sectoral indices trading higher in early trade.",
+              "source": "Economic Times",
               "sentiment": "bullish"
             },
             {
-              "headline": "NSE Launches 11 New Sectoral Indices for Granular Benchmarking",
-              "summary": "NSE Indices launched 11 new sectoral indices, increasing its total count to 34. These new indices cover sectors such as Power, Capital Goods, Telecommunications, Construction, Consumer Services, Commercial & Transport Services, Retail, Hospitals, NBFC, Housing Finance, and Insurance, aiming to offer more granular benchmarks for investors.",
-              "source": "Research text",
+              "headline": "Nifty Auto, FMCG, IT, Metal gain over 1%; Nifty Pharma in red",
+              "summary": "Nifty Auto, Nifty FMCG, Nifty IT, and Nifty Metal all registered gains of over 1% in Monday's early trade, while Nifty Pharma was the only sectoral index in the red, declining by 0.26%.",
+              "source": "Moneycontrol",
               "sentiment": "neutral"
+            },
+            {
+              "headline": "Private banks, consumption, auto, realty drive market rally",
+              "summary": "Private banks, consumption-linked sectors, auto, and realty sectors were identified as key drivers of the market rally.",
+              "source": "Economic Times",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Aviation, oil refining, real estate, financial services, shipping, infra to benefit from US-Iran peace deal",
+              "summary": "Aviation, oil refining, real estate, financial services, shipping, and infrastructure sectors are specifically identified as beneficiaries of the US-Iran peace deal due to reduced crude oil prices and improved global trade routes.",
+              "source": "Business Standard",
+              "sentiment": "bullish"
             }
           ]
         },
@@ -527,55 +581,46 @@
           "category": "corporate_actions",
           "items": [
             {
-              "headline": "Man Industries to Acquire Saudi Firm for $102 Million to Bolster Presence",
-              "summary": "Pipe manufacturer Man Industries is reportedly acquiring a Saudi firm for USD 102 million to strengthen its manufacturing presence in the Kingdom.",
-              "source": "Research text",
+              "headline": "RBI amends FEMA regulations, replaces NCLT with 'Competent Authority' for cross-border merger approvals",
+              "summary": "The RBI amended the Foreign Exchange Management (Cross Border Merger) Regulations, 2018, replacing the fixed reference to the National Company Law Tribunal (NCLT) with 'Competent Authority' for merger approvals, thereby decoupling its foreign exchange compliance framework from a single tribunal.",
+              "source": "Reserve Bank of India",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "JSW Energy to acquire 100% stake in Maruti Clean Coal and Power",
+              "summary": "JSW Energy has entered a definitive agreement to acquire a 100% stake in Maruti Clean Coal and Power.",
+              "source": "Business Standard",
               "tickers": [
-                "MANINDS.NS"
+                "JSWENERGY.NS"
               ],
               "sentiment": "bullish"
             },
             {
-              "headline": "SEBI Board to Discuss Accelerating AIF Launches and Reintroducing Open-Market Buybacks",
-              "summary": "The SEBI board is scheduled to meet on June 19 to discuss measures aimed at accelerating the launch of Alternative Investment Funds (AIFs) and reintroducing open-market buybacks.",
-              "source": "Research text",
-              "sentiment": "neutral"
-            },
-            {
-              "headline": "Tata Capital Limited to Consider Non-Convertible Debenture Issuance",
-              "summary": "Tata Capital Limited is considering issuing Non-Convertible Debentures via private placement on June 17, 2026.",
-              "source": "Research text",
-              "sentiment": "neutral"
-            },
-            {
-              "headline": "Tembo Global Industries to Consider Stock Split on June 16",
-              "summary": "Tembo Global Industries is scheduled to consider a stock split of its equity shares on June 16, 2026.",
-              "source": "Research text",
+              "headline": "NLC India emerges as preferred bidder for critical mineral block in Telangana",
+              "summary": "NLC India has emerged as the preferred bidder for a critical mineral block located in Telangana.",
+              "source": "Economic Times",
               "tickers": [
-                "TEMBO.NS"
+                "NLCINDIA.NS"
               ],
-              "sentiment": "neutral"
+              "sentiment": "bullish"
             },
             {
-              "headline": "Bharati Defence and Infrastructure Limited to Consider Merger",
-              "summary": "Bharati Defence and Infrastructure Limited is considering a scheme of merger/amalgamation involving Exicom Technologies India Private Limited on June 17, 2026.",
-              "source": "Research text",
-              "sentiment": "neutral"
+              "headline": "Meesho acquired Kirana Club for ₹202 crore",
+              "summary": "Meesho acquired Kirana Club for ₹202 crore.",
+              "source": "Financial Express",
+              "sentiment": "bullish"
             },
             {
-              "headline": "Drools Parent IB Group Reportedly Planning Initial Public Offering (IPO)",
-              "summary": "The parent company of Drools, IB Group, is reportedly planning an Initial Public Offering (IPO) and is engaging with merchant banks.",
-              "source": "Research text",
-              "sentiment": "neutral"
+              "headline": "Aether Energy board approves raising ₹2500 crore via QIP and FCCBs",
+              "summary": "Aether Energy's board approved raising ₹2500 crore, with ₹1500 crore via Qualified Institutional Placement (QIP) and ₹1000 crore through Foreign Currency Convertible Bonds (FCCBs).",
+              "source": "Business Standard",
+              "sentiment": "bullish"
             },
             {
-              "headline": "Ansal Properties & Infrastructure Creditors Meeting Scheduled",
-              "summary": "Ansal Properties & Infrastructure's 53rd meeting of its committee of creditors for the Fernhill Project is scheduled for June 15, 2026.",
-              "source": "Research text",
-              "tickers": [
-                "ANSALAPI.NS"
-              ],
-              "sentiment": "neutral"
+              "headline": "India's M&A market expected to remain strong in 2026",
+              "summary": "India's M&A market is anticipated to remain strong in 2026, with a growing trend towards strategic acquisitions and consolidation within fragmented sectors.",
+              "source": "PwC India",
+              "sentiment": "bullish"
             }
           ]
         },
@@ -583,42 +628,69 @@
           "category": "stocks_in_focus",
           "items": [
             {
-              "headline": "Reliance Industries AGM on June 19: Investors Await Jio Platforms Listing Clarity and Dividend",
-              "summary": "Reliance Industries' 49th Annual General Meeting (AGM) is scheduled for June 19. Investors are keenly watching for timelines and valuation clarity regarding the anticipated public listing of Reliance Jio Platforms. The board has also recommended a dividend of ₹6 per equity share for FY26.",
-              "source": "Research text",
+              "headline": "Shriram Finance, IndiGo, Bajaj Finance, L&T, TMPV among top Nifty gainers",
+              "summary": "Shriram Finance, Interglobe Aviation (IndiGo), Bajaj Finance, Larsen & Toubro (L&T), and TMPV were among the top Nifty gainers in Monday's early trade.",
+              "source": "Moneycontrol",
               "tickers": [
-                "RELIANCE.NS"
+                "SHRIRAMFIN.NS",
+                "INDIGO.NS",
+                "BAJFINANCE.NS",
+                "LT.NS"
               ],
               "sentiment": "bullish"
             },
             {
-              "headline": "Key Stocks in Focus: Trent, Shriram Finance Lead Nifty50 Gainers; ONGC, Bajaj Auto Lag",
-              "summary": "Trent, Shriram Finance, HDFC Life Insurance, Bajaj Finance, InterGlobe Aviation, and UltraTech Cement were among Nifty50's top gainers. Conversely, NTPC and Bajaj Auto were among the laggards. ONGC also saw declines due to the drop in crude oil prices.",
-              "source": "Research text",
+              "headline": "ONGC, Cipla, Apollo Hospitals among top Nifty losers",
+              "summary": "ONGC, Cipla, and Apollo Hospitals were observed as top Nifty losers in Monday's early trade.",
+              "source": "Moneycontrol",
               "tickers": [
-                "TRENT.NS",
-                "SHRIRAMFIN.NS",
-                "HDFCLIFE.NS",
-                "BAJFINANCE.NS",
-                "INDIGO.NS",
-                "ULTRACEMCO.NS",
-                "NTPC.NS",
-                "BAJAJ-AUTO.NS",
-                "ONGC.NS"
+                "ONGC.NS",
+                "CIPLA.NS",
+                "APOLLOHOSP.NS"
+              ],
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "LIC, GAIL, Tata Steel, RCF, LG Electronics India in focus for upcoming week",
+              "summary": "LIC, GAIL, Tata Steel, Rashtriya Chemicals and Fertilizers (RCF), and LG Electronics India are stocks to watch for the upcoming week due to impending earnings announcements and company-specific news.",
+              "source": "Business Standard",
+              "tickers": [
+                "LIC.NS",
+                "GAIL.NS",
+                "TATASTEEL.NS",
+                "RCF.NS"
               ],
               "sentiment": "neutral"
             },
             {
-              "headline": "Vedanta Demerger, JSW Energy Acquisition, NLC India and Pharma Stocks on Investor Radar",
-              "summary": "Vedanta's demerger listing impact, JSW Energy's acquisition, NLC India, Aurobindo Pharma, Dr Reddy's Labs, and Ashoka Buildcon are among the other stocks attracting investor attention.",
-              "source": "Research text",
+              "headline": "MRPL, IndiGo, Godrej Properties, L&T Finance, SCI, HPCL surge on US-Iran peace deal",
+              "summary": "MRPL (+5.80%), Interglobe Aviation (IndiGo) (+4.62%), Godrej Properties (+5.81%), L&T Finance (+6.41%), Shipping Corporation of India (SCI) (+3.99%), and HPCL (+3.54%) saw significant gains, benefiting directly from the US-Iran peace deal.",
+              "source": "Moneycontrol",
               "tickers": [
-                "VEDL.NS",
-                "JSWENERGY.NS",
-                "NLCINDIA.NS",
-                "AUROPHARMA.NS",
-                "DRREDDY.NS",
-                "ASHOKA.NS"
+                "MRPL.NS",
+                "INDIGO.NS",
+                "GODREJPROP.NS",
+                "LTFINANCE.NS",
+                "SHIPPING.NS",
+                "HINDPETRO.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Power Grid Corporation of India wins inter-state transmission project",
+              "summary": "Power Grid Corporation of India was the successful bidder for an inter-state transmission system project.",
+              "source": "PTI",
+              "tickers": [
+                "POWERGRID.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Nestle India denies claims of infestation in MAGGI noodles",
+              "summary": "Nestle India issued a denial regarding claims of infestation found in its MAGGI noodles product.",
+              "source": "Business Standard",
+              "tickers": [
+                "NESTLEIND.NS"
               ],
               "sentiment": "neutral"
             }
@@ -627,211 +699,288 @@
       ],
       "streetRecommendations": [
         {
-          "ticker": "PRVISPEC.NS",
-          "name": "Privi Speciality Chemicals",
-          "brokerage": "Motilal Oswal Wealth Management Research Desk",
-          "action": "buy",
-          "target": 3900,
-          "rationale": "Recommended with a target price of ₹3,900, representing a 13% upside from the CMP of ₹3,454."
-        },
-        {
-          "ticker": "CUMMINSIND.NS",
-          "name": "Cummins India",
-          "brokerage": "Motilal Oswal Wealth Management Research Desk",
-          "action": "buy",
-          "target": 6600,
-          "rationale": "Recommended with a target price of ₹6,600, representing a 17% upside from the CMP of ₹5,623."
-        },
-        {
-          "ticker": "LT.NS",
-          "name": "L&T",
-          "brokerage": "Sumeet Bagadia, Choice Broking",
-          "action": "buy",
-          "target": 0,
-          "rationale": "Recommended as a 'buy' for the week of June 15, 2026."
-        },
-        {
-          "ticker": "BAJFINANCE.NS",
-          "name": "Bajaj Finance",
-          "brokerage": "Sumeet Bagadia, Choice Broking",
-          "action": "buy",
-          "target": 0,
-          "rationale": "Recommended as a 'buy' for the week of June 15, 2026."
-        },
-        {
-          "ticker": "INDIGO.NS",
-          "name": "IndiGo",
-          "brokerage": "Sumeet Bagadia, Choice Broking",
-          "action": "buy",
-          "target": 5050,
-          "rationale": "Recommended with a near-term target of ₹5,050."
-        },
-        {
           "ticker": "HINDUNILVR.NS",
           "name": "Hindustan Unilever",
-          "brokerage": "Ganesh Dongre, Anand Rathi",
+          "brokerage": "Anand Rathi",
           "action": "buy",
           "target": 2230,
-          "rationale": "Recommended to buy at ₹2160-2170, with a target of ₹2230 and a stop loss of ₹2120."
-        },
-        {
-          "ticker": "ZOMATO.NS",
-          "name": "Zomato",
-          "brokerage": "Ganesh Dongre, Anand Rathi",
-          "action": "buy",
-          "target": 260,
-          "rationale": "Recommended to buy at ₹240-245, with a target of ₹260 and a stop loss of ₹230."
+          "rationale": "Buy recommendation with defined target and stop loss."
         },
         {
           "ticker": "POLYCAB.NS",
           "name": "Polycab India",
-          "brokerage": "Ganesh Dongre, Anand Rathi",
+          "brokerage": "Anand Rathi",
           "action": "buy",
           "target": 9900,
-          "rationale": "Recommended to buy at ₹9500-9550, with a target of ₹9900 and a stop loss of ₹9300."
+          "rationale": "Buy recommendation with defined target and stop loss."
         },
         {
-          "ticker": "DELHIVERY.NS",
-          "name": "Delhivery",
-          "brokerage": "Geojit Financial Services",
+          "ticker": "PRIVISCL.NS",
+          "name": "Privi Speciality Chemicals",
+          "brokerage": "Motilal Oswal Wealth Management",
           "action": "buy",
-          "target": 517,
-          "rationale": "Recommended with a target price of ₹517, indicating an 18% upside from the CMP of ₹437.50."
+          "target": 3900,
+          "rationale": "Target price suggests 13% upside from CMP ₹3454."
         },
         {
-          "ticker": "MGL.NS",
-          "name": "Mahanagar Gas Ltd",
-          "brokerage": "Motilal Oswal",
+          "ticker": "CUMMINSIND.NS",
+          "name": "Cummins India",
+          "brokerage": "Motilal Oswal Wealth Management",
           "action": "buy",
-          "target": 1390,
-          "rationale": "Recommended with a target price of ₹1,390, indicating a 27% upside from the CMP of ₹1,093."
+          "target": 6600,
+          "rationale": "Target price suggests 17% upside from CMP ₹5623."
         },
         {
-          "ticker": "ICICIGI.NS",
-          "name": "ICICI Lombard General Insurance Company Ltd",
-          "brokerage": "Motilal Oswal",
+          "ticker": "LT.NS",
+          "name": "Larsen & Toubro",
+          "brokerage": "Choice Broking",
           "action": "buy",
-          "target": 2240,
-          "rationale": "Recommended with a target price of ₹2,240, indicating a 32% upside from the CMP of ₹1,694.30."
+          "target": 4350,
+          "rationale": "Buy recommendation with defined target and stop loss."
         },
         {
-          "ticker": "AURIONPRO.NS",
-          "name": "Aurionpro",
-          "brokerage": "Choice Institutional Institute",
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "brokerage": "Choice Broking",
           "action": "buy",
-          "target": 1250,
-          "rationale": "Recommended with a target price of ₹1,250, indicating a 61% upside from the CMP of ₹774.95."
+          "rationale": "Implied strong outlook for the stock."
         },
         {
-          "ticker": "UJJIVANSFB.NS",
-          "name": "Ujjivan Small Finance Bank",
-          "brokerage": "Vaishali Parekh",
+          "ticker": "INDIGO.NS",
+          "name": "Interglobe Aviation",
+          "brokerage": "Choice Broking",
           "action": "buy",
-          "target": 58,
-          "rationale": "Recommended to buy at ₹54, with a target of ₹58 and a stop loss of ₹52.40."
+          "target": 5050,
+          "rationale": "Buy recommendation, maintaining above ₹4470."
         },
         {
-          "ticker": "LTF.NS",
-          "name": "L&T Finance",
-          "brokerage": "Vaishali Parekh",
+          "ticker": "ENTEROHEA.NS",
+          "name": "Entero Healthcare Solutions",
+          "brokerage": "YES Securities",
           "action": "buy",
-          "target": 282,
-          "rationale": "Recommended to buy at ₹272, with a target of ₹282 and a stop loss of ₹267."
+          "target": 1402,
+          "rationale": "Identified as a long-term buy pick for June 2026 with 20-21% potential upside against CMP ₹1,168."
         },
         {
-          "ticker": "IOC.NS",
-          "name": "IOC",
-          "brokerage": "Vaishali Parekh",
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki India",
+          "brokerage": "YES Securities",
           "action": "buy",
-          "target": 148,
-          "rationale": "Recommended to buy at ₹140, with a target of ₹148 and a stop loss of ₹137."
+          "target": 15745,
+          "rationale": "Identified as a long-term buy pick for June 2026 with 20-21% potential upside against CMP ₹13,140."
+        },
+        {
+          "ticker": "LUPIN.NS",
+          "name": "Lupin",
+          "brokerage": "YES Securities",
+          "action": "buy",
+          "rationale": "Identified as a long-term buy pick for June 2026 with 20-21% potential upside."
+        },
+        {
+          "ticker": "GMRINFRA.NS",
+          "name": "GMR Airports",
+          "brokerage": "Macquarie",
+          "action": "buy",
+          "target": 125,
+          "rationale": "Rated 'Outperform' with a specific price target."
+        },
+        {
+          "ticker": "PHOENIXLTD.NS",
+          "name": "Phoenix Mills",
+          "brokerage": "Macquarie",
+          "action": "buy",
+          "target": 2100,
+          "rationale": "Rated 'Outperform' with a specific price target."
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "Bandhan Bank",
+          "brokerage": "IDBI Capital",
+          "action": "buy",
+          "target": 262,
+          "rationale": "Target price of ₹262.00 implies 24.24% upside from LTP ₹210.88."
         }
       ],
       "corporateActions": [
         {
-          "ticker": "SMC",
-          "name": "SMC Global Securities Limited",
-          "type": "dividend",
-          "date": "2026-06-15"
+          "ticker": "null",
+          "name": "Ansal Properties & Infrastructure Ltd.",
+          "type": "results",
+          "date": "2026-06-16"
         },
         {
-          "ticker": "RRKABEL",
-          "name": "R R Kabel Limited",
+          "ticker": "null",
+          "name": "Ansal Properties & Infrastructure Ltd.",
           "type": "dividend",
           "date": "2026-06-16"
         },
         {
-          "ticker": "BRIGADE",
-          "name": "Brigade Enterprises Limited",
-          "type": "bonus",
+          "ticker": "null",
+          "name": "Resourceful Automobile Ltd.",
+          "type": "results",
+          "date": "2026-06-16"
+        },
+        {
+          "ticker": "null",
+          "name": "GB Logistics Commerce Ltd.",
+          "type": "results",
           "date": "2026-06-17"
         },
         {
-          "ticker": "VIMTALABS",
-          "name": "Vimta Labs Limited",
+          "ticker": "null",
+          "name": "ANIKINDS",
+          "type": "results",
+          "date": "2026-06-18"
+        },
+        {
+          "ticker": "null",
+          "name": "SMC Global Securities",
+          "type": "dividend",
+          "date": "2026-06-15"
+        },
+        {
+          "ticker": "null",
+          "name": "Monika Alcobev Ltd.",
           "type": "dividend",
           "date": "2026-06-18"
         },
         {
-          "ticker": "HDBFS",
-          "name": "HDB Financial Services Limited",
+          "ticker": "null",
+          "name": "Swastika Investmart Ltd.",
           "type": "dividend",
           "date": "2026-06-18"
         },
         {
-          "ticker": "TATATECH",
-          "name": "Tata Technologies Limited",
-          "type": "dividend",
-          "date": "2026-06-18"
-        },
-        {
-          "ticker": "EMUDHRA",
-          "name": "eMudhra Limited",
-          "type": "dividend",
-          "date": "2026-06-18"
-        },
-        {
-          "ticker": "GHCL",
-          "name": "GHCL Limited",
-          "type": "dividend",
-          "date": "2026-06-18"
-        },
-        {
-          "ticker": "HDFCBANK",
-          "name": "HDFC Bank Limited",
+          "ticker": "null",
+          "name": "HDFC Bank",
           "type": "dividend",
           "date": "2026-06-19"
         },
         {
-          "ticker": "TATAMOTORS",
-          "name": "Tata Motors Passenger Vehicles Limited",
+          "ticker": "null",
+          "name": "Life Insurance Corporation of India",
           "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Syngene International Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Supreme Industries Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Sona BLW Precision Forgings Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "IndusInd Bank Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Nippon Life India Asset Management Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "SJS Enterprises Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Dr. Lal Pathlabs Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "CARE Ratings Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Allied Blenders & Distillers Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "GIC Housing Finance Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Visaka Industries Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Anthem Biosciences Ltd.",
+          "type": "dividend",
+          "date": "2026-06-24"
+        },
+        {
+          "ticker": "null",
+          "name": "Tembo Global Industries Limited",
+          "type": "split",
+          "date": "2026-06-16"
+        },
+        {
+          "ticker": "null",
+          "name": "Deepak Builders & Engineers India Ltd.",
+          "type": "split",
           "date": "2026-06-19"
         },
         {
-          "ticker": "RAGHAV",
-          "name": "Raghav Productivity Enhancers Limited",
-          "type": "dividend",
+          "ticker": "null",
+          "name": "Reliance Industries Limited",
+          "type": "agm",
           "date": "2026-06-19"
         },
         {
-          "ticker": "AWL",
-          "name": "AWL Agri Business Limited",
-          "type": "dividend",
-          "date": "2026-06-19"
+          "ticker": "null",
+          "name": "Mini Diamonds (India)",
+          "type": "bonus",
+          "date": "2026-06-16"
+        },
+        {
+          "ticker": "null",
+          "name": "Brigade Enterprises Ltd.",
+          "type": "bonus",
+          "date": "null"
+        },
+        {
+          "ticker": "null",
+          "name": "RR Kabel",
+          "type": "bonus",
+          "date": "2026-06-16"
         }
       ]
     },
-    "outlook": "The Indian market closed with significant gains, with NIFTY 50 and SENSEX both up nearly 1%. Broad market participation was evident with a strong advance-decline ratio and robust DII buying offsetting FII outflows. Key sectors like Realty, Auto, and Financials drove the positive momentum, setting a strong tone for the open.",
+    "outlook": "The Indian market concluded with broad-based gains, with Nifty and Sensex both up close to 1%, underpinned by strong domestic institutional buying offsetting FII outflows. Key sectors like Realty, Auto, and Financials led the rally, supported by a positive market breadth. Expect this momentum to set the tone for the open.",
     "keyTakeaways": [
-      "NIFTY 50 and SENSEX ended nearly 1% higher.",
+      "Nifty and Sensex closed nearly 1% higher, reflecting broad market strength.",
+      "Realty (+3.96%), Auto (+2.60%), and Financial Services (+1.39%) were top-performing sectors.",
+      "DIIs were significant net buyers (5341.29cr), countering FII outflows (1082.18cr).",
       "Market breadth was positive with 39 advances against 19 declines.",
-      "Realty, Auto, and Financials were the top performing sectors.",
-      "DLF, HDFCLIFE, and EICHERMOT were among the top gainers.",
-      "DIIs provided strong support with significant buying (5341.29cr), outweighing FII outflows (1082.18cr).",
-      "NIFTY PHARMA was a notable laggard, declining by 0.66%."
+      "DLF (+4.7%) and HDFCLIFE (+4.7%) were among the top gainers."
     ]
   },
   "emailSent": true,
-  "checksum": "sha256:fa3830f61f68632cfd8685c62c698389b90a2a6955df6532fc3af9ce4917ba0d"
+  "checksum": "sha256:bb0cd2e689836a95aba9eb7d333670b932fc445a5c0294995a427cac9d7a07ea"
 }
