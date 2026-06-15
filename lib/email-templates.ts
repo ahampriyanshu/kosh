@@ -460,6 +460,12 @@ function fiiDiiBlock(fd: NonNullable<MarketSnapshot['fiiDii']>): string {
     <p style="${mono};margin:6px 0 0 0;color:${colors.faint};font-size:12px;line-height:18px">As of ${escapeHtml(fd.asOf)}</p>`;
 }
 
+// Some grounded runs emit a placeholder instead of a real outlet name; hide those.
+const PLACEHOLDER_SOURCES = new Set(['research text', 'research', 'source', 'n/a', 'na', 'unknown', '']);
+function isRealSource(source: string): boolean {
+  return !PLACEHOLDER_SOURCES.has(source.trim().toLowerCase());
+}
+
 function newsDigest(groups: MarketSnapshot['news'], limit = 6): string {
   const byCategory = new Map(groups.map((g) => [g.category, g.items]));
   const picks: Array<{ category: (typeof NEWS_THEME_ORDER)[number]; item: MarketSnapshot['news'][number]['items'][number] }> = [];
@@ -487,7 +493,7 @@ function newsDigest(groups: MarketSnapshot['news'], limit = 6): string {
         <div style="padding:10px 0;border-bottom:1px solid ${colors.border}">
           <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.link};margin:0 0 2px 0">${escapeHtml(NEWS_LABELS[category])}</div>
           <div style="${font};font-size:15px;font-weight:700;line-height:21px;color:${colors.text}">${escapeHtml(item.headline)}</div>
-          <div style="${mono};font-size:12px;line-height:18px;color:${colors.faint};margin-top:2px">${escapeHtml(item.source)}</div>
+          ${isRealSource(item.source) ? `<div style="${mono};font-size:12px;line-height:18px;color:${colors.faint};margin-top:2px">${escapeHtml(item.source)}</div>` : ''}
         </div>
       `,
     )

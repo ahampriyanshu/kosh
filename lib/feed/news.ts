@@ -12,6 +12,7 @@ export async function fetchNews(now: Date = new Date()): Promise<NewsSlice> {
     `From the research, produce: "news" grouped by category ` +
     `(one of macro_policy, global_cues, earnings, sectoral, corporate_actions, stocks_in_focus), each item with ` +
     `headline, summary, source, optional tickers (NSE symbols like RELIANCE.NS), and sentiment (bullish/bearish/neutral). ` +
+    `"source" MUST be the actual news outlet/publication name (e.g. Economic Times, Moneycontrol, Reuters, Business Standard, Livemint) — never a placeholder like "Research text". ` +
     `And "streetRecommendations": array of { ticker, name, brokerage, action (buy/sell/hold/accumulate/reduce), ` +
     `optional target (number), rationale }. Only include items you have real sources for.\n\nResearch:\n${research}`;
   const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, NewsSliceSchema);

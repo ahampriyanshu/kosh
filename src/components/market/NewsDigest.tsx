@@ -22,6 +22,12 @@ const THEME_LABELS: Record<NewsCategory, string> = {
   stocks_in_focus: 'Stocks in Focus',
 };
 
+// Some grounded runs emit a placeholder instead of a real outlet name; hide those.
+const PLACEHOLDER_SOURCES = new Set(['research text', 'research', 'source', 'n/a', 'na', 'unknown', '']);
+function isRealSource(source: string): boolean {
+  return !PLACEHOLDER_SOURCES.has(source.trim().toLowerCase());
+}
+
 interface NewsDigestProps {
   groups: MarketSnapshot['news'];
   limit?: number;
@@ -59,7 +65,9 @@ export function NewsDigest({ groups, limit = 6 }: NewsDigestProps) {
           <p className="font-display font-semibold text-[var(--color-ink)] leading-snug mt-0.5">
             {item.headline}
           </p>
-          <span className="font-mono text-xs text-[var(--color-faint)]">{item.source}</span>
+          {isRealSource(item.source) && (
+            <span className="font-mono text-xs text-[var(--color-faint)]">{item.source}</span>
+          )}
         </li>
       ))}
     </ul>
