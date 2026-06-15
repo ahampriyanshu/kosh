@@ -1,15 +1,15 @@
 import { getManifest, getAllReports } from '../../lib/reports';
-import type { ReportType, MidSessionContent, RecapContent, ManifestEntry } from '../../../lib/schemas';
+import type { ReportType, RetroContent, RecapContent, ManifestEntry } from '../../../lib/schemas';
 import { ReportCard } from '../../components/ReportCard';
 
-const TYPE_ORDER: ReportType[] = ['daily', 'midsession', 'weekly', 'monthly', 'research', 'retro'];
+const TYPE_ORDER: ReportType[] = ['daily', 'retro', 'recap', 'weekly', 'monthly', 'research'];
 const TYPE_HEADINGS: Record<ReportType, string> = {
   daily: 'Daily Briefs',
-  midsession: 'Mid-Session',
+  retro: 'Mid-Session',
+  recap: 'Weekly Recap',
   weekly: 'Weekly Recaps',
   monthly: 'Monthly Recaps',
   research: 'Research',
-  retro: 'Retrospectives',
 };
 
 export default async function ReportsPage() {
@@ -71,8 +71,8 @@ export default async function ReportsPage() {
                     let verificationHits: number | undefined;
                     let verificationTotal: number | undefined;
 
-                    if (envelope && entry.type === 'midsession') {
-                      const c = envelope.content as MidSessionContent;
+                    if (envelope && entry.type === 'retro') {
+                      const c = envelope.content as RetroContent;
                       alertCount = c.alerts?.length ?? 0;
                     }
 

@@ -23,7 +23,7 @@ vi.mock('../../lib/storage', () => ({
 }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));
 
-import { runMidSession } from '../../scripts/midsession';
+import { runRetro } from '../../scripts/retro';
 
 const NOW = new Date('2026-06-15T08:30:00.000Z');
 
@@ -46,7 +46,7 @@ beforeEach(() => {
   h.sendReportEmail.mockResolvedValue(undefined);
 });
 
-describe('runMidSession', () => {
+describe('runRetro', () => {
   it('no flags → no LLM call, writes twice, emails once', async () => {
     // 0% change, normal volume (1000), price == sma → no rules triggered
     h.getQuoteDetail.mockResolvedValue({
@@ -59,7 +59,7 @@ describe('runMidSession', () => {
     h.getHistorical.mockResolvedValue(makeCandles(100, 1000));
     h.sma.mockReturnValue([100]); // sma50 = 100, price 100 is not below 100 * 0.98
 
-    await runMidSession(NOW);
+    await runRetro(NOW);
 
     expect(h.generateGroundedObject).not.toHaveBeenCalled();
 
@@ -69,9 +69,9 @@ describe('runMidSession', () => {
 
     expect(first.content.alerts).toEqual([]);
     expect(first.emailSent).toBe(false);
-    expect(first.id).toMatch(/^midsession-/);
+    expect(first.id).toMatch(/^retro-/);
     expect(first.dateKey).toBeTruthy();
-    expect(first.type).toBe('midsession');
+    expect(first.type).toBe('retro');
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
     expect(second.emailSent).toBe(true);
@@ -105,7 +105,7 @@ describe('runMidSession', () => {
       sources: [],
     });
 
-    await runMidSession(NOW);
+    await runRetro(NOW);
 
     expect(h.generateGroundedObject).toHaveBeenCalledTimes(1);
 
@@ -153,7 +153,7 @@ describe('runMidSession', () => {
       sources: [],
     });
 
-    await runMidSession(NOW);
+    await runRetro(NOW);
 
     const first = h.writeReport.mock.calls[0][0];
     // Only X.NS should remain — Y.NS was not in the flagged set

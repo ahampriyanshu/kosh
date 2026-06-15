@@ -2,12 +2,12 @@ import { describe, expect, it } from 'vitest';
 import {
   escapeHtml,
   formatDisplayDate,
-  renderMidSessionEmail,
+  renderRetroEmail,
   renderDailyEmail,
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
-import type { MidSessionContent, DailyContent, RecapContent, ResearchContent } from '../../lib/schemas';
+import type { RetroContent, DailyContent, RecapContent, ResearchContent } from '../../lib/schemas';
 
 const dailyContent: DailyContent = {
   date: '2026-06-14',
@@ -31,7 +31,7 @@ const dailyContent: DailyContent = {
   fiiDiiSentiment: 'FII selling moderated.',
 };
 
-const midSessionContent: MidSessionContent = {
+const midSessionContent: RetroContent = {
   date: '2026-06-14',
   summary: 'One watchlist name breached rules.',
   alerts: [
@@ -131,7 +131,7 @@ describe('email templates', () => {
   });
 
   it('renders mid-session alerts and portfolio scan details', () => {
-    const html = renderMidSessionEmail(midSessionContent);
+    const html = renderRetroEmail(midSessionContent);
 
     expect(html).toContain('Mid-Session');
     expect(html).toContain('14th June, 2026');

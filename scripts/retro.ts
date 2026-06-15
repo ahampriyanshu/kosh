@@ -6,12 +6,12 @@ import { sma } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
-import { renderMidSessionEmail } from '../lib/email-templates';
+import { renderRetroEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
 import {
   AlertSchema,
-  MidSessionContentSchema,
-  type MidSessionContent,
+  RetroContentSchema,
+  type RetroContent,
   type ReportEnvelope,
 } from '../lib/schemas';
 
@@ -33,12 +33,12 @@ function avg(nums: number[]): number {
   return nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : 0;
 }
 
-export async function runMidSession(now: Date = new Date()): Promise<void> {
+export async function runRetro(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   const period1 = new Date(now.getTime() - 120 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
   const watchlist = await getWatchlist();
 
-  const evaluated: MidSessionContent['evaluated'] = [];
+  const evaluated: RetroContent['evaluated'] = [];
   const flags: Flag[] = [];
   const priceSnapshot: Record<string, number> = {};
 
@@ -72,7 +72,7 @@ export async function runMidSession(now: Date = new Date()): Promise<void> {
     }
   }
 
-  let alerts: MidSessionContent['alerts'] = [];
+  let alerts: RetroContent['alerts'] = [];
   let summary = 'No unusual intraday activity across the watchlist.';
 
   if (flags.length) {
@@ -91,13 +91,13 @@ export async function runMidSession(now: Date = new Date()): Promise<void> {
     summary = object.summary;
   }
 
-  const content = MidSessionContentSchema.parse({ date, evaluated, alerts, summary });
+  const content = RetroContentSchema.parse({ date, evaluated, alerts, summary });
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `midsession-${date}`,
+    id: `retro-${date}`,
     dateKey: date,
-    type: 'midsession',
+    type: 'retro',
     generatedAt: now.toISOString(),
     sourceData: {
       tickers: watchlist.stocks.map((s) => s.ticker),
@@ -111,14 +111,14 @@ export async function runMidSession(now: Date = new Date()): Promise<void> {
   await writeReport({ ...base, emailSent: false });
   await sendReportEmail(
     `Kosh Mid-Session — ${date}${alerts.length ? ` — ${alerts.length} sell alert${alerts.length > 1 ? 's' : ''}` : ''}`,
-    renderMidSessionEmail(content),
+    renderRetroEmail(content),
   );
   await writeReport({ ...base, emailSent: true });
   console.log(`Mid-session ${base.id} written and emailed (${alerts.length} alerts).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runMidSession()
+  runRetro()
     .then(() => process.exit(0))
     .catch((e) => {
       console.error(e);

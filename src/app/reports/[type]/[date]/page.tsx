@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { getManifest, getReportByRoute } from '../../../../lib/reports';
-import type { DailyContent, MidSessionContent, RecapContent, ResearchContent } from '../../../../../lib/schemas';
+import type { DailyContent, RetroContent, RecapContent, ResearchContent } from '../../../../../lib/schemas';
 import { DailyView } from '../../../../components/DailyView';
-import { MidSessionView } from '../../../../components/MidSessionView';
+import { RetroView } from '../../../../components/RetroView';
 import { RecapView } from '../../../../components/RecapView';
 import { ResearchView } from '../../../../components/ResearchView';
 
@@ -15,8 +15,8 @@ export async function generateStaticParams() {
 
 const TYPE_TITLES: Record<string, string> = {
   daily: 'Daily Brief',
-  midsession: 'Mid-Session',
-  retro: 'Weekly Retrospective',
+  retro: 'Mid-Session',
+  recap: 'Weekly Recap',
   weekly: 'Weekly Outlook',
   monthly: 'Monthly Outlook',
   research: 'Research',
@@ -56,8 +56,8 @@ export default async function ReportPage({ params }: ReportPageProps) {
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
       {envelope.type === 'daily' && <DailyView content={envelope.content as DailyContent} generatedAt={envelope.generatedAt} />}
-      {envelope.type === 'midsession' && <MidSessionView content={envelope.content as MidSessionContent} />}
-      {(envelope.type === 'weekly' || envelope.type === 'monthly' || envelope.type === 'retro') && <RecapView content={envelope.content as RecapContent} />}
+      {envelope.type === 'retro' && <RetroView content={envelope.content as RetroContent} />}
+      {(envelope.type === 'weekly' || envelope.type === 'monthly' || envelope.type === 'recap') && <RecapView content={envelope.content as RecapContent} />}
       {envelope.type === 'research' && <ResearchView content={envelope.content as ResearchContent} />}
     </div>
   );

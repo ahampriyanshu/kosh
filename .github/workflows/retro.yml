@@ -1,4 +1,4 @@
-name: Mid-Session Evaluator
+name: Retro (mid-session)
 
 on:
   schedule:
@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 jobs:
-  midsession:
+  retro:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx tsx scripts/midsession.ts
+      - run: npx tsx scripts/retro.ts
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           KOSH_GOOGLE_MODEL: ${{ vars.KOSH_GOOGLE_MODEL }}
