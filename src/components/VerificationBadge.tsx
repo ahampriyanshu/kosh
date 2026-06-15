@@ -8,10 +8,10 @@ export function VerificationBadge({ hits, total }: VerificationBadgeProps) {
   const ratio = hits / total;
   const color =
     ratio >= 0.6
-      ? { fg: 'var(--color-bullish)', bg: 'var(--color-bullish-bg)', border: '#C8E6D8' }
+      ? { fg: 'var(--color-bullish)', bg: 'var(--color-bullish-bg)', border: 'var(--color-hairline)' }
       : ratio >= 0.3
-      ? { fg: 'var(--color-medium)', bg: 'var(--color-medium-bg)', border: '#F0DFB8' }
-      : { fg: 'var(--color-bearish)', bg: 'var(--color-bearish-bg)', border: '#F2D5CF' };
+      ? { fg: 'var(--color-medium)', bg: 'var(--color-medium-bg)', border: 'var(--color-hairline)' }
+      : { fg: 'var(--color-bearish)', bg: 'var(--color-bearish-bg)', border: 'var(--color-hairline)' };
 
   return (
     <span

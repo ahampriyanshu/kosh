@@ -9,21 +9,21 @@ const CONFIG: Record<
     label: 'Bullish',
     bg: 'var(--color-bullish-bg)',
     fg: 'var(--color-bullish)',
-    border: '#C8E6D8',
+    border: 'var(--color-hairline)',
   },
   bearish: {
     glyph: '▼',
     label: 'Bearish',
     bg: 'var(--color-bearish-bg)',
     fg: 'var(--color-bearish)',
-    border: '#F2D5CF',
+    border: 'var(--color-hairline)',
   },
   neutral: {
     glyph: '—',
     label: 'Neutral',
     bg: 'var(--color-neutral-bg)',
     fg: 'var(--color-neutral)',
-    border: '#E2DFDC',
+    border: 'var(--color-hairline)',
   },
 };
 

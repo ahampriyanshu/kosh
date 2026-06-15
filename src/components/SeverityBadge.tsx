@@ -8,19 +8,19 @@ const CONFIG: Record<
     label: 'High',
     bg: 'var(--color-bearish-bg)',
     fg: 'var(--color-bearish)',
-    border: '#F2D5CF',
+    border: 'var(--color-hairline)',
   },
   medium: {
     label: 'Medium',
     bg: 'var(--color-medium-bg)',
     fg: 'var(--color-medium)',
-    border: '#F0DFB8',
+    border: 'var(--color-hairline)',
   },
   low: {
     label: 'Low',
     bg: 'var(--color-neutral-bg)',
     fg: 'var(--color-neutral)',
-    border: '#E2DFDC',
+    border: 'var(--color-hairline)',
   },
 };
 
