@@ -1,10 +1,11 @@
 import { pathToFileURL } from 'node:url';
-import { buildRecap } from '../lib/recap';
+import { isFirstOfMonthIST, istParts, istDateString } from '../lib/time';
+import { loadWindowSnapshots, aggregateSnapshots } from '../lib/feed/aggregate';
+import { buildMonthlyNarrative } from '../lib/reports-narrative';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
-import { renderRecapEmail } from '../lib/email-templates';
-import { isFirstOfMonthIST, istParts } from '../lib/time';
-import type { ReportEnvelope } from '../lib/schemas';
+import { renderMonthlyEmail } from '../lib/email-templates';
+import { MonthlyContentSchema, type ReportEnvelope } from '../lib/schemas';
 
 function prevMonthId(now: Date): string {
   const { year, month } = istParts(now);
@@ -15,41 +16,33 @@ function prevMonthId(now: Date): string {
 
 export async function runMonthly(now: Date = new Date()): Promise<void> {
   if (!isFirstOfMonthIST(now)) {
-    console.log('Not the 1st of the month in IST; skipping monthly recap.');
+    console.log('Not the 1st of the month in IST; skipping monthly report.');
     return;
   }
   const period = prevMonthId(now);
-  const lookbackPeriod1 = new Date(now.getTime() - 33 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const content = await buildRecap({
-    type: 'monthly',
-    period,
-    periodLabel: `month ${period}`,
-    lookbackPeriod1,
-    now,
+  const date = istDateString(now);
+  const snapshot = aggregateSnapshots(await loadWindowSnapshots(date, 30), '1mo');
+  const narrative = await buildMonthlyNarrative(snapshot);
+  const content = MonthlyContentSchema.parse({
+    snapshot,
+    sectorInsights: narrative.sectorInsights,
+    macroThemes: narrative.macroThemes,
+    midTermBets: narrative.midTermBets,
+    ledgerRollup: null, // filled by Phase 3b
   });
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
-    schemaVersion: 1,
-    id: `monthly-${period}`,
-    dateKey: period,
-    type: 'monthly',
+    schemaVersion: 1, id: `monthly-${period}`, type: 'monthly', dateKey: period,
     generatedAt: now.toISOString(),
-    sourceData: {
-      tickers: content.outlook.stocksToWatch.map((s) => s.ticker),
-      priceSnapshot: {},
-      searchTimestamp: now.toISOString(),
-    },
-    content,
-    checksum: computeChecksum(content),
+    sourceData: { tickers: content.midTermBets.map((b) => b.ticker), priceSnapshot: {}, searchTimestamp: now.toISOString() },
+    content, checksum: computeChecksum(content),
   };
-
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail(`Kosh Monthly — ${period}`, renderRecapEmail(content, `Kosh Monthly Recap — ${period}`));
+  await sendReportEmail(`Kosh Monthly — ${period}`, renderMonthlyEmail(content, period));
   await writeReport({ ...base, emailSent: true });
   console.log(`Monthly ${base.id} written and emailed.`);
 }
 
-// Auto-run only when executed directly (tsx scripts/monthly.ts), not when imported by tests.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   runMonthly().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
 }

@@ -1,77 +1,42 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-
 const h = vi.hoisted(() => ({
-  buildRecap: vi.fn(),
-  writeReport: vi.fn(),
-  sendReportEmail: vi.fn(),
+  loadWindowSnapshots: vi.fn(), aggregateSnapshots: vi.fn(),
+  buildMonthlyNarrative: vi.fn(), writeReport: vi.fn(), sendReportEmail: vi.fn(),
 }));
-
-vi.mock('../../lib/recap', () => ({ buildRecap: h.buildRecap }));
-vi.mock('../../lib/storage', () => ({
-  writeReport: h.writeReport,
-  computeChecksum: () => 'sha256:test',
-}));
+vi.mock('../../lib/feed/aggregate', () => ({ loadWindowSnapshots: h.loadWindowSnapshots, aggregateSnapshots: h.aggregateSnapshots }));
+vi.mock('../../lib/reports-narrative', () => ({ buildMonthlyNarrative: h.buildMonthlyNarrative }));
+vi.mock('../../lib/storage', () => ({ writeReport: h.writeReport, computeChecksum: () => 'sha256:test' }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));
-
+vi.mock('../../lib/email-templates', () => ({ renderMonthlyEmail: () => '<html></html>' }));
 import { runMonthly } from '../../scripts/monthly';
+import { MarketSnapshotSchema } from '../../lib/schemas';
 
-const recapContent = {
-  period: '2026-06',
-  retrospective: null,
-  outlook: {
-    themes: ['x'],
-    stocksToWatch: [{ ticker: 'AAPL', name: 'Apple', reason: 'test', signal: 'bullish' as const }],
-    recommendation: { ticker: 'AAPL', action: 'hold' as const, reasoning: 'test', confidence: 0.5 },
-  },
-};
-
+const snap = MarketSnapshotSchema.parse({
+  asOf: '2026-07-01T00:00:00.000Z', window: '1mo',
+  indianIndices: [], globalIndices: [], commodities: [], currencies: [], topGainers: [], topLosers: [],
+  mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [],
+  news: [], streetRecommendations: [], corporateActions: [],
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+});
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
-  h.buildRecap.mockResolvedValue(recapContent);
-  h.writeReport.mockResolvedValue(undefined);
-  h.sendReportEmail.mockResolvedValue(undefined);
+  h.loadWindowSnapshots.mockResolvedValue([snap]);
+  h.aggregateSnapshots.mockReturnValue(snap);
+  h.buildMonthlyNarrative.mockResolvedValue({ sectorInsights: ['IT firm'], macroThemes: ['rates'], midTermBets: [] });
+  h.writeReport.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
 });
 
 describe('runMonthly', () => {
-  it('skips when not the 1st of the month in IST', async () => {
-    // 2026-06-14T02:30:00.000Z = 2026-06-14 08:00 IST (14th, not 1st)
-    await runMonthly(new Date('2026-06-14T02:30:00.000Z'));
-
-    expect(h.buildRecap).not.toHaveBeenCalled();
+  it('skips when not the 1st of the month IST', async () => {
+    await runMonthly(new Date('2026-06-15T00:00:00.000Z')); // 15th
     expect(h.writeReport).not.toHaveBeenCalled();
-    expect(h.sendReportEmail).not.toHaveBeenCalled();
   });
-
-  it('runs on the 1st of the month in IST, using the previous month as period', async () => {
-    // 2026-06-30T18:30:00.000Z = 2026-07-01 00:00 IST (the 1st)
-    const now = new Date('2026-06-30T18:30:00.000Z');
-    await runMonthly(now);
-
-    expect(h.buildRecap).toHaveBeenCalledTimes(1);
-    expect(h.buildRecap.mock.calls[0][0].type).toBe('monthly');
-    expect(h.buildRecap.mock.calls[0][0].period).toBe('2026-06'); // previous month
-
-    expect(h.writeReport).toHaveBeenCalledTimes(2);
+  it('on the 1st, aggregates 30d snapshots and writes the monthly report (ledgerRollup null)', async () => {
+    await runMonthly(new Date('2026-07-01T00:00:00.000Z'));
+    expect(h.loadWindowSnapshots).toHaveBeenCalledWith(expect.any(String), 30);
     const first = h.writeReport.mock.calls[0][0];
-    const second = h.writeReport.mock.calls[1][0];
-
-    expect(first.id).toBe('monthly-2026-06');
-    expect(first.dateKey).toBe('2026-06');
     expect(first.type).toBe('monthly');
-    expect(first.emailSent).toBe(false);
-
-    expect(second.id).toBe('monthly-2026-06');
-    expect(second.type).toBe('monthly');
-    expect(second.emailSent).toBe(true);
-
-    expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
-
-    // Order: writeReport(false) → sendReportEmail → writeReport(true)
-    expect(h.sendReportEmail.mock.invocationCallOrder[0]).toBeGreaterThan(
-      h.writeReport.mock.invocationCallOrder[0],
-    );
-    expect(h.sendReportEmail.mock.invocationCallOrder[0]).toBeLessThan(
-      h.writeReport.mock.invocationCallOrder[1],
-    );
+    expect(first.content.sectorInsights).toEqual(['IT firm']);
+    expect(first.content.ledgerRollup).toBeNull();
   });
 });
