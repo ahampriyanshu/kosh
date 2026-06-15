@@ -1,4 +1,5 @@
 import YahooFinance from 'yahoo-finance2';
+import { type UniverseEntry, type UniverseQuote } from './schemas';
 
 const yf = new YahooFinance({});
 
@@ -85,4 +86,48 @@ export async function searchTicker(query: string): Promise<string[]> {
   return (res.quotes ?? [])
     .map((q) => q.symbol)
     .filter((s): s is string => Boolean(s));
+}
+
+export interface MarketQuote { name: string; ltp: number; changePct: number; }
+
+export async function getMarketQuote(symbol: string): Promise<MarketQuote> {
+  const q = (await yf.quote(symbol)) as unknown as {
+    regularMarketPrice?: number; regularMarketChangePercent?: number; shortName?: string; longName?: string;
+  };
+  return {
+    name: q.shortName ?? q.longName ?? symbol,
+    ltp: q.regularMarketPrice ?? 0,
+    changePct: q.regularMarketChangePercent ?? 0,
+  };
+}
+
+interface RawUniQuote {
+  symbol?: string; regularMarketPrice?: number; regularMarketChangePercent?: number;
+  regularMarketVolume?: number; averageDailyVolume3Month?: number;
+  fiftyTwoWeekHigh?: number; fiftyTwoWeekLow?: number;
+}
+
+// Batched quotes for the universe. yahoo-finance2 quote() accepts an array and returns an array.
+// Chunk to stay within request limits; skip symbols that returned no price.
+export async function getUniverseQuotes(entries: UniverseEntry[], chunkSize = 50): Promise<UniverseQuote[]> {
+  const bySymbol = new Map(entries.map((e) => [e.ticker, e]));
+  const out: UniverseQuote[] = [];
+  for (let i = 0; i < entries.length; i += chunkSize) {
+    const chunk = entries.slice(i, i + chunkSize).map((e) => e.ticker);
+    const res = (await yf.quote(chunk)) as unknown as RawUniQuote[];
+    for (const r of res) {
+      const entry = r.symbol ? bySymbol.get(r.symbol) : undefined;
+      if (!entry || r.regularMarketPrice == null) continue;
+      out.push({
+        ticker: entry.ticker, name: entry.name, sector: entry.sector,
+        ltp: r.regularMarketPrice,
+        changePct: r.regularMarketChangePercent ?? 0,
+        volume: r.regularMarketVolume ?? 0,
+        avgVolume: r.averageDailyVolume3Month ?? 0,
+        high52w: r.fiftyTwoWeekHigh ?? 0,
+        low52w: r.fiftyTwoWeekLow ?? 0,
+      });
+    }
+  }
+  return out;
 }
