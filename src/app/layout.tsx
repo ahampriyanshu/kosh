@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
 import { JetBrains_Mono, Lato, Poppins } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
 import { ThemeToggle } from '../components/ThemeToggle';
+import { siteConfig } from '../lib/site';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -28,8 +29,90 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Kosh',
-  description: 'Kosh',
+  metadataBase: new URL(siteConfig.url),
+  applicationName: siteConfig.title,
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.title}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    'Kosh',
+    'Indian stock market',
+    'NSE',
+    'BSE',
+    'equity research',
+    'market brief',
+    'watchlist',
+    'portfolio alerts',
+  ],
+  authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    siteName: siteConfig.title,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    type: 'website',
+    url: '/',
+    locale: 'en_IN',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1024,
+        height: 1024,
+        alt: siteConfig.title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    site: siteConfig.author.twitter,
+    creator: siteConfig.author.twitter,
+    images: ['/logo.png'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    shortcut: ['/favicon.ico'],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+  },
+  manifest: '/site.webmanifest',
+  appleWebApp: {
+    capable: true,
+    title: siteConfig.title,
+    statusBarStyle: 'default',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  category: 'finance',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#ffffff',
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({
