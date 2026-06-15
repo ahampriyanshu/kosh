@@ -1,4 +1,5 @@
 import type { ResearchContent } from '../../lib/schemas';
+import { ticker as tickerFn } from './market/Figure';
 
 function confidencePct(c: number): string {
   return `${Math.round(c * 100)}%`;
@@ -11,10 +12,10 @@ interface ResearchViewProps {
 export function ResearchView({ content }: ResearchViewProps) {
   const actionColor =
     content.recommendation.action === 'buy'
-      ? { bg: 'var(--color-bullish-bg)', fg: 'var(--color-bullish)', border: '#C8E6D8' }
+      ? { bg: 'var(--color-bullish-bg)', fg: 'var(--color-bullish)', border: 'var(--color-hairline)' }
       : content.recommendation.action === 'sell'
-      ? { bg: 'var(--color-bearish-bg)', fg: 'var(--color-bearish)', border: '#F2D5CF' }
-      : { bg: 'var(--color-neutral-bg)', fg: 'var(--color-neutral)', border: '#E2DFDC' };
+      ? { bg: 'var(--color-bearish-bg)', fg: 'var(--color-bearish)', border: 'var(--color-hairline)' }
+      : { bg: 'var(--color-neutral-bg)', fg: 'var(--color-neutral)', border: 'var(--color-hairline)' };
 
   return (
     <div className="space-y-8">
@@ -22,7 +23,7 @@ export function ResearchView({ content }: ResearchViewProps) {
       <div className="flex items-start gap-4 flex-wrap">
         <div>
           <p className="font-mono text-3xl font-bold text-[var(--color-ink)]">
-            {content.ticker}
+            {tickerFn(content.ticker)}
           </p>
           <p className="text-[var(--color-muted)] text-sm">{content.name}</p>
         </div>
