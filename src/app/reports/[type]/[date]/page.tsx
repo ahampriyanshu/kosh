@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation';
 import { getManifest, getReportByRoute } from '../../../../lib/reports';
-import type { DailyContent, RetroContent, RecapContent, ResearchContent } from '../../../../../lib/schemas';
+import type { DailyContent, WeeklyContent, MonthlyContent, RetroContent, RecapContent, ResearchContent } from '../../../../../lib/schemas';
 import { DailyView } from '../../../../components/DailyView';
+import { WeeklyView } from '../../../../components/WeeklyView';
+import { MonthlyView } from '../../../../components/MonthlyView';
 import { RetroView } from '../../../../components/RetroView';
 import { RecapView } from '../../../../components/RecapView';
 import { ResearchView } from '../../../../components/ResearchView';
@@ -57,7 +59,9 @@ export default async function ReportPage({ params }: ReportPageProps) {
       </div>
       {envelope.type === 'daily' && <DailyView content={envelope.content as DailyContent} generatedAt={envelope.generatedAt} />}
       {envelope.type === 'retro' && <RetroView content={envelope.content as RetroContent} />}
-      {(envelope.type === 'weekly' || envelope.type === 'monthly' || envelope.type === 'recap') && <RecapView content={envelope.content as RecapContent} />}
+      {envelope.type === 'weekly' && <WeeklyView content={envelope.content as WeeklyContent} />}
+      {envelope.type === 'monthly' && <MonthlyView content={envelope.content as MonthlyContent} />}
+      {envelope.type === 'recap' && <RecapView content={envelope.content as RecapContent} />}
       {envelope.type === 'research' && <ResearchView content={envelope.content as ResearchContent} />}
     </div>
   );
