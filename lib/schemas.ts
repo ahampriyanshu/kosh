@@ -184,3 +184,93 @@ export const UniverseEntrySchema = z.object({
 });
 export type UniverseEntry = z.infer<typeof UniverseEntrySchema>;
 export const UniverseSchema = z.array(UniverseEntrySchema);
+
+// ---- MarketSnapshot (Phase 2) ----
+export const IndexQuoteSchema = z.object({
+  name: z.string(), symbol: z.string(), ltp: z.number(), changePct: z.number(),
+});
+export const SimpleQuoteSchema = z.object({ name: z.string(), value: z.number(), changePct: z.number() });
+export const CurrencyQuoteSchema = z.object({ pair: z.string(), value: z.number(), changePct: z.number() });
+export const MoverSchema = z.object({ ticker: z.string(), name: z.string(), ltp: z.number(), changePct: z.number() });
+export const ActiveSchema = MoverSchema.extend({ volume: z.number() });
+export const NearHighSchema = z.object({ ticker: z.string(), name: z.string(), ltp: z.number(), pctFromHigh: z.number() });
+export const NearLowSchema = z.object({ ticker: z.string(), name: z.string(), ltp: z.number(), pctFromLow: z.number() });
+export const VolumeShockerSchema = z.object({ ticker: z.string(), name: z.string(), volume: z.number(), avgVolume: z.number(), ratio: z.number() });
+export const SectorRankSchema = z.object({ sector: z.string(), changePct: z.number() });
+export const BreadthSchema = z.object({
+  advances: z.number().int().nonnegative(), declines: z.number().int().nonnegative(),
+  unchanged: z.number().int().nonnegative(), adRatio: z.number(),
+});
+export const FiiDiiSchema = z.object({ fiiNet: z.number(), diiNet: z.number(), unit: z.literal('crore'), asOf: z.string() });
+export const NewsCategorySchema = z.enum(['macro_policy', 'global_cues', 'earnings', 'sectoral', 'corporate_actions', 'stocks_in_focus']);
+export const NewsItemSchema = z.object({
+  headline: z.string(), summary: z.string(), source: z.string(),
+  tickers: z.array(z.string()).optional(), sentiment: SignalSchema,
+});
+export const NewsGroupSchema = z.object({ category: NewsCategorySchema, items: z.array(NewsItemSchema) });
+export const StreetRecSchema = z.object({
+  ticker: z.string(), name: z.string(), brokerage: z.string(),
+  action: z.enum(['buy', 'sell', 'hold', 'accumulate', 'reduce']), target: z.number().optional(), rationale: z.string(),
+});
+export const CorpActionSchema = z.object({
+  ticker: z.string(), name: z.string(),
+  type: z.enum(['results', 'dividend', 'split', 'agm', 'bonus']), date: z.string(),
+});
+export const GiftNiftySchema = z.object({ value: z.number(), changePct: z.number() });
+export const BondYieldSchema = z.object({ name: z.string(), value: z.number(), changeBps: z.number() });
+export const VixSchema = z.object({ value: z.number(), changePct: z.number() });
+
+export const MarketSnapshotSchema = z.object({
+  asOf: z.string(),
+  window: z.enum(['1d', '7d', '1mo']),
+  indianIndices: z.array(IndexQuoteSchema),
+  giftNifty: GiftNiftySchema.nullable(),
+  globalIndices: z.array(IndexQuoteSchema),
+  commodities: z.array(SimpleQuoteSchema),
+  currencies: z.array(CurrencyQuoteSchema),
+  bondYield: BondYieldSchema.nullable(),
+  vix: VixSchema.nullable(),
+  breadth: BreadthSchema.nullable(),
+  topGainers: z.array(MoverSchema),
+  topLosers: z.array(MoverSchema),
+  mostActive: z.array(ActiveSchema),
+  near52wHigh: z.array(NearHighSchema),
+  near52wLow: z.array(NearLowSchema),
+  volumeShockers: z.array(VolumeShockerSchema),
+  sectorRanking: z.array(SectorRankSchema),
+  fiiDii: FiiDiiSchema.nullable(),
+  news: z.array(NewsGroupSchema),
+  streetRecommendations: z.array(StreetRecSchema),
+  corporateActions: z.array(CorpActionSchema),
+});
+export type MarketSnapshot = z.infer<typeof MarketSnapshotSchema>;
+
+// ---- Feed slices ----
+export const UniverseQuoteSchema = z.object({
+  ticker: z.string(), name: z.string(), sector: z.string(),
+  ltp: z.number(), changePct: z.number(), volume: z.number(),
+  avgVolume: z.number(), high52w: z.number(), low52w: z.number(),
+});
+export type UniverseQuote = z.infer<typeof UniverseQuoteSchema>;
+
+export const IndicesSliceSchema = z.object({ indianIndices: z.array(IndexQuoteSchema), vix: VixSchema.nullable() });
+export const GlobalSliceSchema = z.object({
+  globalIndices: z.array(IndexQuoteSchema), commodities: z.array(SimpleQuoteSchema), currencies: z.array(CurrencyQuoteSchema),
+});
+export const UniverseSliceSchema = z.object({ quotes: z.array(UniverseQuoteSchema) });
+export const InternalsSliceSchema = z.object({
+  topGainers: z.array(MoverSchema), topLosers: z.array(MoverSchema), mostActive: z.array(ActiveSchema),
+  near52wHigh: z.array(NearHighSchema), near52wLow: z.array(NearLowSchema),
+  volumeShockers: z.array(VolumeShockerSchema), sectorRanking: z.array(SectorRankSchema), breadth: BreadthSchema.nullable(),
+});
+export const NewsSliceSchema = z.object({ news: z.array(NewsGroupSchema), streetRecommendations: z.array(StreetRecSchema) });
+export const FlowsSliceSchema = z.object({
+  fiiDii: FiiDiiSchema.nullable(), corporateActions: z.array(CorpActionSchema),
+  giftNifty: GiftNiftySchema.nullable(), bondYield: BondYieldSchema.nullable(),
+});
+export type IndicesSlice = z.infer<typeof IndicesSliceSchema>;
+export type GlobalSlice = z.infer<typeof GlobalSliceSchema>;
+export type UniverseSlice = z.infer<typeof UniverseSliceSchema>;
+export type InternalsSlice = z.infer<typeof InternalsSliceSchema>;
+export type NewsSlice = z.infer<typeof NewsSliceSchema>;
+export type FlowsSlice = z.infer<typeof FlowsSliceSchema>;
