@@ -1,4 +1,4 @@
-name: Morning Brief
+name: Daily brief
 
 on:
   schedule:
@@ -21,7 +21,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npx tsx scripts/morning.ts
+      - run: npx tsx scripts/daily.ts
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           KOSH_GOOGLE_MODEL: ${{ vars.KOSH_GOOGLE_MODEL }}
