@@ -1,8 +1,7 @@
 export const siteConfig = {
   url: 'https://kosh.ahampriyanshu.com',
   title: 'Kosh',
-  description:
-    'A personal Indian equity dashboard for daily market briefs, watchlists, alerts, research, and recaps.',
+  description: 'Actionable market reports without the noise',
   author: {
     name: 'Priyanshu Tiwari',
     url: 'https://ahampriyanshu.com',
