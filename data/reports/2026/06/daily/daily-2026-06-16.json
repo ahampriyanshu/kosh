@@ -1,0 +1,470 @@
+{
+  "schemaVersion": 1,
+  "id": "daily-2026-06-16",
+  "type": "daily",
+  "dateKey": "2026-06-16",
+  "generatedAt": "2026-06-16T05:26:42.075Z",
+  "sourceData": {
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-06-16T05:26:42.075Z"
+  },
+  "content": {
+    "snapshot": {
+      "asOf": "2026-06-16T05:26:42.075Z",
+      "window": "1d",
+      "indianIndices": [
+        {
+          "name": "NIFTY 50",
+          "symbol": "^NSEI",
+          "ltp": 23853.9,
+          "changePct": 0.9778647
+        },
+        {
+          "name": "SENSEX",
+          "symbol": "^BSESN",
+          "ltp": 76264.33,
+          "changePct": 0.97497016
+        },
+        {
+          "name": "NIFTY BANK",
+          "symbol": "^NSEBANK",
+          "ltp": 57198.8,
+          "changePct": 0.6758802
+        },
+        {
+          "name": "NIFTY IT",
+          "symbol": "^CNXIT",
+          "ltp": 28067.85,
+          "changePct": 0.9789252
+        },
+        {
+          "name": "NIFTY PHARMA",
+          "symbol": "^CNXPHARMA",
+          "ltp": 24220.1,
+          "changePct": -0.656074
+        },
+        {
+          "name": "NIFTY AUTO",
+          "symbol": "^CNXAUTO",
+          "ltp": 26977.5,
+          "changePct": 2.6000392
+        },
+        {
+          "name": "NIFTY FMCG",
+          "symbol": "^CNXFMCG",
+          "ltp": 49043.4,
+          "changePct": 0.44195673
+        },
+        {
+          "name": "NIFTY METAL",
+          "symbol": "^CNXMETAL",
+          "ltp": 13083.85,
+          "changePct": 1.7841971
+        },
+        {
+          "name": "NIFTY ENERGY",
+          "symbol": "^CNXENERGY",
+          "ltp": 39493.95,
+          "changePct": 0.6357587
+        },
+        {
+          "name": "NIFTY REALTY",
+          "symbol": "^CNXREALTY",
+          "ltp": 800.05,
+          "changePct": 3.9566026
+        },
+        {
+          "name": "NIFTY FIN SERVICE",
+          "symbol": "^CNXFIN",
+          "ltp": 28483.65,
+          "changePct": 1.3892995
+        }
+      ],
+      "giftNifty": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 51671.03,
+          "changePct": 0.915525
+        },
+        {
+          "name": "NASDAQ",
+          "symbol": "^IXIC",
+          "ltp": 26683.941,
+          "changePct": 3.071198
+        },
+        {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "ltp": 7554.29,
+          "changePct": 1.6528392
+        },
+        {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "ltp": 69317.5,
+          "changePct": 4.9946365
+        },
+        {
+          "name": "Hang Seng",
+          "symbol": "^HSI",
+          "ltp": 24842.67,
+          "changePct": 0.50396395
+        },
+        {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "ltp": 10430.62,
+          "changePct": -0.39248195
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 4329,
+          "changePct": -0.5193514
+        },
+        {
+          "name": "Silver",
+          "value": 69.895,
+          "changePct": -0.40610382
+        },
+        {
+          "name": "Crude Oil",
+          "value": 81.32,
+          "changePct": 0.70588195
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 94.7,
+          "changePct": -0.4206115
+        }
+      ],
+      "bondYield": null,
+      "vix": {
+        "value": 14.3525,
+        "changePct": -2.4800394
+      },
+      "breadth": {
+        "advances": 39,
+        "declines": 19,
+        "unchanged": 0,
+        "adRatio": 2.05
+      },
+      "topGainers": [
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF",
+          "ltp": 614.45,
+          "changePct": 4.667409
+        },
+        {
+          "ticker": "HDFCLIFE.NS",
+          "name": "HDFC Life Insurance",
+          "ltp": 581.2,
+          "changePct": 4.654729
+        },
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "ltp": 7624.5,
+          "changePct": 4.2737966
+        },
+        {
+          "ticker": "BAJAJFINSV.NS",
+          "name": "Bajaj Finserv",
+          "ltp": 1750.2,
+          "changePct": 3.6173098
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "ltp": 13805,
+          "changePct": 3.2844532
+        },
+        {
+          "ticker": "ULTRACEMCO.NS",
+          "name": "UltraTech Cement",
+          "ltp": 11466,
+          "changePct": 3.139336
+        },
+        {
+          "ticker": "SBILIFE.NS",
+          "name": "SBI Life Insurance",
+          "ltp": 1759.5,
+          "changePct": 3.1359906
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "Mahindra & Mahindra",
+          "ltp": 3134.3,
+          "changePct": 3.0037186
+        },
+        {
+          "ticker": "LT.NS",
+          "name": "Larsen & Toubro",
+          "ltp": 4169.8,
+          "changePct": 2.9758167
+        },
+        {
+          "ticker": "GAIL.NS",
+          "name": "GAIL India",
+          "ltp": 175.41,
+          "changePct": 2.8797674
+        }
+      ],
+      "topLosers": [
+        {
+          "ticker": "VEDL.NS",
+          "name": "Vedanta",
+          "ltp": 302.5,
+          "changePct": -2.3090568
+        },
+        {
+          "ticker": "NTPC.NS",
+          "name": "NTPC",
+          "ltp": 348.1,
+          "changePct": -1.6388776
+        },
+        {
+          "ticker": "BAJAJ-AUTO.NS",
+          "name": "Bajaj Auto",
+          "ltp": 9943,
+          "changePct": -1.1924874
+        },
+        {
+          "ticker": "ONGC.NS",
+          "name": "Oil & Natural Gas Corp",
+          "ltp": 243.65,
+          "changePct": -1.0357445
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1327.6,
+          "changePct": -0.98449236
+        },
+        {
+          "ticker": "SRF.NS",
+          "name": "SRF",
+          "ltp": 2720.5,
+          "changePct": -0.8202698
+        },
+        {
+          "ticker": "HINDALCO.NS",
+          "name": "Hindalco Industries",
+          "ltp": 1013.9,
+          "changePct": -0.7537149
+        },
+        {
+          "ticker": "HINDUNILVR.NS",
+          "name": "Hindustan Unilever",
+          "ltp": 2156.1,
+          "changePct": -0.58557504
+        },
+        {
+          "ticker": "CIPLA.NS",
+          "name": "Cipla",
+          "ltp": 1381.3,
+          "changePct": -0.5829837
+        },
+        {
+          "ticker": "ADANIPORTS.NS",
+          "name": "Adani Ports & SEZ",
+          "ltp": 1804.8,
+          "changePct": -0.4467966
+        }
+      ],
+      "mostActive": [
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "ltp": 777.35,
+          "changePct": 0.6343405,
+          "volume": 39986645
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "ltp": 1307,
+          "changePct": 1.0827533,
+          "volume": 18631414
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1327.6,
+          "changePct": -0.98449236,
+          "volume": 16172169
+        },
+        {
+          "ticker": "LT.NS",
+          "name": "Larsen & Toubro",
+          "ltp": 4169.8,
+          "changePct": 2.9758167,
+          "volume": 3977860
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "Mahindra & Mahindra",
+          "ltp": 3134.3,
+          "changePct": 3.0037186,
+          "volume": 5286344
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "State Bank of India",
+          "ltp": 1020.85,
+          "changePct": 0.36375666,
+          "volume": 12461373
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 942.3,
+          "changePct": 2.6135252,
+          "volume": 11988723
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1368.3,
+          "changePct": 0.88475996,
+          "volume": 7522805
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "ltp": 1841.2,
+          "changePct": 1.0260605,
+          "volume": 5306860
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1134.9,
+          "changePct": 1.6571121,
+          "volume": 7854687
+        }
+      ],
+      "near52wHigh": [
+        {
+          "ticker": "PIDILITIND.NS",
+          "name": "Pidilite Industries",
+          "ltp": 1571,
+          "pctFromHigh": 0.74
+        },
+        {
+          "ticker": "GRASIM.NS",
+          "name": "Grasim Industries",
+          "ltp": 3164.5,
+          "pctFromHigh": 1.03
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 8468.5,
+          "pctFromHigh": 1.8
+        }
+      ],
+      "near52wLow": [],
+      "volumeShockers": [
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF",
+          "volume": 9305000,
+          "avgVolume": 4384709,
+          "ratio": 2.12
+        },
+        {
+          "ticker": "ASIANPAINT.NS",
+          "name": "Asian Paints",
+          "volume": 2751916,
+          "avgVolume": 1327183,
+          "ratio": 2.07
+        }
+      ],
+      "sectorRanking": [
+        {
+          "sector": "Realty",
+          "changePct": 4.67
+        },
+        {
+          "sector": "Cement",
+          "changePct": 2.58
+        },
+        {
+          "sector": "Auto",
+          "changePct": 2.12
+        },
+        {
+          "sector": "Financials",
+          "changePct": 1.73
+        },
+        {
+          "sector": "Energy",
+          "changePct": 1.48
+        },
+        {
+          "sector": "Infrastructure",
+          "changePct": 1.26
+        },
+        {
+          "sector": "Consumer Durables",
+          "changePct": 1.19
+        },
+        {
+          "sector": "Telecom",
+          "changePct": 1.03
+        },
+        {
+          "sector": "Chemicals",
+          "changePct": 0.75
+        },
+        {
+          "sector": "Power",
+          "changePct": 0.65
+        },
+        {
+          "sector": "IT",
+          "changePct": 0.6
+        },
+        {
+          "sector": "FMCG",
+          "changePct": 0.27
+        },
+        {
+          "sector": "Pharma",
+          "changePct": -0.2
+        },
+        {
+          "sector": "Healthcare",
+          "changePct": -0.35
+        },
+        {
+          "sector": "Metal",
+          "changePct": -0.66
+        }
+      ],
+      "fiiDii": null,
+      "news": [],
+      "streetRecommendations": [],
+      "corporateActions": []
+    },
+    "outlook": "Indian benchmark indices, Nifty and Sensex, closed with robust gains of nearly 1%, supported by broad-based buying and strong market breadth. Key sectors such as Realty, Auto, and Financial Services led the rally, signaling a positive momentum for the market. Expect specific stock movements given individual stock performance within generally strong sectors.",
+    "keyTakeaways": [
+      "NIFTY 50 and SENSEX both advanced by nearly 1%, reflecting strong market sentiment.",
+      "Market breadth was positive with 39 advancing stocks versus 19 declining ones.",
+      "Realty, Auto, and Financial Services were among the top performing sectors, with NIFTY REALTY surging almost 4%.",
+      "Top gainers included DLF (+4.7%) and HDFCLIFE (+4.7%), while EICHERMOT also saw strong gains (+4.3%).",
+      "NIFTY PHARMA was the only sectoral index to close in negative territory (-0.66%).",
+      "Individual stocks like VEDL (-2.3%) and NTPC (-1.6%) were among the top losers despite broader sectoral strength in Metal and Energy."
+    ]
+  },
+  "emailSent": true,
+  "checksum": "sha256:1385b966e83b1611bf12383e1373921cecb72aac7d3c428c497e11bd86ec7a97"
+}
