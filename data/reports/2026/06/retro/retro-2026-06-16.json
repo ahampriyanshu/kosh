@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-06-16",
+  "type": "retro",
+  "dateKey": "2026-06-16",
+  "generatedAt": "2026-06-16T13:11:00.527Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1328.8,
+      "TCS.NS": 2199,
+      "INFY.NS": 1143.6,
+      "HDFCBANK.NS": 784.9,
+      "ICICIBANK.NS": 1334.3
+    },
+    "searchTimestamp": "2026-06-16T13:11:00.527Z"
+  },
+  "content": {
+    "date": "2026-06-16",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1328.8,
+        "changePct": 1.67,
+        "note": "+1.7% vs prev close, vol 1.1x avg"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2199,
+        "changePct": 1.71,
+        "note": "+1.7% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1143.6,
+        "changePct": 0.77,
+        "note": "+0.8% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 784.9,
+        "changePct": 0.97,
+        "note": "+1.0% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1334.3,
+        "changePct": 0.5,
+        "note": "+0.5% vs prev close, vol 0.8x avg"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "reason": "Additional $70 million (approx. \n\t665 crore) one-time charge in Q1 FY27 after US Supreme Court rejected appeal in trade secrets dispute.",
+        "severity": "high",
+        "triggeredRules": [
+          "below 50DMA support"
+        ]
+      }
+    ],
+    "summary": "TCS.NS represents a genuine sell signal due to a significant legal charge, while the alert for INFY.NS is considered market noise given the strong sector performance and positive company news."
+  },
+  "emailSent": true,
+  "checksum": "sha256:3983462589f21660b282f678e2fb66eaf247b9ec15e3c693738f33d73b80069f"
+}
