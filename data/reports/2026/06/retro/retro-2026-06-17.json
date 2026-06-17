@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-06-17",
+  "type": "retro",
+  "dateKey": "2026-06-17",
+  "generatedAt": "2026-06-17T12:35:08.837Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1332.7,
+      "TCS.NS": 2223,
+      "INFY.NS": 1157.7,
+      "HDFCBANK.NS": 787.1,
+      "ICICIBANK.NS": 1336.8
+    },
+    "searchTimestamp": "2026-06-17T12:35:08.837Z"
+  },
+  "content": {
+    "date": "2026-06-17",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1332.7,
+        "changePct": 0.29,
+        "note": "+0.3% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2223,
+        "changePct": 1.09,
+        "note": "+1.1% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1157.7,
+        "changePct": 1.23,
+        "note": "+1.2% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 787.1,
+        "changePct": 0.28,
+        "note": "+0.3% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1336.8,
+        "changePct": 0.19,
+        "note": "+0.2% vs prev close, vol 0.5x avg"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "reason": "1.2% down vs. prev close, very low volume (0.4x avg), and breaking below its 50-day moving average support, indicating a lack of buying interest and potential weakness specific to Infosys, despite broader IT sector gains. This aligns with recent underlying negative sentiment from corporate updates and analyst views.",
+        "severity": "high",
+        "triggeredRules": [
+          "below 50DMA support"
+        ]
+      }
+    ],
+    "summary": "Infosys (INFY.NS) presents a genuine sell signal due to technical weakness aligning with recent cautious outlooks, while the alert for TCS (TCS.NS) is likely noise given positive company-specific news."
+  },
+  "emailSent": true,
+  "checksum": "sha256:34f53b2d49514575bcacb53a0c743cf661a87467cc35f7f016bdba910754ccf4"
+}
