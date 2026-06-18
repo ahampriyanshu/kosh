@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-06-18",
+  "type": "retro",
+  "dateKey": "2026-06-18",
+  "generatedAt": "2026-06-18T12:05:12.578Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1328.1,
+      "TCS.NS": 2203.3,
+      "INFY.NS": 1127.5,
+      "HDFCBANK.NS": 799,
+      "ICICIBANK.NS": 1342.3
+    },
+    "searchTimestamp": "2026-06-18T12:05:12.578Z"
+  },
+  "content": {
+    "date": "2026-06-18",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1328.1,
+        "changePct": -0.35,
+        "note": "-0.3% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2203.3,
+        "changePct": -0.89,
+        "note": "-0.9% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1127.5,
+        "changePct": -2.61,
+        "note": "-2.6% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 799,
+        "changePct": 1.51,
+        "note": "+1.5% vs prev close, vol 1.1x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1342.3,
+        "changePct": 0.41,
+        "note": "+0.4% vs prev close, vol 0.8x avg"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "reason": "Additional provision of $70 million due to U.S. Supreme Court legal dispute, coupled with broader IT sector weakness.",
+        "severity": "high",
+        "triggeredRules": [
+          "Below 50-day moving average",
+          "Company-specific negative legal provision",
+          "IT sector underperformance"
+        ]
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "reason": "Sector-wide downturn following Accenture's lowered guidance, re-assessing near-term demand visibility, and concerns about AI's impact.",
+        "severity": "high",
+        "triggeredRules": [
+          "Below 50-day moving average",
+          "Sector-wide downturn (Nifty IT)",
+          "Peer guidance cut (Accenture)",
+          "Concerns about AI impact"
+        ]
+      }
+    ],
+    "summary": "Both TCS.NS and INFY.NS are displaying genuine sell signals driven by company-specific legal provisions for TCS and broader IT sector weakness alongside peer guidance cuts for Infosys."
+  },
+  "emailSent": true,
+  "checksum": "sha256:fe27efdf6b7ff45053064ae0db2ce8482333fac4d90a31b5a74c0fadcfaa685e"
+}

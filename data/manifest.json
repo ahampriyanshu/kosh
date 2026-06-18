@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "retro-2026-06-18",
+      "type": "retro",
+      "dateKey": "2026-06-18",
+      "date": "2026-06-18",
+      "path": "reports/2026/06/retro/retro-2026-06-18.json",
+      "checksum": "sha256:fe27efdf6b7ff45053064ae0db2ce8482333fac4d90a31b5a74c0fadcfaa685e"
+    },
+    {
       "id": "daily-2026-06-18",
       "type": "daily",
       "dateKey": "2026-06-18",
@@ -82,7 +90,7 @@
     }
   ],
   "latest": {
-    "retro": "retro-2026-06-17",
+    "retro": "retro-2026-06-18",
     "daily": "daily-2026-06-18",
     "weekly": "weekly-2026-W25",
     "recap": "recap-2026-06-15"
