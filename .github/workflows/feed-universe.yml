@@ -2,7 +2,8 @@ name: Feed — universe
 
 on:
   schedule:
-    - cron: '0 21 * * 0-4'   # 02:30 IST Mon-Fri
+    - cron: '31 2 * * 1-5'   # Targets 02:30 IST Mon-Fri; avoids crowded quarter-hour scheduler slots.
+      timezone: "Asia/Kolkata"
   workflow_dispatch: {}
 
 permissions:
@@ -12,11 +13,11 @@ jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci

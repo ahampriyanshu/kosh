@@ -2,7 +2,8 @@ name: Recap (weekly grading)
 
 on:
   schedule:
-    - cron: '30 4 * * 6'   # Saturday ~10:00 IST
+    - cron: '57 9 * * 6'   # Targets Saturday 10:00 IST; avoids crowded quarter-hour scheduler slots.
+      timezone: "Asia/Kolkata"
   workflow_dispatch: {}
 
 permissions:
@@ -12,11 +13,11 @@ jobs:
   recap:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci

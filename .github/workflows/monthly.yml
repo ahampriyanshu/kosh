@@ -2,9 +2,9 @@ name: Monthly Recap
 
 on:
   schedule:
-    # Runs 18:30 UTC on days 28–31 (== 00:00 IST on days 29–1). scripts/monthly.ts
-    # proceeds only when the IST date is the 1st, so it fires exactly once per month.
-    - cron: '30 18 28-31 * *'
+    # scripts/monthly.ts proceeds only when the IST date is the 1st.
+    - cron: '7 0 1 * *' # Targets 00:00 IST on the 1st; avoids crowded quarter-hour scheduler slots.
+      timezone: "Asia/Kolkata"
   workflow_dispatch: {}
 
 permissions:
@@ -14,11 +14,11 @@ jobs:
   monthly:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci
