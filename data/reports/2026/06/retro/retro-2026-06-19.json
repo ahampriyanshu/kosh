@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-06-19",
+  "type": "retro",
+  "dateKey": "2026-06-19",
+  "generatedAt": "2026-06-19T12:30:26.286Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1309.5,
+      "TCS.NS": 2125,
+      "INFY.NS": 1051.4,
+      "HDFCBANK.NS": 779.8,
+      "ICICIBANK.NS": 1346.5
+    },
+    "searchTimestamp": "2026-06-19T12:30:26.286Z"
+  },
+  "content": {
+    "date": "2026-06-19",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1309.5,
+        "changePct": -1.4,
+        "note": "-1.4% vs prev close, vol 1.4x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2125,
+        "changePct": -3.55,
+        "note": "-3.6% vs prev close, vol 2.3x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1051.4,
+        "changePct": -6.75,
+        "note": "-6.7% vs prev close, vol 2.9x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 779.8,
+        "changePct": -2.4,
+        "note": "-2.4% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1346.5,
+        "changePct": 0.31,
+        "note": "+0.3% vs prev close, vol 0.6x avg"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "reason": "Significant drop of -3.6% with 2.3x average volume, falling below its 50-day moving average, driven by Accenture's downward revision of FY26 revenue growth guidance signaling weak enterprise technology spending.",
+        "severity": "high",
+        "triggeredRules": [
+          "Below 50-day moving average",
+          "High volume",
+          "Significant price drop",
+          "Industry news impact"
+        ]
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "reason": "Crashed -6.7% with 2.9x average volume, falling below its 50-day moving average, primarily due to Accenture's weak guidance, indicating vulnerability to a prolonged slowdown in discretionary technology spending.",
+        "severity": "high",
+        "triggeredRules": [
+          "Below 50-day moving average",
+          "High volume",
+          "Significant price drop",
+          "Industry news impact"
+        ]
+      }
+    ],
+    "summary": "The Indian market experienced a broad decline today, snapping a five-day winning streak, primarily due to an IT sector sell-off and weak global cues, leading to genuine sell signals for TCS.NS and INFY.NS driven by Accenture's cautious outlook."
+  },
+  "emailSent": true,
+  "checksum": "sha256:b8243f244659fb69c84f131e3354c5afccd635d72426b2767bd7a584974135ac"
+}
