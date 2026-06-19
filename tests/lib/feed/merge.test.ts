@@ -29,6 +29,45 @@ describe('buildSnapshot', () => {
     expect(snap.breadth?.advances).toBe(30);
   });
 
+  it('uses official sector index quotes for sector ranking when available', async () => {
+    const date = '2026-06-15';
+    await writeSlice(
+      date,
+      'indices',
+      {
+        indianIndices: [
+          { name: 'NIFTY 50', symbol: '^NSEI', ltp: 23622.9, changePct: 1.99 },
+          { name: 'NIFTY IT', symbol: '^CNXIT', ltp: 30000, changePct: -1.5 },
+          { name: 'NIFTY AUTO', symbol: '^CNXAUTO', ltp: 20000, changePct: 2.1 },
+        ],
+        vix: null,
+      },
+      IndicesSliceSchema,
+    );
+    await writeSlice(
+      date,
+      'internals',
+      {
+        topGainers: [],
+        topLosers: [],
+        mostActive: [],
+        near52wHigh: [],
+        near52wLow: [],
+        volumeShockers: [],
+        sectorRanking: [{ sector: 'Custom IT Basket', changePct: 9.9 }],
+        breadth: null,
+      },
+      InternalsSliceSchema,
+    );
+
+    const snap = await buildSnapshot(date, '1d');
+
+    expect(snap.sectorRanking).toEqual([
+      { sector: 'Auto', changePct: 2.1 },
+      { sector: 'IT', changePct: -1.5 },
+    ]);
+  });
+
   it('omits sections whose slice is missing (consistency over availability)', async () => {
     const date = '2026-06-15';
     await writeSlice(date, 'indices', { indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 23622.9, changePct: 1.99 }], vix: null }, IndicesSliceSchema);

@@ -104,7 +104,27 @@ export async function getMarketQuote(symbol: string): Promise<MarketQuote> {
 interface RawUniQuote {
   symbol?: string; regularMarketPrice?: number; regularMarketChangePercent?: number;
   regularMarketVolume?: number; averageDailyVolume3Month?: number;
-  fiftyTwoWeekHigh?: number; fiftyTwoWeekLow?: number;
+  fiftyTwoWeekHigh?: number | null; fiftyTwoWeekLow?: number | null;
+}
+
+function oneYearAgo(): string {
+  const date = new Date();
+  date.setUTCFullYear(date.getUTCFullYear() - 1);
+  return date.toISOString().slice(0, 10);
+}
+
+function valid52WeekRange(ltp: number, high52w: number, low52w: number): boolean {
+  return high52w > 0 && low52w > 0 && high52w >= low52w && ltp <= high52w && ltp >= low52w;
+}
+
+async function get52WeekRangeFromChart(ticker: string): Promise<{ high52w: number; low52w: number }> {
+  const candles = await getHistorical(ticker, oneYearAgo(), '1d');
+  const highs = candles.map((c) => c.high).filter((value) => value > 0);
+  const lows = candles.map((c) => c.low).filter((value) => value > 0);
+  return {
+    high52w: highs.length ? Math.max(...highs) : 0,
+    low52w: lows.length ? Math.min(...lows) : 0,
+  };
 }
 
 // Batched quotes for the universe. yahoo-finance2 quote() accepts an array and returns an array.
@@ -118,14 +138,21 @@ export async function getUniverseQuotes(entries: UniverseEntry[], chunkSize = 50
     for (const r of res) {
       const entry = r.symbol ? bySymbol.get(r.symbol) : undefined;
       if (!entry || r.regularMarketPrice == null) continue;
+      let high52w = typeof r.fiftyTwoWeekHigh === 'number' ? r.fiftyTwoWeekHigh : 0;
+      let low52w = typeof r.fiftyTwoWeekLow === 'number' ? r.fiftyTwoWeekLow : 0;
+      if (!valid52WeekRange(r.regularMarketPrice, high52w, low52w)) {
+        const chartRange = await get52WeekRangeFromChart(entry.ticker);
+        high52w = chartRange.high52w;
+        low52w = chartRange.low52w;
+      }
       out.push({
         ticker: entry.ticker, name: entry.name, sector: entry.sector,
         ltp: r.regularMarketPrice,
         changePct: r.regularMarketChangePercent ?? 0,
         volume: r.regularMarketVolume ?? 0,
         avgVolume: r.averageDailyVolume3Month ?? 0,
-        high52w: r.fiftyTwoWeekHigh ?? 0,
-        low52w: r.fiftyTwoWeekLow ?? 0,
+        high52w,
+        low52w,
       });
     }
   }

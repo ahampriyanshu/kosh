@@ -10,8 +10,11 @@ import type {
   MarketSnapshot,
 } from './schemas';
 
-const font = `font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
-const mono = `font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace`;
+const font = `font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
+const display = `font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
+const mono = `font-family:'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace`;
+const KOSH_URL = 'https://kosh.ahampriyanshu.com';
+const AUTHOR_URL = 'https://ahampriyanshu.com';
 
 const colors = {
   bg: '#f6f8fa',
@@ -125,7 +128,7 @@ function section(title: string, body: string): string {
   return `
     <tr>
       <td class="email-pad" style="padding:18px 32px 0 32px">
-        <h2 style="${font};margin:0 0 10px 0;color:${colors.text};font-size:20px;line-height:26px;font-weight:800">${escapeHtml(title)}</h2>
+        <h2 style="${display};margin:0 0 10px 0;color:${colors.text};font-size:20px;line-height:26px;font-weight:700">${escapeHtml(title)}</h2>
         <div style="border-top:1px solid ${colors.border};padding-top:12px">${body}</div>
       </td>
     </tr>
@@ -195,16 +198,30 @@ function renderShell(options: {
           <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border};border-radius:8px">
             <tr>
               <td class="email-pad" style="padding:28px 32px 18px 32px;border-bottom:1px solid ${colors.border}">
-                <div style="${font};color:${colors.text};font-size:18px;line-height:22px;font-weight:800;margin:0 0 18px 0">Kosh</div>
+                <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="${display};color:${colors.text};font-size:18px;line-height:22px;font-weight:700;margin:0 0 18px 0;text-decoration:none;display:inline-block">Kosh</a>
                 <div style="${mono};color:${colors.link};font-size:12px;line-height:18px;font-weight:800;text-transform:uppercase;margin:0 0 6px 0">${escapeHtml(options.eyebrow)}</div>
-                <h1 class="email-title" style="${font};margin:0;color:${colors.text};font-size:28px;line-height:34px;font-weight:800;letter-spacing:0">${escapeHtml(options.title)}</h1>
+                <h1 class="email-title" style="${display};margin:0;color:${colors.text};font-size:28px;line-height:34px;font-weight:900;letter-spacing:0">${escapeHtml(options.title)}</h1>
               </td>
             </tr>
             ${options.children}
             <tr>
-              <td class="email-pad" style="padding:24px 32px 28px 32px;color:${colors.faint};font-size:12px;line-height:18px;border-top:1px solid ${colors.border}">
-                <p style="${font};margin:0;color:${colors.faint};font-size:12px;line-height:18px">
-                  made by <a href="https://ahampriyanshu.com" style="color:${colors.link};text-decoration:none;font-weight:700">ahampriyanshu</a>
+              <td class="email-pad" style="padding:22px 32px 22px 32px">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border};border-radius:8px">
+                  <tr>
+                    <td style="padding:12px 14px">
+                      <p style="${font};margin:0;color:${colors.muted};font-size:13px;line-height:20px">
+                        <strong style="color:${colors.text};font-weight:600">Disclaimer:</strong>
+                        Kosh is an experimental, learning-focused project. It is not investment advice or a recommendation to buy or sell securities.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td class="email-pad" align="center" style="padding:22px 32px 28px 32px;color:${colors.faint};font-size:12px;line-height:18px;border-top:1px solid ${colors.border}">
+                <p style="${font};margin:0;color:${colors.faint};font-size:12px;line-height:18px;text-align:center">
+                  made by <a href="${AUTHOR_URL}" target="_blank" rel="noopener noreferrer" style="color:${colors.link};text-decoration:none;font-weight:700">ahampriyanshu</a>
                 </p>
               </td>
             </tr>

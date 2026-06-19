@@ -12,10 +12,10 @@ import { fetchFlows } from '../../../lib/feed/flows';
 import { FlowsSliceSchema } from '../../../lib/schemas';
 
 describe('fetchFlows', () => {
-  it('returns a schema-valid flows slice from grounded output', async () => {
+  it('returns a schema-valid flows slice and discards LLM-sourced GIFT Nifty', async () => {
     const slice = await fetchFlows();
     expect(() => FlowsSliceSchema.parse(slice)).not.toThrow();
     expect(slice.fiiDii?.unit).toBe('crore');
-    expect(slice.giftNifty?.value).toBe(23650);
+    expect(slice.giftNifty).toBeNull();
   });
 });

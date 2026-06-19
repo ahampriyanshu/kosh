@@ -92,4 +92,35 @@ describe('market-data', () => {
     expect(out).toHaveLength(1);
     expect(out[0]).toMatchObject({ ticker: 'TCS.NS', name: 'TCS', sector: 'IT', ltp: 3900, changePct: 2, volume: 1e6, avgVolume: 8e5, high52w: 4000, low52w: 3000 });
   });
+
+  it('falls back to one-year chart highs and lows when quote 52-week fields are missing', async () => {
+    const entries = [{ ticker: 'TCS.NS', name: 'TCS', sector: 'IT' }];
+    h.quoteMock.mockImplementationOnce((arg: unknown) => {
+      if (Array.isArray(arg)) {
+        return Promise.resolve([
+          {
+            symbol: 'TCS.NS',
+            regularMarketPrice: 3900,
+            regularMarketChangePercent: 2,
+            regularMarketVolume: 1e6,
+            averageDailyVolume3Month: 8e5,
+            fiftyTwoWeekHigh: null,
+            fiftyTwoWeekLow: null,
+          },
+        ]);
+      }
+      return Promise.resolve({});
+    });
+    h.chartMock.mockResolvedValue({
+      quotes: [
+        { date: new Date('2025-06-01'), open: 1, high: 4100, low: 3200, close: 3900, volume: 100 },
+        { date: new Date('2026-06-01'), open: 1, high: 4300, low: 3100, close: 3900, volume: 100 },
+      ],
+    });
+
+    const out = await getUniverseQuotes(entries);
+
+    expect(out[0]).toMatchObject({ high52w: 4300, low52w: 3100 });
+    expect(h.chartMock).toHaveBeenCalledWith('TCS.NS', expect.objectContaining({ interval: '1d', return: 'array' }));
+  });
 });

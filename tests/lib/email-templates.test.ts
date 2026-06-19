@@ -119,6 +119,33 @@ describe('formatDisplayDate', () => {
 });
 
 describe('email templates', () => {
+  it('renders the shared shell with website-style branding, centered attribution, and disclaimer', () => {
+    const rendered = [
+      renderDailyEmail(dailyContent),
+      renderWeeklyEmail(weeklyContent, '2026-W25'),
+      renderMonthlyEmail(monthlyContent, '2026-06'),
+      renderRetroEmail(midSessionContent),
+      renderRecapEmail(recapContent, 'Weekly Recap'),
+      renderResearchEmail(researchContent),
+    ];
+
+    for (const html of rendered) {
+      expect(html).toContain("font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif");
+      expect(html).toContain("font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif");
+      expect(html).toContain('href="https://kosh.ahampriyanshu.com"');
+      expect(html).toContain('target="_blank"');
+      expect(html).toContain('rel="noopener noreferrer"');
+      expect(html).toContain('>Kosh</a>');
+      expect(html).toContain('Kosh is an experimental, learning-focused project.');
+      expect(html).toContain('It is not investment advice or a recommendation to buy or sell securities.');
+      expect(html).toContain('align="center"');
+      expect(html).toContain('padding:22px 32px 22px 32px');
+      expect(html).toContain('made by');
+      expect(html).toContain('>ahampriyanshu</a>');
+      expect(html.indexOf('Kosh is an experimental, learning-focused project.')).toBeLessThan(html.indexOf('made by'));
+    }
+  });
+
   it('renders a branded, responsive daily brief with escaped content', () => {
     const html = renderDailyEmail(dailyContent);
 

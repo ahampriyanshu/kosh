@@ -1,15 +1,27 @@
 import { pathToFileURL } from 'node:url';
 import { istDateString } from '../lib/time';
 import { buildSnapshot } from '../lib/feed/merge';
-import { writeSnapshot, deleteFeed } from '../lib/feed/store';
+import { writeSnapshot, deleteFeed, writeSlice } from '../lib/feed/store';
+import { fetchIndices } from '../lib/feed/indices';
+import { fetchUniverse } from '../lib/feed/universe';
+import { computeInternals } from '../lib/feed/internals';
 import { buildDailyNarrative } from '../lib/reports-narrative';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
-import { DailyContentSchema, type ReportEnvelope } from '../lib/schemas';
+import { DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema, type ReportEnvelope } from '../lib/schemas';
+
+async function refreshMarketSlices(date: string): Promise<void> {
+  const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
+  const internals = computeInternals(universe.quotes);
+  await writeSlice(date, 'indices', indices, IndicesSliceSchema);
+  await writeSlice(date, 'universe', universe, UniverseSliceSchema);
+  await writeSlice(date, 'internals', internals, InternalsSliceSchema);
+}
 
 export async function runDaily(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
+  await refreshMarketSlices(date);
   const snapshot = await buildSnapshot(date, '1d', now.toISOString());
   await writeSnapshot(date, snapshot);
 

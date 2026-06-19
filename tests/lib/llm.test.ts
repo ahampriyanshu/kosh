@@ -4,6 +4,7 @@ import { z } from 'zod';
 const h = vi.hoisted(() => ({
   generateTextMock: vi.fn(),
   generateObjectMock: vi.fn(),
+  createGoogleGenerativeAIMock: vi.fn(),
   googleSearchMock: vi.fn(() => ({})),
 }));
 
@@ -13,9 +14,10 @@ vi.mock('ai', () => ({
 }));
 
 vi.mock('@ai-sdk/google', () => ({
-  google: Object.assign((id: string) => ({ id }), {
+  google: Object.assign((id: string) => ({ id, apiKey: undefined }), {
     tools: { googleSearch: h.googleSearchMock },
   }),
+  createGoogleGenerativeAI: h.createGoogleGenerativeAIMock,
 }));
 
 import { researchWithSearch, structure, generateGroundedObject } from '../../lib/llm';
@@ -23,7 +25,17 @@ import { researchWithSearch, structure, generateGroundedObject } from '../../lib
 beforeEach(() => {
   h.generateTextMock.mockReset();
   h.generateObjectMock.mockReset();
+  h.createGoogleGenerativeAIMock.mockReset();
+  h.createGoogleGenerativeAIMock.mockImplementation((options?: { apiKey?: string }) =>
+    Object.assign((id: string) => ({ id, apiKey: options?.apiKey }), {
+      tools: { googleSearch: h.googleSearchMock },
+    }),
+  );
   delete process.env.KOSH_GOOGLE_MODEL;
+  delete process.env.KOSH_GOOGLE_MODEL_FALLBACK_1;
+  delete process.env.KOSH_GOOGLE_MODEL_FALLBACK_2;
+  delete process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1;
+  delete process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2;
 });
 
 describe('llm', () => {
@@ -57,8 +69,48 @@ describe('llm', () => {
       Object.assign(new Error('RESOURCE_EXHAUSTED: quota exceeded'), { statusCode: 429 }),
     );
 
-    await expect(researchWithSearch('news?')).rejects.toThrow(/KOSH_GOOGLE_MODEL/);
+    await expect(researchWithSearch('news?')).rejects.toThrow(/GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1/);
     await expect(researchWithSearch('news?')).rejects.toThrow(/quota/i);
+  });
+
+  it('falls back to alternate API keys for 429 errors', async () => {
+    process.env.KOSH_GOOGLE_MODEL = 'gemini-primary';
+    process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1 = 'key-1';
+    process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2 = 'key-2';
+    h.generateObjectMock
+      .mockRejectedValueOnce(Object.assign(new Error('rate limited'), { statusCode: 429 }))
+      .mockRejectedValueOnce({ lastError: Object.assign(new Error('quota exceeded'), { statusCode: 429 }) })
+      .mockResolvedValueOnce({ object: { n: 5 } });
+
+    const out = await structure('make n', z.object({ n: z.number() }));
+
+    expect(out).toEqual({ n: 5 });
+    expect(h.generateObjectMock).toHaveBeenCalledTimes(3);
+    expect(h.generateObjectMock.mock.calls.map(([call]) => call.model)).toEqual([
+      { id: 'gemini-primary', apiKey: undefined },
+      { id: 'gemini-primary', apiKey: 'key-1' },
+      { id: 'gemini-primary', apiKey: 'key-2' },
+    ]);
+  });
+
+  it('falls back to alternate models for 503 errors', async () => {
+    process.env.KOSH_GOOGLE_MODEL = 'gemini-primary';
+    process.env.KOSH_GOOGLE_MODEL_FALLBACK_1 = 'gemini-fallback-1';
+    process.env.KOSH_GOOGLE_MODEL_FALLBACK_2 = 'gemini-fallback-2';
+    h.generateObjectMock
+      .mockRejectedValueOnce(Object.assign(new Error('UNAVAILABLE'), { statusCode: 503 }))
+      .mockRejectedValueOnce({ errors: [Object.assign(new Error('high demand'), { statusCode: 503 })] })
+      .mockResolvedValueOnce({ object: { n: 5 } });
+
+    const out = await structure('make n', z.object({ n: z.number() }));
+
+    expect(out).toEqual({ n: 5 });
+    expect(h.generateObjectMock).toHaveBeenCalledTimes(3);
+    expect(h.generateObjectMock.mock.calls.map(([call]) => call.model)).toEqual([
+      { id: 'gemini-primary', apiKey: undefined },
+      { id: 'gemini-fallback-1', apiKey: undefined },
+      { id: 'gemini-fallback-2', apiKey: undefined },
+    ]);
   });
 
   it('generateGroundedObject runs research then structuring', async () => {
