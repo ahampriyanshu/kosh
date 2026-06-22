@@ -1,0 +1,284 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI maintains repo rate at 5.25%, revises FY27 GDP forecast downwards",
+          "summary": "The RBI's MPC unanimously decided to keep the policy repo rate unchanged at 5.25% due to global uncertainties, maintaining a neutral stance. The real GDP growth forecast for FY27 was revised down to 6.6% from 6.9%.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Retail inflation hits 16-month high at 3.9% in May, WPI also rises",
+          "summary": "Retail inflation, measured by CPI, increased to 3.9% in May 2026, driven by higher food prices. Wholesale Price Inflation (WPI) also rose to 9.68%. Economists expect further increases in inflation.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "India-UK Free Trade Agreement effective July 15, merchandise exports show strong growth",
+          "summary": "India and the UK set July 15, 2026, as the effective date for their FTA. Indian merchandise exports grew by approximately 15% year-on-year from April 1 to June 14, 2026.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Supportive global signals aid Indian markets; crude oil drops below $80",
+          "summary": "Easing US-Iran tensions, a decline in crude oil prices below $80 per barrel, and a stronger Indian rupee have improved investor confidence, supporting the domestic market.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Nifty IT, Oil & Gas, and Consumer Durables sectors lead gains; Chemicals underperform",
+          "summary": "On Monday, Nifty IT sector rose over 1%, with Nifty Oil & Gas and Nifty Consumer Durables also performing strongly. The Nifty Chemical sector was the primary underperformer.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTYIT",
+            "NIFTYOILGAS",
+            "NIFTYCONDUR",
+            "NIFTYCHEM"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Power sector regains momentum, emerges as best-performing sectoral index in 2026",
+          "summary": "The BSE Power Index has been the top-performing sectoral index in 2026, driven by a revival in electricity demand and a multi-year investment cycle. Defense and energy stocks are also expected to remain in focus.",
+          "source": "Economic Times",
+          "tickers": [
+            "POWERGRID.NS",
+            "NTPC.NS",
+            "JSWENERGY.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Jio Platforms files IPO draft papers, eyes record ₹37,700 crore fundraising",
+          "summary": "Jio Platforms, a subsidiary of Reliance Industries, filed draft papers for an IPO with SEBI, aiming to raise approximately ₹37,700 crore through a fresh issue of 27 crore equity shares, potentially India's biggest IPO.",
+          "source": "Economic Times",
+          "tickers": [
+            "RELIANCE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Sun Pharmaceutical acquires Innovcare Lifesciences for ₹271.2 crore",
+          "summary": "Sun Pharmaceutical Industries announced the complete acquisition of Innovcare Lifesciences Private Ltd for about ₹271.2 crore (approx. $28.73 million).",
+          "source": "Business Standard",
+          "tickers": [
+            "SUNPHARMA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Dalmia Bharat plans to raise ₹4,000 crore for capacity expansion",
+          "summary": "Dalmia Bharat intends to raise up to ₹4,000 crore through various instruments to support its growth strategy, aiming to expand its manufacturing capacity to 110-130 million tonnes per annum by FY31.",
+          "source": "Livemint",
+          "tickers": [
+            "DALBHARAT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Motors CV secures order for over 3,400 electric commercial vehicles",
+          "summary": "Tata Motors Commercial Vehicles received a significant order for more than 3,400 electric commercial vehicles across multiple segments, advancing electric mobility adoption in India.",
+          "source": "Economic Times",
+          "tickers": [
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bharat Forge secures ₹425 crore Ministry of Defence contract",
+          "summary": "Bharat Forge Ltd has won a ₹425 crore contract from the Ministry of Defence for the supply of Gas Turbine Generators for the Indian Navy's Kolkata-class warships.",
+          "source": "Business Standard",
+          "tickers": [
+            "BHARATFORG.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Key companies to trade ex-dividend this week; DMR, Panasonic Carbon, Sangam India today",
+          "summary": "A total of 36 companies, including Hindustan Unilever, Tata Power, LIC, Asian Paints, and IndusInd Bank, are scheduled to trade ex-date for dividends and other corporate actions between June 22-27. DMR Engineering, Panasonic Carbon India, and Sangam India trade ex-dividend on June 22.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HINDUNILVR.NS",
+            "TATAPOWER.NS",
+            "LICI.NS",
+            "ASIANPAINT.NS",
+            "INDUSINDBK.NS",
+            "PANACARB.NS",
+            "SANGAMIND.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Reliance Industries rallies 3% on AGM news and Jio IPO approval",
+          "summary": "Reliance Industries shares saw an intra-day rally of up to 3% following its 49th Annual General Meeting and the official approval for the Jio Platforms IPO.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RELIANCE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Oil-linked stocks in focus as crude prices remain below $80; ONGC shifts focus to 'gas-and-oil'",
+          "summary": "ONGC, Oil India, and OMCs like IOCL, BPCL, and HPCL are under investor scrutiny amid volatile but sub-$80 crude oil prices. ONGC's chairman signaled a strategic reorientation to a 'gas-and-oil' company.",
+          "source": "Economic Times",
+          "tickers": [
+            "ONGC.NS",
+            "OIL.NS",
+            "IOC.NS",
+            "BPCL.NS",
+            "HPCL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Sun Pharma and Dalmia Bharat in focus post acquisition and fundraising announcements",
+          "summary": "Sun Pharma and Dalmia Bharat stocks are drawing investor attention following Sun Pharma's acquisition of Innovcare Lifesciences and Dalmia Bharat's plans to raise ₹4,000 crore for expansion.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SUNPHARMA.NS",
+            "DALBHARAT.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Cipla, Infosys, and Tech Mahindra among top Nifty50 gainers",
+          "summary": "On Monday, Cipla, Infosys, and Tech Mahindra were among the top-performing stocks within the Nifty50 index, contributing to the broader market's gains.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "CIPLA.NS",
+            "INFY.NS",
+            "TECHM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Aegis Logistics, Reliance Industries, Mahanagar Gas lead Nifty Oil & Gas index",
+          "summary": "Aegis Logistics, Reliance Industries, and Mahanagar Gas were noted as top gainers within the Nifty Oil & Gas index on Monday.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "AEGISCHEM.NS",
+            "RELIANCE.NS",
+            "MGL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Suven Lifesciences to participate in BIO International Convention",
+          "summary": "Suven Lifesciences announced its participation in the upcoming BIO International Convention, a significant event for the biotechnology industry.",
+          "source": "Business Standard",
+          "tickers": [
+            "SUVENPHAR.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Analysts identify Trent, Eicher Motors, Union Bank, Mankind Pharma as top stock picks",
+          "summary": "Market analysts have highlighted Trent, Eicher Motors, Union Bank of India, and Mankind Pharma as top stock picks for Monday, June 22.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TRENT.NS",
+            "EICHERMOT.NS",
+            "UNIONBANK.NS",
+            "MANKIND.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "SBIN.NS",
+      "name": "State Bank of India",
+      "brokerage": "Motilal Oswal Wealth Management Research Desk",
+      "action": "buy",
+      "target": 1300,
+      "rationale": "Recommended as a buy with a potential 25% upside."
+    },
+    {
+      "ticker": "BEL.NS",
+      "name": "Bharat Electronics",
+      "brokerage": "Motilal Oswal Wealth Management Research Desk",
+      "action": "buy",
+      "target": 520,
+      "rationale": "Recommended as a buy with a potential 21% upside."
+    },
+    {
+      "ticker": "VIJAYA.NS",
+      "name": "Vijaya Diagnostic Centre Limited",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "rationale": "Recommended due to a breakout from a range consolidation pattern."
+    },
+    {
+      "ticker": "FINEOTEX.NS",
+      "name": "Fineotex Chemical",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 47.8,
+      "rationale": "Recommended for buying."
+    },
+    {
+      "ticker": "MAHABANK.NS",
+      "name": "Bank of Maharashtra",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 99,
+      "rationale": "Recommended for buying."
+    },
+    {
+      "ticker": "FILATEX.NS",
+      "name": "Filatex India",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 60,
+      "rationale": "Recommended for buying."
+    },
+    {
+      "ticker": "JINDALSTEL.NS",
+      "name": "Jindal Steel",
+      "brokerage": "Anand Rathi (Ganesh Dongre)",
+      "action": "buy",
+      "target": 1370,
+      "rationale": "Recommended for buying."
+    },
+    {
+      "ticker": "MUTHOOTFIN.NS",
+      "name": "Muthoot Finance",
+      "brokerage": "Anand Rathi (Ganesh Dongre)",
+      "action": "buy",
+      "target": 3220,
+      "rationale": "Recommended for buying."
+    },
+    {
+      "ticker": "BSE.NS",
+      "name": "BSE",
+      "brokerage": "Anand Rathi (Ganesh Dongre)",
+      "action": "buy",
+      "target": 4200,
+      "rationale": "Recommended for buying."
+    }
+  ]
+}
