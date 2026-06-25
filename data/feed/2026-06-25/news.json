@@ -1,0 +1,398 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI maintains neutral policy stance, keeps repo rate unchanged at 5.25%",
+          "summary": "RBI Governor Sanjay Malhotra indicated a 'higher for longer' interest rate regime with a commitment to a 4% inflation target, despite localized price spikes. FPI norms for government securities were liberalized, and investment limits for NRIs/OCIs in equities were raised.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's FY27 GDP growth forecast revised down to 6.6%",
+          "summary": "Due to global turbulence, India's GDP growth forecast for FY27 has been revised down to 6.6% from the previous 6.9%.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global markets recover, crude oil prices fall below $75 per barrel",
+          "summary": "Global markets are trading higher, recovering from a recent tech rout, aided by stabilizing geopolitical scenarios and strong earnings from chip giants Micron Technology and Qualcomm. Brent crude fell below $75 per barrel, reaching pre-war levels, which is a positive for India's macroeconomic stability.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Cipla board to consider Q1 FY27 financial results on July 23",
+          "summary": "Cipla's board will convene on July 23 to consider and approve its financial results for the first quarter of fiscal year 2027.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "CIPLA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "CMX Holdings, Aureate Tradde, Standard Surfactants and others to release Q4 results",
+          "summary": "Several companies, including CMX Holdings, Aureate Tradde, Standard Surfactants, Generic Engineering Construction and Projects Ltd, Hindustan Adhesives, Smr Jewels, and Davin Sons Retail, are scheduled to release their audited results on June 25, 2026.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT, Private Banking, Auto, Realty, and Cement sectors lead market gains",
+          "summary": "Information Technology and private banking stocks witnessed significant buying interest. In early trading, Nifty Auto, Realty, and Cement sectors were among the top gainers.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Transport, Textiles, and Aviation sectors see capitalisation increase",
+          "summary": "On Wednesday, the transport, textiles, and aviation sectors experienced the most capitalisation increase.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Space sector experiences largest decline",
+          "summary": "On Wednesday, the space sector saw the largest decline in capitalisation.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Tata Steel infuses Rs 1,625 crore into subsidiary for debt restructuring and decarbonization",
+          "summary": "Tata Steel has injected Rs 1,625 crore into its wholly-owned subsidiary, T Steel Holding Pte (TSHP), likely to support offshore debt restructuring and decarbonization initiatives.",
+          "source": "Business Standard",
+          "tickers": [
+            "TATASTEEL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "ICICI Bank receives RBI approval to acquire additional 2% stake in ICICI Prudential Life Insurance",
+          "summary": "ICICI Bank has obtained regulatory approval from the Reserve Bank of India to increase its equity stake by an additional 2% in its life insurance arm, ICICI Prudential Life Insurance.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ICICIBANK.NS",
+            "ICICIPRULI.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "LIC Chief Financial Officer Sunil Agarwal resigns",
+          "summary": "Life Insurance Corporation (LIC) has announced the resignation of its Chief Financial Officer, Sunil Agarwal.",
+          "source": "Economic Times",
+          "tickers": [
+            "LIC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "NLC India Renewables forms JV with OREDA for 1,000 MW green energy projects",
+          "summary": "NLC India's subsidiary, NLC India Renewables, has entered into a joint venture agreement with the Odisha Renewable Energy Development Agency (OREDA) to develop 1,000 MW of green energy projects.",
+          "source": "Business Standard",
+          "tickers": [
+            "NLCINDIA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Jubilant Pharmova receives substantial reduction in tax demand",
+          "summary": "Jubilant Pharmova has received regulatory relief with a significant reduction in a tax demand levied on its subsidiary.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "JUBLPHARMA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Jubilant FoodWorks revokes corporate guarantees for Netherlands-based subsidiary",
+          "summary": "Jubilant FoodWorks has successfully revoked corporate guarantees for its international subsidiary based in the Netherlands.",
+          "source": "Economic Times",
+          "tickers": [
+            "JUBLFOOD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Electrosteel Castings concludes asset-integrity maintenance shutdown",
+          "summary": "Electrosteel Castings has successfully concluded its planned asset-integrity maintenance shutdown.",
+          "source": "Business Standard",
+          "tickers": [
+            "ELECTCAST.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Vedanta establishes new wholly-owned subsidiary, Vedanta Property Platforms Ltd (VPPL)",
+          "summary": "Vedanta has announced the establishment of a new wholly-owned subsidiary named Vedanta Property Platforms Ltd (VPPL).",
+          "source": "Livemint",
+          "tickers": [
+            "VEDL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Government OFS in IRFC sees robust demand from institutional investors",
+          "summary": "The government's Offer for Sale (OFS) in Indian Railway Finance Corporation (IRFC) witnessed strong demand from institutional investors, indicating confidence.",
+          "source": "Economic Times",
+          "tickers": [
+            "IRFC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Rashi Peripherals acquires 67% stake in VDA Infosolutions for Rs 3.68 billion",
+          "summary": "Rashi Peripherals has acquired a 67% stake in VDA Infosolutions for Rs 3.68 billion, a strategic move to expand its presence in technology solutions and services.",
+          "source": "Business Standard",
+          "tickers": [
+            "RASHIPER.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Actis divests over 2% stake in Pine Labs for ₹371 crore",
+          "summary": "Financial services firm Actis has divested more than a 2% stake in the fintech company Pine Labs for ₹371 crore.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "HCL Technologies expands Nokia partnership, selected by Neste for AI-led IT transformation",
+          "summary": "HCL Technologies has expanded its partnership with Nokia and secured a new contract with Neste for an AI-led IT efficiency transformation.",
+          "source": "Business Standard",
+          "tickers": [
+            "HCLTECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Hindustan Copper signs MoA with Engineers India for consultancy and project management",
+          "summary": "Hindustan Copper has signed a Memorandum of Agreement (MoA) with Engineers India for consultancy and project management services.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HINDCOPPER.NS",
+            "ENGINERSIN.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "JK Cement declared preferred bidder for Gilund Limestone Block in Rajasthan",
+          "summary": "JK Cement has been declared the preferred bidder for the Gilund Limestone Block located in Rajasthan, securing a key raw material source.",
+          "source": "Business Standard",
+          "tickers": [
+            "JKCEMENT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Man Infraconstruction receives IOA for Tardeo 2.0 project with GDV exceeding Rs 2,000 crore",
+          "summary": "Man Infraconstruction has received an 'Intention of Award' for its Tardeo 2.0 project in South Mumbai, which has an estimated Gross Development Value (GDV) exceeding Rs 2,000 crore.",
+          "source": "Livemint",
+          "tickers": [
+            "MANINFRA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Sagar Cements commissions balance waste heat recovery power system at Andhra Pradesh plant",
+          "summary": "Sagar Cements has commissioned the remaining 1.55 MW waste heat recovery power system at its plant in Andhra Pradesh, improving operational efficiency.",
+          "source": "Business Standard",
+          "tickers": [
+            "SAGCEM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Infosys announces strategic collaboration with healthcare organization Sentara",
+          "summary": "Infosys has announced a new strategic collaboration with Sentara, a prominent healthcare organization.",
+          "source": "Economic Times",
+          "tickers": [
+            "INFY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Pidilite Industries declares record date for ₹11.50 per share dividend",
+          "summary": "Pidilite Industries has declared a record date for an ₹11.50 per share dividend payout.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PIDILITIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "S Chand & Company to hold video call with institutional investors",
+          "summary": "S Chand & Company is scheduled to hold a video call with institutional investors to discuss the company's performance and sector outlook.",
+          "source": "Business Standard",
+          "tickers": [
+            "SCHAND.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Insider trading reported in Uma Exports Ltd. with disposal of 150,000 shares",
+          "summary": "Insider trading activity has been reported in Uma Exports Ltd., involving the disposal of 150,000 equity shares.",
+          "source": "Economic Times",
+          "tickers": [
+            "UMAEXPORTS.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Embassy Developments signs MoU with Uttar Pradesh Government for commercial development",
+          "summary": "Embassy Developments has signed a Memorandum of Understanding (MoU) with the Uttar Pradesh Government for commercial development projects.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "NCLAT stays insolvency proceedings against Vikram Solar",
+          "summary": "The National Company Law Appellate Tribunal (NCLAT) has stayed the insolvency proceedings initiated against Vikram Solar, providing significant relief to the company.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani Enterprises, HDFC Bank, RBL Bank, AU Small Finance Bank identified as top picks",
+          "summary": "Adani Enterprises, HDFC Bank, RBL Bank, and AU Small Finance Bank have been identified as top stock picks for today's trading session.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ADANIENS.NS",
+            "HDFCBANK.NS",
+            "RBLBANK.NS",
+            "AUBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IndiGo, Maruti, M&M, SBI, Hindustan Unilever, Trent, Adani Ports, Kotak Bank, Axis Bank, TCS, LT among gaining stocks",
+          "summary": "Several prominent stocks including IndiGo, Maruti, M&M, SBI, Hindustan Unilever, Trent, Adani Ports, Kotak Bank, Axis Bank, TCS, and LT were among the top gaining stocks on the BSE.",
+          "source": "Economic Times",
+          "tickers": [
+            "INDIGO.NS",
+            "MARUTI.NS",
+            "M&M.NS",
+            "SBIN.NS",
+            "HINDUNILVR.NS",
+            "TRENT.NS",
+            "ADANIPORTS.NS",
+            "KOTAKBANK.NS",
+            "AXISBANK.NS",
+            "TCS.NS",
+            "LT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Power Grid, BEL, Infosys, Titan among top losing stocks",
+          "summary": "Power Grid, BEL, Infosys, and Titan were noted among the top losing stocks on the BSE during today's trading.",
+          "source": "Economic Times",
+          "tickers": [
+            "POWERGRID.NS",
+            "BEL.NS",
+            "INFY.NS",
+            "TITAN.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "NAVINFLUOR.NS",
+      "name": "Navin Fluorine International",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 8280,
+      "rationale": "Recommended to buy at ₹7698 with a stop loss at ₹7380."
+    },
+    {
+      "ticker": "NCC.NS",
+      "name": "NCC",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 170,
+      "rationale": "Recommended to buy at ₹157.50 with a stop loss at ₹150."
+    },
+    {
+      "ticker": "MEDANTA.NS",
+      "name": "Global Health Limited",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 1410,
+      "rationale": "Recommended to buy at ₹1318 with a stop loss at ₹1265."
+    },
+    {
+      "ticker": "RADICO.NS",
+      "name": "Radico Khaitan",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 4200,
+      "rationale": "Recommended to buy at ₹3758 with a stop loss at ₹3550."
+    },
+    {
+      "ticker": "NETWEB.NS",
+      "name": "Netweb Technologies India",
+      "brokerage": "Choice Broking (Sumeet Bagadia)",
+      "action": "buy",
+      "target": 5500,
+      "rationale": "Recommended to buy at ₹5074 with a stop loss at ₹4865."
+    },
+    {
+      "ticker": "ADANIENS.NS",
+      "name": "Adani Enterprises",
+      "brokerage": "BlueOak Wealth (Amit Goel)",
+      "action": "buy",
+      "target": 3269,
+      "rationale": "Recommended to buy with a stop loss at ₹2,943."
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "JM Financial (Akshay P Bhagwat)",
+      "action": "buy",
+      "target": 814,
+      "rationale": "Recommended to buy with a stop loss at ₹776."
+    },
+    {
+      "ticker": "TATAMOTORS.NS",
+      "name": "Tata Motors",
+      "brokerage": "Vaishali Parekh",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "MRPL.NS",
+      "name": "Mangalore Refinery and Petrochemicals",
+      "brokerage": "Vaishali Parekh",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "SUMICHEM.NS",
+      "name": "Sumitomo Chemical",
+      "brokerage": "Vaishali Parekh",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    }
+  ]
+}
