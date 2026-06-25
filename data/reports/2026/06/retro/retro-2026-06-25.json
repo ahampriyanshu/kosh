@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-06-25",
+  "type": "retro",
+  "dateKey": "2026-06-25",
+  "generatedAt": "2026-06-25T11:11:41.632Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1318.1,
+      "TCS.NS": 2094.7,
+      "INFY.NS": 1041.2,
+      "HDFCBANK.NS": 796.3,
+      "ICICIBANK.NS": 1387.5
+    },
+    "searchTimestamp": "2026-06-25T11:11:41.632Z"
+  },
+  "content": {
+    "date": "2026-06-25",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1318.1,
+        "changePct": 0.34,
+        "note": "+0.3% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2094.7,
+        "changePct": -0.68,
+        "note": "-0.7% vs prev close, vol 0.8x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1041.2,
+        "changePct": -1.46,
+        "note": "-1.5% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 796.3,
+        "changePct": 0.39,
+        "note": "+0.4% vs prev close, vol 1.2x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1387.5,
+        "changePct": 1.01,
+        "note": "+1.0% vs prev close, vol 1.1x avg"
+      }
+    ],
+    "alerts": [],
+    "summary": "Despite technical alerts on Reliance, TCS, and Infosys, analysis indicates these are likely noise rather than genuine sell signals, given the positive market, company-specific news, and low trading volumes."
+  },
+  "emailSent": true,
+  "checksum": "sha256:c536c958e352aeba39a5b8923248e958c548efad31096b9d7568979ba5f8e588"
+}
