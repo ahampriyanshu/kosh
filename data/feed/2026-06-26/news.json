@@ -1,0 +1,381 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI keeps repo rate unchanged at 5.25%, revises GDP and inflation forecasts",
+          "summary": "The Reserve Bank of India (RBI) Monetary Policy Committee (MPC) unanimously decided to keep the repo rate unchanged at 5.25% in its June 5, 2026, meeting, maintaining a \"neutral\" policy stance. The RBI lowered its GDP growth forecast for FY27 to 6.6% from 6.9% but upgraded its CPI inflation projection to 5.1% from 4.6%, citing risks from the Middle East conflict. Measures to attract capital flows were also introduced.",
+          "source": "Financial Express",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Asian markets decline, Yen wobbles near 40-year low",
+          "summary": "On June 25, Asian markets generally declined, led by technology stocks, with the Yen wobbling near a 40-year low.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Easing crude oil prices provide positive sentiment for India",
+          "summary": "Brent crude fell to around $72.67 a barrel. The decline in oil prices is seen as a macro positive, potentially improving inflation, fiscal, and current account dynamics for India, and offering the RBI greater policy flexibility.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "US markets higher on potential US-Iran deal",
+          "summary": "US markets traded higher on June 15, following comments about a potential deal between the US and Iran.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Harikanta Overseas, Antarctica, Desi Farms India scheduled for audited results",
+          "summary": "Harikanta Overseas, Antarctica Ltd., and Desi Farms India Ltd. had scheduled audited results for June 26, 2026.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Simply Wall St highlights Indian penny stocks with positive earnings and low P/E",
+          "summary": "Simply Wall St highlighted Swasti Vinayaka Synthetics (BSE:510245), Shangar Décor (BSE:540259), and Swasti Vinayaka Art and Heritage (BSE:512257) as Indian penny stocks with positive earnings and low P/E ratios as of June 26, 2026.",
+          "source": "Simply Wall St",
+          "tickers": [
+            "510245",
+            "540259",
+            "512257"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mixed Q4 FY26 results for companies like Aequs, Edelweiss, MCX, D-Link",
+          "summary": "For Q4 FY26, some companies like Aequs and Edelweiss Financial experienced profit contraction, while others like Multi Commodity Exchange of India Limited and D-Link (India) Ltd. reported significant revenue and profit growth.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "EDELWEISS.NS",
+            "MCX.NS",
+            "DLINKINDIA.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Nifty Auto index advances on softer metal prices, easing supply constraints, and improved demand",
+          "summary": "In the trading sessions preceding the holiday, the Nifty Auto index advanced, driven by factors like softer metal prices, easing supply chain constraints, and improving retail demand.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Nifty FMCG and Pharma sectors trade higher",
+          "summary": "The Nifty FMCG and Pharma sectors also traded higher in mid-June.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lower crude oil prices expected to benefit multiple sectors",
+          "summary": "Sectors that are generally expected to benefit from lower crude oil prices include airlines, paints, chemicals, tyres, plastics, consumer goods, logistics, transportation, and automobile companies.",
+          "source": "Livemint",
+          "tickers": [
+            "INDIGO.NS",
+            "ASIANTAPA.NS",
+            "BERGEPAINT.NS",
+            "CEAT.NS",
+            "MRF.NS",
+            "RELIANCE.NS",
+            "HINDUNILVR.NS",
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IT stocks under pressure",
+          "summary": "IT stocks have been under pressure.",
+          "source": "Business Standard",
+          "tickers": [
+            "INFY.NS",
+            "TCS.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Defence sector watched amid aspirations for India as a global manufacturing hub",
+          "summary": "Defence is a sector to watch, with aspirations for India to become a global defence manufacturing hub.",
+          "source": "Business Standard",
+          "tickers": [
+            "BEL.NS",
+            "HAL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "NLC India and Reliance Industries exploring lignite gasification JV",
+          "summary": "NLC India and Reliance Industries are exploring a joint venture for an underground lignite gasification project in Gujarat.",
+          "source": "Business Standard",
+          "tickers": [
+            "NLCINDIA.NS",
+            "RELIANCE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Adani Group accelerating investments across infrastructure",
+          "summary": "The Adani Group is accelerating investments across energy, transport, logistics, and digital infrastructure.",
+          "source": "Economic Times",
+          "tickers": [
+            "ADANIENT.NS",
+            "ADANIPORTS.NS",
+            "ADANIGREEN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "LIC evaluating creation of a fintech subsidiary",
+          "summary": "LIC is evaluating the creation of a fintech subsidiary.",
+          "source": "Livemint",
+          "tickers": [
+            "LICI.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Suzlon Energy plans to challenge SEBI penalty order",
+          "summary": "Suzlon Energy plans to challenge a SEBI penalty order.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SUZLON.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Sanghi Industries' former promoter settles with Ambuja Cements",
+          "summary": "Sanghi Industries' former promoter has settled with Ambuja Cements.",
+          "source": "Business Standard",
+          "tickers": [
+            "AMBUJACEM.NS",
+            "SANGHIIND.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Trent aims to grow revenues tenfold",
+          "summary": "Trent, a Tata Group retail arm, aims to grow revenues tenfold.",
+          "source": "Economic Times",
+          "tickers": [
+            "TRENT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lupin receives USFDA approval for certain tablets",
+          "summary": "Lupin received USFDA approval for certain tablets.",
+          "source": "Business Standard",
+          "tickers": [
+            "LUPIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "PNC Infratech secures EPC contract from Airports Authority of India",
+          "summary": "PNC Infratech secured an EPC contract from the Airports Authority of India.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PNCINFRA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Wockhardt receives USFDA approval for a novel antibiotic",
+          "summary": "Wockhardt received USFDA approval for a novel antibiotic.",
+          "source": "Business Standard",
+          "tickers": [
+            "WOCKHARDT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Founders of PB Fintech, Anand Rathi Wealth, and BNP Paribas involved in block deals",
+          "summary": "Block deals saw founders of PB Fintech and promoter of Anand Rathi Wealth selling shares. BNP Paribas also sold stakes in Federal Bank, MCX, and NALCO.",
+          "source": "Livemint",
+          "tickers": [
+            "PBFINTECH.NS",
+            "ANANDRATHI.NS",
+            "FEDERALBNK.NS",
+            "MCX.NS",
+            "NALCO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IIFL Finance to meet on June 27 for fundraising approval",
+          "summary": "IIFL Finance is scheduled to meet on June 27, 2026, to approve fundraising options.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "IIFL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Craftsman Automation completes equity placement, promoter to divest stake",
+          "summary": "Craftsman Automation completed an equity placement of ₹2,000 crore, and a promoter is looking to divest a 2.01% stake.",
+          "source": "Business Standard",
+          "tickers": [
+            "CRAFTSMAN.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Transrail Lighting fully acquires Gactel Turnkey",
+          "summary": "Transrail Lighting has fully acquired Gactel Turnkey.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Upcoming dividend ex-dates and bonus issue record dates in early June",
+          "summary": "Upcoming dividend ex-dates in early June included Infosys, Tata Elxsi, Indian Bank, ACC, Adani Ports, Tata Steel, Tata Motors, Trent, and Voltas. Gautam Exim and City Union Bank had bonus issue record dates in early June.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INFY.NS",
+            "TATAELXSI.NS",
+            "INDIANB.NS",
+            "ACC.NS",
+            "ADANIPORTS.NS",
+            "TATASTEEL.NS",
+            "TATAMOTORS.NS",
+            "TRENT.NS",
+            "VOLTAS.NS",
+            "CITYUNIONBK.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "M&A activity in India expected to remain strong in 2026",
+          "summary": "M&A activity in India is expected to remain strong in 2026, building on a robust 2025.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "FSSAI seeks explanation from Eternal (Blinkit) following consumer complaint",
+          "summary": "FSSAI sought an explanation from Eternal (Blinkit) following a consumer complaint.",
+          "source": "Reuters",
+          "tickers": [
+            "ZOMATO.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Ambuja Cements, SRF, Dixon Technologies, Polycab India, IndiaMART InterMESH recommended for long-term",
+          "summary": "Ambuja Cements, SRF, Dixon Technologies, Polycab India, IndiaMART InterMESH were recommended for long-term returns by various brokerages.",
+          "source": "Various Brokerages",
+          "tickers": [
+            "AMBUJACEM.NS",
+            "SRF.NS",
+            "DIXON.NS",
+            "POLYCAB.NS",
+            "INDIAMART.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Motors outperforms, receives brokerage recommendations",
+          "summary": "Tata Motors is experiencing auto sector outperformance and received brokerage recommendations for potential upside.",
+          "source": "Nuvama",
+          "tickers": [
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Berger Paints expected to benefit from lower crude prices",
+          "summary": "Berger Paints is expected to benefit from lower crude oil prices, a positive for the paints sector.",
+          "source": "Livemint",
+          "tickers": [
+            "BERGEPAINT.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "AMBUJACEM.NS",
+      "name": "Ambuja Cements",
+      "brokerage": "Elara Securities",
+      "action": "buy",
+      "rationale": "Recommended for long-term returns."
+    },
+    {
+      "ticker": "DIXON.NS",
+      "name": "Dixon Technologies",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "rationale": "Recommended for long-term returns."
+    },
+    {
+      "ticker": "SRF.NS",
+      "name": "SRF",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "rationale": "Recommended for long-term returns."
+    },
+    {
+      "ticker": "POLYCAB.NS",
+      "name": "Polycab India",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "rationale": "Recommended for long-term returns."
+    },
+    {
+      "ticker": "INDIAMART.NS",
+      "name": "IndiaMART InterMESH",
+      "brokerage": "HDFC Securities",
+      "action": "buy",
+      "rationale": "Recommended for long-term returns."
+    },
+    {
+      "ticker": "TATAMOTORS.NS",
+      "name": "Tata Motors",
+      "brokerage": "Nuvama",
+      "action": "buy",
+      "target": 480,
+      "rationale": "Reiterated \"Buy\" with a potential upside of nearly 20%."
+    },
+    {
+      "ticker": "TATAMOTORS.NS",
+      "name": "Tata Motors (Passenger Vehicle business)",
+      "brokerage": "Nuvama",
+      "action": "buy",
+      "target": 470,
+      "rationale": "Buy rating for Passenger Vehicle business, expecting about 32% upside."
+    },
+    {
+      "ticker": "DMART.NS",
+      "name": "Avenue Supermarts",
+      "brokerage": "Geojit Investments Ltd",
+      "action": "buy",
+      "target": 5063,
+      "rationale": "Maintained \"Buy\" with a potential upside of around 15%."
+    }
+  ]
+}
