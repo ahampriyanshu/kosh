@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-06-27",
+  "type": "recap",
+  "dateKey": "2026-06-27",
+  "generatedAt": "2026-06-27T07:31:28.448Z",
+  "sourceData": {
+    "tickers": [
+      "DLF.NS",
+      "NTPC.NS",
+      "SHREECEM.NS",
+      "HDFCLIFE.NS",
+      "INFY.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-06-27T07:31:28.448Z"
+  },
+  "content": {
+    "period": "2026-W25",
+    "sourceReportId": "weekly-2026-W25",
+    "graded": [
+      {
+        "ticker": "DLF.NS",
+        "name": "DLF Ltd",
+        "thesis": "Realty sector demonstrating significant strength with DLF leading the gains. Continued positive sentiment in real estate development and urban housing.",
+        "action": "buy",
+        "entryRef": 627.5999755859375,
+        "exitRef": 621.3499755859375,
+        "changePct": -1,
+        "outcome": "miss",
+        "note": "buy call moved -1%"
+      },
+      {
+        "ticker": "NTPC.NS",
+        "name": "NTPC Ltd",
+        "thesis": "Energy sector outperformance driven by increasing power demand and government's focus on infrastructure development, making NTPC a key beneficiary.",
+        "action": "buy",
+        "entryRef": 367.04998779296875,
+        "exitRef": 352.04998779296875,
+        "changePct": -4.09,
+        "outcome": "miss",
+        "note": "buy call moved -4.09%"
+      },
+      {
+        "ticker": "SHREECEM.NS",
+        "name": "Shree Cement Ltd",
+        "thesis": "Cement sector exhibiting strong momentum, fueled by sustained construction activities and infrastructure spending, positioning Shree Cement for continued growth.",
+        "action": "buy",
+        "entryRef": 24995,
+        "exitRef": 25735,
+        "changePct": 2.96,
+        "outcome": "hit",
+        "note": "buy call moved +2.96%"
+      },
+      {
+        "ticker": "HDFCLIFE.NS",
+        "name": "HDFC Life Insurance Company Ltd",
+        "thesis": "Financial services sector remains robust with strong DII support. HDFC Life is demonstrating individual strength, benefiting from increasing insurance penetration and stable market conditions.",
+        "action": "buy",
+        "entryRef": 597.1500244140625,
+        "exitRef": 585.4500122070312,
+        "changePct": -1.96,
+        "outcome": "miss",
+        "note": "buy call moved -1.96%"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys Ltd",
+        "thesis": "Despite overall Nifty IT being positive, Infosys is a significant top loser, indicating potential weakness, profit booking, or specific headwinds for large-cap IT.",
+        "action": "sell",
+        "entryRef": 1065.4000244140625,
+        "exitRef": 1041.199951171875,
+        "changePct": -2.27,
+        "outcome": "hit",
+        "note": "sell call moved -2.27%"
+      }
+    ],
+    "hits": 2,
+    "total": 5,
+    "summary": "2/5 positional bets hit over 2026-W25."
+  },
+  "emailSent": true,
+  "checksum": "sha256:9ef7bfc40f117c00115de45f1a9f310a2a3efdef74e6d68bd085fa54176ae58b"
+}
