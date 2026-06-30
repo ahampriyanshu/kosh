@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-06-30",
+  "type": "retro",
+  "dateKey": "2026-06-30",
+  "generatedAt": "2026-06-30T11:24:58.176Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1293.9,
+      "TCS.NS": 2031.5,
+      "INFY.NS": 1000.4,
+      "HDFCBANK.NS": 797.95,
+      "ICICIBANK.NS": 1375.2
+    },
+    "searchTimestamp": "2026-06-30T11:24:58.176Z"
+  },
+  "content": {
+    "date": "2026-06-30",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1293.9,
+        "changePct": -0.55,
+        "note": "-0.5% vs prev close, vol 1.0x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2031.5,
+        "changePct": -3.17,
+        "note": "-3.2% vs prev close, vol 1.4x avg — flags: drawdown>3%, below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1000.4,
+        "changePct": -3.5,
+        "note": "-3.5% vs prev close, vol 1.8x avg — flags: drawdown>3%, below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 797.95,
+        "changePct": -0.12,
+        "note": "-0.1% vs prev close, vol 1.4x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1375.2,
+        "changePct": -0.89,
+        "note": "-0.9% vs prev close, vol 1.2x avg"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "reason": "Modest decline within an existing bearish trend, trading below 50DMA and underperforming relative to its sector.",
+        "severity": "low",
+        "triggeredRules": [
+          "below 50DMA support"
+        ]
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "reason": "Significant drop to a fresh 52-week low, negative price breakout, and part of a broader IT sector sell-off due to AI fears, geopolitical tensions, and weak guidance.",
+        "severity": "high",
+        "triggeredRules": [
+          "drawdown>3%",
+          "below 50DMA support"
+        ]
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "reason": "Significant decline to a fresh 52-week low, trading below all key moving averages, driven by broader IT sector struggles, soft revenue forecasts, and lower deal wins.",
+        "severity": "high",
+        "triggeredRules": [
+          "drawdown>3%",
+          "below 50DMA support"
+        ]
+      }
+    ],
+    "summary": "Genuine sell signals emerged primarily from the IT sector, with TCS and Infosys experiencing significant drops to new lows, while Reliance Industries showed a weaker sell signal within its ongoing bearish trend."
+  },
+  "emailSent": true,
+  "checksum": "sha256:e8bdfe29d0685a378ad2612b92be00796c7402aaa6ac37cdf67ac944ef67ffde"
+}
