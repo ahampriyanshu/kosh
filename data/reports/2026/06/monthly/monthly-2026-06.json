@@ -1,0 +1,950 @@
+{
+  "schemaVersion": 1,
+  "id": "monthly-2026-06",
+  "type": "monthly",
+  "dateKey": "2026-06",
+  "generatedAt": "2026-06-30T20:31:44.591Z",
+  "sourceData": {
+    "tickers": [
+      "DLF.NS",
+      "HDFCBANK.NS",
+      "MARUTI.NS",
+      "LT.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-06-30T20:31:44.591Z"
+  },
+  "content": {
+    "snapshot": {
+      "asOf": "2026-06-30T06:35:41.829Z",
+      "window": "1mo",
+      "indianIndices": [
+        {
+          "name": "NIFTY 50",
+          "symbol": "^NSEI",
+          "ltp": 23933.05,
+          "changePct": 4.02
+        },
+        {
+          "name": "SENSEX",
+          "symbol": "^BSESN",
+          "ltp": 76688.56,
+          "changePct": 4.37
+        },
+        {
+          "name": "NIFTY BANK",
+          "symbol": "^NSEBANK",
+          "ltp": 57710.65,
+          "changePct": 3.8
+        },
+        {
+          "name": "NIFTY IT",
+          "symbol": "^CNXIT",
+          "ltp": 26495.85,
+          "changePct": 0.7
+        },
+        {
+          "name": "NIFTY PHARMA",
+          "symbol": "^CNXPHARMA",
+          "ltp": 25330.05,
+          "changePct": 2.43
+        },
+        {
+          "name": "NIFTY AUTO",
+          "symbol": "^CNXAUTO",
+          "ltp": 26571.35,
+          "changePct": 5.46
+        },
+        {
+          "name": "NIFTY FMCG",
+          "symbol": "^CNXFMCG",
+          "ltp": 48923.55,
+          "changePct": 1.79
+        },
+        {
+          "name": "NIFTY METAL",
+          "symbol": "^CNXMETAL",
+          "ltp": 12517.6,
+          "changePct": -0.33
+        },
+        {
+          "name": "NIFTY ENERGY",
+          "symbol": "^CNXENERGY",
+          "ltp": 39744.8,
+          "changePct": 1.72
+        },
+        {
+          "name": "NIFTY REALTY",
+          "symbol": "^CNXREALTY",
+          "ltp": 829.65,
+          "changePct": 10.41
+        },
+        {
+          "name": "NIFTY FIN SERVICE",
+          "symbol": "^CNXFIN",
+          "ltp": 28909.55,
+          "changePct": 5.04
+        }
+      ],
+      "giftNifty": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 52182.74,
+          "changePct": 2.06
+        },
+        {
+          "name": "NASDAQ",
+          "symbol": "^IXIC",
+          "ltp": 25820.145,
+          "changePct": 2.9
+        },
+        {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "ltp": 7440.43,
+          "changePct": 1.68
+        },
+        {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "ltp": 69468.11,
+          "changePct": 3.62
+        },
+        {
+          "name": "Hang Seng",
+          "symbol": "^HSI",
+          "ltp": 23026.68,
+          "changePct": -7.72
+        },
+        {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "ltp": 10484.22,
+          "changePct": -0.6
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 4030.5,
+          "changePct": -1.606323
+        },
+        {
+          "name": "Silver",
+          "value": 58.755,
+          "changePct": -1.540032
+        },
+        {
+          "name": "Crude Oil",
+          "value": 70.42,
+          "changePct": -0.46643367
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 94.53,
+          "changePct": 0.2438979
+        }
+      ],
+      "bondYield": null,
+      "vix": {
+        "value": 13.4275,
+        "changePct": -1.340925
+      },
+      "breadth": {
+        "advances": 28,
+        "declines": 30,
+        "unchanged": 0,
+        "adRatio": 0.93
+      },
+      "topGainers": [
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "ltp": 14029,
+          "changePct": 4.599672
+        },
+        {
+          "ticker": "TITAN.NS",
+          "name": "Titan Company",
+          "ltp": 4388.7,
+          "changePct": 2.6069064
+        },
+        {
+          "ticker": "SRF.NS",
+          "name": "SRF",
+          "ltp": 2722.5,
+          "changePct": 2.1686947
+        },
+        {
+          "ticker": "ADANIPORTS.NS",
+          "name": "Adani Ports & SEZ",
+          "ltp": 1810,
+          "changePct": 1.9091077
+        },
+        {
+          "ticker": "NESTLEIND.NS",
+          "name": "Nestle India",
+          "ltp": 1412,
+          "changePct": 1.7804332
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "ltp": 1868.5,
+          "changePct": 1.4881612
+        },
+        {
+          "ticker": "ADANIENT.NS",
+          "name": "Adani Enterprises",
+          "ltp": 3004.8,
+          "changePct": 1.4272716
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 994.65,
+          "changePct": 1.2829036
+        },
+        {
+          "ticker": "INDUSINDBK.NS",
+          "name": "IndusInd Bank",
+          "ltp": 926.4,
+          "changePct": 1.2015948
+        },
+        {
+          "ticker": "GAIL.NS",
+          "name": "GAIL India",
+          "ltp": 174.09,
+          "changePct": 1.0858176
+        }
+      ],
+      "topLosers": [
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "ltp": 7126.5,
+          "changePct": -4.033127
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1009.2,
+          "changePct": -2.6523862
+        },
+        {
+          "ticker": "TATACONSUM.NS",
+          "name": "Tata Consumer Products",
+          "ltp": 1083.6,
+          "changePct": -2.624018
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "ltp": 2045.4,
+          "changePct": -2.5026162
+        },
+        {
+          "ticker": "WIPRO.NS",
+          "name": "Wipro",
+          "ltp": 171.63,
+          "changePct": -2.1943521
+        },
+        {
+          "ticker": "HCLTECH.NS",
+          "name": "HCL Technologies",
+          "ltp": 1080.5,
+          "changePct": -1.9874784
+        },
+        {
+          "ticker": "VEDL.NS",
+          "name": "Vedanta",
+          "ltp": 279.85,
+          "changePct": -1.6517245
+        },
+        {
+          "ticker": "HINDUNILVR.NS",
+          "name": "Hindustan Unilever",
+          "ltp": 2124.3,
+          "changePct": -1.2551135
+        },
+        {
+          "ticker": "TECHM.NS",
+          "name": "Tech Mahindra",
+          "ltp": 1416.2,
+          "changePct": -1.2268295
+        },
+        {
+          "ticker": "COALINDIA.NS",
+          "name": "Coal India",
+          "ltp": 439.9,
+          "changePct": -1.1127374
+        }
+      ],
+      "mostActive": [
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "ltp": 799.85,
+          "changePct": 0.11892227,
+          "volume": 15132824
+        },
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "ltp": 7126.5,
+          "changePct": -4.033127,
+          "volume": 1471701
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "ltp": 14029,
+          "changePct": 4.599672,
+          "volume": 645505
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1009.2,
+          "changePct": -2.6523862,
+          "volume": 8604913
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "ltp": 1294.8,
+          "changePct": -0.47655275,
+          "volume": 5304386
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1378.5,
+          "changePct": -0.6558541,
+          "volume": 4438114
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "ltp": 2045.4,
+          "changePct": -2.5026162,
+          "volume": 2397312
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "ltp": 1868.5,
+          "changePct": 1.4881612,
+          "volume": 2463272
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 994.65,
+          "changePct": 1.2829036,
+          "volume": 4524675
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1356.2,
+          "changePct": -0.044215858,
+          "volume": 3099601
+        }
+      ],
+      "near52wHigh": [
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 8689,
+          "pctFromHigh": 0.52
+        },
+        {
+          "ticker": "PIDILITIND.NS",
+          "name": "Pidilite Industries",
+          "ltp": 1589.5,
+          "pctFromHigh": 1.93
+        },
+        {
+          "ticker": "SUNPHARMA.NS",
+          "name": "Sun Pharmaceutical",
+          "ltp": 1879.3,
+          "pctFromHigh": 1.95
+        }
+      ],
+      "near52wLow": [
+        {
+          "ticker": "HCLTECH.NS",
+          "name": "HCL Technologies",
+          "ltp": 1080.5,
+          "pctFromLow": 0.23
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1009.2,
+          "pctFromLow": 0.37
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "ltp": 2045.4,
+          "pctFromLow": 0.41
+        },
+        {
+          "ticker": "WIPRO.NS",
+          "name": "Wipro",
+          "ltp": 171.63,
+          "pctFromLow": 0.76
+        }
+      ],
+      "volumeShockers": [
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "volume": 1471701,
+          "avgVolume": 601602,
+          "ratio": 2.45
+        }
+      ],
+      "sectorRanking": [
+        {
+          "sector": "Realty",
+          "changePct": 1.32
+        },
+        {
+          "sector": "Auto",
+          "changePct": 0.58
+        },
+        {
+          "sector": "Pharma",
+          "changePct": 0.4
+        },
+        {
+          "sector": "Energy",
+          "changePct": 0.07
+        },
+        {
+          "sector": "Financial Services",
+          "changePct": 0.04
+        },
+        {
+          "sector": "Bank",
+          "changePct": -0.03
+        },
+        {
+          "sector": "Metal",
+          "changePct": -0.22
+        },
+        {
+          "sector": "FMCG",
+          "changePct": -0.42
+        },
+        {
+          "sector": "IT",
+          "changePct": -2.01
+        }
+      ],
+      "fiiDii": {
+        "fiiNet": 2077.47,
+        "diiNet": 29259.23,
+        "unit": "crore",
+        "asOf": "2026-06-25"
+      },
+      "news": [
+        {
+          "category": "macro_policy",
+          "items": [
+            {
+              "headline": "RBI maintains repo rate at 5.25%, revises growth and inflation forecasts",
+              "summary": "The Reserve Bank of India (RBI) kept its policy repo rate at 5.25% with a 'neutral' stance, while revising its growth forecast downwards and inflation forecast upwards for FY27. To attract capital, RBI expanded the scope of Government securities under FAR and removed FPI short-term investment limits.",
+              "source": "Economic Times",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Inflation expectations show signs of easing, but future risks remain",
+              "summary": "Goldman Sachs noted easing inflation expectations, with core inflation remaining benign. However, the RBI highlighted rising energy and input prices, coupled with the anticipation of a below-normal monsoon, as potential risks to future inflation. CPI inflation for FY27 was revised up to 5.1%, and core inflation to 4.7%.",
+              "source": "Livemint",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Government plans informal economy index; NIIF gets ₹30,000 crore boost",
+              "summary": "The Indian government is reportedly planning a new high-frequency index to monitor the informal economy. Additionally, the Centre's allocation of an additional ₹30,000 crore to the National Investment and Infrastructure Fund (NIIF) is expected to bring infrastructure stocks into focus.",
+              "source": "Business Standard",
+              "tickers": [
+                "LT.NS",
+                "POWERGRID.NS",
+                "REC.NS",
+                "PFC.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "global_cues",
+          "items": [
+            {
+              "headline": "Indian markets influenced by mixed global signals",
+              "summary": "US markets closed positively overnight, driven by tech stocks. However, Asian markets showed mixed trends due to renewed US-Iran geopolitical tensions. Brent crude below $73-$75 per barrel offers a favorable outlook for India, while rising US inflation fuels expectations of potential Fed rate hikes.",
+              "source": "Reuters",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "FPIs net sellers, DIIs strong buyers in Indian equities",
+              "summary": "Foreign Portfolio Investors (FPIs) were net sellers of Indian equities on Monday, offloading ₹13.50 billion. In contrast, Domestic Institutional Investors (DIIs) showed strong buying interest, acquiring ₹28.01 billion worth of stocks.",
+              "source": "Moneycontrol",
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "earnings",
+          "items": [
+            {
+              "headline": "Q1 earnings season approaches, several companies to report today",
+              "summary": "The Q1 earnings season is on the horizon, with Hexagon Nutrition, Majestic Research Services and Solutions (MRSS), Mysore Paper Mills, Superhouse, Tulsi Extrusions, and CMR Green Technologies scheduled to announce their quarterly results today.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "HEXAGON.NS",
+                "MRSS.NS",
+                "MYSOREPAPER.NS",
+                "SUPERHOUSE.NS",
+                "TULSIEXT.NS",
+                "CMRGREEN.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "sectoral",
+          "items": [
+            {
+              "headline": "Nifty Realty performs strongly; IT and Metal sectors decline",
+              "summary": "The Nifty Realty sector gained 0.54%, with buying interest also seen in chemicals, PSU banks, oil and gas, consumer durables, and healthcare. Conversely, the Nifty IT and Nifty Metal sectors saw declines of 0.18% and 0.13%, respectively, with Nifty FMCG also slightly lower.",
+              "source": "Economic Times",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Infrastructure stocks in focus due to government support for NIIF",
+              "summary": "Infrastructure stocks such as Larsen & Toubro, Power Grid Corporation, Rural Electrification Corporation (REC), and Power Finance Corporation (PFC) are in focus following the government's additional ₹30,000 crore allocation to the National Investment and Infrastructure Fund (NIIF).",
+              "source": "Business Standard",
+              "tickers": [
+                "LT.NS",
+                "POWERGRID.NS",
+                "REC.NS",
+                "PFC.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "corporate_actions",
+          "items": [
+            {
+              "headline": "HDFC Bank appoints Rajiv Kumar as part-time chairman and Puneet Sharma as CFO",
+              "summary": "HDFC Bank has appointed former Financial Services Secretary Rajiv Kumar as its part-time chairman for a four-year term, effective June 30. Puneet Sharma has been named the new Chief Financial Officer, effective December 1, 2026.",
+              "source": "PTI",
+              "tickers": [
+                "HDFCBANK.NS"
+              ],
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Bajaj Auto share buyback offer to open on July 1",
+              "summary": "Bajaj Auto's share buyback offer, approved by shareholders for up to 46.94 lakh shares at ₹12,000 per share (totaling ₹5,632.8 crore), is scheduled to open for tender on July 1 and close on July 7.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "BAJAJ-AUTO.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Yes Bank board approves fundraising up to ₹16,000 crore",
+              "summary": "Yes Bank's board has approved plans to raise up to ₹7,500 crore through eligible securities and an additional ₹8,500 crore via debt securities.",
+              "source": "Business Standard",
+              "tickers": [
+                "YESBANK.NS"
+              ],
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "BPCL acquires 40% stake in Tiki Tar and Shell India Private Ltd",
+              "summary": "Bharat Petroleum Corporation Ltd (BPCL) is set to acquire a 40% stake in Tiki Tar and Shell India Private Ltd (TTSIPL) for ₹85 crore, marking its entry into India's value-added bitumen segment.",
+              "source": "Economic Times",
+              "tickers": [
+                "BPCL.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "SIS Limited approves ₹120 crore share buyback program",
+              "summary": "SIS Limited, a security and facility management services provider, has approved a share buyback proposal worth up to ₹120 crore, marking its fifth buyback program since its stock market debut.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "SIS.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Bandhan Bank CFO Rajeev Mantri resigns",
+              "summary": "Rajeev Mantri has resigned from his position as Chief Financial Officer of Bandhan Bank, effective September 25, 2026.",
+              "source": "Livemint",
+              "tickers": [
+                "BANDHANBNK.NS"
+              ],
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Sterling and Wilson Renewable Energy JV secures $560 million Egypt solar project",
+              "summary": "Sterling and Wilson Renewable Energy Ltd, through a 50:50 joint venture with Hassan Allam Construction, has secured an order valued at approximately $560 million for the West Minya Solar Power Project in Egypt.",
+              "source": "Economic Times",
+              "tickers": [
+                "SWSOLAR.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Strides Pharma Science announces strategic investment in Pivot Path",
+              "summary": "Strides Pharma Science announced a strategic investment by a consortium led by Ascent Capital in its wholly-owned subsidiary, Pivot Path. The transaction values Pivot Path at around ₹2.3 billion, with Strides Pharma receiving approximately ₹1.0 billion and retaining a 20% stake.",
+              "source": "Business Standard",
+              "tickers": [
+                "STAR.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "OYO parent Prism files updated DRHP for ₹6,650 crore IPO",
+              "summary": "The hospitality technology company, OYO parent Prism, has filed an updated Draft Red Herring Prospectus (DRHP) for its Initial Public Offering (IPO), aiming to raise ₹6,650 crore through a fresh issue of shares.",
+              "source": "Livemint",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Several companies trading ex-dividend today, June 30, 2026",
+              "summary": "Companies including Bajaj Finance (₹6), Bajaj Finserv (₹1.50), Bajaj Holdings & Investment (₹130), Maharashtra Scooters (₹60), Welspun Corp (₹5), Patel Integrated Logistics, Jyothy Labs, Raymond Lifestyle, Kalpataru Projects International, and Kansai Nerolac Paints are trading ex-dividend today.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "BAJFINANCE.NS",
+                "BAJAJFINSV.NS",
+                "BAJAJHLDNG.NS",
+                "MAHSCOOTER.NS",
+                "WELSPUNCORP.NS",
+                "PATELINTEG.NS",
+                "JYOTHYLAB.NS",
+                "RAYMOND.NS",
+                "KALPATPOWR.NS",
+                "KANSAINER.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "SJVN, Container Corporation of India, RITES, and Biocon among stocks to watch",
+              "summary": "These specific stocks are highlighted for investor attention today.",
+              "source": "Economic Times",
+              "tickers": [
+                "SJVN.NS",
+                "CONCOR.NS",
+                "RITES.NS",
+                "BIOCON.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        }
+      ],
+      "streetRecommendations": [
+        {
+          "ticker": "HDFCAMC.NS",
+          "name": "HDFC Asset Management Company",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 3090,
+          "rationale": "Maintained a 'Buy' rating with an approximate 18% upside potential."
+        },
+        {
+          "ticker": "EMCURE.NS",
+          "name": "Emcure Pharmaceuticals",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "rationale": "Maintained a 'Buy' rating, expecting around 20% earnings Compound Annual Growth Rate (CAGR) over FY26-FY29."
+        },
+        {
+          "ticker": "GOKEX.NS",
+          "name": "Gokaldas Exports",
+          "brokerage": "Motilal Oswal Wealth Management Research Desk",
+          "action": "buy",
+          "target": 1110,
+          "rationale": "'Buy' recommendation with a 29% upside."
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "brokerage": "Motilal Oswal Wealth Management Research Desk",
+          "action": "buy",
+          "target": 1655,
+          "rationale": "'Buy' recommendation with a 26% upside."
+        },
+        {
+          "ticker": "INDIAGLYCO.NS",
+          "name": "India Glycols",
+          "brokerage": "Choice Broking",
+          "action": "buy",
+          "target": 1070,
+          "rationale": "Recommended to 'Buy' at ₹980, with a target of ₹1070 and a stop loss at ₹935."
+        },
+        {
+          "ticker": "BHARATFORG.NS",
+          "name": "Bharat Forge",
+          "brokerage": "Choice Broking",
+          "action": "buy",
+          "target": 2370,
+          "rationale": "Recommended to 'Buy' at ₹2170, with a target of ₹2370 and a stop loss at ₹2080."
+        },
+        {
+          "ticker": "CHENNPETRO.NS",
+          "name": "Chennai Petroleum Corporation",
+          "brokerage": "Choice Broking",
+          "action": "buy",
+          "target": 1290,
+          "rationale": "Recommended to 'Buy' at ₹1154, with a target of ₹1290 and a stop loss at ₹1100."
+        },
+        {
+          "ticker": "GABRIEL.NS",
+          "name": "Gabriel India",
+          "brokerage": "Choice Broking",
+          "action": "buy",
+          "target": 1425,
+          "rationale": "Recommended to 'Buy' at ₹1275, with a target of ₹1425 and a stop loss at ₹1205."
+        },
+        {
+          "ticker": "AIAENG.NS",
+          "name": "AIA Engineering",
+          "brokerage": "Choice Broking",
+          "action": "buy",
+          "target": 5350,
+          "rationale": "Recommended to 'Buy' at ₹4950, with a target of ₹5350 and a stop loss at ₹4750."
+        }
+      ],
+      "corporateActions": [
+        {
+          "ticker": "AXISBANK",
+          "name": "Axis Bank Ltd.",
+          "type": "results",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "HDFCBANK",
+          "name": "HDFC Bank Ltd.",
+          "type": "results",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "ICICIBANK",
+          "name": "ICICI Bank Ltd.",
+          "type": "results",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "INDIACEM",
+          "name": "India Cements Ltd.",
+          "type": "results",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "NESTLEIND",
+          "name": "Nestle India Limited",
+          "type": "results",
+          "date": "2026-07-22"
+        },
+        {
+          "ticker": "UTIAMC",
+          "name": "UTI Asset Management Company Limited",
+          "type": "results",
+          "date": "2026-07-22"
+        },
+        {
+          "ticker": "THERMAX",
+          "name": "Thermax Ltd",
+          "type": "dividend",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "DCMSHRM",
+          "name": "DCM Shriram Industries Ltd",
+          "type": "dividend",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "M&M",
+          "name": "Mahindra & Mahindra Ltd",
+          "type": "dividend",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "CANFINHOME",
+          "name": "Can Fin Homes Ltd",
+          "type": "dividend",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "CERA",
+          "name": "Cera Sanitaryware Ltd.",
+          "type": "dividend",
+          "date": "2026-07-06"
+        },
+        {
+          "ticker": "DODLA",
+          "name": "Dodla Dairy Ltd.",
+          "type": "dividend",
+          "date": "2026-07-06"
+        },
+        {
+          "ticker": "JSWSTEEL",
+          "name": "JSW Steel Ltd.",
+          "type": "dividend",
+          "date": "2026-07-06"
+        },
+        {
+          "ticker": "SUNPHARMA",
+          "name": "Sun Pharmaceutical Industries Ltd.",
+          "type": "dividend",
+          "date": "2026-07-06"
+        },
+        {
+          "ticker": "3MINDIA",
+          "name": "3M India",
+          "type": "dividend",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "HONAUT",
+          "name": "Honeywell Automation India",
+          "type": "dividend",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "ABBOTTINDIA",
+          "name": "Abbott India",
+          "type": "dividend",
+          "date": "2026-07-24"
+        },
+        {
+          "ticker": "BRITANNIA",
+          "name": "Britannia Industries",
+          "type": "dividend",
+          "date": "2026-07-31"
+        },
+        {
+          "ticker": "KRISHANA",
+          "name": "Krishana Phoschem",
+          "type": "split",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "MBAPL",
+          "name": "Madhya Bharat Agro Products Ltd",
+          "type": "split",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "DSPNIFTYMC150Q50",
+          "name": "DSP Nifty Midcap 150 Quality 50 ETF",
+          "type": "split",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "DSPNIFTYHEALTH",
+          "name": "DSP Nifty Healthcare ETF",
+          "type": "split",
+          "date": "2026-07-03"
+        },
+        {
+          "ticker": "MANGALAM",
+          "name": "Mangalam Worldwide Ltd",
+          "type": "split",
+          "date": "2026-07-10"
+        },
+        {
+          "ticker": "INDIANTONER",
+          "name": "Indian Toners & Developers",
+          "type": "split",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "DIVINEHIRA",
+          "name": "Divine Hira Jewellers",
+          "type": "bonus",
+          "date": "2026-07-02"
+        },
+        {
+          "ticker": "BIMETALBEAR",
+          "name": "Bimetal Bearings",
+          "type": "agm",
+          "date": "2026-07-20"
+        }
+      ]
+    },
+    "sectorInsights": [
+      "Domestic cyclical sectors such as Realty, Financial Services, and Auto are demonstrating significant leadership and outperformance, signaling robust investor confidence in India's internal growth drivers.",
+      "The Information Technology (IT) sector remains a clear laggard, experiencing significant underperformance over the past 30 days and on a daily basis, indicative of a rotation away from export-oriented segments, potentially due to global growth concerns.",
+      "Metal stocks are showing weakness, while FMCG and Pharma sectors are exhibiting moderate, stable growth, neither significantly leading nor lagging the broader market."
+    ],
+    "macroThemes": [
+      "Domestic Institutional Investors (DIIs) are the dominant force driving market liquidity and sentiment, with substantial inflows ($29,259.23cr) significantly overshadowing relatively modest Foreign Institutional Investor (FII) participation ($2,077.47cr). This underscores strong domestic conviction in the Indian growth narrative.",
+      "The resilient performance of domestic cyclical sectors, coupled with strong DII flows, suggests underlying confidence in India's economic stability and growth trajectory, implying a favorable domestic interest rate environment or expectations of stable rates.",
+      "A low VIX (13.4275) indicates stable global risk sentiment, however, the underperformance of IT suggests that specific global headwinds might be impacting export-oriented sectors, directing capital towards domestically focused themes."
+    ],
+    "midTermBets": [
+      {
+        "ticker": "DLF.NS",
+        "name": "DLF Limited",
+        "thesis": "The Indian realty sector is witnessing strong demand and price appreciation, fueled by robust economic growth, urbanization, and favorable government policies. DLF, as a market leader with a strong project pipeline and brand equity, is well-positioned to capitalize on this boom.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.9
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank Ltd",
+        "thesis": "India's credit growth remains robust, and asset quality is consistently improving across the banking sector. HDFC Bank, a systemically important, well-managed private bank, is poised to benefit from sustained domestic economic expansion and DII preference for quality financials.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.85
+      },
+      {
+        "ticker": "MARUTI.NS",
+        "name": "Maruti Suzuki India Ltd",
+        "thesis": "The auto sector, particularly the passenger vehicle segment, is experiencing strong demand. Maruti, as the market leader, is benefiting from new model launches, rising disposable incomes, and a positive outlook for the upcoming festive season, driving sales volumes and profitability.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.8
+      },
+      {
+        "ticker": "LT.NS",
+        "name": "Larsen & Toubro Ltd",
+        "thesis": "The Indian government's sustained focus on capital expenditure and infrastructure development will continue to drive a strong order book for major engineering, procurement, and construction (EPC) companies like L&T, making it a key beneficiary of the 'India growth' theme.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.75
+      }
+    ],
+    "ledgerRollup": {
+      "hits": 0,
+      "total": 1,
+      "summary": "0/1 graded bets hit across 1 weekly recaps in 2026-06."
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:b43c076205a0766558fca4376a57f38be73fdcc4d9b22b334a7c2686c5e07c82"
+}
