@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-07-02",
+  "type": "retro",
+  "dateKey": "2026-07-02",
+  "generatedAt": "2026-07-02T11:04:35.611Z",
+  "sourceData": {
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1303.5,
+      "TCS.NS": 2068.1,
+      "INFY.NS": 1040.9,
+      "HDFCBANK.NS": 795.9,
+      "ICICIBANK.NS": 1400
+    },
+    "searchTimestamp": "2026-07-02T11:04:35.611Z"
+  },
+  "content": {
+    "date": "2026-07-02",
+    "evaluated": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "price": 1303.5,
+        "changePct": -0.34,
+        "note": "-0.3% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services",
+        "price": 2068.1,
+        "changePct": 4.31,
+        "note": "+4.3% vs prev close, vol 1.3x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys",
+        "price": 1040.9,
+        "changePct": 5.64,
+        "note": "+5.6% vs prev close, vol 1.4x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "price": 795.9,
+        "changePct": -0.03,
+        "note": "-0.0% vs prev close, vol 1.0x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "price": 1400,
+        "changePct": 1.46,
+        "note": "+1.5% vs prev close, vol 1.1x avg"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "reason": "Underperformance relative to market, trading below key moving averages and near 52-week low, recent 'Sell' rating, and bearish options activity.",
+        "severity": "high",
+        "triggeredRules": [
+          "below 50DMA support"
+        ]
+      }
+    ],
+    "summary": "Reliance Industries presents a genuine sell signal due to underperformance and bearish indicators, while IT sector alerts for TCS and Infosys are deemed noise amidst short-term bounces."
+  },
+  "emailSent": true,
+  "checksum": "sha256:3d8efb56d357356777bd4c8ba26c4b4a7263c9374eb905e6cb99b70bd3dc2bd2"
+}
