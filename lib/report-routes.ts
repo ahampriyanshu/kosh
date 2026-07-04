@@ -52,6 +52,7 @@ export function outlookPath(entry: ManifestEntry): string {
 
 export function entryPath(entry: ManifestEntry): string {
   if (entry.type === 'weekly' || entry.type === 'monthly') return outlookPath(entry);
+  if (entry.type === 'research') return `/research/${entry.id}`;
   return dateReportPath(entry.date);
 }
 

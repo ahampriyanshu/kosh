@@ -1,6 +1,6 @@
 import { pathToFileURL } from 'node:url';
 import { researchRequests } from '../data/research-requests';
-import { buildResearch } from '../lib/research';
+import { buildResearch, resolveResearchTicker } from '../lib/research';
 import { readManifest, writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderResearchEmail } from '../lib/email-templates';
@@ -18,15 +18,17 @@ export async function runResearch(now: Date = new Date()): Promise<void> {
 
   let done = 0;
   let failed = 0;
-  for (const req of researchRequests) {
-    const dateKey = `${slug(req.ticker)}-${date}`;
-    const id = `research-${dateKey}`;
-    if (existing.has(id)) {
-      console.log(`Skipping ${req.ticker} — already researched today (${id}).`);
-      continue;
-    }
+  for (const query of researchRequests) {
     try {
-      const content = await buildResearch(req.ticker, now);
+      const ticker = await resolveResearchTicker(query);
+      const dateKey = `${slug(ticker)}-${date}`;
+      const id = `research-${dateKey}`;
+      if (existing.has(id)) {
+        console.log(`Skipping ${query} — already researched today (${id}).`);
+        continue;
+      }
+
+      const content = await buildResearch(query, now, ticker);
       const base: Omit<ReportEnvelope, 'emailSent'> = {
         schemaVersion: 1,
         id,
@@ -42,13 +44,13 @@ export async function runResearch(now: Date = new Date()): Promise<void> {
         checksum: computeChecksum(content),
       };
       await writeReport({ ...base, emailSent: false });
-      await sendReportEmail(`Kosh Research — ${req.ticker}`, renderResearchEmail(content));
+      await sendReportEmail(`Kosh Research — ${content.ticker}`, renderResearchEmail(content));
       await writeReport({ ...base, emailSent: true });
       done++;
-      console.log(`Researched ${req.ticker} → ${id}.`);
+      console.log(`Researched ${query} (${content.ticker}) → ${id}.`);
     } catch (e) {
       failed++;
-      console.error(`Failed to research ${req.ticker}:`, e);
+      console.error(`Failed to research ${query}:`, e);
     }
   }
   console.log(`Research run complete: ${done} new, ${failed} failed.`);

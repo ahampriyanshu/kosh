@@ -188,15 +188,8 @@ describe('ResearchContentSchema', () => {
 });
 
 describe('ResearchRequestSchema', () => {
-  it('parses { ticker } with note omitted', () => {
-    expect(ResearchRequestSchema.parse({ ticker: 'TCS.NS' })).toEqual({ ticker: 'TCS.NS' });
-  });
-
-  it('parses { ticker, note }', () => {
-    expect(ResearchRequestSchema.parse({ ticker: 'TCS.NS', note: 'x' })).toEqual({
-      ticker: 'TCS.NS',
-      note: 'x',
-    });
+  it('parses a company-name research request', () => {
+    expect(ResearchRequestSchema.parse('Tata Motors')).toBe('Tata Motors');
   });
 });
 

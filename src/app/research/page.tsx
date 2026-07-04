@@ -1,34 +1,32 @@
 import { getReportsByType } from '../../lib/reports';
-import type { ManifestEntry } from '../../../lib/schemas';
-
-// We need getManifest to get ManifestEntry objects with IDs for ReportCard
-import { getManifest } from '../../lib/reports';
-import { ReportCard } from '../../components/ReportCard';
+import { ResearchArchive } from '../../components/ResearchArchive';
 
 export default async function ResearchPage() {
-  const [reports, manifest] = await Promise.all([
-    getReportsByType('research'),
-    getManifest(),
-  ]);
-
-  // Build a map from id → ManifestEntry for the ReportCard
-  const entryMap = new Map<string, ManifestEntry>(
-    manifest.reports.map((e) => [e.id, e]),
-  );
-
-  // Sort newest first
-  const sorted = [...reports].sort((a, b) => b.id.localeCompare(a.id));
+  const reports = await getReportsByType('research');
+  const sorted = [...reports].sort((a, b) => b.generatedAt.localeCompare(a.generatedAt) || b.id.localeCompare(a.id));
 
   return (
     <div>
       {/* Page header */}
       <div className="mb-8">
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Deep research
-        </p>
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Stock Research
-        </h1>
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
+              Deep research
+            </p>
+            <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
+              Stock Research
+            </h1>
+          </div>
+          <a
+            href="https://github.com/ahampriyanshu/kosh/issues/new?title=Research%20request%3A%20&body=Company%20or%20theme%3A%0A%0AContext%3A%0A-%20Why%20now%3A%20%0A-%20Specific%20questions%3A%20"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 rounded-lg border border-[var(--color-hairline)] px-3 py-2 text-sm font-semibold text-[var(--color-brand)] hover:border-[var(--color-brand)]"
+          >
+            Request Research
+          </a>
+        </div>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
 
@@ -36,7 +34,7 @@ export default async function ResearchPage() {
         <div className="py-16 text-center border border-dashed border-[var(--color-hairline)] rounded-xl">
           <p className="font-display text-xl text-[var(--color-faint)] mb-2">No research reports yet.</p>
           <p className="text-sm text-[var(--color-muted)] max-w-sm mx-auto leading-relaxed">
-            Request a stock by adding it to{' '}
+            Request a stock by adding its company name to{' '}
             <code className="font-mono text-xs bg-[var(--color-raised)] px-1.5 py-0.5 rounded border border-[var(--color-hairline)]">
               data/research-requests.ts
             </code>{' '}
@@ -46,24 +44,14 @@ export default async function ResearchPage() {
       ) : (
         <>
           <p className="text-sm text-[var(--color-muted)] mb-6">
-            Request a stock: add it to{' '}
+            Research jobs are saved as JSON report files with a stable id, timestamp, resolved ticker, price, technicals, sentiment, and recommendation.
+            Add company names to{' '}
             <code className="font-mono text-xs bg-[var(--color-raised)] px-1.5 py-0.5 rounded border border-[var(--color-hairline)]">
               data/research-requests.ts
             </code>{' '}
             and commit.
           </p>
-          <div className="space-y-3">
-            {sorted.map((report) => {
-              const entry = entryMap.get(report.id);
-              if (!entry) return null;
-              return (
-                <ReportCard
-                  key={report.id}
-                  entry={entry}
-                />
-              );
-            })}
-          </div>
+          <ResearchArchive reports={sorted} />
         </>
       )}
     </div>

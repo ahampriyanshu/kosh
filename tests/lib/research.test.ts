@@ -3,17 +3,18 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 const h = vi.hoisted(() => ({
   getQuote: vi.fn(),
   getHistorical: vi.fn(),
+  searchTicker: vi.fn(),
   rsi: vi.fn(),
   macd: vi.fn(),
   trend: vi.fn(),
   generateGroundedObject: vi.fn(),
 }));
 
-vi.mock('../../lib/market-data', () => ({ getQuote: h.getQuote, getHistorical: h.getHistorical }));
+vi.mock('../../lib/market-data', () => ({ getQuote: h.getQuote, getHistorical: h.getHistorical, searchTicker: h.searchTicker }));
 vi.mock('../../lib/indicators', () => ({ rsi: h.rsi, macd: h.macd, trend: h.trend }));
 vi.mock('../../lib/llm', () => ({ generateGroundedObject: h.generateGroundedObject }));
 
-import { buildResearch } from '../../lib/research';
+import { buildResearch, resolveResearchTicker } from '../../lib/research';
 
 const llmContent = {
   ticker: 'FAKE.NS',
@@ -33,6 +34,7 @@ const llmContent = {
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
   h.getQuote.mockResolvedValue({ price: 100, currency: 'INR', name: 'TCS' });
+  h.searchTicker.mockResolvedValue(['TCS.NS']);
   h.getHistorical.mockResolvedValue([
     { date: new Date(), open: 95, high: 105, low: 90, close: 100, volume: 1000000 },
   ]);
@@ -100,5 +102,23 @@ describe('buildResearch', () => {
     expect(h.getQuote).toHaveBeenCalledWith('TMPV.NS');
     expect(h.getHistorical).toHaveBeenCalledWith('TMPV.NS', '2025-06-14');
     expect(result.ticker).toBe('TMPV.NS');
+  });
+
+  it('resolves a company name to the preferred NSE ticker', async () => {
+    h.searchTicker.mockResolvedValue(['HDB', 'HDFCBANK.NS', 'HDFCBANK.BO']);
+
+    await expect(resolveResearchTicker('HDFC Bank')).resolves.toBe('HDFCBANK.NS');
+  });
+
+  it('uses the company query and resolved ticker in the research prompt', async () => {
+    h.searchTicker.mockResolvedValue(['RELIANCE.NS']);
+
+    await buildResearch('Reliance Industries', new Date('2026-06-14T02:30:00.000Z'));
+
+    expect(h.getQuote).toHaveBeenCalledWith('RELIANCE.NS');
+    const [researchPrompt] = h.generateGroundedObject.mock.calls[0];
+    expect(researchPrompt).toContain('Reliance Industries');
+    expect(researchPrompt).toContain('RELIANCE.NS');
+    expect(researchPrompt).toContain('brokerage rating');
   });
 });

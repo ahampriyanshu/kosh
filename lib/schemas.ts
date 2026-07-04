@@ -134,10 +134,7 @@ export const LedgerSchema = z.object({
 });
 export type Ledger = z.infer<typeof LedgerSchema>;
 
-export const ResearchRequestSchema = z.object({
-  ticker: z.string(),
-  note: z.string().optional(),
-});
+export const ResearchRequestSchema = z.string().min(1);
 export type ResearchRequest = z.infer<typeof ResearchRequestSchema>;
 
 export const ResearchContentSchema = z.object({
