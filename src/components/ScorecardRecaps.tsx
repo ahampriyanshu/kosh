@@ -4,6 +4,7 @@ import { MouseEvent, useEffect, useState } from 'react';
 import type { GradedBet, RecapContent, ReportEnvelope } from '../../lib/schemas';
 import { formatPeriodLabel, formatPeriodText } from '../../lib/time';
 import { paginateByCursor } from '../../lib/pagination';
+import { dateReportPath } from '../../lib/report-routes';
 import { Pct, ticker } from './market/Figure';
 
 const PAGE_SIZE = 8;
@@ -60,7 +61,7 @@ function RecapReportRow({ report }: { report: ReportEnvelope }) {
         <div>
           <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-0.5">Recap</p>
           <a
-            href={`/reports/recap/${report.dateKey}`}
+            href={dateReportPath(report.dateKey)}
             className="font-mono text-sm text-[var(--color-brand)] hover:underline"
           >
             {report.dateKey}

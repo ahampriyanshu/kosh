@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getManifest } from '../lib/reports';
 import { absoluteUrl } from '../lib/site';
+import { entryPath } from '../../lib/report-routes';
 
 export const dynamic = 'force-static';
 
@@ -34,12 +35,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route.priority,
   }));
 
-  const reportEntries: MetadataRoute.Sitemap = manifest.reports.map((entry) => ({
-    url: absoluteUrl(`/reports/${encodeURIComponent(entry.type)}/${encodeURIComponent(entry.dateKey)}/`),
-    lastModified: entry.date,
-    changeFrequency: 'monthly',
-    priority: entry.type === 'daily' ? 0.8 : 0.6,
-  }));
+  const reportEntryMap = new Map<string, MetadataRoute.Sitemap[number]>();
+  for (const entry of manifest.reports) {
+    const path = entryPath(entry);
+    const url = absoluteUrl(path.endsWith('/') ? path : `${path}/`);
+    const existing = reportEntryMap.get(url);
+    if (existing && String(existing.lastModified ?? '') > entry.date) continue;
+
+    reportEntryMap.set(url, {
+      url,
+      lastModified: entry.date,
+      changeFrequency: 'monthly',
+      priority: entry.type === 'daily' ? 0.8 : 0.6,
+    });
+  }
+  const reportEntries: MetadataRoute.Sitemap = Array.from(reportEntryMap.values());
 
   return [...staticEntries, ...reportEntries];
 }

@@ -20,7 +20,6 @@ const footerSections = [
   {
     title: 'Reports',
     links: [
-      { label: 'Dashboard', href: '/' },
       { label: 'Archive', href: '/reports' },
       { label: 'Outlook', href: '/outlook' },
       { label: 'Scorecard', href: '/scorecard' },

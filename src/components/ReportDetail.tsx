@@ -1,19 +1,10 @@
-import { notFound } from 'next/navigation';
-import { getManifest, getReportByRoute } from '../../../../lib/reports';
-import type { DailyContent, WeeklyContent, MonthlyContent, RetroContent, RecapContent, ResearchContent } from '../../../../../lib/schemas';
-import { DailyView } from '../../../../components/DailyView';
-import { WeeklyView } from '../../../../components/WeeklyView';
-import { MonthlyView } from '../../../../components/MonthlyView';
-import { RetroView } from '../../../../components/RetroView';
-import { RecapView } from '../../../../components/RecapView';
-import { ResearchView } from '../../../../components/ResearchView';
-
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const manifest = await getManifest();
-  return manifest.reports.map((r) => ({ type: r.type, date: r.dateKey }));
-}
+import type { DailyContent, MonthlyContent, RecapContent, ReportEnvelope, ResearchContent, RetroContent, WeeklyContent } from '../../lib/schemas';
+import { DailyView } from './DailyView';
+import { MonthlyView } from './MonthlyView';
+import { RecapView } from './RecapView';
+import { ResearchView } from './ResearchView';
+import { RetroView } from './RetroView';
+import { WeeklyView } from './WeeklyView';
 
 const TYPE_TITLES: Record<string, string> = {
   daily: 'Daily Brief',
@@ -27,24 +18,26 @@ const TYPE_TITLES: Record<string, string> = {
 function formatGeneratedAt(iso: string): string {
   try {
     return new Date(iso).toLocaleString('en-IN', {
-      weekday: 'short', year: 'numeric', month: 'short', day: 'numeric',
-      hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kolkata', hour12: false,
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Asia/Kolkata',
+      hour12: false,
     }) + ' IST';
-  } catch { return iso; }
+  } catch {
+    return iso;
+  }
 }
 
-interface ReportPageProps { params: Promise<{ type: string; date: string }>; }
-
-export default async function ReportPage({ params }: ReportPageProps) {
-  const { type, date } = await params;
-  const envelope = await getReportByRoute(type, date);
-  if (!envelope) notFound();
-
+export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
   const typeLabel = TYPE_TITLES[envelope.type] ?? envelope.type;
-  let title = typeLabel;
-  if (envelope.type === 'research') {
-    title = `${(envelope.content as ResearchContent).ticker} Research`;
-  }
+  const title =
+    envelope.type === 'research'
+      ? `${(envelope.content as ResearchContent).ticker} Research`
+      : typeLabel;
 
   return (
     <div>

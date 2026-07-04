@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ManifestEntry } from '../../lib/schemas';
+import { entryPath } from '../../lib/report-routes';
 import { formatPeriodLabel } from '../../lib/time';
 import { VerificationBadge } from './VerificationBadge';
 
@@ -46,7 +47,7 @@ export function ReportCard({
       : typeLabel;
 
   return (
-    <Link href={`/reports/${entry.type}/${entry.dateKey}`} className="block group">
+    <Link href={entryPath(entry)} className="block group">
       <article className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4 hover:border-[var(--color-brand)] hover:shadow-sm transition-all duration-150">
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
@@ -55,7 +56,7 @@ export function ReportCard({
               {typeLabel}
             </p>
             {/* Title */}
-            <h3 className="font-display text-base font-semibold text-[var(--color-ink)] group-hover:text-[var(--color-brand)] transition-colors leading-snug">
+            <h3 className="font-display text-base font-semibold text-[var(--color-brand)] transition-colors leading-snug">
               {title}
               {entry.type === 'retro' && alertCount !== undefined && alertCount > 0 && (
                 <span className="ml-2 font-mono text-xs font-normal text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-1.5 py-0.5 rounded">
@@ -69,6 +70,9 @@ export function ReportCard({
             {dateLabel}
           </time>
         </div>
+        <p className="mt-3 font-sans text-xs font-semibold text-[var(--color-brand)] underline underline-offset-4">
+          View report -&gt;
+        </p>
 
         {/* Verification badge for recap */}
         {entry.type === 'recap' &&

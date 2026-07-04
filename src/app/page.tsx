@@ -4,13 +4,11 @@ import { MarketDashboard } from '../components/market/MarketDashboard';
 import { NewsDigest } from '../components/market/NewsDigest';
 import { Section } from '../components/market/Figure';
 import { SeverityBadge } from '../components/SeverityBadge';
-import { formatPeriodLabel } from '../../lib/time';
 
 export default async function TodayPage() {
-  const [daily, retro, recap] = await Promise.all([
+  const [daily, retro] = await Promise.all([
     getLatest('daily'),
     getLatest('retro'),
-    getLatest('recap'),
   ]);
 
   // Check if retro is from today (IST approximation)
@@ -19,10 +17,6 @@ export default async function TodayPage() {
     retro && (retro.content as RetroContent).date === today
       ? (retro.content as RetroContent)
       : null;
-
-  const mastheadReports = [
-    { type: 'recap', label: 'Weekly Recap', report: recap },
-  ].filter((item) => item.report !== null);
 
   const dailyContent = daily ? (daily.content as DailyContent) : null;
 
@@ -35,24 +29,6 @@ export default async function TodayPage() {
         </h1>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
-
-      {/* Masthead row: links to latest verification report */}
-      {mastheadReports.length > 0 && (
-        <div className="grid gap-3 mb-10">
-          {mastheadReports.map(({ type, label, report }) => (
-            <a
-              key={type}
-              href={`/reports/${type}/${report!.dateKey}`}
-              className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-3 hover:border-[var(--color-brand)] transition-colors block"
-            >
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-1">
-                {label}
-              </p>
-              <p className="font-mono text-sm text-[var(--color-ink)]">{formatPeriodLabel(report!.dateKey)}</p>
-            </a>
-          ))}
-        </div>
-      )}
 
       {/* Mid-session alerts strip (today only) */}
       {midContent && midContent.alerts.length > 0 && (
