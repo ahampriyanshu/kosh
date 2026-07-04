@@ -6,6 +6,7 @@ import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderMonthlyEmail } from '../lib/email-templates';
 import { readLedger } from '../lib/ledger';
+import { buildLearningLoop } from '../lib/learnings';
 import { MonthlyContentSchema, type ReportEnvelope } from '../lib/schemas';
 
 function prevMonthId(now: Date): string {
@@ -27,8 +28,14 @@ export async function runMonthly(now: Date = new Date()): Promise<void> {
   const ledger = await readLedger(period);
   const rollupHits = ledger.entries.reduce((a, e) => a + e.hits, 0);
   const rollupTotal = ledger.entries.reduce((a, e) => a + e.total, 0);
+  const rollupBets = ledger.entries.flatMap((entry) => entry.bets);
   const ledgerRollup = ledger.entries.length
-    ? { hits: rollupHits, total: rollupTotal, summary: `${rollupHits}/${rollupTotal} graded bets hit across ${ledger.entries.length} weekly recaps in ${period}.` }
+    ? {
+        hits: rollupHits,
+        total: rollupTotal,
+        summary: `${rollupHits}/${rollupTotal} graded bets hit across ${ledger.entries.length} weekly recaps in ${period}.`,
+        learnings: buildLearningLoop(rollupBets),
+      }
     : null;
   const content = MonthlyContentSchema.parse({
     snapshot,

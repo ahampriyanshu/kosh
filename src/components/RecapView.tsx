@@ -7,7 +7,30 @@ interface RecapViewProps {
   content: RecapContent;
 }
 
+function LearningColumn({ title, items, empty }: { title: string; items: string[]; empty: string }) {
+  return (
+    <div>
+      <h3 className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] mb-2">
+        {title}
+      </h3>
+      {items.length > 0 ? (
+        <ul className="space-y-2">
+          {items.map((item, index) => (
+            <li key={index} className="text-sm text-[var(--color-muted)] leading-relaxed">
+              {formatPeriodText(item)}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-[var(--color-faint)] italic">{empty}</p>
+      )}
+    </div>
+  );
+}
+
 export function RecapView({ content }: RecapViewProps) {
+  const learnings = content.learnings ?? { worked: [], missed: [] };
+
   return (
     <div className="space-y-8">
       {/* Period eyebrow */}
@@ -23,6 +46,18 @@ export function RecapView({ content }: RecapViewProps) {
         </div>
         <p className="text-[var(--color-muted)] leading-relaxed">{formatPeriodText(content.summary)}</p>
       </section>
+
+      {(learnings.worked.length > 0 || learnings.missed.length > 0) && (
+        <section>
+          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
+            Learning Loop
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <LearningColumn title="What worked" items={learnings.worked} empty="No confirmed drivers yet." />
+            <LearningColumn title="What missed" items={learnings.missed} empty="No failed drivers yet." />
+          </div>
+        </section>
+      )}
 
       {/* Graded bets table */}
       {content.graded.length > 0 && (

@@ -93,4 +93,12 @@ describe('buildResearch', () => {
     expect(researchPrompt).toContain('RELIANCE.NS');
     expect(researchPrompt).toContain('2026-06-14');
   });
+
+  it('resolves renamed Yahoo symbols before fetching quote and history', async () => {
+    const result = await buildResearch('TATAMOTORS.NS', new Date('2026-06-14T02:30:00.000Z'));
+
+    expect(h.getQuote).toHaveBeenCalledWith('TMPV.NS');
+    expect(h.getHistorical).toHaveBeenCalledWith('TMPV.NS', '2025-06-14');
+    expect(result.ticker).toBe('TMPV.NS');
+  });
 });

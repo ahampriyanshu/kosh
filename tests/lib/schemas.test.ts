@@ -17,6 +17,7 @@ import {
   GradedBetSchema,
   LedgerSchema,
   LedgerEntrySchema,
+  LedgerRollupSchema,
   PortfolioSchema,
 } from '../../lib/schemas';
 
@@ -123,17 +124,19 @@ describe('PortfolioSchema', () => {
 
 describe('Phase 3b schemas', () => {
   const gradedBet = { ticker: 'TCS.NS', name: 'TCS', thesis: 'momentum', action: 'buy', entryRef: 3800, exitRef: 3950, changePct: 3.95, outcome: 'hit', note: 'ran with the sector' };
+  const learnings = { worked: ['TCS: momentum worked'], missed: ['INFY: margin thesis failed'] };
   it('GradedBetSchema validates a graded bet', () => {
     expect(GradedBetSchema.safeParse(gradedBet).success).toBe(true);
     expect(GradedBetSchema.safeParse({ ...gradedBet, outcome: 'maybe' }).success).toBe(false);
   });
   it('RecapContentSchema is the grading shape', () => {
-    expect(RecapContentSchema.safeParse({ period: '2026-W24', sourceReportId: 'weekly-2026-W24', graded: [gradedBet], hits: 1, total: 1, summary: '1/1 bets hit' }).success).toBe(true);
+    expect(RecapContentSchema.safeParse({ period: '2026-W24', sourceReportId: 'weekly-2026-W24', graded: [gradedBet], hits: 1, total: 1, summary: '1/1 bets hit', learnings }).success).toBe(true);
   });
   it('LedgerSchema holds entries + nullable summary', () => {
     const entry = { gradedOn: '2026-06-20', sourceReportId: 'weekly-2026-W24', bets: [gradedBet], hits: 1, total: 1 };
     expect(LedgerEntrySchema.safeParse(entry).success).toBe(true);
     expect(LedgerSchema.safeParse({ month: '2026-06', entries: [entry], summary: null }).success).toBe(true);
+    expect(LedgerRollupSchema.safeParse({ hits: 1, total: 1, summary: '1/1 bets hit', learnings }).success).toBe(true);
   });
 });
 

@@ -101,6 +101,12 @@ export const GradedBetSchema = z.object({
 });
 export type GradedBet = z.infer<typeof GradedBetSchema>;
 
+export const LearningLoopSchema = z.object({
+  worked: z.array(z.string()),
+  missed: z.array(z.string()),
+});
+export type LearningLoop = z.infer<typeof LearningLoopSchema>;
+
 export const RecapContentSchema = z.object({
   period: z.string(),          // the weekly period graded, e.g. '2026-W24'
   sourceReportId: z.string(),  // the weekly report whose bets were graded
@@ -108,6 +114,7 @@ export const RecapContentSchema = z.object({
   hits: z.number().int().nonnegative(),
   total: z.number().int().nonnegative(),
   summary: z.string(),
+  learnings: LearningLoopSchema.default({ worked: [], missed: [] }),
 });
 export type RecapContent = z.infer<typeof RecapContentSchema>;
 
@@ -264,6 +271,7 @@ export const LedgerRollupSchema = z.object({
   hits: z.number().int().nonnegative(),
   total: z.number().int().nonnegative(),
   summary: z.string(),
+  learnings: LearningLoopSchema.default({ worked: [], missed: [] }),
 });
 
 export const MonthlyContentSchema = z.object({

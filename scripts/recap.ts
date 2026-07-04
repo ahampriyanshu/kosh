@@ -4,6 +4,7 @@ import { readManifest, readReport, writeReport, computeChecksum } from '../lib/s
 import { getHistorical } from '../lib/market-data';
 import { gradeBet } from '../lib/grade';
 import { appendLedgerEntry } from '../lib/ledger';
+import { buildLearningLoop } from '../lib/learnings';
 import { sendReportEmail } from '../lib/email';
 import { renderRecapEmail } from '../lib/email-templates';
 import { RecapContentSchema, type Bet, type GradedBet, type LedgerEntry, type ReportEnvelope, type WeeklyContent } from '../lib/schemas';
@@ -55,6 +56,7 @@ export async function runRecap(now: Date = new Date()): Promise<void> {
     hits,
     total,
     summary: total ? `${hits}/${total} positional bets hit over ${periodLabel}.` : 'No bets to grade for the prior week.',
+    learnings: buildLearningLoop(graded),
   });
 
   const month = date.slice(0, 7); // YYYY-MM

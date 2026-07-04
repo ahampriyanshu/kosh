@@ -25,7 +25,7 @@ export default async function TodayPage() {
       {/* Page header */}
       <div className="mb-8">
         <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Today
+          Market Digest
         </h1>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>

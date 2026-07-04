@@ -15,13 +15,18 @@ const weekly = {
   id: 'weekly-2026-W24', type: 'weekly', dateKey: '2026-W24', generatedAt: '2026-06-14T15:30:00.000Z',
   content: { snapshot: { window: '7d' }, themes: [], positionalBets: [
     { ticker: 'TCS.NS', name: 'TCS', thesis: 'momentum', action: 'buy', signal: 'bullish', confidence: 0.6 },
+    { ticker: 'INFY.NS', name: 'Infosys', thesis: 'weak delivery pressure', action: 'buy', signal: 'bullish', confidence: 0.55 },
   ] },
 };
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
   h.readManifest.mockResolvedValue({ reports: [], latest: { weekly: 'weekly-2026-W24' } });
   h.readReport.mockResolvedValue(weekly);
-  h.getHistorical.mockResolvedValue([{ date: new Date('2026-06-14'), close: 100, open: 0, high: 0, low: 0, volume: 0 }, { date: new Date('2026-06-20'), close: 106, open: 0, high: 0, low: 0, volume: 0 }]);
+  h.getHistorical.mockImplementation(async (ticker: string) => (
+    ticker === 'INFY.NS'
+      ? [{ date: new Date('2026-06-14'), close: 100, open: 0, high: 0, low: 0, volume: 0 }, { date: new Date('2026-06-20'), close: 95, open: 0, high: 0, low: 0, volume: 0 }]
+      : [{ date: new Date('2026-06-14'), close: 100, open: 0, high: 0, low: 0, volume: 0 }, { date: new Date('2026-06-20'), close: 106, open: 0, high: 0, low: 0, volume: 0 }]
+  ));
   h.writeReport.mockResolvedValue(undefined); h.appendLedgerEntry.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
 });
 
@@ -38,9 +43,12 @@ describe('runRecap', () => {
     expect(rep.type).toBe('recap');
     expect(rep.id).toMatch(/^recap-2026-06-20/);
     expect(rep.content.hits).toBe(1);
-    expect(rep.content.total).toBe(1);
+    expect(rep.content.total).toBe(2);
     expect(rep.content.summary).toContain('Jun 2026, Week 2');
     expect(rep.content.summary).not.toContain('2026-W24');
+    expect(rep.content.learnings.worked[0]).toContain('TCS');
+    expect(rep.content.learnings.missed[0]).toContain('Infosys');
+    expect(rep.content.learnings.missed[0]).toContain('weak delivery pressure');
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
     expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Weekly Recap', expect.any(String));
   });

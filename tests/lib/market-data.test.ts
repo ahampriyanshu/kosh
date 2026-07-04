@@ -28,6 +28,11 @@ describe('market-data', () => {
     expect(await getQuote('TCS.NS')).toEqual({ price: 3900, currency: 'INR', name: 'TCS' });
   });
 
+  it('throws a clear error when Yahoo returns no quote for a symbol', async () => {
+    h.quoteMock.mockResolvedValue(undefined);
+    await expect(getQuote('TATAMOTORS.NS')).rejects.toThrow('No Yahoo Finance quote found for TATAMOTORS.NS');
+  });
+
   it('maps chart quotes to candles, dropping null closes', async () => {
     h.chartMock.mockResolvedValue({
       meta: {},

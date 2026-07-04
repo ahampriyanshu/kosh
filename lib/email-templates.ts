@@ -310,6 +310,27 @@ function bulletList(items: string[]): string {
     .join('')}</table>`;
 }
 
+function learningLoopBlock(learnings: { worked: string[]; missed: string[] } | undefined): string {
+  const worked = learnings?.worked ?? [];
+  const missed = learnings?.missed ?? [];
+  if (!worked.length && !missed.length) return paragraph('No learning notes for this period.');
+
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+      <tr>
+        <td width="50%" style="padding:0 10px 0 0;vertical-align:top">
+          ${subLabel('What worked', colors.bullish)}
+          ${bulletList(worked)}
+        </td>
+        <td width="50%" style="padding:0 0 0 10px;vertical-align:top">
+          ${subLabel('What missed', colors.bearish)}
+          ${bulletList(missed)}
+        </td>
+      </tr>
+    </table>
+  `;
+}
+
 // ---- Daily dashboard helpers (mirror the web MarketDashboard) ----
 
 interface QuoteRow {
@@ -568,15 +589,29 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
 }
 
 export function renderMonthlyEmail(content: MonthlyContent, period: string): string {
+  const parts = [
+    section('Sector Insights', bulletList(content.sectorInsights)),
+    section('Macro Themes', bulletList(content.macroThemes)),
+    section('Mid-Term Bets', betRows(content.midTermBets)),
+  ];
+
+  if (content.ledgerRollup) {
+    const hitsSummary = `<div style="${font};font-size:14px;line-height:20px;margin:0 0 8px 0;color:${colors.text};font-weight:800">${escapeHtml(String(content.ledgerRollup.hits))}/${escapeHtml(String(content.ledgerRollup.total))} bets hit</div>`;
+    parts.push(
+      section(
+        'Ledger Rollup',
+        card(hitsSummary + paragraph(content.ledgerRollup.summary)) + '<div style="height:12px;line-height:12px">&nbsp;</div>' + learningLoopBlock(content.ledgerRollup.learnings),
+      ),
+    );
+  }
+
+  parts.push(section('Indian Indices', indexTable(content.snapshot)));
+
   return renderShell({
     title: 'Monthly Digest',
     eyebrow: `Month ${period}`,
     preheader: content.macroThemes.slice(0, 3).join('; ') || `Kosh Monthly ${period}`,
-    children:
-      section('Sector Insights', bulletList(content.sectorInsights)) +
-      section('Macro Themes', bulletList(content.macroThemes)) +
-      section('Mid-Term Bets', betRows(content.midTermBets)) +
-      section('Indian Indices', indexTable(content.snapshot)),
+    children: parts.join(''),
   });
 }
 
@@ -667,6 +702,7 @@ export function renderRecapEmail(content: RecapContent, title: string): string {
         'Grading Results',
         card(hitsSummary + paragraph(formatPeriodText(content.summary))),
       ) +
+      section('Learning Loop', learningLoopBlock(content.learnings)) +
       section('Bet-by-Bet Breakdown', gradedRows),
   });
 }

@@ -34,8 +34,8 @@ export async function runResearch(now: Date = new Date()): Promise<void> {
         type: 'research',
         generatedAt: now.toISOString(),
         sourceData: {
-          tickers: [req.ticker],
-          priceSnapshot: { [req.ticker]: content.price },
+          tickers: [content.ticker],
+          priceSnapshot: { [content.ticker]: content.price },
           searchTimestamp: now.toISOString(),
         },
         content,

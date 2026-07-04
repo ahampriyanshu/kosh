@@ -87,6 +87,10 @@ const recapContent: RecapContent = {
   hits: 1,
   total: 1,
   summary: '1/1 bets hit',
+  learnings: {
+    worked: ['TCS: momentum worked as price followed through.'],
+    missed: ['INFY: margin thesis failed to confirm.'],
+  },
 };
 
 const researchContent: ResearchContent = {
@@ -232,6 +236,10 @@ describe('email templates', () => {
     expect(html).toContain('TCS');
     expect(html).toContain('Bet-by-Bet Breakdown');
     expect(html).toContain('BUY');
+    expect(html).toContain('Learning Loop');
+    expect(html).toContain('What worked');
+    expect(html).toContain('What missed');
+    expect(html).toContain('momentum worked');
   });
 
   it('renders research reports with the analysis sections', () => {

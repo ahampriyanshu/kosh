@@ -27,8 +27,12 @@ beforeEach(() => {
   h.buildMonthlyNarrative.mockResolvedValue({ sectorInsights: ['IT firm'], macroThemes: ['rates'], midTermBets: [] });
   h.writeReport.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
   h.readLedger.mockResolvedValue({ month: '2026-06', summary: null, entries: [
-    { gradedOn: '2026-06-13', sourceReportId: 'weekly-2026-W24', hits: 2, total: 3, bets: [] },
-    { gradedOn: '2026-06-20', sourceReportId: 'weekly-2026-W25', hits: 1, total: 2, bets: [] },
+    { gradedOn: '2026-06-13', sourceReportId: 'weekly-2026-W24', hits: 2, total: 3, bets: [
+      { ticker: 'TCS.NS', name: 'TCS', thesis: 'earnings breakout', action: 'buy', entryRef: 100, exitRef: 106, changePct: 6, outcome: 'hit', note: 'buy call moved +6%' },
+    ] },
+    { gradedOn: '2026-06-20', sourceReportId: 'weekly-2026-W25', hits: 1, total: 2, bets: [
+      { ticker: 'INFY.NS', name: 'Infosys', thesis: 'margin recovery', action: 'buy', entryRef: 100, exitRef: 94, changePct: -6, outcome: 'miss', note: 'buy call moved -6%' },
+    ] },
   ] });
 });
 
@@ -45,7 +49,15 @@ describe('runMonthly', () => {
     const first = h.writeReport.mock.calls[0][0];
     expect(first.type).toBe('monthly');
     expect(first.content.sectorInsights).toEqual(['IT firm']);
-    expect(first.content.ledgerRollup).toEqual({ hits: 3, total: 5, summary: expect.stringContaining('3/5') });
+    expect(first.content.ledgerRollup).toEqual({
+      hits: 3,
+      total: 5,
+      summary: expect.stringContaining('3/5'),
+      learnings: {
+        worked: [expect.stringContaining('earnings breakout')],
+        missed: [expect.stringContaining('margin recovery')],
+      },
+    });
     expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Monthly Digest', expect.any(String));
   });
 });

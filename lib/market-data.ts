@@ -1,7 +1,7 @@
 import YahooFinance from 'yahoo-finance2';
 import { type UniverseEntry, type UniverseQuote } from './schemas';
 
-const yf = new YahooFinance({});
+const yf = new YahooFinance({ suppressNotices: ['yahooSurvey'] });
 
 export interface Quote {
   price: number;
@@ -27,8 +27,25 @@ interface RawCandle {
   volume: number | null;
 }
 
+interface RawQuote {
+  regularMarketPrice?: number;
+  regularMarketChangePercent?: number;
+  currency?: string;
+  shortName?: string;
+  longName?: string;
+  regularMarketPreviousClose?: number;
+  regularMarketVolume?: number;
+}
+
+function requireQuote(ticker: string, quote: RawQuote | undefined | null): RawQuote {
+  if (!quote) {
+    throw new Error(`No Yahoo Finance quote found for ${ticker}. Check whether the symbol is still listed or has been renamed.`);
+  }
+  return quote;
+}
+
 export async function getQuote(ticker: string): Promise<Quote> {
-  const q = await yf.quote(ticker);
+  const q = requireQuote(ticker, (await yf.quote(ticker)) as RawQuote | undefined | null);
   return {
     price: q.regularMarketPrice ?? 0,
     currency: q.currency ?? 'INR',
@@ -64,14 +81,7 @@ export interface QuoteDetail extends Quote {
 }
 
 export async function getQuoteDetail(ticker: string): Promise<QuoteDetail> {
-  const q = (await yf.quote(ticker)) as unknown as {
-    regularMarketPrice?: number;
-    currency?: string;
-    shortName?: string;
-    longName?: string;
-    regularMarketPreviousClose?: number;
-    regularMarketVolume?: number;
-  };
+  const q = requireQuote(ticker, (await yf.quote(ticker)) as RawQuote | undefined | null);
   return {
     price: q.regularMarketPrice ?? 0,
     currency: q.currency ?? 'INR',
@@ -91,9 +101,7 @@ export async function searchTicker(query: string): Promise<string[]> {
 export interface MarketQuote { name: string; ltp: number; changePct: number; }
 
 export async function getMarketQuote(symbol: string): Promise<MarketQuote> {
-  const q = (await yf.quote(symbol)) as unknown as {
-    regularMarketPrice?: number; regularMarketChangePercent?: number; shortName?: string; longName?: string;
-  };
+  const q = requireQuote(symbol, (await yf.quote(symbol)) as RawQuote | undefined | null);
   return {
     name: q.shortName ?? q.longName ?? symbol,
     ltp: q.regularMarketPrice ?? 0,

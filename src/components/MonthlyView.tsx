@@ -6,11 +6,34 @@ interface MonthlyViewProps {
   content: MonthlyContent;
 }
 
+function LearningColumn({ title, items, empty }: { title: string; items: string[]; empty: string }) {
+  return (
+    <div>
+      <h3 className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] mb-2">
+        {title}
+      </h3>
+      {items.length > 0 ? (
+        <ul className="space-y-2">
+          {items.map((item, index) => (
+            <li key={index} className="text-sm text-[var(--color-muted)] leading-relaxed">
+              {item}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-sm text-[var(--color-faint)] italic">{empty}</p>
+      )}
+    </div>
+  );
+}
+
 function confidencePct(c: number): string {
   return `${Math.round(c * 100)}%`;
 }
 
 export function MonthlyView({ content }: MonthlyViewProps) {
+  const ledgerLearnings = content.ledgerRollup?.learnings ?? { worked: [], missed: [] };
+
   return (
     <div className="space-y-8">
       {/* Sector Insights */}
@@ -139,6 +162,20 @@ export function MonthlyView({ content }: MonthlyViewProps) {
             {content.ledgerRollup.hits} / {content.ledgerRollup.total} hits
           </p>
           <p className="text-sm text-[var(--color-muted)] leading-relaxed">{content.ledgerRollup.summary}</p>
+          {(ledgerLearnings.worked.length > 0 || ledgerLearnings.missed.length > 0) && (
+            <div className="grid gap-6 md:grid-cols-2 mt-5">
+              <LearningColumn
+                title="What worked"
+                items={ledgerLearnings.worked}
+                empty="No confirmed drivers yet."
+              />
+              <LearningColumn
+                title="What missed"
+                items={ledgerLearnings.missed}
+                empty="No failed drivers yet."
+              />
+            </div>
+          )}
         </section>
       )}
 

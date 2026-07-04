@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { decryptPortfolioEnvelope } from '../../lib/portfolio-crypto';
 import type { Portfolio } from '../../lib/schemas';
+import { sortPortfolioHoldings, type PortfolioSort, type PortfolioSortKey } from '../../lib/portfolio-sort';
 import { Pct } from './Pct';
 import { ticker } from './market/Figure';
 
@@ -215,9 +216,28 @@ function KeyModal({
 }
 function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onReplaceKey: () => void }) {
   const holdings = portfolio.holdings;
+  const [sort, setSort] = useState<PortfolioSort>({ key: 'currentValue', direction: 'desc' });
+  const sortedHoldings = useMemo(() => sortPortfolioHoldings(holdings, sort), [holdings, sort]);
   const stale = isStale(portfolio.asOf);
   const pnlTone = portfolio.summary.pnl > 0 ? 'gain' : portfolio.summary.pnl < 0 ? 'loss' : 'neutral';
   const dayTone = portfolio.summary.dayChange > 0 ? 'gain' : portfolio.summary.dayChange < 0 ? 'loss' : 'neutral';
+  const columns: Array<{ label: string; key: PortfolioSortKey; align: 'left' | 'right'; pad: string }> = [
+    { label: 'Ticker', key: 'ticker', align: 'left', pad: 'pr-6' },
+    { label: 'Qty', key: 'quantity', align: 'right', pad: 'pr-6' },
+    { label: 'Avg', key: 'averagePrice', align: 'right', pad: 'pr-6' },
+    { label: 'LTP', key: 'lastPrice', align: 'right', pad: 'pr-6' },
+    { label: 'Value', key: 'currentValue', align: 'right', pad: 'pr-6' },
+    { label: 'P&L', key: 'pnl', align: 'right', pad: 'pr-6' },
+    { label: 'Day', key: 'dayValue', align: 'right', pad: 'pr-6' },
+    { label: 'Weight', key: 'allocationPct', align: 'right', pad: '' },
+  ];
+
+  function updateSort(key: PortfolioSortKey) {
+    setSort((current) => ({
+      key,
+      direction: current.key === key && current.direction === 'desc' ? 'asc' : 'desc',
+    }));
+  }
 
   return (
     <div>
@@ -225,24 +245,23 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
         <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
           Holdings
         </p>
-        <div className="flex items-start justify-between gap-4">
-          <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-            Portfolio
-          </h1>
-          <button
-            type="button"
-            onClick={onReplaceKey}
-            className="rounded-lg border border-[var(--color-hairline)] px-3 py-2 text-xs font-semibold text-[var(--color-muted)] hover:text-[var(--color-ink)]"
-          >
-            Change phrase
-          </button>
-        </div>
+        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
+          Portfolio
+        </h1>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
 
       <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
         <p className="font-mono text-xs text-[var(--color-faint)]">
-          {portfolio.source === 'kite' ? 'Kite snapshot' : 'Manual snapshot'} - {formatAsOf(portfolio.asOf)}
+          <button
+            type="button"
+            onClick={onReplaceKey}
+            aria-label="Open portfolio phrase"
+            className="cursor-pointer text-inherit outline-none hover:text-[var(--color-ink)] focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4"
+          >
+            {portfolio.source === 'kite' ? 'Kite snapshot' : 'Manual snapshot'}
+          </button>{' '}
+          - {formatAsOf(portfolio.asOf)}
         </p>
         {stale && (
           <span className="font-mono text-xs text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] border border-[var(--color-bearish-bg)] rounded px-2 py-1">
@@ -269,18 +288,34 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
           <table className="w-full min-w-[920px]">
             <thead>
               <tr className="border-b border-[var(--color-hairline)]">
-                {['Ticker', 'Qty', 'Avg', 'LTP', 'Value', 'P&L', 'Day', 'Weight'].map((heading, index) => (
+                {columns.map((column) => (
                   <th
-                    key={heading}
-                    className={`font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] py-3 ${index === 0 ? 'text-left pr-6' : index === 7 ? 'text-right' : 'text-right pr-6'}`}
+                    key={column.key}
+                    aria-sort={
+                      sort.key === column.key
+                        ? sort.direction === 'asc'
+                          ? 'ascending'
+                          : 'descending'
+                        : 'none'
+                    }
+                    className={`py-3 ${column.align === 'left' ? 'text-left' : 'text-right'} ${column.pad}`}
                   >
-                    {heading}
+                    <button
+                      type="button"
+                      onClick={() => updateSort(column.key)}
+                      className={`inline-flex items-center gap-1 font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] hover:text-[var(--color-ink)] focus:outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4 ${column.align === 'right' ? 'justify-end' : ''}`}
+                    >
+                      <span>{column.label}</span>
+                      <span className="font-mono text-[10px] text-[var(--color-brand)]">
+                        {sort.key === column.key ? (sort.direction === 'asc' ? '^' : 'v') : ''}
+                      </span>
+                    </button>
                   </th>
                 ))}
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--color-hairline)]">
-              {holdings.map((holding) => (
+              {sortedHoldings.map((holding) => (
                 <tr key={holding.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
                   <td className="py-3.5 pr-6">
                     <div>
