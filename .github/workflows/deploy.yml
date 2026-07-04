@@ -7,10 +7,23 @@ on:
       - 'data/reports/**'
       - 'data/snapshots/**'
       - 'data/ledger/**'
+      - 'data/manifest.json'
       - 'src/**'
       - 'lib/**'
       - 'next.config.ts'
       - 'package.json'
+  workflow_run:
+    workflows:
+      - Daily brief
+      - Retro (mid-session)
+      - Weekly Recap
+      - Recap (weekly grading)
+      - Monthly Recap
+      - Research
+    types:
+      - completed
+    branches:
+      - main
   workflow_dispatch: {}
 
 # Allow the GITHUB_TOKEN to deploy to Pages, and read the repo.
@@ -26,6 +39,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
