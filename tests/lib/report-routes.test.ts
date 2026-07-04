@@ -36,7 +36,7 @@ describe('report routes', () => {
   it('routes outlook entries to outlook and regular report entries to date pages', () => {
     expect(entryPath(entry('weekly', '2026-W26', '2026-06-28'))).toBe('/outlook/2026/06/week-4');
     expect(entryPath(entry('monthly', '2026-06', '2026-06-30'))).toBe('/outlook/2026/06/month');
-    expect(entryPath(entry('research', 'TCS-NS-2026-07-04', '2026-07-04'))).toBe('/research/research-TCS-NS-2026-07-04');
+    expect(entryPath({ ...entry('research', '1', '2026-07-04'), id: '1' })).toBe('/research/1');
     expect(entryPath(entry('daily', '2026-07-04', '2026-07-04'))).toBe('/reports/2026/07/04');
   });
 });

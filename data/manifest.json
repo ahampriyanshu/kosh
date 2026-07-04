@@ -1,20 +1,20 @@
 {
   "reports": [
     {
-      "id": "research-TMCV-NS-2026-07-05",
-      "type": "research",
-      "dateKey": "TMCV-NS-2026-07-05",
-      "date": "2026-07-04",
-      "path": "reports/2026/07/research/research-TMCV-NS-2026-07-05.json",
-      "checksum": "sha256:a18074500edce0e91c7bd1526a73d5d7505ac55f7e1b73308c9ae5315bccde29"
-    },
-    {
       "id": "recap-2026-07-04",
       "type": "recap",
       "dateKey": "2026-07-04",
       "date": "2026-07-04",
       "path": "reports/2026/07/recap/recap-2026-07-04.json",
       "checksum": "sha256:7d297d3881d7f4f1569d7a1b38ed2f3ccb4cd7c1b8031dfe5d25a4e6f9086c65"
+    },
+    {
+      "id": "1",
+      "type": "research",
+      "dateKey": "1",
+      "date": "2026-07-04",
+      "path": "reports/2026/07/research/1.json",
+      "checksum": "sha256:4079d51a78b250db532b816ad749f21e6045783605f18275b3266ce2e2762fa8"
     },
     {
       "id": "retro-2026-07-03",
@@ -295,6 +295,6 @@
     "weekly": "weekly-2026-W26",
     "recap": "recap-2026-07-04",
     "monthly": "monthly-2026-06",
-    "research": "research-TMCV-NS-2026-07-05"
+    "research": "1"
   }
 }

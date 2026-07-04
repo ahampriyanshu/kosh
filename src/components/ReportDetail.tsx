@@ -1,4 +1,4 @@
-import type { DailyContent, MonthlyContent, RecapContent, ReportEnvelope, ResearchContent, RetroContent, WeeklyContent } from '../../lib/schemas';
+import type { DailyContent, MonthlyContent, RecapContent, ReportEnvelope, ResearchReportContent, RetroContent, WeeklyContent } from '../../lib/schemas';
 import { DailyView } from './DailyView';
 import { MonthlyView } from './MonthlyView';
 import { RecapView } from './RecapView';
@@ -36,8 +36,9 @@ export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
   const typeLabel = TYPE_TITLES[envelope.type] ?? envelope.type;
   const title =
     envelope.type === 'research'
-      ? `${(envelope.content as ResearchContent).name} Research`
+      ? `Research #${envelope.id}`
       : typeLabel;
+  const researchContent = envelope.content as ResearchReportContent;
 
   return (
     <div>
@@ -54,7 +55,13 @@ export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
       {envelope.type === 'weekly' && <WeeklyView content={envelope.content as WeeklyContent} />}
       {envelope.type === 'monthly' && <MonthlyView content={envelope.content as MonthlyContent} />}
       {envelope.type === 'recap' && <RecapView content={envelope.content as RecapContent} />}
-      {envelope.type === 'research' && <ResearchView content={envelope.content as ResearchContent} />}
+      {envelope.type === 'research' && (
+        <div className="space-y-12">
+          {researchContent.items.map((item) => (
+            <ResearchView key={item.ticker} content={item} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

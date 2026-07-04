@@ -2,58 +2,62 @@ import { pathToFileURL } from 'node:url';
 import { researchRequests } from '../data/research-requests';
 import { buildResearch, resolveResearchTicker } from '../lib/research';
 import { readManifest, writeReport, computeChecksum } from '../lib/storage';
-import { sendReportEmail } from '../lib/email';
-import { renderResearchEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
-import type { ReportEnvelope } from '../lib/schemas';
+import { ResearchReportContentSchema, type ReportEnvelope, type ResearchContent } from '../lib/schemas';
 
 function slug(ticker: string): string {
   return ticker.replace(/[^A-Za-z0-9]/g, '-');
 }
 
+function nextResearchId(existingIds: string[]): string {
+  const max = existingIds
+    .map((id) => Number(id))
+    .filter((id) => Number.isInteger(id) && id > 0)
+    .reduce((highest, id) => Math.max(highest, id), 0);
+  return String(max + 1);
+}
+
 export async function runResearch(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   const manifest = await readManifest();
-  const existing = new Set(manifest.reports.map((r) => r.id));
+  const id = nextResearchId(manifest.reports.filter((r) => r.type === 'research').map((r) => r.id));
 
-  let done = 0;
+  const items: ResearchContent[] = [];
   let failed = 0;
   for (const query of researchRequests) {
     try {
       const ticker = await resolveResearchTicker(query);
-      const dateKey = `${slug(ticker)}-${date}`;
-      const id = `research-${dateKey}`;
-      if (existing.has(id)) {
-        console.log(`Skipping ${query} — already researched today (${id}).`);
-        continue;
-      }
-
       const content = await buildResearch(query, now, ticker);
-      const base: Omit<ReportEnvelope, 'emailSent'> = {
-        schemaVersion: 1,
-        id,
-        dateKey,
-        type: 'research',
-        generatedAt: now.toISOString(),
-        sourceData: {
-          tickers: [content.ticker],
-          priceSnapshot: { [content.ticker]: content.price },
-          searchTimestamp: now.toISOString(),
-        },
-        content,
-        checksum: computeChecksum(content),
-      };
-      await writeReport({ ...base, emailSent: false });
-      await sendReportEmail(`Kosh Research — ${content.ticker}`, renderResearchEmail(content));
-      await writeReport({ ...base, emailSent: true });
-      done++;
-      console.log(`Researched ${query} (${content.ticker}) → ${id}.`);
+      items.push(content);
+      console.log(`Researched ${query} (${content.ticker}).`);
     } catch (e) {
       failed++;
       console.error(`Failed to research ${query}:`, e);
     }
   }
-  console.log(`Research run complete: ${done} new, ${failed} failed.`);
+
+  if (items.length > 0) {
+    const tickers = items.map((item) => item.ticker);
+    const content = ResearchReportContentSchema.parse({ items });
+    const base: Omit<ReportEnvelope, 'emailSent'> = {
+      schemaVersion: 1,
+      id,
+      dateKey: id,
+      type: 'research',
+      generatedAt: now.toISOString(),
+      sourceData: {
+        tickers,
+        priceSnapshot: Object.fromEntries(items.map((item) => [item.ticker, item.price])),
+        searchTimestamp: now.toISOString(),
+      },
+      content,
+      checksum: computeChecksum(content),
+    };
+    await writeReport({ ...base, emailSent: false });
+    console.log(`Research report ${id} written for ${tickers.map(slug).join(', ')}.`);
+  }
+
+  console.log(`Research run complete: ${items.length} item(s), ${failed} failed.`);
   if (failed > 0) throw new Error(`${failed} research ticker(s) failed`);
 }
 

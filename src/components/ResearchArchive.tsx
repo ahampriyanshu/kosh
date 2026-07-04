@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState, type MouseEvent } from 'react';
-import type { ReportEnvelope } from '../../lib/schemas';
+import type { ReportEnvelope, ResearchReportContent } from '../../lib/schemas';
 import { paginateByCursor } from '../../lib/pagination';
 import { ticker as tickerFn } from './market/Figure';
 
@@ -55,22 +55,20 @@ export function ResearchArchive({ reports }: { reports: ReportEnvelope[] }) {
     <div className="space-y-4">
       <div className="space-y-3">
         {page.items.map((report) => {
-          const content = report.content as {
-            ticker: string;
-            name: string;
-            recommendation: { action: string; confidence: number; reasoning: string };
-          };
+          const content = report.content as ResearchReportContent;
+          const first = content.items[0];
+          const tickers = content.items.map((item) => tickerFn(item.ticker)).join(', ');
           return (
             <Link key={report.id} href={`/research/${report.id}`} className="block group">
               <article className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4 hover:border-[var(--color-brand)] hover:shadow-sm transition-all duration-150">
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
-                    <p className="font-mono text-sm font-bold text-[var(--color-ink)]">{tickerFn(content.ticker)}</p>
+                    <p className="font-mono text-sm font-bold text-[var(--color-ink)]">{tickers}</p>
                     <h2 className="font-display text-lg font-semibold text-[var(--color-brand)] leading-snug mt-1">
-                      {content.name}
+                      Research #{report.id}
                     </h2>
                     <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed line-clamp-2">
-                      {content.recommendation.reasoning}
+                      {content.items.map((item) => item.name).join(' · ')}
                     </p>
                   </div>
                   <div className="text-right shrink-0">
@@ -78,7 +76,7 @@ export function ResearchArchive({ reports }: { reports: ReportEnvelope[] }) {
                       {formatGeneratedAt(report.generatedAt)}
                     </time>
                     <p className="mt-2 font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-brand)]">
-                      {content.recommendation.action} · {Math.round(content.recommendation.confidence * 100)}%
+                      {content.items.length} stock{content.items.length === 1 ? '' : 's'} · {first?.recommendation.action ?? 'hold'}
                     </p>
                   </div>
                 </div>
