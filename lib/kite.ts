@@ -1,7 +1,10 @@
 import { z } from 'zod';
+import { createHash } from 'node:crypto';
 import { PortfolioSchema, type Portfolio, type PortfolioHolding } from './schemas';
 
 const KITE_HOLDINGS_URL = 'https://api.kite.trade/portfolio/holdings';
+const KITE_SESSION_URL = 'https://api.kite.trade/session/token';
+const KITE_LOGIN_URL = 'https://kite.zerodha.com/connect/login?v=3';
 
 const KiteHoldingSchema = z.object({
   tradingsymbol: z.string(),
@@ -19,10 +22,25 @@ const KiteHoldingsResponseSchema = z.object({
   data: z.array(KiteHoldingSchema),
 });
 
+const KiteSessionResponseSchema = z.object({
+  status: z.string(),
+  data: z.object({
+    access_token: z.string(),
+  }),
+});
+
 function requiredEnv(name: string): string {
   const value = process.env[name];
   if (!value) throw new Error(`Missing ${name} for Kite portfolio sync.`);
   return value;
+}
+
+export function createKiteLoginUrl(apiKey: string = requiredEnv('KITE_API_KEY')): string {
+  return `${KITE_LOGIN_URL}&api_key=${encodeURIComponent(apiKey)}`;
+}
+
+export function computeKiteChecksum(apiKey: string, requestToken: string, apiSecret: string): string {
+  return createHash('sha256').update(`${apiKey}${requestToken}${apiSecret}`).digest('hex');
 }
 
 function round2(value: number): number {
@@ -107,4 +125,34 @@ export async function fetchKiteHoldingsSnapshot(now: Date = new Date()): Promise
     holdings: enriched,
     summary,
   });
+}
+
+export async function exchangeKiteRequestToken(
+  requestToken: string,
+  apiSecret: string = requiredEnv('KITE_API_SECRET'),
+): Promise<{ accessToken: string }> {
+  const apiKey = requiredEnv('KITE_API_KEY');
+  const response = await fetch(KITE_SESSION_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'X-Kite-Version': '3',
+    },
+    body: new URLSearchParams({
+      api_key: apiKey,
+      request_token: requestToken,
+      checksum: computeKiteChecksum(apiKey, requestToken, apiSecret),
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Kite session exchange failed with HTTP ${response.status}.`);
+  }
+
+  const payload = KiteSessionResponseSchema.parse(await response.json());
+  if (payload.status !== 'success') {
+    throw new Error(`Kite session exchange returned status ${payload.status}.`);
+  }
+
+  return { accessToken: payload.data.access_token };
 }

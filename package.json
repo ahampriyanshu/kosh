@@ -8,6 +8,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit -p tsconfig.node.json",
     "brief:daily": "tsx scripts/daily.ts",
+    "kite:session": "tsx scripts/kite-session.ts",
     "portfolio:sync": "tsx scripts/portfolio.ts",
     "dev": "next dev",
     "build": "next build"
