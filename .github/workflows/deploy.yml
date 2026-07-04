@@ -7,7 +7,7 @@ on:
       - 'data/reports/**'
       - 'data/snapshots/**'
       - 'data/ledger/**'
-      - 'data/portfolio.json'
+      - 'public/data/portfolio.enc.json'
       - 'data/manifest.json'
       - 'src/**'
       - 'lib/**'

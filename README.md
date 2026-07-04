@@ -46,10 +46,24 @@ The push triggers `research.yml`, which deep-evaluates each requested ticker (fu
 1. **Secrets** (repo → Settings → Secrets and variables → Actions):
    - `GOOGLE_GENERATIVE_AI_API_KEY` — Gemini API key
    - `RESEND_API_KEY`, `KOSH_EMAIL_FROM`, `KOSH_EMAIL_TO` (comma-separated), optional `KOSH_EMAIL_REPLY_TO`
-   - `KITE_API_KEY` and `KITE_ACCESS_TOKEN` for portfolio sync. Use `npm run kite:session` with your Kite API secret to refresh the access token.
+   - `KITE_API_KEY`, `KITE_ACCESS_TOKEN`, and `KOSH_PORTFOLIO_KEY` for encrypted portfolio sync. Use `npm run kite:session` with your Kite API secret to refresh the access token.
    - Optional repo **variable** `KOSH_GOOGLE_MODEL` to override the default Gemini model.
 2. **Pages:** Settings → Pages → Source = **GitHub Actions**.
 3. **Portfolio:** refresh holdings with `npm run kite:session` and `npm run portfolio:sync`.
+
+## Portfolio encryption
+
+Portfolio holdings are never committed as plaintext. `npm run portfolio:sync` fetches Kite holdings, encrypts the portfolio with `KOSH_PORTFOLIO_KEY`, and writes `public/data/portfolio.enc.json`. The static portfolio page fetches that encrypted file and decrypts it in the browser only after you enter the same phrase.
+
+That means the phrase is used twice: first by the sync job to create the encrypted snapshot, then by your browser to open it. Adding the phrase to `.env` or GitHub Secrets does not create the snapshot by itself; run the sync after the env values are present. If the modal shows a 404, `public/data/portfolio.enc.json` has not been generated or deployed yet.
+
+To enable it in your fork:
+
+1. Create a Kite Connect v3 app.
+2. Add `KITE_API_KEY`, `KITE_API_SECRET`, `KITE_ACCESS_TOKEN`, and `KOSH_PORTFOLIO_KEY` in GitHub Actions secrets.
+3. Run `npm run kite:session` when the Kite access token needs refresh.
+4. Run the portfolio sync workflow or `npm run portfolio:sync`.
+5. Open `/portfolio` and enter the same value you used for `KOSH_PORTFOLIO_KEY`.
 
 ## Local development
 

@@ -1,16 +1,20 @@
 import { pathToFileURL } from 'node:url';
+import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fetchKiteHoldingsSnapshot } from '../lib/kite';
 import { atomicWriteJson } from '../lib/storage';
-
-function dataDir(): string {
-  return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
-}
+import { encryptedPortfolioPath } from '../lib/portfolio';
+import { encryptPortfolioEnvelope } from '../lib/portfolio-crypto';
 
 export async function runPortfolioSync(now: Date = new Date()): Promise<void> {
   const portfolio = await fetchKiteHoldingsSnapshot(now);
-  await atomicWriteJson(path.join(dataDir(), 'portfolio.json'), portfolio);
-  console.log(`Portfolio snapshot written (${portfolio.holdings.length} holdings).`);
+  const key = process.env.KOSH_PORTFOLIO_KEY;
+  if (!key) throw new Error('Missing KOSH_PORTFOLIO_KEY for encrypted portfolio sync.');
+  const encrypted = await encryptPortfolioEnvelope(portfolio, key);
+  const outputPath = encryptedPortfolioPath();
+  await mkdir(path.dirname(outputPath), { recursive: true });
+  await atomicWriteJson(outputPath, encrypted);
+  console.log(`Encrypted portfolio snapshot written (${portfolio.holdings.length} holdings).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

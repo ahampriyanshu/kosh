@@ -2,15 +2,22 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { z } from 'zod';
 import { PortfolioSchema, type Portfolio } from './schemas';
+import { decryptPortfolioEnvelope } from './portfolio-crypto';
 
-function dataDir(): string {
-  return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
+export function publicDataDir(): string {
+  return process.env.KOSH_PUBLIC_DATA_DIR || path.join(process.cwd(), 'public', 'data');
+}
+
+export function encryptedPortfolioPath(): string {
+  return path.join(publicDataDir(), 'portfolio.enc.json');
 }
 
 export async function readPortfolio(): Promise<Portfolio> {
   try {
-    const raw = await readFile(path.join(dataDir(), 'portfolio.json'), 'utf8');
-    return parsePortfolio(JSON.parse(raw));
+    const raw = await readFile(encryptedPortfolioPath(), 'utf8');
+    const key = process.env.KOSH_PORTFOLIO_KEY;
+    if (!key) throw new Error('Missing KOSH_PORTFOLIO_KEY for encrypted portfolio data.');
+    return decryptPortfolioEnvelope(JSON.parse(raw), key);
   } catch (e) {
     if ((e as NodeJS.ErrnoException)?.code === 'ENOENT') {
       return emptyPortfolio();

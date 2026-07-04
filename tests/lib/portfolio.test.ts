@@ -1,19 +1,20 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { readPortfolio } from '../../lib/portfolio';
+import { parsePortfolio, readPortfolio } from '../../lib/portfolio';
+import { encryptPortfolioEnvelope } from '../../lib/portfolio-crypto';
+import type { Portfolio } from '../../lib/schemas';
 
 let dir: string;
-beforeEach(async () => { dir = await mkdtemp(path.join(tmpdir(), 'kosh-')); process.env.KOSH_DATA_DIR = dir; });
-afterEach(async () => { delete process.env.KOSH_DATA_DIR; await rm(dir, { recursive: true, force: true }); });
+beforeEach(async () => { dir = await mkdtemp(path.join(tmpdir(), 'kosh-')); process.env.KOSH_DATA_DIR = dir; process.env.KOSH_PUBLIC_DATA_DIR = path.join(dir, 'public-data'); process.env.KOSH_PORTFOLIO_KEY = 'portfolio-key'; });
+afterEach(async () => { delete process.env.KOSH_DATA_DIR; delete process.env.KOSH_PUBLIC_DATA_DIR; delete process.env.KOSH_PORTFOLIO_KEY; await rm(dir, { recursive: true, force: true }); });
 
 describe('readPortfolio', () => {
   it('normalizes legacy manual portfolio files', async () => {
-    await writeFile(path.join(dir, 'portfolio.json'), JSON.stringify({
+    const p = parsePortfolio({
       asOf: '2026-06-14', holdings: [{ ticker: 'TCS.NS', name: 'TCS', qty: 10, avgCost: 3500 }],
-    }));
-    const p = await readPortfolio();
+    });
     expect(p.holdings[0].ticker).toBe('TCS.NS');
     expect(p.holdings[0].quantity).toBe(10);
     expect(p.holdings[0].averagePrice).toBe(3500);
@@ -21,7 +22,7 @@ describe('readPortfolio', () => {
     expect(p.source).toBe('manual');
   });
   it('reads a Kite holdings portfolio file with aggregate summary', async () => {
-    await writeFile(path.join(dir, 'portfolio.json'), JSON.stringify({
+    const portfolio: Portfolio = {
       asOf: '2026-07-04T11:30:00.000Z',
       source: 'kite',
       holdings: [{
@@ -47,7 +48,11 @@ describe('readPortfolio', () => {
         dayChange: 125,
         dayChangePct: 0.32,
       },
-    }));
+    };
+    await mkdir(path.join(dir, 'public-data'), { recursive: true });
+    const encrypted = await encryptPortfolioEnvelope(portfolio, 'portfolio-key');
+    await writeFile(path.join(dir, 'public-data/portfolio.enc.json'), JSON.stringify(encrypted), 'utf8');
+
     const p = await readPortfolio();
     expect(p.source).toBe('kite');
     expect(p.holdings[0].currentValue).toBe(39000);
