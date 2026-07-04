@@ -46,6 +46,7 @@ The push triggers `research.yml`, which deep-evaluates each requested ticker (fu
 1. **Secrets** (repo → Settings → Secrets and variables → Actions):
    - `GOOGLE_GENERATIVE_AI_API_KEY` — Gemini API key
    - `RESEND_API_KEY`, `KOSH_EMAIL_FROM`, `KOSH_EMAIL_TO` (comma-separated), optional `KOSH_EMAIL_REPLY_TO`
+   - `KITE_API_KEY` and `KITE_ACCESS_TOKEN` for portfolio sync. Use `npm run kite:session` with your Kite API secret to refresh the access token.
    - Optional repo **variable** `KOSH_GOOGLE_MODEL` to override the default Gemini model.
 2. **Pages:** Settings → Pages → Source = **GitHub Actions**.
 3. **Watchlist:** edit [`data/watchlist.json`](data/watchlist.json).
@@ -65,6 +66,10 @@ npx tsx scripts/midsession.ts
 npx tsx scripts/weekly.ts
 npx tsx scripts/monthly.ts
 npx tsx scripts/research.ts
+
+# Refresh Kite access token, then sync portfolio holdings:
+npm run kite:session
+npm run portfolio:sync
 ```
 
 ## Layout
