@@ -74,14 +74,14 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
   }
 
   let alerts: RetroContent['alerts'] = [];
-  let summary = 'No unusual intraday activity across the watchlist.';
+  let summary = 'No unusual intraday activity across portfolio holdings.';
 
   if (flags.length) {
     const flagBlock = flags
       .map((f) => `${f.ticker} (${f.name}): ${f.changePct.toFixed(1)}% vs prev close, vol ${f.volRatio.toFixed(1)}x avg, rules: ${f.rules.join(', ')}`)
       .join('\n');
     const researchPrompt =
-      `Indian market mid-session today (${date}). These watchlist stocks tripped deterministic alert rules. ` +
+      `Indian market mid-session today (${date}). These portfolio holdings tripped deterministic alert rules. ` +
       `Using current news, judge which are genuine SELL signals vs. noise (index-wide move, ex-dividend, known event).\n\n${flagBlock}`;
     const buildStructurePrompt = (research: string) =>
       `Return "alerts": only tickers that are genuine sell signals, each with ticker, name, reason, severity (high/medium/low), and triggeredRules (chosen from the rules listed for that ticker). ` +

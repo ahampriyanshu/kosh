@@ -130,6 +130,7 @@ describe('runRetro', () => {
     await runRetro(NOW);
 
     expect(h.generateGroundedObject).toHaveBeenCalledTimes(1);
+    expect(h.generateGroundedObject.mock.calls[0][0]).toContain('portfolio holdings');
 
     expect(h.writeReport).toHaveBeenCalledTimes(2);
     const first = h.writeReport.mock.calls[0][0];
@@ -151,7 +152,7 @@ describe('runRetro', () => {
     h.getHistorical.mockResolvedValue(makeCandles(100, 1000));
     h.sma.mockReturnValue([100]);
 
-    // LLM returns alerts for both X.NS (flagged) and Y.NS (not in watchlist / not flagged)
+    // LLM returns alerts for both X.NS (flagged) and Y.NS (not flagged)
     h.generateGroundedObject.mockResolvedValue({
       object: {
         alerts: [

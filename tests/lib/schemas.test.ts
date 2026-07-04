@@ -6,7 +6,6 @@ import {
   MonthlyContentSchema,
   ReportEnvelopeSchema,
   ManifestEntrySchema,
-  WatchlistSchema,
   ManifestSchema,
   RetroContentSchema,
   RecapContentSchema,
@@ -59,8 +58,7 @@ describe('schemas', () => {
     expect(ReportEnvelopeSchema.parse(env).id).toBe('2026-06-14-daily');
   });
 
-  it('accepts a watchlist and an empty manifest', () => {
-    expect(WatchlistSchema.parse({ stocks: [{ ticker: 'TCS.NS', name: 'TCS' }] }).stocks).toHaveLength(1);
+  it('accepts an empty manifest', () => {
     expect(ManifestSchema.parse({ reports: [], latest: {} }).reports).toEqual([]);
   });
 });

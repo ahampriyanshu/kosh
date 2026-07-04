@@ -1,5 +1,4 @@
 import { readManifest, readReport, findReportByRoute } from '../../lib/storage';
-import { getWatchlist } from '../../lib/watchlist';
 import { readPortfolio } from '../../lib/portfolio';
 import { readAllLedgers } from '../../lib/ledger';
 import type { ReportEnvelope, ReportType, Manifest } from '../../lib/schemas';
@@ -22,4 +21,4 @@ export async function getLatest(type: ReportType): Promise<ReportEnvelope | null
   const id = m.latest[type];
   return id ? readReport(id) : null;
 }
-export { getWatchlist, readPortfolio, readAllLedgers };
+export { readPortfolio, readAllLedgers };

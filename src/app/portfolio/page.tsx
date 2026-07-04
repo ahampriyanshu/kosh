@@ -1,5 +1,5 @@
-import { readPortfolio, getWatchlist } from '../../lib/reports';
-import { ticker, Section } from '../../components/market/Figure';
+import { readPortfolio } from '../../lib/reports';
+import { ticker } from '../../components/market/Figure';
 import { Pct } from '../../components/Pct';
 
 function money(value: number): string {
@@ -53,9 +53,8 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
 }
 
 export default async function PortfolioPage() {
-  const [portfolio, watchlist] = await Promise.all([readPortfolio(), getWatchlist()]);
+  const portfolio = await readPortfolio();
   const holdings = portfolio.holdings;
-  const stocks = watchlist.stocks;
   const stale = isStale(portfolio.asOf);
   const pnlTone = portfolio.summary.pnl > 0 ? 'gain' : portfolio.summary.pnl < 0 ? 'loss' : 'neutral';
   const dayTone = portfolio.summary.dayChange > 0 ? 'gain' : portfolio.summary.dayChange < 0 ? 'loss' : 'neutral';
@@ -170,53 +169,6 @@ export default async function PortfolioPage() {
           </p>
         </div>
       )}
-
-      <Section title="Watchlist" count={stocks.length}>
-        {stocks.length === 0 ? (
-          <div className="py-10 text-center border border-dashed border-[var(--color-hairline)] rounded-xl">
-            <p className="font-display text-lg text-[var(--color-faint)]">Watchlist is empty.</p>
-          </div>
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-[var(--color-hairline)]">
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-6 w-32">
-                    Ticker
-                  </th>
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-6">
-                    Name
-                  </th>
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3">
-                    Notes
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]">
-                {stocks.map((stock) => (
-                  <tr key={stock.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
-                    <td className="py-3.5 pr-6">
-                      <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                        {ticker(stock.ticker)}
-                      </span>
-                    </td>
-                    <td className="py-3.5 pr-6">
-                      <span className="font-sans text-sm text-[var(--color-muted)]">{stock.name}</span>
-                    </td>
-                    <td className="py-3.5">
-                      {stock.notes ? (
-                        <span className="font-sans text-sm text-[var(--color-muted)]">{stock.notes}</span>
-                      ) : (
-                        <span className="font-sans text-xs text-[var(--color-faint)] italic">-</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </Section>
     </div>
   );
 }

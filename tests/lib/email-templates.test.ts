@@ -46,7 +46,7 @@ const monthlyContent: MonthlyContent = {
 
 const midSessionContent: RetroContent = {
   date: '2026-06-14',
-  summary: 'One watchlist name breached rules.',
+  summary: 'One portfolio holding breached rules.',
   alerts: [
     {
       ticker: 'TCS.NS',

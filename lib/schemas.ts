@@ -43,17 +43,6 @@ export const ReportEnvelopeSchema = z.object({
 });
 export type ReportEnvelope = z.infer<typeof ReportEnvelopeSchema>;
 
-export const WatchlistSchema = z.object({
-  stocks: z.array(
-    z.object({
-      ticker: z.string(),
-      name: z.string(),
-      notes: z.string().optional(),
-    }),
-  ),
-});
-export type Watchlist = z.infer<typeof WatchlistSchema>;
-
 export const ManifestEntrySchema = z.object({
   id: z.string(),
   type: ReportTypeSchema,

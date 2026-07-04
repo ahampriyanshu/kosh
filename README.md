@@ -49,7 +49,7 @@ The push triggers `research.yml`, which deep-evaluates each requested ticker (fu
    - `KITE_API_KEY` and `KITE_ACCESS_TOKEN` for portfolio sync. Use `npm run kite:session` with your Kite API secret to refresh the access token.
    - Optional repo **variable** `KOSH_GOOGLE_MODEL` to override the default Gemini model.
 2. **Pages:** Settings → Pages → Source = **GitHub Actions**.
-3. **Watchlist:** edit [`data/watchlist.json`](data/watchlist.json).
+3. **Portfolio:** refresh holdings with `npm run kite:session` and `npm run portfolio:sync`.
 
 ## Local development
 
@@ -75,7 +75,7 @@ npm run portfolio:sync
 ## Layout
 
 ```
-lib/        shared modules (schemas, storage, market-data, indicators, llm, email, recap, research, time, watchlist)
+lib/        shared modules (schemas, storage, market-data, indicators, llm, email, recap, research, time, portfolio)
 scripts/    job runners (morning, midsession, weekly, monthly, research)
 data/       the document database (committed by Actions)
 src/        Next.js static dashboard (6 pages + components)

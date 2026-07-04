@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     'BSE',
     'equity research',
     'market brief',
-    'watchlist',
     'portfolio alerts',
   ],
   authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],
