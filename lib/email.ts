@@ -1,4 +1,5 @@
 import { Resend } from 'resend';
+import { emailLogoAttachment } from './email-assets';
 
 export async function sendReportEmail(subject: string, html: string): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
@@ -18,6 +19,7 @@ export async function sendReportEmail(subject: string, html: string): Promise<vo
     to: recipients,
     subject,
     html,
+    attachments: [emailLogoAttachment()],
     ...(replyTo ? { replyTo } : {}),
   });
   if (error) throw new Error(`Email failed: ${(error as { message?: string }).message ?? String(error)}`);

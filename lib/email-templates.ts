@@ -9,6 +9,7 @@ import type {
   Signal,
   MarketSnapshot,
 } from './schemas';
+import { EMAIL_LOGO_CONTENT_ID } from './email-assets';
 
 const font = `font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
 const display = `font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
@@ -198,7 +199,18 @@ function renderShell(options: {
           <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border};border-radius:8px">
             <tr>
               <td class="email-pad" style="padding:28px 32px 18px 32px;border-bottom:1px solid ${colors.border}">
-                <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="${display};color:${colors.text};font-size:18px;line-height:22px;font-weight:700;margin:0 0 18px 0;text-decoration:none;display:inline-block">Kosh</a>
+                <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:0 0 18px 0">
+                  <tr>
+                    <td style="padding:0 10px 0 0;vertical-align:middle">
+                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block">
+                        <img src="cid:${EMAIL_LOGO_CONTENT_ID}" width="32" height="32" alt="Kosh" style="display:block;width:32px;height:32px;border:0;border-radius:6px">
+                      </a>
+                    </td>
+                    <td style="padding:0;vertical-align:middle">
+                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="${display};color:${colors.text};font-size:18px;line-height:22px;font-weight:700;text-decoration:none;display:inline-block">Kosh</a>
+                    </td>
+                  </tr>
+                </table>
                 <div style="${mono};color:${colors.link};font-size:12px;line-height:18px;font-weight:800;text-transform:uppercase;margin:0 0 6px 0">${escapeHtml(options.eyebrow)}</div>
                 <h1 class="email-title" style="${display};margin:0;color:${colors.text};font-size:28px;line-height:34px;font-weight:900;letter-spacing:0">${escapeHtml(options.title)}</h1>
               </td>

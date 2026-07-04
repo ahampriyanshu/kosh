@@ -7,6 +7,7 @@ vi.mock('resend', () => ({
 }));
 
 import { sendReportEmail } from '../../lib/email';
+import { EMAIL_LOGO_CONTENT_ID } from '../../lib/email-assets';
 
 beforeEach(() => {
   h.sendMock.mockReset();
@@ -31,6 +32,14 @@ describe('sendReportEmail', () => {
       to: ['a@x.com', 'b@x.com'],
       subject: 'Subject',
       html: '<p>hi</p>',
+      attachments: [
+        {
+          content: expect.any(Buffer),
+          filename: 'kosh-logo.png',
+          contentType: 'image/png',
+          inlineContentId: EMAIL_LOGO_CONTENT_ID,
+        },
+      ],
     });
   });
 
@@ -45,6 +54,14 @@ describe('sendReportEmail', () => {
       to: ['a@x.com', 'b@x.com'],
       subject: 'Subject',
       html: '<p>hi</p>',
+      attachments: [
+        {
+          content: expect.any(Buffer),
+          filename: 'kosh-logo.png',
+          contentType: 'image/png',
+          inlineContentId: EMAIL_LOGO_CONTENT_ID,
+        },
+      ],
       replyTo: 'Kosh <reply@x.com>',
     });
   });

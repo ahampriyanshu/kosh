@@ -9,6 +9,7 @@ import {
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
+import { EMAIL_LOGO_CONTENT_ID } from '../../lib/email-assets';
 import type { RetroContent, DailyContent, WeeklyContent, MonthlyContent, RecapContent, ResearchContent } from '../../lib/schemas';
 
 const sampleSnapshot = {
@@ -115,6 +116,12 @@ describe('formatDisplayDate', () => {
     expect(formatDisplayDate('2027-06-01')).toBe('1st June, 2027');
     expect(formatDisplayDate('2027-06-22')).toBe('22nd June, 2027');
     expect(formatDisplayDate('2027-06-13')).toBe('13th June, 2027');
+  });
+});
+
+describe('email shell', () => {
+  it('renders the inline Kosh logo cid in report emails', () => {
+    expect(renderDailyEmail(dailyContent)).toContain(`src="cid:${EMAIL_LOGO_CONTENT_ID}"`);
   });
 });
 
