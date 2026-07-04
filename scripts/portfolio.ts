@@ -8,8 +8,8 @@ import { encryptPortfolioEnvelope } from '../lib/portfolio-crypto';
 
 export async function runPortfolioSync(now: Date = new Date()): Promise<void> {
   const portfolio = await fetchKiteHoldingsSnapshot(now);
-  const key = process.env.KOSH_PORTFOLIO_KEY;
-  if (!key) throw new Error('Missing KOSH_PORTFOLIO_KEY for encrypted portfolio sync.');
+  const key = process.env.PORTFOLIO_KEY;
+  if (!key) throw new Error('Missing PORTFOLIO_KEY for encrypted portfolio sync.');
   const encrypted = await encryptPortfolioEnvelope(portfolio, key);
   const outputPath = encryptedPortfolioPath();
   await mkdir(path.dirname(outputPath), { recursive: true });

@@ -31,9 +31,9 @@ beforeEach(() => {
       tools: { googleSearch: h.googleSearchMock },
     }),
   );
-  delete process.env.KOSH_GOOGLE_MODEL;
-  delete process.env.KOSH_GOOGLE_MODEL_FALLBACK_1;
-  delete process.env.KOSH_GOOGLE_MODEL_FALLBACK_2;
+  delete process.env.GOOGLE_MODEL;
+  delete process.env.GOOGLE_MODEL_FALLBACK_1;
+  delete process.env.GOOGLE_MODEL_FALLBACK_2;
   delete process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1;
   delete process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2;
 });
@@ -45,7 +45,7 @@ describe('llm', () => {
     expect(r.text).toBe('Nifty up');
     expect(r.sources).toEqual([{ url: 'x' }]);
     expect(h.googleSearchMock).toHaveBeenCalled();
-    // model-agnostic: a Gemini model is selected (exact id is configurable via KOSH_GOOGLE_MODEL)
+    // model-agnostic: a Gemini model is selected (exact id is configurable via GOOGLE_MODEL)
     expect(h.generateTextMock.mock.calls[0][0].model.id).toMatch(/^gemini-/);
   });
 
@@ -55,8 +55,8 @@ describe('llm', () => {
     expect(out).toEqual({ n: 5 });
   });
 
-  it('uses KOSH_GOOGLE_MODEL when provided', async () => {
-    process.env.KOSH_GOOGLE_MODEL = 'gemini-custom';
+  it('uses GOOGLE_MODEL when provided', async () => {
+    process.env.GOOGLE_MODEL = 'gemini-custom';
     h.generateObjectMock.mockResolvedValue({ object: { n: 5 } });
 
     await structure('make n', z.object({ n: z.number() }));
@@ -74,7 +74,7 @@ describe('llm', () => {
   });
 
   it('falls back to alternate API keys for 429 errors', async () => {
-    process.env.KOSH_GOOGLE_MODEL = 'gemini-primary';
+    process.env.GOOGLE_MODEL = 'gemini-primary';
     process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1 = 'key-1';
     process.env.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2 = 'key-2';
     h.generateObjectMock
@@ -94,9 +94,9 @@ describe('llm', () => {
   });
 
   it('falls back to alternate models for 503 errors', async () => {
-    process.env.KOSH_GOOGLE_MODEL = 'gemini-primary';
-    process.env.KOSH_GOOGLE_MODEL_FALLBACK_1 = 'gemini-fallback-1';
-    process.env.KOSH_GOOGLE_MODEL_FALLBACK_2 = 'gemini-fallback-2';
+    process.env.GOOGLE_MODEL = 'gemini-primary';
+    process.env.GOOGLE_MODEL_FALLBACK_1 = 'gemini-fallback-1';
+    process.env.GOOGLE_MODEL_FALLBACK_2 = 'gemini-fallback-2';
     h.generateObjectMock
       .mockRejectedValueOnce(Object.assign(new Error('UNAVAILABLE'), { statusCode: 503 }))
       .mockRejectedValueOnce({ errors: [Object.assign(new Error('high demand'), { statusCode: 503 })] })

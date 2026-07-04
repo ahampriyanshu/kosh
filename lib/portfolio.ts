@@ -15,8 +15,8 @@ export function encryptedPortfolioPath(): string {
 export async function readPortfolio(): Promise<Portfolio> {
   try {
     const raw = await readFile(encryptedPortfolioPath(), 'utf8');
-    const key = process.env.KOSH_PORTFOLIO_KEY;
-    if (!key) throw new Error('Missing KOSH_PORTFOLIO_KEY for encrypted portfolio data.');
+    const key = process.env.PORTFOLIO_KEY;
+    if (!key) throw new Error('Missing PORTFOLIO_KEY for encrypted portfolio data.');
     return decryptPortfolioEnvelope(JSON.parse(raw), key);
   } catch (e) {
     if ((e as NodeJS.ErrnoException)?.code === 'ENOENT') {

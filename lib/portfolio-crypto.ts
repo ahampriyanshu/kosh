@@ -42,7 +42,7 @@ function getCrypto() {
 }
 
 async function deriveKey(passphrase: string, salt: Uint8Array, iterations: number): Promise<any> {
-  if (!passphrase) throw new Error('KOSH_PORTFOLIO_KEY is required for encrypted portfolio data.');
+  if (!passphrase) throw new Error('PORTFOLIO_KEY is required for encrypted portfolio data.');
   const crypto = getCrypto();
   const baseKey = await crypto.subtle.importKey(
     'raw',

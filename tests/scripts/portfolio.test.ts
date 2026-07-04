@@ -19,7 +19,7 @@ beforeEach(async () => {
   dir = await mkdtemp(path.join(tmpdir(), 'kosh-portfolio-'));
   process.env.KOSH_DATA_DIR = dir;
   process.env.KOSH_PUBLIC_DATA_DIR = path.join(dir, 'public-data');
-  process.env.KOSH_PORTFOLIO_KEY = 'portfolio-key';
+  process.env.PORTFOLIO_KEY = 'portfolio-key';
   h.fetchKiteHoldingsSnapshot.mockReset();
   h.fetchKiteHoldingsSnapshot.mockResolvedValue({
     asOf: NOW.toISOString(),
@@ -32,7 +32,7 @@ beforeEach(async () => {
 afterEach(async () => {
   delete process.env.KOSH_DATA_DIR;
   delete process.env.KOSH_PUBLIC_DATA_DIR;
-  delete process.env.KOSH_PORTFOLIO_KEY;
+  delete process.env.PORTFOLIO_KEY;
   await rm(dir, { recursive: true, force: true });
 });
 
@@ -50,8 +50,8 @@ describe('runPortfolioSync', () => {
     expect(written.asOf).toBe(NOW.toISOString());
   });
 
-  it('requires KOSH_PORTFOLIO_KEY before writing portfolio data', async () => {
-    delete process.env.KOSH_PORTFOLIO_KEY;
-    await expect(runPortfolioSync(NOW)).rejects.toThrow(/KOSH_PORTFOLIO_KEY/);
+  it('requires PORTFOLIO_KEY before writing portfolio data', async () => {
+    delete process.env.PORTFOLIO_KEY;
+    await expect(runPortfolioSync(NOW)).rejects.toThrow(/PORTFOLIO_KEY/);
   });
 });

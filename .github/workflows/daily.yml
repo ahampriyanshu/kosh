@@ -27,13 +27,13 @@ jobs:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
           GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1 }}
           GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2 }}
-          KOSH_GOOGLE_MODEL: ${{ secrets.KOSH_GOOGLE_MODEL }}
-          KOSH_GOOGLE_MODEL_FALLBACK_1: ${{ secrets.KOSH_GOOGLE_MODEL_FALLBACK_1 }}
-          KOSH_GOOGLE_MODEL_FALLBACK_2: ${{ secrets.KOSH_GOOGLE_MODEL_FALLBACK_2 }}
+          GOOGLE_MODEL: ${{ secrets.GOOGLE_MODEL }}
+          GOOGLE_MODEL_FALLBACK_1: ${{ secrets.GOOGLE_MODEL_FALLBACK_1 }}
+          GOOGLE_MODEL_FALLBACK_2: ${{ secrets.GOOGLE_MODEL_FALLBACK_2 }}
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          KOSH_EMAIL_FROM: ${{ secrets.KOSH_EMAIL_FROM }}
-          KOSH_EMAIL_REPLY_TO: ${{ secrets.KOSH_EMAIL_REPLY_TO }}
-          KOSH_EMAIL_TO: ${{ secrets.KOSH_EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_REPLY_TO: ${{ secrets.EMAIL_REPLY_TO }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
 
       - name: Commit snapshot + briefing (stages report, snapshot, and feed-slice cleanup)
         run: |

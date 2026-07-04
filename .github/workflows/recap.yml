@@ -25,9 +25,9 @@ jobs:
       - run: npx tsx scripts/recap.ts
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
-          KOSH_EMAIL_FROM: ${{ secrets.KOSH_EMAIL_FROM }}
-          KOSH_EMAIL_REPLY_TO: ${{ secrets.KOSH_EMAIL_REPLY_TO }}
-          KOSH_EMAIL_TO: ${{ secrets.KOSH_EMAIL_TO }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_REPLY_TO: ${{ secrets.EMAIL_REPLY_TO }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
 
       - name: Commit recap + ledger
         run: |

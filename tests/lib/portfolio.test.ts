@@ -7,8 +7,8 @@ import { encryptPortfolioEnvelope } from '../../lib/portfolio-crypto';
 import type { Portfolio } from '../../lib/schemas';
 
 let dir: string;
-beforeEach(async () => { dir = await mkdtemp(path.join(tmpdir(), 'kosh-')); process.env.KOSH_DATA_DIR = dir; process.env.KOSH_PUBLIC_DATA_DIR = path.join(dir, 'public-data'); process.env.KOSH_PORTFOLIO_KEY = 'portfolio-key'; });
-afterEach(async () => { delete process.env.KOSH_DATA_DIR; delete process.env.KOSH_PUBLIC_DATA_DIR; delete process.env.KOSH_PORTFOLIO_KEY; await rm(dir, { recursive: true, force: true }); });
+beforeEach(async () => { dir = await mkdtemp(path.join(tmpdir(), 'kosh-')); process.env.KOSH_DATA_DIR = dir; process.env.KOSH_PUBLIC_DATA_DIR = path.join(dir, 'public-data'); process.env.PORTFOLIO_KEY = 'portfolio-key'; });
+afterEach(async () => { delete process.env.KOSH_DATA_DIR; delete process.env.KOSH_PUBLIC_DATA_DIR; delete process.env.PORTFOLIO_KEY; await rm(dir, { recursive: true, force: true }); });
 
 describe('readPortfolio', () => {
   it('normalizes legacy manual portfolio files', async () => {

@@ -11,15 +11,15 @@ import { sendReportEmail } from '../../lib/email';
 beforeEach(() => {
   h.sendMock.mockReset();
   process.env.RESEND_API_KEY = 'test-key';
-  process.env.KOSH_EMAIL_TO = 'a@x.com, b@x.com';
-  process.env.KOSH_EMAIL_FROM = 'Kosh <k@x.com>';
-  delete process.env.KOSH_EMAIL_REPLY_TO;
+  process.env.EMAIL_TO = 'a@x.com, b@x.com';
+  process.env.EMAIL_FROM = 'Kosh <k@x.com>';
+  delete process.env.EMAIL_REPLY_TO;
 });
 afterEach(() => {
   delete process.env.RESEND_API_KEY;
-  delete process.env.KOSH_EMAIL_TO;
-  delete process.env.KOSH_EMAIL_FROM;
-  delete process.env.KOSH_EMAIL_REPLY_TO;
+  delete process.env.EMAIL_TO;
+  delete process.env.EMAIL_FROM;
+  delete process.env.EMAIL_REPLY_TO;
 });
 
 describe('sendReportEmail', () => {
@@ -35,7 +35,7 @@ describe('sendReportEmail', () => {
   });
 
   it('sets replyTo when configured', async () => {
-    process.env.KOSH_EMAIL_REPLY_TO = 'Kosh <reply@x.com>';
+    process.env.EMAIL_REPLY_TO = 'Kosh <reply@x.com>';
     h.sendMock.mockResolvedValue({ data: { id: '1' }, error: null });
 
     await sendReportEmail('Subject', '<p>hi</p>');
@@ -55,7 +55,7 @@ describe('sendReportEmail', () => {
   });
 
   it('throws when no recipients are configured', async () => {
-    delete process.env.KOSH_EMAIL_TO;
-    await expect(sendReportEmail('S', '<p>x</p>')).rejects.toThrow(/KOSH_EMAIL_TO/);
+    delete process.env.EMAIL_TO;
+    await expect(sendReportEmail('S', '<p>x</p>')).rejects.toThrow(/EMAIL_TO/);
   });
 });
