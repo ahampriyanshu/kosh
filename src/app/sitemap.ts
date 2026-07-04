@@ -15,7 +15,7 @@ const staticRoutes: Array<{
   { path: '/reports/', changeFrequency: 'daily', priority: 0.9 },
   { path: '/scorecard/', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/research/', changeFrequency: 'weekly', priority: 0.7 },
-  { path: '/portfolio/', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/portfolio/', changeFrequency: 'daily', priority: 0.7 },
 ];
 
 function latestDate(dates: string[]): string | undefined {

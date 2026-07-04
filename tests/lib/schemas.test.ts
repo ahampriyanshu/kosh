@@ -18,6 +18,7 @@ import {
   GradedBetSchema,
   LedgerSchema,
   LedgerEntrySchema,
+  PortfolioSchema,
 } from '../../lib/schemas';
 
 const validDailySnapshot = {
@@ -86,6 +87,39 @@ describe('RetroContentSchema', () => {
       alerts: [{ ...validRetro.alerts[0], severity: 'critical' }],
     };
     expect(() => RetroContentSchema.parse(bad)).toThrow();
+  });
+});
+
+describe('PortfolioSchema', () => {
+  it('accepts a Kite holdings snapshot', () => {
+    const result = PortfolioSchema.safeParse({
+      asOf: '2026-07-04T11:30:00.000Z',
+      source: 'kite',
+      holdings: [{
+        ticker: 'TCS.NS',
+        name: 'TCS',
+        exchange: 'NSE',
+        quantity: 10,
+        averagePrice: 3500,
+        lastPrice: 3900,
+        investedValue: 35000,
+        currentValue: 39000,
+        pnl: 4000,
+        pnlPct: 11.43,
+        dayChange: 12.5,
+        dayChangePct: 0.32,
+        allocationPct: 100,
+      }],
+      summary: {
+        investedValue: 35000,
+        currentValue: 39000,
+        pnl: 4000,
+        pnlPct: 11.43,
+        dayChange: 125,
+        dayChangePct: 0.32,
+      },
+    });
+    expect(result.success).toBe(true);
   });
 });
 

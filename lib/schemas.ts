@@ -160,16 +160,38 @@ export const ResearchContentSchema = z.object({
 });
 export type ResearchContent = z.infer<typeof ResearchContentSchema>;
 
+export const PortfolioHoldingSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  exchange: z.string(),
+  quantity: z.number().nonnegative(),
+  averagePrice: z.number().nonnegative(),
+  lastPrice: z.number().nonnegative(),
+  investedValue: z.number().nonnegative(),
+  currentValue: z.number().nonnegative(),
+  pnl: z.number(),
+  pnlPct: z.number(),
+  dayChange: z.number(),
+  dayChangePct: z.number(),
+  allocationPct: z.number().nonnegative(),
+});
+export type PortfolioHolding = z.infer<typeof PortfolioHoldingSchema>;
+
+export const PortfolioSummarySchema = z.object({
+  investedValue: z.number().nonnegative(),
+  currentValue: z.number().nonnegative(),
+  pnl: z.number(),
+  pnlPct: z.number(),
+  dayChange: z.number(),
+  dayChangePct: z.number(),
+});
+export type PortfolioSummary = z.infer<typeof PortfolioSummarySchema>;
+
 export const PortfolioSchema = z.object({
   asOf: z.string(),
-  holdings: z.array(
-    z.object({
-      ticker: z.string(),
-      name: z.string(),
-      qty: z.number().nonnegative(),
-      avgCost: z.number().nonnegative(),
-    }),
-  ),
+  source: z.enum(['manual', 'kite']),
+  holdings: z.array(PortfolioHoldingSchema),
+  summary: PortfolioSummarySchema,
 });
 export type Portfolio = z.infer<typeof PortfolioSchema>;
 

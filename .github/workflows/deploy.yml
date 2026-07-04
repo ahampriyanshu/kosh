@@ -7,6 +7,7 @@ on:
       - 'data/reports/**'
       - 'data/snapshots/**'
       - 'data/ledger/**'
+      - 'data/portfolio.json'
       - 'data/manifest.json'
       - 'src/**'
       - 'lib/**'
@@ -21,6 +22,7 @@ on:
       - Recap (weekly grading)
       - Monthly Recap
       - Research
+      - Portfolio sync
     types:
       - completed
     branches:

@@ -8,6 +8,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit -p tsconfig.node.json",
     "brief:daily": "tsx scripts/daily.ts",
+    "portfolio:sync": "tsx scripts/portfolio.ts",
     "dev": "next dev",
     "build": "next build"
   },

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const h = vi.hoisted(() => ({
-  getWatchlist: vi.fn(),
+  readPortfolio: vi.fn(),
   getQuoteDetail: vi.fn(),
   getHistorical: vi.fn(),
   sma: vi.fn(),
@@ -10,7 +10,7 @@ const h = vi.hoisted(() => ({
   sendReportEmail: vi.fn(),
 }));
 
-vi.mock('../../lib/watchlist', () => ({ getWatchlist: h.getWatchlist }));
+vi.mock('../../lib/portfolio', () => ({ readPortfolio: h.readPortfolio }));
 vi.mock('../../lib/market-data', () => ({
   getQuoteDetail: h.getQuoteDetail,
   getHistorical: h.getHistorical,
@@ -41,7 +41,26 @@ function makeCandles(close: number, volume: number, count = 25) {
 
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
-  h.getWatchlist.mockResolvedValue({ stocks: [{ ticker: 'X.NS', name: 'X' }] });
+  h.readPortfolio.mockResolvedValue({
+    asOf: '2026-06-15T08:00:00.000Z',
+    source: 'kite',
+    holdings: [{
+      ticker: 'X.NS',
+      name: 'X',
+      exchange: 'NSE',
+      quantity: 1,
+      averagePrice: 100,
+      lastPrice: 100,
+      investedValue: 100,
+      currentValue: 100,
+      pnl: 0,
+      pnlPct: 0,
+      dayChange: 0,
+      dayChangePct: 0,
+      allocationPct: 100,
+    }],
+    summary: { investedValue: 100, currentValue: 100, pnl: 0, pnlPct: 0, dayChange: 0, dayChangePct: 0 },
+  });
   h.writeReport.mockResolvedValue(undefined);
   h.sendReportEmail.mockResolvedValue(undefined);
 });
@@ -62,6 +81,7 @@ describe('runRetro', () => {
     await runRetro(NOW);
 
     expect(h.generateGroundedObject).not.toHaveBeenCalled();
+    expect(h.readPortfolio).toHaveBeenCalledTimes(1);
 
     expect(h.writeReport).toHaveBeenCalledTimes(2);
     const first = h.writeReport.mock.calls[0][0];
@@ -72,6 +92,7 @@ describe('runRetro', () => {
     expect(first.id).toMatch(/^retro-/);
     expect(first.dateKey).toBeTruthy();
     expect(first.type).toBe('retro');
+    expect(first.sourceData.tickers).toEqual(['X.NS']);
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
     expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Daily Retro', expect.any(String));

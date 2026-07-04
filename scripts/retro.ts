@@ -1,6 +1,6 @@
 import { pathToFileURL } from 'node:url';
 import { z } from 'zod';
-import { getWatchlist } from '../lib/watchlist';
+import { readPortfolio } from '../lib/portfolio';
 import { getQuoteDetail, getHistorical } from '../lib/market-data';
 import { sma } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
@@ -36,18 +36,19 @@ function avg(nums: number[]): number {
 export async function runRetro(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   const period1 = new Date(now.getTime() - 120 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
-  const watchlist = await getWatchlist();
+  const portfolio = await readPortfolio();
+  const holdings = portfolio.holdings;
 
   const evaluated: RetroContent['evaluated'] = [];
   const flags: Flag[] = [];
   const priceSnapshot: Record<string, number> = {};
 
-  for (const stock of watchlist.stocks) {
-    const q = await getQuoteDetail(stock.ticker);
-    const candles = await getHistorical(stock.ticker, period1);
+  for (const holding of holdings) {
+    const q = await getQuoteDetail(holding.ticker);
+    const candles = await getHistorical(holding.ticker, period1);
     const closes = candles.map((c) => c.close);
     const volumes = candles.map((c) => c.volume);
-    priceSnapshot[stock.ticker] = q.price;
+    priceSnapshot[holding.ticker] = q.price;
 
     const changePct = q.previousClose ? ((q.price - q.previousClose) / q.previousClose) * 100 : 0;
     const avgVol = avg(volumes.slice(-20));
@@ -61,14 +62,14 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
     if (lastSma && q.price < lastSma * 0.98) rules.push('below 50DMA support');
 
     evaluated.push({
-      ticker: stock.ticker,
-      name: stock.name,
+      ticker: holding.ticker,
+      name: holding.name,
       price: q.price,
       changePct: Number(changePct.toFixed(2)),
       note: `${changePct >= 0 ? '+' : ''}${changePct.toFixed(1)}% vs prev close, vol ${volRatio.toFixed(1)}x avg${rules.length ? ` — flags: ${rules.join(', ')}` : ''}`,
     });
     if (rules.length) {
-      flags.push({ ticker: stock.ticker, name: stock.name, price: q.price, changePct, volRatio, rules });
+      flags.push({ ticker: holding.ticker, name: holding.name, price: q.price, changePct, volRatio, rules });
     }
   }
 
@@ -100,7 +101,7 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
     type: 'retro',
     generatedAt: now.toISOString(),
     sourceData: {
-      tickers: watchlist.stocks.map((s) => s.ticker),
+      tickers: holdings.map((s) => s.ticker),
       priceSnapshot,
       searchTimestamp: now.toISOString(),
     },

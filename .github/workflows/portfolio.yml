@@ -1,0 +1,37 @@
+name: Portfolio sync
+
+on:
+  schedule:
+    - cron: '57 16 * * 1-5' # Targets 17:00 IST on weekdays; avoids crowded quarter-hour scheduler slots.
+      timezone: "Asia/Kolkata"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  portfolio:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run portfolio:sync
+        env:
+          KITE_API_KEY: ${{ secrets.KITE_API_KEY }}
+          KITE_ACCESS_TOKEN: ${{ secrets.KITE_ACCESS_TOKEN }}
+
+      - name: Commit portfolio snapshot
+        run: |
+          git config user.name "kosh-bot"
+          git config user.email "kosh-bot@users.noreply.github.com"
+          git pull --rebase --autostash
+          git add data/portfolio.json
+          git diff --staged --quiet || git commit -m "chore(data): portfolio snapshot $(date -u +%F)"
+          git push
