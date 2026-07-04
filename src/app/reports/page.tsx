@@ -1,16 +1,7 @@
 import { getManifest, getAllReports } from '../../lib/reports';
 import type { ReportType, RetroContent, RecapContent, ManifestEntry } from '../../../lib/schemas';
+import { REPORT_ARCHIVE_TYPES, REPORT_TYPE_HEADINGS } from '../../../lib/report-taxonomy';
 import { ReportCard } from '../../components/ReportCard';
-
-const TYPE_ORDER: ReportType[] = ['daily', 'retro', 'recap', 'weekly', 'monthly', 'research'];
-const TYPE_HEADINGS: Record<ReportType, string> = {
-  daily: 'Daily Briefs',
-  retro: 'Mid-Session',
-  recap: 'Weekly Recaps',
-  weekly: 'Weekly Outlooks',
-  monthly: 'Monthly Outlooks',
-  research: 'Research',
-};
 
 export default async function ReportsPage() {
   const [manifest, allReports] = await Promise.all([
@@ -33,7 +24,7 @@ export default async function ReportsPage() {
     entries.sort((a, b) => b.id.localeCompare(a.id));
   }
 
-  const sections = TYPE_ORDER.filter((t) => (byType.get(t)?.length ?? 0) > 0);
+  const sections = REPORT_ARCHIVE_TYPES.filter((t) => (byType.get(t)?.length ?? 0) > 0);
 
   return (
     <div>
@@ -59,7 +50,7 @@ export default async function ReportsPage() {
             return (
               <section key={type}>
                 <h2 className="font-display text-lg font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-                  {TYPE_HEADINGS[type]}
+                  {REPORT_TYPE_HEADINGS[type]}
                   <span className="ml-2 font-mono text-sm font-normal text-[var(--color-faint)]">
                     ({entries.length})
                   </span>

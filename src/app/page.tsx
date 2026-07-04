@@ -4,13 +4,12 @@ import { MarketDashboard } from '../components/market/MarketDashboard';
 import { NewsDigest } from '../components/market/NewsDigest';
 import { Section } from '../components/market/Figure';
 import { SeverityBadge } from '../components/SeverityBadge';
+import { formatPeriodLabel } from '../../lib/time';
 
 export default async function TodayPage() {
-  const [daily, retro, weekly, monthly, recap] = await Promise.all([
+  const [daily, retro, recap] = await Promise.all([
     getLatest('daily'),
     getLatest('retro'),
-    getLatest('weekly'),
-    getLatest('monthly'),
     getLatest('recap'),
   ]);
 
@@ -22,8 +21,6 @@ export default async function TodayPage() {
       : null;
 
   const mastheadReports = [
-    { type: 'weekly', label: 'Weekly Outlook', report: weekly },
-    { type: 'monthly', label: 'Monthly Outlook', report: monthly },
     { type: 'recap', label: 'Weekly Recap', report: recap },
   ].filter((item) => item.report !== null);
 
@@ -39,9 +36,9 @@ export default async function TodayPage() {
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>
 
-      {/* Masthead row: links to latest weekly / monthly / recap */}
+      {/* Masthead row: links to latest verification report */}
       {mastheadReports.length > 0 && (
-        <div className="grid sm:grid-cols-3 gap-3 mb-10">
+        <div className="grid gap-3 mb-10">
           {mastheadReports.map(({ type, label, report }) => (
             <a
               key={type}
@@ -51,7 +48,7 @@ export default async function TodayPage() {
               <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-1">
                 {label}
               </p>
-              <p className="font-mono text-sm text-[var(--color-ink)]">{report!.dateKey}</p>
+              <p className="font-mono text-sm text-[var(--color-ink)]">{formatPeriodLabel(report!.dateKey)}</p>
             </a>
           ))}
         </div>

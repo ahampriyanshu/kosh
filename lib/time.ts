@@ -33,3 +33,44 @@ export function istWeekId(now: Date = new Date()): string {
   const week = 1 + Math.round((date.getTime() - jan1.getTime()) / 86400000 / 7);
   return `${isoYear}-W${String(week).padStart(2, '0')}`;
 }
+
+const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function isoWeekStart(weekId: string): Date | null {
+  const match = /^(\d{4})-W(\d{2})$/.exec(weekId);
+  if (!match) return null;
+
+  const isoYear = Number(match[1]);
+  const week = Number(match[2]);
+  if (!Number.isInteger(isoYear) || week < 1 || week > 53) return null;
+
+  const jan4 = new Date(Date.UTC(isoYear, 0, 4));
+  const jan4DayNum = (jan4.getUTCDay() + 6) % 7; // Mon=0..Sun=6
+  const weekOneMonday = new Date(jan4);
+  weekOneMonday.setUTCDate(jan4.getUTCDate() - jan4DayNum);
+
+  const weekStart = new Date(weekOneMonday);
+  weekStart.setUTCDate(weekOneMonday.getUTCDate() + (week - 1) * 7);
+  return weekStart;
+}
+
+export function formatWeekId(weekId: string): string {
+  const weekStart = isoWeekStart(weekId);
+  if (!weekStart) return weekId;
+
+  const monthIndex = weekStart.getUTCMonth();
+  const monthStart = new Date(Date.UTC(weekStart.getUTCFullYear(), monthIndex, 1));
+  const firstMonthDayNum = (monthStart.getUTCDay() + 6) % 7; // Mon=0..Sun=6
+  const weekOfMonth = Math.floor((weekStart.getUTCDate() + firstMonthDayNum - 1) / 7) + 1;
+
+  return `${SHORT_MONTHS[monthIndex]} ${weekStart.getUTCFullYear()}, Week ${weekOfMonth}`;
+}
+
+export function formatPeriodLabel(value: string): string {
+  if (/^\d{4}-W\d{2}$/.test(value)) return formatWeekId(value);
+  return value;
+}
+
+export function formatPeriodText(value: string): string {
+  return value.replace(/\b\d{4}-W\d{2}\b/g, (weekId) => formatWeekId(weekId));
+}

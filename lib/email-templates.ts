@@ -10,6 +10,7 @@ import type {
   MarketSnapshot,
 } from './schemas';
 import { EMAIL_LOGO_CONTENT_ID } from './email-assets';
+import { formatPeriodLabel, formatPeriodText } from './time';
 
 const font = `font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
 const display = `font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
@@ -554,10 +555,11 @@ export function renderDailyEmail(content: DailyContent): string {
 }
 
 export function renderWeeklyEmail(content: WeeklyContent, period: string): string {
+  const periodLabel = formatPeriodLabel(period);
   return renderShell({
     title: 'Weekly Outlook',
-    eyebrow: `Week ${period}`,
-    preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${period}`,
+    eyebrow: periodLabel,
+    preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${periodLabel}`,
     children:
       section('Themes', bulletList(content.themes)) +
       section('Positional Bets', betRows(content.positionalBets)) +
@@ -627,6 +629,7 @@ export function renderRetroEmail(content: RetroContent): string {
 }
 
 export function renderRecapEmail(content: RecapContent, title: string): string {
+  const periodLabel = formatPeriodLabel(content.period);
   const hitsSummary = `<div style="${font};font-size:14px;line-height:20px;margin:0 0 8px 0;color:${colors.text};font-weight:800">${escapeHtml(String(content.hits))}/${escapeHtml(String(content.total))} bets hit</div>`;
 
   const gradedRows = content.graded.length
@@ -657,12 +660,12 @@ export function renderRecapEmail(content: RecapContent, title: string): string {
 
   return renderShell({
     title,
-    eyebrow: content.period,
-    preheader: content.summary || title,
+    eyebrow: periodLabel,
+    preheader: formatPeriodText(content.summary) || title,
     children:
       section(
         'Grading Results',
-        card(hitsSummary + paragraph(content.summary)),
+        card(hitsSummary + paragraph(formatPeriodText(content.summary))),
       ) +
       section('Bet-by-Bet Breakdown', gradedRows),
   });

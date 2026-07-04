@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { istDateString, istParts, isFirstOfMonthIST, istMonthId, istWeekId } from '../../lib/time';
+import { formatPeriodLabel, formatPeriodText, formatWeekId, istDateString, istParts, isFirstOfMonthIST, istMonthId, istWeekId } from '../../lib/time';
 
 describe('istDateString', () => {
   it('returns YYYY-MM-DD in IST', () => {
@@ -47,5 +47,24 @@ describe('istWeekId', () => {
 
   it('returns 2026-W01 for 2025-12-29 (ISO week 1 of 2026 starts Mon 2025-12-29)', () => {
     expect(istWeekId(new Date('2025-12-29T06:00:00.000Z'))).toBe('2026-W01');
+  });
+});
+
+describe('formatWeekId', () => {
+  it('formats ISO week ids as month week labels', () => {
+    expect(formatWeekId('2026-W24')).toBe('Jun 2026, Week 2');
+    expect(formatWeekId('2026-W25')).toBe('Jun 2026, Week 3');
+    expect(formatWeekId('2026-W26')).toBe('Jun 2026, Week 4');
+  });
+
+  it('leaves non-week period labels unchanged through formatPeriodLabel', () => {
+    expect(formatPeriodLabel('2026-06')).toBe('2026-06');
+    expect(formatPeriodLabel('2026-06-14')).toBe('2026-06-14');
+  });
+
+  it('replaces ISO week ids inside display text', () => {
+    expect(formatPeriodText('4/5 positional bets hit over 2026-W26.')).toBe(
+      '4/5 positional bets hit over Jun 2026, Week 4.',
+    );
   });
 });

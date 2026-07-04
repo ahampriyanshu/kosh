@@ -1,4 +1,5 @@
 import type { RecapContent } from '../../lib/schemas';
+import { formatPeriodLabel, formatPeriodText } from '../../lib/time';
 import { VerificationBadge } from './VerificationBadge';
 import { Pct, ticker as tickerFn } from './market/Figure';
 
@@ -10,7 +11,7 @@ export function RecapView({ content }: RecapViewProps) {
   return (
     <div className="space-y-8">
       {/* Period eyebrow */}
-      <p className="font-mono text-xs text-[var(--color-faint)]">{content.period}</p>
+      <p className="font-mono text-xs text-[var(--color-faint)]">{formatPeriodLabel(content.period)}</p>
 
       {/* Hit-rate badge + summary */}
       <section>
@@ -20,7 +21,7 @@ export function RecapView({ content }: RecapViewProps) {
           </h2>
           <VerificationBadge hits={content.hits} total={content.total} />
         </div>
-        <p className="text-[var(--color-muted)] leading-relaxed">{content.summary}</p>
+        <p className="text-[var(--color-muted)] leading-relaxed">{formatPeriodText(content.summary)}</p>
       </section>
 
       {/* Graded bets table */}

@@ -175,7 +175,8 @@ describe('email templates', () => {
 
     expect(html).toContain('<!doctype html>');
     expect(html).toContain('Weekly Outlook');
-    expect(html).toContain('2026-W25');
+    expect(html).toContain('Jun 2026, Week 3');
+    expect(html).not.toContain('2026-W25');
     expect(html).not.toContain('Weekly — 2026-W25');
     expect(html).toContain('Themes');
     expect(html).toContain('Rotation into defensives');
@@ -223,6 +224,8 @@ describe('email templates', () => {
     expect(html).toContain('Weekly Recap');
     expect(html).not.toContain('Kosh Weekly Recap - 2026-W24');
     expect(html).not.toContain('Kosh Weekly Recap — 2026-W24');
+    expect(html).toContain('Jun 2026, Week 2');
+    expect(html).not.toContain('2026-W24');
     expect(html).toContain('Grading Results');
     expect(html).toContain('1/1 bets hit');
     expect(html).toContain('1/1 bets hit');

@@ -1,5 +1,5 @@
 import { pathToFileURL } from 'node:url';
-import { istDateString } from '../lib/time';
+import { formatPeriodLabel, istDateString } from '../lib/time';
 import { readManifest, readReport, writeReport, computeChecksum } from '../lib/storage';
 import { getHistorical } from '../lib/market-data';
 import { gradeBet } from '../lib/grade';
@@ -47,13 +47,14 @@ export async function runRecap(now: Date = new Date()): Promise<void> {
 
   const hits = graded.filter((g) => g.outcome === 'hit').length;
   const total = graded.length;
+  const periodLabel = formatPeriodLabel(weekly.dateKey);
   const recapContent = RecapContentSchema.parse({
     period: weekly.dateKey,
     sourceReportId: weekly.id,
     graded,
     hits,
     total,
-    summary: total ? `${hits}/${total} positional bets hit over ${weekly.dateKey}.` : 'No bets to grade for the prior week.',
+    summary: total ? `${hits}/${total} positional bets hit over ${periodLabel}.` : 'No bets to grade for the prior week.',
   });
 
   const month = date.slice(0, 7); // YYYY-MM

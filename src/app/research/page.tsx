@@ -23,6 +23,9 @@ export default async function ResearchPage() {
     <div>
       {/* Page header */}
       <div className="mb-8">
+        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
+          Company view
+        </p>
         <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
           Stock Research
         </h1>

@@ -39,6 +39,8 @@ describe('runRecap', () => {
     expect(rep.id).toMatch(/^recap-2026-06-20/);
     expect(rep.content.hits).toBe(1);
     expect(rep.content.total).toBe(1);
+    expect(rep.content.summary).toContain('Jun 2026, Week 2');
+    expect(rep.content.summary).not.toContain('2026-W24');
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
     expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Weekly Recap', expect.any(String));
   });

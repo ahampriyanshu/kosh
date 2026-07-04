@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ManifestEntry } from '../../lib/schemas';
+import { formatPeriodLabel } from '../../lib/time';
 import { VerificationBadge } from './VerificationBadge';
 
 const TYPE_LABELS: Record<string, string> = {
@@ -38,6 +39,7 @@ export function ReportCard({
   verificationTotal,
 }: ReportCardProps) {
   const typeLabel = TYPE_LABELS[entry.type] ?? entry.type;
+  const dateLabel = entry.type === 'weekly' ? formatPeriodLabel(entry.dateKey) : formatDate(entry.date);
   const title =
     entry.type === 'research' && ticker
       ? `${ticker} Research`
@@ -64,7 +66,7 @@ export function ReportCard({
           </div>
           {/* Date */}
           <time className="font-mono text-xs text-[var(--color-faint)] whitespace-nowrap mt-0.5 shrink-0">
-            {formatDate(entry.date)}
+            {dateLabel}
           </time>
         </div>
 

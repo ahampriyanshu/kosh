@@ -22,6 +22,7 @@ const footerSections = [
     links: [
       { label: 'Dashboard', href: '/' },
       { label: 'Archive', href: '/reports' },
+      { label: 'Outlook', href: '/outlook' },
       { label: 'Scorecard', href: '/scorecard' },
     ],
   },
@@ -38,7 +39,7 @@ const footerSections = [
     links: [
       { label: 'Daily Brief', href: '/reports' },
       { label: 'Weekly Recap', href: '/reports' },
-      { label: 'Monthly Outlook', href: '/reports' },
+      { label: 'Monthly Outlook', href: '/outlook' },
     ],
   },
 ];
