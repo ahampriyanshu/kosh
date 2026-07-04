@@ -27,11 +27,17 @@ beforeEach(() => {
 describe('refreshKiteAccessToken', () => {
   it('exchanges request_token and updates the GitHub Actions secret', async () => {
     const result = await refreshKiteAccessToken({
+      apiKey: 'kite-key',
       requestToken: 'request-token',
       apiSecret: 'kite-secret',
     });
 
-    expect(h.exchangeKiteRequestToken).toHaveBeenCalledWith('request-token', 'kite-secret');
+    expect(h.exchangeKiteRequestToken).toHaveBeenCalledWith('request-token', 'kite-secret', 'kite-key');
+    expect(h.execFileSync).toHaveBeenCalledWith(
+      'gh',
+      ['secret', 'set', 'KITE_API_KEY'],
+      { input: 'kite-key', stdio: ['pipe', 'inherit', 'inherit'] },
+    );
     expect(h.execFileSync).toHaveBeenCalledWith(
       'gh',
       ['secret', 'set', 'KITE_ACCESS_TOKEN'],

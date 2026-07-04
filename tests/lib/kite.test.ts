@@ -95,7 +95,7 @@ describe('Kite session helpers', () => {
       }),
     } as Response);
 
-    const session = await exchangeKiteRequestToken('request-token', 'kite-secret');
+    const session = await exchangeKiteRequestToken('request-token', 'kite-secret', 'kite-key');
 
     const [url, init] = vi.mocked(fetch).mock.calls[0];
     expect(url).toBe('https://api.kite.trade/session/token');

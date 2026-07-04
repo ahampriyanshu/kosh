@@ -130,8 +130,8 @@ export async function fetchKiteHoldingsSnapshot(now: Date = new Date()): Promise
 export async function exchangeKiteRequestToken(
   requestToken: string,
   apiSecret: string = requiredEnv('KITE_API_SECRET'),
+  apiKey: string = requiredEnv('KITE_API_KEY'),
 ): Promise<{ accessToken: string }> {
-  const apiKey = requiredEnv('KITE_API_KEY');
   const response = await fetch(KITE_SESSION_URL, {
     method: 'POST',
     headers: {
