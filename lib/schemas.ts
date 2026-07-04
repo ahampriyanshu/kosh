@@ -137,14 +137,29 @@ export type Ledger = z.infer<typeof LedgerSchema>;
 export const ResearchRequestSchema = z.string().min(1);
 export type ResearchRequest = z.infer<typeof ResearchRequestSchema>;
 
+const ResearchBulletsSchema = z.preprocess(
+  (value) => {
+    if (typeof value === 'string') return [value];
+    return value;
+  },
+  z.array(z.string().min(1)).min(1).max(3),
+);
+
+export const ResearchMetricSchema = z.object({
+  label: z.string(),
+  value: z.string(),
+});
+export type ResearchMetric = z.infer<typeof ResearchMetricSchema>;
+
 export const ResearchContentSchema = z.object({
   ticker: z.string(),
   name: z.string(),
   asOf: z.string(),
   price: z.number(),
-  fundamental: z.string(),
-  technical: z.string(),
-  sentiment: z.string(),
+  metrics: z.array(ResearchMetricSchema).default([]),
+  fundamental: ResearchBulletsSchema,
+  technical: ResearchBulletsSchema,
+  sentiment: ResearchBulletsSchema,
   recommendation: z.object({
     action: z.enum(['buy', 'sell', 'hold']),
     reasoning: z.string(),

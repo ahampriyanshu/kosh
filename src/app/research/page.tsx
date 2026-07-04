@@ -19,12 +19,12 @@ export default async function ResearchPage() {
             </h1>
           </div>
           <a
-            href="https://github.com/ahampriyanshu/kosh/issues/new?title=Research%20request%3A%20&body=Company%20or%20theme%3A%0A%0AContext%3A%0A-%20Why%20now%3A%20%0A-%20Specific%20questions%3A%20"
+            href="https://github.com/ahampriyanshu/kosh/edit/main/data/research-requests.ts"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 rounded-lg border border-[var(--color-hairline)] px-3 py-2 text-sm font-semibold text-[var(--color-brand)] hover:border-[var(--color-brand)]"
           >
-            Request Research
+            Add New
           </a>
         </div>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />

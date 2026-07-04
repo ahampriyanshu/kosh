@@ -9,7 +9,30 @@ interface ResearchViewProps {
   content: ResearchContent;
 }
 
+function bullets(value: string[] | string): string[] {
+  return Array.isArray(value) ? value : [value];
+}
+
+function BulletSection({ title, items }: { title: string; items: string[] }) {
+  return (
+    <section>
+      <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
+        {title}
+      </h2>
+      <ul className="space-y-2">
+        {items.map((item, index) => (
+          <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-muted)] leading-relaxed">
+            <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export function ResearchView({ content }: ResearchViewProps) {
+  const metrics = content.metrics ?? [];
   const actionColor =
     content.recommendation.action === 'buy'
       ? { bg: 'var(--color-bullish-bg)', fg: 'var(--color-bullish)', border: 'var(--color-hairline)' }
@@ -20,18 +43,22 @@ export function ResearchView({ content }: ResearchViewProps) {
   return (
     <div className="space-y-8">
       {/* Header bar */}
-      <div className="flex items-start gap-4 flex-wrap">
+      <div>
         <div>
           <p className="font-mono text-3xl font-bold text-[var(--color-ink)]">
             {tickerFn(content.ticker)}
           </p>
           <p className="text-[var(--color-muted)] text-sm">{content.name}</p>
         </div>
-        <div className="ml-auto text-right">
-          <p className="font-mono text-2xl font-semibold text-[var(--color-ink)]">
-            ₹{content.price.toLocaleString('en-IN')}
-          </p>
-          <p className="font-mono text-xs text-[var(--color-faint)]">as of {content.asOf}</p>
+        <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          {metrics.slice(0, 3).map((metric) => (
+            <div key={metric.label} className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] px-3 py-2">
+              <p className="font-sans text-[10px] font-semibold uppercase tracking-wider text-[var(--color-faint)]">
+                {metric.label}
+              </p>
+              <p className="font-mono text-sm font-semibold text-[var(--color-ink)] mt-1">{metric.value}</p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -56,29 +83,9 @@ export function ResearchView({ content }: ResearchViewProps) {
         </p>
       </div>
 
-      {/* Fundamental */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Fundamental Analysis
-        </h2>
-        <p className="text-[var(--color-muted)] leading-relaxed text-sm">{content.fundamental}</p>
-      </section>
-
-      {/* Technical */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Technical Analysis
-        </h2>
-        <p className="text-[var(--color-muted)] leading-relaxed text-sm">{content.technical}</p>
-      </section>
-
-      {/* Sentiment */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Sentiment
-        </h2>
-        <p className="text-[var(--color-muted)] leading-relaxed text-sm">{content.sentiment}</p>
-      </section>
+      <BulletSection title="Fundamental Analysis" items={bullets(content.fundamental)} />
+      <BulletSection title="Technical Analysis" items={bullets(content.technical)} />
+      <BulletSection title="Sentiment" items={bullets(content.sentiment)} />
     </div>
   );
 }

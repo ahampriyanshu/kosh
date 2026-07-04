@@ -29,9 +29,14 @@ const researchContent = {
   name: 'TCS',
   asOf: '2026-06-14T02:30:00.000Z',
   price: 3900,
-  fundamental: 'Strong fundamentals.',
-  technical: 'RSI at 55, MACD positive.',
-  sentiment: 'Positive sentiment.',
+  metrics: [
+    { label: 'Last price', value: 'Rs 3,900' },
+    { label: 'Day change', value: '+1.20%' },
+    { label: 'Volume', value: '12,34,567' },
+  ],
+  fundamental: ['Strong fundamentals.'],
+  technical: ['RSI at 55, MACD positive.'],
+  sentiment: ['Positive sentiment.'],
   recommendation: {
     action: 'buy' as const,
     reasoning: 'Good entry point.',

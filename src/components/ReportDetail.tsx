@@ -36,7 +36,7 @@ export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
   const typeLabel = TYPE_TITLES[envelope.type] ?? envelope.type;
   const title =
     envelope.type === 'research'
-      ? `${(envelope.content as ResearchContent).ticker} Research`
+      ? `${(envelope.content as ResearchContent).name} Research`
       : typeLabel;
 
   return (
@@ -46,7 +46,6 @@ export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
         <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">{title}</h1>
         <div className="mt-3 flex items-center gap-4 flex-wrap">
           <time className="font-mono text-xs text-[var(--color-faint)]">{formatGeneratedAt(envelope.generatedAt)}</time>
-          <span className="font-mono text-xs text-[var(--color-faint)] truncate max-w-xs" title={envelope.checksum}>{envelope.checksum.slice(0, 20)}&hellip;</span>
         </div>
         <div className="mt-3 h-px bg-[var(--color-hairline)]" />
       </div>

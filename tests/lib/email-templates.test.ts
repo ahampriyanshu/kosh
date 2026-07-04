@@ -98,9 +98,14 @@ const researchContent: ResearchContent = {
   name: 'Infosys',
   asOf: '2026-06-14T09:15:00.000+05:30',
   price: 1500.75,
-  fundamental: 'Cash flow < capex pressure.',
-  technical: 'Trend is improving.',
-  sentiment: 'News flow is balanced.',
+  metrics: [
+    { label: 'Last price', value: 'Rs 1,500.75' },
+    { label: 'Day change', value: '+0.80%' },
+    { label: 'Volume', value: '12,34,567' },
+  ],
+  fundamental: ['Cash flow < capex pressure.'],
+  technical: ['Trend is improving.'],
+  sentiment: ['News flow is balanced.'],
   recommendation: {
     action: 'buy',
     reasoning: 'Setup is attractive.',
@@ -245,9 +250,9 @@ describe('email templates', () => {
   it('renders research reports with the analysis sections', () => {
     const html = renderResearchEmail(researchContent);
 
-    expect(html).toContain('Research - INFY.NS');
+    expect(html).toContain('Research - Infosys');
     expect(html).toContain('Snapshot');
-    expect(html).toContain('Rs 1,500.75');
+    expect(html).toContain('Last price');
     expect(html).toContain('Recommendation');
     expect(html).toContain('Fundamental Analysis');
     expect(html).toContain('Technical Analysis');

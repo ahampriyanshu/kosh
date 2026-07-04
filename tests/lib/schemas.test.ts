@@ -164,9 +164,14 @@ describe('ResearchContentSchema', () => {
     name: 'Tata Consultancy Services',
     asOf: '2026-06-14',
     price: 3900,
-    fundamental: 'Strong revenue growth, healthy margins.',
-    technical: 'Trading above 200-DMA, RSI neutral.',
-    sentiment: 'Positive analyst coverage post-results.',
+    metrics: [
+      { label: 'Last price', value: 'Rs 3,900' },
+      { label: 'Day change', value: '+1.20%' },
+      { label: 'Volume', value: '12,34,567' },
+    ],
+    fundamental: ['Strong revenue growth, healthy margins.'],
+    technical: ['Trading above 200-DMA, RSI neutral.'],
+    sentiment: ['Positive analyst coverage post-results.'],
     recommendation: {
       action: 'buy',
       reasoning: 'Valuation reasonable relative to growth.',
@@ -176,6 +181,16 @@ describe('ResearchContentSchema', () => {
 
   it('parses a valid ResearchContent', () => {
     expect(ResearchContentSchema.parse(validResearch)).toBeTruthy();
+  });
+
+  it('coerces legacy research paragraphs into bullet arrays', () => {
+    const parsed = ResearchContentSchema.parse({
+      ...validResearch,
+      fundamental: 'Strong revenue growth.',
+      technical: 'RSI neutral.',
+      sentiment: 'Brokerage coverage is balanced.',
+    });
+    expect(parsed.fundamental).toEqual(['Strong revenue growth.']);
   });
 
   it('rejects confidence: 2 (out of range)', () => {

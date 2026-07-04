@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const h = vi.hoisted(() => ({
-  getQuote: vi.fn(),
+  getQuoteDetail: vi.fn(),
   getHistorical: vi.fn(),
   searchTicker: vi.fn(),
   rsi: vi.fn(),
@@ -10,7 +10,7 @@ const h = vi.hoisted(() => ({
   generateGroundedObject: vi.fn(),
 }));
 
-vi.mock('../../lib/market-data', () => ({ getQuote: h.getQuote, getHistorical: h.getHistorical, searchTicker: h.searchTicker }));
+vi.mock('../../lib/market-data', () => ({ getQuoteDetail: h.getQuoteDetail, getHistorical: h.getHistorical, searchTicker: h.searchTicker }));
 vi.mock('../../lib/indicators', () => ({ rsi: h.rsi, macd: h.macd, trend: h.trend }));
 vi.mock('../../lib/llm', () => ({ generateGroundedObject: h.generateGroundedObject }));
 
@@ -21,9 +21,9 @@ const llmContent = {
   name: 'Fake Corp',
   asOf: '1970-01-01T00:00:00.000Z',
   price: 999,
-  fundamental: 'Strong fundamentals with consistent revenue growth.',
-  technical: 'RSI neutral; MACD positive crossover.',
-  sentiment: 'Market sentiment is cautiously optimistic.',
+  fundamental: ['Strong fundamentals with consistent revenue growth.'],
+  technical: ['RSI neutral; MACD positive crossover.'],
+  sentiment: ['Market sentiment is cautiously optimistic.'],
   recommendation: {
     action: 'buy' as const,
     reasoning: 'Solid business with upside potential.',
@@ -33,7 +33,7 @@ const llmContent = {
 
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
-  h.getQuote.mockResolvedValue({ price: 100, currency: 'INR', name: 'TCS' });
+  h.getQuoteDetail.mockResolvedValue({ price: 100, currency: 'INR', name: 'TCS', previousClose: 98, volume: 1234567 });
   h.searchTicker.mockResolvedValue(['TCS.NS']);
   h.getHistorical.mockResolvedValue([
     { date: new Date(), open: 95, high: 105, low: 90, close: 100, volume: 1000000 },
@@ -75,9 +75,14 @@ describe('buildResearch', () => {
       ticker: 'TCS.NS',
       name: 'TCS',
       price: 100,
-      fundamental: expect.any(String),
-      technical: expect.any(String),
-      sentiment: expect.any(String),
+      metrics: [
+        { label: 'Last price', value: 'Rs 100' },
+        { label: 'Day change', value: '+2.04%' },
+        { label: 'Volume', value: '12,34,567' },
+      ],
+      fundamental: expect.any(Array),
+      technical: expect.any(Array),
+      sentiment: expect.any(Array),
       recommendation: {
         action: expect.stringMatching(/^(buy|sell|hold)$/),
         reasoning: expect.any(String),
@@ -99,7 +104,7 @@ describe('buildResearch', () => {
   it('resolves renamed Yahoo symbols before fetching quote and history', async () => {
     const result = await buildResearch('TATAMOTORS.NS', new Date('2026-06-14T02:30:00.000Z'));
 
-    expect(h.getQuote).toHaveBeenCalledWith('TMPV.NS');
+    expect(h.getQuoteDetail).toHaveBeenCalledWith('TMPV.NS');
     expect(h.getHistorical).toHaveBeenCalledWith('TMPV.NS', '2025-06-14');
     expect(result.ticker).toBe('TMPV.NS');
   });
@@ -110,15 +115,28 @@ describe('buildResearch', () => {
     await expect(resolveResearchTicker('HDFC Bank')).resolves.toBe('HDFCBANK.NS');
   });
 
+  it('uses aliases for ambiguous short research queries', async () => {
+    await expect(resolveResearchTicker('itc')).resolves.toBe('ITC.NS');
+    await expect(resolveResearchTicker('psb')).resolves.toBe('PSB.NS');
+    expect(h.searchTicker).not.toHaveBeenCalled();
+  });
+
   it('uses the company query and resolved ticker in the research prompt', async () => {
     h.searchTicker.mockResolvedValue(['RELIANCE.NS']);
 
     await buildResearch('Reliance Industries', new Date('2026-06-14T02:30:00.000Z'));
 
-    expect(h.getQuote).toHaveBeenCalledWith('RELIANCE.NS');
+    expect(h.getQuoteDetail).toHaveBeenCalledWith('RELIANCE.NS');
     const [researchPrompt] = h.generateGroundedObject.mock.calls[0];
     expect(researchPrompt).toContain('Reliance Industries');
     expect(researchPrompt).toContain('RELIANCE.NS');
     expect(researchPrompt).toContain('brokerage rating');
+  });
+
+  it('asks the LLM for one-line bullet sections', async () => {
+    await buildResearch('ITC', new Date('2026-06-14T02:30:00.000Z'));
+
+    const [, buildStructurePrompt] = h.generateGroundedObject.mock.calls[0];
+    expect(buildStructurePrompt('research text')).toContain('arrays of 1-3 concise one-line bullet strings');
   });
 });

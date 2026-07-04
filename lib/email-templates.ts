@@ -310,6 +310,20 @@ function bulletList(items: string[]): string {
     .join('')}</table>`;
 }
 
+function metricTable(metrics: Array<{ label: string; value: string }>): string {
+  if (!metrics?.length) return '';
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:10px">
+    <tr>
+      ${metrics.slice(0, 3).map((metric) => `
+        <td width="33.33%" style="padding:0 8px 0 0;vertical-align:top">
+          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.faint};margin:0 0 3px 0">${escapeHtml(metric.label)}</div>
+          <div style="${mono};font-size:15px;line-height:21px;font-weight:800;color:${colors.text}">${escapeHtml(metric.value)}</div>
+        </td>
+      `).join('')}
+    </tr>
+  </table>`;
+}
+
 function learningLoopBlock(learnings: { worked: string[]; missed: string[] } | undefined): string {
   const worked = learnings?.worked ?? [];
   const missed = learnings?.missed ?? [];
@@ -710,7 +724,7 @@ export function renderRecapEmail(content: RecapContent, title: string): string {
 export function renderResearchEmail(content: ResearchContent): string {
   const rec = content.recommendation;
   return renderShell({
-    title: `Research - ${content.ticker}`,
+    title: `Research - ${content.name}`,
     eyebrow: 'Research',
     preheader: `${rec.action.toUpperCase()} ${content.ticker}: ${rec.reasoning}`,
     children:
@@ -718,16 +732,7 @@ export function renderResearchEmail(content: ResearchContent): string {
         'Snapshot',
         card(
           tickerLine(content.ticker, content.name) +
-            `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:8px">
-              <tr>
-                <td style="${font};color:${colors.faint};font-size:12px;line-height:18px;text-transform:uppercase;padding:0 12px 0 0">Price</td>
-                <td style="${font};color:${colors.faint};font-size:12px;line-height:18px;text-transform:uppercase;padding:0">As of</td>
-              </tr>
-              <tr>
-                <td style="${mono};color:${colors.text};font-size:18px;line-height:26px;font-weight:800;padding:2px 12px 0 0">${escapeHtml(formatPrice(content.price))}</td>
-                <td style="${mono};color:${colors.text};font-size:13px;line-height:20px;padding:2px 0 0">${escapeHtml(content.asOf)}</td>
-              </tr>
-            </table>`,
+            metricTable(content.metrics),
         ),
       ) +
       section(
@@ -738,8 +743,8 @@ export function renderResearchEmail(content: ResearchContent): string {
           rec.action === 'buy' ? colors.link : colors.border,
         ),
       ) +
-      section('Fundamental Analysis', paragraph(content.fundamental)) +
-      section('Technical Analysis', paragraph(content.technical)) +
-      section('Sentiment', paragraph(content.sentiment)),
+      section('Fundamental Analysis', bulletList(content.fundamental)) +
+      section('Technical Analysis', bulletList(content.technical)) +
+      section('Sentiment', bulletList(content.sentiment)),
   });
 }
