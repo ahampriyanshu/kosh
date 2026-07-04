@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-07-04",
+  "type": "recap",
+  "dateKey": "2026-07-04",
+  "generatedAt": "2026-07-04T07:20:19.367Z",
+  "sourceData": {
+    "tickers": [
+      "M&M.NS",
+      "MARUTI.NS",
+      "ICICIBANK.NS",
+      "TATACONSUM.NS",
+      "HINDALCO.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-07-04T07:20:19.367Z"
+  },
+  "content": {
+    "period": "2026-W26",
+    "sourceReportId": "weekly-2026-W26",
+    "graded": [
+      {
+        "ticker": "M&M.NS",
+        "name": "Mahindra & Mahindra",
+        "thesis": "Strong demand for utility vehicles, healthy rural sentiment, and robust order book position are likely to drive continued outperformance in the auto sector.",
+        "action": "buy",
+        "entryRef": 3093,
+        "exitRef": 3136.89990234375,
+        "changePct": 1.42,
+        "outcome": "hit",
+        "note": "buy call moved +1.42%"
+      },
+      {
+        "ticker": "MARUTI.NS",
+        "name": "Maruti Suzuki India",
+        "thesis": "India's largest passenger vehicle maker is benefiting from strong demand in the SUV segment and new model launches, contributing to overall auto sector strength.",
+        "action": "buy",
+        "entryRef": 13412,
+        "exitRef": 14366,
+        "changePct": 7.11,
+        "outcome": "hit",
+        "note": "buy call moved +7.11%"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICI Bank",
+        "thesis": "The financial sector, particularly private banks, continues to show resilience with healthy credit growth and improving asset quality, supported by strong DII flows.",
+        "action": "buy",
+        "entryRef": 1387.5999755859375,
+        "exitRef": 1411.4000244140625,
+        "changePct": 1.72,
+        "outcome": "hit",
+        "note": "buy call moved +1.72%"
+      },
+      {
+        "ticker": "TATACONSUM.NS",
+        "name": "Tata Consumer Products",
+        "thesis": "As a leading FMCG player, it offers defensive characteristics and benefits from stable consumer demand, diversified product portfolio, and potential for margin improvement.",
+        "action": "buy",
+        "entryRef": 1112.800048828125,
+        "exitRef": 1116.699951171875,
+        "changePct": 0.35,
+        "outcome": "partial",
+        "note": "buy call moved +0.35%"
+      },
+      {
+        "ticker": "HINDALCO.NS",
+        "name": "Hindalco Industries",
+        "thesis": "The metal sector is witnessing sustained selling pressure and declining prices, indicating further downside potential due to global commodity price headwinds.",
+        "action": "sell",
+        "entryRef": 963.7999877929688,
+        "exitRef": 953.2000122070312,
+        "changePct": -1.1,
+        "outcome": "hit",
+        "note": "sell call moved -1.1%"
+      }
+    ],
+    "hits": 4,
+    "total": 5,
+    "summary": "4/5 positional bets hit over 2026-W26."
+  },
+  "emailSent": true,
+  "checksum": "sha256:7d297d3881d7f4f1569d7a1b38ed2f3ccb4cd7c1b8031dfe5d25a4e6f9086c65"
+}
