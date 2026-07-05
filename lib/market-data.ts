@@ -35,6 +35,7 @@ interface RawQuote {
   longName?: string;
   regularMarketPreviousClose?: number;
   regularMarketVolume?: number;
+  trailingPE?: number;
 }
 
 function requireQuote(ticker: string, quote: RawQuote | undefined | null): RawQuote {
@@ -78,6 +79,7 @@ export async function getHistorical(
 export interface QuoteDetail extends Quote {
   previousClose: number;
   volume: number;
+  trailingPE: number | null;
 }
 
 export async function getQuoteDetail(ticker: string): Promise<QuoteDetail> {
@@ -88,6 +90,7 @@ export async function getQuoteDetail(ticker: string): Promise<QuoteDetail> {
     name: q.shortName ?? q.longName ?? ticker,
     previousClose: q.regularMarketPreviousClose ?? 0,
     volume: q.regularMarketVolume ?? 0,
+    trailingPE: typeof q.trailingPE === 'number' ? q.trailingPE : null,
   };
 }
 

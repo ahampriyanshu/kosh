@@ -33,7 +33,7 @@ const llmContent = {
 
 beforeEach(() => {
   Object.values(h).forEach((m) => m.mockReset());
-  h.getQuoteDetail.mockResolvedValue({ price: 100, currency: 'INR', name: 'TCS', previousClose: 98, volume: 1234567 });
+  h.getQuoteDetail.mockResolvedValue({ price: 100, currency: 'INR', name: 'TCS', previousClose: 98, volume: 1234567, trailingPE: 31.25 });
   h.searchTicker.mockResolvedValue(['TCS.NS']);
   h.getHistorical.mockResolvedValue([
     { date: new Date(), open: 95, high: 105, low: 90, close: 100, volume: 1000000 },
@@ -76,9 +76,9 @@ describe('buildResearch', () => {
       name: 'TCS',
       price: 100,
       metrics: [
-        { label: 'Last price', value: 'Rs 100' },
-        { label: 'Day change', value: '+2.04%' },
-        { label: 'Volume', value: '12,34,567' },
+        { label: 'RSI', value: '55.0' },
+        { label: 'P/E', value: '31.25' },
+        { label: 'MACD', value: '1.20 / 0.80' },
       ],
       fundamental: expect.any(Array),
       technical: expect.any(Array),

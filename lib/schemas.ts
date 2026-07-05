@@ -144,7 +144,10 @@ const ResearchBulletsSchema = z.preprocess(
     if (typeof value === 'string') return [value];
     return value;
   },
-  z.array(OneLineStringSchema).min(1).max(3),
+  z.array(OneLineStringSchema).min(1).transform((items) => {
+    if (items.length <= 3) return items;
+    return [items[0]!, items[1]!, items.slice(2).join(' ')];
+  }),
 );
 
 export const ResearchMetricSchema = z.object({

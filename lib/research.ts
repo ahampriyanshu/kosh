@@ -13,6 +13,11 @@ const RESEARCH_QUERY_ALIASES: Record<string, string> = {
   psb: 'PSB.NS',
 };
 
+function formatMacd(value: { MACD?: number; signal?: number } | null | undefined): string {
+  if (typeof value?.MACD !== 'number' || typeof value.signal !== 'number') return 'n/a';
+  return `${value.MACD.toFixed(2)} / ${value.signal.toFixed(2)}`;
+}
+
 export async function resolveResearchTicker(query: string): Promise<string> {
   const normalized = query.trim();
   if (!normalized) throw new Error('Research query cannot be empty.');
@@ -50,13 +55,13 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
     `Price ${quote.price} ${quote.currency}; trend ${trend(closes)}; ` +
     `RSI ${lastRsi?.toFixed(1) ?? 'n/a'}; ` +
     `MACD ${lastMacd?.MACD?.toFixed(2) ?? 'n/a'} / signal ${lastMacd?.signal?.toFixed(2) ?? 'n/a'}.`;
-  const dayChangePct = quote.previousClose > 0
-    ? ((quote.price - quote.previousClose) / quote.previousClose) * 100
-    : null;
   const metrics = [
-    { label: 'Last price', value: `Rs ${quote.price.toLocaleString('en-IN', { maximumFractionDigits: 2 })}` },
-    { label: 'Day change', value: dayChangePct == null ? 'n/a' : `${dayChangePct >= 0 ? '+' : ''}${dayChangePct.toFixed(2)}%` },
-    { label: 'Volume', value: quote.volume.toLocaleString('en-IN') },
+    { label: 'RSI', value: lastRsi == null ? 'n/a' : lastRsi.toFixed(1) },
+    { label: 'P/E', value: quote.trailingPE == null ? 'n/a' : quote.trailingPE.toFixed(2) },
+    {
+      label: 'MACD',
+      value: formatMacd(lastMacd),
+    },
   ];
 
   const researchPrompt =

@@ -74,6 +74,9 @@
   --color-muted: var(--color-text-secondary);
   --color-link: var(--color-accent-primary);
   --color-link-hover: var(--color-accent-secondary);
+
+  --page-max-width: 1180px;
+  --page-gutter: clamp(1rem, 3vw, 2rem);
 }
 
 :root[data-mode="dark"] {
@@ -204,9 +207,9 @@ select {
 
 .content-area {
   width: 100%;
-  max-width: 1250px;
+  max-width: calc(var(--page-max-width) + (var(--page-gutter) * 2));
   margin: 0 auto;
-  padding: 0 var(--spacing-4);
+  padding: 0 var(--page-gutter);
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -293,8 +296,6 @@ select {
 
 .main-content {
   width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
   flex: 1;
   padding: 0 0 var(--spacing-10);
 }
@@ -559,7 +560,7 @@ select {
 
 @media (max-width: 768px) {
   .content-area {
-    padding: 0 var(--spacing-4);
+    padding: 0 var(--page-gutter);
   }
 
   .site-header {
@@ -587,7 +588,7 @@ select {
 
 @media (max-width: 640px) {
   .content-area {
-    padding: 0 var(--spacing-4);
+    padding: 0 var(--page-gutter);
   }
 
   .brand-lockup {

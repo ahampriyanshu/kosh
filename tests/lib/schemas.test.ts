@@ -193,6 +193,14 @@ describe('ResearchContentSchema', () => {
     expect(parsed.fundamental).toEqual(['Strong revenue growth.']);
   });
 
+  it('compacts noisy research bullet arrays to at most three bullets', () => {
+    const parsed = ResearchContentSchema.parse({
+      ...validResearch,
+      sentiment: ['rating moved from ', 'Hold', ' to ', 'Sell', ' after earnings.'],
+    });
+    expect(parsed.sentiment).toEqual(['rating moved from', 'Hold', 'to Sell after earnings.']);
+  });
+
   it('rejects confidence: 2 (out of range)', () => {
     const bad = {
       ...validResearch,

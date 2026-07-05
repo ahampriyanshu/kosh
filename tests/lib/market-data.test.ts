@@ -51,13 +51,14 @@ describe('market-data', () => {
     expect(await searchTicker('TCS')).toEqual(['TCS.NS', 'TCS.BO']);
   });
 
-  it('maps a quote to {price, currency, name, previousClose, volume}', async () => {
+  it('maps a quote to {price, currency, name, previousClose, volume, trailingPE}', async () => {
     h.quoteMock.mockResolvedValue({
       regularMarketPrice: 100,
       currency: 'INR',
       shortName: 'X',
       regularMarketPreviousClose: 110,
       regularMarketVolume: 5000,
+      trailingPE: 24.5,
     });
     expect(await getQuoteDetail('X.NS')).toEqual({
       price: 100,
@@ -65,6 +66,7 @@ describe('market-data', () => {
       name: 'X',
       previousClose: 110,
       volume: 5000,
+      trailingPE: 24.5,
     });
   });
 

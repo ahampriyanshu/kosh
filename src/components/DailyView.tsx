@@ -1,33 +1,14 @@
 import type { DailyContent } from '../../lib/schemas';
 import { MarketDashboard } from './market/MarketDashboard';
 
-function formatIST(isoStr: string): string {
-  try {
-    return new Date(isoStr).toLocaleString('en-IN', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      timeZone: 'Asia/Kolkata',
-    });
-  } catch {
-    return isoStr;
-  }
-}
-
 interface DailyViewProps {
   content: DailyContent;
   generatedAt?: string;
 }
 
-export function DailyView({ content, generatedAt }: DailyViewProps) {
+export function DailyView({ content }: DailyViewProps) {
   return (
     <div className="space-y-8">
-      {/* Date line */}
-      {generatedAt && (
-        <p className="font-mono text-xs text-[var(--color-faint)]">{formatIST(generatedAt)}</p>
-      )}
-
       {/* Outlook */}
       <section>
         <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
