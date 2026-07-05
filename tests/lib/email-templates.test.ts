@@ -100,13 +100,11 @@ const researchContent: ResearchContent = {
   price: 1500.75,
   metrics: [
     { label: 'LTP', value: 'Rs 1,500.75' },
-    { label: '52W Position', value: '64% of range' },
+    { label: '52W Range', value: 'Rs 1,250 - Rs 1,800' },
     { label: 'P/E', value: '24.50' },
   ],
-  verdict: 'Setup is attractive but execution risk remains.',
   fundamentals: {
     growth: 'Revenue growth is improving.',
-    quality: 'Cash flow < capex pressure.',
     valuation: 'Valuation is reasonable.',
   },
   technicals: {
@@ -117,8 +115,12 @@ const researchContent: ResearchContent = {
   sentiment: {
     news: 'News flow is balanced.',
     brokerage: 'No major target change found.',
-    marketTone: 'Market tone is constructive.',
   },
+  entryExit: {
+    fundamental: 'Entry is reasonable on fundamentals.',
+    technicalSentiment: 'Wait for technical confirmation.',
+  },
+  targets: [{ source: 'Consensus', target: 'Rs 1,650', duration: '12 months', view: '+10%' }],
   recommendation: {
     action: 'buy',
     reasoning: 'Setup is attractive.',
@@ -269,8 +271,10 @@ describe('email templates', () => {
     expect(html).toContain('Fundamentals');
     expect(html).toContain('Technicals');
     expect(html).toContain('Sentiment');
-    expect(html).toContain('Cash flow &lt; capex pressure.');
+    expect(html).toContain('Valuation is reasonable.');
     expect(html).toContain('Brokerage');
+    expect(html).toContain('Entry &amp; Exit');
+    expect(html).toContain('Target');
     expect(html).toContain('made by');
     expect(html).toContain('>ahampriyanshu</a>');
     expect(html).toContain('href="https://ahampriyanshu.com"');

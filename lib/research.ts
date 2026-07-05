@@ -1,7 +1,7 @@
 import { getQuoteDetail, getHistorical, searchTicker } from './market-data';
 import { rsi, macd, trend } from './indicators';
 import { generateGroundedObject } from './llm';
-import { ResearchContentSchema, type ResearchContent } from './schemas';
+import { ResearchContentSchema, ResearchGeneratedContentSchema, type ResearchContent } from './schemas';
 import { resolveYahooTicker } from './ticker-aliases';
 
 function looksLikeYahooTicker(query: string): boolean {
@@ -22,16 +22,9 @@ function formatPrice(value: number | null): string {
   return value == null ? 'n/a' : `Rs ${value.toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
 }
 
-function format52WeekPosition(price: number, high: number | null, low: number | null): string {
-  if (high == null || low == null || high <= low) return 'n/a';
-  const position = ((price - low) / (high - low)) * 100;
-  return `${Math.round(position)}% of range`;
-}
-
-function formatPercentRatio(value: number | null): string {
-  if (value == null) return 'n/a';
-  const percent = Math.abs(value) <= 1 ? value * 100 : value;
-  return `${percent.toFixed(2)}%`;
+function format52WeekRange(high: number | null, low: number | null): string {
+  if (high == null || low == null) return 'n/a';
+  return `${formatPrice(low)} - ${formatPrice(high)}`;
 }
 
 export async function resolveResearchTicker(query: string): Promise<string> {
@@ -73,9 +66,7 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
     `MACD ${lastMacd?.MACD?.toFixed(2) ?? 'n/a'} / signal ${lastMacd?.signal?.toFixed(2) ?? 'n/a'}.`;
   const metrics = [
     { label: 'LTP', value: formatPrice(quote.price) },
-    { label: '52W Position', value: format52WeekPosition(quote.price, quote.high52w, quote.low52w) },
-    { label: '52W High', value: formatPrice(quote.high52w) },
-    { label: '52W Low', value: formatPrice(quote.low52w) },
+    { label: '52W Range', value: format52WeekRange(quote.high52w, quote.low52w) },
     { label: 'Trend', value: trend(closes) },
     { label: 'RSI', value: lastRsi == null ? 'n/a' : lastRsi.toFixed(1) },
     { label: 'P/E', value: quote.trailingPE == null ? 'n/a' : quote.trailingPE.toFixed(2) },
@@ -83,8 +74,6 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
       label: 'MACD',
       value: formatMacd(lastMacd),
     },
-    { label: 'ROE', value: formatPercentRatio(quote.returnOnEquity) },
-    { label: 'Debt/Equity', value: quote.debtToEquity == null ? 'n/a' : quote.debtToEquity.toFixed(2) },
   ];
 
   const researchPrompt =
@@ -94,14 +83,17 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
 
   const buildStructurePrompt = (research: string) =>
     `Structure the research into this fixed schema only: ` +
-    `"verdict" as one direct line; ` +
-    `"fundamentals": { "growth", "quality", "valuation" }; ` +
+    `"fundamentals": { "growth", "valuation" }; ` +
     `"technicals": { "trend", "momentum", "levels" }; ` +
-    `"sentiment": { "news", "brokerage", "marketTone" }; ` +
+    `"sentiment": { "news", "brokerage" }; ` +
+    `"entryExit": { "fundamental", "technicalSentiment" }; ` +
+    `"targets": [{ "source", "target", "duration", "view" }]; ` +
     `and "recommendation": { "action": "buy"|"sell"|"hold", "reasoning" }. ` +
-    `Every value must be one concise line. Technical fields must incorporate the computed indicators. Brokerage must mention rating/target changes or say none were found.\n\nResearch:\n${research}`;
+    `Every value must be one concise line. Technical fields must incorporate the computed indicators. Brokerage must mention rating/target changes or say none were found. ` +
+    `Entry/exit must clearly say whether the setup supports entry, exit, or wait based on fundamentals and based on technical/sentiment analysis. ` +
+    `Targets must list respected sources, target/upside or downside, and duration when available; use an empty array if no credible sourced targets were found.\n\nResearch:\n${research}`;
 
-  const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, ResearchContentSchema);
+  const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, ResearchGeneratedContentSchema);
   return ResearchContentSchema.parse({
     ...object,
     ticker: resolvedTicker,

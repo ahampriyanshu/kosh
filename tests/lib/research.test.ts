@@ -21,10 +21,8 @@ const llmContent = {
   name: 'Fake Corp',
   asOf: '1970-01-01T00:00:00.000Z',
   price: 999,
-  verdict: 'Solid business with upside potential.',
   fundamentals: {
     growth: 'Strong fundamentals with consistent revenue growth.',
-    quality: 'Margins and cash generation are stable.',
     valuation: 'Valuation is reasonable against growth.',
   },
   technicals: {
@@ -35,8 +33,12 @@ const llmContent = {
   sentiment: {
     news: 'Recent news flow is constructive.',
     brokerage: 'Brokerage changes are limited.',
-    marketTone: 'Market sentiment is cautiously optimistic.',
   },
+  entryExit: {
+    fundamental: 'Entry is reasonable on fundamentals.',
+    technicalSentiment: 'Wait for technical confirmation.',
+  },
+  targets: [{ source: 'Consensus', target: 'Rs 120', duration: '12 months', view: '+20%' }],
   recommendation: {
     action: 'buy' as const,
     reasoning: 'Solid business with upside potential.',
@@ -100,20 +102,14 @@ describe('buildResearch', () => {
       price: 100,
       metrics: [
         { label: 'LTP', value: 'Rs 100' },
-        { label: '52W Position', value: '50% of range' },
-        { label: '52W High', value: 'Rs 120' },
-        { label: '52W Low', value: 'Rs 80' },
+        { label: '52W Range', value: 'Rs 80 - Rs 120' },
         { label: 'Trend', value: 'bullish' },
         { label: 'RSI', value: '55.0' },
         { label: 'P/E', value: '31.25' },
         { label: 'MACD', value: '1.20 / 0.80' },
-        { label: 'ROE', value: '22.00%' },
-        { label: 'Debt/Equity', value: '0.35' },
       ],
-      verdict: expect.any(String),
       fundamentals: {
         growth: expect.any(String),
-        quality: expect.any(String),
         valuation: expect.any(String),
       },
       technicals: {
@@ -124,8 +120,12 @@ describe('buildResearch', () => {
       sentiment: {
         news: expect.any(String),
         brokerage: expect.any(String),
-        marketTone: expect.any(String),
       },
+      entryExit: {
+        fundamental: expect.any(String),
+        technicalSentiment: expect.any(String),
+      },
+      targets: expect.any(Array),
       recommendation: {
         action: expect.stringMatching(/^(buy|sell|hold)$/),
         reasoning: expect.any(String),
@@ -177,6 +177,6 @@ describe('buildResearch', () => {
     await buildResearch('ITC', new Date('2026-06-14T02:30:00.000Z'));
 
     const [, buildStructurePrompt] = h.generateGroundedObject.mock.calls[0];
-    expect(buildStructurePrompt('research text')).toContain('"fundamentals": { "growth", "quality", "valuation" }');
+    expect(buildStructurePrompt('research text')).toContain('"fundamentals": { "growth", "valuation" }');
   });
 });

@@ -43,14 +43,6 @@ export default async function ResearchPage() {
         </div>
       ) : (
         <>
-          <p className="text-sm text-[var(--color-muted)] mb-6">
-            Research jobs are saved as one JSON report per run with a stable id, timestamp, resolved tickers, prices, technicals, sentiment, and recommendations.
-            Add company names to{' '}
-            <code className="font-mono text-xs bg-[var(--color-raised)] px-1.5 py-0.5 rounded border border-[var(--color-hairline)]">
-              data/research-requests.ts
-            </code>{' '}
-            and commit.
-          </p>
           <ResearchArchive reports={sorted} />
         </>
       )}

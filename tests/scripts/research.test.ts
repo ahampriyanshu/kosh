@@ -30,13 +30,11 @@ const researchContent = {
   price: 3900,
   metrics: [
     { label: 'LTP', value: 'Rs 3,900' },
-    { label: '52W Position', value: '72% of range' },
+    { label: '52W Range', value: 'Rs 3,000 - Rs 4,200' },
     { label: 'P/E', value: '31.25' },
   ],
-  verdict: 'Setup is attractive.',
   fundamentals: {
     growth: 'Strong fundamentals.',
-    quality: 'Cash generation is stable.',
     valuation: 'Valuation is reasonable.',
   },
   technicals: {
@@ -47,8 +45,12 @@ const researchContent = {
   sentiment: {
     news: 'Positive sentiment.',
     brokerage: 'No major target change found.',
-    marketTone: 'Market tone is constructive.',
   },
+  entryExit: {
+    fundamental: 'Entry is reasonable on fundamentals.',
+    technicalSentiment: 'Wait for technical confirmation.',
+  },
+  targets: [{ source: 'Consensus', target: 'Rs 4,200', duration: '12 months', view: '+8%' }],
   recommendation: {
     action: 'buy' as const,
     reasoning: 'Good entry point.',

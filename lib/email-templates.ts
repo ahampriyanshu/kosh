@@ -335,6 +335,14 @@ function fixedRows(rows: Array<{ label: string; value: string }>): string {
   </table>`;
 }
 
+function targetRows(targets: Array<{ source: string; target: string; duration: string; view: string }>): string {
+  if (!targets.length) return paragraph('No sourced targets found.', colors.faint);
+  return fixedRows(targets.map((target) => ({
+    label: target.source,
+    value: `${target.target} · ${target.duration} · ${target.view}`,
+  })));
+}
+
 function learningLoopBlock(learnings: { worked: string[]; missed: string[] } | undefined): string {
   const worked = learnings?.worked ?? [];
   const missed = learnings?.missed ?? [];
@@ -746,18 +754,8 @@ export function renderResearchEmail(content: ResearchContent): string {
             metricTable(content.metrics),
         ),
       ) +
-      section(
-        'Recommendation',
-        card(
-          `<div style="margin:0 0 8px 0">${actionBadge(rec.action)}</div>` +
-            paragraph(rec.reasoning),
-          rec.action === 'buy' ? colors.link : colors.border,
-        ),
-      ) +
-      section('Verdict', paragraph(content.verdict)) +
       section('Fundamentals', fixedRows([
         { label: 'Growth', value: content.fundamentals.growth },
-        { label: 'Quality', value: content.fundamentals.quality },
         { label: 'Valuation', value: content.fundamentals.valuation },
       ])) +
       section('Technicals', fixedRows([
@@ -768,7 +766,19 @@ export function renderResearchEmail(content: ResearchContent): string {
       section('Sentiment', fixedRows([
         { label: 'News', value: content.sentiment.news },
         { label: 'Brokerage', value: content.sentiment.brokerage },
-        { label: 'Market tone', value: content.sentiment.marketTone },
-      ])),
+      ])) +
+      section(
+        'Recommendation',
+        card(
+          `<div style="margin:0 0 8px 0">${actionBadge(rec.action)}</div>` +
+            paragraph(rec.reasoning),
+          rec.action === 'buy' ? colors.link : colors.border,
+        ),
+      ) +
+      section('Entry & Exit', fixedRows([
+        { label: 'Fundamental', value: content.entryExit.fundamental },
+        { label: 'Technical / Sentiment', value: content.entryExit.technicalSentiment },
+      ])) +
+      section('Target', targetRows(content.targets ?? [])),
   });
 }

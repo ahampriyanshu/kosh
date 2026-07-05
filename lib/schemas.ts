@@ -152,7 +152,6 @@ const ResearchBulletsSchema = z.preprocess(
 
 const ResearchFundamentalsSchema = z.object({
   growth: OneLineStringSchema,
-  quality: OneLineStringSchema,
   valuation: OneLineStringSchema,
 });
 
@@ -165,7 +164,23 @@ const ResearchTechnicalsSchema = z.object({
 const ResearchSentimentSchema = z.object({
   news: OneLineStringSchema,
   brokerage: OneLineStringSchema,
-  marketTone: OneLineStringSchema,
+});
+
+const ResearchEntryExitSchema = z.object({
+  fundamental: OneLineStringSchema,
+  technicalSentiment: OneLineStringSchema,
+});
+
+const ResearchTargetSchema = z.object({
+  source: OneLineStringSchema,
+  target: OneLineStringSchema,
+  duration: OneLineStringSchema,
+  view: OneLineStringSchema,
+});
+
+const ResearchRecommendationSchema = z.object({
+  action: z.enum(['buy', 'sell', 'hold']),
+  reasoning: OneLineStringSchema,
 });
 
 export const ResearchMetricSchema = z.object({
@@ -174,21 +189,73 @@ export const ResearchMetricSchema = z.object({
 });
 export type ResearchMetric = z.infer<typeof ResearchMetricSchema>;
 
-export const ResearchContentSchema = z.object({
+export const ResearchGeneratedContentSchema = z.object({
   ticker: z.string(),
   name: z.string(),
   asOf: z.string(),
   price: z.number(),
   metrics: z.array(ResearchMetricSchema).default([]),
-  verdict: OneLineStringSchema,
   fundamentals: ResearchFundamentalsSchema,
   technicals: ResearchTechnicalsSchema,
   sentiment: ResearchSentimentSchema,
-  recommendation: z.object({
-    action: z.enum(['buy', 'sell', 'hold']),
-    reasoning: OneLineStringSchema,
+  entryExit: ResearchEntryExitSchema,
+  targets: z.array(ResearchTargetSchema).default([]),
+  recommendation: ResearchRecommendationSchema,
+});
+
+const ResearchCompatContentSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  asOf: z.string(),
+  price: z.number(),
+  metrics: z.array(ResearchMetricSchema).default([]),
+  fundamentals: ResearchFundamentalsSchema.extend({
+    quality: OneLineStringSchema.optional(),
   }),
-}).or(
+  technicals: ResearchTechnicalsSchema,
+  sentiment: ResearchSentimentSchema.extend({
+    marketTone: OneLineStringSchema.optional(),
+  }),
+  entryExit: ResearchEntryExitSchema.optional(),
+  targets: z.array(ResearchTargetSchema).default([]),
+  recommendation: ResearchRecommendationSchema,
+}).transform((content) => {
+  const entryAction =
+    content.recommendation.action === 'sell'
+      ? 'Exit'
+      : content.recommendation.action === 'buy'
+        ? 'Entry'
+        : 'Wait';
+
+  return {
+    ticker: content.ticker,
+    name: content.name,
+    asOf: content.asOf,
+    price: content.price,
+    metrics: content.metrics,
+    fundamentals: {
+      growth: content.fundamentals.growth,
+      valuation: content.fundamentals.valuation,
+    },
+    technicals: content.technicals,
+    sentiment: {
+      news: content.sentiment.news,
+      brokerage: content.sentiment.brokerage,
+    },
+    entryExit: content.entryExit ?? {
+      fundamental: `${entryAction}: ${content.recommendation.reasoning}`,
+      technicalSentiment: content.technicals.trend,
+    },
+    targets: content.targets.length
+      ? content.targets
+      : content.sentiment.marketTone
+        ? [{ source: 'Research summary', target: content.sentiment.marketTone, duration: 'Not specified', view: content.sentiment.marketTone }]
+        : [],
+    recommendation: content.recommendation,
+  };
+});
+
+export const ResearchContentSchema = ResearchGeneratedContentSchema.or(ResearchCompatContentSchema).or(
   z.object({
     ticker: z.string(),
     name: z.string(),
@@ -198,9 +265,7 @@ export const ResearchContentSchema = z.object({
     fundamental: ResearchBulletsSchema,
     technical: ResearchBulletsSchema,
     sentiment: ResearchBulletsSchema,
-    recommendation: z.object({
-      action: z.enum(['buy', 'sell', 'hold']),
-      reasoning: OneLineStringSchema,
+    recommendation: ResearchRecommendationSchema.extend({
       confidence: z.number().min(0).max(1).optional(),
     }),
   }).transform((legacy) => {
@@ -214,10 +279,8 @@ export const ResearchContentSchema = z.object({
       asOf: legacy.asOf,
       price: legacy.price,
       metrics: legacy.metrics,
-      verdict: legacy.recommendation.reasoning,
       fundamentals: {
         growth: fundamental[0] ?? 'No growth detail available.',
-        quality: fundamental[1] ?? fundamental[0] ?? 'No quality detail available.',
         valuation: fundamental[2] ?? fundamental.at(-1) ?? 'No valuation detail available.',
       },
       technicals: {
@@ -228,8 +291,16 @@ export const ResearchContentSchema = z.object({
       sentiment: {
         news: sentiment[0] ?? 'No news detail available.',
         brokerage: sentiment[1] ?? sentiment[0] ?? 'No brokerage detail available.',
-        marketTone: sentiment[2] ?? sentiment.at(-1) ?? 'No market tone detail available.',
       },
+      entryExit: {
+        fundamental: legacy.recommendation.action === 'sell'
+          ? `Exit: ${legacy.recommendation.reasoning}`
+          : `Entry: ${legacy.recommendation.reasoning}`,
+        technicalSentiment: technical[0] ?? sentiment[0] ?? 'No technical or sentiment trigger available.',
+      },
+      targets: sentiment[2]
+        ? [{ source: 'Research summary', target: sentiment[2], duration: 'Not specified', view: sentiment[2] }]
+        : [],
       recommendation: {
         action: legacy.recommendation.action,
         reasoning: legacy.recommendation.reasoning,

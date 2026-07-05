@@ -166,13 +166,11 @@ describe('ResearchContentSchema', () => {
     price: 3900,
     metrics: [
       { label: 'LTP', value: 'Rs 3,900' },
-      { label: '52W Position', value: '72% of range' },
+      { label: '52W Range', value: 'Rs 3,000 - Rs 4,200' },
       { label: 'P/E', value: '31.25' },
     ],
-    verdict: 'Buy because growth is strong and valuation is reasonable.',
     fundamentals: {
       growth: 'Strong revenue growth, healthy margins.',
-      quality: 'Returns are healthy.',
       valuation: 'Valuation is reasonable.',
     },
     technicals: {
@@ -183,8 +181,12 @@ describe('ResearchContentSchema', () => {
     sentiment: {
       news: 'Positive analyst coverage post-results.',
       brokerage: 'No major target cut found.',
-      marketTone: 'Market tone is constructive.',
     },
+    entryExit: {
+      fundamental: 'Entry is reasonable on fundamentals.',
+      technicalSentiment: 'Wait for technical confirmation.',
+    },
+    targets: [{ source: 'Consensus', target: 'Rs 4,200', duration: '12 months', view: '+8%' }],
     recommendation: {
       action: 'buy',
       reasoning: 'Valuation reasonable relative to growth.',
@@ -197,10 +199,11 @@ describe('ResearchContentSchema', () => {
 
   it('coerces legacy research paragraphs into fixed sections', () => {
     const {
-      verdict,
       fundamentals,
       technicals,
       sentiment: fixedSentiment,
+      entryExit,
+      targets,
       ...legacyBase
     } = validResearch;
     const parsed = ResearchContentSchema.parse({
@@ -216,10 +219,11 @@ describe('ResearchContentSchema', () => {
 
   it('compacts noisy legacy research bullet arrays before fixed-section conversion', () => {
     const {
-      verdict,
       fundamentals,
       technicals,
       sentiment: fixedSentiment,
+      entryExit,
+      targets,
       ...legacyBase
     } = validResearch;
     const parsed = ResearchContentSchema.parse({
@@ -230,7 +234,7 @@ describe('ResearchContentSchema', () => {
     });
     expect(parsed.sentiment.news).toBe('rating moved from');
     expect(parsed.sentiment.brokerage).toBe('Hold');
-    expect(parsed.sentiment.marketTone).toBe('to Sell after earnings.');
+    expect(parsed.targets[0]?.view).toBe('to Sell after earnings.');
   });
 });
 
