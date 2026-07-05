@@ -33,6 +33,24 @@ function formatGeneratedAt(iso: string): string {
   }
 }
 
+function formatResearchGeneratedAt(iso: string): string {
+  try {
+    const parts = new Intl.DateTimeFormat('en-IN', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZone: 'Asia/Kolkata',
+      hour12: false,
+    }).formatToParts(new Date(iso));
+    const part = (type: Intl.DateTimeFormatPartTypes) => parts.find((item) => item.type === type)?.value ?? '';
+    return `${part('day')} ${part('month')} ${part('year')}, ${part('hour')}:${part('minute')} IST`;
+  } catch {
+    return iso;
+  }
+}
+
 export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
   const typeLabel = TYPE_TITLES[envelope.type] ?? envelope.type;
   const title =
@@ -40,7 +58,7 @@ export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
       ? `Research #${envelope.id}`
       : typeLabel;
   const description = envelope.type === 'research'
-    ? formatGeneratedAt(envelope.generatedAt)
+    ? formatResearchGeneratedAt(envelope.generatedAt)
     : `${typeLabel} - ${formatGeneratedAt(envelope.generatedAt)}`;
   const researchContent = envelope.content as ResearchReportContent;
 

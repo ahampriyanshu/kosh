@@ -4,13 +4,15 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState, type MouseEvent } from 'react';
 import type { ManifestEntry } from '../../lib/schemas';
 import { outlookPath } from '../../lib/report-routes';
+import { ArchiveArrow } from './ui/ArchiveArrow';
 
 type OutlookKind = 'weekly' | 'monthly';
 type OutlookEntry = ManifestEntry & { type: OutlookKind };
 
 interface OutlookRow {
   key: string;
-  meta: string;
+  label: string;
+  order: number;
   entry: OutlookEntry;
 }
 
@@ -65,12 +67,16 @@ function entryMonth(entry: OutlookEntry): string {
   return monthId(entry.date);
 }
 
-function entryMeta(entry: OutlookEntry): string {
-  if (entry.type === 'monthly') return monthLabel(entryMonth(entry));
-
+function entryWeekNumber(entry: OutlookEntry): number | null {
+  if (entry.type !== 'weekly') return null;
   const weekStart = isoWeekStart(entry.dateKey);
-  if (!weekStart) return entry.dateKey;
-  return `${monthLabel(entryMonth(entry))}, Week ${weekOfMonth(weekStart)}`;
+  return weekStart ? weekOfMonth(weekStart) : null;
+}
+
+function entryLabel(entry: OutlookEntry): string {
+  if (entry.type === 'monthly') return 'Monthly';
+  const weekNumber = entryWeekNumber(entry);
+  return weekNumber ? `W${weekNumber}` : entry.dateKey;
 }
 
 function availableMonths(entries: ManifestEntry[]): string[] {
@@ -97,31 +103,13 @@ function rowsForMonth(entries: ManifestEntry[], month: string): OutlookRow[] {
     .filter((entry) => entryMonth(entry) === month)
     .map((entry) => ({
       key: entry.id,
-      meta: entryMeta(entry),
+      label: entryLabel(entry),
+      order: entry.type === 'monthly' ? 0 : entryWeekNumber(entry) ?? Number.MAX_SAFE_INTEGER,
       entry,
     }))
     .sort((a, b) => {
-      const typeOrder = a.entry.type === b.entry.type ? 0 : a.entry.type === 'weekly' ? -1 : 1;
-      return b.entry.date.localeCompare(a.entry.date) || typeOrder;
+      return a.order - b.order || a.entry.date.localeCompare(b.entry.date);
     });
-}
-
-function ArrowIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 text-[var(--color-muted)]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
 }
 
 function MonthNav({
@@ -200,13 +188,13 @@ export function OutlookMonthArchive({ entries }: { entries: ManifestEntry[] }) {
         <ul className="m-0 list-none p-0">
           {rows.map((row) => (
             <li key={row.key} className="flex flex-wrap items-center gap-3 py-3">
-              <span className="font-mono text-sm text-[var(--color-muted)]">{row.meta}</span>
-              <ArrowIcon />
+              <span className="font-mono text-sm text-[var(--color-muted)]">{row.entry.date}</span>
+              <ArchiveArrow />
               <Link
                 href={outlookPath(row.entry)}
                 className="text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
               >
-                {row.entry.type === 'weekly' ? 'Weekly Outlook' : 'Monthly Outlook'}
+                {row.label}
               </Link>
             </li>
           ))}

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useMemo, useState, type MouseEvent } from 'react';
 import type { ManifestEntry } from '../../lib/schemas';
 import { dateReportPath } from '../../lib/report-routes';
+import { ArchiveArrow } from './ui/ArchiveArrow';
 
 type ReportKind = 'daily' | 'retro';
 type ReportArchiveEntry = ManifestEntry & { type: ReportKind };
@@ -93,24 +94,6 @@ function groupByWeek(entries: ManifestEntry[], month: string): WeekGroup[] {
   return Array.from(weeks.values()).sort((a, b) => b.key.localeCompare(a.key));
 }
 
-function ArrowIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4 text-[var(--color-muted)]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
-}
-
 function MonthNav({
   previousMonth,
   nextMonth,
@@ -190,7 +173,7 @@ export function ReportsMonthArchive({ entries }: { entries: ManifestEntry[] }) {
               {week.days.map((day) => (
                 <li key={day.date} className="flex flex-wrap items-center gap-3 py-3">
                   <span className="font-mono text-sm text-[var(--color-muted)]">{day.date}</span>
-                  <ArrowIcon />
+                  <ArchiveArrow />
                   <span className="flex flex-wrap items-center gap-x-4 gap-y-2">
                     {(['daily', 'retro'] as const)
                       .filter((type) => day.entries[type])

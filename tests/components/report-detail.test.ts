@@ -43,6 +43,7 @@ describe('ReportDetail', () => {
 
     expect(html).toContain('Research #1');
     expect(html).not.toContain('Research -');
-    expect(html).toContain('Sun, 5 Jul, 2026, 01:22 IST');
+    expect(html).toContain('5 Jul 2026, 01:22 IST');
+    expect(html).not.toContain('Sun, 5 Jul, 2026, 01:22 IST');
   });
 });

@@ -5,6 +5,7 @@ import { useEffect, useState, type MouseEvent } from 'react';
 import type { ReportEnvelope, ResearchReportContent } from '../../lib/schemas';
 import { paginateByCursor } from '../../lib/pagination';
 import { ticker as tickerFn } from './market/Figure';
+import { ArchiveArrow } from './ui/ArchiveArrow';
 
 const PAGE_SIZE = 8;
 
@@ -47,9 +48,9 @@ export function ResearchArchive({ reports }: { reports: ReportEnvelope[] }) {
           const tickers = content.items.map((item) => tickerFn(item.ticker)).join(', ');
           return (
             <li key={report.id} className="py-2">
-              <Link href={`/research/${report.id}`} className="group inline-flex flex-wrap items-baseline gap-3 text-lg">
+              <Link href={`/research/${report.id}`} className="group inline-flex flex-wrap items-center gap-3 text-lg">
                 <span className="font-mono text-sm text-[var(--color-muted)]">{reportDate(report)}</span>
-                <span className="font-mono text-[var(--color-muted)]">-&gt;</span>
+                <ArchiveArrow />
                 <span className="font-sans font-medium text-[var(--color-brand)] group-hover:text-[var(--color-link-hover)]">
                   {tickers}
                 </span>

@@ -55,7 +55,7 @@ describe('ResearchArchive', () => {
     const html = renderToStaticMarkup(createElement(ResearchArchive, { reports: [report] }));
 
     expect(html).toContain('2026-07-04');
-    expect(html).toContain('-&gt;');
+    expect(html).toContain('viewBox="0 0 24 24"');
     expect(html).toContain('ITC, PSB');
     expect(html).not.toContain('Research #1');
     expect(html).not.toContain('>1</span>');

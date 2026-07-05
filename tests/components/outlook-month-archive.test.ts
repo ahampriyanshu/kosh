@@ -31,11 +31,18 @@ describe('OutlookMonthArchive', () => {
     }));
 
     expect(html).toContain('Jun 2026');
-    expect(html).toContain('Jun 2026, Week 4');
+    expect(html).toContain('2026-06-28');
+    expect(html).toContain('2026-06-30');
     expect(html).toContain('/outlook/2026/06/week-4');
     expect(html).toContain('/outlook/2026/06/month');
-    expect(html).toContain('Weekly Outlook');
-    expect(html).toContain('Monthly Outlook');
+    expect(html).toContain('Monthly');
+    expect(html).toContain('W3');
+    expect(html).toContain('W4');
+    expect(html).not.toContain('Jun 2026, Week');
+    expect(html).not.toContain('Weekly Outlook');
+    expect(html).not.toContain('Monthly Outlook');
+    expect(html.indexOf('Monthly')).toBeLessThan(html.indexOf('W3'));
+    expect(html.indexOf('W3')).toBeLessThan(html.indexOf('W4'));
     expect(html).not.toContain('Daily Brief');
     expect(html).not.toContain('divide-y');
   });

@@ -56,9 +56,10 @@ describe('ScorecardRecaps', () => {
   it('renders scorecard rows as compact links without inline bet tables', () => {
     const html = renderToStaticMarkup(createElement(ScorecardRecaps, { reports: [report] }));
 
-    expect(html).toContain('max-w-3xl');
+    expect(html).not.toContain('max-w-3xl');
+    expect(html).toContain('<ul');
     expect(html).toContain('2026-07-04');
-    expect(html).toContain('-&gt;');
+    expect(html).toContain('viewBox="0 0 24 24"');
     expect(html).toContain('1/2 positional hit');
     expect(html).not.toContain('Jun 2026, Week');
     expect(html).not.toContain('1/2 positional bets hit over');
