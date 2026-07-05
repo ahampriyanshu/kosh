@@ -103,9 +103,9 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
       {/* FII / DII Activity */}
       {snapshot.fiiDii && (
         <Section title="FII / DII Activity">
-          <div className="grid grid-cols-2 gap-4 max-w-md">
-            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">FII Net</p>
+          <div className="grid grid-cols-2 gap-6 max-w-md">
+            <div>
+              <p className="font-sans text-xs text-[var(--color-faint)] mb-1">FII Net</p>
               <p
                 className="font-mono text-xl tabular-nums"
                 style={{ color: snapshot.fiiDii.fiiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
@@ -113,8 +113,8 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
                 {formatCrore(snapshot.fiiDii.fiiNet)}
               </p>
             </div>
-            <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">DII Net</p>
+            <div>
+              <p className="font-sans text-xs text-[var(--color-faint)] mb-1">DII Net</p>
               <p
                 className="font-mono text-xl tabular-nums"
                 style={{ color: snapshot.fiiDii.diiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
@@ -147,7 +147,7 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
           <div className="grid lg:grid-cols-2 gap-6">
             {topGainers.length > 0 && (
               <div>
-                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bullish)] mb-2">
+                <h3 className="font-sans text-sm font-semibold text-[var(--color-bullish)] mb-2">
                   Top Gainers
                 </h3>
                 <MoversTable title="Top Gainers" rows={topGainers} />
@@ -155,7 +155,7 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
             )}
             {topLosers.length > 0 && (
               <div>
-                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bearish)] mb-2">
+                <h3 className="font-sans text-sm font-semibold text-[var(--color-bearish)] mb-2">
                   Top Losers
                 </h3>
                 <MoversTable title="Top Losers" rows={topLosers} />
@@ -170,13 +170,13 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
         <Section title="52-Week High & Low">
           <div className="grid lg:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bullish)] mb-2">
+              <h3 className="font-sans text-sm font-semibold text-[var(--color-bullish)] mb-2">
                 Near 52-Week High
               </h3>
               <NearList rows={snapshot.near52wHigh} kind="high" />
             </div>
             <div>
-              <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-bearish)] mb-2">
+              <h3 className="font-sans text-sm font-semibold text-[var(--color-bearish)] mb-2">
                 Near 52-Week Low
               </h3>
               <NearList rows={snapshot.near52wLow} kind="low" />

@@ -12,8 +12,8 @@ export default function FlowsCard({ fiiDii, vix, giftNifty, bondYield }: FlowsCa
   if (!fiiDii && !vix && !giftNifty && !bondYield) return null;
 
   return (
-    <div className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+    <div>
+      <div className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-3">
         {fiiDii && (
           <>
             <Stat label="FII Net">

@@ -23,28 +23,28 @@ export default function MoversTable({ rows }: MoversTableProps) {
       <table className="w-full">
         <thead>
           <tr className="border-b border-[var(--color-hairline)]">
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-left py-3 pr-4">
               Ticker
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-left py-3 pr-4">
               Name
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-right py-3 pr-4">
               LTP
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-right py-3 pr-4">
               Change
             </th>
             {hasVolume && (
-              <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-3">
+              <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-right py-3">
                 Volume
               </th>
             )}
           </tr>
         </thead>
-        <tbody className="divide-y divide-[var(--color-hairline)]">
+        <tbody>
           {rows.map((row) => (
-            <tr key={row.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
+            <tr key={row.ticker} className="group border-b border-[var(--color-hairline)] transition-colors last:border-0 hover:bg-[var(--color-raised)]">
               <td className="py-3 pr-4">
                 <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
                   {ticker(row.ticker)}

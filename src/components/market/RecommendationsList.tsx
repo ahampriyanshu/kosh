@@ -29,25 +29,25 @@ export default function RecommendationsList({ recs }: RecommendationsListProps) 
     <div className="overflow-x-auto">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-[var(--color-hairline)]">
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-4">
+          <tr>
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-left py-3 pr-4">
               Ticker
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-left py-3 pr-4">
               Brokerage
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-left py-3 pr-4">
               Action
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-3 pr-4">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-right py-3 pr-4">
               Target
             </th>
-            <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-3">
+            <th className="font-sans text-xs font-medium text-[var(--color-faint)] text-left py-3">
               Rationale
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[var(--color-hairline)]">
+        <tbody>
           {recs.map((rec, idx) => (
             <tr key={idx} className="group hover:bg-[var(--color-raised)] transition-colors">
               <td className="py-3 pr-4">

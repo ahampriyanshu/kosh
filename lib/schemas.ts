@@ -246,11 +246,7 @@ const ResearchCompatContentSchema = z.object({
       fundamental: `${entryAction}: ${content.recommendation.reasoning}`,
       technicalSentiment: content.technicals.trend,
     },
-    targets: content.targets.length
-      ? content.targets
-      : content.sentiment.marketTone
-        ? [{ source: 'Research summary', target: content.sentiment.marketTone, duration: 'Not specified', view: content.sentiment.marketTone }]
-        : [],
+    targets: content.targets,
     recommendation: content.recommendation,
   };
 });
@@ -298,9 +294,7 @@ export const ResearchContentSchema = ResearchGeneratedContentSchema.or(ResearchC
           : `Entry: ${legacy.recommendation.reasoning}`,
         technicalSentiment: technical[0] ?? sentiment[0] ?? 'No technical or sentiment trigger available.',
       },
-      targets: sentiment[2]
-        ? [{ source: 'Research summary', target: sentiment[2], duration: 'Not specified', view: sentiment[2] }]
-        : [],
+      targets: [],
       recommendation: {
         action: legacy.recommendation.action,
         reasoning: legacy.recommendation.reasoning,

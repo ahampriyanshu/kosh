@@ -5,6 +5,7 @@ import { RecapView } from './RecapView';
 import { ResearchView } from './ResearchView';
 import { RetroView } from './RetroView';
 import { WeeklyView } from './WeeklyView';
+import { PageHeader } from './ui/PageHeader';
 
 const TYPE_TITLES: Record<string, string> = {
   daily: 'Daily Brief',
@@ -38,18 +39,14 @@ export function ReportDetail({ envelope }: { envelope: ReportEnvelope }) {
     envelope.type === 'research'
       ? `Research #${envelope.id}`
       : typeLabel;
+  const description = envelope.type === 'research'
+    ? formatGeneratedAt(envelope.generatedAt)
+    : `${typeLabel} - ${formatGeneratedAt(envelope.generatedAt)}`;
   const researchContent = envelope.content as ResearchReportContent;
 
   return (
     <div>
-      <div className="mb-8">
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">{typeLabel}</p>
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">{title}</h1>
-        <div className="mt-3 flex items-center gap-4 flex-wrap">
-          <time className="font-mono text-xs text-[var(--color-faint)]">{formatGeneratedAt(envelope.generatedAt)}</time>
-        </div>
-        <div className="mt-3 h-px bg-[var(--color-hairline)]" />
-      </div>
+      <PageHeader title={title} description={description} />
       {envelope.type === 'daily' && <DailyView content={envelope.content as DailyContent} generatedAt={envelope.generatedAt} />}
       {envelope.type === 'retro' && <RetroView content={envelope.content as RetroContent} />}
       {envelope.type === 'weekly' && <WeeklyView content={envelope.content as WeeklyContent} />}

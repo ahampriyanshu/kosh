@@ -179,4 +179,42 @@ describe('buildResearch', () => {
     const [, buildStructurePrompt] = h.generateGroundedObject.mock.calls[0];
     expect(buildStructurePrompt('research text')).toContain('"fundamentals": { "growth", "valuation" }');
   });
+
+  it('recovers a target from brokerage text when the LLM leaves targets empty', async () => {
+    h.generateGroundedObject.mockResolvedValue({
+      object: {
+        ...llmContent,
+        targets: [],
+        sentiment: {
+          ...llmContent.sentiment,
+          brokerage: 'Consensus analyst rating is Buy with an average 12-month target of 663, indicating an 8.79% upside.',
+        },
+      },
+      sources: [],
+    });
+
+    const result = await buildResearch('ITC', new Date('2026-06-14T02:30:00.000Z'));
+
+    expect(result.targets).toEqual([
+      { source: 'Consensus', target: 'Rs 663', duration: '12 month', view: '+8.79%' },
+    ]);
+  });
+
+  it('does not invent a target when brokerage says none were found', async () => {
+    h.generateGroundedObject.mockResolvedValue({
+      object: {
+        ...llmContent,
+        targets: [],
+        sentiment: {
+          ...llmContent.sentiment,
+          brokerage: 'No major institutional brokerage rating changes or target price updates were prominently found.',
+        },
+      },
+      sources: [],
+    });
+
+    const result = await buildResearch('PSB', new Date('2026-06-14T02:30:00.000Z'));
+
+    expect(result.targets).toEqual([]);
+  });
 });

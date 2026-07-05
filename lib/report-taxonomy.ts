@@ -1,6 +1,6 @@
 import type { ReportType } from './schemas';
 
-export const REPORT_ARCHIVE_TYPES = ['daily', 'retro', 'recap', 'research'] as const satisfies readonly ReportType[];
+export const REPORT_ARCHIVE_TYPES = ['daily', 'retro'] as const satisfies readonly ReportType[];
 export const OUTLOOK_REPORT_TYPES = ['weekly', 'monthly'] as const satisfies readonly ReportType[];
 
 export const REPORT_TYPE_HEADINGS: Record<ReportType, string> = {

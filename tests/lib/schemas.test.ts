@@ -234,7 +234,38 @@ describe('ResearchContentSchema', () => {
     });
     expect(parsed.sentiment.news).toBe('rating moved from');
     expect(parsed.sentiment.brokerage).toBe('Hold');
-    expect(parsed.targets[0]?.view).toBe('to Sell after earnings.');
+    expect(parsed.targets).toEqual([]);
+  });
+
+  it('does not turn legacy market tone into a target', () => {
+    const parsed = ResearchContentSchema.parse({
+      ticker: 'VISHNU.NS',
+      name: 'Vishnu Chemicals',
+      asOf: '2026-07-04T19:21:52.885Z',
+      price: 432,
+      metrics: [{ label: 'LTP', value: 'Rs 432' }],
+      fundamentals: {
+        growth: 'Growth is improving.',
+        quality: 'Quality detail from the older schema.',
+        valuation: 'Valuation is reasonable.',
+      },
+      technicals: {
+        trend: 'Trend is mixed.',
+        momentum: 'Momentum is neutral.',
+        levels: 'Support is nearby.',
+      },
+      sentiment: {
+        news: 'News flow is mixed.',
+        brokerage: 'No target update found.',
+        marketTone: 'MarketsMOJO downgraded to Sell while another source stayed constructive.',
+      },
+      recommendation: {
+        action: 'hold',
+        reasoning: 'Wait for a cleaner setup.',
+      },
+    });
+
+    expect(parsed.targets).toEqual([]);
   });
 });
 

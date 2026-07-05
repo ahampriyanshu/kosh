@@ -2,6 +2,7 @@ import type { RetroContent } from '../../lib/schemas';
 import { SeverityBadge } from './SeverityBadge';
 import { Pct } from './Pct';
 import { ticker as tickerFn } from './market/Figure';
+import { ReportSection } from './ui/ReportSection';
 
 interface RetroViewProps {
   content: RetroContent;
@@ -12,28 +13,19 @@ export function RetroView({ content }: RetroViewProps) {
     <div className="space-y-8">
       {/* Summary */}
       {content.summary && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-            Session Summary
-          </h2>
+        <ReportSection title="Session Summary">
           <p className="text-[var(--color-ink)] leading-relaxed">{content.summary}</p>
-        </section>
+        </ReportSection>
       )}
 
       {/* Alerts */}
       {content.alerts.length > 0 && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-            Alerts
-            <span className="ml-2 font-mono text-sm font-normal text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-2 py-0.5 rounded">
-              {content.alerts.length}
-            </span>
-          </h2>
+        <ReportSection title="Alerts" count={content.alerts.length}>
           <div className="space-y-3">
             {content.alerts.map((alert, i) => (
               <article
                 key={`${alert.ticker}-${i}`}
-                className="p-4 rounded-lg border border-[var(--color-hairline)] bg-[var(--color-raised)]"
+                className="py-3"
               >
                 <div className="flex items-start gap-3 flex-wrap">
                   <SeverityBadge severity={alert.severity} />
@@ -50,7 +42,7 @@ export function RetroView({ content }: RetroViewProps) {
                         {alert.triggeredRules.map((rule) => (
                           <span
                             key={rule}
-                            className="font-mono text-xs px-1.5 py-0.5 rounded bg-[var(--color-bg)] border border-[var(--color-hairline)] text-[var(--color-faint)]"
+                            className="font-mono text-xs text-[var(--color-faint)]"
                           >
                             {rule}
                           </span>
@@ -62,15 +54,12 @@ export function RetroView({ content }: RetroViewProps) {
               </article>
             ))}
           </div>
-        </section>
+        </ReportSection>
       )}
 
       {/* Evaluated stocks */}
       {content.evaluated.length > 0 && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-            Portfolio Scan
-          </h2>
+        <ReportSection title="Portfolio Scan">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
@@ -114,12 +103,12 @@ export function RetroView({ content }: RetroViewProps) {
               </tbody>
             </table>
           </div>
-        </section>
+        </ReportSection>
       )}
 
       {/* Empty alerts state */}
       {content.alerts.length === 0 && (
-        <div className="py-6 text-center text-sm text-[var(--color-faint)] border border-dashed border-[var(--color-hairline)] rounded-lg">
+        <div className="py-6 text-center text-sm text-[var(--color-faint)]">
           No alerts triggered this session.
         </div>
       )}

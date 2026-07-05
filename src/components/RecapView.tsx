@@ -2,6 +2,7 @@ import type { RecapContent } from '../../lib/schemas';
 import { formatPeriodLabel, formatPeriodText } from '../../lib/time';
 import { VerificationBadge } from './VerificationBadge';
 import { Pct, ticker as tickerFn } from './market/Figure';
+import { ReportSection } from './ui/ReportSection';
 
 interface RecapViewProps {
   content: RecapContent;
@@ -37,36 +38,34 @@ export function RecapView({ content }: RecapViewProps) {
       <p className="font-mono text-xs text-[var(--color-faint)]">{formatPeriodLabel(content.period)}</p>
 
       {/* Hit-rate badge + summary */}
-      <section>
-        <div className="flex items-center gap-3 mb-4 pb-2 border-b border-[var(--color-hairline)]">
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
-            Grading Results
-          </h2>
+      <ReportSection title="Grading Results">
+        <div className="mb-3">
           <VerificationBadge hits={content.hits} total={content.total} />
         </div>
         <p className="text-[var(--color-muted)] leading-relaxed">{formatPeriodText(content.summary)}</p>
-      </section>
+      </ReportSection>
 
       {(learnings.worked.length > 0 || learnings.missed.length > 0) && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-            Learning Loop
-          </h2>
+        <ReportSection title="Learning Loop">
           <div className="grid gap-6 md:grid-cols-2">
             <LearningColumn title="What worked" items={learnings.worked} empty="No confirmed drivers yet." />
             <LearningColumn title="What missed" items={learnings.missed} empty="No failed drivers yet." />
           </div>
-        </section>
+        </ReportSection>
       )}
 
       {/* Graded bets table */}
       {content.graded.length > 0 && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-            Bet-by-Bet Breakdown
-          </h2>
+        <ReportSection title="Bet-by-Bet Breakdown">
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-auto min-w-[56rem] table-fixed text-sm">
+              <colgroup>
+                <col className="w-[20rem]" />
+                <col className="w-[8rem]" />
+                <col className="w-[12rem]" />
+                <col className="w-[8rem]" />
+                <col className="w-[8rem]" />
+              </colgroup>
               <thead>
                 <tr className="border-b border-[var(--color-hairline)]">
                   <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2 pr-4">
@@ -135,7 +134,7 @@ export function RecapView({ content }: RecapViewProps) {
                       <td className="py-3 pr-4 text-right whitespace-nowrap">
                         <Pct value={bet.changePct} />
                       </td>
-                      <td className="py-3">
+                      <td className="py-3 align-top">
                         <span className="font-sans text-xs font-semibold uppercase tracking-wider" style={{ color: outcomeColor }}>
                           {bet.outcome}
                         </span>
@@ -149,16 +148,13 @@ export function RecapView({ content }: RecapViewProps) {
               </tbody>
             </table>
           </div>
-        </section>
+        </ReportSection>
       )}
 
       {content.graded.length === 0 && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-            Bet-by-Bet Breakdown
-          </h2>
+        <ReportSection title="Bet-by-Bet Breakdown">
           <p className="text-sm text-[var(--color-faint)] italic">No bets to grade for this period.</p>
-        </section>
+        </ReportSection>
       )}
     </div>
   );

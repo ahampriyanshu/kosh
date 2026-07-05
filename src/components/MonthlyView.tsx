@@ -1,6 +1,7 @@
 import type { MonthlyContent } from '../../lib/schemas';
 import { MarketDashboard } from './market/MarketDashboard';
 import { SignalBadge } from './SignalBadge';
+import { ReportSection } from './ui/ReportSection';
 
 interface MonthlyViewProps {
   content: MonthlyContent;
@@ -37,48 +38,37 @@ export function MonthlyView({ content }: MonthlyViewProps) {
   return (
     <div className="space-y-8">
       {/* Sector Insights */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Sector Insights
-        </h2>
+      <ReportSection title="Sector Insights">
         {content.sectorInsights.length > 0 ? (
           <ul className="space-y-2">
             {content.sectorInsights.map((insight, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-                <span className="text-sm text-[var(--color-muted)] leading-relaxed">{insight}</span>
+              <li key={i} className="text-sm text-[var(--color-muted)] leading-relaxed">
+                {insight}
               </li>
             ))}
           </ul>
         ) : (
           <p className="text-sm text-[var(--color-faint)]">—</p>
         )}
-      </section>
+      </ReportSection>
 
       {/* Macro Themes */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Macro Themes
-        </h2>
+      <ReportSection title="Macro Themes">
         {content.macroThemes.length > 0 ? (
           <ul className="space-y-2">
             {content.macroThemes.map((theme, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-                <span className="text-sm text-[var(--color-muted)] leading-relaxed">{theme}</span>
+              <li key={i} className="text-sm text-[var(--color-muted)] leading-relaxed">
+                {theme}
               </li>
             ))}
           </ul>
         ) : (
           <p className="text-sm text-[var(--color-faint)]">—</p>
         )}
-      </section>
+      </ReportSection>
 
       {/* Mid-Term Bets */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-          Mid-Term Bets
-        </h2>
+      <ReportSection title="Mid-Term Bets">
         {content.midTermBets.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -150,14 +140,11 @@ export function MonthlyView({ content }: MonthlyViewProps) {
         ) : (
           <p className="text-sm text-[var(--color-faint)]">No mid-term bets this month.</p>
         )}
-      </section>
+      </ReportSection>
 
       {/* Ledger rollup (Phase 3b) */}
       {content.ledgerRollup && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-            Ledger Rollup
-          </h2>
+        <ReportSection title="Ledger Rollup">
           <p className="font-mono text-sm text-[var(--color-ink)] mb-2">
             {content.ledgerRollup.hits} / {content.ledgerRollup.total} hits
           </p>
@@ -176,7 +163,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
               />
             </div>
           )}
-        </section>
+        </ReportSection>
       )}
 
       {/* Market Dashboard */}

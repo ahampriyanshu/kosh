@@ -1,5 +1,6 @@
 import type { DailyContent } from '../../lib/schemas';
 import { MarketDashboard } from './market/MarketDashboard';
+import { ReportSection } from './ui/ReportSection';
 
 interface DailyViewProps {
   content: DailyContent;
@@ -10,28 +11,21 @@ export function DailyView({ content }: DailyViewProps) {
   return (
     <div className="space-y-8">
       {/* Outlook */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Market Outlook
-        </h2>
+      <ReportSection title="Market Outlook">
         <p className="text-[var(--color-ink)] leading-relaxed">{content.outlook}</p>
-      </section>
+      </ReportSection>
 
       {/* Key Takeaways */}
       {content.keyTakeaways.length > 0 && (
-        <section>
-          <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-            Key Takeaways
-          </h2>
+        <ReportSection title="Key Takeaways">
           <ul className="space-y-2">
             {content.keyTakeaways.map((item, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-                <span className="text-sm text-[var(--color-muted)] leading-relaxed">{item}</span>
+              <li key={i} className="text-sm text-[var(--color-muted)] leading-relaxed">
+                {item}
               </li>
             ))}
           </ul>
-        </section>
+        </ReportSection>
       )}
 
       {/* Market Dashboard */}

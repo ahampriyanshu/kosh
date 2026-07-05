@@ -4,6 +4,8 @@ import { MarketDashboard } from '../components/market/MarketDashboard';
 import { NewsDigest } from '../components/market/NewsDigest';
 import { Section } from '../components/market/Figure';
 import { SeverityBadge } from '../components/SeverityBadge';
+import { PageHeader } from '../components/ui/PageHeader';
+import { ReportSection } from '../components/ui/ReportSection';
 
 export default async function TodayPage() {
   const [daily, retro] = await Promise.all([
@@ -22,30 +24,17 @@ export default async function TodayPage() {
 
   return (
     <div>
-      {/* Page header */}
-      <div className="mb-8">
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Market Digest
-        </h1>
-        <div className="mt-3 h-px bg-[var(--color-hairline)]" />
-      </div>
+      <PageHeader title="Market Digest" />
 
       {/* Mid-session alerts strip (today only) */}
       {midContent && midContent.alerts.length > 0 && (
         <section className="mb-8">
-          <div className="mb-4 pb-2 border-b border-[var(--color-hairline)] flex items-center gap-3">
-            <h2 className="font-display text-xl font-semibold text-[var(--color-ink)]">
-              Mid-Session Alerts
-            </h2>
-            <span className="font-mono text-xs text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-2 py-0.5 rounded border border-[var(--color-bearish-bg)]">
-              {midContent.alerts.length}
-            </span>
-          </div>
+          <ReportSection title="Mid-Session Alerts" count={midContent.alerts.length}>
           <div className="space-y-2">
             {midContent.alerts.map((alert, i) => (
               <div
                 key={`${alert.ticker}-${i}`}
-                className="flex items-start gap-3 p-3 rounded-lg bg-[var(--color-raised)] border border-[var(--color-hairline)]"
+                className="flex items-start gap-3 py-2"
               >
                 <SeverityBadge severity={alert.severity} />
                 <div className="flex-1 min-w-0">
@@ -57,6 +46,7 @@ export default async function TodayPage() {
               </div>
             ))}
           </div>
+          </ReportSection>
         </section>
       )}
 

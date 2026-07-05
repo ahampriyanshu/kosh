@@ -1,6 +1,7 @@
 import type { WeeklyContent } from '../../lib/schemas';
 import { MarketDashboard } from './market/MarketDashboard';
 import { SignalBadge } from './SignalBadge';
+import { ReportSection } from './ui/ReportSection';
 
 interface WeeklyViewProps {
   content: WeeklyContent;
@@ -14,29 +15,22 @@ export function WeeklyView({ content }: WeeklyViewProps) {
   return (
     <div className="space-y-8">
       {/* Themes */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-          Themes This Week
-        </h2>
+      <ReportSection title="Themes This Week">
         {content.themes.length > 0 ? (
           <ul className="space-y-2">
             {content.themes.map((theme, i) => (
-              <li key={i} className="flex items-start gap-2">
-                <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-                <span className="text-sm text-[var(--color-muted)] leading-relaxed">{theme}</span>
+              <li key={i} className="text-sm text-[var(--color-muted)] leading-relaxed">
+                {theme}
               </li>
             ))}
           </ul>
         ) : (
           <p className="text-sm text-[var(--color-faint)]">—</p>
         )}
-      </section>
+      </ReportSection>
 
       {/* Positional Bets */}
-      <section>
-        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-4 pb-2 border-b border-[var(--color-hairline)]">
-          Positional Bets
-        </h2>
+      <ReportSection title="Positional Bets">
         {content.positionalBets.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -108,7 +102,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
         ) : (
           <p className="text-sm text-[var(--color-faint)]">No positional bets this week.</p>
         )}
-      </section>
+      </ReportSection>
 
       {/* Market Dashboard */}
       <MarketDashboard snapshot={content.snapshot} />

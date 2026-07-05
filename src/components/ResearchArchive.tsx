@@ -8,20 +8,8 @@ import { ticker as tickerFn } from './market/Figure';
 
 const PAGE_SIZE = 8;
 
-function formatGeneratedAt(iso: string): string {
-  try {
-    return new Date(iso).toLocaleString('en-IN', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      timeZone: 'Asia/Kolkata',
-      hour12: false,
-    }) + ' IST';
-  } catch {
-    return iso;
-  }
+function reportDate(report: ReportEnvelope): string {
+  return report.generatedAt.slice(0, 10);
 }
 
 function cursorHref(cursor: string | null): string {
@@ -53,41 +41,26 @@ export function ResearchArchive({ reports }: { reports: ReportEnvelope[] }) {
 
   return (
     <div className="space-y-4">
-      <div className="space-y-3">
+      <ul className="m-0 list-none p-0">
         {page.items.map((report) => {
           const content = report.content as ResearchReportContent;
-          const first = content.items[0];
           const tickers = content.items.map((item) => tickerFn(item.ticker)).join(', ');
           return (
-            <Link key={report.id} href={`/research/${report.id}`} className="block group">
-              <article className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4 hover:border-[var(--color-brand)] hover:shadow-sm transition-all duration-150">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <p className="font-mono text-sm font-bold text-[var(--color-ink)]">{tickers}</p>
-                    <h2 className="font-display text-lg font-semibold text-[var(--color-brand)] leading-snug mt-1">
-                      Research #{report.id}
-                    </h2>
-                    <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed line-clamp-2">
-                      {content.items.map((item) => item.name).join(' · ')}
-                    </p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <time className="font-mono text-xs text-[var(--color-faint)]">
-                      {formatGeneratedAt(report.generatedAt)}
-                    </time>
-                    <p className="mt-2 font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-brand)]">
-                      {content.items.length} stock{content.items.length === 1 ? '' : 's'} · {first?.recommendation.action ?? 'hold'}
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </Link>
+            <li key={report.id} className="py-2">
+              <Link href={`/research/${report.id}`} className="group inline-flex flex-wrap items-baseline gap-3 text-lg">
+                <span className="font-mono text-sm text-[var(--color-muted)]">{reportDate(report)}</span>
+                <span className="font-mono text-[var(--color-muted)]">-&gt;</span>
+                <span className="font-sans font-medium text-[var(--color-brand)] group-hover:text-[var(--color-link-hover)]">
+                  {tickers}
+                </span>
+              </Link>
+            </li>
           );
         })}
-      </div>
+      </ul>
 
       {(page.previousCursor || page.nextCursor || cursor) && (
-        <nav className="flex items-center justify-between gap-3 pt-2">
+        <nav className="flex flex-wrap items-center justify-center gap-6 pt-2">
           {page.previousCursor || cursor ? (
             <Link
               href={cursorHref(page.previousCursor)}
@@ -96,9 +69,7 @@ export function ResearchArchive({ reports }: { reports: ReportEnvelope[] }) {
             >
               Previous
             </Link>
-          ) : (
-            <span />
-          )}
+          ) : null}
           {page.nextCursor ? (
             <Link
               href={cursorHref(page.nextCursor)}

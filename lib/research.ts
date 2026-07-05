@@ -27,6 +27,29 @@ function format52WeekRange(high: number | null, low: number | null): string {
   return `${formatPrice(low)} - ${formatPrice(high)}`;
 }
 
+function extractFallbackTargets(...texts: string[]): Array<{ source: string; target: string; duration: string; view: string }> {
+  const text = texts.filter(Boolean).join(' ');
+  if (!text || /\bno\s+(?:major\s+)?(?:institutional\s+)?(?:brokerage\s+)?(?:rating\s+changes?\s+or\s+)?target\b/i.test(text)) {
+    return [];
+  }
+
+  const targetMatch = text.match(/\b(?:average\s+)?(?:target(?:\s+price)?|price\s+target)\s+(?:of|at|to|is|around)?\s*(?:Rs\.?|INR|₹)?\s*([0-9][0-9,]*[0-9](?:\.\d+)?|[0-9](?:\.\d+)?)/i);
+  if (!targetMatch) return [];
+
+  const durationMatch = text.match(/\b(12[-\s]?month|one[-\s]?year|[0-9]+\s*(?:months?|years?))\b/i);
+  const upsideMatch = text.match(/([+-]?\d+(?:\.\d+)?)\s*%\s*(upside|downside)/i);
+  const sourceMatch = text.match(/\b(Jefferies|Morgan Stanley|Goldman Sachs|Nomura|CLSA|Citi|HSBC|Motilal Oswal|ICICI Securities|HDFC Securities|Kotak|Nuvama|Axis Securities|Brokerage consensus|Consensus)\b/i);
+
+  const percentage = upsideMatch ? `${upsideMatch[2].toLowerCase() === 'downside' ? '-' : '+'}${upsideMatch[1].replace(/^[+-]/, '')}%` : 'Not specified';
+
+  return [{
+    source: sourceMatch?.[1] ?? 'Brokerage consensus',
+    target: `Rs ${targetMatch[1]}`,
+    duration: durationMatch?.[1].replace(/-/g, ' ') ?? 'Not specified',
+    view: percentage,
+  }];
+}
+
 export async function resolveResearchTicker(query: string): Promise<string> {
   const normalized = query.trim();
   if (!normalized) throw new Error('Research query cannot be empty.');
@@ -94,8 +117,13 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
     `Targets must list respected sources, target/upside or downside, and duration when available; use an empty array if no credible sourced targets were found.\n\nResearch:\n${research}`;
 
   const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, ResearchGeneratedContentSchema);
+  const generatedTargets = object.targets ?? [];
+  const targets = generatedTargets.length > 0
+    ? generatedTargets
+    : extractFallbackTargets(object.sentiment.brokerage, object.recommendation.reasoning);
   return ResearchContentSchema.parse({
     ...object,
+    targets,
     ticker: resolvedTicker,
     name: quote.name,
     asOf: now.toISOString(),

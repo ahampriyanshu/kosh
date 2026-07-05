@@ -7,10 +7,12 @@ import {
 } from '../../lib/report-taxonomy';
 
 describe('report taxonomy', () => {
-  it('keeps weekly and monthly outlooks out of the report archive', () => {
-    expect(REPORT_ARCHIVE_TYPES).toEqual(['daily', 'retro', 'recap', 'research']);
+  it('keeps recaps, research, and outlooks out of the report archive', () => {
+    expect(REPORT_ARCHIVE_TYPES).toEqual(['daily', 'retro']);
     expect(isReportArchiveType('weekly')).toBe(false);
     expect(isReportArchiveType('monthly')).toBe(false);
+    expect(isReportArchiveType('recap')).toBe(false);
+    expect(isReportArchiveType('research')).toBe(false);
   });
 
   it('groups weekly and monthly reports as outlooks', () => {

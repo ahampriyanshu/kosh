@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import type { ManifestEntry } from '../../lib/schemas';
 import { entryPath } from '../../lib/report-routes';
 import { formatPeriodLabel } from '../../lib/time';
 import { VerificationBadge } from './VerificationBadge';
+import { IndexList } from './ui/IndexList';
 
 const TYPE_LABELS: Record<string, string> = {
   daily: 'Daily Brief', retro: 'Mid-Session', recap: 'Weekly Recap',
@@ -45,44 +45,23 @@ export function ReportCard({
     entry.type === 'research' && ticker
       ? `${ticker} Research`
       : typeLabel;
+  const description = entry.type === 'retro' && alertCount !== undefined && alertCount > 0
+    ? `${alertCount} alert${alertCount !== 1 ? 's' : ''}`
+    : undefined;
 
   return (
-    <Link href={entryPath(entry)} className="block group">
-      <article className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] p-4 hover:border-[var(--color-brand)] hover:shadow-sm transition-all duration-150">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            {/* Eyebrow */}
-            <p className="text-xs font-sans font-medium uppercase tracking-widest text-[var(--color-brand)] mb-1">
-              {typeLabel}
-            </p>
-            {/* Title */}
-            <h3 className="font-display text-base font-semibold text-[var(--color-brand)] transition-colors leading-snug">
-              {title}
-              {entry.type === 'retro' && alertCount !== undefined && alertCount > 0 && (
-                <span className="ml-2 font-mono text-xs font-normal text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] px-1.5 py-0.5 rounded">
-                  {alertCount} alert{alertCount !== 1 ? 's' : ''}
-                </span>
-              )}
-            </h3>
-          </div>
-          {/* Date */}
-          <time className="font-mono text-xs text-[var(--color-faint)] whitespace-nowrap mt-0.5 shrink-0">
-            {dateLabel}
-          </time>
-        </div>
-        <p className="mt-3 font-sans text-xs font-semibold text-[var(--color-brand)] underline underline-offset-4">
-          View report -&gt;
-        </p>
-
-        {/* Verification badge for recap */}
-        {entry.type === 'recap' &&
-          verificationHits !== undefined &&
-          verificationTotal !== undefined && (
-            <div className="mt-2">
-              <VerificationBadge hits={verificationHits} total={verificationTotal} />
-            </div>
-          )}
-      </article>
-    </Link>
+    <IndexList.Row
+      href={entryPath(entry)}
+      meta={dateLabel}
+      title={title}
+      description={description}
+      aside={
+        entry.type === 'recap' &&
+        verificationHits !== undefined &&
+        verificationTotal !== undefined ? (
+          <VerificationBadge hits={verificationHits} total={verificationTotal} />
+        ) : undefined
+      }
+    />
   );
 }

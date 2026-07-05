@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { ReportSection } from '../ui/ReportSection';
 
 // Signed percent in mono with bullish/bearish color.
 export function Pct({ value, className = '' }: { value: number; className?: string }) {
@@ -14,7 +15,7 @@ export function Pct({ value, className = '' }: { value: number; className?: stri
 export function Stat({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div>
-      <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-0.5">{label}</p>
+      <p className="font-sans text-xs text-[var(--color-faint)] mb-0.5">{label}</p>
       <div className="font-mono text-[var(--color-ink)]">{children}</div>
     </div>
   );
@@ -28,12 +29,8 @@ export function ticker(symbol: string): string {
 // Section wrapper with a heading.
 export function Section({ title, children, count }: { title: string; children: ReactNode; count?: number }) {
   return (
-    <section className="mt-8">
-      <h2 className="font-display text-lg font-bold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
-        {title}
-        {count !== undefined && <span className="ml-2 font-mono text-sm font-normal text-[var(--color-faint)]">({count})</span>}
-      </h2>
+    <ReportSection title={title} count={count}>
       {children}
-    </section>
+    </ReportSection>
   );
 }

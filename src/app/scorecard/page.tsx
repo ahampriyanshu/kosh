@@ -1,21 +1,13 @@
 import { getReportsByType } from '../../lib/reports';
 import { ScorecardRecaps } from '../../components/ScorecardRecaps';
+import { PageHeader } from '../../components/ui/PageHeader';
 
 export default async function ScorecardPage() {
   const recaps = (await getReportsByType('recap')).sort((a, b) => b.dateKey.localeCompare(a.dateKey));
 
   return (
     <div>
-      {/* Page header */}
-      <div className="mb-8">
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Backward view
-        </p>
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Scorecard
-        </h1>
-        <div className="mt-3 h-px bg-[var(--color-hairline)]" />
-      </div>
+      <PageHeader title="Scorecard" description="Backward view of weekly calls and what actually worked." />
 
       {/* Empty state */}
       {recaps.length === 0 ? (

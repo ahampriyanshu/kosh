@@ -6,6 +6,7 @@ import type { Portfolio } from '../../lib/schemas';
 import { sortPortfolioHoldings, type PortfolioSort, type PortfolioSortKey } from '../../lib/portfolio-sort';
 import { Pct } from './Pct';
 import { ticker } from './market/Figure';
+import { PageHeader } from './ui/PageHeader';
 
 const STORAGE_KEY = 'kosh_portfolio_key';
 const ENCRYPTED_PORTFOLIO_URL = '/data/portfolio.enc.json';
@@ -54,8 +55,8 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
       : 'text-[var(--color-ink)]';
 
   return (
-    <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] rounded-lg px-4 py-3">
-      <p className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">
+    <div className="py-2">
+      <p className="font-sans text-xs text-[var(--color-faint)] mb-1">
         {label}
       </p>
       <p className={`font-mono text-lg font-bold tabular-nums ${color}`}>{value}</p>
@@ -66,22 +67,11 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
 function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
   return (
     <div>
-      <div className="mb-10">
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Holdings
-        </p>
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Portfolio
-        </h1>
-        <div className="mt-3 h-px bg-[var(--color-hairline)]" />
-      </div>
+      <PageHeader title="Portfolio" description="Holdings view for a broker-synced portfolio." />
 
       <section>
         <div className="max-w-3xl">
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-3">
-            Setup required
-          </p>
-          <h2 className="font-display text-2xl font-black text-[var(--color-ink)] leading-tight mb-4">
+          <h2 className="font-display text-2xl font-bold text-[var(--color-ink)] leading-tight mb-4">
             Bring your own portfolio feed.
           </h2>
           <p className="text-sm leading-6 text-[var(--color-muted)] max-w-xl">
@@ -106,7 +96,7 @@ function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
             .
           </p>
         </div>
-        <ol className="mt-8 grid gap-0 border-t border-[var(--color-hairline)] md:grid-cols-3">
+        <ol className="mt-8 grid gap-6 md:grid-cols-3">
           {[
             'Create the Kite app and keep the API values ready.',
             'Add the required secrets in your fork.',
@@ -114,7 +104,7 @@ function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
           ].map((step, index) => (
             <li
               key={step}
-              className="border-b border-[var(--color-hairline)] py-5 md:border-r md:px-5 md:first:pl-0 md:last:border-r-0"
+              className="rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5"
             >
               <span className="font-mono text-xs text-[var(--color-faint)]">0{index + 1}</span>
               <p className="mt-3 text-sm leading-6 text-[var(--color-ink)]">{step}</p>
@@ -126,7 +116,7 @@ function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
             href={INTEGRATION_REQUEST_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-[var(--color-hairline)] px-4 py-2 text-sm font-semibold text-[var(--color-muted)] hover:text-[var(--color-ink)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg)]"
+            className="border-b border-current pb-0.5 text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg)]"
           >
             Request New Integration
           </a>
@@ -154,10 +144,10 @@ function KeyModal({
       <div className="w-full max-w-md rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5 shadow-lg">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-1">
+            <p className="font-sans text-xs text-[var(--color-faint)] mb-1">
               Unlock
             </p>
-            <h2 className="font-display text-xl font-black text-[var(--color-ink)]">Portfolio phrase</h2>
+            <h2 className="font-display text-xl font-bold text-[var(--color-ink)]">Portfolio phrase</h2>
           </div>
           <button
             type="button"
@@ -181,7 +171,7 @@ function KeyModal({
           </button>
         </div>
         <label className="mt-5 block">
-          <span className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-faint)]">
+          <span className="font-sans text-xs text-[var(--color-faint)]">
             Phrase
           </span>
           <input
@@ -241,15 +231,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
 
   return (
     <div>
-      <div className="mb-8">
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Holdings
-        </p>
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Portfolio
-        </h1>
-        <div className="mt-3 h-px bg-[var(--color-hairline)]" />
-      </div>
+      <PageHeader title="Portfolio" description="Holdings, allocation, and current portfolio movement." />
 
       <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
         <p className="font-mono text-xs text-[var(--color-faint)]">
@@ -270,7 +252,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
         )}
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         <StatBlock label="Current value" value={money(portfolio.summary.currentValue)} />
         <StatBlock label="Invested" value={money(portfolio.summary.investedValue)} />
         <StatBlock label="Total P&L" value={`${money(portfolio.summary.pnl)} (${portfolio.summary.pnlPct.toFixed(2)}%)`} tone={pnlTone} />
@@ -287,7 +269,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
         <div className="overflow-x-auto">
           <table className="w-full min-w-[920px]">
             <thead>
-              <tr className="border-b border-[var(--color-hairline)]">
+              <tr>
                 {columns.map((column) => (
                   <th
                     key={column.key}
@@ -303,7 +285,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
                     <button
                       type="button"
                       onClick={() => updateSort(column.key)}
-                      className={`inline-flex items-center gap-1 font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] hover:text-[var(--color-ink)] focus:outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4 ${column.align === 'right' ? 'justify-end' : ''}`}
+                      className={`inline-flex items-center gap-1 font-sans text-xs font-medium text-[var(--color-faint)] hover:text-[var(--color-ink)] focus:outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4 ${column.align === 'right' ? 'justify-end' : ''}`}
                     >
                       <span>{column.label}</span>
                       <span className="font-mono text-[10px] text-[var(--color-brand)]">
@@ -408,13 +390,7 @@ export function PortfolioUnlock() {
   if (checking) {
     return (
       <div>
-        <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-1">
-          Holdings
-        </p>
-        <h1 className="font-display text-3xl font-black text-[var(--color-ink)] leading-tight">
-          Portfolio
-        </h1>
-        <div className="mt-3 h-px bg-[var(--color-hairline)]" />
+        <PageHeader title="Portfolio" />
         <p className="mt-8 text-sm text-[var(--color-faint)]">Preparing portfolio.</p>
       </div>
     );

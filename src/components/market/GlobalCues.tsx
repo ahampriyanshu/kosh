@@ -18,12 +18,12 @@ export function GlobalCues({ globalIndices, commodities, currencies }: GlobalCue
     <div className="space-y-6">
       {hasGlobal && (
         <div>
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-2">
+          <p className="font-sans text-sm font-semibold text-[var(--color-faint)] mb-2">
             Global indices
           </p>
           <div className="space-y-1">
             {globalIndices.map((idx) => (
-              <div key={idx.symbol} className="flex items-center justify-between py-1 border-b border-[var(--color-hairline)] last:border-0">
+              <div key={idx.symbol} className="flex items-center justify-between py-1">
                 <span className="text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{idx.name}</span>
                 <span className="font-mono tabular-nums text-sm text-[var(--color-ink)] mr-3">
                   {idx.ltp.toLocaleString()}
@@ -37,12 +37,12 @@ export function GlobalCues({ globalIndices, commodities, currencies }: GlobalCue
 
       {hasCommodities && (
         <div>
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-2">
+          <p className="font-sans text-sm font-semibold text-[var(--color-faint)] mb-2">
             Commodities
           </p>
           <div className="space-y-1">
             {commodities.map((c) => (
-              <div key={c.name} className="flex items-center justify-between py-1 border-b border-[var(--color-hairline)] last:border-0">
+              <div key={c.name} className="flex items-center justify-between py-1">
                 <span className="text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{c.name}</span>
                 <span className="font-mono tabular-nums text-sm text-[var(--color-ink)] mr-3">
                   {c.value.toLocaleString()}
@@ -56,12 +56,12 @@ export function GlobalCues({ globalIndices, commodities, currencies }: GlobalCue
 
       {hasCurrencies && (
         <div>
-          <p className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-faint)] mb-2">
+          <p className="font-sans text-sm font-semibold text-[var(--color-faint)] mb-2">
             Currency
           </p>
           <div className="space-y-1">
             {currencies.map((cur) => (
-              <div key={cur.pair} className="flex items-center justify-between py-1 border-b border-[var(--color-hairline)] last:border-0">
+              <div key={cur.pair} className="flex items-center justify-between py-1">
                 <span className="font-mono tabular-nums text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{cur.pair}</span>
                 <span className="font-mono tabular-nums text-sm text-[var(--color-ink)] mr-3">
                   {cur.value.toLocaleString()}

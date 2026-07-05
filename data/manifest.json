@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "weekly-2026-W27",
+      "type": "weekly",
+      "dateKey": "2026-W27",
+      "date": "2026-07-05",
+      "path": "reports/2026/07/weekly/weekly-2026-W27.json",
+      "checksum": "sha256:6c6de656be29eab3417d4d6247442f998c2dbf8081fd4361c5a39fb4230c856a"
+    },
+    {
       "id": "recap-2026-07-04",
       "type": "recap",
       "dateKey": "2026-07-04",
@@ -14,7 +22,7 @@
       "dateKey": "1",
       "date": "2026-07-04",
       "path": "reports/2026/07/research/1.json",
-      "checksum": "sha256:a503c90695676d7eda11b95aa081266c8bd55ce4cf73e40d8cd8d0afe531289b"
+      "checksum": "sha256:87c6c2356006ae7d016efe712dc7f4921695480cf70a8436516401cc30cc2a81"
     },
     {
       "id": "retro-2026-07-03",
@@ -292,7 +300,7 @@
   "latest": {
     "retro": "retro-2026-07-03",
     "daily": "daily-2026-07-03",
-    "weekly": "weekly-2026-W26",
+    "weekly": "weekly-2026-W27",
     "recap": "recap-2026-07-04",
     "monthly": "monthly-2026-06",
     "research": "1"
