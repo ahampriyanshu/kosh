@@ -59,6 +59,10 @@ describe('market-data', () => {
       regularMarketPreviousClose: 110,
       regularMarketVolume: 5000,
       trailingPE: 24.5,
+      fiftyTwoWeekHigh: 150,
+      fiftyTwoWeekLow: 80,
+      returnOnEquity: 0.18,
+      debtToEquity: 0.42,
     });
     expect(await getQuoteDetail('X.NS')).toEqual({
       price: 100,
@@ -67,6 +71,10 @@ describe('market-data', () => {
       previousClose: 110,
       volume: 5000,
       trailingPE: 24.5,
+      high52w: 150,
+      low52w: 80,
+      returnOnEquity: 0.18,
+      debtToEquity: 0.42,
     });
   });
 

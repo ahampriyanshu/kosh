@@ -29,17 +29,29 @@ const researchContent = {
   asOf: '2026-06-14T02:30:00.000Z',
   price: 3900,
   metrics: [
-    { label: 'Last price', value: 'Rs 3,900' },
-    { label: 'Day change', value: '+1.20%' },
-    { label: 'Volume', value: '12,34,567' },
+    { label: 'LTP', value: 'Rs 3,900' },
+    { label: '52W Position', value: '72% of range' },
+    { label: 'P/E', value: '31.25' },
   ],
-  fundamental: ['Strong fundamentals.'],
-  technical: ['RSI at 55, MACD positive.'],
-  sentiment: ['Positive sentiment.'],
+  verdict: 'Setup is attractive.',
+  fundamentals: {
+    growth: 'Strong fundamentals.',
+    quality: 'Cash generation is stable.',
+    valuation: 'Valuation is reasonable.',
+  },
+  technicals: {
+    trend: 'Trend is positive.',
+    momentum: 'RSI at 55, MACD positive.',
+    levels: 'Price is above support.',
+  },
+  sentiment: {
+    news: 'Positive sentiment.',
+    brokerage: 'No major target change found.',
+    marketTone: 'Market tone is constructive.',
+  },
   recommendation: {
     action: 'buy' as const,
     reasoning: 'Good entry point.',
-    confidence: 0.8,
   },
 };
 

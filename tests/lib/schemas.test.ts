@@ -165,17 +165,29 @@ describe('ResearchContentSchema', () => {
     asOf: '2026-06-14',
     price: 3900,
     metrics: [
-      { label: 'Last price', value: 'Rs 3,900' },
-      { label: 'Day change', value: '+1.20%' },
-      { label: 'Volume', value: '12,34,567' },
+      { label: 'LTP', value: 'Rs 3,900' },
+      { label: '52W Position', value: '72% of range' },
+      { label: 'P/E', value: '31.25' },
     ],
-    fundamental: ['Strong revenue growth, healthy margins.'],
-    technical: ['Trading above 200-DMA, RSI neutral.'],
-    sentiment: ['Positive analyst coverage post-results.'],
+    verdict: 'Buy because growth is strong and valuation is reasonable.',
+    fundamentals: {
+      growth: 'Strong revenue growth, healthy margins.',
+      quality: 'Returns are healthy.',
+      valuation: 'Valuation is reasonable.',
+    },
+    technicals: {
+      trend: 'Trading above 200-DMA.',
+      momentum: 'RSI neutral.',
+      levels: 'Support is nearby.',
+    },
+    sentiment: {
+      news: 'Positive analyst coverage post-results.',
+      brokerage: 'No major target cut found.',
+      marketTone: 'Market tone is constructive.',
+    },
     recommendation: {
       action: 'buy',
       reasoning: 'Valuation reasonable relative to growth.',
-      confidence: 0.7,
     },
   };
 
@@ -183,30 +195,42 @@ describe('ResearchContentSchema', () => {
     expect(ResearchContentSchema.parse(validResearch)).toBeTruthy();
   });
 
-  it('coerces legacy research paragraphs into bullet arrays', () => {
+  it('coerces legacy research paragraphs into fixed sections', () => {
+    const {
+      verdict,
+      fundamentals,
+      technicals,
+      sentiment: fixedSentiment,
+      ...legacyBase
+    } = validResearch;
     const parsed = ResearchContentSchema.parse({
-      ...validResearch,
+      ...legacyBase,
       fundamental: 'Strong revenue growth.',
       technical: 'RSI neutral.',
       sentiment: 'Brokerage coverage is balanced.',
     });
-    expect(parsed.fundamental).toEqual(['Strong revenue growth.']);
+    expect(parsed.fundamentals.growth).toBe('Strong revenue growth.');
+    expect(parsed.technicals.momentum).toBe('RSI neutral.');
+    expect(parsed.sentiment.brokerage).toBe('Brokerage coverage is balanced.');
   });
 
-  it('compacts noisy research bullet arrays to at most three bullets', () => {
+  it('compacts noisy legacy research bullet arrays before fixed-section conversion', () => {
+    const {
+      verdict,
+      fundamentals,
+      technicals,
+      sentiment: fixedSentiment,
+      ...legacyBase
+    } = validResearch;
     const parsed = ResearchContentSchema.parse({
-      ...validResearch,
+      ...legacyBase,
+      fundamental: 'Growth is steady.',
+      technical: 'Momentum is neutral.',
       sentiment: ['rating moved from ', 'Hold', ' to ', 'Sell', ' after earnings.'],
     });
-    expect(parsed.sentiment).toEqual(['rating moved from', 'Hold', 'to Sell after earnings.']);
-  });
-
-  it('rejects confidence: 2 (out of range)', () => {
-    const bad = {
-      ...validResearch,
-      recommendation: { ...validResearch.recommendation, confidence: 2 },
-    };
-    expect(() => ResearchContentSchema.parse(bad)).toThrow();
+    expect(parsed.sentiment.news).toBe('rating moved from');
+    expect(parsed.sentiment.brokerage).toBe('Hold');
+    expect(parsed.sentiment.marketTone).toBe('to Sell after earnings.');
   });
 });
 

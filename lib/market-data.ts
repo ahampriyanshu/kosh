@@ -36,6 +36,10 @@ interface RawQuote {
   regularMarketPreviousClose?: number;
   regularMarketVolume?: number;
   trailingPE?: number;
+  fiftyTwoWeekHigh?: number;
+  fiftyTwoWeekLow?: number;
+  returnOnEquity?: number;
+  debtToEquity?: number;
 }
 
 function requireQuote(ticker: string, quote: RawQuote | undefined | null): RawQuote {
@@ -80,6 +84,10 @@ export interface QuoteDetail extends Quote {
   previousClose: number;
   volume: number;
   trailingPE: number | null;
+  high52w: number | null;
+  low52w: number | null;
+  returnOnEquity: number | null;
+  debtToEquity: number | null;
 }
 
 export async function getQuoteDetail(ticker: string): Promise<QuoteDetail> {
@@ -91,6 +99,10 @@ export async function getQuoteDetail(ticker: string): Promise<QuoteDetail> {
     previousClose: q.regularMarketPreviousClose ?? 0,
     volume: q.regularMarketVolume ?? 0,
     trailingPE: typeof q.trailingPE === 'number' ? q.trailingPE : null,
+    high52w: typeof q.fiftyTwoWeekHigh === 'number' ? q.fiftyTwoWeekHigh : null,
+    low52w: typeof q.fiftyTwoWeekLow === 'number' ? q.fiftyTwoWeekLow : null,
+    returnOnEquity: typeof q.returnOnEquity === 'number' ? q.returnOnEquity : null,
+    debtToEquity: typeof q.debtToEquity === 'number' ? q.debtToEquity : null,
   };
 }
 

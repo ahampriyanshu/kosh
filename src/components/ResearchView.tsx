@@ -1,32 +1,26 @@
 import type { ResearchContent } from '../../lib/schemas';
 import { ticker as tickerFn } from './market/Figure';
 
-function confidencePct(c: number): string {
-  return `${Math.round(c * 100)}%`;
-}
-
 interface ResearchViewProps {
   content: ResearchContent;
 }
 
-function bullets(value: string[] | string): string[] {
-  return Array.isArray(value) ? value : [value];
-}
-
-function BulletSection({ title, items }: { title: string; items: string[] }) {
+function FixedSection({ title, rows }: { title: string; rows: Array<{ label: string; value: string }> }) {
   return (
     <section>
       <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
         {title}
       </h2>
-      <ul className="space-y-2">
-        {items.map((item, index) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-[var(--color-muted)] leading-relaxed">
-            <span className="text-[var(--color-brand)] mt-1 text-xs" aria-hidden="true">◆</span>
-            <span>{item}</span>
-          </li>
+      <dl className="space-y-3">
+        {rows.map((row) => (
+          <div key={row.label} className="grid gap-1 sm:grid-cols-[9rem_1fr]">
+            <dt className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)]">
+              {row.label}
+            </dt>
+            <dd className="text-sm text-[var(--color-muted)] leading-relaxed">{row.value}</dd>
+          </div>
         ))}
-      </ul>
+      </dl>
     </section>
   );
 }
@@ -50,8 +44,8 @@ export function ResearchView({ content }: ResearchViewProps) {
           </p>
           <p className="text-[var(--color-muted)] text-sm">{content.name}</p>
         </div>
-        <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          {metrics.slice(0, 3).map((metric) => (
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {metrics.map((metric) => (
             <div key={metric.label} className="border border-[var(--color-hairline)] rounded-lg bg-[var(--color-surface)] px-3 py-2">
               <p className="font-sans text-[10px] font-semibold uppercase tracking-wider text-[var(--color-faint)]">
                 {metric.label}
@@ -74,18 +68,43 @@ export function ResearchView({ content }: ResearchViewProps) {
           >
             {content.recommendation.action.toUpperCase()}
           </span>
-          <span className="font-mono text-xs text-[var(--color-faint)]">
-            Confidence: {confidencePct(content.recommendation.confidence)}
-          </span>
         </div>
         <p className="text-sm text-[var(--color-muted)] leading-relaxed">
           {content.recommendation.reasoning}
         </p>
       </div>
 
-      <BulletSection title="Fundamental Analysis" items={bullets(content.fundamental)} />
-      <BulletSection title="Technical Analysis" items={bullets(content.technical)} />
-      <BulletSection title="Sentiment" items={bullets(content.sentiment)} />
+      <section>
+        <h2 className="font-display text-xl font-semibold text-[var(--color-ink)] mb-3 pb-2 border-b border-[var(--color-hairline)]">
+          Verdict
+        </h2>
+        <p className="text-sm text-[var(--color-muted)] leading-relaxed">{content.verdict}</p>
+      </section>
+
+      <FixedSection
+        title="Fundamentals"
+        rows={[
+          { label: 'Growth', value: content.fundamentals.growth },
+          { label: 'Quality', value: content.fundamentals.quality },
+          { label: 'Valuation', value: content.fundamentals.valuation },
+        ]}
+      />
+      <FixedSection
+        title="Technicals"
+        rows={[
+          { label: 'Trend', value: content.technicals.trend },
+          { label: 'Momentum', value: content.technicals.momentum },
+          { label: 'Key levels', value: content.technicals.levels },
+        ]}
+      />
+      <FixedSection
+        title="Sentiment"
+        rows={[
+          { label: 'News', value: content.sentiment.news },
+          { label: 'Brokerage', value: content.sentiment.brokerage },
+          { label: 'Market tone', value: content.sentiment.marketTone },
+        ]}
+      />
     </div>
   );
 }

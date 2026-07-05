@@ -150,6 +150,24 @@ const ResearchBulletsSchema = z.preprocess(
   }),
 );
 
+const ResearchFundamentalsSchema = z.object({
+  growth: OneLineStringSchema,
+  quality: OneLineStringSchema,
+  valuation: OneLineStringSchema,
+});
+
+const ResearchTechnicalsSchema = z.object({
+  trend: OneLineStringSchema,
+  momentum: OneLineStringSchema,
+  levels: OneLineStringSchema,
+});
+
+const ResearchSentimentSchema = z.object({
+  news: OneLineStringSchema,
+  brokerage: OneLineStringSchema,
+  marketTone: OneLineStringSchema,
+});
+
 export const ResearchMetricSchema = z.object({
   label: OneLineStringSchema,
   value: OneLineStringSchema,
@@ -162,15 +180,63 @@ export const ResearchContentSchema = z.object({
   asOf: z.string(),
   price: z.number(),
   metrics: z.array(ResearchMetricSchema).default([]),
-  fundamental: ResearchBulletsSchema,
-  technical: ResearchBulletsSchema,
-  sentiment: ResearchBulletsSchema,
+  verdict: OneLineStringSchema,
+  fundamentals: ResearchFundamentalsSchema,
+  technicals: ResearchTechnicalsSchema,
+  sentiment: ResearchSentimentSchema,
   recommendation: z.object({
     action: z.enum(['buy', 'sell', 'hold']),
     reasoning: OneLineStringSchema,
-    confidence: z.number().min(0).max(1),
   }),
-});
+}).or(
+  z.object({
+    ticker: z.string(),
+    name: z.string(),
+    asOf: z.string(),
+    price: z.number(),
+    metrics: z.array(ResearchMetricSchema).default([]),
+    fundamental: ResearchBulletsSchema,
+    technical: ResearchBulletsSchema,
+    sentiment: ResearchBulletsSchema,
+    recommendation: z.object({
+      action: z.enum(['buy', 'sell', 'hold']),
+      reasoning: OneLineStringSchema,
+      confidence: z.number().min(0).max(1).optional(),
+    }),
+  }).transform((legacy) => {
+    const fundamental = legacy.fundamental;
+    const technical = legacy.technical;
+    const sentiment = legacy.sentiment;
+
+    return {
+      ticker: legacy.ticker,
+      name: legacy.name,
+      asOf: legacy.asOf,
+      price: legacy.price,
+      metrics: legacy.metrics,
+      verdict: legacy.recommendation.reasoning,
+      fundamentals: {
+        growth: fundamental[0] ?? 'No growth detail available.',
+        quality: fundamental[1] ?? fundamental[0] ?? 'No quality detail available.',
+        valuation: fundamental[2] ?? fundamental.at(-1) ?? 'No valuation detail available.',
+      },
+      technicals: {
+        trend: technical[0] ?? 'No trend detail available.',
+        momentum: technical[1] ?? technical[0] ?? 'No momentum detail available.',
+        levels: technical[2] ?? technical.at(-1) ?? 'No key levels detail available.',
+      },
+      sentiment: {
+        news: sentiment[0] ?? 'No news detail available.',
+        brokerage: sentiment[1] ?? sentiment[0] ?? 'No brokerage detail available.',
+        marketTone: sentiment[2] ?? sentiment.at(-1) ?? 'No market tone detail available.',
+      },
+      recommendation: {
+        action: legacy.recommendation.action,
+        reasoning: legacy.recommendation.reasoning,
+      },
+    };
+  }),
+);
 export type ResearchContent = z.infer<typeof ResearchContentSchema>;
 
 export const ResearchReportContentSchema = z.object({

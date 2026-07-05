@@ -18,6 +18,22 @@ function formatMacd(value: { MACD?: number; signal?: number } | null | undefined
   return `${value.MACD.toFixed(2)} / ${value.signal.toFixed(2)}`;
 }
 
+function formatPrice(value: number | null): string {
+  return value == null ? 'n/a' : `Rs ${value.toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;
+}
+
+function format52WeekPosition(price: number, high: number | null, low: number | null): string {
+  if (high == null || low == null || high <= low) return 'n/a';
+  const position = ((price - low) / (high - low)) * 100;
+  return `${Math.round(position)}% of range`;
+}
+
+function formatPercentRatio(value: number | null): string {
+  if (value == null) return 'n/a';
+  const percent = Math.abs(value) <= 1 ? value * 100 : value;
+  return `${percent.toFixed(2)}%`;
+}
+
 export async function resolveResearchTicker(query: string): Promise<string> {
   const normalized = query.trim();
   if (!normalized) throw new Error('Research query cannot be empty.');
@@ -56,12 +72,19 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
     `RSI ${lastRsi?.toFixed(1) ?? 'n/a'}; ` +
     `MACD ${lastMacd?.MACD?.toFixed(2) ?? 'n/a'} / signal ${lastMacd?.signal?.toFixed(2) ?? 'n/a'}.`;
   const metrics = [
+    { label: 'LTP', value: formatPrice(quote.price) },
+    { label: '52W Position', value: format52WeekPosition(quote.price, quote.high52w, quote.low52w) },
+    { label: '52W High', value: formatPrice(quote.high52w) },
+    { label: '52W Low', value: formatPrice(quote.low52w) },
+    { label: 'Trend', value: trend(closes) },
     { label: 'RSI', value: lastRsi == null ? 'n/a' : lastRsi.toFixed(1) },
     { label: 'P/E', value: quote.trailingPE == null ? 'n/a' : quote.trailingPE.toFixed(2) },
     {
       label: 'MACD',
       value: formatMacd(lastMacd),
     },
+    { label: 'ROE', value: formatPercentRatio(quote.returnOnEquity) },
+    { label: 'Debt/Equity', value: quote.debtToEquity == null ? 'n/a' : quote.debtToEquity.toFixed(2) },
   ];
 
   const researchPrompt =
@@ -70,9 +93,13 @@ export async function buildResearch(query: string, now: Date = new Date(), ticke
     `Use the latest available information.\n\nComputed technicals: ${techBlock}`;
 
   const buildStructurePrompt = (research: string) =>
-    `Structure the research into: fundamental, technical, and sentiment as arrays of 1-3 concise one-line bullet strings each. ` +
-    `Technical bullets must incorporate the computed indicators. Sentiment bullets must include recent news, brokerage rating changes, target-price changes, upgrades/downgrades, or say when none were found. ` +
-    `Also include a recommendation (buy/sell/hold with one-line reasoning and 0..1 confidence).\n\nResearch:\n${research}`;
+    `Structure the research into this fixed schema only: ` +
+    `"verdict" as one direct line; ` +
+    `"fundamentals": { "growth", "quality", "valuation" }; ` +
+    `"technicals": { "trend", "momentum", "levels" }; ` +
+    `"sentiment": { "news", "brokerage", "marketTone" }; ` +
+    `and "recommendation": { "action": "buy"|"sell"|"hold", "reasoning" }. ` +
+    `Every value must be one concise line. Technical fields must incorporate the computed indicators. Brokerage must mention rating/target changes or say none were found.\n\nResearch:\n${research}`;
 
   const { object } = await generateGroundedObject(researchPrompt, buildStructurePrompt, ResearchContentSchema);
   return ResearchContentSchema.parse({

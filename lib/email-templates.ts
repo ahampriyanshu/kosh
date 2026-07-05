@@ -314,13 +314,24 @@ function metricTable(metrics: Array<{ label: string; value: string }>): string {
   if (!metrics?.length) return '';
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:10px">
     <tr>
-      ${metrics.slice(0, 3).map((metric) => `
-        <td width="33.33%" style="padding:0 8px 0 0;vertical-align:top">
+      ${metrics.map((metric) => `
+        <td width="25%" style="padding:0 8px 10px 0;vertical-align:top">
           <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.faint};margin:0 0 3px 0">${escapeHtml(metric.label)}</div>
           <div style="${mono};font-size:15px;line-height:21px;font-weight:800;color:${colors.text}">${escapeHtml(metric.value)}</div>
         </td>
-      `).join('')}
+      `).reduce((html, cell, index) => html + (index > 0 && index % 4 === 0 ? '</tr><tr>' : '') + cell, '')}
     </tr>
+  </table>`;
+}
+
+function fixedRows(rows: Array<{ label: string; value: string }>): string {
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+    ${rows.map((row) => `
+      <tr>
+        <td style="${font};padding:0 12px 8px 0;color:${colors.faint};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;vertical-align:top;white-space:nowrap">${escapeHtml(row.label)}</td>
+        <td style="${font};padding:0 0 8px 0;color:${colors.muted};font-size:14px;line-height:21px;vertical-align:top">${text(row.value)}</td>
+      </tr>
+    `).join('')}
   </table>`;
 }
 
@@ -738,13 +749,26 @@ export function renderResearchEmail(content: ResearchContent): string {
       section(
         'Recommendation',
         card(
-          `<div style="margin:0 0 8px 0">${actionBadge(rec.action)} <span style="${mono};margin-left:8px;color:${colors.faint};font-size:12px">Confidence: ${confidencePct(rec.confidence)}</span></div>` +
+          `<div style="margin:0 0 8px 0">${actionBadge(rec.action)}</div>` +
             paragraph(rec.reasoning),
           rec.action === 'buy' ? colors.link : colors.border,
         ),
       ) +
-      section('Fundamental Analysis', bulletList(content.fundamental)) +
-      section('Technical Analysis', bulletList(content.technical)) +
-      section('Sentiment', bulletList(content.sentiment)),
+      section('Verdict', paragraph(content.verdict)) +
+      section('Fundamentals', fixedRows([
+        { label: 'Growth', value: content.fundamentals.growth },
+        { label: 'Quality', value: content.fundamentals.quality },
+        { label: 'Valuation', value: content.fundamentals.valuation },
+      ])) +
+      section('Technicals', fixedRows([
+        { label: 'Trend', value: content.technicals.trend },
+        { label: 'Momentum', value: content.technicals.momentum },
+        { label: 'Key levels', value: content.technicals.levels },
+      ])) +
+      section('Sentiment', fixedRows([
+        { label: 'News', value: content.sentiment.news },
+        { label: 'Brokerage', value: content.sentiment.brokerage },
+        { label: 'Market tone', value: content.sentiment.marketTone },
+      ])),
   });
 }
