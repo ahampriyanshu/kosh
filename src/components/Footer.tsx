@@ -18,27 +18,27 @@ const financialArticles = [
 
 const footerSections = [
   {
-    title: 'Reports',
+    title: 'Market',
     links: [
-      { label: 'Archive', href: '/reports' },
+      { label: 'Dashboard', href: '/' },
+      { label: 'Reports', href: '/reports' },
       { label: 'Outlook', href: '/outlook' },
+    ],
+  },
+  {
+    title: 'Workspace',
+    links: [
       { label: 'Scorecard', href: '/scorecard' },
-    ],
-  },
-  {
-    title: 'Research',
-    links: [
-      { label: 'Stock Research', href: '/research' },
+      { label: 'Research', href: '/research' },
       { label: 'Portfolio', href: '/portfolio' },
-      { label: 'Data Manifest', href: '/reports' },
     ],
   },
   {
-    title: 'Workflow',
+    title: 'Explore',
     links: [
-      { label: 'Daily Brief', href: '/reports' },
-      { label: 'Weekly Recap', href: '/reports' },
-      { label: 'Monthly Outlook', href: '/outlook' },
+      { label: 'Dashboard', href: '/' },
+      { label: 'Market Reports', href: '/reports' },
+      { label: 'Portfolio', href: '/portfolio' },
     ],
   },
 ];
