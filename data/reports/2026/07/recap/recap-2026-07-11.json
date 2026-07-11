@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-07-11",
+  "type": "recap",
+  "dateKey": "2026-07-11",
+  "generatedAt": "2026-07-11T06:31:54.353Z",
+  "sourceData": {
+    "tickers": [
+      "HCLTECH.NS",
+      "SUNPHARMA.NS",
+      "DLF.NS",
+      "JSWENERGY.NS",
+      "APOLLOHOSP.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-07-11T06:31:54.353Z"
+  },
+  "content": {
+    "period": "2026-W27",
+    "sourceReportId": "weekly-2026-W27",
+    "graded": [
+      {
+        "ticker": "HCLTECH.NS",
+        "name": "HCL Technologies",
+        "thesis": "Strong technical breakout and significant contribution to NIFTY IT's outperformance, indicating sustained buying interest and positive sector outlook.",
+        "action": "buy",
+        "entryRef": 1134.199951171875,
+        "exitRef": 1150.4000244140625,
+        "changePct": 1.43,
+        "outcome": "hit",
+        "note": "buy call moved +1.43%"
+      },
+      {
+        "ticker": "SUNPHARMA.NS",
+        "name": "Sun Pharmaceutical Industries",
+        "thesis": "A top gainer in the high-performing NIFTY PHARMA sector, suggesting robust underlying demand and potential for further upside.",
+        "action": "buy",
+        "entryRef": 1912.800048828125,
+        "exitRef": 1935.5,
+        "changePct": 1.19,
+        "outcome": "hit",
+        "note": "buy call moved +1.19%"
+      },
+      {
+        "ticker": "DLF.NS",
+        "name": "DLF Limited",
+        "thesis": "NIFTY REALTY is the strongest performing sector, and DLF as a major player is well-positioned to capitalize on this positive momentum.",
+        "action": "buy",
+        "entryRef": 673.2999877929688,
+        "exitRef": 685.75,
+        "changePct": 1.85,
+        "outcome": "hit",
+        "note": "buy call moved +1.85%"
+      },
+      {
+        "ticker": "JSWENERGY.NS",
+        "name": "JSW Energy",
+        "thesis": "Appeared as a top loser amidst a broader weakness in the NIFTY ENERGY sector, indicating potential for continued downward pressure.",
+        "action": "sell",
+        "entryRef": 547.4000244140625,
+        "exitRef": 533.4500122070312,
+        "changePct": -2.55,
+        "outcome": "hit",
+        "note": "sell call moved -2.55%"
+      },
+      {
+        "ticker": "APOLLOHOSP.NS",
+        "name": "Apollo Hospitals Enterprise",
+        "thesis": "Another strong performer within the robust healthcare and pharma space, reflecting sustained investor confidence in the sector.",
+        "action": "buy",
+        "entryRef": 8888.5,
+        "exitRef": 8845.5,
+        "changePct": -0.48,
+        "outcome": "partial",
+        "note": "buy call moved -0.48%"
+      }
+    ],
+    "hits": 4,
+    "total": 5,
+    "summary": "4/5 positional bets hit over Jun 2026, Week 5.",
+    "learnings": {
+      "worked": [
+        "HCL Technologies: Strong technical breakout and significant contribution to NIFTY IT's outperformance, indicating sustained buying interest and positive sector outlook. This worked buy call moved +1.43%.",
+        "Sun Pharmaceutical Industries: A top gainer in the high-performing NIFTY PHARMA sector, suggesting robust underlying demand and potential for further upside. This worked buy call moved +1.19%.",
+        "DLF Limited: NIFTY REALTY is the strongest performing sector, and DLF as a major player is well-positioned to capitalize on this positive momentum. This worked buy call moved +1.85%.",
+        "JSW Energy: Appeared as a top loser amidst a broader weakness in the NIFTY ENERGY sector, indicating potential for continued downward pressure. This worked sell call moved -2.55%."
+      ],
+      "missed": [
+        "Apollo Hospitals Enterprise: Another strong performer within the robust healthcare and pharma space, reflecting sustained investor confidence in the sector. This only partially worked buy call moved -0.48%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:dd590ce8e2bc36fb539fade6d8bae91e54613f84d5743fcd924c47fd5a9a9307"
+}
