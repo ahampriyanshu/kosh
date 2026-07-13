@@ -1,0 +1,501 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's June 2026 Consumer Inflation Expected to Breach RBI's 4% Target",
+          "summary": "A Reuters poll projected that India's consumer inflation likely breached the Reserve Bank of India's (RBI) medium-term target of 4% in June for the first time in 16 months, potentially reaching 4.3% from 3.93% in May, attributed to higher food and fuel prices, US-Iran tensions, and a weak monsoon.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI Launches Key Surveys to Inform Monetary Policy Ahead of August MPC Meeting",
+          "summary": "The RBI launched three key surveys in July 2026—the Inflation Expectations Survey of Households, the Rural Consumer Confidence Survey, and the Urban Consumer Confidence Survey—to gather inputs for its monetary policy formulation. The next Monetary Policy Committee (MPC) meeting is scheduled for August 3-5, 2026.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "RBI Introduces New Ethical Debt Recovery Guidelines Effective July 1, Enhances Bank Responsibility",
+          "summary": "Effective July 1, 2026, the RBI has introduced new recovery guidelines aimed at transforming debt recovery practices to be more ethical and respectful of human dignity, making regulated entities 100% responsible for their agents' conduct and mandating certification for all recovery agents.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "US-Iran Tensions Drive Crude Oil Prices Higher and Dampen Global Investor Sentiment",
+          "summary": "Renewed tensions between the US and Iran have significantly impacted global markets, pushing crude oil prices sharply higher and dampening investor sentiment, serving as a key trigger for Indian equities.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Indian Benchmark Indices Expected to Open Lower on Weak Global Cues and US-Iran Conflict",
+          "summary": "Indian benchmark indices, the Sensex and Nifty 50, are likely to open lower today, tracking weak global cues and the escalation in the US-Iran conflict. Gift Nifty futures indicated a gap-down start for Indian markets, trading nearly 207 points below Nifty futures' previous close.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTY.NS",
+            "SENSEX.BO"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Indian Equity Benchmarks Snap Four-Week Gaining Streak Amidst Mixed Trading",
+          "summary": "On Friday, the NSE Nifty 50 rose 1.02% to close at 24,206.90, while the BSE Sensex gained 1.08% to end at 77,569.39. However, Indian equity benchmarks snapped their four-week gaining streak, falling 0.25% and 0.22% respectively for the week.",
+          "source": "Livemint",
+          "tickers": [
+            "NIFTY.NS",
+            "SENSEX.BO"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "HCL Technologies, ICICI Prudential AMC Among 15 Companies Reporting Q1 FY27 Earnings Today",
+          "summary": "At least 15 companies are scheduled to report their Q1 FY27 earnings today, July 13, 2026, including HCL Technologies, ICICI Prudential Asset Management Company, Nuvoco Vistas Corporation, and Bajaj Consumer Care. Investors are particularly watching HCL Technologies for its quarterly performance and potential interim dividend.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCLTECH.NS",
+            "ICICIPRULI.NS",
+            "NUVOCO.NS",
+            "BAJAJCON.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "LTIMindtree Reports 2.8% QoQ Revenue Growth and 5.3% QoQ EBIT Increase in Q1 FY27",
+          "summary": "LTIMindtree announced consolidated revenue was up 2.8% QoQ to \"11,608 crore, and EBIT was up 5.3% QoQ to \",799 crore for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "LTIM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Avenue Supermarts (D-Mart) Q1 FY27 Net Profit Rises 11.33% YoY, Revenue Up 15.1%",
+          "summary": "Avenue Supermarts (D-Mart) reported a consolidated net profit increase of 11.33% YoY to \",860.44 crore, with revenue up 15.1% YoY to \",343 crore in Q1 FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "DMART.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Just Dial Reports 9.9% YoY Revenue Growth and 4.1% Net Profit Increase in Q1 FY27",
+          "summary": "Just Dial announced standalone revenue increased 9.9% YoY to \",327 crore, and net profit was up 4.1% YoY to \",166 crore for Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "JUSTDIAL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "L&T Finance Achieves Highest-Ever Consolidated PAT of \",902 Crore in Q1 FY27, Up 28.7% YoY",
+          "summary": "L&T Finance reported its highest-ever consolidated PAT of \",902 crore for Q1 FY27, marking a 28.7% increase YoY.",
+          "source": "Livemint",
+          "tickers": [
+            "LTFINANCE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Anand Rathi Wealth Q1 FY27 Profit After Tax Jumps 24% YoY to \",1.16 Billion",
+          "summary": "Anand Rathi Wealth reported a consolidated profit after tax (PAT) of \",1.16 billion, up 24% YoY, and revenue from operations increased 18% YoY to \",3.36 billion for Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "ANANDRATHI.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Keystone Realtors Q1 FY27 Pre-Sales Decline 42% YoY, Collections Up 4%",
+          "summary": "Keystone Realtors announced Q1 FY27 pre-sales were down 42% YoY at \",617 crore, while collections were up 4% YoY at \",599 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "KEYSTONER.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Nifty IT and Nifty Pharma Indices Outperform; TCS Earnings Boost IT Sector Sentiment",
+          "summary": "The Nifty IT and Nifty Pharma indices are outperforming today. The IT sector, in particular, is in focus after TCS reported inline earnings and its management expressed expectations of a gradual recovery in technology spending.",
+          "source": "Economic Times",
+          "tickers": [
+            "NIFTYIT.NS",
+            "NIFTYPHARMA.NS",
+            "TCS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Nifty Metal, Financial Services, Auto, and Bank Indices Underperform in Today's Session",
+          "summary": "The Nifty Metal, Nifty Financial Services, Nifty Auto, and Nifty Bank indices are underperforming in today's trading session.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTYMETAL.NS",
+            "NIFTYFIN.NS",
+            "NIFTYAUTO.NS",
+            "NIFTYBANK.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Nifty MidCap and Nifty SmallCap Indices Trade Lower in Broader Market Weakness",
+          "summary": "In the broader markets, the Nifty MidCap and Nifty SmallCap indices were trading down 0.58% and 0.56%, respectively.",
+          "source": "Livemint",
+          "tickers": [
+            "NIFTYMIDCAP.NS",
+            "NIFTYSMLCAP.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "NTPC Board Approves \",20,456.70 Crore Investment for Lara Super Thermal Power Project Stage-III",
+          "summary": "NTPC's board approved an investment of \",20,456.70 crore for the 1,600 MW Lara Super Thermal Power Project Stage-III in Chhattisgarh.",
+          "source": "Business Standard",
+          "tickers": [
+            "NTPC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bharti Airtel Plans \",20,000 Crore Investment in Airtel Money and Nxtra Data Center Expansion",
+          "summary": "Bharti Airtel plans to invest \",20,000 crore in its non-banking financial company Airtel Money and its data center Nxtra, which recently raised $1 billion for expansion.",
+          "source": "Economic Times",
+          "tickers": [
+            "BHARTIARTL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IREDA Declares Gensol Engineering and Gensol EV Lease as Fraud Accounts with Significant Exposure",
+          "summary": "IREDA declared Gensol Engineering and Gensol EV Lease as fraud accounts under RBI's directions, with outstanding exposure of \",453.77 crore and \",218.97 crore, respectively, and 85% provisioning held against both.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "IREDA.NS",
+            "GENSOL.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Nuvoco Vistas Arm Commissions 2 MMTPA Cement Grinding Capacity in Surat, Boosting Future Capacity",
+          "summary": "Nuvoco Vistas' arm commissioned 2 MMTPA cement grinding capacity at Surat, with consolidated capacity expected to reach 35 MMTPA by FY28.",
+          "source": "Economic Times",
+          "tickers": [
+            "NUVOCO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lux Industries Plans \",600 Crore Investment for New Manufacturing Facility in West Bengal",
+          "summary": "Lux Industries plans to invest \",600 crore in a manufacturing facility in West Bengal for capacity expansion.",
+          "source": "Business Standard",
+          "tickers": [
+            "LUXIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mankind Pharma to Divest 100% Stake in Broadway Hospitality Services for \",49 Crore",
+          "summary": "Mankind Pharma will sell its 100% stake in Broadway Hospitality Services to AKRK Projects LLP for \",49 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "MANKIND.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "SEAMEC's Vessel Samudra Prabha Hired Following DG Shipping Inspection",
+          "summary": "SEAMEC announced that its vessel Samudra Prabha has been hired following a DG Shipping inspection.",
+          "source": "Livemint",
+          "tickers": [
+            "SEAMEC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Goodluck India Approves 2:1 Bonus Issue and Provides \",275 Crore Corporate Guarantee",
+          "summary": "Goodluck India approved a 2:1 bonus issue and will provide a corporate guarantee worth \",275 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "GOODLUCK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "NMDC Increases Iron Ore Prices Effective July 10, 2026",
+          "summary": "NMDC increased iron ore prices effective July 10, 2026, indicating a positive move for the commodity producer.",
+          "source": "Business Standard",
+          "tickers": [
+            "NMDC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HUDCO Requests Waiver of Fines for Board Composition Non-Compliance, Citing Government Control",
+          "summary": "HUDCO requested NSE and BSE to waive fines for non-compliance with board composition requirements, citing government control over independent director appointments.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HUDCO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IdeaForge Technology Raises Approximately \",500 Crore Through QIP at \",795 per Share",
+          "summary": "IdeaForge Technology closed its Qualified Institutional Placement (QIP), allotting 62.89 lakh equity shares at \",795 per share, successfully raising approximately \",500 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "IDEAFORGE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IIFL Finance Allots $300 Million Senior Secured Notes Due 2030 Under GMTN Programme",
+          "summary": "IIFL Finance allotted $300 million of 7.60% senior secured notes due 2030 under its $1.5 billion Global Medium Term Note Programme.",
+          "source": "Business Standard",
+          "tickers": [
+            "IIFL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "TTK Prestige Resumes Normal Manufacturing Operations at Roorkee Factory",
+          "summary": "TTK Prestige resumed normal manufacturing operations at its Roorkee factory, indicating a return to full production capacity.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TTKPRESTIG.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "SBI Completes 1.4% Stake Transfer Ahead of SBI Fund Management IPO, Raises \",1,655 Crore",
+          "summary": "SBI completed the transfer of a 1.4% stake ahead of SBI Fund Management's IPO, selling 2.9 crore shares to 30 investors at \",574 per share for \",1,655 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "SBIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Sanoj Kumar Jha to Continue as NLC India CMD for Three More Months",
+          "summary": "Sanoj Kumar Jha will continue as CMD of NLC India for at least three more months, ensuring leadership continuity.",
+          "source": "Livemint",
+          "tickers": [
+            "NLCINDIA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Just Dial Appoints New CEO and CFO; VSS Mani to Step Down as MD & CEO",
+          "summary": "Just Dial appointed Dinkar Ayilavarapu as CEO from August 1, and Dinesh Taluja as CFO, while VSS Mani ceases to be MD & CEO from July 31.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "JUSTDIAL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Triveni Engineering & Industries Fixes July 22 as Record Date for Merger Scheme",
+          "summary": "Triveni Engineering & Industries fixed July 22 as the record date for determining shareholder eligibility under its merger scheme.",
+          "source": "Economic Times",
+          "tickers": [
+            "TRIVENI.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Emcure Pharma's Gennova Biopharmaceuticals to Sell mRNA Business for \",139.5 Crore",
+          "summary": "Emcure Pharmaceuticals' arm Gennova Biopharmaceuticals will sell its mRNA business to Immunoscript Life Science for \",139.5 crore.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bazaar Style Retail Opens New Store in Bihar, Reaching a Total of 275 Stores",
+          "summary": "Bazaar Style Retail opened a new store in Bihar, bringing its total store count to 275, demonstrating expansion efforts.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RITES Consortium Secures \",79 Crore Order from Patna Metro Rail",
+          "summary": "A consortium involving RITES secured a \",79 crore order from Patna Metro Rail, indicating new business acquisition.",
+          "source": "Economic Times",
+          "tickers": [
+            "RITES.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bhansali Engg. Poly, Ingersoll-Rand, and M&M Financial Services Trade Ex-Dividend Today",
+          "summary": "Bhansali Engg. Poly (Final Dividend - \",1.00), Ingersoll-Rand (India) Ltd (Final Dividend - \",20.00), and Mahindra & Mahindra Financial Services Ltd (Final Dividend - \",7.50) are trading ex-dividend today.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BHANSALI.NS",
+            "INGERRAND.NS",
+            "M&MFIN.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "HCL Technologies, ICICI Prudential AMC, Nuvoco Vistas, Bajaj Consumer Care in Focus Ahead of Q1 Earnings",
+          "summary": "These companies are in focus today due to their Q1 FY27 earnings announcements, attracting investor attention.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCLTECH.NS",
+            "ICICIPRULI.NS",
+            "NUVOCO.NS",
+            "BAJAJCON.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Indian Bank Targets Up to \",5,500 Crore from Bad Loan Recovery in Current Financial Year",
+          "summary": "Indian Bank is targeting up to \",5,500 crore from the recovery of bad loans in the current financial year, indicating efforts to improve asset quality.",
+          "source": "Business Standard",
+          "tickers": [
+            "INDIANB.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani Green Aims for 50 GW Renewable Energy Capacity by 2030, Q1 Business Update Shows Growth",
+          "summary": "Adani Green's Q1 business update shows its renewable energy capacity is expected to rise to 50 GW by 2030, outlining ambitious growth plans.",
+          "source": "Livemint",
+          "tickers": [
+            "ADANIGREEN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Steel, InterGlobe Aviation, Maruti Suzuki Among Nifty50 Top Losers on Negative Global Cues",
+          "summary": "Tata Steel, InterGlobe Aviation, and Maruti Suzuki India were among the top losers in the Nifty50 index today, attributed to negative global cues impacting market sentiment.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TATASTEEL.NS",
+            "INDIGO.NS",
+            "MARUTI.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "ASTRAL.NS",
+      "name": "Astral",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 1385,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "APLAPOLLO.NS",
+      "name": "Apl Apollo Tubes",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 1900,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "",
+      "name": "Sammaan Capital",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 177,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "RAJRATAN.NS",
+      "name": "Rajratan Global Wire",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 530,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "JINDALPOLY.NS",
+      "name": "Jindal Poly Films",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 780,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "DATAMATICS.NS",
+      "name": "Datamatics Global Services",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 980,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "CHENNPETRO.NS",
+      "name": "Chennai Petroleum Corporation",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1290,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "GODREJPROP.NS",
+      "name": "Godrej Properties",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2350,
+      "rationale": "Recommended based on technical analysis with a positive outlook."
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Bajaj Broking Research",
+      "action": "buy",
+      "rationale": "Recommended for buying by Bajaj Broking Research."
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "Bajaj Broking Research",
+      "action": "buy",
+      "target": 910,
+      "rationale": "Recommended for buying with an expectation to head towards \",910 over the coming months."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Deven Choksey",
+      "action": "buy",
+      "target": 1691,
+      "rationale": "Recommended for buying with a positive outlook."
+    },
+    {
+      "ticker": "DIXON.NS",
+      "name": "Dixon Technologies",
+      "brokerage": "Emkay",
+      "action": "hold",
+      "target": 15200,
+      "rationale": "Emkay maintained its previous recommendation for Dixon Technologies, implying a continued positive outlook."
+    }
+  ]
+}
