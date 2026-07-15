@@ -1,0 +1,332 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's June CPI inflation accelerates to 4.38%, WPI reaches 9.9%",
+          "summary": "India's June Consumer Price Index (CPI) inflation surged to 4.38%, surpassing the RBI's 4% target, while Wholesale Price Index (WPI) inflation hit a 27-month high of 9.9%. The rise is attributed to higher food and fuel costs, geopolitical tensions, and delayed monsoon rains.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI likely to maintain policy rates despite surging inflation, potential hikes anticipated in FY27",
+          "summary": "Economists expect the Reserve Bank of India (RBI) to maintain its current policy rate for now, despite accelerating inflation, after keeping it unchanged in June. However, the current inflation trajectory suggests potential interest rate hikes in the fiscal year 2026-27.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India-UK trade deal comes into effect, expected to boost Indian exports",
+          "summary": "The India-UK trade deal came into effect on July 15, 2026, a development anticipated to provide a significant boost to India's export sector.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Brent crude surges past $87, FIIs remain net sellers amidst rising VIX and widening trade deficit",
+          "summary": "Escalating West Asia conflicts pushed Brent crude oil prices past $87 per barrel, dampening investor sentiment. Foreign Institutional Investors (FIIs) were net sellers, and India's trade deficit widened to $30.43 billion, contributing to a rise in India's volatility index (VIX).",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Asian and US markets rally on semiconductor strength and weaker US inflation, DIIs provide domestic market support",
+          "summary": "Asian markets, tracking an overnight Wall Street rally driven by semiconductor stocks and weaker-than-expected US inflation data, traded positively. Domestically, Domestic Institutional Investors (DIIs) were net buyers, cushioning FII selling pressure.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Union Bank, HDFC Life, ICICI Lombard, Groww among companies to announce Q1 FY27 results today",
+          "summary": "A slew of companies, including Union Bank of India, HDFC Life Insurance Company, ICICI Lombard General Insurance Company, Billionbrains Garage Ventures (Groww), and HDB Financial Services, are scheduled to announce their Q1 FY27 earnings today.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Union Bank of India Q1 results expected to be healthy on steady loan growth and stable asset quality",
+          "summary": "Union Bank of India is anticipated to report healthy Q1 FY27 results, driven by steady loan growth and stable asset quality.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "UNIONBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HCL Technologies stock falls 4.46% post Q1 results on margin concerns",
+          "summary": "HCL Technologies stock declined 4.46% after its Q1 results, as restructuring costs and higher investments likely impacted EBIT margins, leading to investor concerns.",
+          "source": "Business Standard",
+          "tickers": [
+            "HCLTECH.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Tata Elxsi Q1 operating revenue exceeds INR 1,000 crore for first time, but stock declines on margin pressure",
+          "summary": "Tata Elxsi reported its first-ever Q1 operating revenue exceeding INR 1,000 crore, but the stock saw a decline due to investor focus on margin pressure and increased operating costs.",
+          "source": "Livemint",
+          "tickers": [
+            "TATAELXSI.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Just Dial reports 9.9% YoY revenue increase in Q1 business update",
+          "summary": "Just Dial announced a positive business update for Q1, reporting a 9.9% year-on-year increase in revenue.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "JUSTDIAL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "TCS Q1 results outperform expectations with strong revenue growth and AI deal surge",
+          "summary": "Tata Consultancy Services (TCS) outperformed analyst expectations in Q1, reporting robust revenue growth and a more than 13% year-on-year rise in revenue from artificial intelligence (AI) deals.",
+          "source": "Economic Times",
+          "tickers": [
+            "TCS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Infosys Q1 FY27 financial results scheduled for July 23",
+          "summary": "Infosys is scheduled to declare its Q1 FY27 financial results on July 23, 2026, with investors awaiting its performance update.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INFY.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Nifty Realty, PSU Bank, Auto, Financial Services, and IT sectors lead market decline",
+          "summary": "The market experienced broad-based selling, with Nifty Realty (-1.97%), PSU Bank (-1.80%), Auto (-1.61%), Financial Services (-1.08%), and IT (-1.00%) sectors leading the declines, indicating a bearish breadth.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Pharma, Healthcare, and Metal sectors show resilience amidst broad market weakness",
+          "summary": "Amidst a generally weak market, the Pharma (+1.03%), Healthcare (+0.89%), and Metal (+0.61%) sectors bucked the trend and registered gains.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Aditya Birla Renewables acquires Sprng Energy group from Shell for $1.8 billion",
+          "summary": "Aditya Birla Renewables Limited (ABRen), a Grasim Industries subsidiary, is acquiring 100% equity in Solenergi Power Private Limited (Sprng Energy group) from Shell for an enterprise value of Rs 172 billion (approximately US$1.8 billion), significantly expanding ABRen's renewable energy portfolio.",
+          "source": "Business Standard",
+          "tickers": [
+            "GRASIM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Hero MotoCorp to invest additional ₹1,000 crore in Ather Energy",
+          "summary": "Hero MotoCorp's board has approved an additional investment of ₹1,000 crore in Ather Energy, further strengthening its position in the electric vehicle segment.",
+          "source": "Livemint",
+          "tickers": [
+            "HEROMOTOCO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Sigma Advanced Systems acquires UK-based Bromford Precision Solutions",
+          "summary": "Sigma Advanced Systems has acquired 100% equity in Bromford Precision Solutions, a UK-based specialist manufacturer, expanding its industrial footprint.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bharat Electronics secures additional orders worth Rs 5.72 billion for defence systems",
+          "summary": "Bharat Electronics (BEL) received additional orders valued at Rs 5.72 billion for various defence electronics and systems, bolstering its order book.",
+          "source": "Business Standard",
+          "tickers": [
+            "BEL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Kirloskar Brothers' UK subsidiary wins GBP 11.7 million order from Saipem",
+          "summary": "SPP Pumps Ltd., the UK subsidiary of Kirloskar Brothers, secured a significant order worth GBP 11.7 million from Saipem Offshore Construction SPA.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "KIRLOSBROS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Belrise Industries launches QIP at floor price of ₹230.79 per share",
+          "summary": "Belrise Industries launched its Qualified Institutions Placement (QIP) on July 14, with the floor price set at ₹230.79 per share to raise capital.",
+          "source": "Economic Times",
+          "tickers": [
+            "BELRISE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "PDS announces strategic partnership with Indonesia-based Busana Apparel Group",
+          "summary": "PDS has entered into a strategic partnership with Indonesia-based Busana Apparel Group to enhance its global manufacturing capabilities and expand its market reach.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mylan exits Biocon by selling entire 5.64% stake for ₹3,678.68 crore",
+          "summary": "Mylan exited Biocon by selling its entire 5.64% stake in the company for ₹3,678.68 crore through a series of block deals.",
+          "source": "Economic Times",
+          "tickers": [
+            "BIOCON.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Stocks to watch today: Adani Enterprises, Reliance Industries, HCL Tech, Sun Pharma, ICICI Bank and more",
+          "summary": "Adani Enterprises, Adani Ports, Marico, Punjab National Bank (PNB), Reliance Industries (ahead of its Q1 results), HCL Technologies, Sun Pharma, ICICI Bank, L&T Technology Services, Tata Elxsi, Belrise Industries, Delhivery, IDBI Bank, IdeaForge, Kirloskar Brothers, and KEC International are expected to be in focus today.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ADANIENT.NS",
+            "ADANIPORTS.NS",
+            "MARICO.NS",
+            "PNB.NS",
+            "RELIANCE.NS",
+            "HCLTECH.NS",
+            "SUNPHARMA.NS",
+            "ICICIBANK.NS",
+            "LTTS.NS",
+            "TATAELXSI.NS",
+            "BELRISE.NS",
+            "DELHIVERY.NS",
+            "IDBI.NS",
+            "IDEAFORGE.NS",
+            "KIRLOSBROS.NS",
+            "KEC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Notable Gainers on July 14 include Bharti Airtel, Sun Pharma, TCS, Tata Steel, and Adani Ports",
+          "summary": "In the previous trading session (July 14), Bharti Airtel, Sun Pharma, TCS, Tata Steel, and Adani Ports were among the notable gainers.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BHARTIARTL.NS",
+            "SUNPHARMA.NS",
+            "TCS.NS",
+            "TATASTEEL.NS",
+            "ADANIPORTS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Notable Losers on July 14 include HCL Tech, Bajaj Finserv, SBI, IndiGo, Mahindra & Mahindra, Shriram Finance, HDFC Life, Tata Motors, Interglobe Aviation, M&M, Kotak Mahindra, and ITC",
+          "summary": "The previous trading session (July 14) saw HCL Tech, Bajaj Finserv, SBI, IndiGo, Mahindra & Mahindra, Shriram Finance, HDFC Life, Tata Motors, Interglobe Aviation, M&M, Kotak Mahindra, and ITC among the significant losers.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HCLTECH.NS",
+            "BAJAJFINSV.NS",
+            "SBIN.NS",
+            "INDIGO.NS",
+            "M&M.NS",
+            "SHRIRAMFIN.NS",
+            "HDFCLIFE.NS",
+            "TATAMOTORS.NS",
+            "INTERGLOBE.NS",
+            "KOTAKBANK.NS",
+            "ITC.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "ORCHIDPH.NS",
+      "name": "Orchid Pharma Limited",
+      "brokerage": "MarketSmith India",
+      "action": "buy",
+      "target": 1200,
+      "rationale": "Recommended with a target price within 2-3 months."
+    },
+    {
+      "ticker": "MCX.NS",
+      "name": "Multi Commodity Exchange of India Limited",
+      "brokerage": "MarketSmith India",
+      "action": "buy",
+      "target": 2891,
+      "rationale": "Recommended for purchase."
+    },
+    {
+      "ticker": "NATIONALUM.NS",
+      "name": "National Aluminium",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 357,
+      "rationale": "Intraday trading recommendation."
+    },
+    {
+      "ticker": "OIL.NS",
+      "name": "Oil India",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 432,
+      "rationale": "Intraday trading recommendation."
+    },
+    {
+      "ticker": "ACMESOLAR.NS",
+      "name": "Acme Solar Holdings",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 376,
+      "rationale": "Intraday trading recommendation."
+    },
+    {
+      "ticker": "ROUTEMOBILE.NS",
+      "name": "Route Mobile",
+      "brokerage": "Anand Rathi Shares",
+      "action": "buy",
+      "target": 680,
+      "rationale": "Buy recommendation with a specified target."
+    },
+    {
+      "ticker": "TATAPOWER.NS",
+      "name": "Tata Power",
+      "brokerage": "Anand Rathi Shares",
+      "action": "buy",
+      "target": 410,
+      "rationale": "Buy recommendation with a specified target."
+    },
+    {
+      "ticker": "DRREDDY.NS",
+      "name": "Dr. Reddy's Laboratories",
+      "brokerage": "Anand Rathi Shares",
+      "action": "buy",
+      "target": 8100,
+      "rationale": "Medium term buy recommendation."
+    },
+    {
+      "ticker": "HCLTECH.NS",
+      "name": "HCL Technologies",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1200,
+      "rationale": "Maintained 'Buy' rating."
+    }
+  ]
+}
