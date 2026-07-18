@@ -126,6 +126,69 @@
       ],
       "hits": 4,
       "total": 5
+    },
+    {
+      "gradedOn": "2026-07-18",
+      "sourceReportId": "weekly-2026-W28",
+      "bets": [
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF Limited",
+          "thesis": "DLF was a top gainer, benefiting directly from the NIFTY REALTY's significant outperformance. Strong sector tailwinds combined with individual stock momentum indicate further upside potential.",
+          "action": "buy",
+          "entryRef": 682.3499755859375,
+          "exitRef": 667.7999877929688,
+          "changePct": -2.13,
+          "outcome": "miss",
+          "note": "buy call moved -2.13%"
+        },
+        {
+          "ticker": "HDFCLIFE.NS",
+          "name": "HDFC Life Insurance Company Ltd.",
+          "thesis": "As a strong performer within the NIFTY FIN SERVICE index, HDFC Life stands to benefit from the overall strength in the financial sector, supported by sustained DII buying.",
+          "action": "buy",
+          "entryRef": 573.4000244140625,
+          "exitRef": 567.5999755859375,
+          "changePct": -1.01,
+          "outcome": "miss",
+          "note": "buy call moved -1.01%"
+        },
+        {
+          "ticker": "ADANIENT.NS",
+          "name": "Adani Enterprises Ltd.",
+          "thesis": "Adani Enterprises, a key Adani group stock, was among the top gainers, reflecting renewed investor confidence and potential for momentum driven by infrastructure and diversified business growth.",
+          "action": "buy",
+          "entryRef": 3177.5,
+          "exitRef": 3160.699951171875,
+          "changePct": -0.53,
+          "outcome": "partial",
+          "note": "buy call moved -0.53%"
+        },
+        {
+          "ticker": "JSWENERGY.NS",
+          "name": "JSW Energy Ltd.",
+          "thesis": "Showed strong upward momentum as a top gainer, aligning with the positive performance of the NIFTY ENERGY index. Increased demand for power and infrastructure development could provide further tailwinds.",
+          "action": "buy",
+          "entryRef": 553.6500244140625,
+          "exitRef": 543.4000244140625,
+          "changePct": -1.85,
+          "outcome": "miss",
+          "note": "buy call moved -1.85%"
+        },
+        {
+          "ticker": "NESTLEIND.NS",
+          "name": "Nestlé India Ltd.",
+          "thesis": "As a top loser and part of the underperforming NIFTY FMCG index, Nestle India faces headwinds. Lack of investor interest in the sector could lead to continued consolidation or downside pressure.",
+          "action": "sell",
+          "entryRef": 1427,
+          "exitRef": 1427.199951171875,
+          "changePct": 0.01,
+          "outcome": "partial",
+          "note": "sell call moved +0.01%"
+        }
+      ],
+      "hits": 0,
+      "total": 5
     }
   ],
   "summary": null
