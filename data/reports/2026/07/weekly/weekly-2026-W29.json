@@ -1,0 +1,555 @@
+{
+  "schemaVersion": 1,
+  "id": "weekly-2026-W29",
+  "type": "weekly",
+  "dateKey": "2026-W29",
+  "generatedAt": "2026-07-19T16:15:52.849Z",
+  "sourceData": {
+    "tickers": [
+      "TECHM.NS",
+      "RELIANCE.NS",
+      "KOTAKBANK.NS",
+      "DRREDDY.NS",
+      "DLF.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-07-19T16:15:52.849Z"
+  },
+  "content": {
+    "snapshot": {
+      "asOf": "2026-07-17T05:24:48.585Z",
+      "window": "7d",
+      "indianIndices": [
+        {
+          "name": "NIFTY 50",
+          "symbol": "^NSEI",
+          "ltp": 24255.05,
+          "changePct": 0.88
+        },
+        {
+          "name": "SENSEX",
+          "symbol": "^BSESN",
+          "ltp": 77914.56,
+          "changePct": 0.97
+        },
+        {
+          "name": "NIFTY BANK",
+          "symbol": "^NSEBANK",
+          "ltp": 58102.5,
+          "changePct": 0.39
+        },
+        {
+          "name": "NIFTY IT",
+          "symbol": "^CNXIT",
+          "ltp": 29010.6,
+          "changePct": 4.38
+        },
+        {
+          "name": "NIFTY PHARMA",
+          "symbol": "^CNXPHARMA",
+          "ltp": 25648,
+          "changePct": -0.26
+        },
+        {
+          "name": "NIFTY AUTO",
+          "symbol": "^CNXAUTO",
+          "ltp": 26953.45,
+          "changePct": 0.67
+        },
+        {
+          "name": "NIFTY FMCG",
+          "symbol": "^CNXFMCG",
+          "ltp": 48587.25,
+          "changePct": -0.07
+        },
+        {
+          "name": "NIFTY METAL",
+          "symbol": "^CNXMETAL",
+          "ltp": 12453.9,
+          "changePct": -0.09
+        },
+        {
+          "name": "NIFTY ENERGY",
+          "symbol": "^CNXENERGY",
+          "ltp": 39383.6,
+          "changePct": 0.84
+        },
+        {
+          "name": "NIFTY REALTY",
+          "symbol": "^CNXREALTY",
+          "ltp": 916.9,
+          "changePct": -1.57
+        },
+        {
+          "name": "NIFTY FIN SERVICE",
+          "symbol": "^CNXFIN",
+          "ltp": 29161.4,
+          "changePct": 0.12
+        }
+      ],
+      "giftNifty": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 52552.97,
+          "changePct": 0.12
+        },
+        {
+          "name": "NASDAQ",
+          "symbol": "^IXIC",
+          "ltp": 25881.947,
+          "changePct": -1.24
+        },
+        {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "ltp": 7533.77,
+          "changePct": -0.13
+        },
+        {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "ltp": 66835.54,
+          "changePct": -1.34
+        },
+        {
+          "name": "Hang Seng",
+          "symbol": "^HSI",
+          "ltp": 25008.6,
+          "changePct": 4.07
+        },
+        {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "ltp": 10572.24,
+          "changePct": 0.95
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 3979.9,
+          "changePct": -1.7745236
+        },
+        {
+          "name": "Silver",
+          "value": 55.765,
+          "changePct": -2.9042525
+        },
+        {
+          "name": "Crude Oil",
+          "value": 78.89,
+          "changePct": -0.2907019
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 96.335,
+          "changePct": 0.09350754
+        }
+      ],
+      "bondYield": {
+        "name": "India 10Y",
+        "value": 6.751,
+        "changeBps": -2
+      },
+      "vix": {
+        "value": 13.2225,
+        "changePct": 2.6392405
+      },
+      "breadth": {
+        "advances": 35,
+        "declines": 23,
+        "unchanged": 0,
+        "adRatio": 1.52
+      },
+      "topGainers": [
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF",
+          "ltp": 673,
+          "changePct": 3.8434863
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "ltp": 1321,
+          "changePct": 1.8818468
+        },
+        {
+          "ticker": "HINDUNILVR.NS",
+          "name": "Hindustan Unilever",
+          "ltp": 2136.9,
+          "changePct": 1.8348186
+        },
+        {
+          "ticker": "TECHM.NS",
+          "name": "Tech Mahindra",
+          "ltp": 1535.8,
+          "changePct": 1.6879593
+        },
+        {
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 383.4,
+          "changePct": 1.6571656
+        },
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "ltp": 7535,
+          "changePct": 1.5709277
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 1053.8,
+          "changePct": 1.5613024
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1098.4,
+          "changePct": 1.4777871
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "ltp": 2233.5,
+          "changePct": 1.4762661
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1326.5,
+          "changePct": 1.446283
+        }
+      ],
+      "topLosers": [
+        {
+          "ticker": "WIPRO.NS",
+          "name": "Wipro",
+          "ltp": 175.06,
+          "changePct": -1.5078248
+        },
+        {
+          "ticker": "DRREDDY.NS",
+          "name": "Dr. Reddy's Laboratories",
+          "ltp": 1207.1,
+          "changePct": -1.4131716
+        },
+        {
+          "ticker": "SHREECEM.NS",
+          "name": "Shree Cement",
+          "ltp": 26635,
+          "changePct": -1.3518518
+        },
+        {
+          "ticker": "CIPLA.NS",
+          "name": "Cipla",
+          "ltp": 1415.5,
+          "changePct": -0.97936344
+        },
+        {
+          "ticker": "HINDALCO.NS",
+          "name": "Hindalco Industries",
+          "ltp": 950.9,
+          "changePct": -0.8756804
+        },
+        {
+          "ticker": "SRF.NS",
+          "name": "SRF",
+          "ltp": 2865,
+          "changePct": -0.841094
+        },
+        {
+          "ticker": "DABUR.NS",
+          "name": "Dabur India",
+          "ltp": 426.7,
+          "changePct": -0.6403539
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 8839.5,
+          "changePct": -0.54567957
+        },
+        {
+          "ticker": "ULTRACEMCO.NS",
+          "name": "UltraTech Cement",
+          "ltp": 11713,
+          "changePct": -0.4929458
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "ltp": 1912.4,
+          "changePct": -0.48922786
+        }
+      ],
+      "mostActive": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "ltp": 1321,
+          "changePct": 1.8818468,
+          "volume": 5999057
+        },
+        {
+          "ticker": "TECHM.NS",
+          "name": "Tech Mahindra",
+          "ltp": 1535.8,
+          "changePct": 1.6879593,
+          "volume": 4517347
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1098.4,
+          "changePct": 1.4777871,
+          "volume": 5727370
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 1053.8,
+          "changePct": 1.5613024,
+          "volume": 4977645
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "ltp": 819,
+          "changePct": 1.3239312,
+          "volume": 5136158
+        },
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF",
+          "ltp": 673,
+          "changePct": 3.8434863,
+          "volume": 5606886
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "ltp": 2233.5,
+          "changePct": 1.4762661,
+          "volume": 1611313
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1326.5,
+          "changePct": 1.446283,
+          "volume": 2592935
+        },
+        {
+          "ticker": "HCLTECH.NS",
+          "name": "HCL Technologies",
+          "ltp": 1204,
+          "changePct": 1.3976572,
+          "volume": 2835578
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "State Bank of India",
+          "ltp": 1043.1,
+          "changePct": 1.1543335,
+          "volume": 2921384
+        }
+      ],
+      "near52wHigh": [
+        {
+          "ticker": "DIVISLAB.NS",
+          "name": "Divi's Laboratories",
+          "ltp": 7287.5,
+          "pctFromHigh": 0.58
+        },
+        {
+          "ticker": "SUNPHARMA.NS",
+          "name": "Sun Pharmaceutical",
+          "ltp": 1946.5,
+          "pctFromHigh": 0.83
+        },
+        {
+          "ticker": "TITAN.NS",
+          "name": "Titan Company",
+          "ltp": 4628.1,
+          "pctFromHigh": 1.1
+        },
+        {
+          "ticker": "INDUSINDBK.NS",
+          "name": "IndusInd Bank",
+          "ltp": 1024,
+          "pctFromHigh": 1.35
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 8839.5,
+          "pctFromHigh": 1.88
+        }
+      ],
+      "near52wLow": [
+        {
+          "ticker": "VEDL.NS",
+          "name": "Vedanta",
+          "ltp": 256.8,
+          "pctFromLow": 1.06
+        },
+        {
+          "ticker": "ITC.NS",
+          "name": "ITC",
+          "ltp": 279.95,
+          "pctFromLow": 1.8
+        }
+      ],
+      "volumeShockers": [],
+      "sectorRanking": [
+        {
+          "sector": "Realty",
+          "changePct": 1.19
+        },
+        {
+          "sector": "IT",
+          "changePct": 1
+        },
+        {
+          "sector": "Bank",
+          "changePct": 0.9
+        },
+        {
+          "sector": "Financial Services",
+          "changePct": 0.83
+        },
+        {
+          "sector": "Auto",
+          "changePct": 0.69
+        },
+        {
+          "sector": "FMCG",
+          "changePct": 0.37
+        },
+        {
+          "sector": "Energy",
+          "changePct": 0.1
+        },
+        {
+          "sector": "Metal",
+          "changePct": -0.34
+        },
+        {
+          "sector": "Pharma",
+          "changePct": -1.38
+        }
+      ],
+      "fiiDii": {
+        "fiiNet": -6139.63,
+        "diiNet": 10810.43,
+        "unit": "crore",
+        "asOf": "2026-07-16"
+      },
+      "news": [],
+      "streetRecommendations": [],
+      "corporateActions": [
+        {
+          "ticker": "MGEL",
+          "name": "MGEL",
+          "type": "dividend",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "SOMATEX",
+          "name": "SOMATEX",
+          "type": "dividend",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "20MICRONS",
+          "name": "20MICRONS",
+          "type": "dividend",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "3MINDIA",
+          "name": "3MINDIA",
+          "type": "dividend",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "CENTRALBK",
+          "name": "Central Bank of India",
+          "type": "results",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "AFFORDABLE",
+          "name": "AFFORDABLE",
+          "type": "results",
+          "date": "2026-07-17"
+        },
+        {
+          "ticker": "CHEMBOND",
+          "name": "CHEMBOND",
+          "type": "results",
+          "date": "2026-07-17"
+        }
+      ]
+    },
+    "themes": [
+      "IT Sector Outperformance: NIFTY IT's significant gains indicate strong momentum and continued investor interest.",
+      "Domestic Institutional Support: DII buying is robustly absorbing FII outflows, providing a floor to the market and fostering resilience.",
+      "Sectoral Divergence: Clear outperformance in IT and Energy, contrasting with weakness in Realty, Pharma, and Metals sectors.",
+      "Large Cap Resilience: Key large-cap stocks are showing individual strength, anchoring market performance despite broader sector movements.",
+      "Weakness in Defensive/Commodity sectors: Pharma and Metal sectors are facing headwinds, suggesting profit-taking or sustained negative sentiment.",
+      "Low Volatility Environment: A stable VIX indicates reduced market anxiety and potential for sustained directional moves without extreme swings."
+    ],
+    "positionalBets": [
+      {
+        "ticker": "TECHM.NS",
+        "name": "Tech Mahindra",
+        "thesis": "NIFTY IT is the strongest performing sector (up 4.38%), and Tech Mahindra is a top gainer (+1.7%) within the sector, indicating strong positive momentum and investor confidence.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.85
+      },
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "thesis": "As a market heavyweight, Reliance Industries is a top gainer (+1.9%), anchoring the broader market and benefiting from DII support and strength in the Energy sector.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.8
+      },
+      {
+        "ticker": "KOTAKBANK.NS",
+        "name": "Kotak Mahindra Bank",
+        "thesis": "While NIFTY BANK posted moderate gains, Kotak Bank stands out as a top gainer (+1.7%), suggesting specific strength and potential outperformance within the financial services space.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.75
+      },
+      {
+        "ticker": "DRREDDY.NS",
+        "name": "Dr. Reddy's Laboratories",
+        "thesis": "NIFTY PHARMA is in negative territory, and Dr. Reddy's is a top loser (-1.4%), indicating continued bearish sentiment and weakness within this major pharmaceutical stock.",
+        "action": "sell",
+        "signal": "bearish",
+        "confidence": 0.8
+      },
+      {
+        "ticker": "DLF.NS",
+        "name": "DLF Ltd",
+        "thesis": "Despite the NIFTY REALTY index being the weakest performer (-1.57%), DLF is a top gainer (+3.8%). This suggests significant stock-specific strength, potentially indicating a contrarian bullish opportunity.",
+        "action": "buy",
+        "signal": "bullish",
+        "confidence": 0.7
+      }
+    ]
+  },
+  "emailSent": true,
+  "checksum": "sha256:2063e8f73e4c3aa4e6e2f7fc97f25fc0925ada0dcea3563734b5880facd5d106"
+}
