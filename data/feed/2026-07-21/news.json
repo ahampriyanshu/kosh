@@ -1,0 +1,355 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's Retail Inflation Hits 18-Month High, Surpassing RBI Target",
+          "summary": "India's retail inflation (CPI) reached an 18-month high of 4.4% in June 2026, driven by increased food and fuel costs, surpassing the RBI's upper tolerance target. This surge suggests potential interest rate hikes in the latter half of FY27, with economists forecasting average CPI inflation of 5.1-5.2% for the fiscal year.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI's Special Swap Facility Attracts Over $20.7 Billion in Forex Inflows",
+          "summary": "The Reserve Bank of India's special swap facility has attracted over $20.7 billion in foreign exchange inflows by July 17, aimed at strengthening the balance of payments and incentivizing capital inflows.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RBI to Conduct ₹75,000 Crore Variable Rate Repo Auction to Manage Liquidity",
+          "summary": "The Reserve Bank of India is scheduled to conduct a 3-day Variable Rate Repo (VRR) auction for ₹75,000 crore on July 21, 2026, as part of its liquidity management operations.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Government Clarifies No Proposal to Abolish Equity Long-Term Capital Gains Tax",
+          "summary": "The government clarified on Monday that there is no proposal to abolish the Equity Long-Term Capital Gains (LTCG) tax.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Revamped Index of Core Industries Unveiled with 2022-23 Base Year, Includes Iron Ore",
+          "summary": "On July 20, the Office of Economic Adviser unveiled a revamped Index of Core Industries (ICI) with a new base year of 2022-23, now incorporating Iron Ore.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Budget 2026: STT Hiked on F&O, Share Buybacks Taxed as Capital Gains, NRI Access Eased",
+          "summary": "Budget 2026, presented in February, increased Securities Transaction Tax (STT) on futures and options, made share buybacks more tax-efficient for shareholders, and eased direct access for Non-Resident Indians/Persons of Indian Origin (NRI/PROI) to Indian stocks.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "US-Iran Tensions Escalate, Pushing Brent Crude Above $88/Barrel",
+          "summary": "Global market sentiment remains cautious due to escalating US-Iran tensions in West Asia, which have pushed Brent crude oil prices above $88 per barrel, although mediation efforts are providing some relief.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Asian Markets Mixed, US Equities Lower Overnight; GIFT Nifty Indicates Cautious Indian Open",
+          "summary": "Asian markets are trading mixed today, while US equities closed lower overnight. The GIFT Nifty indicates a negative to cautious opening for Indian benchmark indices.",
+          "source": "Moneycontrol",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "FPIs Net Sellers, DIIs Net Buyers in Indian Equities on July 20",
+          "summary": "Foreign Portfolio Investors (FPIs) were net sellers of Indian equities on July 20, selling shares worth ₹1,121.04 crore, while Domestic Institutional Investors (DIIs) were net buyers at ₹1,312.03 crore.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Bajaj Auto, Indian Hotels, TVS Motor, Adani Energy Among Companies Announcing Q1 Results Today",
+          "summary": "Key companies including Bajaj Auto, Indian Hotels Company, TVS Motor Company, Adani Energy Solutions, Adani Total Gas, Mahindra & Mahindra Financial Services, Bandhan Bank, CRISIL, Sagility, Mastek, and Cyient DLM are scheduled to release their Q1 FY27 earnings today.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BAJAJ-AUTO.NS",
+            "INDHOTEL.NS",
+            "TVSMOTOR.NS",
+            "ADANIENS.NS",
+            "ADANITOTAL.NS",
+            "M&MFIN.NS",
+            "BANDHANBNK.NS",
+            "CRISIL.NS",
+            "SAGILITY.NS",
+            "MASTEK.NS",
+            "CYIENTDLM.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "HDFC Bank Shares Tumble Over 5% on Disappointing Q1 Earnings",
+          "summary": "HDFC Bank shares tumbled over 5% on Monday following weaker-than-expected Q1 earnings, specifically due to disappointing net interest margins.",
+          "source": "Economic Times",
+          "tickers": [
+            "HDFCBANK.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "ICICI Bank Rises Nearly 3% Post Strong Q1 Earnings",
+          "summary": "ICICI Bank shares rose nearly 3% after reporting a strong set of June-quarter earnings.",
+          "source": "Business Standard",
+          "tickers": [
+            "ICICIBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Axis Bank, Kotak Mahindra Bank Under Pressure Due to Weak Q1 Net Interest Margins",
+          "summary": "Both Axis Bank and Kotak Mahindra Bank experienced selling pressure due to weaker-than-expected net interest margins in their Q1 results.",
+          "source": "Livemint",
+          "tickers": [
+            "AXISBANK.NS",
+            "KOTAKBANK.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Paytm Reports Strong Q1 with 28% YoY Revenue Jump",
+          "summary": "Paytm released strong June-quarter numbers, with revenue jumping 28% YoY and EBITDA zooming 182% YoY.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PAYTM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mahindra Logistics Q1 FY27 Consolidated Net Profit at ₹2.78 Billion",
+          "summary": "Mahindra Logistics reported a consolidated net profit of ₹2.78 billion for Q1 FY27, compared to a net loss in the prior year.",
+          "source": "Business Standard",
+          "tickers": [
+            "MAHLOG.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IDBI Bank Q1 FY27 Net Profit Rises 5.4% YoY to ₹21.15 Billion",
+          "summary": "IDBI Bank saw a 5.4% YoY increase in standalone net profit to ₹21.15 billion in Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "IDBI.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Nifty PSU Bank, Pharma, Healthcare, Media Sectors Outperform; Private Banks, IT Under Pressure",
+          "summary": "On Monday, the Nifty PSU Bank, Pharma, Healthcare, and Media sectors outperformed, with PSU bank stocks rallying 2.8% after Punjab National Bank reported strong quarterly earnings. Conversely, Private Bank, Financial Services, Auto, and IT sectors remained under pressure. Metal and Oil & Gas sectors witnessed buying, while Realty and Banking sectors faced selling pressure.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PNB.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "SBI Funds Management and Alpine Texworld to List on Exchanges Today",
+          "summary": "SBI Funds Management, India's largest asset management company, and Alpine Texworld shares are scheduled for IPO listings on the NSE and BSE today.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Cholamandalam Investment, Indo Borax & Chemicals Declare Dividends Today",
+          "summary": "Cholamandalam Investment and Finance Company Ltd (Interim Dividend) and Indo Borax & Chemicals Ltd (Final Dividend) are distributing dividends today.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "CHOLAFIN.NS",
+            "INDOBORAX.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Pondy Oxides & Chemicals Ltd Announces Stock Split",
+          "summary": "Pondy Oxides & Chem Ltd will undergo a stock split from a face value of ₹5 to ₹2.",
+          "source": "Business Standard",
+          "tickers": [
+            "PONDYOXIDE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's H1 2026 M&A Activity Sees 21.7% Value Increase",
+          "summary": "India's M&A activity in H1 2026 saw a 21.7% increase in value, marking the second-highest January-June period on record, though deal volumes declined.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Torrent Pharma-J.B. Chemicals Merger Leads to Nifty Index Reshuffle",
+          "summary": "The merger of Torrent Pharmaceuticals and J.B. Chemicals & Pharmaceuticals, approved by the Index Maintenance Sub-Committee (Equity), has led to a comprehensive reshuffle across various Nifty indices, effective from the close of July 16, 2026.",
+          "source": "Economic Times",
+          "tickers": [
+            "TORNTPHARM.NS",
+            "JBCHEPHARM.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Analysts Expect ICICI Bank, TCS, Sun Pharma to Remain Favored",
+          "summary": "Univest analysts Ankit Jaiswal and Kunal Singla highlighted ICICI Bank, TCS, and Sun Pharma as top stocks to watch, expecting them to stay favored in the market.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ICICIBANK.NS",
+            "TCS.NS",
+            "SUNPHARMA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HDFC Bank, Axis Bank Expected to Grapple with Q1 Results Reaction",
+          "summary": "HDFC Bank and Axis Bank are anticipated to continue reacting to their weaker-than-expected Q1 earnings, particularly concerning net interest margins.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HDFCBANK.NS",
+            "AXISBANK.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "JSWENERGY.NS",
+      "name": "JSW Energy",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Strong resurgence near 100-day and 200-day EMA, bullish engulfing candle."
+    },
+    {
+      "ticker": "BAJAJHCARE.NS",
+      "name": "Bajaj Healthcare",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Higher-high, higher-low structure, decisive close above 200-day EMA."
+    },
+    {
+      "ticker": "SSWL.NS",
+      "name": "Steel Strips Wheels",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "SAREGAMA.NS",
+      "name": "Saregama India",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "GABRIEL.NS",
+      "name": "Gabriel India",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "MANAPPURAM.NS",
+      "name": "Manappuram Finance",
+      "brokerage": "Motilal Oswal Financial Services Ltd.",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "SBIN.NS",
+      "name": "State Bank of India",
+      "brokerage": "Motilal Oswal Financial Services Ltd.",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "BHARATFORG.NS",
+      "name": "Bharat Forge",
+      "brokerage": "Motilal Oswal Financial Services Ltd.",
+      "action": "buy",
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "brokerage": "Kotak Securities",
+      "action": "buy",
+      "target": 1475,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "DABUR.NS",
+      "name": "Dabur India",
+      "brokerage": "HDFC Securities",
+      "action": "buy",
+      "target": 452,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "BANKINDIA.NS",
+      "name": "Bank of India",
+      "brokerage": "HDFC Securities",
+      "action": "buy",
+      "target": 156,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "ULTRACEMCO.NS",
+      "name": "UltraTech Cement",
+      "brokerage": "Angel One",
+      "action": "buy",
+      "target": 12400,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "PFC.NS",
+      "name": "Power Finance Corporation",
+      "brokerage": "Angel One",
+      "action": "buy",
+      "target": 435,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "BANKINDIA.NS",
+      "name": "Bank of India Ltd",
+      "brokerage": "Mirae Asset Sharekhan",
+      "action": "buy",
+      "target": 154,
+      "rationale": "Buy in the range of ₹146–₹147; Stop Loss at ₹141.30;"
+    },
+    {
+      "ticker": "CAMS.NS",
+      "name": "Computer Age Management Services",
+      "brokerage": "Mirae Asset Sharekhan",
+      "action": "buy",
+      "target": 810,
+      "rationale": "Buy in the range of ₹770–₹771; Stop Loss at ₹740;"
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Mirae Asset Sharekhan",
+      "action": "buy",
+      "target": 2060,
+      "rationale": "Buy in the range of ₹1939–₹1940; Stop Loss at ₹1837;"
+    }
+  ]
+}
