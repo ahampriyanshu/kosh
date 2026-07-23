@@ -1,0 +1,552 @@
+{
+  "news": [
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian Market Expected to Open Cautiously Amid Global Uncertainties",
+          "summary": "The Indian stock market is anticipated to open cautiously today, influenced by escalating geopolitical tensions in West Asia, rising crude oil prices, and sustained foreign institutional investor (FII) selling. Benchmark indices saw a sharp decline on Wednesday.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Brent Crude Tops $95 Amid West Asia Geopolitical Tensions",
+          "summary": "Escalating geopolitical tensions in West Asia, including reported attacks on Saudi oil tankers, have pushed Brent crude prices above $95 a barrel and WTI crude towards $88 a barrel, intensifying global inflation concerns.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Persistent FII Selling and Weakening Rupee Fuel Investor Caution",
+          "summary": "Sustained foreign institutional investor (FII) selling and a weakening Indian rupee continue to contribute to overall investor caution in the Indian markets.",
+          "source": "Moneycontrol",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI Bulletin Highlights Economic Resilience but Flags Fiscal Deficit, Inflation Risks",
+          "summary": "The Reserve Bank of India, in its July 2026 bulletin, noted the Indian economy's resilience with healthy demand and robust industrial/services sectors. However, it raised concerns regarding a rising fiscal deficit and potential inflation risks that could cloud the growth outlook.",
+          "source": "Reserve Bank of India",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "US Proposed 100% Tariff on Generic Medicines Unsettles Indian Drugmakers",
+          "summary": "U.S. President Donald Trump's proposed 100% import tariff on generic medicines if production is not moved to the U.S. within two years has unsettled the NSE Nifty Pharma Index, impacting Indian drugmakers.",
+          "source": "Reuters",
+          "tickers": [
+            "NIFTYPHARMA"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "IndusInd Bank Reports 72% YoY Profit Increase in Q1 FY27",
+          "summary": "IndusInd Bank announced a robust 72% year-on-year increase in its profit for the first quarter of FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "INDUSINDBK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HFCL Swings to Net Profit of Rs 246 Crore in Q1 FY27",
+          "summary": "HFCL has reported a significant turnaround, swinging to a net profit of Rs 246 crore for the first quarter of FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HFCL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "BPCL Reports Q1 FY27 Loss of Rs 3,962 Crore Despite Revenue Growth",
+          "summary": "Bharat Petroleum Corporation Ltd (BPCL) reported a net loss of Rs 3,962 crore in Q1 FY27, though revenue increased by 23% year-on-year.",
+          "source": "Business Standard",
+          "tickers": [
+            "BPCL.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Eternal's Consolidated PAT Jumps 268% YoY in Q1 FY27",
+          "summary": "Eternal witnessed a remarkable 268% year-on-year surge in its consolidated Profit After Tax (PAT) for the first quarter of FY27.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani Green Energy's Q1 FY27 Profit Rises 19% YoY",
+          "summary": "Adani Green Energy reported a strong 19% year-on-year jump in its profit for the first quarter of FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ADANIGREEN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Waaree Renewables Reports 34% Profit Growth in Q1 FY27",
+          "summary": "Waaree Renewables announced a healthy 34% increase in its profit for the first quarter of FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "WAAREEREN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "NTPC Green Posts 38% Profit Rise in Q1 FY27",
+          "summary": "NTPC Green reported a 38% increase in its profit for the first quarter of FY27.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "United Spirits Records Modest 6% Revenue Uptick in Q1 FY27",
+          "summary": "United Spirits saw a modest yet positive 6% uptick in its revenue for the first quarter of FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "MCDOWELL-N.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Oracle Financial Services Software Q1 Net Profit Surges 120.52%",
+          "summary": "Oracle Financial Services Software reported a significant 120.52% increase in its net profit for the first quarter.",
+          "source": "Business Standard",
+          "tickers": [
+            "OFSS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Gandhar Oil Refinery India's Q1 Net Profit Skyrockets 633.09%",
+          "summary": "Gandhar Oil Refinery India witnessed an exceptional 633.09% surge in its net profit for the first quarter.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "GANDHAR.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Schaeffler India's Q1 Profit Grows 13.67%",
+          "summary": "Schaeffler India reported a 13.67% increase in its profit for the first quarter.",
+          "source": "Economic Times",
+          "tickers": [
+            "SCHAEFFLER.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Banking, Mid- and Small-Cap Stocks Face Selling Pressure",
+          "summary": "Selling pressure was observed across various sectors on Wednesday, notably impacting banking stocks like HDFC Bank, ICICI Bank, SBI, and Axis Bank, alongside steeper losses in mid- and small-cap indices.",
+          "source": "Economic Times",
+          "tickers": [
+            "HDFCBANK.NS",
+            "ICICIBANK.NS",
+            "SBIN.NS",
+            "AXISBANK.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Pharma Sector Dips Due to Proposed US Tariffs on Generic Drugs",
+          "summary": "The Pharma sector experienced a dip following the proposed U.S. tariffs on generic medicines, which could significantly impact Indian drug manufacturers.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTYPHARMA"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Defensive Sectors Like FMCG Attract Buying Interest",
+          "summary": "In contrast to the broader market trend, defensive sectors such as FMCG, Food Processing, and Tea & Coffee have attracted buying interest, showing advances.",
+          "source": "Business Standard",
+          "tickers": [
+            "NIFTYFMCG"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "India's M&A Activity Soars 21.7% to $89.1 Billion in H1 2026",
+          "summary": "India's mergers and acquisitions (M&A) activity in the first half of 2026 rose by 21.7% to $89.1 billion, marking the second-strongest January-June period on record, driven by strategic and mid-market deals.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Pidilite Industries and Esab India Trade Ex-Dividend Today",
+          "summary": "Pidilite Industries Limited and Esab India Limited are scheduled to trade ex-dividend today, July 23, 2026.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PIDILITIND.NS",
+            "ESABINDIA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Euro India Fresh Foods Updates Shareholding for Preferential Issue",
+          "summary": "Euro India Fresh Foods Limited has updated its pre-issue shareholding in connection with a preferential issue of equity shares and warrants.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Stocks to Watch Ahead of Q1 FY27 Results and Market Reactions",
+          "summary": "Several companies, including Infosys, InterGlobe Aviation, Cipla, Dr. Reddy's Laboratories, HCL Tech, and others, are expected to be in focus today due to scheduled Q1 FY27 results or market reactions to recent earnings announcements.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INFY.NS",
+            "INDIGO.NS",
+            "CIPLA.NS",
+            "DRREDDY.NS",
+            "HCLTECH.NS",
+            "INDUSINDBK.NS",
+            "HINDPETRO.NS",
+            "OFSS.NS",
+            "NAM-INDIA.NS",
+            "MCDOWELL-N.NS",
+            "TANLA.NS",
+            "HEG.NS",
+            "OBERORLTY.NS",
+            "PIDILITIND.NS",
+            "BEPL.NS",
+            "SUDEEP.NS",
+            "DBCORP.NS",
+            "ESABINDIA.NS",
+            "ICRA.NS",
+            "MOTILALOFS.NS",
+            "MPHASIS.NS",
+            "CHENNPETRO.NS",
+            "CYIENT.NS",
+            "IEX.NS",
+            "MAHLIFE.NS",
+            "NOVARTIND.NS",
+            "PVRINOX.NS",
+            "SONACOMS.NS",
+            "SPANDANA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Choice Broking Recommends 'Breakout Stocks' for Buying",
+          "summary": "Sumeet Bagadia of Choice Broking has identified Chennai Petroleum Corporation, Gandhar Oil Refinery India, Polyplex Corp, Divgi TorqTransfer Systems, and Aegis Logistics as 'breakout stocks' with buying potential.",
+          "source": "Choice Broking",
+          "tickers": [
+            "CHENNPETRO.NS",
+            "GANDHAR.NS",
+            "POLYPLEX.NS",
+            "DIVGI.NS",
+            "AEGISCHEM.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "CHENNPETRO.NS",
+      "name": "Chennai Petroleum Corporation",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1400,
+      "rationale": "Breakout stock to buy"
+    },
+    {
+      "ticker": "GANDHAR.NS",
+      "name": "Gandhar Oil Refinery India",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 255,
+      "rationale": "Breakout stock to buy"
+    },
+    {
+      "ticker": "POLYPLEX.NS",
+      "name": "Polyplex Corp",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1200,
+      "rationale": "Breakout stock to buy"
+    },
+    {
+      "ticker": "DIVGI.NS",
+      "name": "Divgi TorqTransfer Systems",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1025,
+      "rationale": "Breakout stock to buy"
+    },
+    {
+      "ticker": "AEGISCHEM.NS",
+      "name": "Aegis Logistics",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1450,
+      "rationale": "Breakout stock to buy"
+    },
+    {
+      "ticker": "CARTRADE.NS",
+      "name": "Cartrade Tech",
+      "brokerage": "IDBI Capital Market and Securities Ltd",
+      "action": "buy",
+      "target": 3010,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "GCPL.NS",
+      "name": "Godrej Consumer Products",
+      "brokerage": "IDBI Capital Market and Securities Ltd",
+      "action": "buy",
+      "target": 1160,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "DATAPATTNS.NS",
+      "name": "Data Patterns (India)",
+      "brokerage": "SMT Stock Market",
+      "action": "buy",
+      "target": 5100,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "POLYCAB.NS",
+      "name": "Polycab India",
+      "brokerage": "Globe Capital",
+      "action": "buy",
+      "target": 9600,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "name": "Adani Power",
+      "brokerage": "Bernstein",
+      "action": "buy",
+      "target": 220,
+      "rationale": "Post Q1 results"
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "name": "Adani Power",
+      "brokerage": "Morgan Stanley",
+      "action": "buy",
+      "target": 275,
+      "rationale": "Post Q1 results"
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "name": "Adani Power",
+      "brokerage": "Cantor Fitzgerald",
+      "action": "buy",
+      "target": 266,
+      "rationale": "Post Q1 results"
+    },
+    {
+      "ticker": "TVSMOTOR.NS",
+      "name": "TVS Motor Co.",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 4470,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "M&MFIN.NS",
+      "name": "M & M Fin. Serv.",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 405,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "ULTRACEMCO.NS",
+      "name": "UltraTech Cem.",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 13800,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1710,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1050,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "name": "Axis Bank",
+      "brokerage": "Motilal Oswal",
+      "action": "hold",
+      "target": 1500,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1550,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "PNB.NS",
+      "name": "Punjab Natl.Bank",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 135,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "JIOFIN.NS",
+      "name": "Jio Financial",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 315,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "HDFCAMC.NS",
+      "name": "HDFC AMC",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 3300,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "HDFCLIFE.NS",
+      "name": "HDFC Life Insur.",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 690,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "TATAELXSI.NS",
+      "name": "Tata Elxsi",
+      "brokerage": "Motilal Oswal",
+      "action": "sell",
+      "target": 3100,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "TVSMOTOR.NS",
+      "name": "TVS Motor Co.",
+      "brokerage": "Nirmal Bang",
+      "action": "hold",
+      "target": 4265,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "ULTRACEMCO.NS",
+      "name": "UltraTech Cem.",
+      "brokerage": "Nirmal Bang",
+      "action": "buy",
+      "target": 13662,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "PNB.NS",
+      "name": "Punjab Natl.Bank",
+      "brokerage": "Nirmal Bang",
+      "action": "hold",
+      "target": 115,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "Nirmal Bang",
+      "action": "buy",
+      "target": 1020,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "BANDHANBNK.NS",
+      "name": "Bandhan Bank",
+      "brokerage": "JM Financial",
+      "action": "accumulate",
+      "target": 220,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "target": 1710,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "name": "Axis Bank",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "target": 1575,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "YESBANK.NS",
+      "name": "Yes Bank",
+      "brokerage": "JM Financial",
+      "action": "reduce",
+      "target": 22,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "POLYCAB.NS",
+      "name": "Polycab India",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "target": 10700,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "BHEL.NS",
+      "name": "B H E L",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "target": 481,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "BAJAJ-AUTO.NS",
+      "name": "Bajaj Auto",
+      "brokerage": "Elara Capital",
+      "action": "accumulate",
+      "target": 12020,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "TECHM.NS",
+      "name": "Tech Mahindra",
+      "brokerage": "Elara Capital",
+      "action": "hold",
+      "target": 1620,
+      "rationale": "Analyst recommendation"
+    }
+  ]
+}
