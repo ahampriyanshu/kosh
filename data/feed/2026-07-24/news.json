@@ -1,0 +1,622 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India remains among fastest-growing major economies, sustained by strong economic activities: RBI",
+          "summary": "The RBI's July 2026 bulletin indicates that India remains among the fastest-growing major economies, sustained by strong economic activities in industrial and services sectors despite global uncertainties.",
+          "source": "RBI Bulletin",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Centre's fiscal deficit higher during April-May 2026-27 compared to previous year",
+          "summary": "The Centre's fiscal deficit was higher during April-May 2026-27 compared to the previous year, which could be a point of concern for the economy.",
+          "source": "RBI Bulletin",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Index of Core Industries records five-month high growth of 5% in June 2026",
+          "summary": "The updated Index of Core Industries showed a five-month high growth of 5% in June 2026, though some strong numbers were attributed to a statistical base effect.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Rupee weakens to ₹96.6/US$ as crude oil prices near $98/bbl; RBI removes interest rate ceiling on NRE/FCNR(B) deposits",
+          "summary": "A weaker rupee and rising crude oil prices are concerns due to their impact on inflation and India's import bill. To attract more dollars, RBI has temporarily removed the interest rate ceiling on NRE and FCNR(B) deposits until September 2026.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INR",
+            "OIL"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian market poised for cautious opening amid global geopolitical tensions and FII selling",
+          "summary": "The Indian stock market is expected to open cautiously, extending a four-session losing streak for benchmark indices, due to global geopolitical tensions, rising crude oil prices, a weaker rupee, and sustained FII selling.",
+          "source": "Business Standard",
+          "tickers": [
+            "NIFTY",
+            "SENSEX"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Asian equities decline; US markets see broad-based selling",
+          "summary": "Asian equities are broadly lower today, with Japan's Nikkei 225 down 1.2%, South Korea's Kospi dropping 1.8%, and Australia's S&P/ASX 200 declining 0.47%. US stock markets also saw broad-based selling in the previous session.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Crude oil prices surge above $100 per barrel amidst US-Iran tensions",
+          "summary": "Global geopolitical tensions, particularly in the Middle East and US-Iran relations, have driven crude oil prices above $100 per barrel, leading to concerns about inflation and India's import bill.",
+          "source": "Livemint",
+          "tickers": [
+            "OIL"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Infosys reports 12.2% YoY net profit rise in Q1 FY27, trims full-year revenue forecast",
+          "summary": "Infosys reported a 12.2% year-on-year (YoY) rise in consolidated net profit to ₹7,769 crore and a 14% increase in revenue. However, the company trimmed its full-year revenue forecast to between 1.5% and 3% due to macroeconomic uncertainty.",
+          "source": "Economic Times",
+          "tickers": [
+            "INFY.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "InterGlobe Aviation (IndiGo) posts Q1 FY27 net loss of ₹238 crore due to fuel prices and rupee depreciation",
+          "summary": "InterGlobe Aviation (IndiGo) posted a consolidated net loss of ₹238 crore, a reversal from a profit in the prior year, primarily due to elevated aviation fuel prices and rupee depreciation, despite a 19.9% revenue increase.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INDIGO.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Meesho narrows June-quarter loss, marketplace revenue surges 48.3%",
+          "summary": "Meesho narrowed its June-quarter loss to ₹133 crore (from ₹289 crore YoY) with marketplace revenue surging 48.3% to ₹3,712.8 crore.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Oracle Financial Services Software reports 120.52% YoY jump in Q1 FY27 net profit",
+          "summary": "Oracle Financial Services Software (OFSS) consolidated net profit jumped 120.52% YoY to ₹14.16 billion, with revenue up 68.73% YoY to ₹31.25 billion.",
+          "source": "Business Standard",
+          "tickers": [
+            "OFSS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Eternal sees sharp rise in Q1 FY27 consolidated net profit and 182% YoY revenue surge",
+          "summary": "Eternal witnessed a sharp rise in consolidated net profit to ₹0.92 billion (from ₹0.25 billion) and a 182% YoY revenue surge to ₹202.11 billion.",
+          "source": "PTI",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Dr. Reddy's Labs reports weak Q1 FY27 performance with revenue and PAT decline",
+          "summary": "Dr. Reddy's Labs reported a weak performance with revenue declining 5.5% YoY to ₹81.0 billion and profit after tax (PAT) falling 68.7% YoY to ₹4.4 billion.",
+          "source": "Economic Times",
+          "tickers": [
+            "DRL.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Tanla Platforms achieves strong Q1 FY27 financial performance with 17.8% YoY revenue increase",
+          "summary": "Tanla Platforms achieved a strong financial performance with revenue increasing 17.8% YoY to ₹12.3 billion in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TANLA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Motilal Oswal Financial Services reports 14.04% YoY increase in operating profit for Q1 FY27",
+          "summary": "Motilal Oswal Financial Services reported a 14.04% YoY increase in operating profit to ₹609 crore for Q1 FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "MOTILALOFS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Cyient Ltd's Q1 FY27 consolidated net profit rises 90% QoQ",
+          "summary": "Cyient Ltd reported a 90% quarter-on-quarter (QoQ) rise in consolidated net profit to ₹104 crore for Q1 FY27.",
+          "source": "Livemint",
+          "tickers": [
+            "CYIENT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Sona BLW Precision Forgings records 46.7% YoY increase in Q1 FY27 consolidated net profit",
+          "summary": "Sona BLW Precision Forgings' consolidated net profit increased 46.7% YoY to ₹178.5 crore in Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "SONACOMS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Indian Energy Exchange (IEX) reports 11.6% rise in Q1 consolidated profit",
+          "summary": "Indian Energy Exchange (IEX) reported an 11.6% increase in Q1 consolidated profit to ₹135 crore, with revenue also up 11.4% to ₹157.9 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "IEX.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "NIIT Learning Systems' Q1 consolidated net profit rises 16.4%, revenue up 25.2%",
+          "summary": "NIIT Learning Systems' Q1 consolidated net profit rose 16.4% to ₹57.4 crore, with revenue up 25.2% to ₹565 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "NIITLTD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Transformers and Rectifiers (India) Ltd revenue misses estimates, but analysts turn optimistic on 2027 earnings",
+          "summary": "Transformers and Rectifiers (India) Limited's Q1 revenue slightly missed analyst estimates at ₹5.7 billion, but statutory earnings were in line. Analysts have become more optimistic on its earnings potential for 2027.",
+          "source": "Livemint",
+          "tickers": [
+            "TRIL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "The Indian Hotels Company Limited's Q1 earnings below estimates despite expected revenues",
+          "summary": "The Indian Hotels Company Limited reported Q1 revenues of ₹23 billion as expected, but statutory earnings of ₹2.51 per share were 3.5% below estimates.",
+          "source": "Economic Times",
+          "tickers": [
+            "INDHOTEL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Suryoday SFB's Q1 profit more than doubles driven by strong loan growth",
+          "summary": "Suryoday Small Finance Bank (SFB) reported that its Q1 profit more than doubled, primarily due to strong loan growth.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SURYODAY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mahindra Lifespace Developers' Q1 profit rises 67% YoY",
+          "summary": "Mahindra Lifespace Developers reported a 67% YoY rise in Q1 profit to ₹86 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "MAHLIFE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Cipla's Q1 consolidated profit drops 39% YoY with marginal revenue rise",
+          "summary": "Cipla's Q1 consolidated profit dropped 39% YoY to ₹789 crore, while revenue saw only a marginal rise.",
+          "source": "Livemint",
+          "tickers": [
+            "CIPLA.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "ACC Ltd, NTPC, Hindustan Zinc among key companies to announce Q1 FY27 results today",
+          "summary": "Several prominent companies including ACC Ltd, NTPC, Hindustan Zinc, Bank of Baroda, SBI Life Insurance Company, and Tata Consumer Products are scheduled to announce their Q1 FY27 results on July 24, 2026.",
+          "source": "Economic Times",
+          "tickers": [
+            "ACC.NS",
+            "NTPC.NS",
+            "HINDZINC.NS",
+            "BANKBARODA.NS",
+            "SBILIFE.NS",
+            "TATACONSUM.NS",
+            "JINDALSTEL.NS",
+            "SAIL.NS",
+            "CGPOWER.NS",
+            "BANKINDIA.NS",
+            "RECLTD.NS",
+            "LODHA.NS",
+            "KFINTECH.NS",
+            "DRLAL.NS",
+            "ATUL.NS",
+            "LAURUSLABS.NS",
+            "CONCOR.NS",
+            "VMART.NS",
+            "GANESHHOUC.NS",
+            "GRINDWELL.NS",
+            "ZFCOMMCV.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Indian benchmarks decline for fourth consecutive session; Real Estate, Capital Markets, Banking lead falls",
+          "summary": "Indian benchmarks declined for the fourth consecutive session on July 23. Real Estate stocks led the declines, falling nearly 1.8%, followed by Capital Markets (down approximately 1.2%), and Banking and Financial stocks also faced pressure.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTYREALTY.NS",
+            "NIFTYFIN.NS",
+            "NIFTYBANK.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Auto, Petrochemicals, Tea & Coffee, Aluminium sectors show resilience amidst market downturn",
+          "summary": "Despite the overall downturn, the Auto sector gained 0.52%, while Petrochemicals was the top performer with a 2.31% gain. Tea & Coffee and Aluminium sectors also showed positive movement.",
+          "source": "Business Standard",
+          "tickers": [
+            "NIFTYAUTO.NS",
+            "NIFTYMETAL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Analysts increasingly optimistic on Life Insurance, Asset Management, Hospitality, Healthcare, Real Estate, and IT Services",
+          "summary": "Buy recommendations for Nifty 500 companies climbed to nearly 70% in July 2026. Analysts are showing increased optimism for sectors like life insurance, asset management, hospitality, healthcare facilities, real estate, and IT services, with the latter driven by demand for AI-enabled services.",
+          "source": "Economic Times",
+          "tickers": [
+            "NIFTYFIN.NS",
+            "NIFTYIT.NS",
+            "NIFTYREALTY.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Shadowfax Technologies expects block deals worth over ₹1,000 crore",
+          "summary": "Existing investors of Shadowfax Technologies are expected to divest shares worth over ₹1,000 crore through block deals.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Coforge launches 'Coforge Nuuron' AI Operating System to scale AI across enterprises",
+          "summary": "Coforge has launched 'Coforge Nuuron,' an AI Operating System (AI-OS) aimed at scaling artificial intelligence across enterprises.",
+          "source": "Business Standard",
+          "tickers": [
+            "COFORGE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Ashish Kacholia sells shares in Dhabriya Polywood Ltd; Abakkus Venture acquires 5.55% stake",
+          "summary": "Investor Ashish Rameshchandra Kacholia sold 5.76 lakh shares of Dhabriya Polywood Ltd, while Abakkus Venture Opportunities Fund acquired a 5.55% stake through block deals.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "DHABRIYA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Patel Engineering announces ₹5 lakh ex-gratia assistance to deceased workers' families",
+          "summary": "Patel Engineering has announced an ex-gratia assistance of ₹5 lakh to each deceased worker's family.",
+          "source": "PTI",
+          "tickers": [
+            "PATELENG.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Power Finance Corporation approves raising borrowing limits to ₹9 lakh crore",
+          "summary": "Power Finance Corporation has approved raising its borrowing limits to ₹9 lakh crore, indicating potential for increased financial operations.",
+          "source": "PTI",
+          "tickers": [
+            "PFC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "J.V.N. Subramanyam appointed as Government Nominee Director on IREDA board",
+          "summary": "J.V.N. Subramanyam has been appointed as a Government Nominee Director on the board of IREDA.",
+          "source": "Livemint",
+          "tickers": [
+            "IREDA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Indostar Capital Finance allots 40,000 secured Non-Convertible Debentures (NCDs) worth ₹400 crore",
+          "summary": "Indostar Capital Finance has allotted 40,000 secured Non-Convertible Debentures (NCDs) worth ₹400 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "INDOSTAR.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "SEAMEC signs $9.42 million diving agreement with HAL Offshore",
+          "summary": "SEAMEC has signed a diving agreement with HAL Offshore for services valued at $9.42 million.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SEAMEC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Kotak Mahindra Mutual Fund increases stake in South Indian Bank to 5.16%",
+          "summary": "Kotak Mahindra Mutual Fund increased its stake in South Indian Bank by acquiring an additional 1.47 crore shares, raising its total holding to 5.16%.",
+          "source": "Business Standard",
+          "tickers": [
+            "SOUTHBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Servotech Renewable Power Systems reports internal fraud of ₹2-2.5 crore",
+          "summary": "Servotech Renewable Power Systems reported an internal fraud involving two employees and an external entity, with an estimated financial impact of ₹2-2.5 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "SERVOTECH.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RailTel secures ₹32.75 crore order from North Central Railway for signalling works",
+          "summary": "RailTel has secured an order worth ₹32.75 crore from North Central Railway for railway signalling works.",
+          "source": "PTI",
+          "tickers": [
+            "RAILTEL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "India Radiators Ltd to merge into Mercantile Ventures Limited; Trading restricted from today",
+          "summary": "India Radiators Ltd is merging into Mercantile Ventures Limited, with July 24, 2026, as the record date for determining the entitlement of India Radiators Ltd shareholders to Mercantile Ventures Limited shares. Trading in India Radiators Ltd is restricted from today.",
+          "source": "BSE",
+          "tickers": [
+            "INDRAD.NS",
+            "MERCANTILE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "48 companies, including Abbott, Bharti Airtel, Divi's Labs, to trade ex-dividend today",
+          "summary": "48 companies, including Abbott India, Bharti Airtel, Divi's Labs, Radico Khaitan, and Info Edge, are trading ex-dividend today, July 24, 2026.",
+          "source": "Economic Times",
+          "tickers": [
+            "ABBOTTINDIA.NS",
+            "BHARTIARTL.NS",
+            "DIVISLAB.NS",
+            "RADICO.NS",
+            "NAUKRI.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Jupiter Life Line and P S Raj Steels scheduled for stock splits today",
+          "summary": "Jupiter Life Line and P S Raj Steels have scheduled stock splits for July 24, 2026.",
+          "source": "NSE",
+          "tickers": [
+            "JUPITALIFE.NS",
+            "PSRAJ.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Infosys, IndiGo, Cipla, NTPC, Suryoday SFB, and Meesho in focus post Q1 FY27 earnings",
+          "summary": "Companies like Infosys, InterGlobe Aviation (IndiGo), Cipla, NTPC, Suryoday SFB, and Meesho are expected to be in focus today following their Q1 FY27 earnings announcements.",
+          "source": "Economic Times",
+          "tickers": [
+            "INFY.NS",
+            "INDIGO.NS",
+            "CIPLA.NS",
+            "NTPC.NS",
+            "SURYODAY.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Shadowfax Technologies eyed for block deals; TCS, HCL Tech among top gainers",
+          "summary": "Shadowfax Technologies is in focus due to anticipated block deals. TCS and HCL Tech were among the top gainers on Thursday, while Axis Bank, SBI, and Tata Steel were top losers.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TCS.NS",
+            "HCLTECH.NS",
+            "AXISBANK.NS",
+            "SBIN.NS",
+            "TATASTEEL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Oil-sensitive stocks in focus as crude prices surge above $100 per barrel",
+          "summary": "With crude oil prices surging above $100 per barrel, oil-sensitive stocks are expected to be closely watched today due to potential impacts on their financials.",
+          "source": "Business Standard",
+          "tickers": [
+            "RELIANCE.NS",
+            "ONGC.NS",
+            "OIL.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "KABRAEXTRU.NS",
+      "name": "Kabra Extrusion Technik",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 375,
+      "rationale": "Analyst recommendation based on technical factors"
+    },
+    {
+      "ticker": "ASKAUTOMOT.NS",
+      "name": "Ask Automotive",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 535,
+      "rationale": "Analyst recommendation based on technical factors"
+    },
+    {
+      "ticker": "PRICOLLTD.NS",
+      "name": "Pricol",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 666,
+      "rationale": "Analyst recommendation based on technical factors"
+    },
+    {
+      "ticker": "NUVAMA.NS",
+      "name": "Nuvama Wealth Management",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2100,
+      "rationale": "Analyst recommendation based on technical factors"
+    },
+    {
+      "ticker": "MANALIPETRO.NS",
+      "name": "Manali Petrochemicals",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 70,
+      "rationale": "Analyst recommendation based on technical factors"
+    },
+    {
+      "ticker": "NAM-INDIA.NS",
+      "name": "Nippon Life India Asset Management",
+      "brokerage": "Emkay",
+      "action": "buy",
+      "target": 1350,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "INDUSINDBK.NS",
+      "name": "IndusInd Bank",
+      "brokerage": "Emkay",
+      "action": "buy",
+      "target": 1200,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "EMCURE.NS",
+      "name": "Emcure Pharmaceuticals",
+      "brokerage": "Emkay",
+      "action": "buy",
+      "target": 2260,
+      "rationale": "Initiated coverage"
+    },
+    {
+      "ticker": "MEDPLUS.NS",
+      "name": "Medplus Health Services Ltd",
+      "brokerage": "Nuvama",
+      "action": "buy",
+      "target": 825,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "ADANIPOWER.NS",
+      "name": "Adani Power",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "target": 253,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "JSWENERGY.NS",
+      "name": "JSW Energy",
+      "brokerage": "JM Financial",
+      "action": "buy",
+      "target": 660,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "HCLTECH.NS",
+      "name": "HCL Technologies",
+      "brokerage": "Motilal Oswal Financial Services",
+      "action": "buy",
+      "target": 1450,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "GRASIM.NS",
+      "name": "Grasim Industries Ltd",
+      "brokerage": "Motilal Oswal Financial Services",
+      "action": "buy",
+      "target": 3770,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "INDHOTEL.NS",
+      "name": "Indian Hotels Ltd",
+      "brokerage": "Motilal Oswal Financial Services",
+      "action": "buy",
+      "target": 870,
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "EMCURE.NS",
+      "name": "Emcure Pharmaceuticals",
+      "brokerage": "Motilal Oswal Financial Services",
+      "action": "buy",
+      "target": 2260,
+      "rationale": "Initiated coverage"
+    },
+    {
+      "ticker": "MANAPPURAM.NS",
+      "name": "Manappuram Finance",
+      "brokerage": "Motilal Oswal Financial Services",
+      "action": "buy",
+      "rationale": "Analyst recommendation"
+    },
+    {
+      "ticker": "MANORAMA.NS",
+      "name": "Manorama Industries Ltd.",
+      "brokerage": "MarketSmith India",
+      "action": "buy",
+      "target": 1840,
+      "rationale": "Research-based buy recommendation for today"
+    },
+    {
+      "ticker": "KPRMILL.NS",
+      "name": "K.P.R. Mill Limited",
+      "brokerage": "MarketSmith India",
+      "action": "buy",
+      "target": 1380,
+      "rationale": "Research-based buy recommendation for today"
+    },
+    {
+      "ticker": "BHARATFORG.NS",
+      "name": "Bharat Forge",
+      "brokerage": "SBI Securities",
+      "action": "accumulate",
+      "target": 2350,
+      "rationale": "Accumulate in specified zone based on technical analysis"
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "SBI Securities",
+      "action": "accumulate",
+      "target": 1135,
+      "rationale": "Accumulate in specified zone based on technical analysis"
+    }
+  ]
+}
