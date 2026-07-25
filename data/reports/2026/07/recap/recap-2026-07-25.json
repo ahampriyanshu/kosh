@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-07-25",
+  "type": "recap",
+  "dateKey": "2026-07-25",
+  "generatedAt": "2026-07-25T06:34:42.411Z",
+  "sourceData": {
+    "tickers": [
+      "TECHM.NS",
+      "RELIANCE.NS",
+      "KOTAKBANK.NS",
+      "DRREDDY.NS",
+      "DLF.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-07-25T06:34:42.411Z"
+  },
+  "content": {
+    "period": "2026-W29",
+    "sourceReportId": "weekly-2026-W29",
+    "graded": [
+      {
+        "ticker": "TECHM.NS",
+        "name": "Tech Mahindra",
+        "thesis": "NIFTY IT is the strongest performing sector (up 4.38%), and Tech Mahindra is a top gainer (+1.7%) within the sector, indicating strong positive momentum and investor confidence.",
+        "action": "buy",
+        "entryRef": 1576.4000244140625,
+        "exitRef": 1555.800048828125,
+        "changePct": -1.31,
+        "outcome": "miss",
+        "note": "buy call moved -1.31%"
+      },
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "thesis": "As a market heavyweight, Reliance Industries is a top gainer (+1.9%), anchoring the broader market and benefiting from DII support and strength in the Energy sector.",
+        "action": "buy",
+        "entryRef": 1323.0999755859375,
+        "exitRef": 1278,
+        "changePct": -3.41,
+        "outcome": "miss",
+        "note": "buy call moved -3.41%"
+      },
+      {
+        "ticker": "KOTAKBANK.NS",
+        "name": "Kotak Mahindra Bank",
+        "thesis": "While NIFTY BANK posted moderate gains, Kotak Bank stands out as a top gainer (+1.7%), suggesting specific strength and potential outperformance within the financial services space.",
+        "action": "buy",
+        "entryRef": 382.04998779296875,
+        "exitRef": 384.75,
+        "changePct": 0.71,
+        "outcome": "partial",
+        "note": "buy call moved +0.71%"
+      },
+      {
+        "ticker": "DRREDDY.NS",
+        "name": "Dr. Reddy's Laboratories",
+        "thesis": "NIFTY PHARMA is in negative territory, and Dr. Reddy's is a top loser (-1.4%), indicating continued bearish sentiment and weakness within this major pharmaceutical stock.",
+        "action": "sell",
+        "entryRef": 1223.0999755859375,
+        "exitRef": 1151.699951171875,
+        "changePct": -5.84,
+        "outcome": "hit",
+        "note": "sell call moved -5.84%"
+      },
+      {
+        "ticker": "DLF.NS",
+        "name": "DLF Ltd",
+        "thesis": "Despite the NIFTY REALTY index being the weakest performer (-1.57%), DLF is a top gainer (+3.8%). This suggests significant stock-specific strength, potentially indicating a contrarian bullish opportunity.",
+        "action": "buy",
+        "entryRef": 668.5999755859375,
+        "exitRef": 642.2000122070312,
+        "changePct": -3.95,
+        "outcome": "miss",
+        "note": "buy call moved -3.95%"
+      }
+    ],
+    "hits": 1,
+    "total": 5,
+    "summary": "1/5 positional bets hit over Jul 2026, Week 3.",
+    "learnings": {
+      "worked": [
+        "Dr. Reddy's Laboratories: NIFTY PHARMA is in negative territory, and Dr. Reddy's is a top loser (-1.4%), indicating continued bearish sentiment and weakness within this major pharmaceutical stock. This worked sell call moved -5.84%."
+      ],
+      "missed": [
+        "Tech Mahindra: NIFTY IT is the strongest performing sector (up 4.38%), and Tech Mahindra is a top gainer (+1.7%) within the sector, indicating strong positive momentum and investor confidence. This did not work buy call moved -1.31%.",
+        "Reliance Industries: As a market heavyweight, Reliance Industries is a top gainer (+1.9%), anchoring the broader market and benefiting from DII support and strength in the Energy sector. This did not work buy call moved -3.41%.",
+        "Kotak Mahindra Bank: While NIFTY BANK posted moderate gains, Kotak Bank stands out as a top gainer (+1.7%), suggesting specific strength and potential outperformance within the financial services space. This only partially worked buy call moved +0.71%.",
+        "DLF Ltd: Despite the NIFTY REALTY index being the weakest performer (-1.57%), DLF is a top gainer (+3.8%). This suggests significant stock-specific strength, potentially indicating a contrarian bullish opportunity. This did not work buy call moved -3.95%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:80ea29f4830cd44e82f9c3e2fbf4739300adee009dc33559f9d15f56b5c6b53c"
+}
