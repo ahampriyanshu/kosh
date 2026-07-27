@@ -1,0 +1,537 @@
+{
+  "schemaVersion": 1,
+  "id": "retro-2026-07-27",
+  "type": "retro",
+  "dateKey": "2026-07-27",
+  "generatedAt": "2026-07-27T11:47:52.543Z",
+  "sourceData": {
+    "tickers": [
+      "ABREL.NS",
+      "ACE.BO",
+      "AMBUJACEM.NS",
+      "APOLLOHOSP.BO",
+      "ASTRAL.NS",
+      "BDL.BO",
+      "BHARTIARTL.NS",
+      "BRIGADE.BO",
+      "BSOFT.BO",
+      "CASTROLIND.BO",
+      "CENTRALBK.BO",
+      "DALBHARAT.BO",
+      "DIXON.NS",
+      "DLF.NS",
+      "FIRSTCRY.NS",
+      "GODREJCP.NS",
+      "HAVELLS.NS",
+      "HCLTECH.BO",
+      "HDFCBANK.NS",
+      "HEROMOTOCO.BO",
+      "HINDALCO.NS",
+      "HINDUNILVR.NS",
+      "ICICIBANK.NS",
+      "IIFL.NS",
+      "INFY.NS",
+      "IREDA.BO",
+      "ITC.NS",
+      "ITCHOTELS.NS",
+      "JINDALSTEL.NS",
+      "JIOFIN.NS",
+      "JKPAPER.NS",
+      "JWL.BO",
+      "KALYANKJIL.NS",
+      "KAMATHOTEL.NS",
+      "KOTAKBANK.NS",
+      "LICI.NS",
+      "LODHA.BO",
+      "M&M.BO",
+      "MANKIND.BO",
+      "MAXHEALTH.NS",
+      "NEWGEN.BO",
+      "NHPC.BO",
+      "PRESTIGE.NS",
+      "PSB.BO",
+      "PVRINOX.NS",
+      "RELIANCE.BO",
+      "SBIN.NS",
+      "TATASTEEL.BO",
+      "TCS.NS",
+      "TMPV.BO",
+      "TVSMOTOR.NS",
+      "ULTRACEMCO.NS",
+      "VBL.NS",
+      "VMM.NS",
+      "WIPRO.BO"
+    ],
+    "priceSnapshot": {
+      "ABREL.NS": 1400.2,
+      "ACE.BO": 1061.85,
+      "AMBUJACEM.NS": 430.95,
+      "APOLLOHOSP.BO": 8843,
+      "ASTRAL.NS": 1465.8,
+      "BDL.BO": 1256.65,
+      "BHARTIARTL.NS": 1905.3,
+      "BRIGADE.BO": 544.05,
+      "BSOFT.BO": 293.55,
+      "CASTROLIND.BO": 184.3,
+      "CENTRALBK.BO": 31.25,
+      "DALBHARAT.BO": 1824.85,
+      "DIXON.NS": 13810,
+      "DLF.NS": 650.9,
+      "FIRSTCRY.NS": 213.51,
+      "GODREJCP.NS": 1073.7,
+      "HAVELLS.NS": 1237.4,
+      "HCLTECH.BO": 1295.85,
+      "HDFCBANK.NS": 739.55,
+      "HEROMOTOCO.BO": 5113.05,
+      "HINDALCO.NS": 945.25,
+      "HINDUNILVR.NS": 2174.6,
+      "ICICIBANK.NS": 1445.7,
+      "IIFL.NS": 573.2,
+      "INFY.NS": 1079.2,
+      "IREDA.BO": 120.3,
+      "ITC.NS": 285.85,
+      "ITCHOTELS.NS": 165.43,
+      "JINDALSTEL.NS": 1065.7,
+      "JIOFIN.NS": 236.17,
+      "JKPAPER.NS": 414.55,
+      "JWL.BO": 247.85,
+      "KALYANKJIL.NS": 564.6,
+      "KAMATHOTEL.NS": 169.83,
+      "KOTAKBANK.NS": 384.65,
+      "LICI.NS": 424.35,
+      "LODHA.BO": 1199.75,
+      "M&M.BO": 3239.35,
+      "MANKIND.BO": 2551.05,
+      "MAXHEALTH.NS": 1114.6,
+      "NEWGEN.BO": 506.8,
+      "NHPC.BO": 79.7,
+      "PRESTIGE.NS": 1644.6,
+      "PSB.BO": 24,
+      "PVRINOX.NS": 1123.2,
+      "RELIANCE.BO": 1280.1,
+      "SBIN.NS": 1020.6,
+      "TATASTEEL.BO": 184.2,
+      "TCS.NS": 2295.6,
+      "TMPV.BO": 327.75,
+      "TVSMOTOR.NS": 3876.4,
+      "ULTRACEMCO.NS": 11881,
+      "VBL.NS": 464.5,
+      "VMM.NS": 110.31,
+      "WIPRO.BO": 178.5
+    },
+    "searchTimestamp": "2026-07-27T11:47:52.543Z"
+  },
+  "content": {
+    "date": "2026-07-27",
+    "evaluated": [
+      {
+        "ticker": "ABREL.NS",
+        "name": "ABREL",
+        "price": 1400.2,
+        "changePct": 1.89,
+        "note": "+1.9% vs prev close, vol 0.5x avg"
+      },
+      {
+        "ticker": "ACE.BO",
+        "name": "ACE",
+        "price": 1061.85,
+        "changePct": 2.09,
+        "note": "+2.1% vs prev close, vol 2.0x avg — flags: volume>2x avg"
+      },
+      {
+        "ticker": "AMBUJACEM.NS",
+        "name": "AMBUJACEM",
+        "price": 430.95,
+        "changePct": 1.36,
+        "note": "+1.4% vs prev close, vol 0.5x avg"
+      },
+      {
+        "ticker": "APOLLOHOSP.BO",
+        "name": "APOLLOHOSP",
+        "price": 8843,
+        "changePct": 0.44,
+        "note": "+0.4% vs prev close, vol 0.3x avg"
+      },
+      {
+        "ticker": "ASTRAL.NS",
+        "name": "ASTRAL",
+        "price": 1465.8,
+        "changePct": -0.16,
+        "note": "-0.2% vs prev close, vol 0.5x avg"
+      },
+      {
+        "ticker": "BDL.BO",
+        "name": "BDL",
+        "price": 1256.65,
+        "changePct": 1.15,
+        "note": "+1.1% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "BHARTIARTL.NS",
+        "name": "BHARTIARTL",
+        "price": 1905.3,
+        "changePct": 0.37,
+        "note": "+0.4% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "BRIGADE.BO",
+        "name": "BRIGADE",
+        "price": 544.05,
+        "changePct": 3.55,
+        "note": "+3.5% vs prev close, vol 0.1x avg"
+      },
+      {
+        "ticker": "BSOFT.BO",
+        "name": "BSOFT",
+        "price": 293.55,
+        "changePct": 3.91,
+        "note": "+3.9% vs prev close, vol 1.4x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "CASTROLIND.BO",
+        "name": "CASTROLIND",
+        "price": 184.3,
+        "changePct": -0.3,
+        "note": "-0.3% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "CENTRALBK.BO",
+        "name": "CENTRALBK",
+        "price": 31.25,
+        "changePct": 0.71,
+        "note": "+0.7% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "DALBHARAT.BO",
+        "name": "DALBHARAT",
+        "price": 1824.85,
+        "changePct": 0.89,
+        "note": "+0.9% vs prev close, vol 1.7x avg"
+      },
+      {
+        "ticker": "DIXON.NS",
+        "name": "DIXON",
+        "price": 13810,
+        "changePct": -0.26,
+        "note": "-0.3% vs prev close, vol 0.3x avg"
+      },
+      {
+        "ticker": "DLF.NS",
+        "name": "DLF",
+        "price": 650.9,
+        "changePct": 0.88,
+        "note": "+0.9% vs prev close, vol 0.5x avg"
+      },
+      {
+        "ticker": "FIRSTCRY.NS",
+        "name": "FIRSTCRY",
+        "price": 213.51,
+        "changePct": 2.5,
+        "note": "+2.5% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "GODREJCP.NS",
+        "name": "GODREJCP",
+        "price": 1073.7,
+        "changePct": 1.34,
+        "note": "+1.3% vs prev close, vol 0.4x avg"
+      },
+      {
+        "ticker": "HAVELLS.NS",
+        "name": "HAVELLS",
+        "price": 1237.4,
+        "changePct": 0.86,
+        "note": "+0.9% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "HCLTECH.BO",
+        "name": "HCLTECH",
+        "price": 1295.85,
+        "changePct": 1.98,
+        "note": "+2.0% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFCBANK",
+        "price": 739.55,
+        "changePct": -0.44,
+        "note": "-0.4% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HEROMOTOCO.BO",
+        "name": "HEROMOTOCO",
+        "price": 5113.05,
+        "changePct": 2.04,
+        "note": "+2.0% vs prev close, vol 1.2x avg"
+      },
+      {
+        "ticker": "HINDALCO.NS",
+        "name": "HINDALCO",
+        "price": 945.25,
+        "changePct": 0.26,
+        "note": "+0.3% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "HINDUNILVR.NS",
+        "name": "HINDUNILVR",
+        "price": 2174.6,
+        "changePct": 1.38,
+        "note": "+1.4% vs prev close, vol 0.4x avg"
+      },
+      {
+        "ticker": "ICICIBANK.NS",
+        "name": "ICICIBANK",
+        "price": 1445.7,
+        "changePct": 0.89,
+        "note": "+0.9% vs prev close, vol 0.8x avg"
+      },
+      {
+        "ticker": "IIFL.NS",
+        "name": "IIFL",
+        "price": 573.2,
+        "changePct": 2.99,
+        "note": "+3.0% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "INFY",
+        "price": 1079.2,
+        "changePct": 3.68,
+        "note": "+3.7% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "IREDA.BO",
+        "name": "IREDA",
+        "price": 120.3,
+        "changePct": -0.17,
+        "note": "-0.2% vs prev close, vol 1.5x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "ITC.NS",
+        "name": "ITC",
+        "price": 285.85,
+        "changePct": 0.85,
+        "note": "+0.8% vs prev close, vol 1.3x avg"
+      },
+      {
+        "ticker": "ITCHOTELS.NS",
+        "name": "ITCHOTELS",
+        "price": 165.43,
+        "changePct": 3.45,
+        "note": "+3.4% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "JINDALSTEL.NS",
+        "name": "JINDALSTEL",
+        "price": 1065.7,
+        "changePct": 2.89,
+        "note": "+2.9% vs prev close, vol 2.0x avg — flags: volume>2x avg, below 50DMA support"
+      },
+      {
+        "ticker": "JIOFIN.NS",
+        "name": "JIOFIN",
+        "price": 236.17,
+        "changePct": 0.62,
+        "note": "+0.6% vs prev close, vol 0.4x avg"
+      },
+      {
+        "ticker": "JKPAPER.NS",
+        "name": "JKPAPER",
+        "price": 414.55,
+        "changePct": 3.26,
+        "note": "+3.3% vs prev close, vol 2.0x avg"
+      },
+      {
+        "ticker": "JWL.BO",
+        "name": "JWL",
+        "price": 247.85,
+        "changePct": 0.47,
+        "note": "+0.5% vs prev close, vol 0.8x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "KALYANKJIL.NS",
+        "name": "KALYANKJIL",
+        "price": 564.6,
+        "changePct": -1.56,
+        "note": "-1.6% vs prev close, vol 0.4x avg"
+      },
+      {
+        "ticker": "KAMATHOTEL.NS",
+        "name": "KAMATHOTEL",
+        "price": 169.83,
+        "changePct": 0.43,
+        "note": "+0.4% vs prev close, vol 0.8x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "KOTAKBANK.NS",
+        "name": "KOTAKBANK",
+        "price": 384.65,
+        "changePct": -0.03,
+        "note": "-0.0% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "LICI.NS",
+        "name": "LICI",
+        "price": 424.35,
+        "changePct": 0.72,
+        "note": "+0.7% vs prev close, vol 0.4x avg"
+      },
+      {
+        "ticker": "LODHA.BO",
+        "name": "LODHA",
+        "price": 1199.75,
+        "changePct": 4.84,
+        "note": "+4.8% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "M&M.BO",
+        "name": "M&M",
+        "price": 3239.35,
+        "changePct": 2.48,
+        "note": "+2.5% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "MANKIND.BO",
+        "name": "MANKIND",
+        "price": 2551.05,
+        "changePct": 1.82,
+        "note": "+1.8% vs prev close, vol 0.1x avg"
+      },
+      {
+        "ticker": "MAXHEALTH.NS",
+        "name": "MAXHEALTH",
+        "price": 1114.6,
+        "changePct": 3.17,
+        "note": "+3.2% vs prev close, vol 1.0x avg"
+      },
+      {
+        "ticker": "NEWGEN.BO",
+        "name": "NEWGEN",
+        "price": 506.8,
+        "changePct": 0.23,
+        "note": "+0.2% vs prev close, vol 0.2x avg"
+      },
+      {
+        "ticker": "NHPC.BO",
+        "name": "NHPC",
+        "price": 79.7,
+        "changePct": 0.38,
+        "note": "+0.4% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "PRESTIGE.NS",
+        "name": "PRESTIGE",
+        "price": 1644.6,
+        "changePct": 3.25,
+        "note": "+3.3% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "PSB.BO",
+        "name": "PSB",
+        "price": 24,
+        "changePct": 1.01,
+        "note": "+1.0% vs prev close, vol 0.7x avg"
+      },
+      {
+        "ticker": "PVRINOX.NS",
+        "name": "PVRINOX",
+        "price": 1123.2,
+        "changePct": 5.57,
+        "note": "+5.6% vs prev close, vol 3.7x avg — flags: volume>2x avg"
+      },
+      {
+        "ticker": "RELIANCE.BO",
+        "name": "RELIANCE",
+        "price": 1280.1,
+        "changePct": 0.15,
+        "note": "+0.2% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "SBIN.NS",
+        "name": "SBIN",
+        "price": 1020.6,
+        "changePct": 0.55,
+        "note": "+0.6% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "TATASTEEL.BO",
+        "name": "TATASTEEL",
+        "price": 184.2,
+        "changePct": 0.82,
+        "note": "+0.8% vs prev close, vol 0.6x avg"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "TCS",
+        "price": 2295.6,
+        "changePct": 1.83,
+        "note": "+1.8% vs prev close, vol 0.8x avg"
+      },
+      {
+        "ticker": "TMPV.BO",
+        "name": "TMPV",
+        "price": 327.75,
+        "changePct": 1.2,
+        "note": "+1.2% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "TVSMOTOR.NS",
+        "name": "TVSMOTOR",
+        "price": 3876.4,
+        "changePct": 0.16,
+        "note": "+0.2% vs prev close, vol 0.5x avg"
+      },
+      {
+        "ticker": "ULTRACEMCO.NS",
+        "name": "ULTRACEMCO",
+        "price": 11881,
+        "changePct": 0.3,
+        "note": "+0.3% vs prev close, vol 0.9x avg"
+      },
+      {
+        "ticker": "VBL.NS",
+        "name": "VBL",
+        "price": 464.5,
+        "changePct": 1.6,
+        "note": "+1.6% vs prev close, vol 1.0x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "VMM.NS",
+        "name": "VMM",
+        "price": 110.31,
+        "changePct": 2.1,
+        "note": "+2.1% vs prev close, vol 1.3x avg — flags: below 50DMA support"
+      },
+      {
+        "ticker": "WIPRO.BO",
+        "name": "WIPRO",
+        "price": 178.5,
+        "changePct": 0.76,
+        "note": "+0.8% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+      }
+    ],
+    "alerts": [
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "reason": "Stock down 0.4% with below-average volume in a strong market, identified as a Nifty 50 loser, and below 50DMA support.",
+        "severity": "high",
+        "triggeredRules": [
+          "below 50DMA support"
+        ]
+      },
+      {
+        "ticker": "IREDA.BO",
+        "name": "Indian Renewable Energy Development Agency",
+        "reason": "Stock down 0.2% with above-average volume in a broadly positive market, indicating genuine selling pressure.",
+        "severity": "medium",
+        "triggeredRules": [
+          "below 50DMA support"
+        ]
+      }
+    ],
+    "summary": "Two genuine sell signals were identified: HDFC Bank (HDFCBANK.NS) due to underperformance in a strong market and IREDA (IREDA.BO) showing weakness with above-average volume."
+  },
+  "emailSent": true,
+  "checksum": "sha256:b9996b9f83b01031e2ff1150a6ab76a278497e278eda4a7348798295131931cb"
+}
