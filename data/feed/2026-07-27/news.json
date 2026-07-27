@@ -1,0 +1,355 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI projects 5.1% CPI inflation for FY27 amidst upside risks; MPC keeps repo rate at 5.25%",
+          "summary": "The Reserve Bank of India (RBI) has projected CPI inflation for 2026-27 at 5.1%, with risks tilted to the upside due to ongoing geopolitical tensions and potential spikes in global fuel and commodity prices. The Monetary Policy Committee (MPC) previously kept the policy repo rate unchanged at 5.25%. India's economy continues to demonstrate resilience, supported by healthy domestic demand and robust performance in industrial and services sectors.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian markets open positive on easing crude oil prices; US Fed meeting awaited",
+          "summary": "Indian markets are opening on a positive note today, primarily bolstered by a significant decline in crude oil prices (down 4-5%) as geopolitical tensions between the US and Iran show signs of easing. Global uncertainty led to a weak performance last week. Asian markets are currently trading mixed, and investors will closely monitor the US Federal Reserve's upcoming policy meeting for guidance on interest rates.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Coal India, BEL, Tata Power, Canara Bank, Indus Towers, Coforge to declare Q1 FY27 results today",
+          "summary": "Several prominent companies, including Coal India, Bharat Electronics (BEL), Tata Power, Canara Bank, Indus Towers, and Coforge, are slated to announce their Q1 FY27 earnings today, July 27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "COALINDIA.NS",
+            "BEL.NS",
+            "TATAPOWER.NS",
+            "CANBK.NS",
+            "INDUSTOW.NS",
+            "COFORGE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "NTPC reports 11.9% YoY net profit growth in Q1 FY27",
+          "summary": "NTPC Ltd. reported an 11.9% year-on-year (YoY) increase in standalone net profit to \n₹5,342.4 crore, with revenue rising 3% to \n₹43,831.9 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "NTPC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lodha Developers' Q1 FY27 consolidated profit jumps 103.4%",
+          "summary": "Lodha Developers Ltd. saw consolidated profit jump 103.4% YoY to \n₹1,372.1 crore, and revenue increase 43.1% to \n₹4,996.7 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "LODHA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Consumer Products Q1 FY27 profit up 27.8%, driven by strong India and international business",
+          "summary": "Tata Consumer Products Ltd. posted a 27.8% rise in consolidated quarterly profit to \n₹427 crore, supported by an 11.9% increase in revenue to \n₹5,348.9 crore. The India branded business recorded 13% underlying volume growth, while the international business expanded 16%.",
+          "source": "Reuters",
+          "tickers": [
+            "TATACONSUM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "DCB Bank Q1 profit rises 35.6% with improved asset quality",
+          "summary": "DCB Bank reported a 35.6% rise in quarterly profit to \n₹213.2 crore, with net interest income (NII) increasing 17.8% and improved asset quality.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "DCBBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "REC Ltd. posts 6.1% YoY net profit growth and 3.6% NII growth in Q1 FY27",
+          "summary": "REC Ltd. recorded a 6.1% YoY growth in consolidated net profit to \n₹4,192.80 crore and a 3.6% YoY growth in NII to \n₹5,453 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "RECLTD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "SBI Cards Q1 net profit up 19.5% YoY, NII marginally down",
+          "summary": "SBI Cards And Payment Services witnessed a 19.5% YoY growth in Q1 consolidated net profit to \n₹664.4 crore, though net interest income fell by 0.5%.",
+          "source": "Economic Times",
+          "tickers": [
+            "SBICARD.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bank of Baroda reports decline in Q1 FY27 profit",
+          "summary": "Bank of Baroda posted a decline in its quarterly profit for Q1 FY27.",
+          "source": "Livemint",
+          "tickers": [
+            "BANKBARODA.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "IDFC First Bank Q1 net profit more than doubles, NII up 21%",
+          "summary": "IDFC First Bank reported Q1 net profit more than doubling to \n₹1,075 crore from \n₹463 crore a year ago, with NII rising 21% YoY to \n₹5,972 crore. Operating profit increased 14%, with improved asset quality and reduced provisions.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "IDFCFIRSTB.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Banking stocks lag due to earnings and margin concerns; Nifty PSU Bank index shows strength",
+          "summary": "Banking stocks were significant laggards last week, primarily due to mixed quarterly earnings and concerns surrounding margins, with HDFC Bank experiencing a notable decline. However, the Nifty PSU Bank index showed strength last Monday, with Punjab National Bank (PNB) surging.",
+          "source": "Economic Times",
+          "tickers": [
+            "HDFCBANK.NS",
+            "PNB.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IT sector optimism tempered by Infosys guidance cut; HCLTech shows resilience",
+          "summary": "The IT sector's optimism has been tempered by Infosys cutting its FY27 guidance. Conversely, other IT companies like HCLTech demonstrated resilience last week.",
+          "source": "Livemint",
+          "tickers": [
+            "INFY.NS",
+            "HCLTECH.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Auto sector shows resilience; Oil & Gas stocks gain while aviation, paints, and auto face cost pressures",
+          "summary": "The auto sector, led by Bajaj Auto, demonstrated resilience last week. Nifty Oil & Gas stocks gained on the surge in crude prices last week, while aviation, paints, and auto companies faced cost pressures.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BAJAJAUTO.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Coforge board to consider interim dividend today, secures $230M European client contract",
+          "summary": "Coforge's board is meeting today to consider an interim dividend, a proposal previously deferred due to the Cigniti Technologies merger. The company also secured a 5-year contract worth over $230 million from a European client for an AI-led business transformation program.",
+          "source": "Economic Times",
+          "tickers": [
+            "COFORGE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Coal India board to approve Q1 results and consider interim dividend today",
+          "summary": "Coal India's board will meet today to approve Q1 FY27 results and consider declaring an interim dividend.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "COALINDIA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IDFC First Bank board approves raising up to \n₹7,500 Cr via equity and \n₹12,500 Cr via debt",
+          "summary": "IDFC First Bank's board has approved raising up to \n₹7,500 crore through equity and up to \n₹12,500 crore through debt instruments.",
+          "source": "Business Standard",
+          "tickers": [
+            "IDFCFIRSTB.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani Energy Solutions secures \n₹8,500 Cr interstate transmission project in Andhra Pradesh",
+          "summary": "Adani Energy Solutions secured an interstate transmission project worth approximately \n₹8,500 crore in Andhra Pradesh.",
+          "source": "Livemint",
+          "tickers": [
+            "ADANIENSOL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Atul approves \n₹167 Cr capex for new manufacturing capacity",
+          "summary": "Atul approved a \n₹167 crore capital expenditure to set up new manufacturing capacity.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ATUL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "AXISCADES Technologies acquires land for defense manufacturing facility",
+          "summary": "AXISCADES Technologies completed the acquisition of a land parcel in Telangana for \n₹39.42 crore to establish a defense hardware manufacturing and integration facility.",
+          "source": "Business Standard",
+          "tickers": [
+            "AXISCADES.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HCLTech plans \n₹14,257 Cr AI Data Center in Odisha",
+          "summary": "HCLTech plans to establish its first AI Data Center in Odisha with a planned investment of \n₹14,257 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCLTECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Jamna Auto Industries to acquire UK-based Owen Springs for \n£2 million",
+          "summary": "Jamna Auto Industries approved the acquisition of a 100% stake in UK-based Owen Springs for \n£2 million in cash.",
+          "source": "Livemint",
+          "tickers": [
+            "JAMNAAUTO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "L&T secures large international orders for process plant equipment",
+          "summary": "Larsen & Toubro secured large international orders valued between \n₹2,500 crore and \n₹5,000 crore for process plant equipment.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "LT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "NTPC Renewable Energy commissions 64.76 MW solar capacity",
+          "summary": "NTPC Green Energy's subsidiary, NTPC Renewable Energy, announced the commercial operation of 64.76 MW solar capacity.",
+          "source": "Economic Times",
+          "tickers": [
+            "NTPC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "PTC Industries receives development order from Gun Factory Kanpur",
+          "summary": "PTC Industries received a development order from Gun Factory Kanpur.",
+          "source": "Livemint",
+          "tickers": [
+            "PTCIL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Stocks in focus: NTPC, Waaree Renewable, Lodha, Tata Consumer, Jindal Steel, and others",
+          "summary": "Several stocks including NTPC Ltd., Waaree Renewable Technologies Ltd., Lodha Developers Ltd., Tata Consumer Products Ltd., Jindal Steel Ltd., REC Ltd., Bank of Baroda Ltd., Bank of India Ltd., IDFC First Bank Ltd., AU Small Finance Bank Ltd., DCB Bank Ltd., Vedant Fashions Ltd., Zen Technologies Ltd., Authum Investment & Infrastructure Ltd., Landmark Cars Ltd., NBCC (India) Ltd., Sarda Energy and Minerals Ltd., Coal India, Bharat Electronics, Tata Power, Coforge, SBI Card, and KFin Technologies are likely to be in focus today.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NTPC.NS",
+            "WAAREEREN.NS",
+            "LODHA.NS",
+            "TATACONSUM.NS",
+            "JINDALSTEL.NS",
+            "RECLTD.NS",
+            "BANKBARODA.NS",
+            "BANKINDIA.NS",
+            "IDFCFIRSTB.NS",
+            "AUBANK.NS",
+            "DCBBANK.NS",
+            "VEDANTFAS.NS",
+            "ZENTEC.NS",
+            "AUTHUM.NS",
+            "LANDMARK.NS",
+            "NBCC.NS",
+            "SARDAEN.NS",
+            "COALINDIA.NS",
+            "BEL.NS",
+            "TATAPOWER.NS",
+            "COFORGE.NS",
+            "SBICARD.NS",
+            "KFINTECH.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "PVRINOX.NS",
+      "name": "PVR INOX",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1150,
+      "rationale": "Recommended by Sumeet Bagadia, Executive Director at Choice Broking."
+    },
+    {
+      "ticker": "TTKHLTCARE.NS",
+      "name": "TTK Healthcare",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1125,
+      "rationale": "Recommended by Sumeet Bagadia, Executive Director at Choice Broking."
+    },
+    {
+      "ticker": "ASAHISONG.NS",
+      "name": "Asahi Songwon Colors",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 355,
+      "rationale": "Recommended by Sumeet Bagadia, Executive Director at Choice Broking."
+    },
+    {
+      "ticker": "CONFIPET.NS",
+      "name": "Confidence Petroleum India",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 84.5,
+      "rationale": "Recommended by Sumeet Bagadia for buying under \n₹100."
+    },
+    {
+      "ticker": "FILATEX.NS",
+      "name": "Filatex India",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 80,
+      "rationale": "Recommended by Sumeet Bagadia for buying under \n₹100."
+    },
+    {
+      "ticker": "UJJIVANSFB.NS",
+      "name": "Ujjivan Small Finance Bank",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 75.5,
+      "rationale": "Recommended by Sumeet Bagadia for buying under \n₹100."
+    },
+    {
+      "ticker": "MOTHERSON.NS",
+      "name": "Samvardhana Motherson International",
+      "brokerage": "IDBI Capital Market and Securities Ltd.",
+      "action": "buy",
+      "rationale": "Recommended by Deven Mehata, Manager, Technical & Derivatives Analyst."
+    },
+    {
+      "ticker": "IDFCFIRSTB.NS",
+      "name": "IDFC First Bank",
+      "brokerage": "CLSA",
+      "action": "buy",
+      "rationale": "Upgraded to 'Outperform' from 'Hold' and raised target price following strong Q1 results."
+    }
+  ]
+}
