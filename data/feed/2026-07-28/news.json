@@ -1,0 +1,465 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI expected to maintain key interest rate at 5.25% through 2026",
+          "summary": "The Reserve Bank of India is anticipated to keep its key interest rate at 5.25% for the remainder of 2026, assessing the impact of Middle East conflict and deeming rate hike discussions \"premature\" despite recent inflation uptick.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's June retail inflation breaches RBI target, hits 4.38%",
+          "summary": "India's retail inflation reached 4.38% year-on-year in June, exceeding the central bank's 4% target for the first time in 17 months, mainly due to higher fuel and food costs. RBI projects CPI at 5.1% for FY27.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Government to conduct ₹20,000 crore buyback of securities today",
+          "summary": "The Indian government will execute a ₹20,000 crore buyback of government securities via an RBI-managed auction today, July 28, aimed at reducing repayment pressure and managing debt efficiently.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's industrial production data scheduled for release today",
+          "summary": "Key industrial production data, a significant indicator of manufacturing and economic activity, is slated for release today, July 28.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "RBI Deputy Governor emphasizes wider access to bond markets for enterprises",
+          "summary": "RBI Deputy Governor Rohit Jain highlighted the necessity to broaden bond market access for enterprises to secure market-based finance, noting the bank-led model's potential inadequacy for future financing needs.",
+          "source": "Financial Express",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "US Treasury keeps India off currency watch list, finds no rupee manipulation",
+          "summary": "The US Treasury expanded its foreign exchange review but confirmed India did not manipulate the rupee for trade advantage, consequently keeping India off its currency watch list.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian indices set for flat open amid negative Asian, US cues",
+          "summary": "Indian benchmark indices are expected to open flat today, July 28, tracking predominantly negative cues from Asian markets and US stock futures, despite falling crude oil prices.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Brent crude falls below $90, easing oil price concerns",
+          "summary": "Crude oil prices have fallen, with Brent crude now trading below the $90 a barrel mark, contributing to some easing of global economic concerns.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Indian markets snap losing streak with strong rebound on July 27",
+          "summary": "Indian markets witnessed a strong rebound on Monday, July 27, with Nifty 50 gaining 0.96% and Sensex advancing 1.02%, ending a five-session losing streak due to easing US-Iran tensions and declining crude oil prices.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "FIIs net sellers, DIIs net buyers on July 27",
+          "summary": "Foreign institutional investors (FIIs) were net sellers of ₹1,688.23 crore worth of shares on July 27, while domestic institutional investors (DIIs) were net buyers of ₹2,329.14 crore.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Tata Power reports 11% rise in Q1 net profit on renewables, generation boost",
+          "summary": "Tata Power's net profit increased by 11% year-on-year in Q1 FY27, driven by strong performance in its renewables, transmission, and generation segments.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TATAPOWER.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "BEL net profit up 8.7%, revenue jumps 25% in Q1",
+          "summary": "Bharat Electronics reported an 8.7% rise in net profit and a 25% jump in revenue for the first quarter of FY27, indicating robust growth.",
+          "source": "Economic Times",
+          "tickers": [
+            "BEL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Northern Arc Capital sees 17.6% net profit growth in Q1",
+          "summary": "Northern Arc Capital's net profit rose by 17.6% and net interest income increased by 44.2% in Q1 FY27, showcasing strong financial performance.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Usha Martin posts 40.7% net profit jump, 16.4% revenue growth in Q1",
+          "summary": "Usha Martin achieved a 40.7% year-on-year increase in net profit and 16.4% year-on-year revenue growth for Q1 FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "USHAMART.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "CCL Products India reports 61.3% YoY surge in Q1 consolidated net profit",
+          "summary": "CCL Products India had a strong quarter, with consolidated net profit increasing by 61.3% year-on-year.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "CCL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Chemicals reports Q1 net loss of ₹17 crore due to weak realizations",
+          "summary": "Tata Chemicals posted a consolidated net loss of ₹17 crore for the June quarter, a decline from a profit of ₹252 crore in the previous year, attributed to weaker realizations and lower contributions from joint ventures.",
+          "source": "Economic Times",
+          "tickers": [
+            "TATACHEM.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Godfrey Phillips India Q1 net profit down 44.3% YoY",
+          "summary": "Godfrey Phillips India reported a 44.3% year-on-year decline in net profit and an 18.9% year-on-year fall in revenue for Q1 FY27, reflecting softer business conditions.",
+          "source": "Livemint",
+          "tickers": [
+            "GODFRYPHLP.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Coal India Q1 net profit up marginally by 0.6%, below expectations",
+          "summary": "Coal India's consolidated net profit saw a modest 0.6% increase in Q1 FY27, which was flat compared to some expectations, impacted by muted offtake and higher operating expenses.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "COALINDIA.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Larsen & Toubro, HUL, Ambuja Cements among companies announcing Q1 results today",
+          "summary": "A large number of companies, including Larsen & Toubro, Hindustan Unilever, Ambuja Cements, Tata Capital, Suzlon Energy, Radico Khaitan, City Union Bank, Cholamandalam Investment, DCM Shriram, Equitas Small Finance Bank, Pfizer, Phoenix Mills, Pine Labs, Supreme Industries, Varun Beverages, and VST Industries, are scheduled to announce their Q1 FY27 results today, July 28.",
+          "source": "Economic Times",
+          "tickers": [
+            "LT.NS",
+            "HINDUNILVR.NS",
+            "AMBUJACEM.NS",
+            "SUZLON.NS",
+            "RADICO.NS",
+            "CITYUNIONBK.NS",
+            "CHOLAFIN.NS",
+            "DCMSRM.NS",
+            "EQUITASBNK.NS",
+            "PFIZER.NS",
+            "PHOENIXLTD.NS",
+            "SUPREMEIND.NS",
+            "VBL.NS",
+            "VSTIND.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT, Media, Realty, and Auto sectors lead market gains",
+          "summary": "On July 27, the IT (+2.34%), Media (+2.39%), Realty (+2.28%), and Auto (+1.60%) sectors led the market gains, with IT stocks boosted by improved valuations and Jefferies upgrade, and Realty/Auto by lower crude oil prices.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Oil & Gas Exploration sector experiences significant decline",
+          "summary": "The Oil & Gas Exploration sector saw the most significant decline on July 27, falling 3.44%.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Adani Energy Solutions launches QIP at ₹1,698.15 per share",
+          "summary": "Adani Energy Solutions initiated its Qualified Institutions Placement (QIP) on July 27, with a floor price set at ₹1,698.15 per share.",
+          "source": "Livemint",
+          "tickers": [
+            "ADANIENSOL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "TVS Motor acquires additional 4.39% stake in TVS Credit Services",
+          "summary": "TVS Motor Company increased its holding in TVS Credit Services to 85.15% by acquiring an additional 4.39% stake from Lucas TVS for ₹711 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TVSMOTOR.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Heritage Foods acquires additional 20% stake in PBJL, making it a subsidiary",
+          "summary": "Heritage Foods acquired an additional 20% stake in PBJL, effective July 27, making it a subsidiary.",
+          "source": "Business Standard",
+          "tickers": [
+            "HERITGFOOD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "BNP Paribas Cardif to acquire 26% stake in IndiaFirst Life Insurance",
+          "summary": "BNP Paribas Cardif has agreed to acquire approximately a 26% stake in IndiaFirst Life Insurance Company from Warburg Pincus, pending regulatory approval.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Mankind Pharma completes sale of Broadway Hospitality Services for ₹49 crore",
+          "summary": "Mankind Pharma finalized the sale of its entire 100% stake in its subsidiary, Broadway Hospitality Services, for ₹49 crore.",
+          "source": "Livemint",
+          "tickers": [
+            "MANKINDPHARMA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Gravita India board approves closure of Gravita Metal Inc. subsidiary",
+          "summary": "Gravita India's board approved the closure of its subsidiary, Gravita Metal Inc., effective August 1, 2026, as part of operations consolidation efforts.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "GRAVITA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bank of Baroda reports cybersecurity incident, no material impact",
+          "summary": "Bank of Baroda reported a cybersecurity incident involving a potential business email compromise, but confirmed no material impact on its operations.",
+          "source": "Economic Times",
+          "tickers": [
+            "BANKBARODA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Torrent Pharmaceuticals gets approval for JB Chemicals amalgamation share listing",
+          "summary": "Torrent Pharmaceuticals received approval from NSE and BSE for the listing of over 4.19 crore shares issued under the JB Chemicals amalgamation, effective today.",
+          "source": "Business Standard",
+          "tickers": [
+            "TORNTPHARM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Motors' Sanand plant faces flood disruption, expects normalcy soon",
+          "summary": "Tata Motors' Sanand plant and its suppliers in Gujarat experienced disruption due to flooding but anticipate a swift return to normal operations.",
+          "source": "Livemint",
+          "tickers": [
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "InterGlobe Aviation redesignates CFO, appoints new one",
+          "summary": "InterGlobe Aviation has redesignated its Chief Financial Officer and appointed a new one, effective today, July 28.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INDIGO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Meesho in focus over Elevation Capital's potential ₹1,200 crore share sale",
+          "summary": "E-commerce platform Meesho is in focus amidst reports that Elevation Capital might sell shares worth ₹1,200 crore through a block deal.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Kolte Patil Developers reappoints Girish Vanvari as Independent Director",
+          "summary": "Kolte Patil Developers reappointed Girish Vanvari as an Independent Non-Executive Director for a second five-year term, effective July 29, 2026.",
+          "source": "Business Standard",
+          "tickers": [
+            "KOLTEPATIL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Godrej Properties, Greaves Cotton, Dollar Industries among ex-dividend stocks today",
+          "summary": "Several companies, including Godrej Properties, Greaves Cotton, Dollar Industries, EIH Associated Hotels, GMM Pfaudler, Solar Industries, and SRF, are trading ex-dividend today, July 28.",
+          "source": "Livemint",
+          "tickers": [
+            "GODREJPROP.NS",
+            "GREAVESCOT.NS",
+            "DOLLAR.NS",
+            "EIHASSOC.NS",
+            "GMMPFAUDLR.NS",
+            "SOLARINDS.NS",
+            "SRF.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "HDFC Bank concludes MSRDC review, finds employees exceeded authority; executives fined",
+          "summary": "HDFC Bank's internal review of the MSRDC deposit matter found employees exceeded authority without mala fide intent. Top executives were reportedly fined ₹1 lakh each by the board for diverging from RBI direction.",
+          "source": "Economic Times",
+          "tickers": [
+            "HDFCBANK.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Rajesh Exports denies information on reported NEFRA probe",
+          "summary": "Rajesh Exports stated it has no information regarding a reported NEFRA (National Financial Reporting Authority) probe.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RAJESHEXPO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Wipro partners with Databricks for enterprise data modernization and AI deployment",
+          "summary": "Wipro has partnered with Databricks to assist enterprises in modernizing data infrastructure and implementing AI solutions at scale.",
+          "source": "Business Standard",
+          "tickers": [
+            "WIPRO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Zaggle Prepaid Ocean Services signs 3-year agreement with Daimler India Commercial Vehicles",
+          "summary": "Zaggle Prepaid Ocean Services entered a three-year agreement with Daimler India Commercial Vehicles to provide its Zaggle Zatix platform and Corporate Credit Card Programme.",
+          "source": "Livemint",
+          "tickers": [
+            "ZAGGLE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Sun Pharma partner Philogen resubmits Nidlegy marketing authorization for melanoma treatment",
+          "summary": "Sun Pharmaceutical Industries' partner Philogen has resubmitted a European Medicines Agency marketing authorization application for Nidlegy, a melanoma treatment.",
+          "source": "Economic Times",
+          "tickers": [
+            "SUNPHARMA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Jeena Sikho Lifecare launches four Ayurvedic pain relief patch products",
+          "summary": "Jeena Sikho Lifecare has launched four new Ayurvedic pain relief patch products.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "JEENASIKHO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Pfizer India's Executive Director-Finance and CFO resigns",
+          "summary": "Pfizer India's Executive Director-Finance and CFO has resigned, effective October 8, 2026.",
+          "source": "Business Standard",
+          "tickers": [
+            "PFIZER.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Avenue Supermarts opens new DMart store in Udaipur, total count now 505",
+          "summary": "Avenue Supermarts (DMart) has opened a new store in Udaipur, bringing its total store count to 505.",
+          "source": "Livemint",
+          "tickers": [
+            "AVENUE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HCLTech releases Economist Enterprise AI research on TMT sector",
+          "summary": "HCLTech has released Economist Enterprise AI research focusing on the Technology, Media, and Telecom (TMT) sector.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCLTECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Goodluck Defence receives Quality Assurance Certificate for artillery shells",
+          "summary": "Goodluck India's subsidiary, Goodluck Defence, has been awarded a Quality Assurance Certificate for its artillery shells.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "GOODLUCK.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "MOTHERSON.NS",
+      "name": "Samvardhana Motherson International Ltd",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "rationale": "Recommended to buy based on positive momentum."
+    },
+    {
+      "ticker": "LODHA.NS",
+      "name": "Macrotech Developers Ltd",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "rationale": "Recommended to buy based on positive momentum."
+    },
+    {
+      "ticker": "CHOLAFIN.NS",
+      "name": "Cholamandalam Investment and Finance Company Ltd",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "rationale": "Recommended to buy based on positive momentum."
+    },
+    {
+      "ticker": "FEDERALBNK.NS",
+      "name": "Federal Bank Ltd",
+      "brokerage": "Motilal Oswal Wealth Management Research Desk",
+      "action": "buy",
+      "rationale": "Top pick for the week, supported by strong Q1 FY27 performance with a 37% YoY increase in PAT."
+    },
+    {
+      "ticker": "TVSMOTOR.NS",
+      "name": "TVS Motor Company Ltd",
+      "brokerage": "Motilal Oswal Wealth Management Research Desk",
+      "action": "buy",
+      "rationale": "Top pick for the week of July 27, 2026."
+    },
+    {
+      "ticker": "CONFIPET.NS",
+      "name": "Confidence Petroleum India Ltd",
+      "brokerage": "Sumeet Bagadia",
+      "action": "buy",
+      "target": 84.5,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "FILATEX.NS",
+      "name": "Filatex India Ltd",
+      "brokerage": "Sumeet Bagadia",
+      "action": "buy",
+      "target": 80,
+      "rationale": "Recommended to buy."
+    },
+    {
+      "ticker": "UJJIVANSFB.NS",
+      "name": "Ujjivan Small Finance Bank Ltd",
+      "brokerage": "Sumeet Bagadia",
+      "action": "buy",
+      "target": 75.5,
+      "rationale": "Recommended to buy."
+    }
+  ]
+}
