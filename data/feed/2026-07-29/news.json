@@ -1,0 +1,424 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI expected to maintain neutral stance on interest rates",
+          "summary": "The Reserve Bank of India is widely anticipated to keep benchmark interest rates unchanged at its upcoming August monetary policy review, maintaining a neutral stance. This decision is supported by robust foreign capital inflows and government efforts to ease import-led inflation, despite recent upticks in inflation.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India to adopt Producer Price Index for GDP deflation",
+          "summary": "India is set to implement the Producer Price Index (PPI) as the new methodology for GDP deflation, a significant change in economic measurement.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Government forms Task Force to boost India's toy sector",
+          "summary": "Union Minister Piyush Goyal announced the formation of a Task Force aimed at supporting India's toy sector, with an ambitious goal of achieving a 5% global market share by 2032.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Maharashtra becomes first state to qualify for second RKVY installment",
+          "summary": "Maharashtra has achieved the distinction of being the first state to qualify for the second installment under the Rashtriya Krishi Vikas Yojana (RKVY).",
+          "source": "Financial Express",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian equities eye higher opening amid mixed global cues",
+          "summary": "Indian equity markets are anticipated to open higher, as indicated by the Gift Nifty, despite mixed trading in US equities overnight and varied performance across Asian markets.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Oil prices jump over 4% due to West Asia tensions",
+          "summary": "A fresh escalation in West Asia has caused oil prices to surge by more than 4%, which could introduce volatility into markets and weigh on risk appetite.",
+          "source": "Bloomberg",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Larsen & Toubro reports 14% rise in Q1 FY27 net profit",
+          "summary": "Larsen & Toubro (L&T) announced a 14% year-on-year increase in net profit to ₹4,123 crore for Q1 FY27, with revenue growing by 7%.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "LT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Birlasoft's Q1 FY27 net profit rises 11.8%",
+          "summary": "Birlasoft reported an 11.8% increase in net profit to ₹99.4 crore and a 14.2% rise in revenue for Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "BSOFT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Indus Towers Q1 FY27 net profit marginally up by 0.5%",
+          "summary": "Indus Towers recorded a slight 0.5% year-on-year increase in consolidated net profit to ₹17.5 billion in Q1 FY27, with revenue from operations up 4.6%.",
+          "source": "Livemint",
+          "tickers": [
+            "INDUSTOW.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Suzlon Energy's Q1 FY27 net profit declines 6%",
+          "summary": "Suzlon Energy reported a net profit of ₹3.05 billion for Q1 FY27, marking a 6% year-on-year decline.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SUZLON.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Paradeep Phosphates posts strong Q1 FY27 results with 23.8% net profit growth",
+          "summary": "Paradeep Phosphates reported a significant 23.8% increase in net profit to ₹393 crore and a 36% rise in revenue for Q1 FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "PARADEEP.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Phoenix Mills sees 77.3% surge in Q1 FY27 net profit",
+          "summary": "Phoenix Mills reported a substantial 77.3% increase in net profit to ₹45.4 crore for Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "PHOENIXLTD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "VST Industries' Q1 FY27 net profit grows 23.2%",
+          "summary": "VST Industries reported a 23.2% growth in net profit to ₹297 crore and a 12.8% increase in revenue for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "VSTIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Aurionpro Solutions Q1 FY27 PAT declines 12.6%",
+          "summary": "Aurionpro Solutions witnessed a 12.6% year-on-year decline in profit after tax (PAT) to ₹0.45 billion in Q1 FY27, despite achieving higher revenue.",
+          "source": "Business Standard",
+          "tickers": [
+            "AURIONPRO.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT and Realty sectors lead gains; Nifty IT up 3%",
+          "summary": "The IT and Realty sectors experienced strong buying interest, with Pharma, Midcap IT, and Consumer Durables also performing well. The Nifty IT Index notably gained over 3% due to strong earnings momentum in large-cap technology stocks.",
+          "source": "Economic Times",
+          "tickers": [
+            "NIFTYIT.NS",
+            "TCS.NS",
+            "INFY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "PSU Bank, FMCG, and Metal sectors face selling pressure",
+          "summary": "Sectors including PSU Bank, FMCG, Chemicals, Banking, and Metal experienced selling pressure in the previous trading session.",
+          "source": "Moneycontrol",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "NCLAT approves Info Edge's subsidiary amalgamation",
+          "summary": "The National Company Law Appellate Tribunal (NCLAT) has approved the proposed amalgamation of four wholly-owned subsidiaries with Info Edge (India) Limited.",
+          "source": "Livemint",
+          "tickers": [
+            "NAUKRI.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Paradeep Phosphates to set up new aluminium fluoride plant",
+          "summary": "Paradeep Phosphates' board approved the establishment of a 15,000 MTPA aluminium fluoride manufacturing plant at Paradeep, with an estimated investment of ₹250 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "PARADEEP.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Rail Vikas Nigam secures ₹358.97 crore railway project",
+          "summary": "Rail Vikas Nigam received a letter of acceptance for a ₹358.97 crore railway-doubling project from East Central Railway.",
+          "source": "Economic Times",
+          "tickers": [
+            "RVNL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lemon Tree Hotels signs agreement for new property in Ujjain",
+          "summary": "Lemon Tree Hotels signed a license agreement for a 51-room Keys Select by Lemon Tree Hotels property in Ujjain, Madhya Pradesh.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "LEMONTREE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "CDSL subsidiary gets SEBI nod for JV with Shoveltech Solutions",
+          "summary": "Central Depository Services (CDSL) received SEBI approval for a joint venture agreement between its subsidiary Centrico Insurance Repository and Shoveltech Solutions.",
+          "source": "Business Standard",
+          "tickers": [
+            "CDSL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Indian Oil Corporation's Paradip Refinery updates operations",
+          "summary": "Indian Oil Corporation's Paradip Refinery processed 16.35 MMT, commissioned SRU-III and NHGU, and its PX-PTA project is nearing completion.",
+          "source": "Economic Times",
+          "tickers": [
+            "IOC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Deccan Gold Mines signs MoU for critical minerals research",
+          "summary": "Deccan Gold Mines signed an MoU with CSIR-CECRI on research into critical minerals and battery materials.",
+          "source": "Livemint",
+          "tickers": [
+            "DECCANGOLD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Grasim Industries repays ₹750 crore commercial paper",
+          "summary": "Grasim Industries repaid ₹750 crore of commercial paper on maturity.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "GRASIM.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Kolte Patil Developers' shareholders approve director reappointment",
+          "summary": "Kolte Patil Developers' shareholders approved the reappointment of Girish Vanvari as an Independent Non-Executive Director for a second five-year term, effective July 29, 2026.",
+          "source": "Business Standard",
+          "tickers": [
+            "KOLTEPATIL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Several companies to issue dividends on July 29",
+          "summary": "Alembic Pharma, ASM Technology, Godrej Agrovet, IFGL Refractories, Rane (Madras), Route Mobile, Shakti Pumps (India), Siemens, TTK Prestige, and Ugar Sugar Works are scheduled to issue final or interim dividends on July 29.",
+          "source": "Economic Times",
+          "tickers": [
+            "ALEMBICPH.NS",
+            "ASMTECH.NS",
+            "GODREJAGRO.NS",
+            "IFGLEXPOR.NS",
+            "RANEMADRAS.NS",
+            "ROUTE.NS",
+            "SHAKTIPUMP.NS",
+            "SIEMENS.NS",
+            "TTKPRESTIG.NS",
+            "UGARSUG.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Corporate Laws Amendment Bill 2026 aims to streamline M&A",
+          "summary": "The Corporate Laws Amendment Bill 2026, currently under examination by a Joint Parliamentary Committee, aims to streamline M&A processes by reducing tribunal timelines and clarifying procedural steps for cross-border mergers.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Dynacons Systems & Solutions wins ₹267.58 crore NPCI contract",
+          "summary": "Dynacons Systems & Solutions is in focus after securing a significant ₹267.58 crore contract from NPCI for data centre augmentation.",
+          "source": "Economic Times",
+          "tickers": [
+            "DYNACONS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Orissa Minerals Development gets environmental clearance for mine",
+          "summary": "The Orissa Minerals Development Company received an environmental clearance recommendation for its Belkundi Iron & Manganese Ore Mine.",
+          "source": "Business Standard",
+          "tickers": [
+            "OMDC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "ONGC board approves $500 million parent company guarantee",
+          "summary": "Oil and Natural Gas Corporation (ONGC)'s board approved providing a $500 million parent company guarantee.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ONGC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Suzlon Energy and Varun Beverages in focus after Q1 updates",
+          "summary": "Suzlon Energy and Varun Beverages are expected to be in focus following their recent Q1 business updates.",
+          "source": "Economic Times",
+          "tickers": [
+            "SUZLON.NS",
+            "VARUNBEV.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "L&T, LIC, Birlasoft, Phoenix Mills expected to remain in focus after gains",
+          "summary": "Larsen & Toubro, LIC, Birlasoft, and Phoenix Mills, which closed Tuesday's trading session in the green, are expected to remain in focus.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "LT.NS",
+            "LICI.NS",
+            "BSOFT.NS",
+            "PHOENIXLTD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "TCS, Infosys among top gainers",
+          "summary": "TCS and Infosys were among the top gainers in Tuesday's trading session.",
+          "source": "Economic Times",
+          "tickers": [
+            "TCS.NS",
+            "INFY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bharat Elec, HUL, and NTPC among top losers",
+          "summary": "Bharat Elec (Bharat Electronics), HUL (Hindustan Unilever), and NTPC were among the top losers in Tuesday's trading session.",
+          "source": "Economic Times",
+          "tickers": [
+            "BEL.NS",
+            "HUL.NS",
+            "NTPC.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "ECLERX.NS",
+      "name": "eClerx Services",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2030,
+      "rationale": "Technical recommendation with specified target and stop loss."
+    },
+    {
+      "ticker": "UNIVCABLES.NS",
+      "name": "Universal Cables",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1400,
+      "rationale": "Technical recommendation with specified target and stop loss."
+    },
+    {
+      "ticker": "FIVE.NS",
+      "name": "Five-Star Business Finance",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 600,
+      "rationale": "Technical recommendation with specified target and stop loss."
+    },
+    {
+      "ticker": "MANKIND.NS",
+      "name": "Mankind Pharma",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2800,
+      "rationale": "Technical recommendation with specified target and stop loss."
+    },
+    {
+      "ticker": "KMEW.NS",
+      "name": "Knowledge Marine & Engineering Works",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2700,
+      "rationale": "Technical recommendation with specified target and stop loss."
+    },
+    {
+      "ticker": "TATACHEM.NS",
+      "name": "Tata Chemicals",
+      "brokerage": "Motilal Oswal",
+      "action": "hold",
+      "target": 700,
+      "rationale": "Based on analyst rating and target price."
+    },
+    {
+      "ticker": "BEL.NS",
+      "name": "Bharat Electronics",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 530,
+      "rationale": "Based on analyst rating and target price."
+    },
+    {
+      "ticker": "COALINDIA.NS",
+      "name": "Coal India",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 510,
+      "rationale": "Based on analyst rating and target price."
+    },
+    {
+      "ticker": "HCLTECH.NS",
+      "name": "HCL Technologies",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1450,
+      "rationale": "Based on analyst rating and target price."
+    },
+    {
+      "ticker": "INDHOTEL.NS",
+      "name": "Indian Hotels Ltd",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 870,
+      "rationale": "Based on analyst rating and target price."
+    },
+    {
+      "ticker": "GRASIM.NS",
+      "name": "Grasim Industries Ltd",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 3770,
+      "rationale": "Based on analyst rating and target price."
+    }
+  ]
+}
