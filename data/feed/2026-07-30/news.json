@@ -1,0 +1,478 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI Holds Repo Rate Steady at 5.50%; Retail Inflation Rises to 4.38%",
+          "summary": "The Reserve Bank of India maintained its repo rates at 5.50% with a 'neutral' policy stance. The MPC revised its FY26 CPI inflation forecast down to 3.1%, but recent data showed India's retail inflation rose to 4.38% in June, exceeding the RBI's 4% target for the first time in 17 months, driven by fuel and food prices. The policy rate is expected to remain at 5.25% unless broader price pressures emerge.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global Markets Mixed as US Fed Holds Rates, Oil Prices Surge, and Middle East Tensions Escalate",
+          "summary": "Global markets present a mixed picture. The US Federal Reserve's decision to keep benchmark interest rates unchanged eased some uncertainty, but US stocks sharply declined due to surging oil prices and escalating Middle East tensions. Asian markets are also mixed, digesting major technology firms' earnings, with Gift Nifty trends indicating a subdued start for the Indian benchmark index.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Over 100 Companies to Announce Q1 FY27 Earnings Today",
+          "summary": "Today marks a busy day for Q1 FY27 earnings announcements, with over 100 companies scheduled to release their results, including key players from financials, automotive, metals, pharma, and consumer sectors.",
+          "source": "Business Standard",
+          "tickers": [
+            "BAJFINANCE.NS",
+            "IRFC.NS",
+            "LICHSGFIN.NS",
+            "M&M.NS",
+            "MAZAGONDOCK.NS",
+            "THERMAX.NS",
+            "JBMA.NS",
+            "TATASTEEL.NS",
+            "VEDL.NS",
+            "MANKIND.NS",
+            "TORNTPHARM.NS",
+            "AJANTPHARM.NS",
+            "EXIDEIND.NS",
+            "GILLETTE.NS",
+            "DATAPATTNS.NS",
+            "AARTIIND.NS",
+            "AACHEM.NS",
+            "APOLLOPIPE.NS",
+            "CHAMBLFERT.NS",
+            "DEEPAKFERT.NS",
+            "GOCOLORS.NS",
+            "HONDAINDIA.NS",
+            "ICRA.NS",
+            "INDEGENE.NS",
+            "LTFOODS.NS",
+            "NUCLEUS.NS",
+            "NUVAMA.NS",
+            "PRICOL.NS",
+            "PSPPROJECT.NS",
+            "QUICKHEAL.NS",
+            "RAILTEL.NS",
+            "RAINBOW.NS",
+            "RAMCOSYS.NS",
+            "TCI.NS",
+            "WESTLIFE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Pine Labs Reports 309% YoY Net Profit Jump in Q1 FY27",
+          "summary": "Pine Labs reported a significant 309% year-on-year jump in net profit to Rs 0.20 billion, with revenue up 19.7% in Q1 FY27.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Phoenix Mills Sees 23% YoY Net Profit Increase",
+          "summary": "Phoenix Mills reported a 23% year-on-year increase in net profit to Rs 3.94 billion for Q1 FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "PHOENIXLTD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Birlasoft Reports 10.6% Sequential Decline in Net Profit",
+          "summary": "Birlasoft experienced a 10.6% sequential decline in consolidated net profit to Rs 0.17 billion, while revenue marginally declined by 0.1%.",
+          "source": "Business Standard",
+          "tickers": [
+            "BIRLASOFT.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "VST Industries Net Profit Declines 24.4% YoY",
+          "summary": "VST Industries reported a 24.4% year-on-year decline in net profit to Rs 0.42 billion, with revenue down 13.5%.",
+          "source": "Business Standard",
+          "tickers": [
+            "VSTIND.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT and Metal Stocks Drive Indian Equity Benchmarks Higher",
+          "summary": "Indian equity benchmarks ended strongly, primarily driven by gains in IT and metal stocks. The Nifty Smallcap 50 and Nifty Smallcap 100 indices outperformed. Infosys surged 4.51%, driving the Nifty IT index up 2.32%, and the Bank Nifty also added 0.79%, with private sector banks contributing positively. Auto, Realty, and REITs experienced mild profit booking.",
+          "source": "Business Standard",
+          "tickers": [
+            "INFY.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Hind Rectifiers Secures First US Order for Traction Motor Assemblies",
+          "summary": "Hind Rectifiers has secured its first order from the United States for traction motor assemblies.",
+          "source": "Business Standard",
+          "tickers": [
+            "HINDRECT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "SBI Cards Launches Google Pay Flex SBI Card",
+          "summary": "SBI Cards launched the Google Pay Flex SBI Card in collaboration with Google Pay.",
+          "source": "Business Standard",
+          "tickers": [
+            "SBICARD.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Capri Global Capital Collaborates with OpenAI for Generative AI",
+          "summary": "Capri Global Capital announced a collaboration with OpenAI to deploy enterprise-grade generative AI.",
+          "source": "Business Standard",
+          "tickers": [
+            "CAPRIGLOB.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Chemicals' Kenyan Subsidiary Directed to Suspend Mining Operations",
+          "summary": "Tata Chemicals Magadi Ltd., the Kenyan subsidiary of Tata Chemicals, was directed by Kenyan authorities to suspend mining operations and soda ash exports.",
+          "source": "Business Standard",
+          "tickers": [
+            "TATACHEM.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Cupid Makes Additional Investment in GII Healthcare Investment Ltd.",
+          "summary": "Cupid made an additional follow-on investment of $5 million in GII Healthcare Investment Ltd.",
+          "source": "Business Standard",
+          "tickers": [
+            "CUPID.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Shyam Metalics Commissions 1.5 MTPA Beneficiation Plant in Odisha",
+          "summary": "Shyam Metalics and Energy commissioned a 1.5 MTPA beneficiation plant in Odisha.",
+          "source": "Business Standard",
+          "tickers": [
+            "SHYAMMETL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "UPL's Brazilian Subsidiary to Divest Stake in Joint Venture Bioplanta",
+          "summary": "UPL's Brazilian subsidiary will divest its entire stake in joint venture Bioplanta.",
+          "source": "Business Standard",
+          "tickers": [
+            "UPL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Waaree Energies Commissions 118.8 MW Solar Power Facility in MP",
+          "summary": "Waaree Energies commissioned 118.8 MW of capacity at its solar power facility in Madhya Pradesh.",
+          "source": "Business Standard",
+          "tickers": [
+            "WAAREE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "GAIL and RCF Sign MoU for Gas-Based Fertiliser Project",
+          "summary": "GAIL and RCF signed an MoU for a 1.27 MMTPA gas-based fertiliser project in Maharashtra.",
+          "source": "Business Standard",
+          "tickers": [
+            "GAIL.NS",
+            "RCF.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Brigade Enterprises Acquires Two-Acre Land for Residential Project",
+          "summary": "Brigade Enterprises acquired a two-acre land parcel for a premium residential project.",
+          "source": "Business Standard",
+          "tickers": [
+            "BRIGADE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Steelcast Board Approves New Greenfield Foundry Expansion",
+          "summary": "Steelcast's board approved setting up a new greenfield foundry with an additional capacity of 8,500 tonnes.",
+          "source": "Business Standard",
+          "tickers": [
+            "STEELCAST.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mahindra & Mahindra Approves Slump Sale of Truck & Bus Division to Subsidiary",
+          "summary": "Mahindra & Mahindra approved the slump sale of its Truck & Bus Division to subsidiary SML Mahindra for Rs 525 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "M&M.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Infosys Remains Top Watch in IT Sector After 4.51% Surge",
+          "summary": "Infosys remains a top watch in the IT sector, especially after a 4.51% surge in the previous session.",
+          "source": "Business Standard",
+          "tickers": [
+            "INFY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "ICICI Bank and Axis Bank Identified as Key Stocks for Bank Nifty Direction",
+          "summary": "ICICI Bank and Axis Bank are identified as key stocks for Bank Nifty direction and are buy-rated names on the Univest platform.",
+          "source": "Business Standard",
+          "tickers": [
+            "ICICIBANK.NS",
+            "AXISBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Amara Raja Energy & Mobility, Prestige Estates, CRISIL Recommended as Top Buys",
+          "summary": "Amara Raja Energy & Mobility, Prestige Estates Projects Limited, and CRISIL are recommended as top stocks to buy today.",
+          "source": "Business Standard",
+          "tickers": [
+            "AMARAJABAT.NS",
+            "PRESTIGE.NS",
+            "CRISIL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Dabur India, Bajaj Housing, Eicher Motors, Redington, Vedanta, Waaree Energies in Focus",
+          "summary": "Dabur India, Bajaj Housing, Eicher Motors, Redington, Vedanta, and Waaree Energies are expected to remain in focus following recent mixed performance.",
+          "source": "Business Standard",
+          "tickers": [
+            "DABUR.NS",
+            "BAJAJHFIN.NS",
+            "EICHERMOT.NS",
+            "REDINGTON.NS",
+            "VEDL.NS",
+            "WAAREE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Gland Pharma, PG Electroplast, Morepen Labs, Allied Blenders Recommended as Breakout Stocks",
+          "summary": "Gland Pharma, PG Electroplast, Morepen Laboratories, and Allied Blenders & Distillers are recommended as breakout stocks to buy by Sumeet Bagadia.",
+          "source": "Business Standard",
+          "tickers": [
+            "GLAND.NS",
+            "PGELETRO.NS",
+            "MOREPENLAB.NS",
+            "ABDL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "AMARAJABAT.NS",
+      "name": "Amara Raja Energy & Mobility",
+      "brokerage": "Nuvama Wealth Management",
+      "action": "buy",
+      "target": 965,
+      "rationale": "Buy call with target of 965."
+    },
+    {
+      "ticker": "PRESTIGE.NS",
+      "name": "Prestige Estates Projects Limited",
+      "brokerage": "Nuvama Wealth Management",
+      "action": "buy",
+      "target": 1800,
+      "rationale": "Buy call with target of 1800."
+    },
+    {
+      "ticker": "CRISIL.NS",
+      "name": "CRISIL",
+      "brokerage": "Nuvama Wealth Management",
+      "action": "buy",
+      "target": 4900,
+      "rationale": "Buy call with target of 4900."
+    },
+    {
+      "ticker": "GLAND.NS",
+      "name": "Gland Pharma",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended as breakout stock to buy for July 30, 2026."
+    },
+    {
+      "ticker": "PGELETRO.NS",
+      "name": "PG Electroplast",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended as breakout stock to buy for July 30, 2026."
+    },
+    {
+      "ticker": "MOREPENLAB.NS",
+      "name": "Morepen Laboratories",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended as breakout stock to buy for July 30, 2026."
+    },
+    {
+      "ticker": "ABDL.NS",
+      "name": "Allied Blenders & Distillers",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "rationale": "Recommended as breakout stock to buy for July 30, 2026."
+    },
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "brokerage": "Univest",
+      "action": "buy",
+      "rationale": "Considered as buy-rated name."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Univest",
+      "action": "buy",
+      "rationale": "Considered as buy-rated name."
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "name": "Axis Bank",
+      "brokerage": "Univest",
+      "action": "buy",
+      "rationale": "Considered as buy-rated name."
+    },
+    {
+      "ticker": "SUPREMEIND.NS",
+      "name": "Supreme Industries",
+      "brokerage": "IDBI Capital",
+      "action": "buy",
+      "target": 3936,
+      "rationale": "Buy call with target of 3936.00."
+    },
+    {
+      "ticker": "HOMEFIRST.NS",
+      "name": "Home First Finance",
+      "brokerage": "IDBI Capital",
+      "action": "buy",
+      "target": 1400,
+      "rationale": "Target of 1400.00."
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "DMART.NS",
+      "name": "Avenue Supermarts",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "VBL.NS",
+      "name": "Varun Beverages Ltd",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "APLAPOLLO.NS",
+      "name": "APL Apollo Tubes",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "HCG.NS",
+      "name": "HCG Ltd",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India Ltd",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "UJJIVANSFB.NS",
+      "name": "Ujjivan Small Finance Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "CHALET.NS",
+      "name": "Chalet Hotels",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "MINDACORP.NS",
+      "name": "Minda Corporation Ltd",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    },
+    {
+      "ticker": "DALBHARAT.NS",
+      "name": "Dalmia Bharat Ltd",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "rationale": "July 2026 top pick."
+    }
+  ]
+}
