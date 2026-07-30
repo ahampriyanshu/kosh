@@ -1,4 +1,445 @@
 {
+  "asOf": "2026-07-30T05:21:15.097Z",
+  "window": "1d",
+  "indianIndices": [
+    {
+      "name": "NIFTY 50",
+      "symbol": "^NSEI",
+      "ltp": 24268.55,
+      "changePct": 0.075676866
+    },
+    {
+      "name": "SENSEX",
+      "symbol": "^BSESN",
+      "ltp": 77601.15,
+      "changePct": -0.0688357
+    },
+    {
+      "name": "NIFTY BANK",
+      "symbol": "^NSEBANK",
+      "ltp": 56898.55,
+      "changePct": -0.5372774
+    },
+    {
+      "name": "NIFTY IT",
+      "symbol": "^CNXIT",
+      "ltp": 31668.9,
+      "changePct": 1.7538558
+    },
+    {
+      "name": "NIFTY PHARMA",
+      "symbol": "^CNXPHARMA",
+      "ltp": 26417.3,
+      "changePct": 0.1666531
+    },
+    {
+      "name": "NIFTY AUTO",
+      "symbol": "^CNXAUTO",
+      "ltp": 28065.2,
+      "changePct": 0.8598043
+    },
+    {
+      "name": "NIFTY FMCG",
+      "symbol": "^CNXFMCG",
+      "ltp": 49724.1,
+      "changePct": 0.06732543
+    },
+    {
+      "name": "NIFTY METAL",
+      "symbol": "^CNXMETAL",
+      "ltp": 12678.7,
+      "changePct": -0.06384382
+    },
+    {
+      "name": "NIFTY ENERGY",
+      "symbol": "^CNXENERGY",
+      "ltp": 38250.7,
+      "changePct": 0.18372892
+    },
+    {
+      "name": "NIFTY REALTY",
+      "symbol": "^CNXREALTY",
+      "ltp": 906.25,
+      "changePct": -1.3282539
+    },
+    {
+      "name": "NIFTY FIN SERVICE",
+      "symbol": "^CNXFIN",
+      "ltp": 28612.2,
+      "changePct": -0.6189604
+    }
+  ],
+  "giftNifty": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 51594.14,
+      "changePct": -2.1862338
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 24442.941,
+      "changePct": -1.7444718
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7316.15,
+      "changePct": -1.516129
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 61434.19,
+      "changePct": -1.4923942
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 25807.92,
+      "changePct": 1.9638627
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10908.41,
+      "changePct": 0.34394774
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4126,
+      "changePct": 0.66851854
+    },
+    {
+      "name": "Silver",
+      "value": 57.9,
+      "changePct": 0.644896
+    },
+    {
+      "name": "Crude Oil",
+      "value": 84.6,
+      "changePct": 6.737315
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 95.64,
+      "changePct": -0.21076716
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 6.79,
+    "changeBps": 2
+  },
+  "vix": {
+    "value": 12.1525,
+    "changePct": 1.208589
+  },
+  "breadth": {
+    "advances": 32,
+    "declines": 25,
+    "unchanged": 1,
+    "adRatio": 1.28
+  },
+  "topGainers": [
+    {
+      "ticker": "HEROMOTOCO.NS",
+      "name": "Hero MotoCorp",
+      "ltp": 5334,
+      "changePct": 3.5904984
+    },
+    {
+      "ticker": "WIPRO.NS",
+      "name": "Wipro",
+      "ltp": 189.97,
+      "changePct": 3.4651852
+    },
+    {
+      "ticker": "ONGC.NS",
+      "name": "Oil & Natural Gas Corp",
+      "ltp": 243.68,
+      "changePct": 2.2536492
+    },
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "ltp": 1179.7,
+      "changePct": 2.0854948
+    },
+    {
+      "ticker": "TECHM.NS",
+      "name": "Tech Mahindra",
+      "ltp": 1673.5,
+      "changePct": 1.7819164
+    },
+    {
+      "ticker": "COALINDIA.NS",
+      "name": "Coal India",
+      "ltp": 415.8,
+      "changePct": 1.402268
+    },
+    {
+      "ticker": "BAJAJ-AUTO.NS",
+      "name": "Bajaj Auto",
+      "ltp": 11487.5,
+      "changePct": 1.3185747
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "ltp": 1522.9,
+      "changePct": 1.3039702
+    },
+    {
+      "ticker": "HCLTECH.NS",
+      "name": "HCL Technologies",
+      "ltp": 1361.5,
+      "changePct": 1.2799487
+    },
+    {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "ltp": 3260.5,
+      "changePct": 1.2008176
+    }
+  ],
+  "topLosers": [
+    {
+      "ticker": "DABUR.NS",
+      "name": "Dabur India",
+      "ltp": 420.4,
+      "changePct": -3.0666401
+    },
+    {
+      "ticker": "ADANIPORTS.NS",
+      "name": "Adani Ports & SEZ",
+      "ltp": 1672.6,
+      "changePct": -2.7388484
+    },
+    {
+      "ticker": "ASIANPAINT.NS",
+      "name": "Asian Paints",
+      "ltp": 2718.3,
+      "changePct": -1.453262
+    },
+    {
+      "ticker": "ULTRACEMCO.NS",
+      "name": "UltraTech Cement",
+      "ltp": 11825,
+      "changePct": -1.4417868
+    },
+    {
+      "ticker": "BAJAJFINSV.NS",
+      "name": "Bajaj Finserv",
+      "ltp": 1899.6,
+      "changePct": -1.2887828
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "ltp": 1041,
+      "changePct": -1.2713495
+    },
+    {
+      "ticker": "HDFCLIFE.NS",
+      "name": "HDFC Life Insurance",
+      "ltp": 550.85,
+      "changePct": -1.0505587
+    },
+    {
+      "ticker": "DLF.NS",
+      "name": "DLF",
+      "ltp": 663.25,
+      "changePct": -1.0445422
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1425,
+      "changePct": -0.89714336
+    },
+    {
+      "ticker": "HINDUNILVR.NS",
+      "name": "Hindustan Unilever",
+      "ltp": 2099.7,
+      "changePct": -0.8545844
+    }
+  ],
+  "mostActive": [
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "ltp": 1179.7,
+      "changePct": 2.0854948,
+      "volume": 10678232
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "ltp": 749.1,
+      "changePct": 0.12030791,
+      "volume": 8843608
+    },
+    {
+      "ticker": "TCS.NS",
+      "name": "Tata Consultancy Services",
+      "ltp": 2468.8,
+      "changePct": 0.9071201,
+      "volume": 2283525
+    },
+    {
+      "ticker": "EICHERMOT.NS",
+      "name": "Eicher Motors",
+      "ltp": 7861,
+      "changePct": 1.0543233,
+      "volume": 707898
+    },
+    {
+      "ticker": "WIPRO.NS",
+      "name": "Wipro",
+      "ltp": 189.97,
+      "changePct": 3.4651852,
+      "volume": 27675103
+    },
+    {
+      "ticker": "ADANIPORTS.NS",
+      "name": "Adani Ports & SEZ",
+      "ltp": 1672.6,
+      "changePct": -2.7388484,
+      "volume": 2618711
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1425,
+      "changePct": -0.89714336,
+      "volume": 2290179
+    },
+    {
+      "ticker": "HEROMOTOCO.NS",
+      "name": "Hero MotoCorp",
+      "ltp": 5334,
+      "changePct": 3.5904984,
+      "volume": 592634
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "ltp": 1041,
+      "changePct": -1.2713495,
+      "volume": 2927433
+    },
+    {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "ltp": 3260.5,
+      "changePct": 1.2008176,
+      "volume": 915723
+    }
+  ],
+  "near52wHigh": [
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 7857.5,
+      "pctFromHigh": 0.36
+    },
+    {
+      "ticker": "PIDILITIND.NS",
+      "name": "Pidilite Industries",
+      "ltp": 1630,
+      "pctFromHigh": 0.37
+    },
+    {
+      "ticker": "BAJAJ-AUTO.NS",
+      "name": "Bajaj Auto",
+      "ltp": 11487.5,
+      "pctFromHigh": 0.39
+    },
+    {
+      "ticker": "SUNPHARMA.NS",
+      "name": "Sun Pharmaceutical",
+      "ltp": 2002.7,
+      "pctFromHigh": 0.44
+    },
+    {
+      "ticker": "TITAN.NS",
+      "name": "Titan Company",
+      "ltp": 4845.7,
+      "pctFromHigh": 0.44
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "ltp": 1522.9,
+      "pctFromHigh": 0.63
+    },
+    {
+      "ticker": "APOLLOHOSP.NS",
+      "name": "Apollo Hospitals",
+      "ltp": 8938.5,
+      "pctFromHigh": 0.78
+    }
+  ],
+  "near52wLow": [
+    {
+      "ticker": "HDFCLIFE.NS",
+      "name": "HDFC Life Insurance",
+      "ltp": 550.85,
+      "pctFromLow": 1.45
+    }
+  ],
+  "volumeShockers": [],
+  "sectorRanking": [
+    {
+      "sector": "IT",
+      "changePct": 1.75
+    },
+    {
+      "sector": "Auto",
+      "changePct": 0.86
+    },
+    {
+      "sector": "Energy",
+      "changePct": 0.18
+    },
+    {
+      "sector": "Pharma",
+      "changePct": 0.17
+    },
+    {
+      "sector": "FMCG",
+      "changePct": 0.07
+    },
+    {
+      "sector": "Metal",
+      "changePct": -0.06
+    },
+    {
+      "sector": "Bank",
+      "changePct": -0.54
+    },
+    {
+      "sector": "Financial Services",
+      "changePct": -0.62
+    },
+    {
+      "sector": "Realty",
+      "changePct": -1.33
+    }
+  ],
+  "fiiDii": {
+    "fiiNet": 2982,
+    "diiNet": 998,
+    "unit": "crore",
+    "asOf": "2026-07-29"
+  },
   "news": [
     {
       "category": "macro_policy",
@@ -474,5 +915,6 @@
       "action": "buy",
       "rationale": "July 2026 top pick."
     }
-  ]
+  ],
+  "corporateActions": []
 }
