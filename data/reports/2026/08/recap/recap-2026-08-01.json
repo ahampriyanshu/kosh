@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-08-01",
+  "type": "recap",
+  "dateKey": "2026-08-01",
+  "generatedAt": "2026-08-01T06:44:49.860Z",
+  "sourceData": {
+    "tickers": [
+      "ITC.NS",
+      "CIPLA.NS",
+      "BAJFINANCE.NS",
+      "INFY.NS",
+      "HAVELLS.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-08-01T06:44:49.860Z"
+  },
+  "content": {
+    "period": "2026-W30",
+    "sourceReportId": "weekly-2026-W30",
+    "graded": [
+      {
+        "ticker": "ITC.NS",
+        "name": "ITC Limited",
+        "thesis": "Strong defensive play within the outperforming FMCG sector, offering stability during market downturns. Favorable flows relative to other sectors.",
+        "action": "buy",
+        "entryRef": 285.8500061035156,
+        "exitRef": 281,
+        "changePct": -1.7,
+        "outcome": "miss",
+        "note": "buy call moved -1.7%"
+      },
+      {
+        "ticker": "CIPLA.NS",
+        "name": "Cipla Limited",
+        "thesis": "Top gainer in the relatively resilient Pharma sector. Defensive characteristics and potential for continued upward momentum.",
+        "action": "buy",
+        "entryRef": 1409.4000244140625,
+        "exitRef": 1473.199951171875,
+        "changePct": 4.53,
+        "outcome": "hit",
+        "note": "buy call moved +4.53%"
+      },
+      {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance Ltd.",
+        "thesis": "Significant underperformer and a top loser within the deeply struggling Financial Services sector, compounded by FII outflows. Expect further downside.",
+        "action": "sell",
+        "entryRef": 1048.300048828125,
+        "exitRef": 1141.199951171875,
+        "changePct": 8.86,
+        "outcome": "miss",
+        "note": "sell call moved +8.86%"
+      },
+      {
+        "ticker": "INFY.NS",
+        "name": "Infosys Ltd",
+        "thesis": "A top loser in the consistently underperforming IT sector, which faces global growth headwinds and potential continued FII selling.",
+        "action": "sell",
+        "entryRef": 1079.199951171875,
+        "exitRef": 1130.0999755859375,
+        "changePct": 4.72,
+        "outcome": "miss",
+        "note": "sell call moved +4.72%"
+      },
+      {
+        "ticker": "HAVELLS.NS",
+        "name": "Havells India Ltd",
+        "thesis": "Demonstrated strong relative strength, bucking the broader market trend. Indicates robust domestic demand for consumer durables and potential for continued momentum.",
+        "action": "buy",
+        "entryRef": 1237.4000244140625,
+        "exitRef": 1261.699951171875,
+        "changePct": 1.96,
+        "outcome": "hit",
+        "note": "buy call moved +1.96%"
+      }
+    ],
+    "hits": 2,
+    "total": 5,
+    "summary": "2/5 positional bets hit over Jul 2026, Week 4.",
+    "learnings": {
+      "worked": [
+        "Cipla Limited: Top gainer in the relatively resilient Pharma sector. Defensive characteristics and potential for continued upward momentum. This worked buy call moved +4.53%.",
+        "Havells India Ltd: Demonstrated strong relative strength, bucking the broader market trend. Indicates robust domestic demand for consumer durables and potential for continued momentum. This worked buy call moved +1.96%."
+      ],
+      "missed": [
+        "ITC Limited: Strong defensive play within the outperforming FMCG sector, offering stability during market downturns. Favorable flows relative to other sectors. This did not work buy call moved -1.7%.",
+        "Bajaj Finance Ltd.: Significant underperformer and a top loser within the deeply struggling Financial Services sector, compounded by FII outflows. Expect further downside. This did not work sell call moved +8.86%.",
+        "Infosys Ltd: A top loser in the consistently underperforming IT sector, which faces global growth headwinds and potential continued FII selling. This did not work sell call moved +4.72%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:3ed291d8b800604bf7917c85f3b3268d185d7ecf0e80a12d39c547a39fec8ec3"
+}
