@@ -1,0 +1,1120 @@
+{
+  "asOf": "2026-08-03T05:55:02.233Z",
+  "window": "1d",
+  "indianIndices": [
+    {
+      "name": "NIFTY 50",
+      "symbol": "^NSEI",
+      "ltp": 24598.35,
+      "changePct": 0.8806896
+    },
+    {
+      "name": "SENSEX",
+      "symbol": "^BSESN",
+      "ltp": 78744.59,
+      "changePct": 0.8322625
+    },
+    {
+      "name": "NIFTY BANK",
+      "symbol": "^NSEBANK",
+      "ltp": 57815.2,
+      "changePct": 0.9610449
+    },
+    {
+      "name": "NIFTY IT",
+      "symbol": "^CNXIT",
+      "ltp": 31188.95,
+      "changePct": 1.5633484
+    },
+    {
+      "name": "NIFTY PHARMA",
+      "symbol": "^CNXPHARMA",
+      "ltp": 26657.5,
+      "changePct": 0.46242085
+    },
+    {
+      "name": "NIFTY AUTO",
+      "symbol": "^CNXAUTO",
+      "ltp": 28949.45,
+      "changePct": 0.7142779
+    },
+    {
+      "name": "NIFTY FMCG",
+      "symbol": "^CNXFMCG",
+      "ltp": 49817.9,
+      "changePct": 1.4183688
+    },
+    {
+      "name": "NIFTY METAL",
+      "symbol": "^CNXMETAL",
+      "ltp": 12841.75,
+      "changePct": 0.96511436
+    },
+    {
+      "name": "NIFTY ENERGY",
+      "symbol": "^CNXENERGY",
+      "ltp": 38878.1,
+      "changePct": 0.38356623
+    },
+    {
+      "name": "NIFTY REALTY",
+      "symbol": "^CNXREALTY",
+      "ltp": 905.4,
+      "changePct": 0.43818426
+    },
+    {
+      "name": "NIFTY FIN SERVICE",
+      "symbol": "^CNXFIN",
+      "ltp": 29360.3,
+      "changePct": 1.0478173
+    }
+  ],
+  "giftNifty": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 52485.03,
+      "changePct": 0.5304343
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 25373.854,
+      "changePct": 1.0017208
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7489.72,
+      "changePct": 0.70036197
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 64362.02,
+      "changePct": 4.032206
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 25884.43,
+      "changePct": 0.09872538
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10868.05,
+      "changePct": -0.26841512
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4107,
+      "changePct": -1.288278
+    },
+    {
+      "name": "Silver",
+      "value": 57.786,
+      "changePct": -2.085838
+    },
+    {
+      "name": "Crude Oil",
+      "value": 84.67,
+      "changePct": 1.2920228
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 95.39,
+      "changePct": -0.29267144
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 6.833,
+    "changeBps": 0
+  },
+  "vix": {
+    "value": 11.975,
+    "changePct": 1.8715463
+  },
+  "breadth": {
+    "advances": 49,
+    "declines": 9,
+    "unchanged": 0,
+    "adRatio": 5.44
+  },
+  "topGainers": [
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 8460,
+      "changePct": 5.015518
+    },
+    {
+      "ticker": "ITC.NS",
+      "name": "ITC",
+      "ltp": 289.1,
+      "changePct": 2.8830776
+    },
+    {
+      "ticker": "TCS.NS",
+      "name": "Tata Consultancy Services",
+      "ltp": 2432.2,
+      "changePct": 2.8153472
+    },
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "ltp": 1160.9,
+      "changePct": 2.725668
+    },
+    {
+      "ticker": "BAJAJFINSV.NS",
+      "name": "Bajaj Finserv",
+      "ltp": 2083.8,
+      "changePct": 2.6968434
+    },
+    {
+      "ticker": "EICHERMOT.NS",
+      "name": "Eicher Motors",
+      "ltp": 8032.5,
+      "changePct": 2.5410202
+    },
+    {
+      "ticker": "IOC.NS",
+      "name": "Indian Oil",
+      "ltp": 143.35,
+      "changePct": 2.2686794
+    },
+    {
+      "ticker": "SHREECEM.NS",
+      "name": "Shree Cement",
+      "ltp": 26635,
+      "changePct": 2.2256331
+    },
+    {
+      "ticker": "SBIN.NS",
+      "name": "State Bank of India",
+      "ltp": 1047.9,
+      "changePct": 1.995328
+    },
+    {
+      "ticker": "JSWENERGY.NS",
+      "name": "JSW Energy",
+      "ltp": 564.75,
+      "changePct": 1.8209637
+    }
+  ],
+  "topLosers": [
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL India",
+      "ltp": 173.17,
+      "changePct": -4.558737
+    },
+    {
+      "ticker": "SUNPHARMA.NS",
+      "name": "Sun Pharmaceutical",
+      "ltp": 1963.9,
+      "changePct": -1.3363464
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "ltp": 1954.6,
+      "changePct": -0.8823542
+    },
+    {
+      "ticker": "APOLLOHOSP.NS",
+      "name": "Apollo Hospitals",
+      "ltp": 8898,
+      "changePct": -0.6587027
+    },
+    {
+      "ticker": "TECHM.NS",
+      "name": "Tech Mahindra",
+      "ltp": 1644,
+      "changePct": -0.4420789
+    },
+    {
+      "ticker": "MARUTI.NS",
+      "name": "Maruti Suzuki",
+      "ltp": 14173,
+      "changePct": -0.42852125
+    },
+    {
+      "ticker": "BAJAJ-AUTO.NS",
+      "name": "Bajaj Auto",
+      "ltp": 11493,
+      "changePct": -0.23876709
+    },
+    {
+      "ticker": "NTPC.NS",
+      "name": "NTPC",
+      "ltp": 346.65,
+      "changePct": -0.17276305
+    },
+    {
+      "ticker": "ONGC.NS",
+      "name": "Oil & Natural Gas Corp",
+      "ltp": 242.23,
+      "changePct": -0.12369219
+    },
+    {
+      "ticker": "CIPLA.NS",
+      "name": "Cipla",
+      "ltp": 1475.7,
+      "changePct": 0.16967557
+    }
+  ],
+  "mostActive": [
+    {
+      "ticker": "ITC.NS",
+      "name": "ITC",
+      "ltp": 289.1,
+      "changePct": 2.8830776,
+      "volume": 32001785
+    },
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 8460,
+      "changePct": 5.015518,
+      "volume": 1058281
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "ltp": 1159,
+      "changePct": 1.560313,
+      "volume": 7348093
+    },
+    {
+      "ticker": "MARUTI.NS",
+      "name": "Maruti Suzuki",
+      "ltp": 14173,
+      "changePct": -0.42852125,
+      "volume": 592456
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "ltp": 755,
+      "changePct": 0.9155885,
+      "volume": 6580205
+    },
+    {
+      "ticker": "SBIN.NS",
+      "name": "State Bank of India",
+      "ltp": 1047.9,
+      "changePct": 1.995328,
+      "volume": 3981067
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "ltp": 1311.2,
+      "changePct": 0.259991,
+      "volume": 3004011
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1446.6,
+      "changePct": 0.7803756,
+      "volume": 2720662
+    },
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "ltp": 1160.9,
+      "changePct": 2.725668,
+      "volume": 3357431
+    },
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL India",
+      "ltp": 173.17,
+      "changePct": -4.558737,
+      "volume": 21969123
+    }
+  ],
+  "near52wHigh": [
+    {
+      "ticker": "TITAN.NS",
+      "name": "Titan Company",
+      "ltp": 4891.9,
+      "pctFromHigh": 0.25
+    },
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 8460,
+      "pctFromHigh": 0.47
+    },
+    {
+      "ticker": "PIDILITIND.NS",
+      "name": "Pidilite Industries",
+      "ltp": 1630.2,
+      "pctFromHigh": 0.47
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "ltp": 1520,
+      "pctFromHigh": 0.82
+    },
+    {
+      "ticker": "BAJAJ-AUTO.NS",
+      "name": "Bajaj Auto",
+      "ltp": 11493,
+      "pctFromHigh": 0.84
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "ltp": 1159,
+      "pctFromHigh": 1.48
+    },
+    {
+      "ticker": "APOLLOHOSP.NS",
+      "name": "Apollo Hospitals",
+      "ltp": 8898,
+      "pctFromHigh": 1.67
+    }
+  ],
+  "near52wLow": [
+    {
+      "ticker": "HDFCLIFE.NS",
+      "name": "HDFC Life Insurance",
+      "ltp": 550.2,
+      "pctFromLow": 1.33
+    }
+  ],
+  "volumeShockers": [
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "volume": 1058281,
+      "avgVolume": 406664,
+      "ratio": 2.6
+    },
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL India",
+      "volume": 21969123,
+      "avgVolume": 9556542,
+      "ratio": 2.3
+    }
+  ],
+  "sectorRanking": [
+    {
+      "sector": "IT",
+      "changePct": 1.56
+    },
+    {
+      "sector": "FMCG",
+      "changePct": 1.42
+    },
+    {
+      "sector": "Financial Services",
+      "changePct": 1.05
+    },
+    {
+      "sector": "Metal",
+      "changePct": 0.97
+    },
+    {
+      "sector": "Bank",
+      "changePct": 0.96
+    },
+    {
+      "sector": "Auto",
+      "changePct": 0.71
+    },
+    {
+      "sector": "Pharma",
+      "changePct": 0.46
+    },
+    {
+      "sector": "Realty",
+      "changePct": 0.44
+    },
+    {
+      "sector": "Energy",
+      "changePct": 0.38
+    }
+  ],
+  "fiiDii": {
+    "fiiNet": 277.48,
+    "diiNet": 2260.37,
+    "unit": "crore",
+    "asOf": "2026-07-31"
+  },
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI MPC meeting begins, 'hawkish pause' on repo rate expected amidst inflation concerns",
+          "summary": "The RBI's Monetary Policy Committee began its three-day meeting on August 3, 2026, and is widely anticipated to keep the benchmark repo rate unchanged at 5.25%. This expected 'hawkish pause' is attributed to persistent inflation risks from geopolitical tensions, elevated crude oil prices, and an uneven monsoon. June retail inflation accelerated to 4.38%, and wholesale inflation climbed to 9.87%.",
+          "source": "Economic Times",
+          "tickers": [],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Crude oil prices fall sharply, FIIs continue buying, boosting Indian market amidst mixed global cues",
+          "summary": "Brent crude futures fell more than 5% to approximately $84 a barrel, and West Texas Intermediate (WTI) crude slipped below $81 a barrel, spurred by hopes of a diplomatic breakthrough between the US and Iran. This reduction in oil prices is particularly beneficial for India. Foreign Institutional Investors (FIIs) have also shown renewed buying interest, infusing Rs 20,200 crore into Indian equities in July. Global markets presented a mixed picture, with Asian markets generally lower, while US stock futures indicated a positive opening.",
+          "source": "Reuters",
+          "tickers": [],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "DLF, Bharti Airtel, ONGC, LIC, SBI, Mankind Pharma among key companies in focus for Q1 FY27 earnings",
+          "summary": "Several prominent companies including DLF, Bharti Airtel, ONGC, LIC, and State Bank of India are scheduled to announce their Q1 FY27 financial results today, August 3, 2026. Mankind Pharma reported a consolidated net profit of Rs 5.68 billion, a 29.6% year-on-year increase. Thermax, however, reported an 85% year-on-year decline in consolidated profit after tax to Rs 220 million.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "DLF.NS",
+            "BHARTIARTL.NS",
+            "ONGC.NS",
+            "LIC.NS",
+            "SBIN.NS",
+            "MANKIND.NS",
+            "THERMAX.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Indian benchmark indices recover; Auto, Financial Services, and Media sectors lead gains",
+          "summary": "Last week, benchmark indices staged a strong recovery, with the BSE Sensex advancing 2.67% and the NSE Nifty climbing 2.59%. On Friday, August 2, the Auto and Financial Services sectors witnessed buying, while the IT and private bank sectors experienced selling pressure. Media, Auto, and Financial Services led the gains, while IT, FMCG, and Consumer Durables were among the major laggards.",
+          "source": "Business Standard",
+          "tickers": [],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Britannia appoints new strategy head; several companies announce dividends; new F&O Closing Auction Session introduced",
+          "summary": "Britannia Industries Limited announced the appointment of Siddharth Parakh as Head - Strategy & Business Development, effective August 3, 2026. Several companies, including Bannari Amman Spinning Mills, Coforge, Emkay Global Financial Services, and ICICI Bank, announced dividends with August 3, 2026, as the record date. A new Closing Auction Session (CAS) for eligible Futures & Options (F&O) stocks came into effect, extending derivatives trading by 10 minutes.",
+          "source": "Livemint",
+          "tickers": [
+            "BRITANNIA.NS",
+            "BANNARI.NS",
+            "COFORGE.NS",
+            "EMKAY.NS",
+            "ICICIBANK.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Choice Broking recommends buy on New India Assurance, GAIL, Jio Financial Services, Ramkrishna Forgings, and Cholamandalam",
+          "summary": "Sumeet Bagadia of Choice Broking recommended 'buy' for several stocks: New India Assurance Company at ₹173 with a target of ₹190, GAIL at ₹181 with a target of ₹197, Jio Financial Services at ₹256 with a target of ₹280, Ramkrishna Forgings at ₹651 with a target of ₹711, and Cholamandalam Investment and Fin at ₹1849 with a target of ₹2018.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIACL.NS",
+            "GAIL.NS",
+            "JIOFIN.NS",
+            "RKFORGE.NS",
+            "CHOLAFIN.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "NIACL.NS",
+      "name": "New India Assurance Company",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 190,
+      "rationale": "Recommended as a buy at ₹173, with a target of ₹190 and a stop loss of ₹165."
+    },
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 197,
+      "rationale": "Recommended as a buy at ₹181, with a target of ₹197 and a stop loss of ₹173."
+    },
+    {
+      "ticker": "JIOFIN.NS",
+      "name": "Jio Financial Services",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 280,
+      "rationale": "Recommended as a buy at ₹256, with a target of ₹280 and a stop loss of ₹245."
+    },
+    {
+      "ticker": "RKFORGE.NS",
+      "name": "Ramkrishna Forgings",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 711,
+      "rationale": "Recommended as a buy at ₹651, with a target of ₹711 and a stop loss of ₹620."
+    },
+    {
+      "ticker": "CHOLAFIN.NS",
+      "name": "Cholamandalam Investment and Fin",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2018,
+      "rationale": "Recommended as a buy at ₹1849, with a target of ₹2018 and a stop loss of ₹1771."
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 2060,
+      "rationale": "Recommended as a buy in Cash @ 1972, Stop Loss @ 1895, Target @ 2060."
+    },
+    {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "brokerage": "HDFC Securities",
+      "action": "accumulate",
+      "target": 4087,
+      "rationale": "Maintained an 'Add' rating with a target price of Rs 4,087, implying a potential upside of approximately 24% from its last closing price of Rs 3,278."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Mentioned positive views on Bajaj Finance."
+    },
+    {
+      "ticker": "RRKABLE.NS",
+      "name": "RR Kable",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Recommended as a top stock to buy for the week starting August 3, 2026."
+    },
+    {
+      "ticker": "KFINTECH.NS",
+      "name": "KFin Technologies",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Recommended as a top stock to buy for the week starting August 3, 2026."
+    },
+    {
+      "ticker": "WESTLIFE.NS",
+      "name": "Westlife Foodworld",
+      "brokerage": "Elara Securities",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Expressed positive sentiment on Westlife Foodworld."
+    },
+    {
+      "ticker": "CHALET.NS",
+      "name": "Chalet Hotels",
+      "brokerage": "Elara Securities",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Expressed positive sentiment on Chalet Hotels."
+    }
+  ],
+  "corporateActions": [
+    {
+      "ticker": "AMIRCHAND",
+      "name": "Amir Chand Jagdish Kumar (Exports) Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "ARTEMISMED",
+      "name": "Artemis Medicare Services Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "ATHER",
+      "name": "Ather Energy Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "AVADHSUGAR",
+      "name": "Avadh Sugar & Energy Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "BHARATGEAR",
+      "name": "Bharat Gears Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "BUTTERFLY",
+      "name": "Butterfly Gandhimathi Appliances Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "CAMS",
+      "name": "Computer Age Management Services Limited",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "DLF",
+      "name": "DLF Ltd.",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "ESCORTS",
+      "name": "Escorts Kubota Ltd.",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "GESHIP",
+      "name": "Great Eastern Shipping Company Ltd.",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "GLAXO",
+      "name": "GlaxoSmithKline Pharmaceuticals Ltd.",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "GULFOILLUB",
+      "name": "Gulf Oil Lubricants India Ltd.",
+      "type": "results",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "ICICIBANK",
+      "name": "ICICI Bank Ltd.",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "TRANSRAIL",
+      "name": "Transrail Lighting Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "SAISILK",
+      "name": "Sai Silks (Kalamandir) Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "KANPURPLAS",
+      "name": "Kanpur Plastipack Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "COFORGE",
+      "name": "Coforge Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "KAKATIYACEM",
+      "name": "Kakatiya Cement Sugar & Industries Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "BANARISPIN",
+      "name": "Bannari Amman Spinning Mills Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "EMKAY",
+      "name": "Emkay Global Financial Services Limited",
+      "type": "dividend",
+      "date": "2026-08-03"
+    },
+    {
+      "ticker": "ONGC",
+      "name": "Oil and Natural Gas Corporation",
+      "type": "results",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "SUNPHARMA",
+      "name": "Sun Pharmaceutical Industries",
+      "type": "results",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "BHARTIARTL",
+      "name": "Bharti Airtel",
+      "type": "results",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "ALEMBICLTD",
+      "name": "Alembic Limited",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "PCBL",
+      "name": "PCBL Chemical Limited",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "ANDHRAPAP",
+      "name": "Andhra Paper Limited",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "CEINFO",
+      "name": "C.E. Info Systems Limited (Mapmyindia)",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "EMBASSY",
+      "name": "Embassy Office Parks REIT",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "GROBTEA",
+      "name": "The Grob Tea Company Limited",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "TCPLPACK",
+      "name": "TCPL Packaging Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "HINDRECT",
+      "name": "Hind Rectifiers Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "BALKRISIND",
+      "name": "Balkrishna Industries Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "BOSCHLTD",
+      "name": "Bosch Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "MYSOREPETRO",
+      "name": "Mysore Petro Chemicals Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "AUTOAXLES",
+      "name": "Automotive Axles Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "MUNJALSHOW",
+      "name": "Munjal Showa Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "GOODYEAR",
+      "name": "Goodyear India Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "ADFFOODS",
+      "name": "ADF Foods Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "BERGEPAINT",
+      "name": "Berger Paints (India) Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "ORIENTAROM",
+      "name": "Oriental Aromatics Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "BAYERCROP",
+      "name": "Bayer Cropscience Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "FERMENTA",
+      "name": "Fermenta Biotech Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "ANUHPHRMA",
+      "name": "Anuh Pharma Ltd",
+      "type": "dividend",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "TEMBO",
+      "name": "Tembo Global Industries Ltd",
+      "type": "split",
+      "date": "2026-08-04"
+    },
+    {
+      "ticker": "POWERGRID",
+      "name": "Power Grid Corporation of India",
+      "type": "results",
+      "date": "2026-08-05"
+    },
+    {
+      "ticker": "HDFCBANK",
+      "name": "HDFC Bank",
+      "type": "results",
+      "date": "2026-08-05"
+    },
+    {
+      "ticker": "HEROMOTOCO",
+      "name": "Hero MotoCorp",
+      "type": "results",
+      "date": "2026-08-05"
+    },
+    {
+      "ticker": "HDFCBANK",
+      "name": "HDFC Bank",
+      "type": "agm",
+      "date": "2026-08-05"
+    },
+    {
+      "ticker": "HEROMOTOCO",
+      "name": "Hero MotoCorp",
+      "type": "agm",
+      "date": "2026-08-05"
+    },
+    {
+      "ticker": "TRENT",
+      "name": "Trent Ltd.",
+      "type": "results",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "IPCALAB",
+      "name": "Ipca Laboratories Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "GRASIM",
+      "name": "Grasim Industries Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "PIIND",
+      "name": "PI Industries Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "CHENNPETRO",
+      "name": "Chennai Petroleum Corporation Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "JASCH",
+      "name": "Jasch Gauging Technologies Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "STEELCAST",
+      "name": "Steel Cast Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "BNRATHI",
+      "name": "B N Rathi Securities Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "RUBICON",
+      "name": "Rubicon Research Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "BDHIND",
+      "name": "BDH Industries Ltd.",
+      "type": "dividend",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "JOJO",
+      "name": "JOJO Ltd",
+      "type": "split",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "TOHEAL",
+      "name": "Toheal Pharma",
+      "type": "split",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "SAKETHEXIM",
+      "name": "Saketh Exim",
+      "type": "split",
+      "date": "2026-08-06"
+    },
+    {
+      "ticker": "HINDALCO",
+      "name": "Hindalco Industries",
+      "type": "results",
+      "date": "2026-08-07"
+    },
+    {
+      "ticker": "SBIN",
+      "name": "State Bank of India",
+      "type": "results",
+      "date": "2026-08-07"
+    },
+    {
+      "ticker": "TITAN",
+      "name": "Titan Company",
+      "type": "results",
+      "date": "2026-08-07"
+    },
+    {
+      "ticker": "QUESS",
+      "name": "Quess Corp Limited",
+      "type": "dividend",
+      "date": "2026-08-07"
+    },
+    {
+      "ticker": "ZYDUSLIFE",
+      "name": "Zydus Lifesciences Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "ESABINDIA",
+      "name": "Esab India Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "FOSECOIND",
+      "name": "Foseco India Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "GUJENER",
+      "name": "Gujarat Energy Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "IFCI",
+      "name": "IFCI Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "INSECTICID",
+      "name": "Insecticides (India) Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "NCLRESC",
+      "name": "NCL Research and Financial Services Ltd.",
+      "type": "results",
+      "date": "2026-08-10"
+    },
+    {
+      "ticker": "APOLLOHOSP",
+      "name": "Apollo Hospitals Enterprise",
+      "type": "results",
+      "date": "2026-08-12"
+    },
+    {
+      "ticker": "GRASIM",
+      "name": "Grasim Industries",
+      "type": "results",
+      "date": "2026-08-12"
+    },
+    {
+      "ticker": "HCLTECH",
+      "name": "HCL Technologies",
+      "type": "agm",
+      "date": "2026-08-12"
+    },
+    {
+      "ticker": "RELIANCE",
+      "name": "Reliance Industries",
+      "type": "results",
+      "date": "2026-08-13"
+    },
+    {
+      "ticker": "SBILIFE",
+      "name": "SBI Life Insurance",
+      "type": "agm",
+      "date": "2026-08-14"
+    }
+  ]
+}
