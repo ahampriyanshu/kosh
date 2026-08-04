@@ -1,0 +1,103 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI MPC Meeting Underway; Repo Rate Expected to Remain Unchanged",
+          "summary": "The Reserve Bank of India's Monetary Policy Committee is holding its three-day meeting, with economists largely expecting the benchmark repo rate to be held at 5.25% despite a recent rise in retail inflation.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's Retail Inflation Rises to 4.38% in June, Wholesale Inflation at 9.87%",
+          "summary": "India's CPI inflation accelerated to 4.38% in June 2026, crossing the RBI's 4% target for the first time in 17 months but remaining within the tolerance band. WPI inflation reached 9.87% year-on-year in June 2026.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Government to Simplify Tax Exemptions for Offshore Investment Funds",
+          "summary": "The Finance Minister is expected to introduce a bill to simplify tax exemptions for offshore investment funds managed from India and provide tax exemptions for foreign companies in customs bonded areas, aiming to strengthen India as a global fund management hub.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global Geopolitical Tensions Push Crude Oil Prices Higher, Posing Inflation Risks for India",
+          "summary": "Heightened geopolitical tensions in the Middle East and disruptions around the Strait of Hormuz are driving crude oil prices higher, which poses inflation risks for oil-importing economies like India.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "US Fed Hawkish Stance and Rising Oil Prices Impact Rupee and Foreign Fund Inflows",
+          "summary": "The US Federal Reserve's hawkish stance and elevated US Treasury yields are being monitored for their potential to moderate foreign portfolio inflows into Indian debt. A weakening rupee against the dollar, partly due to rising oil prices, also adds to import costs.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Q1 FY27 Earnings Season Nears End; Focus on Mid & Small-Caps",
+          "summary": "The first half of August marks the final leg of the Q1 FY27 earnings season, with investors closely watching results from mid-cap and small-cap companies and management commentary on demand trends and margins.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Adani Enterprises, L&T Q1 FY27 Earnings Below Expectations",
+          "summary": "Adani Enterprises Ltd reported earnings below expectations at -7.41 INR, and Larsen & Toubro's earnings of 29.96 INR were also below expectations. Conversely, Adani Ports earnings were above expectations at 15.71 INR.",
+          "source": "Business Standard",
+          "tickers": [
+            "ADANIENT.NS",
+            "LT.NS",
+            "ADANIPORTS.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Rate-Sensitive Sectors Brace for RBI Policy Impact Amid Expected Pause",
+          "summary": "While the RBI is expected to maintain its policy stance, any change could impact rate-sensitive sectors like banking, real estate, and automobiles. Ample liquidity in the banking system is anticipated to support government bond yields.",
+          "source": "Financial Express",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": []
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Hot Stocks on Business Portals: Suzlon, Adani Group, IRFC, Tata Motors PV, BHEL, Dr Reddy, Vodafone Idea",
+          "summary": "A business news portal highlighted several companies, including Suzlon Energy, Adani Enterprises, Adani Power, IRFC, Tata Motors PV, BHEL, Dr Reddy, and Vodafone Idea, as 'hot stocks' for investor attention.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SUZLON.NS",
+            "ADANIENT.NS",
+            "ADANIPOWER.NS",
+            "IRFC.NS",
+            "TATAMOTORS.NS",
+            "BHEL.NS",
+            "DRREDDY.NS",
+            "VODAFONEIDEA.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": []
+}
