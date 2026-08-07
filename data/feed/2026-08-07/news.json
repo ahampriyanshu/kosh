@@ -1,0 +1,410 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI maintains repo rate at 5.25%, upgrades FY27 GDP outlook to 6.7%",
+          "summary": "The Reserve Bank of India (RBI) kept its benchmark repo rate unchanged at 5.25% in its Monetary Policy Committee (MPC) meeting, maintaining a 'Neutral' policy stance. The RBI upgraded its FY27 GDP growth outlook to 6.7% from 6.6% and lowered its FY27 CPI inflation forecast to 5.0% from 5.1%, though retail inflation is projected to rise to 4.5% in July 2026.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Cabinet approves GOBARdhan Scheme; Corporate Laws Amendment Bill, 2026 proposed",
+          "summary": "The Cabinet has approved the ₹23,731 crore GOBARdhan Scheme. Additionally, the Corporate Laws (Amendment) Bill, 2026, proposes a significant overhaul of the corporate statute, including a single-bench framework under the NCLT for streamlined merger approvals.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Geopolitical tensions in Middle East push crude prices higher, global markets mixed",
+          "summary": "Global market sentiment is influenced by ongoing geopolitical tensions in the Middle East, particularly concerns around shipping through the Strait of Hormuz, which has led to Brent crude futures rising above $83 a barrel. This is a negative for India. Most Asian markets saw declines, and US markets traded mixed or lower. However, foreign investors bought a net of $1.3 billion in August so far, adding to $2.1 billion purchased in July.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "LIC Q1 FY27 net profit surges 22.81% YoY to ₹13,492 crore",
+          "summary": "Life Insurance Corporation of India (LIC) reported a 22.81% year-on-year increase in its consolidated net profit for Q1 FY27, reaching ₹13,492 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "LIC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Britannia Industries Q1 profit below expectations due to higher costs",
+          "summary": "Britannia Industries reported first-quarter profit below market expectations, primarily due to higher fuel and shipping costs linked to the Middle East conflict.",
+          "source": "Economic Times",
+          "tickers": [
+            "BRITANNIA.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Apollo Tyres Q1 profit up nearly 9% on strong demand",
+          "summary": "Apollo Tyres saw a nearly 9% increase in its first-quarter profit before tax and exceptional items, driven by strong demand in Asia-Pacific, the Middle East, and Africa markets.",
+          "source": "Business Standard",
+          "tickers": [
+            "APOLLOTYRE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Power Grid Corporation of India reports marginal decline in Q1 net profit",
+          "summary": "Power Grid Corporation of India reported a marginal decline in its Q1 net profit.",
+          "source": "Livemint",
+          "tickers": [
+            "POWERGRID.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Bayer CropScience Q1 FY27 net profit increases 15.4% YoY",
+          "summary": "Bayer CropScience posted a 15.4% year-on-year increase in net profit for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BAYERCROP.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Berger Paints Q1 FY27 consolidated net profit up 21% YoY",
+          "summary": "Berger Paints registered a 21% year-on-year increase in consolidated net profit for Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "BERGEPAINT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Crompton Greaves Q1 net profit up 14.8%, revenue up 16.9%",
+          "summary": "Crompton Greaves saw its Q1 net profit up by 14.8% and revenue up by 16.9%.",
+          "source": "Business Standard",
+          "tickers": [
+            "CROMPTON.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Shivalik Bimetal reports 26.9% rise in Q1 net profit, 12% revenue growth QoQ",
+          "summary": "Shivalik Bimetal reported a 26.9% increase in Q1 net profit and 12% rise in revenue quarter-on-quarter.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SBCL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Varroc Engineering's Q1 net profit down 26.5% despite 30% revenue increase",
+          "summary": "Varroc Engineering's Q1 net profit was down 26.5%, though revenue increased by 30%.",
+          "source": "Livemint",
+          "tickers": [
+            "VARROC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "HCC Q1 net profit up 0.7%, revenue down 9%",
+          "summary": "HCC recorded a 0.7% increase in Q1 net profit, while revenue was down 9%.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Signature Global reports Q1 net loss of Rs. 16.7 crore",
+          "summary": "Signature Global reported a net loss of Rs. 16.7 crore in Q1.",
+          "source": "Business Standard",
+          "tickers": [
+            "SIGNATURE.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Major companies including SBI, Titan, Hindalco to report Q1 FY27 earnings today",
+          "summary": "Today, August 7, 2026, marks a busy day for Q1 FY27 earnings announcements, with major companies like State Bank of India, Titan Company, Hindalco Industries, Oil India, Godrej Consumer Products, NLC India, Kaynes Technology India, Jyoti CNC Automation, Paras Defence and Space Technologies, BEML, Lemon Tree Hotels, and Cello World scheduled to report their results.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SBIN.NS",
+            "TITAN.NS",
+            "HINDALCO.NS",
+            "OIL.NS",
+            "GODREJCP.NS",
+            "NLCINDIA.NS",
+            "KAYNES.NS",
+            "JYOTICNC.NS",
+            "PARAS.NS",
+            "BEML.NS",
+            "LEMONTREE.NS",
+            "CELLO.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Indian market mixed; Telecom, Metal sectors face pressure, Oil & Gas, Banking see buying",
+          "summary": "On Thursday, the Indian stock market ended on a mixed note, with the Nifty 50 largely unchanged while the Sensex posted a modest gain. Sectoral indices experienced mixed movements, with telecommunication and metal sectors facing selling pressure, while oil & gas and banking sectors witnessed buying.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Copper-linked companies in focus as copper prices surge to record highs",
+          "summary": "Copper-linked companies, including Hindustan Copper, Hindalco, and Vedanta, were in focus as copper prices surged to record highs.",
+          "source": "Livemint",
+          "tickers": [
+            "HINDCOPPER.NS",
+            "HINDALCO.NS",
+            "VEDL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Experts identify sectors resilient to inflation, others under pressure",
+          "summary": "Experts suggest that FMCG, healthcare, banks, and select agriculture-linked businesses are better positioned to handle moderate inflation, while auto, consumer durables, real estate, and aviation sectors might face pressure.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "RBI allows banks to finance acquisitions; IBC Amendment Act, 2026 streamlines distressed dealmaking",
+          "summary": "Effective July 1, 2026, RBI allows Indian banks to finance up to 75% of acquisition value for eligible non-financial corporate borrowers. Additionally, the Insolvency and Bankruptcy Code (IBC) (Amendment) Act, 2026, introduces a creditor-initiated insolvency resolution process, streamlining distressed dealmaking.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Coal India diversifies into iron ore mining",
+          "summary": "Coal India has diversified its operations by venturing into iron ore mining.",
+          "source": "Economic Times",
+          "tickers": [
+            "COALINDIA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Mahindra & Mahindra to acquire 17.41% stake in Swaraj Engines",
+          "summary": "Mahindra & Mahindra is set to acquire a 17.41% stake in Swaraj Engines from Kirloskar Industries.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "M&M.NS",
+            "SWARAJENG.NS",
+            "KIRLOSIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bharat Forge transfers 49% stake in Sagar-Manas shares to Dastan Transnational",
+          "summary": "Bharat Forge transferred a 49% stake in its step-down unit Sagar-Manas shares to Dastan Transnational.",
+          "source": "Livemint",
+          "tickers": [
+            "BHARATFORG.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Yes Bank approves sale of $6 billion in stressed debt to JC Flowers",
+          "summary": "Yes Bank approved the sale of $6 billion in stressed debt to JC Flowers.",
+          "source": "Economic Times",
+          "tickers": [
+            "YESBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani pledges $13 billion stake in new Indian cement units",
+          "summary": "Adani pledged a stake worth $13 billion in new Indian cement units.",
+          "source": "Reuters",
+          "tickers": [
+            "ADANIENT.NS",
+            "ACC.NS",
+            "AMBUJACEM.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Companies with ex-dividend dates include ICICI Bank, Coforge, Bosch",
+          "summary": "Several companies, including ICICI Bank, Coforge, Bosch, Berger Paints India, and Brigade Enterprises, have had ex-dividend dates between August 3 and August 5, 2026. Indian Oil Corpn. has a final dividend ex-date of August 14, 2026.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ICICIBANK.NS",
+            "COFORGE.NS",
+            "BOSCHLTD.NS",
+            "BERGEPAINT.NS",
+            "BRIGADE.NS",
+            "IOC.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Copper-linked companies in focus amid surging copper prices",
+          "summary": "Hindustan Copper, Hindalco, and Vedanta are attracting investor attention due to surging copper prices.",
+          "source": "Livemint",
+          "tickers": [
+            "HINDCOPPER.NS",
+            "HINDALCO.NS",
+            "VEDL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "PB Fintech identified as a stock to watch",
+          "summary": "PB Fintech (Policybazaar) is attracting investor attention.",
+          "source": "Economic Times",
+          "tickers": [
+            "POLICYBZR.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Reliance Industries and SBI contribute to Sensex gains; Bharti Airtel, Bajaj Finance, Power Grid offset momentum",
+          "summary": "On Thursday, Reliance Industries and SBI contributed to Sensex gains, while Bharti Airtel, Bajaj Finance, and Power Grid offset some of the positive momentum.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RELIANCE.NS",
+            "SBIN.NS",
+            "BHARTIARTL.NS",
+            "BAJFINANCE.NS",
+            "POWERGRID.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "SHRIRAMFIN.NS",
+      "name": "Shriram Finance",
+      "brokerage": "Prabhudas Lilladher (Vaishali Parekh)",
+      "action": "buy",
+      "target": 1180,
+      "rationale": "Intraday buy recommendation."
+    },
+    {
+      "ticker": "BEL.NS",
+      "name": "BEL",
+      "brokerage": "Prabhudas Lilladher (Vaishali Parekh)",
+      "action": "buy",
+      "target": 420,
+      "rationale": "Intraday buy recommendation."
+    },
+    {
+      "ticker": "BDL.NS",
+      "name": "Bharat Dynamics",
+      "brokerage": "Prabhudas Lilladher (Vaishali Parekh)",
+      "action": "buy",
+      "target": 1360,
+      "rationale": "Intraday buy recommendation."
+    },
+    {
+      "ticker": "AMBUJACEM.NS",
+      "name": "Ambuja Cements",
+      "brokerage": "Nuvama Wealth Management (Aakash K Hindocha)",
+      "action": "buy",
+      "target": 480,
+      "rationale": "Citing a decisive breakout."
+    },
+    {
+      "ticker": "ASAHIINDIA.NS",
+      "name": "Asahi India Glass",
+      "brokerage": "Nuvama Wealth Management (Aakash K Hindocha)",
+      "action": "buy",
+      "target": 990,
+      "rationale": "Buy recommendation with technical levels, Stop Loss: 892."
+    },
+    {
+      "ticker": "PFIZER.NS",
+      "name": "Pfizer",
+      "brokerage": "Nuvama Wealth Management (Aakash K Hindocha)",
+      "action": "buy",
+      "target": 5300,
+      "rationale": "Buy, targeting around Rs 5300 in the short term, following a decisive breakout."
+    },
+    {
+      "ticker": "APLAPOLLO.NS",
+      "name": "APL Apollo Tubes",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2250,
+      "rationale": "'Overweight' rating, implying a potential upside of approximately 24%."
+    },
+    {
+      "ticker": "KALYANJWL.NS",
+      "name": "Kalyan Jewellers",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 700,
+      "rationale": "Reaffirmed 'Buy' rating, suggesting a potential upside of around 18% from current market price."
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1370,
+      "rationale": "Recommended a buy with a stop loss at ₹1249."
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 2060,
+      "rationale": "Suggested a potential rally towards a ₹2,060 target, with a strict stop-loss at ₹1,895."
+    },
+    {
+      "ticker": "DLF.NS",
+      "name": "DLF",
+      "brokerage": "Elara Securities",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Elara Securities sees upside."
+    },
+    {
+      "ticker": "JSL.NS",
+      "name": "Jindal Stainless",
+      "brokerage": "Elara Securities",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Elara Securities sees upside."
+    },
+    {
+      "ticker": "BSE.NS",
+      "name": "BSE",
+      "brokerage": "Nuvama",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Nuvama sees upside."
+    },
+    {
+      "ticker": "MARICO.NS",
+      "name": "Marico",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 0,
+      "rationale": "Motilal Oswal has identified upside."
+    }
+  ]
+}
