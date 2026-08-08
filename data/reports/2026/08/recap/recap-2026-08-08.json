@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-08-08",
+  "type": "recap",
+  "dateKey": "2026-08-08",
+  "generatedAt": "2026-08-08T05:12:30.358Z",
+  "sourceData": {
+    "tickers": [
+      "M&M.NS",
+      "BAJFINANCE.NS",
+      "DIVISLAB.NS",
+      "GAIL.NS",
+      "BRITANNIA.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-08-08T05:12:30.358Z"
+  },
+  "content": {
+    "period": "2026-W31",
+    "sourceReportId": "weekly-2026-W31",
+    "graded": [
+      {
+        "ticker": "M&M.NS",
+        "name": "Mahindra & Mahindra",
+        "thesis": "The auto sector is showing strong momentum, with Nifty Auto performing robustly and M&M being a top gainer. Continued rural recovery and new product launches are likely to act as significant tailwinds.",
+        "action": "buy",
+        "entryRef": 3428.60009765625,
+        "exitRef": 3502,
+        "changePct": 2.14,
+        "outcome": "hit",
+        "note": "buy call moved +2.14%"
+      },
+      {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance",
+        "thesis": "Despite the broader financial services index showing moderate gains, Bajaj Finance's position as a top gainer suggests strong individual company fundamentals, robust consumer finance demand, and potential for continued outperformance within the NBFC space.",
+        "action": "buy",
+        "entryRef": 1153,
+        "exitRef": 1078,
+        "changePct": -6.5,
+        "outcome": "miss",
+        "note": "buy call moved -6.5%"
+      },
+      {
+        "ticker": "DIVISLAB.NS",
+        "name": "Divi's Laboratories",
+        "thesis": "The pharmaceutical sector is exhibiting consistent strength, and Divi's Lab's inclusion among the top gainers indicates solid demand for its active pharmaceutical ingredients (APIs), strong order book, or positive outlook on global pharmaceutical trends.",
+        "action": "buy",
+        "entryRef": 8585,
+        "exitRef": 8349,
+        "changePct": -2.75,
+        "outcome": "miss",
+        "note": "buy call moved -2.75%"
+      },
+      {
+        "ticker": "GAIL.NS",
+        "name": "GAIL (India)",
+        "thesis": "Despite the Nifty Energy index being negative, GAIL stood out as a top gainer. This divergence indicates strong company-specific fundamentals, a favorable gas pricing environment, or strategic initiatives that could drive further upside, making it an outlier opportunity.",
+        "action": "buy",
+        "entryRef": 174.3000030517578,
+        "exitRef": 173.6300048828125,
+        "changePct": -0.38,
+        "outcome": "partial",
+        "note": "buy call moved -0.38%"
+      },
+      {
+        "ticker": "BRITANNIA.NS",
+        "name": "Britannia Industries",
+        "thesis": "The FMCG sector has underperformed the broader market, and Britannia was among the top losers. This suggests potential continued pressure from high input costs, intense competition, or a sustained rotation of investor capital out of defensive stocks in a risk-on environment.",
+        "action": "sell",
+        "entryRef": 5531,
+        "exitRef": 5510,
+        "changePct": -0.38,
+        "outcome": "partial",
+        "note": "sell call moved -0.38%"
+      }
+    ],
+    "hits": 1,
+    "total": 5,
+    "summary": "1/5 positional bets hit over Jul 2026, Week 5.",
+    "learnings": {
+      "worked": [
+        "Mahindra & Mahindra: The auto sector is showing strong momentum, with Nifty Auto performing robustly and M&M being a top gainer. Continued rural recovery and new product launches are likely to act as significant tailwinds. This worked buy call moved +2.14%."
+      ],
+      "missed": [
+        "Bajaj Finance: Despite the broader financial services index showing moderate gains, Bajaj Finance's position as a top gainer suggests strong individual company fundamentals, robust consumer finance demand, and potential for continued outperformance within the NBFC space. This did not work buy call moved -6.5%.",
+        "Divi's Laboratories: The pharmaceutical sector is exhibiting consistent strength, and Divi's Lab's inclusion among the top gainers indicates solid demand for its active pharmaceutical ingredients (APIs), strong order book, or positive outlook on global pharmaceutical trends. This did not work buy call moved -2.75%.",
+        "GAIL (India): Despite the Nifty Energy index being negative, GAIL stood out as a top gainer. This divergence indicates strong company-specific fundamentals, a favorable gas pricing environment, or strategic initiatives that could drive further upside, making it an outlier opportunity. This only partially worked buy call moved -0.38%.",
+        "Britannia Industries: The FMCG sector has underperformed the broader market, and Britannia was among the top losers. This suggests potential continued pressure from high input costs, intense competition, or a sustained rotation of investor capital out of defensive stocks in a risk-on environment. This only partially worked sell call moved -0.38%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:54a0aa4ade900db02c44b5edc21cbd3331b21b06a8baed6bd56a54094fb149a1"
+}
