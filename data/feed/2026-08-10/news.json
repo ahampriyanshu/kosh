@@ -1,0 +1,270 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI keeps repo rate unchanged at 5.25%, revises FY27 GDP forecast upwards to 6.7%",
+          "summary": "The Reserve Bank of India (RBI) maintained the repo rate at 5.25% in its latest Monetary Policy Committee meeting and revised its FY27 GDP growth forecast upwards to 6.7%. The RBI will also conduct a 7-day Variable Rate Reverse Repo (VRRR) auction for ₹200,000 crore to manage short-term surplus liquidity.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Retail inflation accelerates to 4.38% in June, surpassing RBI's target",
+          "summary": "Retail inflation accelerated to 4.38% in June, exceeding the RBI's 4% target for the first time in 17 months. July's inflation data is expected next week.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Delhi's new Electric Vehicles Policy effective July 1, 2026, introduces incentives and bans",
+          "summary": "Delhi's new Electric Vehicles Policy, effective from July 1, 2026, aims to tackle air pollution by introducing purchase incentives and phased registration bans on conventional two- and three-wheelers and light goods vehicles.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Asian stock markets trade higher on Monday, influenced by weaker US jobs data",
+          "summary": "Asian stock markets are mostly higher on Monday, mirroring a strong finish on Wall Street last week. This rise was attributed to weaker-than-expected July jobs data in the US, which eased concerns about aggressive Federal Reserve rate hikes.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "S&P 500 futures dip amid renewed US-Iran concerns and elevated crude oil prices",
+          "summary": "S&P 500 futures showed a slight dip, driven by renewed concerns over US-Iran negotiations and high crude oil prices. Brent crude has risen to $84.47 per barrel, having advanced over 37% this year, with uncertainty persisting regarding shipping through the Strait of Hormuz.",
+          "source": "Bloomberg",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Q1 FY27 earnings season in final phase; over 220 companies to report today",
+          "summary": "The Q1 FY27 earnings season is nearing its conclusion, with more than 220 companies, including Vodafone Idea, Bosch, Bharat Forge, Info Edge India, Gland Pharma, Hindustan Aeronautics (HAL), and Tata Motors, scheduled to announce their results on August 10, 2026.",
+          "source": "Business Today",
+          "tickers": [
+            "VODAFONE.NS",
+            "BOSCHLTD.NS",
+            "BHARATFORG.NS",
+            "INFOEDGE.NS",
+            "GLAND.NS",
+            "HAL.NS",
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "State Bank of India reports 10.23% rise in Q1 FY27 standalone net profit",
+          "summary": "State Bank of India (SBI) announced a standalone net profit of ₹211.1 billion for Q1 FY27, marking a 10.23% increase year-on-year.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SBIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lumax Industries sees 41% surge in Q1 FY27 net profit, revenue up 32.6%",
+          "summary": "Lumax Industries reported a significant 41% increase in net profit to ₹51 crore, with revenue growing by 32.6% in Q1 FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "LUMAXIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Nitin Spinners Q1 FY27 net profit jumps 83.7% with 10.3% revenue growth",
+          "summary": "Nitin Spinners recorded an impressive 83.7% jump in net profit to ₹75.3 crore, alongside a 10.3% rise in revenue for Q1 FY27.",
+          "source": "Economic Times",
+          "tickers": [
+            "NITINSPIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Siemens Energy India Limited exceeds analyst expectations in quarterly report",
+          "summary": "Siemens Energy India Limited reported quarterly results that surpassed analyst revenue and EPS expectations.",
+          "source": "Livemint",
+          "tickers": [
+            "SIEMENS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Aditya Birla Fashion reports increased net loss of ₹215 crore in Q1 FY27",
+          "summary": "Aditya Birla Fashion and Retail posted a net loss of ₹215 crore in Q1 FY27, slightly higher than the ₹212 crore loss in the previous year, despite a 10.6% increase in revenue.",
+          "source": "Economic Times",
+          "tickers": [
+            "ABFRL.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Metal, IT, Auto, Banking, and Cement sectors show broad-based buying interest last week",
+          "summary": "Last week, sectors such as Metal, Information Technology, Automobiles, New-Age businesses, Banking, and Cement registered gains between 2% and 5%. The Nifty IT index particularly outperformed, and PSU banks saw sharp gains following the RBI's policy announcement.",
+          "source": "Economic Times",
+          "tickers": [
+            "NIFTYIT.NS",
+            "TCS.NS",
+            "INFY.NS",
+            "AXISBANK.NS",
+            "SBIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Indian insurance sector projected for significant long-term growth",
+          "summary": "The Indian insurance sector is projected for significant long-term growth, backed by structural reforms, low penetration, and a supportive regulatory environment.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Goldman Sachs turns constructive on India, forecasts Nifty 50 to rebound to 26,500",
+          "summary": "Goldman Sachs has become more constructive on India, forecasting the Nifty 50 to rebound to 26,500. They anticipate large-cap stocks and banks will be beneficiaries as foreign outflows reverse in the second half.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Approximately 90 companies to trade ex-dividend this week",
+          "summary": "Around 90 companies are scheduled to trade ex-dividend between August 10 and August 14, 2026. Companies going ex-dividend on August 10, 2026, include Indus Towers (₹14/share), Jio Financial Services (₹0.60/share), PTC India (₹23/share), and RITES (₹1.40/share).",
+          "source": "Moneycontrol",
+          "tickers": [
+            "AVTNPL.NS",
+            "INDUSTOW.NS",
+            "JIOFIN.NS",
+            "MAJESTAUTO.NS",
+            "PTC.NS",
+            "RITES.NS",
+            "STYRENIX.NS",
+            "WCP.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Hindustan Aeronautics, Paytm, and Vardhman Textiles identified as breakout stocks",
+          "summary": "Hindustan Aeronautics (HAL), One 97 Communications (Paytm), and Vardhman Textiles have been identified as key breakout stocks for the week starting August 10, showing strong technical momentum.",
+          "source": "Livemint",
+          "tickers": [
+            "HAL.NS",
+            "PAYTM.NS",
+            "VARDMNTEXT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "SBI, Tata Investment Corporation among stocks in focus for Monday's trading",
+          "summary": "State Bank of India (SBI) and Tata Investment Corporation are among the stocks in focus for Monday's trading session due to their Q1 FY27 earnings results. Other stocks to watch include Titan, PFC, Oil India, and Kaynes Technology.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SBIN.NS",
+            "TATAINVEST.NS",
+            "TITAN.NS",
+            "PFC.NS",
+            "OIL.NS",
+            "KAYNES.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Tech Mahindra, HUL, and HCL Tech were among Friday's top gainers",
+          "summary": "Tech Mahindra, Hindustan Unilever (HUL), and HCL Tech were among the top gainers in Friday's trading session, while Bajaj Finance, TCS, and Maruti Suzuki were notable losers.",
+          "source": "Economic Times",
+          "tickers": [
+            "TECHM.NS",
+            "HINDUNILVR.NS",
+            "HCLTECH.NS",
+            "BAJFINANCE.NS",
+            "TCS.NS",
+            "MARUTI.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "brokerage": "Anand Rathi",
+      "action": "buy",
+      "target": 405,
+      "rationale": "Buy at ₹385-390, target price of ₹405, stop loss of ₹375."
+    },
+    {
+      "ticker": "WIPRO.NS",
+      "name": "Wipro",
+      "brokerage": "Anand Rathi",
+      "action": "buy",
+      "target": 200,
+      "rationale": "Buy at ₹185-190, target price of ₹200, stop loss of ₹178."
+    },
+    {
+      "ticker": "PEL.NS",
+      "name": "Piramal Enterprises",
+      "brokerage": "Anand Rathi",
+      "action": "buy",
+      "target": 2200,
+      "rationale": "Buy at ₹2100-2110, target price of ₹2200, stop loss of ₹2040."
+    },
+    {
+      "ticker": "PHYSICSWALLAH.NS",
+      "name": "Physicswallah",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 140,
+      "rationale": "Buy at ₹131.5, Target ₹140, Stop Loss ₹127."
+    },
+    {
+      "ticker": "GRASIM.NS",
+      "name": "Grasim Industries",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 3555,
+      "rationale": "Buy at ₹3323, Target ₹3555, Stop Loss ₹3200."
+    },
+    {
+      "ticker": "FORTIS.NS",
+      "name": "Fortis Healthcare",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1020,
+      "rationale": "Buy at ₹955, Target ₹1020, Stop Loss ₹920."
+    },
+    {
+      "ticker": "BEML.NS",
+      "name": "BEML",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 1913,
+      "rationale": "Buy at ₹1788, Target ₹1913, Stop Loss ₹1725."
+    },
+    {
+      "ticker": "HONASA.NS",
+      "name": "Honasa Consumer",
+      "brokerage": "Choice Broking",
+      "action": "buy",
+      "target": 512,
+      "rationale": "Buy at ₹478, Target ₹512, Stop Loss ₹460."
+    }
+  ]
+}
