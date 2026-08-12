@@ -1,0 +1,507 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI MPC keeps repo rate unchanged at 5.25%",
+          "summary": "The Reserve Bank of India's Monetary Policy Committee maintained the repo rate at 5.25%, aligning with expectations and aiming to balance resilient growth with a contained inflation outlook.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's July CPI inflation expected to rise to 4.50%",
+          "summary": "A Reuters poll forecasts India's July consumer price inflation to increase to 4.50% year-on-year, potentially exceeding RBI's 4% target for the second consecutive month, driven by elevated crude oil prices.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "India's net direct tax collection up 23.09% till August 10",
+          "summary": "The central government's net direct tax collection witnessed a robust increase of 23.09%, exceeding Rs. 8.11 lakh crore until August 10 in the current fiscal year.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Fitch reaffirms India's 'BBB-' sovereign credit rating",
+          "summary": "Fitch Ratings has reaffirmed India's sovereign credit rating at 'BBB-' for the twentieth consecutive year, though it highlighted potential risks to fiscal spending.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Taxation Laws Amendment Bill 2026 introduced in Lok Sabha",
+          "summary": "The Taxation Laws Amendment Bill 2026 was presented in the Lok Sabha, aiming to ease eligibility and tax regulations for offshore foreign investment funds.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global markets cautious, Asian markets mixed, US futures flat",
+          "summary": "Global markets are exhibiting caution, with mixed Asian performance, flat US futures, and Wall Street indices closing lower as investors await US CPI data.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Brent crude futures near $90 amid Strait of Hormuz tensions",
+          "summary": "Brent crude futures are nearing $90 per barrel, up 0.80% and having surged 4% in 12 hours, attributed to ongoing tensions and a deadlock regarding a deal in the Strait of Hormuz, raising supply disruption concerns.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Bata India reports 23.1% jump in Q1 net profit, declares interim dividend",
+          "summary": "Bata India reported a 23.1% jump in net profit to Rs. 64 crore on a 3.9% revenue increase, and declared an interim dividend of Rs. 25 per share.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BATAINDIA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "S.P. Apparels Q1 net profit rises 20.3%, approves stock split and dividend",
+          "summary": "S.P. Apparels saw a 20.3% rise in net profit to Rs. 24.9 crore, despite a marginal 0.6% dip in revenue. The board approved a final dividend of Rs. 3 per share for FY26 and a 1:5 stock split.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SPAL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "ESAB India reports 37.0% increase in Q1 net profit",
+          "summary": "ESAB India recorded a 37.0% increase in net profit to Rs. 56.1 crore, with revenue growing 19.6% in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ESABINDIA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RHI Magnesita India Q1 net profit soars 83%",
+          "summary": "RHI Magnesita India's net profit soared by 83% to Rs. 64.6 crore on a 5.6% revenue increase for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RHIM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Man Industries posts significant rise in Q1 net profit",
+          "summary": "Man Industries posted a significant rise in net profit, driven by a 41.9% surge in revenue for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "MANINDS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Finolex Cables reports strong Q1 with revenue up 44.3% and net profit climbing 53%",
+          "summary": "Finolex Cables reported strong performance in Q1 FY27, with revenue up 44.3% and net profit climbing 53%.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "FINCABLES.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "NBCC Q1 profit rises 17% despite revenue decline",
+          "summary": "NBCC saw profit rise 17% despite a 6% decline in revenue for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NBCC.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Manappuram Finance Q1 net profit jumps 41%",
+          "summary": "Manappuram Finance's net profit jumped 41% as Net Interest Income climbed 31% in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "MANAPPURAM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "TVS Supply Chain Solutions Q1 profit rises on strong business wins",
+          "summary": "TVS Supply Chain Solutions' Q1 profit rose due to strong business wins and freight volumes.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TVSSCS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RVNL Q1 net profit increases 18%, EBITDA more than doubles",
+          "summary": "RVNL reported an 18% increase in net profit year-on-year, and its EBITDA more than doubled in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RVNL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "PI Industries Q1 net profit drops 39%",
+          "summary": "PI Industries experienced a 39% drop in net profit to Rs. 244 crore, with revenue down 10.4% in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PIIND.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "IFCI (Consolidated) reports 16% decrease in Q1 net profit",
+          "summary": "IFCI (Consolidated) reported a 16% decrease in net profit and a 19.6% decline in total income for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "IFCI.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Dish TV's net loss widens due to fall in subscription revenue",
+          "summary": "Dish TV's net loss widened due to a fall in subscription revenue in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "DISHTV.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "JSW Dulux Q1 profit drops 12%, board approves stock split",
+          "summary": "JSW Dulux's profit dropped 12% in Q1 FY27. The board also approved a stock split.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "KPI Green Energy Q1 net profit dips 14%",
+          "summary": "KPI Green Energy's net profit dipped 14% in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "KPIGREEN.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Zydus Lifesciences Q1 net profit down 36%",
+          "summary": "Zydus Lifesciences reported a 36% decline in net profit for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ZYDUSLIFE.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Siemens Q1 net profit declines 18%",
+          "summary": "Siemens' net profit declined 18% in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SIEMENS.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "MRF Q1 PAT dips 6% amid sharp margin contraction",
+          "summary": "MRF's PAT dipped 6% year-on-year in Q1 FY27, with shares falling 3% amid sharp margin contraction.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "MRF.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "JK Tyre & Industries misses Q1 revenue estimates by 13%",
+          "summary": "JK Tyre & Industries missed revenue estimates by 13% for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "JKTYRE.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Balrampur Chini Q1 profit slips 15% as margins contracted",
+          "summary": "Balrampur Chini's profit slipped 15% as margins contracted in Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BALRAMCHIN.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Insecticides Q1 net profit declines 25%, revenue falls 12%",
+          "summary": "Insecticides reported a 25% decline in net profit and a 12% fall in revenue for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INSECTICID.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Several companies to report Q1 FY27 results today",
+          "summary": "A significant number of companies, including HCL Technologies, Hindustan Aeronautics, Grasim Industries, Tata Motors, Apollo Hospitals Enterprise, and Berger Paints (India), are slated to announce their Q1 FY27 results today, August 12, 2026.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCLTECH.NS",
+            "HAL.NS",
+            "GRASIM.NS",
+            "TATAMOTORS.NS",
+            "APOLLOHOSP.NS",
+            "BERGERPAINT.NS",
+            "ABBOTTINDIA.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Indian benchmarks decline, Financials and Glass sectors hit while IT and Pharma show strength",
+          "summary": "On Tuesday, Indian equity benchmarks saw declines, with Nifty 50 falling 0.46% and Sensex dropping 0.49%. Financials, particularly banks and private banks, were the hardest-hit sectors alongside the Glass sector. In contrast, IT and Pharma demonstrated relative strength, while Auto, FMCG, Metal, and Realty faced pressure. Smallcap stocks outperformed midcaps and largecaps.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Clean Max Enviro Energy Solutions to provide Rs. 92 crore corporate guarantee",
+          "summary": "Clean Max Enviro Energy Solutions will provide a corporate guarantee of Rs. 92 crore for its subsidiary.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Landmark Cars signs MoU with Tecso Charge Zone",
+          "summary": "Landmark Cars entered into an MoU with Tecso Charge Zone to offer wallet credits and customer benefits.",
+          "source": "Economic Times",
+          "tickers": [
+            "LANDMARK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Godrej Consumer Products appoints Aasif Malbari as MD & CEO",
+          "summary": "Godrej Consumer Products appointed Aasif Malbari as MD & CEO, effective today, August 12.",
+          "source": "Livemint",
+          "tickers": [
+            "GODREJCP.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "L&T signs Business Transfer Agreement with Vyoma.AI for Rs. 1,400 crore",
+          "summary": "L&T signed a Business Transfer Agreement with its subsidiary Vyoma.AI to transfer its data center and cloud services business for Rs. 1,400 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "LT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tenneco Clean Air India promoter to sell 8% stake via block deals",
+          "summary": "The promoter entity, Tenneco Mauritius, is reportedly planning to sell an 8% stake in Tenneco Clean Air India through block deals at a floor price of ₹515 per share.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "BEML secures order worth ₹184.25 crore from Hindustan Aeronautics Ltd",
+          "summary": "BEML Ltd secured an order worth ₹184.25 crore from Hindustan Aeronautics Ltd for the manufacture and supply of Light Combat Helicopter fuselage aerostructures.",
+          "source": "PTI",
+          "tickers": [
+            "BEML.NS",
+            "HAL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HG Infra Engineering Ltd receives Letter of Award",
+          "summary": "HG Infra Engineering Ltd received a Letter of Award for the operation and management of the ITI Bhiwadi Cluster.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HGINFRA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "JSW Dulux approves stock split",
+          "summary": "JSW Dulux's board approved a stock split.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Manappuram Finance appoints Ashish Singh as MD & CEO",
+          "summary": "Ashish Singh has been appointed as MD & CEO of Manappuram Finance.",
+          "source": "Livemint",
+          "tickers": [
+            "MANAPPURAM.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Tenneco Clean Air, BEML, HG Infra, L&T in focus due to corporate updates",
+          "summary": "Tenneco Clean Air, BEML, HG Infra, and L&T are expected to remain in focus due to recent order wins, deals, and corporate updates.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BEML.NS",
+            "HGINFRA.NS",
+            "LT.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Indian IT stocks under observation following strong CoreWeave results",
+          "summary": "Indian IT stocks are under observation following strong overnight results from CoreWeave, potentially indicating positive sentiment for the sector.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Clean Max Enviro Energy Solutions, Landmark Cars, Godrej Consumer Products in focus",
+          "summary": "Clean Max Enviro Energy Solutions, Landmark Cars, and Godrej Consumer Products are also in focus due to their recent corporate actions and appointments.",
+          "source": "Business Standard",
+          "tickers": [
+            "LANDMARK.NS",
+            "GODREJCP.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "GOPALSN.NS",
+      "name": "Gopal Snacks",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 390,
+      "rationale": "Distribution expansion and strong demand"
+    },
+    {
+      "ticker": "CELLO.NS",
+      "name": "Cello World",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 480,
+      "rationale": "Anticipated demand recovery from Q2FY27"
+    },
+    {
+      "ticker": "LEMONTREE.NS",
+      "name": "Lemon Tree Hotels",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 140,
+      "rationale": "Hotel expansion and rising management-fee income"
+    },
+    {
+      "ticker": "JSWENERGY.NS",
+      "name": "JSW Energy",
+      "brokerage": "Mehul Kothari, DVP - Tech",
+      "action": "buy",
+      "rationale": "Recommended for today"
+    },
+    {
+      "ticker": "GMDC.NS",
+      "name": "Gujarat Mineral Development Corporation",
+      "brokerage": "Mehul Kothari, DVP - Tech",
+      "action": "buy",
+      "rationale": "Recommended for today"
+    },
+    {
+      "ticker": "IRCTC.NS",
+      "name": "IRCTC",
+      "brokerage": "Mehul Kothari, DVP - Tech",
+      "action": "buy",
+      "rationale": "Recommended for today"
+    },
+    {
+      "ticker": "AFFLE.NS",
+      "name": "Affle (India)",
+      "brokerage": "Sumeet Bagadia, Choice Broking",
+      "action": "buy",
+      "rationale": "Breakout stock"
+    },
+    {
+      "ticker": "DYNAMIC.NS",
+      "name": "Dynamic Cables",
+      "brokerage": "Sumeet Bagadia, Choice Broking",
+      "action": "buy",
+      "rationale": "Breakout stock"
+    },
+    {
+      "ticker": "THYROCARE.NS",
+      "name": "Thyrocare Technologies",
+      "brokerage": "Sumeet Bagadia, Choice Broking",
+      "action": "buy",
+      "rationale": "Breakout stock"
+    },
+    {
+      "ticker": "SANATHAN.NS",
+      "name": "Sanathan Textiles",
+      "brokerage": "Sumeet Bagadia, Choice Broking",
+      "action": "buy",
+      "rationale": "Breakout stock"
+    },
+    {
+      "ticker": "AETHER.NS",
+      "name": "Aether Industries",
+      "brokerage": "Sumeet Bagadia, Choice Broking",
+      "action": "buy",
+      "rationale": "Breakout stock"
+    },
+    {
+      "ticker": "HPLELECTRO.NS",
+      "name": "HPL Electric",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "rationale": "Buy recommendation with profit potential"
+    },
+    {
+      "ticker": "ASTRAMICRO.NS",
+      "name": "Astra Microwave",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "rationale": "Buy recommendation with profit potential"
+    },
+    {
+      "ticker": "HINDALCO.NS",
+      "name": "Hindalco Industries",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "rationale": "Buy recommendation with profit potential"
+    },
+    {
+      "ticker": "GLAND.NS",
+      "name": "Gland Pharma",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "rationale": "Buy recommendation with profit potential"
+    },
+    {
+      "ticker": "GREENLAM.NS",
+      "name": "Greenlam Industries",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "rationale": "Buy recommendation with profit potential"
+    },
+    {
+      "ticker": "NRBBEARING.NS",
+      "name": "NRB Bearings",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "rationale": "Buy recommendation with profit potential"
+    }
+  ]
+}
