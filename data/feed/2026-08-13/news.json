@@ -1,0 +1,417 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI maintains repo rate at 5.25%, projects FY27 GDP growth at 6.6%",
+          "summary": "The Reserve Bank of India (RBI) maintained its repo rate for the fourth consecutive time and retained a neutral policy stance. It projected FY27 GDP growth at 6.6% and CPI inflation at 5.1%.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's retail inflation rises to 4.45% in July, highest since December 2024",
+          "summary": "India's retail inflation climbed to 4.45% in July, the highest since December 2024, driven by increasing energy prices and pressure on the rupee. ICRA anticipates retail inflation to average 5% in FY2026-27.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "SBI Research projects Q1 FY27 GDP growth to rebound to 8%",
+          "summary": "SBI Research anticipates India's Q1 FY27 GDP growth to reach 8%, exceeding RBI's 7% forecast, fueled by strong consumer demand, industrial production, and increased government capital expenditure.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Indian rupee closes higher, supported by RBI dollar sales",
+          "summary": "The Indian rupee ended modestly higher on Wednesday, aided by dollar sales from the RBI which helped counter the negative impact of higher crude oil prices.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RBI conducts ₹1 lakh crore overnight Variable Rate Reverse Repo auction",
+          "summary": "The Reserve Bank of India is holding an overnight Variable Rate Reverse Repo (VRRR) auction today to manage liquidity.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Asian markets largely higher, driven by chip rally and easing US rate hike concerns",
+          "summary": "Asian markets mostly traded higher today, buoyed by a rally in chip stocks and reduced concerns over US interest rate hikes following mild US inflation data.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "US markets mixed: S&P 500 and Nasdaq Composite close higher, Dow dips",
+          "summary": "The Dow Jones Industrial Average saw a slight decline, while the S&P 500 and Nasdaq Composite managed to close higher.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Brent crude prices fall over 1% below $88 amid demand forecast cuts",
+          "summary": "Brent crude prices declined by over 1%, falling below $88 a barrel, snapping a six-day rally as analysts lowered global demand forecasts for 2026 and US commercial crude inventories surged.",
+          "source": "Bloomberg",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Uncertainty persists regarding Strait of Hormuz due to US-Iran conflict",
+          "summary": "Geopolitical tensions stemming from the ongoing US-Iran conflict continue to create uncertainty around the Strait of Hormuz, a critical shipping route.",
+          "source": "Financial Times",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Over 570 companies scheduled to announce Q1 FY27 results today",
+          "summary": "More than 570 companies are slated to release their first-quarter FY27 earnings reports today, August 13.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Motilal Oswal anticipates margin contraction for Tata Motors PV despite strong YoY growth",
+          "summary": "Brokerage firm Motilal Oswal expects margin pressure for Tata Motors Passenger Vehicles due to commodity prices and a decline in JLR wholesales, despite robust year-over-year growth in India PV.",
+          "source": "Motilal Oswal",
+          "tickers": [
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Kotak Institutional Equities forecasts 24% YoY growth for Honasa Consumer's topline",
+          "summary": "Kotak Institutional Equities projects a 24% year-over-year growth in Honasa Consumer's reported topline for Q1 FY27.",
+          "source": "Kotak Institutional Equities",
+          "tickers": [
+            "HONASA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Hindustan Media Ventures reports 15% revenue increase, triples EBITDA in Q1 FY27",
+          "summary": "Hindustan Media Ventures Ltd. announced a 15% year-over-year increase in revenue and nearly tripled its EBITDA for the first quarter of FY27.",
+          "source": "Business Standard",
+          "tickers": [
+            "HMVL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Vadilal Industries reports strong Q1 FY27 results with 95.5% net profit growth",
+          "summary": "Vadilal Industries (Consolidated) reported a 34.1% revenue increase, 65.0% EBITDA surge, and 95.5% net profit growth year-over-year for Q1 FY27.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "VADILALIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "EMS experiences sharp decline in Q1 FY27 revenue and profit",
+          "summary": "EMS (Consolidated) reported a revenue decline of 34.3%, an EBITDA drop of 52.4%, and a net profit fall of 59.0% year-over-year for Q1 FY27.",
+          "source": "Livemint",
+          "tickers": [
+            "EMSLTD.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Yatra Online Q1 FY27 revenue down 10.4% YoY, adjusted margins improve",
+          "summary": "Yatra Online, Inc. reported a 10.4% year-over-year decrease in revenue for Q1 FY27, though adjusted margins from air ticketing and hotels/packages increased by 8.9% and 24.3% respectively.",
+          "source": "Economic Times",
+          "tickers": [
+            "YATRA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Brookfield India Real Estate Trust reports strong Q1 FY27 operational momentum",
+          "summary": "Brookfield India Real Estate Trust announced strong operational momentum in Q1 FY27, with 93% occupancy and a strategic acquisition in Mumbai's Bandra Kurla Complex.",
+          "source": "Business Standard",
+          "tickers": [
+            "BIRET.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "National Fertilizers returns to profitability in Q1 FY27",
+          "summary": "National Fertilizers returned to profitability in Q1 FY27, reporting a net profit of ₹113.38 crore, reversing a previous loss.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NFL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Manufacturing, Energy, Metals & Mining among strongest performing sectors in H1 2026",
+          "summary": "Manufacturing, Energy, Metals and Mining, Healthcare, Capital Goods, and Power-related businesses were identified as some of the strongest performing Indian sectors in the first half of 2026.",
+          "source": "Financial News Report",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IT & Digital Services and Renewable Energy & Clean Tech identified as fast-growing sectors",
+          "summary": "IT & Digital Services and Renewable Energy & Clean Tech sectors are pinpointed as fast-growing segments for the current year.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IT and Oil & Gas sectors face selling pressure, while Realty and Metal sectors show gains",
+          "summary": "Recently, the IT and oil & gas sectors have experienced selling pressure, contrasting with gains observed in the realty and metal sectors.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bank Nifty demonstrates relative strength and may outperform broader indices",
+          "summary": "The Bank Nifty has shown relative strength and is projected to potentially outperform the broader benchmark indices.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BANKNIFTY"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Domestic cyclical sectors like real estate, auto, and financials performing well",
+          "summary": "Key domestic cyclical sectors, including real estate, auto, and financials, are exhibiting strong performance.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Adani Energy Solutions, Lenskart Solutions, Groww, Laurus Labs added to MSCI India Standard Index",
+          "summary": "Adani Energy Solutions, Lenskart Solutions, Billionbrains Garage Ventures (Groww), and Laurus Labs have been included in the MSCI India Standard Index, effective from the close of August 31, 2026.",
+          "source": "Reuters",
+          "tickers": [
+            "ADANIENSOL.NS",
+            "LAURUSLABS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Astral, Balkrishna Industries, SBI Cards removed from MSCI India Standard Index",
+          "summary": "Astral, Balkrishna Industries, and SBI Cards and Payment Services have been deleted from the MSCI India Standard Index, with changes effective from the close of August 31, 2026.",
+          "source": "Reuters",
+          "tickers": [
+            "ASTRAL.NS",
+            "BALKRISIND.NS",
+            "SBICARD.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Pilani Investment to sell 0.6% stake in UltraTech Cement via block deal",
+          "summary": "Pilani Investment and Industries Corporation is set to sell approximately 1.7 million shares, representing a 0.6% stake, in UltraTech Cement today through a block deal valued around ₹1,909 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "ULTRACEMCO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Vascon Engineers secures ₹126.39 crore order for hospital project",
+          "summary": "Vascon Engineers has secured a Letter of Intent worth ₹126.39 crore for a 300-bed general hospital project in Wardha, Nagpur.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "VASCONEQ.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "TPG and Temasek subsidiaries sell significant stakes in Dr Agarwals Health Care",
+          "summary": "Hyperion Investments (TPG) sold a 7.62% stake for ₹1,210.5 crore, and Claymore Investments (Temasek) sold a 5.01% stake for ₹797.44 crore in Dr Agarwals Health Care.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "BofA reportedly acquiring up to 49.9% stake in Jio Credit for ₹18,268 crore",
+          "summary": "Bank of America is reportedly in talks to acquire up to a 49.9% stake in Jio Credit, valued at ₹18,268 crore.",
+          "source": "Livemint",
+          "tickers": [
+            "JIOFIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Numerous companies have ex-date/record date for dividends today, August 13",
+          "summary": "Several companies, including Railtel Corp. India, The Ramco Cements, Visaka Industries, Antony WasteHandling, Prestige Estates Projects, and others, have their ex-date/record date for final or interim dividends today.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RAILTEL.NS",
+            "RAMCOCEM.NS",
+            "VISAKAIND.NS",
+            "ANTONYWASTE.NS",
+            "PRESTIGE.NS",
+            "DHUNSERI.NS",
+            "GODREJCP.NS",
+            "BEL.NS",
+            "POWERGRID.NS",
+            "CENTENKA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Milgrey Finance & Investments adjourns Q1 FY27 results board meeting",
+          "summary": "Milgrey Finance & Investments Ltd. has adjourned its board meeting for Q1 FY27 results to August 13, 2026.",
+          "source": "NSE Announcement",
+          "tickers": [
+            "MILGREY.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Saregama India's arm Pocket Aces promotes Vinay Pillai to CEO",
+          "summary": "Saregama India's subsidiary, Pocket Aces, has announced the promotion of Vinay Pillai to CEO, effective October 1.",
+          "source": "Economic Times",
+          "tickers": [
+            "SAREGAMA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Share India Securities approves issuance of NCDs up to ₹75 crore",
+          "summary": "Share India Securities has approved the issuance of Non-Convertible Debentures (NCDs) amounting to up to ₹75 crore.",
+          "source": "Business Standard",
+          "tickers": [
+            "SHAREINDIA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bajaj Healthcare receives DCGI approval for Cenobamate API and tablets",
+          "summary": "Bajaj Healthcare has received approval from the DCGI (Drugs Controller General of India) to manufacture and market Cenobamate API and tablets.",
+          "source": "Livemint",
+          "tickers": [
+            "BAJAJHCARE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Arrow Greentech granted Indian patent for 'Dual Colour Shift Security Film'",
+          "summary": "Arrow Greentech has been granted an Indian patent for its innovative 'Dual Colour Shift Security Film'.",
+          "source": "Economic Times",
+          "tickers": [
+            "ARROWGREEN.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Several key companies in focus today due to Q1 FY27 earnings announcements",
+          "summary": "Apollo Hospitals, Jio Financial, IRCTC, UltraTech, GMR Airports, Lenskart Solutions, Tata Motors Passenger Vehicles, Max Healthcare Institute, Honasa Consumer, Brainbees Solutions, Ipca Laboratories, Jubilant FoodWorks, LG Electronics India, Awfis Space Solutions, Brigade Enterprises, Endurance Technologies, Engineers India, Gaudium IVF, GIC of India, Indraprastha Gas, JSW Cement, Olectra Greentech, and Page Industries are scheduled to report Q1 FY27 results, drawing investor attention.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "APOLLOHOSP.NS",
+            "JIOFIN.NS",
+            "IRCTC.NS",
+            "ULTRACEMCO.NS",
+            "GMRINFRA.NS",
+            "TATAMOTORS.NS",
+            "MAXHEALTH.NS",
+            "HONASA.NS",
+            "IPCALAB.NS",
+            "JUBLFOOD.NS",
+            "AWFIS.NS",
+            "BRIGADE.NS",
+            "ENDURANCE.NS",
+            "ENGINERSIN.NS",
+            "GICRE.NS",
+            "IGL.NS",
+            "JSWCEMENT.NS",
+            "OLECTRA.NS",
+            "PAGEIND.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Stocks like Astral, Vascon Engineers, Dr Agarwals Health Care, Dixon Technologies in focus for corporate developments",
+          "summary": "Corporate actions such as MSCI rejig deletion for Astral, new order for Vascon Engineers, stake sale for Dr Agarwals Health Care, and business updates for Dixon Technologies, Waaree Energies, Axis Bank, Coal India, HAL, TCS, and Airtel will keep these stocks in the limelight.",
+          "source": "Economic Times",
+          "tickers": [
+            "ASTRAL.NS",
+            "VASCONEQ.NS",
+            "DIXON.NS",
+            "WAAREE.NS",
+            "AXISBANK.NS",
+            "COALINDIA.NS",
+            "HAL.NS",
+            "TCS.NS",
+            "BHARTIARTL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Other stocks in focus include Eldeco Housing, GIC Housing Finance, Hindustan Oil Exploration, Munjal Auto Industries, Valiant Organics",
+          "summary": "These companies are also expected to see investor attention today due to various market factors.",
+          "source": "Business Standard",
+          "tickers": [
+            "ELDECO.NS",
+            "GICHF.NS",
+            "HINDOILEXP.NS",
+            "MUNJALAUT.NS",
+            "VALIANTORG.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "INDIANB.NS",
+      "name": "Indian Bank",
+      "brokerage": "Nuvama Professional Clients Group",
+      "action": "accumulate",
+      "rationale": "Recommended by Nuvama Professional Clients Group."
+    },
+    {
+      "ticker": "DLF.NS",
+      "name": "DLF",
+      "brokerage": "Nuvama Professional Clients Group",
+      "action": "accumulate",
+      "rationale": "Recommended by Nuvama Professional Clients Group."
+    },
+    {
+      "ticker": "POLYCAB.NS",
+      "name": "Polycab India",
+      "brokerage": "Nuvama Professional Clients Group",
+      "action": "accumulate",
+      "rationale": "Recommended by Nuvama Professional Clients Group."
+    },
+    {
+      "ticker": "RAIN.NS",
+      "name": "Rain Industries",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "rationale": "Recommended for intraday trading by Prabhudas Lilladher."
+    },
+    {
+      "ticker": "INDUSTOW.NS",
+      "name": "Indus Towers",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "rationale": "Recommended for intraday trading by Prabhudas Lilladher."
+    },
+    {
+      "ticker": "SBIN.NS",
+      "name": "SBI",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "rationale": "Recommended for intraday trading by Prabhudas Lilladher."
+    }
+  ]
+}
