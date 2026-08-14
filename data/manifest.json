@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "daily-2026-08-14",
+      "type": "daily",
+      "dateKey": "2026-08-14",
+      "date": "2026-08-14",
+      "path": "reports/2026/08/daily/daily-2026-08-14.json",
+      "checksum": "sha256:d9eb2df40a486d682ecbabd4c25c531594cd4574b8b3316545101260fd0c67e7"
+    },
+    {
       "id": "retro-2026-08-13",
       "type": "retro",
       "dateKey": "2026-08-13",
@@ -827,7 +835,7 @@
   ],
   "latest": {
     "retro": "retro-2026-08-13",
-    "daily": "daily-2026-08-13",
+    "daily": "daily-2026-08-14",
     "weekly": "weekly-2026-W32",
     "recap": "recap-2026-08-08",
     "monthly": "monthly-2026-07",
