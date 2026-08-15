@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-08-15",
+  "type": "recap",
+  "dateKey": "2026-08-15",
+  "generatedAt": "2026-08-15T04:54:31.873Z",
+  "sourceData": {
+    "tickers": [
+      "TCS.NS",
+      "HEROMOTOCO.NS",
+      "BAJFINANCE.NS",
+      "BRITANNIA.NS",
+      "HCLTECH.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-08-15T04:54:31.873Z"
+  },
+  "content": {
+    "period": "2026-W32",
+    "sourceReportId": "weekly-2026-W32",
+    "graded": [
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services Ltd",
+        "thesis": "The IT sector shows strong upward momentum with TCS being a top gainer. Continued demand for digital transformation services is expected to drive further upside.",
+        "action": "buy",
+        "entryRef": 2425.699951171875,
+        "exitRef": 2361,
+        "changePct": -2.67,
+        "outcome": "miss",
+        "note": "buy call moved -2.67%"
+      },
+      {
+        "ticker": "HEROMOTOCO.NS",
+        "name": "Hero MotoCorp Ltd",
+        "thesis": "The auto sector is gaining momentum, and Hero MotoCorp, a top performer, is well-positioned to benefit from improving rural demand and new product launches.",
+        "action": "buy",
+        "entryRef": 5860,
+        "exitRef": 5790,
+        "changePct": -1.19,
+        "outcome": "miss",
+        "note": "buy call moved -1.19%"
+      },
+      {
+        "ticker": "BAJFINANCE.NS",
+        "name": "Bajaj Finance Ltd",
+        "thesis": "The financial services sector, particularly NBFCs, is showing weakness with Bajaj Finance as a top loser. Potential for further correction due to headwinds in lending and asset quality concerns.",
+        "action": "sell",
+        "entryRef": 1102.199951171875,
+        "exitRef": 1087,
+        "changePct": -1.38,
+        "outcome": "hit",
+        "note": "sell call moved -1.38%"
+      },
+      {
+        "ticker": "BRITANNIA.NS",
+        "name": "Britannia Industries Ltd",
+        "thesis": "Despite a broadly mixed FMCG sector, Britannia has shown significant individual strength. Robust demand for consumer staples and brand recall could lead to continued outperformance.",
+        "action": "buy",
+        "entryRef": 5623.5,
+        "exitRef": 5615,
+        "changePct": -0.15,
+        "outcome": "partial",
+        "note": "buy call moved -0.15%"
+      },
+      {
+        "ticker": "HCLTECH.NS",
+        "name": "HCL Technologies Ltd",
+        "thesis": "As a key player in the outperforming IT sector, HCLTech's gains signal continued strength. Strong deal wins and consistent execution are likely to support further positive price action.",
+        "action": "buy",
+        "entryRef": 1357.199951171875,
+        "exitRef": 1370,
+        "changePct": 0.94,
+        "outcome": "partial",
+        "note": "buy call moved +0.94%"
+      }
+    ],
+    "hits": 1,
+    "total": 5,
+    "summary": "1/5 positional bets hit over Aug 2026, Week 2.",
+    "learnings": {
+      "worked": [
+        "Bajaj Finance Ltd: The financial services sector, particularly NBFCs, is showing weakness with Bajaj Finance as a top loser. Potential for further correction due to headwinds in lending and asset quality concerns. This worked sell call moved -1.38%."
+      ],
+      "missed": [
+        "Tata Consultancy Services Ltd: The IT sector shows strong upward momentum with TCS being a top gainer. Continued demand for digital transformation services is expected to drive further upside. This did not work buy call moved -2.67%.",
+        "Hero MotoCorp Ltd: The auto sector is gaining momentum, and Hero MotoCorp, a top performer, is well-positioned to benefit from improving rural demand and new product launches. This did not work buy call moved -1.19%.",
+        "Britannia Industries Ltd: Despite a broadly mixed FMCG sector, Britannia has shown significant individual strength. Robust demand for consumer staples and brand recall could lead to continued outperformance. This only partially worked buy call moved -0.15%.",
+        "HCL Technologies Ltd: As a key player in the outperforming IT sector, HCLTech's gains signal continued strength. Strong deal wins and consistent execution are likely to support further positive price action. This only partially worked buy call moved +0.94%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:9adc3ee5442993bc2f5c38d0bd24473dabc682e7249de406f7959de30f47405c"
+}
