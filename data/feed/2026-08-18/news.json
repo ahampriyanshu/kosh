@@ -1,0 +1,315 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "Crude Oil Prices Rise Amidst Strait of Hormuz Uncertainty, Posing Inflationary Risk for India",
+          "summary": "Renewed geopolitical tensions surrounding the Strait of Hormuz and the U.S.-Iran standoff have led to higher crude oil prices, which is a significant concern for India due to potential inflationary pressures and a weaker rupee.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI Partially Lifts Tech Ban on HDFC Bank, Allowing New Credit Card Sourcing",
+          "summary": "The Reserve Bank of India has partially lifted its technology ban on HDFC Bank, enabling the bank to acquire new credit card customers.",
+          "source": "Business Standard",
+          "tickers": [
+            "HDFCBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RBI Permits Domestic Lenders to Fund M&A, Boosting Corporate Financing Opportunities",
+          "summary": "The Reserve Bank of India's decision to allow domestic banks to finance mergers and acquisitions is expected to create more opportunities for corporate financing in India.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Mixed Global Cues: Wall Street Down, Asian Markets Diverge, GIFT Nifty Flat",
+          "summary": "Global markets presented a mixed picture with Wall Street closing lower, Asian markets showing divergence (Nikkei down, Kospi up), and GIFT Nifty indicating a largely flat opening for Indian equities.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Nifty Companies Report Strong 18% PAT Growth in Q1 FY27, Broad-Based Performance",
+          "summary": "Q1 FY27 earnings season concluded with Nifty companies recording an impressive 18% year-on-year growth in Profit After Tax, the highest in ten quarters, driven by broad-based performance across 19 sectors.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Uflex Shares Surge 20% on Massive Q1 Profit Spike and Revenue Growth",
+          "summary": "Uflex saw its shares jump by nearly 20% after reporting a substantial increase in Q1 profits and a 38% year-on-year revenue rise, attributed to higher packaging film realizations and forex gains.",
+          "source": "Economic Times",
+          "tickers": [
+            "UFLEX.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Juniper Hotels Net Profit Jumps 270% in Q1 FY27, Plans to Double Room Inventory",
+          "summary": "Juniper Hotels reported a 270% surge in Q1 FY27 net profit and a 13% revenue increase, with strategic plans to double its room inventory by FY31 through significant capital expenditure.",
+          "source": "Business Standard",
+          "tickers": [
+            "JUNIPERHOT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Engineers India Limited Q1 Revenues Miss Expectations, Losses In Line",
+          "summary": "Engineers India Limited posted Q1 revenues 15% below analyst expectations, though statutory losses per share were consistent with forecasts.",
+          "source": "Livemint",
+          "tickers": [
+            "ENGINERSIN.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Voltas Q1 Revenues Marginally Below Estimates, EPS as Expected",
+          "summary": "Voltas Limited recorded Q1 revenues slightly below analyst estimates, while its statutory earnings per share met expectations.",
+          "source": "Financial Express",
+          "tickers": [
+            "VOLTAS.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Cochin Shipyard and Sun TV Q1 Results in Focus",
+          "summary": "The Q1 results for Cochin Shipyard and Sun TV are anticipated and will be closely watched today.",
+          "source": "The Hindu BusinessLine",
+          "tickers": [
+            "COCHINSHIP.NS",
+            "SUNTV.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT Sector Faces Selling Pressure; PSU Banks, FMCG, Financial Services Also Down",
+          "summary": "The IT sector, including Infosys, HCL Technologies, TCS, and Tech Mahindra, experienced significant selling pressure, with PSU Banks, FMCG, and Financial Services also under pressure.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "INFY.NS",
+            "HCLTECH.NS",
+            "TCS.NS",
+            "TECHM.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Auto, Metal, Pharma, and Healthcare Stocks Show Resilience, Nifty Realty and Metal Outperform",
+          "summary": "Auto, Metal, Pharma, and Healthcare sectors showed resilience with marginal gains, led by companies like Hindalco, Titan, Bajaj Finance, and HDFC Life Insurance. Nifty Realty and Metal sectors outperformed.",
+          "source": "Economic Times",
+          "tickers": [
+            "HINDALCO.NS",
+            "TITAN.NS",
+            "BAJFINANCE.NS",
+            "HDFCLIFE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "FII Flows Mixed: Sovereign, Metals & Mining Attract Inflows, Automobile, FMCG Face Selling",
+          "summary": "Foreign Institutional Investor (FII) flows show a mixed trend, with Sovereign and Metals & Mining sectors attracting high one-year inflows, while Automobile and FMCG continue to face FII selling pressure.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Kirloskar Pneumatic Company Sets Record Date for Stock Split",
+          "summary": "Kirloskar Pneumatic Company has set August 18, 2026, as the record date for its stock split, which will reduce the face value of shares from ₹2 to ₹1.",
+          "source": "BSE India",
+          "tickers": [
+            "KIRLPNU.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Nelco Completes $20 Million Investment in Elveo Mobile for Direct-to-Device Satellite Connectivity",
+          "summary": "Nelco has completed a $20 million investment in Lunar Holdco (Elveo Mobile) to introduce Direct-to-Device satellite connectivity services in India and South Asia.",
+          "source": "NDTV Profit",
+          "tickers": [
+            "NELCO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lloyds Engineering Works Acquires Stake in Steel Infra Solutions",
+          "summary": "Lloyds Engineering Works has acquired a stake in Steel Infra Solutions, expanding its business interests.",
+          "source": "Livemint",
+          "tickers": [
+            "LLOYDSENGG.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Capital Infra Trust Approves Highway SPV Acquisition",
+          "summary": "Capital Infra Trust has approved the acquisition of a Highway Special Purpose Vehicle, indicating strategic expansion.",
+          "source": "Moneycontrol",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Four Indian Stocks to Enter MSCI Global Standard Index in August Rejig",
+          "summary": "Laurus Labs, Adani Energy Solutions, and Groww are set to be included in the MSCI Global Standard Index in the August 2026 review, expected to attract significant passive fund buying. Balkrishna Industries, SBI Cards, and Astral will be removed.",
+          "source": "Reuters",
+          "tickers": [
+            "LAURUSLABS.NS",
+            "ADANIENSOL.NS",
+            "GROWW.NS",
+            "BALKRISIND.NS",
+            "SBICARD.NS",
+            "ASTRAL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "JP Morgan Aims for Larger Role in Indian M&A Financing Following RBI Relaxation",
+          "summary": "JP Morgan seeks to expand its involvement in M&A financing in India, leveraging the RBI's recent policy allowing domestic banks to fund such activities.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Sigma Advanced Systems Secures ₹155 Crore Anti-Drone Order",
+          "summary": "Sigma Advanced Systems is in focus after securing a significant anti-drone order worth ₹155 crore.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Motors and Ashok Leyland on Watchlist Amid Strengthening Commercial Vehicle Outlook",
+          "summary": "Tata Motors and Ashok Leyland are being closely watched due to a positive and strengthening outlook for the commercial vehicle sector.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TATAMOTORS.NS",
+            "ASHOKLEY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bharti Airtel in Focus After Hiking Prepaid Prices",
+          "summary": "Bharti Airtel is under scrutiny following its decision to increase prepaid prices for its services.",
+          "source": "Economic Times",
+          "tickers": [
+            "BHARTIARTL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IT Heavyweights Infosys, HCL Technologies, TCS, Tech Mahindra Under Selling Pressure",
+          "summary": "Major IT companies including Infosys, HCL Technologies, TCS, and Tech Mahindra are experiencing selling pressure in the market.",
+          "source": "Livemint",
+          "tickers": [
+            "INFY.NS",
+            "HCLTECH.NS",
+            "TCS.NS",
+            "TECHM.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "ASHOKLEY.NS",
+      "name": "Ashok Leyland",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 198,
+      "rationale": "Positive outlook based on brokerage recommendation."
+    },
+    {
+      "ticker": "VOLTAS.NS",
+      "name": "Voltas",
+      "brokerage": "Elara Capital",
+      "action": "accumulate",
+      "target": 1410,
+      "rationale": "Positive outlook based on brokerage recommendation."
+    },
+    {
+      "ticker": "IPCALAB.NS",
+      "name": "Ipca Laboratories",
+      "brokerage": "Emkay",
+      "action": "buy",
+      "target": 1884.6,
+      "rationale": "Positive outlook based on target price."
+    },
+    {
+      "ticker": "SUPRIYA.NS",
+      "name": "Supriya Lifescience",
+      "brokerage": "Deven Choksey",
+      "action": "accumulate",
+      "target": 841,
+      "rationale": "Positive outlook based on brokerage recommendation."
+    },
+    {
+      "ticker": "POONAWALLA.NS",
+      "name": "Poonawalla Fincorp",
+      "brokerage": "Motilal Oswal Wealth Management",
+      "action": "buy",
+      "target": 1000,
+      "rationale": "Positive outlook by brokerage."
+    },
+    {
+      "ticker": "AMARARAJA.NS",
+      "name": "Amara Raja Energy & Mobility",
+      "brokerage": "Hitesh Rathi, Angel One",
+      "action": "buy",
+      "target": 1200,
+      "rationale": "Buy recommendation with entry and stop loss levels provided: Buy at ₹945-940, Stop Loss: ₹770."
+    },
+    {
+      "ticker": "INDIANB.NS",
+      "name": "Indian Bank",
+      "brokerage": "Hitesh Rathi, Angel One",
+      "action": "buy",
+      "target": 1000,
+      "rationale": "Buy recommendation with entry and stop loss levels provided: Buy at ₹895-890, Stop Loss: ₹796."
+    },
+    {
+      "ticker": "KAYNES.NS",
+      "name": "Kaynes Technology India",
+      "brokerage": "Ganesh Dongre, Anand Rathi",
+      "action": "buy",
+      "target": 3950,
+      "rationale": "Buy recommendation with entry and stop loss levels provided: Buy at ₹3660, Stop Loss: ₹3580."
+    },
+    {
+      "ticker": "MARUTI.NS",
+      "name": "Maruti Suzuki India",
+      "brokerage": "Ganesh Dongre, Anand Rathi",
+      "action": "buy",
+      "target": 14300,
+      "rationale": "Buy recommendation with entry and stop loss levels provided: Buy at ₹13830, Stop Loss: ₹13500."
+    },
+    {
+      "ticker": "MAXHEALTH.NS",
+      "name": "Max Healthcare",
+      "brokerage": "ICICI Securities Limited",
+      "action": "buy",
+      "target": 1003.7,
+      "rationale": "Positive outlook based on target price."
+    }
+  ]
+}
