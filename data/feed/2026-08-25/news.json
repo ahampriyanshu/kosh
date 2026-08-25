@@ -1,0 +1,314 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI maintains repo rate at 5.25%, signals data-dependent neutral stance",
+          "summary": "The Reserve Bank of India's MPC unanimously kept the repo rate at 5.25% with a neutral stance, despite June CPI inflation at 4.4% and a projected peak of 5.9% in Q3 FY27. Governor emphasized data-dependency, with some MPC members flagging future rate hike possibilities.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Government acts to curb rising onion prices and approves LPG pipeline projects",
+          "summary": "The Indian government is addressing rising onion prices through 'Kanda Express' and buffer stock releases, while also approving 1,800 km of LPG pipelines worth $731.49 million, signaling infrastructure development.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian equities pare gains to close marginally lower amid mixed global cues",
+          "summary": "Indian markets opened higher on August 24 but closed lower, with Sensex down 0.22% and Nifty down 0.14%. This correction was driven by weak global sentiment, new US sanctions on Iran, and elevated crude oil prices at $93 a barrel, despite mixed performance in US markets.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTY.NS",
+            "SENSEX"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "India Inc. reports robust Q1 FY27 earnings with broad-based outperformance",
+          "summary": "Corporate earnings for Q1 FY27 showed strong performance across 19 sectors, with sales up 18% YoY, EBITDA up 15% YoY, and PAT jumping 22% YoY, indicating a healthy corporate upgrade cycle.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Amara Raja Energy & Mobility reports strong Q1 FY27 results",
+          "summary": "Amara Raja Energy & Mobility posted a 15.86% YoY increase in consolidated net profit to ₹190.94 crore and a 23.9% rise in revenues for Q1 FY27, signaling strong financial performance.",
+          "source": "Livemint",
+          "tickers": [
+            "AMARAJABAT.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "ARDEE, MVELECTRO, STCINDIA, VINEETLAB among companies to report Q1 FY27 results today",
+          "summary": "Several companies, including ARDEE, MVELECTRO, STCINDIA, and VINEETLAB, are scheduled to announce their Q1 FY27 earnings today, August 25.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Metal and Realty sectors lead gains while PSU Banks and Media decline",
+          "summary": "On August 24, the Nifty Metal index jumped 1.6% and the Realty sector gained 0.6%, outperforming other sectors. Meanwhile, PSU Banks fell 0.93% and Media declined 0.58%, with Financial Services and Private Banks also under pressure.",
+          "source": "Economic Times",
+          "tickers": [
+            "NIFTY_METAL.NS",
+            "NIFTY_REALTY.NS",
+            "NIFTY_PSUBANK.NS",
+            "NIFTY_MEDIA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IT, Financial Services, and Auto sectors emerged as top performers in July",
+          "summary": "In July, Information Technology, Financial Services, and Automobile sectors were noted as top performers, while the Pharmaceuticals sector underperformed due to specific stock weaknesses.",
+          "source": "Business Standard",
+          "tickers": [
+            "NIFTY_IT.NS",
+            "NIFTY_FINSERVICE.NS",
+            "NIFTY_AUTO.NS",
+            "NIFTY_PHARMA.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "SEBI introduces Closing Auction Session for F&O eligible stocks",
+          "summary": "The Securities and Exchange Board of India (SEBI) has replaced the VWAP method with a new Closing Auction Session (CAS) for F&O eligible stocks, effective August 3, 2026, to improve price transparency.",
+          "source": "The Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "RBI revises capital market exposure framework for bank financing of acquisitions",
+          "summary": "Effective July 1, 2026, the RBI's revised framework allows Indian banks to finance up to 75% of acquisitions of non-financial companies by eligible corporate borrowers, potentially boosting M&A activity.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Insolvency and Bankruptcy Code (Amendment) Act, 2026 aims to expedite distressed deal-making",
+          "summary": "The Insolvency and Bankruptcy Code (Amendment) Act, 2026, has introduced reforms designed to accelerate the process of distressed deal-making, streamlining corporate resolution.",
+          "source": "Livemint",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Gillette India and Procter & Gamble Health declare final dividends",
+          "summary": "Gillette India has a final dividend with a record date of August 24, while Procter & Gamble Health has a final dividend with a record date of August 27, as part of corporate actions for the week.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "GILLETTE.NS",
+            "PGHL.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Reliance, Bajaj Finance, ICICI Bank among top drags on Sensex; Metal stocks lead Nifty gainers",
+          "summary": "On August 24, major stocks like Reliance Industries, Bajaj Finance, ICICI Bank, Bharti Airtel, SBI, and Axis Bank were top drags on the Sensex, while JSW Steel, Hindalco, and Tata Steel emerged as top gainers on the Nifty 50.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RELIANCE.NS",
+            "BAJFINANCE.NS",
+            "ICICIBANK.NS",
+            "BHARTIARTL.NS",
+            "SBIN.NS",
+            "AXISBANK.NS",
+            "JSWSTEEL.NS",
+            "HINDALCO.NS",
+            "TATASTEEL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Amara Raja Energy & Mobility in focus post strong earnings and capex plans",
+          "summary": "Amara Raja Energy & Mobility is drawing investor attention following its robust Q1 FY27 earnings and significant capital expenditure plans for new-energy cell and energy storage ecosystems.",
+          "source": "Livemint",
+          "tickers": [
+            "AMARAJABAT.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "ENGINERSIN",
+      "name": "Engineers India Ltd.",
+      "brokerage": "NeoTrader",
+      "action": "buy",
+      "rationale": "Analyst recommendation."
+    },
+    {
+      "ticker": "JSWSTEEL.NS",
+      "name": "JSW Steel",
+      "brokerage": "Anand Rathi",
+      "action": "buy",
+      "target": 1345,
+      "rationale": "Analyst recommendation with target."
+    },
+    {
+      "ticker": "CAMS.NS",
+      "name": "Computer Age Management Services",
+      "brokerage": "Anand Rathi",
+      "action": "buy",
+      "target": 470,
+      "rationale": "Analyst recommendation with target."
+    },
+    {
+      "ticker": "RVNL.NS",
+      "name": "Rail Vikas Nigam Ltd.",
+      "brokerage": "Anand Rathi",
+      "action": "buy",
+      "target": 240,
+      "rationale": "Analyst recommendation with target."
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Bank",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "DMART.NS",
+      "name": "Avenue Supermarts",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "VBL.NS",
+      "name": "Varun Beverages Ltd",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "APLAPOLLO.NS",
+      "name": "APL Apollo Tubes",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "HCG.NS",
+      "name": "HCG Ltd",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India Ltd",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "UJJIVANSFB.NS",
+      "name": "Ujjivan Small Finance Bank",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "CHALET.NS",
+      "name": "Chalet Hotels",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "MINDA.NS",
+      "name": "Minda Corporation Ltd",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "DALBHARAT.NS",
+      "name": "Dalmia Bharat Ltd",
+      "brokerage": "Axis Securities",
+      "action": "accumulate",
+      "rationale": "Top pick for August 2026 by brokerage."
+    },
+    {
+      "ticker": "CANBK.NS",
+      "name": "Canara Bank",
+      "brokerage": "Jarvis Invest",
+      "action": "accumulate",
+      "rationale": "Fundamentally strong stock for August 2026."
+    },
+    {
+      "ticker": "BANKBARODA.NS",
+      "name": "Bank of Baroda",
+      "brokerage": "Jarvis Invest",
+      "action": "accumulate",
+      "rationale": "Fundamentally strong stock for August 2026."
+    },
+    {
+      "ticker": "REDINGTON.NS",
+      "name": "Redington",
+      "brokerage": "Jarvis Invest",
+      "action": "accumulate",
+      "rationale": "Fundamentally strong stock for August 2026."
+    },
+    {
+      "ticker": "NATIONALUM.NS",
+      "name": "NALCO",
+      "brokerage": "Jarvis Invest",
+      "action": "accumulate",
+      "rationale": "Fundamentally strong stock for August 2026."
+    },
+    {
+      "ticker": "CESC.NS",
+      "name": "CESC",
+      "brokerage": "Jarvis Invest",
+      "action": "accumulate",
+      "rationale": "Fundamentally strong stock for August 2026."
+    }
+  ]
+}
