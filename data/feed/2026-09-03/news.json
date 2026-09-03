@@ -1,0 +1,583 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI Maintains Repo Rate, Revises Down Inflation Forecast for FY27",
+          "summary": "The Reserve Bank of India kept its benchmark repo rate at 5.25% for the fourth consecutive policy meeting and lowered its inflation forecast for FY27 to 5% from 5.1%. India's July inflation rose to 4.45% due to energy prices and rupee pressure, but remained within the RBI's tolerance.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's Q1 FY27 GDP Grows 7.8%; GST Rationalization and Corporate Law Amendments Expected to Boost Economy",
+          "summary": "India's real GDP grew 7.8% in Q1 FY26-27. Government initiatives like GST rationalization and the Corporate Laws Amendment Bill 2026 aim to streamline corporate actions, enhance scrutiny, and are anticipated to boost economic growth, with Nifty 50 projected to reach 28,000 by September 2026.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Positive Global Cues Influence Indian Markets Amid Geopolitical Tensions; Crude Prices and Yields Remain a Concern",
+          "summary": "Indian markets are buoyed by positive global cues, including higher Asian markets and US indices, despite US-Iran geopolitical tensions. US President's remarks downplaying conflict helped sentiment. However, elevated crude oil prices (Brent >$95) and rising global bond yields pose risks, while a stronger rupee (94.352) offers some relief.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Technocraft Ventures Reports 15.1% Net Profit Increase in Q1",
+          "summary": "Technocraft Ventures announced a 15.1% increase in net profit and a 2.2% rise in revenue for the first quarter of the fiscal year.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Power Q1 FY27 Consolidated Net Profit Up Approximately 11% YoY",
+          "summary": "Tata Power reported an approximate 11% year-on-year increase in its consolidated net profit for the first quarter of FY27.",
+          "source": "Livemint",
+          "tickers": [
+            "TATAPOWER.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Puravankara Posts ₹29 Crore Profit in Q1FY27, Revenue Jumps 62%",
+          "summary": "Puravankara recorded a ₹29 crore profit in Q1FY27, with its revenue increasing by nearly 62% year-on-year.",
+          "source": "Business Standard",
+          "tickers": [
+            "PURVA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Ashok Leyland Q1 Net Profit Rises 0.8% to ₹616 Crore, Revenue Up 12%",
+          "summary": "Ashok Leyland's net profit for Q1 increased by 0.8% to ₹616 crore, while revenue grew by 12%.",
+          "source": "Economic Times",
+          "tickers": [
+            "ASHOKLEY.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bharat Dynamics Q1 Profit Surges 547% YoY, Revenue Jumps 131%",
+          "summary": "Bharat Dynamics reported a substantial 547% year-on-year surge in Q1 profit, with revenue jumping 131%.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BDL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Natco Pharma Q1 Profit Crashes 57% Due to Lower Lenalidomide Sales",
+          "summary": "Natco Pharma's first-quarter profit declined sharply by 57%, primarily attributed to lower sales of lenalidomide.",
+          "source": "Livemint",
+          "tickers": [
+            "NATCOPHARM.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Seshaasai Technologies Reports 63.8% Q1 Net Profit Surge, to Meet Analysts",
+          "summary": "Seshaasai Technologies saw its net profit surge by 63.8% year-on-year in Q1 FY27 and has scheduled meetings with analysts and investors on September 3-4.",
+          "source": "Business Standard",
+          "tickers": [
+            "SESHAASAI.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Dhoot Transmission Ltd. Q1 Results Expected on September 4, 2026",
+          "summary": "Dhoot Transmission Ltd. is scheduled to announce its first-quarter results on September 4, 2026.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "DHOOTTRANS.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Banking Stocks Gain in Early Trade as NIFTY Bank Rises 0.71%; FCNR-B Deposits Boost Sector",
+          "summary": "Banking stocks, including SBI, HDFC Bank, ICICI Bank, Axis Bank, Canara Bank, and Union Bank, saw gains in early trade, with the NIFTY Bank index up 0.71%. This positive movement is linked to India attracting $127.23 billion in FCNR-B deposits under RBI's special forex swap facility.",
+          "source": "Economic Times",
+          "tickers": [
+            "NIFTYBANK.NS",
+            "SBIN.NS",
+            "HDFCBANK.NS",
+            "ICICIBANK.NS",
+            "AXISBANK.NS",
+            "CANBK.NS",
+            "UNIONBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Nifty Auto, IT, and Media Underperform; Nifty Oil & Gas Buckets Trend",
+          "summary": "In the previous session, the Nifty Auto index fell over 2%, while Nifty IT and Nifty Media also underperformed. Conversely, the Nifty Oil and Gas index performed well, bucking the broader market trend.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "NIFTYAUTO.NS",
+            "NIFTYIT.NS",
+            "NIFTYMEDIA.NS",
+            "NIFTYOILGAS.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "GOCL Corporation Progressing with Merger Scheme with HNPCL",
+          "summary": "GOCL Corporation is moving forward with its merger scheme involving HNPCL.",
+          "source": "Business Standard",
+          "tickers": [
+            "GOCLCORP.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Repco Home Finance Sets Sept 22 Record Date for ₹3 FY26 Final Dividend",
+          "summary": "Repco Home Finance has announced September 22 as the record date for its final dividend of ₹3 per share for FY26.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "REPCOHOME.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Hatsun Agro Product Sets Book Closure for 41st AGM",
+          "summary": "Hatsun Agro Product has fixed its book closure for September 24-25 in preparation for its 41st Annual General Meeting.",
+          "source": "Business Standard",
+          "tickers": [
+            "HATSUN.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Moschip Technologies Involved in Litigation Over VLPL Acquisition Security",
+          "summary": "Moschip Technologies is facing litigation concerning additional security related to its acquisition of VLPL.",
+          "source": "Livemint",
+          "tickers": [
+            "MOSCHIP.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "L&T Finance Allots 50,000 NCDs Worth Rs. 500 Crore",
+          "summary": "L&T Finance successfully allotted 50,000 Non-Convertible Debentures (NCDs) amounting to Rs. 500 crore on September 2, 2026.",
+          "source": "Economic Times",
+          "tickers": [
+            "LTFH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Blue Star Completes Sale of MedTech Business for Up to Rs 40 Crore",
+          "summary": "Blue Star completed the sale of its MedTech business to Cyrix effective September 1, 2026, for a consideration of up to Rs 40 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BLUESTARCO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Muthoot Finance Shareholders Approve New MD and Vice Chairman Appointments",
+          "summary": "Muthoot Finance shareholders approved the appointments of Alexander George as Managing Director and George Alexander Muthoot as Vice Chairman & Whole-Time Director, effective October 1, 2026.",
+          "source": "Business Standard",
+          "tickers": [
+            "MUTHOOTFIN.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "LIC Reduces Stake in SAIL by 2.00%",
+          "summary": "Life Insurance Corporation of India (LIC) reduced its stake in Steel Authority of India (SAIL) by 2.00% between April 28 and September 1, 2026.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SAIL.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Page Industries Receives Dubai Court Notice in Dispute with Yellow Flower",
+          "summary": "Page Industries received a notice from a Dubai court concerning a dispute with Yellow Flower.",
+          "source": "Livemint",
+          "tickers": [
+            "PAGEIND.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "KSH International Receives Unit 3 Factory License Renewal Until 2030",
+          "summary": "KSH International's Unit 3 factory license has been renewed until December 31, 2030.",
+          "source": "Economic Times",
+          "tickers": [
+            "KSH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Several Companies Schedule Corporate Actions for September 3, 2026",
+          "summary": "Bansal Roofing Products, Carraro India Ltd, Dhoot Industrial Finance Ltd, and Hindustan Hardy Ltd are among several companies with corporate actions scheduled for today, September 3, 2026.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BANSALROOF.NS",
+            "CARRAROIND.NS",
+            "DHOOTIND.NS",
+            "HINDHARD.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Adani Ports, Power Grid, Banking Majors Among Early Gainers",
+          "summary": "Adani Ports, Power Grid, Axis Bank, State Bank of India (SBI), and HDFC Bank were notable early gainers in today's trading. Selan Exploration Technology, AKI India, and Tribhovandas Bhimji Zaveri also performed strongly.",
+          "source": "Economic Times",
+          "tickers": [
+            "ADANIPORTS.NS",
+            "POWERGRID.NS",
+            "AXISBANK.NS",
+            "SBIN.NS",
+            "HDFCBANK.NS",
+            "SELAN.NS",
+            "AKI.NS",
+            "TBZ.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tech Mahindra, Infosys, Sun Pharma, Bajaj Finance, Hindustan Unilever Among Early Losers",
+          "summary": "Tech Mahindra, Infosys, Sun Pharma, Bajaj Finance, and Hindustan Unilever were among the stocks declining in early trade. Annu Projects saw a significant fall. Eicher Motors, Wipro India, and Bajaj Auto were major losers in the previous session.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TECHM.NS",
+            "INFY.NS",
+            "SUNPHARMA.NS",
+            "BAJFINANCE.NS",
+            "HINDUNILVR.NS",
+            "ANNUPROJ.NS",
+            "EICHERMOT.NS",
+            "WIPRO.NS",
+            "BAJAJ-AUTO.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "SAMMAAN.NS",
+      "name": "Sammaan Capital",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 162,
+      "rationale": "Implicitly based on technical analysis"
+    },
+    {
+      "ticker": "ARVIND.NS",
+      "name": "Arvind",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 600,
+      "rationale": "Implicitly based on technical analysis"
+    },
+    {
+      "ticker": "WOCKHARDT.NS",
+      "name": "Wockhardt",
+      "brokerage": "Prabhudas Lilladher",
+      "action": "buy",
+      "target": 2000,
+      "rationale": "Implicitly based on technical analysis"
+    },
+    {
+      "ticker": "INDUSINDBK.NS",
+      "name": "Indusind Bank",
+      "brokerage": "Mirae Asset ShareKhan",
+      "action": "buy",
+      "target": 1060,
+      "rationale": "Implicitly based on technical analysis"
+    },
+    {
+      "ticker": "CAMS.NS",
+      "name": "Computer Age Management Services",
+      "brokerage": "Mirae Asset ShareKhan",
+      "action": "buy",
+      "target": 824,
+      "rationale": "Implicitly based on technical analysis"
+    },
+    {
+      "ticker": "DIXON.NS",
+      "name": "Dixon Technologies (India)",
+      "brokerage": "Mirae Asset ShareKhan",
+      "action": "buy",
+      "rationale": "Implicitly based on recommendation"
+    },
+    {
+      "ticker": "PATANJALI.NS",
+      "name": "Patanjali Foods",
+      "brokerage": "Mirae Asset ShareKhan",
+      "action": "sell",
+      "target": 329,
+      "rationale": "Implicitly based on technical analysis"
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2530,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "VBL.NS",
+      "name": "Varun Beverages",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 530,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "CCL.NS",
+      "name": "CCL Products (India)",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1425,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1800,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1305,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "DALBHARAT.NS",
+      "name": "Dalmia Bharat",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2260,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "CUB.NS",
+      "name": "City Union Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 280,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 500,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "ETERNAL.NS",
+      "name": "Eternal",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 390,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1765,
+      "rationale": "Top Pick for September 2026"
+    },
+    {
+      "ticker": "IDFCFIRSTB.NS",
+      "name": "IDFC First Bank",
+      "brokerage": "UBS",
+      "action": "buy",
+      "target": 92,
+      "rationale": "Upgrade to Neutral"
+    },
+    {
+      "ticker": "SJS.NS",
+      "name": "SJS Enterprises",
+      "brokerage": "Goldman Sachs",
+      "action": "buy",
+      "target": 3080,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "MUTHOOTFIN.NS",
+      "name": "Muthoot Finance",
+      "brokerage": "Morgan Stanley",
+      "action": "buy",
+      "target": 3705,
+      "rationale": "Overweight rating"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "UBS",
+      "action": "buy",
+      "target": 1800,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "name": "Axis Bank",
+      "brokerage": "UBS",
+      "action": "buy",
+      "target": 1670,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "UBS",
+      "action": "buy",
+      "target": 1000,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "HSBC",
+      "action": "hold",
+      "target": 830,
+      "rationale": "Downgrade from previous rating"
+    },
+    {
+      "ticker": "BANDHANBNK.NS",
+      "name": "Bandhan Bank",
+      "brokerage": "Goldman Sachs",
+      "action": "hold",
+      "target": 180,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "HSBC",
+      "action": "buy",
+      "target": 2500,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Goldman Sachs",
+      "action": "buy",
+      "target": 1935,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "TATAMOTORS.NS",
+      "name": "Tata Motors (PV Division)",
+      "brokerage": "Kotak Securities",
+      "action": "sell",
+      "target": 285,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "GODREJAGRO.NS",
+      "name": "Godrej Agrovet",
+      "brokerage": "Kotak Securities",
+      "action": "buy",
+      "target": 1010,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1710,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "SYNGENE.NS",
+      "name": "Syngene",
+      "brokerage": "Goldman Sachs",
+      "action": "buy",
+      "target": 450,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "ALLIEDBLEN.NS",
+      "name": "Allied Blenders",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 780,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "NAM-INDIA.NS",
+      "name": "Nippon AMC",
+      "brokerage": "HSBC",
+      "action": "hold",
+      "target": 1090,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "NAM-INDIA.NS",
+      "name": "Nippon AMC",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 1230,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "NAM-INDIA.NS",
+      "name": "Nippon AMC",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1320,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "HINDUNILVR.NS",
+      "name": "Hindustan Unilever",
+      "brokerage": "HSBC",
+      "action": "buy",
+      "target": 2450,
+      "rationale": "General recommendation"
+    },
+    {
+      "ticker": "AUROPHARMA.NS",
+      "name": "Aurobindo Pharma",
+      "brokerage": "HSBC",
+      "action": "buy",
+      "target": 1900,
+      "rationale": "General recommendation"
+    }
+  ]
+}
