@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-09-12",
+  "type": "recap",
+  "dateKey": "2026-09-12",
+  "generatedAt": "2026-09-12T08:42:49.558Z",
+  "sourceData": {
+    "tickers": [
+      "SBILIFE.NS",
+      "RELIANCE.NS",
+      "HAVELLS.NS",
+      "EICHERMOT.NS",
+      "ADANIENT.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-09-12T08:42:49.558Z"
+  },
+  "content": {
+    "period": "2026-W36",
+    "sourceReportId": "weekly-2026-W36",
+    "graded": [
+      {
+        "ticker": "SBILIFE.NS",
+        "name": "SBI Life Insurance Company",
+        "thesis": "Among the top gainers showing strong relative strength in a weak market. Life insurance is often seen as a defensive play, supported by domestic institutional buying interest.",
+        "action": "buy",
+        "entryRef": 1732,
+        "exitRef": 1700.5999755859375,
+        "changePct": -1.81,
+        "outcome": "miss",
+        "note": "buy call moved -1.81%"
+      },
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries",
+        "thesis": "A large-cap market leader showing resilience and positive momentum despite broader market weakness. Diversified business model provides stability and attracts institutional flows.",
+        "action": "buy",
+        "entryRef": 1309.5,
+        "exitRef": 1257.5,
+        "changePct": -3.97,
+        "outcome": "miss",
+        "note": "buy call moved -3.97%"
+      },
+      {
+        "ticker": "HAVELLS.NS",
+        "name": "Havells India",
+        "thesis": "Top loser for the week, indicating significant selling pressure in the consumer durables segment, which is sensitive to discretionary spending and broader economic slowdowns.",
+        "action": "sell",
+        "entryRef": 1140,
+        "exitRef": 1111,
+        "changePct": -2.54,
+        "outcome": "hit",
+        "note": "sell call moved -2.54%"
+      },
+      {
+        "ticker": "EICHERMOT.NS",
+        "name": "Eicher Motors",
+        "thesis": "Part of the worst-performing Nifty Auto sector and also a top loser, suggesting deep-seated weakness and potential headwinds for the auto industry.",
+        "action": "sell",
+        "entryRef": 7747.5,
+        "exitRef": 7530,
+        "changePct": -2.81,
+        "outcome": "hit",
+        "note": "sell call moved -2.81%"
+      },
+      {
+        "ticker": "ADANIENT.NS",
+        "name": "Adani Enterprises",
+        "thesis": "Demonstrated strong relative performance, suggesting continued investor confidence in its diversified infrastructure and project pipeline, attracting buying interest in a volatile market.",
+        "action": "buy",
+        "entryRef": 2950,
+        "exitRef": 3060,
+        "changePct": 3.73,
+        "outcome": "hit",
+        "note": "buy call moved +3.73%"
+      }
+    ],
+    "hits": 3,
+    "total": 5,
+    "summary": "3/5 positional bets hit over Aug 2026, Week 6.",
+    "learnings": {
+      "worked": [
+        "Havells India: Top loser for the week, indicating significant selling pressure in the consumer durables segment, which is sensitive to discretionary spending and broader economic slowdowns. This worked sell call moved -2.54%.",
+        "Eicher Motors: Part of the worst-performing Nifty Auto sector and also a top loser, suggesting deep-seated weakness and potential headwinds for the auto industry. This worked sell call moved -2.81%.",
+        "Adani Enterprises: Demonstrated strong relative performance, suggesting continued investor confidence in its diversified infrastructure and project pipeline, attracting buying interest in a volatile market. This worked buy call moved +3.73%."
+      ],
+      "missed": [
+        "SBI Life Insurance Company: Among the top gainers showing strong relative strength in a weak market. Life insurance is often seen as a defensive play, supported by domestic institutional buying interest. This did not work buy call moved -1.81%.",
+        "Reliance Industries: A large-cap market leader showing resilience and positive momentum despite broader market weakness. Diversified business model provides stability and attracts institutional flows. This did not work buy call moved -3.97%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:f3f25d0b81429676faa1de9b45273457b3e8b58ea887586430d23e8860d03e0c"
+}
