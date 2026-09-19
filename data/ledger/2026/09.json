@@ -63,6 +63,69 @@
       ],
       "hits": 1,
       "total": 5
+    },
+    {
+      "gradedOn": "2026-09-19",
+      "sourceReportId": "weekly-2026-W37",
+      "bets": [
+        {
+          "ticker": "DRREDDY.NS",
+          "name": "Dr. Reddy's Laboratories",
+          "thesis": "The pharmaceutical sector shows defensive strength in a declining market, with DRREDDY.NS being a top gainer, indicating strong relative performance and potential for further upside amidst market volatility.",
+          "action": "buy",
+          "entryRef": 1165.5,
+          "exitRef": 1185,
+          "changePct": 1.67,
+          "outcome": "hit",
+          "note": "buy call moved +1.67%"
+        },
+        {
+          "ticker": "HCLTECH.NS",
+          "name": "HCL Technologies",
+          "thesis": "Despite a broader correction in the NIFTY IT index, HCLTECH.NS has emerged as a top gainer, suggesting selective buying interest in quality IT names, potentially signaling a rebound or strong underlying fundamentals.",
+          "action": "buy",
+          "entryRef": 1206.0999755859375,
+          "exitRef": 1249.300048828125,
+          "changePct": 3.58,
+          "outcome": "hit",
+          "note": "buy call moved +3.58%"
+        },
+        {
+          "ticker": "HINDALCO.NS",
+          "name": "Hindalco Industries",
+          "thesis": "The metals sector is facing significant headwinds, with HINDALCO.NS featuring prominently among the top losers. Weakness in commodity prices and FII outflows are likely to continue exerting downward pressure.",
+          "action": "sell",
+          "entryRef": 981.5,
+          "exitRef": 972.7000122070312,
+          "changePct": -0.9,
+          "outcome": "partial",
+          "note": "sell call moved -0.9%"
+        },
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF Limited",
+          "thesis": "The real estate sector, represented by NIFTY REALTY's sharp decline and DLF.NS being a top loser, is under considerable pressure. Elevated interest rates and profit-taking could further weigh on valuations.",
+          "action": "sell",
+          "entryRef": 644.5,
+          "exitRef": 644.3499755859375,
+          "changePct": -0.02,
+          "outcome": "partial",
+          "note": "sell call moved -0.02%"
+        },
+        {
+          "ticker": "BAJAJFINSV.NS",
+          "name": "Bajaj Finserv",
+          "thesis": "Financial services are experiencing broad weakness, with BAJAJFINSV.NS among the top losers. The general market downtrend and FII selling are likely to continue impacting NBFCs and financial cyclicals negatively.",
+          "action": "sell",
+          "entryRef": 1913.5,
+          "exitRef": 1852.5,
+          "changePct": -3.19,
+          "outcome": "hit",
+          "note": "sell call moved -3.19%"
+        }
+      ],
+      "hits": 3,
+      "total": 5
     }
   ],
   "summary": null
