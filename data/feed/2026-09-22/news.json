@@ -1,0 +1,329 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI Sells Government Securities, Absorbs ₹25,000 Crore Surplus Liquidity",
+          "summary": "The Reserve Bank of India (RBI) accepted bids worth ₹25,000 crore in the second tranche of its open market operation (OMO) sale of government securities, aimed at absorbing surplus liquidity from the banking system. The RBI had previously attracted $127 billion through FCNR(B) deposits, boosting forex reserves but creating domestic liquidity management challenges.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "RBI Finalizes Capital Requirements for Market Risk, Aligns with Basel III",
+          "summary": "The RBI issued final directions on minimum capital requirements for market risk, aligning with revised Basel III standards. These new regulations will be applicable to all commercial banks (excluding small finance, payments, and local area banks) from April 1, 2027.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's CPI Inflation Rises to 4.8% in August, Food Prices Drive Increase",
+          "summary": "India's headline Consumer Price Index (CPI) inflation rose to 4.8% year-on-year in August 2026, marking the third consecutive month it has stayed above the RBI's 4.0% median target, primarily driven by rising food prices. Broader price pressures are also firming, and potential September rainfall shortfall could push FY27 inflation higher.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Union Cabinet Approves EPFO Wage Ceiling Hike to ₹25,000",
+          "summary": "The Union Cabinet has approved an increase in the wage ceiling for mandatory Employees' Provident Fund Organisation (EPFO) coverage from ₹15,000 to ₹25,000 per month. This decision is expected to extend social security benefits to over 51 lakh additional employees.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Nasdaq Hits Record High as US Markets Rally on AI, Semiconductor Stocks",
+          "summary": "Wall Street experienced a strong session, with the Nasdaq Composite closing at a record high. The rally was primarily driven by gains in AI and semiconductor stocks, with the S&P 500 gaining 1.5% and the Dow Jones Industrial Average advancing 0.7%, supported by easing US Treasury yields.",
+          "source": "Reuters",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Asian Markets Advance, Led by Technology and AI Stocks",
+          "summary": "Most Asian markets advanced in early trade, taking positive cues from the strong US performance. South Korea's Kospi jumped 1.8%, while Taiwan's Taiex gained 1%, both led by technology and AI-related stocks. Chinese equities also saw gains.",
+          "source": "Bloomberg",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Brent Crude Rebounds to $101.4 After Previous Session's Dip",
+          "summary": "Brent crude futures rose 1% to $101.4 a barrel after falling more than 3% in the previous session. The rebound comes amidst easing concerns over Middle East supplies and diplomatic efforts. Crude prices remain a critical factor for India due to its heavy reliance on imported oil.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Oswal Overseas, Rama Paper Mills, Madhur Knit Crafts to Announce Q3 Results Today",
+          "summary": "Oswal Overseas, Rama Paper Mills Ltd, and Madhur Knit Crafts Ltd are among the companies scheduled to announce their quarterly financial results on September 22, 2026.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Augmont Enterprises Reports 15% Dip in Q1 Net Profit Despite Revenue Growth",
+          "summary": "Augmont Enterprises, a recently listed precious metals management company, reported a decline of over 15% in net profit for the June quarter, despite experiencing a revenue growth of approximately 30% year-on-year.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Berger Paints India Holds Investor Briefing After Strong Q1 FY27 Performance",
+          "summary": "Berger Paints India is holding an investor and analyst briefing today, following a strong Q1 FY27 performance where consolidated net profit jumped 28.6% year-on-year to ₹405.01 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "BERGEPAINT.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Pharma, Realty, and Consumer-Facing Stocks Show Strength; IT and Power Under Pressure",
+          "summary": "In early trade on September 22, market breadth was positive across the NSE. Twelve of the 16 major sectoral indices finished higher, with pharma, realty, and consumer-facing stocks showing strength. Conversely, the IT and power sectors witnessed selling pressure. UltraTech Cement was a notable gainer.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ULTRACEMCO.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Mastercard to Offload Entire 4.31% Stake in Pine Labs via Block Deal",
+          "summary": "Mastercard Asia/Pacific Pte. Ltd. is expected to offload its entire 4.31% holding in fintech company Pine Labs through a block deal, valued at nearly ₹890 crore, at a 7.3% discount to the previous close.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Waaree Energies Secures 2 GW Solar Module Order",
+          "summary": "Waaree Energies has secured an order to supply 2 GW of solar modules from a leading solar developer.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Onward Technologies Renews Multi-Year Digital Services Contract Worth ₹44.46 Crore",
+          "summary": "Onward Technologies has renewed a multi-year managed digital services contract valued at ₹44.46 crore.",
+          "source": "Economic Times",
+          "tickers": [
+            "ONWARDTEC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Lloyds Metals and Energy Approves ₹1,550 Crore NCD Issue, Plans DRI Capacity Expansion",
+          "summary": "Lloyds Metals and Energy's board has approved a ₹1,550 crore Non-Convertible Debenture (NCD) issue and simultaneously announced plans to expand its Direct Reduced Iron (DRI) capacity.",
+          "source": "Livemint",
+          "tickers": [
+            "LLOYDSME.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "HEG Materials Receives Battery Storage Orders; Coforge Expands AI Vehicle Inspection",
+          "summary": "HEG Materials has received new orders for battery storage solutions, while Coforge is expanding its capabilities in AI vehicle inspection. These developments signal growth in their respective advanced technology segments.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "HEG.NS",
+            "COFORGE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "TAAL Tech Limited Sets September 22 as Record Date for 1:5 Stock Split",
+          "summary": "TAAL Tech Limited has fixed September 22, 2026, as the record date for its 1:5 stock split, where each existing equity share with a face value of ₹10 will be divided into five shares of ₹2 each.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Open Offer for 26% Stake in ECS Biztech by Rakesh Shah and Komal Infotech Ongoing",
+          "summary": "An open offer for the acquisition of a 26% stake in ECS Biztech Ltd by Rakesh Ramanlal Shah and Komal Infotech Pvt Ltd is currently in progress, potentially leading to a change in ownership.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Indian Companies Increase Outbound Acquisitions by 76% in First 7 Months of 2026",
+          "summary": "Indian companies significantly increased outbound acquisitions by 76% to $8.8 billion in the first seven months of 2026. In contrast, foreign investments into India dropped by 58%, while overall M&A deal value in India remained nearly flat.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Varmora Granito, Anand Seamless, Himalaya Nutravedics IPOs Open Today",
+          "summary": "The Initial Public Offers (IPOs) for Varmora Granito, Anand Seamless, and Himalaya Nutravedics are opening for subscription today. This follows Robokidz Eduventures and FX Multitech's IPOs entering their second day, and Axiom Gas Engineering's IPO concluding today.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "57 Stocks Trade Ex-Dividend on September 23; Today is Last Day to Buy",
+          "summary": "A total of 57 stocks will trade ex-dividend on September 23, meaning today (September 22) is the final day for investors to purchase these shares to qualify for the upcoming payouts. Notables include Titagarh Rail Systems, Apollo Micro Systems, and GMDC.",
+          "source": "Economic Times",
+          "tickers": [
+            "TITAGARH.NS",
+            "APOLLO.NS",
+            "GMDC.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "UltraTech Cement, Asian Paints, Trent Among Early Gainers",
+          "summary": "In early trade, several prominent stocks saw gains, including UltraTech Cement (+3.11%), Asian Paints, Trent, Titan, Bajaj Finance, HCL Tech, ITC, Sun Pharmaceutical Industries, and Reliance Industries.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ULTRACEMCO.NS",
+            "ASIANPAINT.NS",
+            "TRENT.NS",
+            "TITAN.NS",
+            "BAJFINANCE.NS",
+            "HCLTECH.NS",
+            "ITC.NS",
+            "SUNPHARMA.NS",
+            "RELIANCE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Power Grid, Infosys, Bharti Airtel Among Early Laggards",
+          "summary": "Stocks experiencing downward pressure in early trade included Power Grid, Infosys, Bharti Airtel, Maruti, and TCS. Adani Ports, Bajaj Finance, and Adani Enterprises also faced selling pressure.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "POWERGRID.NS",
+            "INFY.NS",
+            "BHARTIARTL.NS",
+            "MARUTI.NS",
+            "TCS.NS",
+            "ADANIPORTS.NS",
+            "BAJFINANCE.NS",
+            "ADANIENT.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Pine Labs, Waaree Energies, Motilal Oswal Financial Services in Investor Focus",
+          "summary": "Several companies are expected to be watched closely by investors due to recent business developments, including Pine Labs, Waaree Energies, Motilal Oswal Financial Services, Garden Reach Shipbuilders & Engineers, UFlex, and Neogen Chemicals.",
+          "source": "Economic Times",
+          "tickers": [
+            "MOTILALOFS.NS",
+            "GRSE.NS",
+            "UFLEX.NS",
+            "NEOGEN.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Bandhan Bank, Inox Wind, Manappuram Finance in F&O Ban Period",
+          "summary": "Bandhan Bank, Inox Wind, Manappuram Finance, SAIL, and LIC Housing Finance are currently under the Futures & Options (F&O) ban period, restricting derivative trading in these securities.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BANDHANBNK.NS",
+            "INOXWIND.NS",
+            "MANAPPURAM.NS",
+            "SAIL.NS",
+            "LICHSGFIN.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2530,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. Bharti Airtel is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "VBL.NS",
+      "name": "Varun Beverages",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 530,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. Varun Beverages is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "CCL.NS",
+      "name": "CCL Products (India)",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1425,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. CCL Products (India) is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1800,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. ICICI Bank is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1305,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. Bajaj Finance is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "DALBHARAT.NS",
+      "name": "Dalmia Bharat",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2260,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. Dalmia Bharat is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "CUB.NS",
+      "name": "City Union Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 280,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. City Union Bank is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 500,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. Kotak Mahindra Bank is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1765,
+      "rationale": "Axis Securities maintains a constructive view on Indian equities, citing strong macroeconomic fundamentals. Nestle India is one of their top picks for September 2026."
+    },
+    {
+      "ticker": "THANGAMAYL.NS",
+      "name": "Thangamayil Jewellery",
+      "brokerage": "BOB Capital Markets Ltd.",
+      "action": "buy",
+      "target": 6314,
+      "rationale": "Buy recommendation from brokerage."
+    },
+    {
+      "ticker": "APOLLO.NS",
+      "name": "Apollo Micro Systems",
+      "brokerage": "ICICI Direct",
+      "action": "buy",
+      "target": 485,
+      "rationale": "Buy recommendation from brokerage."
+    }
+  ]
+}
