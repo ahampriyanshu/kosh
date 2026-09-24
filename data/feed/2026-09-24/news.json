@@ -1,0 +1,305 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI maintains repo rate at 5.25%; global agencies foresee future hikes",
+          "summary": "The RBI kept the repo rate at 5.25% for the fourth consecutive meeting. S&P Global Ratings expects a 25 bps hike, Fitch Ratings projects two increases to 5.75%, and SBI Research recommends two 25-bps hikes, citing growth, inflation, and geopolitical risks. The next MPC meeting is scheduled for October 5-7, 2026.",
+          "source": "Financial News",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India's retail inflation rises to 4.82% in August; Crisil projects 5.1% average for FY27",
+          "summary": "Retail inflation increased to 4.82% in August, driven by surging energy and food prices and a weaker rupee. Crisil projects CPI inflation to average 5.1% this fiscal, with upside risks. The Asian Development Outlook revised down South Asia's inflation forecast for 2026.",
+          "source": "Financial News",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "India advances semiconductor manufacturing, raises EPFO wage ceiling, expands trade pacts",
+          "summary": "The World Economic Forum's outlook suggests India's monetary and fiscal policies will remain largely unchanged. India is working to become a a semiconductor manufacturing hub with new plants commencing production. The EPFO wage ceiling has been increased from ₹15,000 to ₹25,000, and India is expanding its network of Bilateral Investment Treaties and Free Trade Agreements.",
+          "source": "Financial News",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian markets open lower on weak global cues: high crude, rising US yields",
+          "summary": "Indian equity markets opened lower, mirroring weak global sentiment due to Brent crude prices spiking above $102 per barrel and the US 10-year Treasury yield rising to 5.11%. Geopolitical tensions in West Asia and US-China trade discussions are also influencing investor sentiment. FIIs were net sellers overall in September.",
+          "source": "Financial News",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Prasol Chemicals, PALUCK TECHNOLOGIES, PERNIASPOP to announce quarterly results today",
+          "summary": "Prasol Chemicals, PALUCK TECHNOLOGIES LTD, and PERNIASPOP are scheduled to announce their quarterly financial results on September 24, 2026.",
+          "source": "Corporate Filings",
+          "tickers": [],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT sector gains 2.96% with Tech Mahindra leading; Nifty Finance sector weakest",
+          "summary": "The IT sector performed positively, gaining 2.96%, with Tech Mahindra being a top large-cap gainer. In contrast, the Nifty Finance sector saw the largest decline, falling by 1.65%. Yesterday, Metal, FMCG, and PSU Bank sectors surged, while IT and oil & gas stocks had declined.",
+          "source": "Financial News",
+          "tickers": [
+            "TECHM.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "India's M&A deal volumes decline 20% but values remain steady in 2026",
+          "summary": "India's M&A landscape in the first seven months of 2026 saw a 20% decline in deal volumes but maintained steady deal values, indicating a preference for larger transactions and an increase in outbound M&A.",
+          "source": "Financial News",
+          "tickers": [],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Pitti Engineering's merger with Dakshin Foundry becomes effective",
+          "summary": "The merger of Pitti Engineering with Dakshin Foundry has officially come into effect.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "PITTIENG.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "DMI Finance raises ₹1,455 crore through non-convertible debentures",
+          "summary": "DMI Finance has successfully raised ₹1,455 crore via the issuance of non-convertible debentures (NCDs).",
+          "source": "Corporate Announcement",
+          "tickers": [],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Motilal Oswal Financial Services arm receives SEBI approval as custodian of securities",
+          "summary": "A subsidiary of Motilal Oswal Financial Services has obtained SEBI approval to act as a custodian of securities, expanding its service offerings.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "MOTILALOFS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Simplex Castings approves fundraise via preferential issue",
+          "summary": "Simplex Castings' board has approved a plan to raise funds through a preferential issue of shares.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "SIMPLEXC.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Max Estates enters joint development agreement for Ghaziabad land parcel",
+          "summary": "Max Estates has signed a joint development agreement for a 9.76-acre land parcel in Ghaziabad, with an estimated development potential of 1.5 million sq ft.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "MAXESTATES.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "GHCL declared preferred bidder for Kadaya limestone block in Gujarat",
+          "summary": "GHCL has been selected as the preferred bidder for the Kadaya limestone block located in Gujarat, securing a key resource.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "GHCL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Indo Tech Transformers secures ₹42.88 crore order for transformers",
+          "summary": "Indo Tech Transformers has bagged a significant order valued at ₹42.88 crore for the supply of transformers.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "INDOTECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Exide Energy Solutions (Exide Industries subsidiary) commissions Phase I of lithium-ion cell facility",
+          "summary": "Exide Energy Solutions, a subsidiary of Exide Industries, has commissioned Phase I of its 6 GWh lithium-ion cell manufacturing facility, marking a step in its expansion.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "EXIDEIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Pyramid Technoplast receives amended GPCB nod for industrial packaging waste recycling",
+          "summary": "Pyramid Technoplast has received an amended approval from the Gujarat Pollution Control Board, allowing it to recycle third-party industrial packaging waste.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "PYRAMID.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bharat Dynamics signs ₹810.79-crore contract",
+          "summary": "Bharat Dynamics has secured a large contract worth ₹810.79 crore.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "BDL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "BCPL Railway Infrastructure receives rail contract",
+          "summary": "BCPL Railway Infrastructure has been awarded a new contract for railway infrastructure development.",
+          "source": "Corporate Announcement",
+          "tickers": [
+            "BCPL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Insurance stocks in focus as IRDAI proposes distribution reforms",
+          "summary": "Insurance companies including SBI Life, HDFC Life, ICICI Lombard, LIC, ICICI Prudential Life, and PB Fintech are under scrutiny due to IRDAI's proposed reforms for insurance distribution, which include lower Expense of Management limits and product/channel-specific commission caps.",
+          "source": "Financial News",
+          "tickers": [
+            "SBILIFE.NS",
+            "HDFCLIFE.NS",
+            "ICICIGI.NS",
+            "LIC.NS",
+            "ICICIPRULI.NS",
+            "PBFIN.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "National Stock Exchange of India (NSE) makes its historic debut on bourses",
+          "summary": "The National Stock Exchange of India (NSE) is making its debut on the bourses today, a significant event for India's capital markets.",
+          "source": "Financial News",
+          "tickers": [],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Several stocks including NTPC, ESAF Small Finance Bank, Avantel, Bharti Airtel, ONGC, Asian Paints, Britannia, HUL on investor radar",
+          "summary": "A range of companies are attracting investor attention today due to recent corporate developments, regulatory changes, and business updates.",
+          "source": "Financial News",
+          "tickers": [
+            "NTPC.NS",
+            "ESAFSFB.NS",
+            "AVANTEL.NS",
+            "BHARTIARTL.NS",
+            "ONGC.NS",
+            "ASIANPAINT.NS",
+            "BRITANNIA.NS",
+            "HINDUNILVR.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "HAPPYFORGE.NS",
+      "name": "Happy Forgings",
+      "brokerage": "Motilal Oswal Wealth Management Research Desk",
+      "action": "buy",
+      "target": 2438,
+      "rationale": "Recommended by Motilal Oswal with an implied 13% upside."
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2530,
+      "rationale": "Top pick by Axis Securities with a 40% upside potential."
+    },
+    {
+      "ticker": "VARUNBEV.NS",
+      "name": "Varun Beverages",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 530,
+      "rationale": "Top pick by Axis Securities with a 32% upside potential."
+    },
+    {
+      "ticker": "CCL.NS",
+      "name": "CCL Products (India)",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1425,
+      "rationale": "Top pick by Axis Securities with a 32% upside potential."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1800,
+      "rationale": "Top pick by Axis Securities with a 24% upside potential."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1305,
+      "rationale": "Top pick by Axis Securities with a 23% upside potential."
+    },
+    {
+      "ticker": "DALMIABHARAT.NS",
+      "name": "Dalmia Bharat",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 2260,
+      "rationale": "Top pick by Axis Securities with a 22% upside potential."
+    },
+    {
+      "ticker": "CUB.NS",
+      "name": "City Union Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 280,
+      "rationale": "Top pick by Axis Securities with a 22% upside potential."
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 500,
+      "rationale": "Top pick by Axis Securities with a 19% upside potential."
+    },
+    {
+      "ticker": "ETERNAL.NS",
+      "name": "Eternal",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 390,
+      "rationale": "Top pick by Axis Securities with a 19% upside potential."
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "brokerage": "Axis Securities",
+      "action": "buy",
+      "target": 1765,
+      "rationale": "Top pick by Axis Securities with an 18% upside potential."
+    }
+  ]
+}
