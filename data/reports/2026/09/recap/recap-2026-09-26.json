@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "id": "recap-2026-09-26",
+  "type": "recap",
+  "dateKey": "2026-09-26",
+  "generatedAt": "2026-09-26T09:26:18.955Z",
+  "sourceData": {
+    "tickers": [
+      "ULTRACEMCO.NS",
+      "HINDUNILVR.NS",
+      "TCS.NS",
+      "HDFCBANK.NS",
+      "MARUTI.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-09-26T09:26:18.955Z"
+  },
+  "content": {
+    "period": "2026-W38",
+    "sourceReportId": "weekly-2026-W38",
+    "graded": [
+      {
+        "ticker": "ULTRACEMCO.NS",
+        "name": "UltraTech Cement Ltd.",
+        "thesis": "As a top gainer, UltraTech Cement benefits from the strong momentum in the infrastructure and construction sector, supported by government spending and real estate recovery. The overall theme for infrastructure and cement is strong.",
+        "action": "buy",
+        "entryRef": 11100,
+        "exitRef": 11155,
+        "changePct": 0.5,
+        "outcome": "partial",
+        "note": "buy call moved +0.5%"
+      },
+      {
+        "ticker": "HINDUNILVR.NS",
+        "name": "Hindustan Unilever Ltd.",
+        "thesis": "The Nifty FMCG index was the strongest performing sector, indicating renewed investor interest in consumer staples. HUL, as a market leader, is well-positioned to capitalize on this positive sectoral momentum.",
+        "action": "buy",
+        "entryRef": 1947,
+        "exitRef": 1942.9000244140625,
+        "changePct": -0.21,
+        "outcome": "partial",
+        "note": "buy call moved -0.21%"
+      },
+      {
+        "ticker": "TCS.NS",
+        "name": "Tata Consultancy Services Ltd.",
+        "thesis": "TCS was among the top losers, reflecting the overall weakness observed in the Nifty IT sector. Continued FII outflows and potential global growth slowdown could put further pressure on IT services demand.",
+        "action": "sell",
+        "entryRef": 2128.699951171875,
+        "exitRef": 2082,
+        "changePct": -2.19,
+        "outcome": "hit",
+        "note": "sell call moved -2.19%"
+      },
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank Ltd.",
+        "thesis": "HDFC Bank was a top gainer, showing individual stock strength within a broadly positive banking and financial services sector. Its rebound indicates renewed investor confidence and potential for sustained upward movement.",
+        "action": "buy",
+        "entryRef": 739.5,
+        "exitRef": 735.5999755859375,
+        "changePct": -0.53,
+        "outcome": "partial",
+        "note": "buy call moved -0.53%"
+      },
+      {
+        "ticker": "MARUTI.NS",
+        "name": "Maruti Suzuki India Ltd.",
+        "thesis": "The Nifty Auto sector showed significant gains. Improving consumer sentiment, potential demand uptick, and new model launches could drive sales for major auto players like Maruti Suzuki.",
+        "action": "buy",
+        "entryRef": 12153,
+        "exitRef": 12065,
+        "changePct": -0.72,
+        "outcome": "partial",
+        "note": "buy call moved -0.72%"
+      }
+    ],
+    "hits": 1,
+    "total": 5,
+    "summary": "1/5 positional bets hit over Sep 2026, Week 3.",
+    "learnings": {
+      "worked": [
+        "Tata Consultancy Services Ltd.: TCS was among the top losers, reflecting the overall weakness observed in the Nifty IT sector. Continued FII outflows and potential global growth slowdown could put further pressure on IT services demand. This worked sell call moved -2.19%."
+      ],
+      "missed": [
+        "UltraTech Cement Ltd.: As a top gainer, UltraTech Cement benefits from the strong momentum in the infrastructure and construction sector, supported by government spending and real estate recovery. The overall theme for infrastructure and cement is strong. This only partially worked buy call moved +0.5%.",
+        "Hindustan Unilever Ltd.: The Nifty FMCG index was the strongest performing sector, indicating renewed investor interest in consumer staples. HUL, as a market leader, is well-positioned to capitalize on this positive sectoral momentum. This only partially worked buy call moved -0.21%.",
+        "HDFC Bank Ltd.: HDFC Bank was a top gainer, showing individual stock strength within a broadly positive banking and financial services sector. Its rebound indicates renewed investor confidence and potential for sustained upward movement. This only partially worked buy call moved -0.53%.",
+        "Maruti Suzuki India Ltd.: The Nifty Auto sector showed significant gains. Improving consumer sentiment, potential demand uptick, and new model launches could drive sales for major auto players like Maruti Suzuki. This only partially worked buy call moved -0.72%."
+      ]
+    }
+  },
+  "emailSent": true,
+  "checksum": "sha256:835160f28ae2f1b90c11c0067cf463537ec773bfb6814a219e59e3f7bdae2882"
+}
