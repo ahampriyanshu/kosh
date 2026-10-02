@@ -19,26 +19,27 @@ const KOSH_URL = 'https://kosh.ahampriyanshu.com';
 const AUTHOR_URL = 'https://ahampriyanshu.com';
 
 const colors = {
-  bg: '#f6f8fa',
+  bg: '#ffffff',
   surface: '#ffffff',
-  raised: '#f6f8fa',
+  raised: '#ffffff',
   border: '#e5e7eb',
-  text: '#1f2937',
-  muted: '#6b7280',
+  hairline: '#e5e7eb',
+  text: '#111827',
+  muted: '#4b5563',
   faint: '#9ca3af',
-  link: '#0056b2',
+  link: '#111827',
   bullish: '#16803c',
-  bullishBg: '#ecfdf3',
-  bullishBorder: '#bbf7d0',
+  bullishBg: '#ffffff',
+  bullishBorder: '#16803c',
   bearish: '#c2412f',
-  bearishBg: '#fef2f2',
-  bearishBorder: '#fecaca',
+  bearishBg: '#ffffff',
+  bearishBorder: '#c2412f',
   neutral: '#6b7280',
-  neutralBg: '#f6f8fa',
+  neutralBg: '#ffffff',
   neutralBorder: '#e5e7eb',
   medium: '#b7791f',
-  mediumBg: '#fffbeb',
-  mediumBorder: '#fde68a',
+  mediumBg: '#ffffff',
+  mediumBorder: '#b7791f',
 };
 
 export function escapeHtml(value: unknown): string {
@@ -101,7 +102,7 @@ export function formatDisplayDate(value: string): string {
 }
 
 function badge(label: string, fg: string, bg: string, border: string): string {
-  return `<span style="${font};display:inline-block;font-size:11px;font-weight:700;line-height:16px;color:${fg};background:${bg};border:1px solid ${border};padding:1px 6px;vertical-align:middle;text-transform:uppercase;letter-spacing:0.04em">${escapeHtml(label)}</span>`;
+  return `<span style="${font};display:inline-block;font-size:11px;font-weight:700;line-height:16px;color:${fg};background:${bg};border:1px solid ${border};padding:1px 5px;vertical-align:middle;text-transform:uppercase;letter-spacing:0.06em">${escapeHtml(label)}</span>`;
 }
 
 function signalBadge(signal: Signal): string {
@@ -129,9 +130,11 @@ function paragraph(content: unknown, color = colors.muted): string {
 function section(title: string, body: string): string {
   return `
     <tr>
-      <td class="email-pad" style="padding:18px 32px 0 32px">
-        <h2 style="${display};margin:0 0 10px 0;color:${colors.text};font-size:20px;line-height:26px;font-weight:700">${escapeHtml(title)}</h2>
-        <div style="border-top:1px solid ${colors.border};padding-top:12px">${body}</div>
+      <td class="email-pad" style="padding:24px 32px 0 32px">
+        <div style="border-bottom:1px solid ${colors.text};padding-bottom:4px;margin-bottom:14px">
+          <h2 style="${font};margin:0;color:${colors.text};font-size:16px;line-height:22px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em">${escapeHtml(title)}</h2>
+        </div>
+        <div>${body}</div>
       </td>
     </tr>
   `;
@@ -139,7 +142,7 @@ function section(title: string, body: string): string {
 
 function card(body: string, borderColor = colors.border): string {
   return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${borderColor}">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#ffffff;border:1px solid ${borderColor}">
       <tr>
         <td style="padding:14px 16px">${body}</td>
       </tr>
@@ -162,7 +165,7 @@ function cardStack(cards: string[]): string {
 function tickerLine(ticker: string, name?: string, trailing = ''): string {
   return `
     <div style="${font};font-size:14px;line-height:20px;margin:0 0 6px 0;color:${colors.text}">
-      <span style="${mono};font-weight:800">${escapeHtml(shortTicker(ticker))}</span>
+      <span style="${mono};font-weight:700">${escapeHtml(shortTicker(ticker))}</span>
       ${name ? `<span style="color:${colors.muted};margin-left:6px">${escapeHtml(name)}</span>` : ''}
       ${trailing}
     </div>
@@ -174,6 +177,7 @@ function renderShell(options: {
   eyebrow: string;
   preheader: string;
   children: string;
+  issueNumber?: number | string;
 }): string {
   return `<!doctype html>
 <html>
@@ -185,56 +189,91 @@ function renderShell(options: {
     <style>
       @media only screen and (max-width: 600px) {
         .email-outer { padding: 0 !important; }
-        .email-container { border-left: 0 !important; border-right: 0 !important; }
-        .email-pad { padding-left: 20px !important; padding-right: 20px !important; }
-        .email-title { font-size: 24px !important; line-height: 30px !important; }
-        .email-footer-link { display: block !important; text-align: left !important; padding-top: 8px !important; }
+        .email-container { border-left: 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 0 !important; }
+        .email-pad { padding-left: 18px !important; padding-right: 18px !important; }
+        .email-title { font-size: 13px !important; }
+        .broadsheet-name { font-size: 28px !important; line-height: 32px !important; }
       }
     </style>
   </head>
-  <body style="margin:0;padding:0;background:${colors.bg};${font};color:${colors.text}">
+  <body style="margin:0;padding:0;background:${colors.bg};${font};color:${colors.text};-webkit-font-smoothing:antialiased">
     <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">${escapeHtml(options.preheader)}</div>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:${colors.bg}">
       <tr>
         <td class="email-outer" align="center" style="padding:24px 12px">
           <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border}">
+            
+            <!-- Top Dateline Bar -->
             <tr>
-              <td class="email-pad" style="padding:28px 32px 18px 32px;border-bottom:1px solid ${colors.border}">
-                <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:0 0 18px 0">
+              <td class="email-pad" style="padding:10px 32px;border-bottom:1px solid ${colors.border}">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
                   <tr>
-                    <td style="padding:0 10px 0 0;vertical-align:middle">
-                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block">
-                        <img src="cid:${EMAIL_LOGO_CONTENT_ID}" width="32" height="32" alt="Kosh" style="display:block;width:32px;height:32px;border:0">
+                    <td align="left" style="${font};font-size:11px;line-height:16px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:${colors.muted}">
+                      ${escapeHtml(options.eyebrow)}
+                    </td>
+                    <td align="right" style="${font};font-size:11px;line-height:16px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:${colors.faint}">
+                      ${options.issueNumber ? `Issue ${escapeHtml(String(options.issueNumber))}` : 'NSE &amp; BSE INTELLIGENCE'}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Grand Broadsheet Masthead -->
+            <tr>
+              <td class="email-pad" align="center" style="padding:20px 32px 14px 32px;text-align:center">
+                <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;border-collapse:collapse">
+                  <tr>
+                    <td align="center" style="padding:0 0 8px 0">
+                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block">
+                        <img src="cid:${EMAIL_LOGO_CONTENT_ID}" width="32" height="32" alt="Kosh" style="display:block;margin:0 auto;width:32px;height:32px;border:0">
                       </a>
                     </td>
-                    <td style="padding:0;vertical-align:middle">
-                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="${display};color:${colors.text};font-size:18px;line-height:22px;font-weight:700;text-decoration:none;display:inline-block">Kosh</a>
-                    </td>
                   </tr>
-                </table>
-                <div style="${mono};color:${colors.link};font-size:12px;line-height:18px;font-weight:800;text-transform:uppercase;margin:0 0 6px 0">${escapeHtml(options.eyebrow)}</div>
-                <h1 class="email-title" style="${display};margin:0;color:${colors.text};font-size:28px;line-height:34px;font-weight:900;letter-spacing:0">${escapeHtml(options.title)}</h1>
-              </td>
-            </tr>
-            ${options.children}
-            <tr>
-              <td class="email-pad" style="padding:22px 32px 22px 32px">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border}">
                   <tr>
-                    <td style="padding:12px 14px">
-                      <p style="${font};margin:0;color:${colors.muted};font-size:13px;line-height:20px">
-                        <strong style="color:${colors.text};font-weight:600">Disclaimer:</strong>
-                        Kosh is an experimental, learning-focused project. It is not investment advice or a recommendation to buy or sell securities.
-                      </p>
+                    <td align="center">
+                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" class="broadsheet-name" style="${font};font-size:36px;line-height:40px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase;text-decoration:none;display:inline-block">Kosh</a>
+                      <span class="broadsheet-name" style="${font};font-size:36px;line-height:40px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase"> Daily</span>
                     </td>
                   </tr>
                 </table>
               </td>
             </tr>
+
+            <!-- Hairline dividing title and edition subtitle -->
             <tr>
-              <td class="email-pad" align="center" style="padding:22px 32px 28px 32px;color:${colors.faint};font-size:12px;line-height:18px;border-top:1px solid ${colors.border}">
+              <td style="padding:0 32px">
+                <div style="border-top:1px solid ${colors.border}"></div>
+              </td>
+            </tr>
+
+            <!-- Edition Subtitle Bar -->
+            <tr>
+              <td class="email-pad" align="center" style="padding:10px 32px;text-align:center;border-bottom:1px solid ${colors.text}">
+                <h1 class="email-title" style="${font};margin:0;color:${colors.text};font-size:13px;line-height:18px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-align:center">
+                  ${escapeHtml(options.title)}
+                </h1>
+              </td>
+            </tr>
+
+            <!-- Main Content Area -->
+            ${options.children}
+
+            <!-- Disclaimer -->
+            <tr>
+              <td class="email-pad" align="center" style="padding:22px 32px 22px 32px;border-top:1px solid ${colors.border}">
+                <p style="${font};margin:0;color:${colors.muted};font-size:12px;line-height:18px;text-align:center">
+                  <strong style="color:${colors.text};font-weight:700">Disclaimer:</strong>
+                  Kosh is an experimental, learning-focused project. It is not investment advice or a recommendation to buy or sell securities.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Newspaper Colophon -->
+            <tr>
+              <td class="email-pad" align="center" style="padding:0 32px 26px 32px;color:${colors.faint};font-size:12px;line-height:18px">
                 <p style="${font};margin:0;color:${colors.faint};font-size:12px;line-height:18px;text-align:center">
-                  made by <a href="${AUTHOR_URL}" target="_blank" rel="noopener noreferrer" style="color:${colors.link};text-decoration:none;font-weight:700">ahampriyanshu</a>
+                  made by <a href="${AUTHOR_URL}" target="_blank" rel="noopener noreferrer" style="color:${colors.text};text-decoration:underline;font-weight:700">ahampriyanshu</a>
                 </p>
               </td>
             </tr>
@@ -252,20 +291,24 @@ function indexTable(snapshot: MarketSnapshot): string {
     .map(
       (i) => `
         <tr>
-          <td style="${font};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px;vertical-align:top">${escapeHtml(i.name)}</td>
-          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px;vertical-align:top;white-space:nowrap">${escapeHtml(i.ltp.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
-          <td align="right" style="${mono};padding:8px 0;font-size:14px;line-height:20px;vertical-align:top;white-space:nowrap;color:${i.changePct >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(i.changePct >= 0 ? '+' : '')}${escapeHtml(i.changePct.toFixed(2))}%</td>
+          <td style="${font};padding:7px 10px 7px 0;color:${colors.text};font-size:14px;line-height:20px;border-bottom:1px solid ${colors.border}">${escapeHtml(i.name)}</td>
+          <td align="right" style="${mono};padding:7px 10px 7px 0;color:${colors.text};font-size:14px;line-height:20px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(i.ltp.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:7px 0;font-size:14px;line-height:20px;white-space:nowrap;color:${i.changePct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}">${escapeHtml(i.changePct >= 0 ? '+' : '')}${escapeHtml(i.changePct.toFixed(2))}%</td>
         </tr>
       `,
     )
     .join('');
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-    <tr>
-      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Index</th>
-      <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">LTP</th>
-      <th align="right" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
-    </tr>
-    ${rows}
+    <thead>
+      <tr style="border-bottom:1px solid ${colors.text}">
+        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Index</th>
+        <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">LTP</th>
+        <th align="right" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${rows}
+    </tbody>
   </table>`;
 }
 
@@ -275,35 +318,39 @@ function betRows(bets: Array<{ ticker: string; name?: string; action: string; si
     .map(
       (b) => `
         <tr>
-          <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:800;vertical-align:top">${escapeHtml(shortTicker(b.ticker))}</td>
-          <td style="${font};padding:8px 10px 8px 0;vertical-align:top">${actionBadge(b.action)}</td>
-          <td style="${font};padding:8px 10px 8px 0;vertical-align:top">${signalBadge(b.signal as Signal)}</td>
-          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.faint};font-size:12px;vertical-align:top;white-space:nowrap">${escapeHtml(confidencePct(b.confidence))}</td>
-          <td style="${font};padding:8px 0;color:${colors.muted};font-size:13px;line-height:19px;vertical-align:top">${text(b.thesis)}</td>
+          <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:700;vertical-align:top;border-bottom:1px solid ${colors.border}">${escapeHtml(shortTicker(b.ticker))}</td>
+          <td style="${font};padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid ${colors.border}">${actionBadge(b.action)}</td>
+          <td style="${font};padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid ${colors.border}">${signalBadge(b.signal as Signal)}</td>
+          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.muted};font-size:12px;vertical-align:top;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(confidencePct(b.confidence))}</td>
+          <td style="${font};padding:8px 0;color:${colors.muted};font-size:13px;line-height:19px;vertical-align:top;border-bottom:1px solid ${colors.border}">${text(b.thesis)}</td>
         </tr>
       `,
     )
     .join('');
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-    <tr>
-      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Ticker</th>
-      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Action</th>
-      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Signal</th>
-      <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Conf.</th>
-      <th align="left" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Thesis</th>
-    </tr>
-    ${rows}
+    <thead>
+      <tr style="border-bottom:1px solid ${colors.text}">
+        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Ticker</th>
+        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Action</th>
+        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Signal</th>
+        <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Conf.</th>
+        <th align="left" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Thesis</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${rows}
+    </tbody>
   </table>`;
 }
 
 function bulletList(items: string[]): string {
   if (!items.length) return paragraph('Nothing to report.');
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${items
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">${items
     .map(
       (item) => `
         <tr>
-          <td style="${font};padding:0 8px 8px 0;color:${colors.link};font-size:15px;line-height:22px;vertical-align:top">&#x2022;</td>
-          <td style="${font};padding:0 0 8px 0;color:${colors.muted};font-size:15px;line-height:22px;vertical-align:top">${text(item)}</td>
+          <td style="${font};padding:3px 10px 5px 0;color:${colors.text};font-size:14px;line-height:22px;vertical-align:top">&#x2014;</td>
+          <td style="${font};padding:3px 0 5px 0;color:${colors.text};font-size:14px;line-height:22px;vertical-align:top">${text(item)}</td>
         </tr>
       `,
     )
@@ -315,9 +362,9 @@ function metricTable(metrics: Array<{ label: string; value: string }>): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:10px">
     <tr>
       ${metrics.map((metric) => `
-        <td width="25%" style="padding:0 8px 10px 0;vertical-align:top">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.faint};margin:0 0 3px 0">${escapeHtml(metric.label)}</div>
-          <div style="${mono};font-size:15px;line-height:21px;font-weight:800;color:${colors.text}">${escapeHtml(metric.value)}</div>
+        <td width="25%" style="padding:4px 8px 6px 0;vertical-align:top">
+          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${escapeHtml(metric.label)}</div>
+          <div style="${mono};font-size:15px;line-height:21px;font-weight:700;color:${colors.text}">${escapeHtml(metric.value)}</div>
         </td>
       `).reduce((html, cell, index) => html + (index > 0 && index % 4 === 0 ? '</tr><tr>' : '') + cell, '')}
     </tr>
@@ -328,8 +375,8 @@ function fixedRows(rows: Array<{ label: string; value: string }>): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
     ${rows.map((row) => `
       <tr>
-        <td style="${font};padding:0 12px 8px 0;color:${colors.faint};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;vertical-align:top;white-space:nowrap">${escapeHtml(row.label)}</td>
-        <td style="${font};padding:0 0 8px 0;color:${colors.muted};font-size:14px;line-height:21px;vertical-align:top">${text(row.value)}</td>
+        <td style="${font};padding:6px 12px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;vertical-align:top;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(row.label)}</td>
+        <td style="${font};padding:6px 0 6px 0;color:${colors.text};font-size:14px;line-height:21px;vertical-align:top;border-bottom:1px solid ${colors.border}">${text(row.value)}</td>
       </tr>
     `).join('')}
   </table>`;
@@ -351,11 +398,11 @@ function learningLoopBlock(learnings: { worked: string[]; missed: string[] } | u
   return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
       <tr>
-        <td width="50%" style="padding:0 10px 0 0;vertical-align:top">
+        <td width="50%" style="padding:0 12px 0 0;vertical-align:top">
           ${subLabel('What worked', colors.bullish)}
           ${bulletList(worked)}
         </td>
-        <td width="50%" style="padding:0 0 0 10px;vertical-align:top">
+        <td width="50%" style="padding:0 0 0 12px;vertical-align:top">
           ${subLabel('What missed', colors.bearish)}
           ${bulletList(missed)}
         </td>
@@ -444,20 +491,24 @@ function quoteTable(rows: QuoteRow[]): string {
     .map(
       (r) => `
         <tr>
-          <td style="${font};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px">${escapeHtml(r.name)}</td>
-          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:14px;line-height:20px;white-space:nowrap">${escapeHtml(r.value.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
-          <td align="right" style="${mono};padding:8px 0;font-size:14px;line-height:20px;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(formatPct(r.changePct))}</td>
+          <td style="${font};padding:7px 10px 7px 0;color:${colors.text};font-size:14px;line-height:20px;border-bottom:1px solid ${colors.border}">${escapeHtml(r.name)}</td>
+          <td align="right" style="${mono};padding:7px 10px 7px 0;color:${colors.text};font-size:14px;line-height:20px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(r.value.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:7px 0;font-size:14px;line-height:20px;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}">${escapeHtml(formatPct(r.changePct))}</td>
         </tr>
       `,
     )
     .join('');
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-    <tr>
-      <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Name</th>
-      <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Last</th>
-      <th align="right" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
-    </tr>
-    ${body}
+    <thead>
+      <tr style="border-bottom:1px solid ${colors.text}">
+        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Name</th>
+        <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Last</th>
+        <th align="right" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${body}
+    </tbody>
   </table>`;
 }
 
@@ -466,10 +517,10 @@ function moversTable(rows: Array<{ ticker: string; name: string; ltp: number; ch
     .map(
       (r) => `
         <tr>
-          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:800;white-space:nowrap">${escapeHtml(shortTicker(r.ticker))}</td>
-          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px">${escapeHtml(r.name)}</td>
-          <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
-          <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(formatPct(r.changePct))}</td>
+          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:700;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(shortTicker(r.ticker))}</td>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px;border-bottom:1px solid ${colors.border}">${escapeHtml(r.name)}</td>
+          <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}">${escapeHtml(formatPct(r.changePct))}</td>
         </tr>
       `,
     )
@@ -501,10 +552,10 @@ function near52List(
       const pct = kind === 'high' ? r.pctFromHigh ?? 0 : r.pctFromLow ?? 0;
       return `
         <tr>
-          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:800;white-space:nowrap">${escapeHtml(shortTicker(r.ticker))}</td>
-          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px">${escapeHtml(r.name)}</td>
-          <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
-          <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${color}">${sign}${escapeHtml(pct.toFixed(2))}%</td>
+          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:700;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(shortTicker(r.ticker))}</td>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px;border-bottom:1px solid ${colors.border}">${escapeHtml(r.name)}</td>
+          <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${color};border-bottom:1px solid ${colors.border}">${sign}${escapeHtml(pct.toFixed(2))}%</td>
         </tr>
       `;
     })
@@ -523,25 +574,23 @@ function fiftyTwoBlock(s: MarketSnapshot): string {
 }
 
 function fiiDiiBlock(fd: NonNullable<MarketSnapshot['fiiDii']>): string {
-  const cell = (label: string, val: number) => `
-    <td width="50%" style="padding:0;vertical-align:top">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border}">
-        <tr>
-          <td style="padding:12px 14px">
-            <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.faint};margin:0 0 2px 0">${escapeHtml(label)}</div>
-            <div style="${mono};font-size:18px;font-weight:800;color:${val >= 0 ? colors.bullish : colors.bearish}">${escapeHtml(formatCrore(val))}</div>
-          </td>
-        </tr>
-      </table>
-    </td>`;
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+  const fiiColor = fd.fiiNet >= 0 ? colors.bullish : colors.bearish;
+  const diiColor = fd.diiNet >= 0 ? colors.bullish : colors.bearish;
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-top:1px solid ${colors.border};border-bottom:1px solid ${colors.border}">
       <tr>
-        ${cell('FII Net', fd.fiiNet)}
-        <td style="width:12px">&nbsp;</td>
-        ${cell('DII Net', fd.diiNet)}
+        <td width="50%" style="padding:14px 16px 14px 0;vertical-align:top;border-right:1px solid ${colors.border}">
+          <div style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 4px 0">FII Net</div>
+          <div style="${mono};font-size:22px;line-height:26px;font-weight:700;color:${fiiColor}">${escapeHtml(formatCrore(fd.fiiNet))}</div>
+        </td>
+        <td width="50%" style="padding:14px 0 14px 16px;vertical-align:top">
+          <div style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 4px 0">DII Net</div>
+          <div style="${mono};font-size:22px;line-height:26px;font-weight:700;color:${diiColor}">${escapeHtml(formatCrore(fd.diiNet))}</div>
+        </td>
       </tr>
     </table>
-    <p style="${mono};margin:6px 0 0 0;color:${colors.faint};font-size:12px;line-height:18px">As of ${escapeHtml(fd.asOf)}</p>`;
+    <p style="${mono};margin:8px 0 0 0;color:${colors.faint};font-size:12px;line-height:18px">As of ${escapeHtml(fd.asOf)}</p>
+  `;
 }
 
 // Some grounded runs emit a placeholder instead of a real outlet name; hide those.
@@ -575,16 +624,16 @@ function newsDigest(groups: MarketSnapshot['news'], limit = 6): string {
     .map(
       ({ category, item }) => `
         <div style="padding:10px 0;border-bottom:1px solid ${colors.border}">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.link};margin:0 0 2px 0">${escapeHtml(NEWS_LABELS[category])}</div>
-          <div style="${font};font-size:15px;font-weight:700;line-height:21px;color:${colors.text}">${escapeHtml(item.headline)}</div>
-          ${isRealSource(item.source) ? `<div style="${mono};font-size:12px;line-height:18px;color:${colors.faint};margin-top:2px">${escapeHtml(item.source)}</div>` : ''}
+          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${escapeHtml(NEWS_LABELS[category])}</div>
+          <div style="${font};font-size:15px;font-weight:700;line-height:22px;color:${colors.text}">${escapeHtml(item.headline)}</div>
+          ${isRealSource(item.source) ? `<div style="${font};font-size:12px;font-style:italic;line-height:18px;color:${colors.faint};margin-top:2px">${escapeHtml(item.source)}</div>` : ''}
         </div>
       `,
     )
     .join('');
 }
 
-export function renderDailyEmail(content: DailyContent): string {
+export function renderDailyEmail(content: DailyContent, issueNumber?: number): string {
   const s = content.snapshot;
   const cues = cueRows(s);
   const sectors = sectorRows(s);
@@ -592,7 +641,12 @@ export function renderDailyEmail(content: DailyContent): string {
   const has52w = s.near52wHigh.length > 0 || s.near52wLow.length > 0;
   const hasNews = s.news.some((g) => g.items.length > 0);
 
-  const parts: string[] = [section('Summary', paragraph(content.outlook, colors.text))];
+  const parts: string[] = [
+    section(
+      'Summary',
+      `<p style="${font};margin:0;color:${colors.text};font-size:16px;line-height:26px">${text(content.outlook)}</p>`,
+    ),
+  ];
   if (hasNews) parts.push(section('News', newsDigest(s.news)));
   if (s.fiiDii) parts.push(section('FII / DII Activity', fiiDiiBlock(s.fiiDii)));
   if (cues.length) parts.push(section('Market Cues', quoteTable(cues)));
@@ -605,6 +659,7 @@ export function renderDailyEmail(content: DailyContent): string {
     eyebrow: formatDisplayDate(s.asOf.slice(0, 10)),
     preheader: content.outlook,
     children: parts.join(''),
+    issueNumber,
   });
 }
 
@@ -629,7 +684,7 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
   ];
 
   if (content.ledgerRollup) {
-    const hitsSummary = `<div style="${font};font-size:14px;line-height:20px;margin:0 0 8px 0;color:${colors.text};font-weight:800">${escapeHtml(String(content.ledgerRollup.hits))}/${escapeHtml(String(content.ledgerRollup.total))} bets hit</div>`;
+    const hitsSummary = `<div style="${font};font-size:15px;line-height:22px;margin:0 0 8px 0;color:${colors.text};font-weight:700">${escapeHtml(String(content.ledgerRollup.hits))}/${escapeHtml(String(content.ledgerRollup.total))} bets hit</div>`;
     parts.push(
       section(
         'Ledger Rollup',
@@ -665,10 +720,10 @@ export function renderRetroEmail(content: RetroContent): string {
     .map(
       (item) => `
         <tr>
-          <td style="${mono};padding:10px 8px;border-bottom:1px solid ${colors.border};font-size:13px;font-weight:800;color:${colors.text}">${escapeHtml(shortTicker(item.ticker))}</td>
-          <td align="right" style="${mono};padding:10px 8px;border-bottom:1px solid ${colors.border};font-size:13px;color:${colors.text};white-space:nowrap">${escapeHtml(formatPrice(item.price))}</td>
-          <td align="right" style="${mono};padding:10px 8px;border-bottom:1px solid ${colors.border};font-size:13px;color:${item.changePct < 0 ? colors.bearish : item.changePct > 0 ? colors.bullish : colors.neutral};white-space:nowrap">${escapeHtml(formatPct(item.changePct))}</td>
-          <td style="${font};padding:10px 8px;border-bottom:1px solid ${colors.border};font-size:13px;line-height:19px;color:${colors.muted}">${text(item.note)}</td>
+          <td style="${mono};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;font-weight:700;color:${colors.text}">${escapeHtml(shortTicker(item.ticker))}</td>
+          <td align="right" style="${mono};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;color:${colors.text};white-space:nowrap">${escapeHtml(formatPrice(item.price))}</td>
+          <td align="right" style="${mono};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;color:${item.changePct < 0 ? colors.bearish : item.changePct > 0 ? colors.bullish : colors.neutral};white-space:nowrap">${escapeHtml(formatPct(item.changePct))}</td>
+          <td style="${font};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;line-height:19px;color:${colors.muted}">${text(item.note)}</td>
         </tr>
       `,
     )
@@ -679,18 +734,22 @@ export function renderRetroEmail(content: RetroContent): string {
     eyebrow: formatDisplayDate(content.date),
     preheader: content.summary,
     children:
-      section('Session Summary', paragraph(content.summary, colors.text)) +
+      section('Session Summary', `<p style="${font};margin:0;color:${colors.text};font-size:16px;line-height:26px">${text(content.summary)}</p>`) +
       section('Sell Alerts', `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cardStack(alertCards)}</table>`) +
       section(
         'Portfolio Scan',
         `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-          <tr>
-            <th align="left" style="${font};padding:0 8px 8px 8px;color:${colors.faint};font-size:11px;text-transform:uppercase">Ticker</th>
-            <th align="right" style="${font};padding:0 8px 8px 8px;color:${colors.faint};font-size:11px;text-transform:uppercase">Price</th>
-            <th align="right" style="${font};padding:0 8px 8px 8px;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
-            <th align="left" style="${font};padding:0 8px 8px 8px;color:${colors.faint};font-size:11px;text-transform:uppercase">Note</th>
-          </tr>
-          ${evaluatedRows}
+          <thead>
+            <tr style="border-bottom:1px solid ${colors.text}">
+              <th align="left" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Ticker</th>
+              <th align="right" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Price</th>
+              <th align="right" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
+              <th align="left" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${evaluatedRows}
+          </tbody>
         </table>`,
       ),
   });
@@ -698,31 +757,35 @@ export function renderRetroEmail(content: RetroContent): string {
 
 export function renderRecapEmail(content: RecapContent, title: string): string {
   const periodLabel = formatPeriodLabel(content.period);
-  const hitsSummary = `<div style="${font};font-size:14px;line-height:20px;margin:0 0 8px 0;color:${colors.text};font-weight:800">${escapeHtml(String(content.hits))}/${escapeHtml(String(content.total))} bets hit</div>`;
+  const hitsSummary = `<div style="${font};font-size:15px;line-height:22px;margin:0 0 8px 0;color:${colors.text};font-weight:700">${escapeHtml(String(content.hits))}/${escapeHtml(String(content.total))} bets hit</div>`;
 
   const gradedRows = content.graded.length
     ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:12px">
-        <tr>
-          <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Ticker</th>
-          <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Action</th>
-          <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Change</th>
-          <th align="left" style="${font};padding:0 0 6px 0;color:${colors.faint};font-size:11px;text-transform:uppercase">Outcome</th>
-        </tr>
-        ${content.graded
-          .map((bet) => {
-            const changePctStr = bet.changePct > 0 ? `+${bet.changePct.toFixed(2)}%` : `${bet.changePct.toFixed(2)}%`;
-            const changePctColor = bet.changePct > 0 ? colors.bullish : bet.changePct < 0 ? colors.bearish : colors.neutral;
-            const outcomeColor = bet.outcome === 'hit' ? colors.bullish : bet.outcome === 'miss' ? colors.bearish : colors.neutral;
-            return `
-              <tr>
-                <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:800;vertical-align:top">${escapeHtml(bet.ticker.replace('.NS', ''))}</td>
-                <td style="${font};padding:8px 10px 8px 0;vertical-align:top">${actionBadge(bet.action)}</td>
-                <td align="right" style="${mono};padding:8px 10px 8px 0;color:${changePctColor};font-size:13px;vertical-align:top;white-space:nowrap">${escapeHtml(changePctStr)}</td>
-                <td style="${font};padding:8px 0;color:${outcomeColor};font-size:13px;font-weight:700;vertical-align:top;text-transform:uppercase">${escapeHtml(bet.outcome)}</td>
-              </tr>
-            `;
-          })
-          .join('')}
+        <thead>
+          <tr style="border-bottom:1px solid ${colors.text}">
+            <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Ticker</th>
+            <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Action</th>
+            <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
+            <th align="left" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${content.graded
+            .map((bet) => {
+              const changePctStr = bet.changePct > 0 ? `+${bet.changePct.toFixed(2)}%` : `${bet.changePct.toFixed(2)}%`;
+              const changePctColor = bet.changePct > 0 ? colors.bullish : bet.changePct < 0 ? colors.bearish : colors.neutral;
+              const outcomeColor = bet.outcome === 'hit' ? colors.bullish : bet.outcome === 'miss' ? colors.bearish : colors.neutral;
+              return `
+                <tr>
+                  <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:700;vertical-align:top;border-bottom:1px solid ${colors.border}">${escapeHtml(bet.ticker.replace('.NS', ''))}</td>
+                  <td style="${font};padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid ${colors.border}">${actionBadge(bet.action)}</td>
+                  <td align="right" style="${mono};padding:8px 10px 8px 0;color:${changePctColor};font-size:13px;vertical-align:top;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(changePctStr)}</td>
+                  <td style="${font};padding:8px 0;color:${outcomeColor};font-size:13px;font-weight:700;vertical-align:top;text-transform:uppercase;border-bottom:1px solid ${colors.border}">${escapeHtml(bet.outcome)}</td>
+                </tr>
+              `;
+            })
+            .join('')}
+        </tbody>
       </table>`
     : paragraph('No bets to grade for this period.');
 
@@ -772,7 +835,7 @@ export function renderResearchEmail(content: ResearchContent): string {
         card(
           `<div style="margin:0 0 8px 0">${actionBadge(rec.action)}</div>` +
             paragraph(rec.reasoning),
-          rec.action === 'buy' ? colors.link : colors.border,
+          rec.action === 'buy' ? colors.bullish : colors.border,
         ),
       ) +
       section('Entry & Exit', fixedRows([
