@@ -1,30 +1,18 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { JetBrains_Mono, Lato, Newsreader, Poppins } from 'next/font/google';
+import { Lato, Newsreader } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { siteConfig } from '../lib/site';
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
+import { getLatest, getManifest } from '../lib/reports';
+import type { DailyContent } from '../../lib/schemas';
 
 const lato = Lato({
   subsets: ['latin'],
   variable: '--font-lato',
   weight: ['400', '700', '900'],
-  display: 'swap',
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains',
-  weight: ['400', '500', '700'],
   display: 'swap',
 });
 
@@ -122,15 +110,38 @@ export const viewport: Viewport = {
   colorScheme: 'light dark',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [daily, manifest] = await Promise.all([
+    getLatest('daily'),
+    getManifest(),
+  ]);
+
+  const dailyContent = daily ? (daily.content as DailyContent) : null;
+  const snapshot = dailyContent?.snapshot;
+
+  const pubDate = snapshot?.asOf
+    ? new Date(snapshot.asOf).toLocaleDateString('en-IN', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : new Date().toLocaleDateString('en-IN', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+  const issueNumber = manifest.reports.length;
+
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${jetbrains.variable} ${newsreader.variable}`}
+      className={`${lato.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -152,29 +163,29 @@ export default function RootLayout({
           <div className="main-wrapper">
             <div className="content-area">
               <header className="site-header broadsheet-masthead">
-                {/* Top Ear Metadata */}
-                <div className="flex flex-wrap items-center justify-between broadsheet-ear pb-2 mb-2 border-b border-[var(--color-hairline)]">
-                  <span>MUMBAI · NATIONAL STOCK EXCHANGE (NSE) · BSE</span>
-                  <span>PRICE: ₹0.00 / GIT-AUDITED · EST. JUNE 2026</span>
+                {/* Dateline Bar (Wednesday, 30 September 2026 Issue 179) */}
+                <div className="flex flex-wrap items-center justify-between text-xs text-[var(--color-muted)] py-1.5 border-b border-[var(--color-hairline)] uppercase tracking-wider font-serif">
+                  <div>
+                    <span>{pubDate}</span>
+                  </div>
+                  <div>
+                    <span>Issue {issueNumber}</span>
+                  </div>
                 </div>
 
-                {/* Newspaper Grand Title */}
+                {/* Newspaper Title */}
                 <div className="text-center py-2">
                   <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
                     <span className="broadsheet-title block">Kosh Daily</span>
                   </Link>
-                  <p className="broadsheet-motto">
-                    The Daily Journal of Indian Equities, Market Microstructure &amp; Audited Positional Bets
-                  </p>
                 </div>
 
+                {/* Line between title and navbar */}
+                <div className="border-t border-[var(--color-hairline)]" />
+
                 {/* Navigation and Actions */}
-                <div className="header-container pt-1">
-                  <div className="brand-lockup">
-                    <span className="font-mono text-xs uppercase font-bold tracking-wider text-[var(--color-ink)]">
-                      DISPATCH DESK
-                    </span>
-                  </div>
+                <div className="header-container py-1 border-b border-[var(--color-hairline)]">
+                  <div className="brand-lockup" />
                   <NavBar />
                   <div className="header-actions">
                     <ThemeToggle />

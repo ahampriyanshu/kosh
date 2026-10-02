@@ -1,76 +1,54 @@
-# Kosh Cron Dispatcher (Cloudflare Worker)
+# Kosh Master Tick Pipeline Dispatcher (Cloudflare Worker)
 
-Precision Cron Dispatcher for **Kosh**'s time-sensitive weekday market reports:
-1. **Daily Morning Brief (`daily.yml`)**: Dispatches at **08:30 IST** (`00 3 * * 1-5` UTC).
-2. **Mid-Session Retro / Outlook (`retro.yml`)**: Dispatches at **14:00 IST** (`30 8 * * 1-5` UTC).
+Precision Cloudflare Worker that manages and dispatches **all 11 scheduled pipelines** for Kosh on a single 15-minute tick (`*/15 * * * *`).
 
-All other jobs (feeds, universe, market internals, weekly recap grading, monthly reports, research) remain on their standard GitHub Actions schedules.
+By using Cloudflare's global edge scheduler, every job triggers at the **exact second** in Indian Standard Time (IST), completely eliminating GitHub Actions' 20–60 minute scheduler queue delays and timezone misconfigurations.
 
 ---
 
-## Why This Exists
+## Master Pipeline Schedule (Indian Standard Time)
 
-GitHub's internal scheduled cron runner (`on.schedule.cron`) experiences **20 to 60+ minute queue delays** during high-traffic intervals on GitHub's free runners. By moving the cron triggers to Cloudflare Workers:
-- The worker executes at the **exact second** on Cloudflare's global edge network.
-- It triggers GitHub's `workflow_dispatch` REST API, which spins up a GitHub Actions runner within **10–25 seconds** (bypassing the scheduled cron queue entirely).
-- The executed job generates the report, emails it via Resend, and commits the output directly to the repository so it is preserved for future processing.
-
----
-
-## Output Persistence & Downstream Processing
-
-When the Worker dispatches the workflow, the GitHub Actions runner runs:
-1. `npx tsx scripts/daily.ts` (or `scripts/retro.ts`):
-   - Computes market indicators & synthesizes narrative.
-   - Dispatches the report email via Resend.
-   - Writes the immutable JSON reports to `data/reports/` and `data/snapshots/`.
-   - Updates `data/manifest.json`.
-2. **Git Commit & Push**:
-   - The workflow commits the new data directly to the `main` branch.
-   - This ensures **weekly recap grading (`scripts/recap.ts`)** and **monthly outlooks (`scripts/monthly.ts`)** have full access to historical snapshots and reports.
-   - Triggers `deploy.yml` to refresh the public dashboard.
-3. **Dispatch Audit Log**:
-   - The Worker records every trigger with timestamp, workflow run ID, and run URL.
-   - If Cloudflare KV (`DISPATCH_LOGS`) is bound, audit logs are retained for 30 days and accessible via `/status` and `/history`.
+| Job | Trigger Time (IST) | Days | Workflow | Output / Downstream Impact |
+|---|---|---|---|---|
+| **`feed-indices`** | `02:00 IST` | Mon–Fri | `feed-indices.yml` | Writes NSE & BSE benchmark index quotes to `data/feed/` |
+| **`feed-global`** | `02:15 IST` | Mon–Fri | `feed-global.yml` | Writes global cues, USD/INR, 10Y yields, and commodities |
+| **`feed-universe`** | `02:30 IST` | Mon–Fri | `feed-universe.yml` | Fetches Nifty 500 universe prices & volume metrics |
+| **`feed-internals`** | `02:45 IST` | Mon–Fri | `feed-internals.yml` | Computes market breadth & advance/decline ratio |
+| **`feed-news`** | `06:00 IST` | Mon–Fri | `feed-news.yml` | Synthesizes pre-market morning financial news |
+| **`feed-flows`** | `06:30 IST` | Mon–Fri | `feed-flows.yml` | Fetches FII & DII institutional cash flows |
+| **`daily`** | `08:30 IST` | Mon–Fri | `daily.yml` | **Kosh Daily Morning Brief** (guaranteed fresh feed data) |
+| **`retro`** | `15:45 IST` | Mon–Fri | `retro.yml` | **Market Close & Daily Retrospective** (post-close snapshot & risk audit) |
+| **`recap`** | `10:00 IST` | Saturday | `recap.yml` | Weekly positional bet grading & audited scorecard |
+| **`weekly`** | `21:00 IST` | Sunday | `weekly.yml` | Forward weekly macro outlook |
+| **`monthly`** | `00:00 IST` | 1st of month | `monthly.yml` | Monthly macro recap |
 
 ---
 
-## Setup & Deployment
+## How It Works
 
-### 1. Requirements
-- Node.js 20+
-- Cloudflare account with Workers enabled
-- GitHub Personal Access Token (PAT) with `repo` or `actions:write` scope
+1. **The 15-Minute Edge Tick**:
+   - The worker runs every 15 minutes (`*/15 * * * *`) via Cloudflare Cron Triggers.
+   - It converts the current timestamp into IST (`UTC + 5:30`) and checks if any jobs match the current 15-minute slot.
+   - During off-schedule slots (e.g. 03:00, 04:15), the worker completes silently in <1ms.
+2. **Instant Runner Dispatch**:
+   - For matching jobs, it calls GitHub REST API (`POST /repos/{owner}/{repo}/actions/workflows/{workflow}/dispatches`).
+   - GitHub prioritizes API dispatches, provisioning an Ubuntu runner within **10–25 seconds**.
+3. **Output Preservation**:
+   - The GitHub runner runs the data fetch or report generation script.
+   - The runner commits all outputs directly to `data/` and pushes to `main`.
+   - Downstream recaps and historical audits always have full access to historical data.
+4. **Audit Trail**:
+   - The worker queries GitHub Actions API immediately after dispatch to fetch the `workflowRunId` and direct `html_url`.
+   - Stored in Cloudflare logs and optionally in Cloudflare KV.
 
-### 2. Configure GitHub Token Secret
-In this directory:
+---
+
+## Deploying the Updated Worker
+
+Run from `workers/cron-dispatcher/`:
+
 ```bash
 cd workers/cron-dispatcher
-npx wrangler secret put GITHUB_TOKEN
-# Paste your GitHub Personal Access Token when prompted
-```
-
-*(Optional)* Configure an `ADMIN_KEY` if you want to protect manual HTTP triggering:
-```bash
-npx wrangler secret put ADMIN_KEY
-```
-
-### 3. (Optional) Enable Cloudflare KV for Persistent Audit History
-```bash
-npx wrangler kv:namespace create DISPATCH_LOGS
-```
-Copy the generated ID and add to `wrangler.jsonc`:
-```jsonc
-"kv_namespaces": [
-  {
-    "binding": "DISPATCH_LOGS",
-    "id": "<YOUR_KV_NAMESPACE_ID>"
-  }
-]
-```
-
-### 4. Deploy to Cloudflare
-```bash
 npx wrangler deploy
 ```
 
@@ -78,21 +56,24 @@ npx wrangler deploy
 
 ## Testing & Verification
 
-### Health Check
+### 1. View Full Live Schedule
 ```bash
-curl https://kosh-cron-dispatcher.<your-subdomain>.workers.dev/health
+curl https://kosh-cron-dispatcher.avampiryanshu.workers.dev/health
 ```
 
-### Manual Trigger (Dry Run / Test)
+### 2. Manual Test Trigger
+You can manually trigger **any of the 11 jobs** on demand:
+
 ```bash
-curl "https://kosh-cron-dispatcher.<your-subdomain>.workers.dev/dispatch?job=daily"
-```
-Or with an `ADMIN_KEY`:
-```bash
-curl -H "Authorization: Bearer <ADMIN_KEY>" "https://kosh-cron-dispatcher.<your-subdomain>.workers.dev/dispatch?job=daily"
+# Trigger morning news feed:
+curl "https://kosh-cron-dispatcher.avampiryanshu.workers.dev/dispatch?job=feed-news&key=YOUR_ADMIN_KEY"
+
+# Trigger daily morning brief:
+curl "https://kosh-cron-dispatcher.avampiryanshu.workers.dev/dispatch?job=daily&key=YOUR_ADMIN_KEY"
+
+# Trigger institutional cash flows:
+curl "https://kosh-cron-dispatcher.avampiryanshu.workers.dev/dispatch?job=feed-flows&key=YOUR_ADMIN_KEY"
 ```
 
-### Check Latest Dispatch Status
-```bash
-curl https://kosh-cron-dispatcher.<your-subdomain>.workers.dev/status
-```
+Available `job` values:
+`feed-indices`, `feed-global`, `feed-universe`, `feed-internals`, `feed-news`, `feed-flows`, `daily`, `retro`, `recap`, `weekly`, `monthly`.

@@ -15,7 +15,7 @@ export interface ExecutionContext {
 }
 
 export interface Env {
-  GITHUB_TOKEN: string; // Personal Access Token or Fine-grained PAT with actions:write
+  GITHUB_TOKEN: string; // Personal Access Token with actions:write
   REPO_OWNER?: string; // Default: 'ahampriyanshu'
   REPO_NAME?: string; // Default: 'kosh'
   DEFAULT_BRANCH?: string; // Default: 'main'
@@ -23,10 +23,20 @@ export interface Env {
   DISPATCH_LOGS?: CloudflareKV; // Optional Cloudflare KV namespace for dispatch history
 }
 
+export interface ScheduledSlot {
+  hours: number;
+  minutes: number;
+  daysOfWeek?: number[]; // [1, 2, 3, 4, 5] for Mon-Fri; 6 for Sat; 0 for Sun
+  dayOfMonth?: number; // 1 for 1st of month
+  job: string;
+  workflowFile: string;
+  description: string;
+}
+
 export interface DispatchRecord {
   id: string;
   workflow: string;
-  targetJob: 'daily' | 'retro';
+  targetJob: string;
   dispatchedAt: string;
   triggerType: 'cron' | 'manual' | 'http';
   status: 'dispatched' | 'error';
@@ -38,40 +48,197 @@ export interface DispatchRecord {
   error?: string;
 }
 
-// Map cron schedules to the two time-sensitive workflows
-// 0 3 * * 1-5  -> 03:00 UTC = 08:30 IST Mon-Fri -> daily.yml (Daily Morning Brief)
-// 30 8 * * 1-5 -> 08:30 UTC = 14:00 IST Mon-Fri -> retro.yml (Mid-Session Retro)
-export const SCHEDULE_MAP: Record<string, { file: string; job: 'daily' | 'retro' }> = {
-  '0 3 * * 1-5': { file: 'daily.yml', job: 'daily' },
-  '30 8 * * 1-5': { file: 'retro.yml', job: 'retro' },
-};
+/**
+ * Full master schedule for Kosh in Indian Standard Time (IST = UTC + 5:30).
+ * Driven by a single 15-minute tick ('* / 15 * * * *') on Cloudflare Workers.
+ */
+export const PIPELINE_SCHEDULE: ScheduledSlot[] = [
+  // ── Nightly Market Data Extraction (Mon–Fri) ──
+  {
+    hours: 2,
+    minutes: 0,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'feed-indices',
+    workflowFile: 'feed-indices.yml',
+    description: 'NSE & BSE benchmark index quotes',
+  },
+  {
+    hours: 2,
+    minutes: 15,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'feed-global',
+    workflowFile: 'feed-global.yml',
+    description: 'Global cues & currency/yields',
+  },
+  {
+    hours: 2,
+    minutes: 30,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'feed-universe',
+    workflowFile: 'feed-universe.yml',
+    description: 'Nifty 500 universe prices & volume',
+  },
+  {
+    hours: 2,
+    minutes: 45,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'feed-internals',
+    workflowFile: 'feed-internals.yml',
+    description: 'Market breadth & advance/decline internals',
+  },
 
-export const JOB_FILE_MAP: Record<'daily' | 'retro', string> = {
-  daily: 'daily.yml',
-  retro: 'retro.yml',
-};
+  // ── Morning Pre-Market News & Institutional Cash Flows (Mon–Fri) ──
+  {
+    hours: 6,
+    minutes: 0,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'feed-news',
+    workflowFile: 'feed-news.yml',
+    description: 'Morning market news synthesis',
+  },
+  {
+    hours: 6,
+    minutes: 30,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'feed-flows',
+    workflowFile: 'feed-flows.yml',
+    description: 'FII & DII institutional cash flows',
+  },
+
+  // ── Time-Sensitive Market Hours Publications (Mon–Fri) ──
+  {
+    hours: 8,
+    minutes: 30,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'daily',
+    workflowFile: 'daily.yml',
+    description: 'Kosh Daily Morning Brief (Delivered pre-market)',
+  },
+  {
+    hours: 15,
+    minutes: 45,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'retro',
+    workflowFile: 'retro.yml',
+    description: 'Market Close & Daily Retrospective (Post-close snapshot & risk surveillance)',
+  },
+
+  // ── Weekend & Monthly Audits ──
+  {
+    hours: 10,
+    minutes: 0,
+    daysOfWeek: [6],
+    job: 'recap',
+    workflowFile: 'recap.yml',
+    description: 'Saturday weekly call grading & audited scorecard',
+  },
+  {
+    hours: 21,
+    minutes: 0,
+    daysOfWeek: [0],
+    job: 'weekly',
+    workflowFile: 'weekly.yml',
+    description: 'Sunday evening forward outlook for coming week',
+  },
+  {
+    hours: 0,
+    minutes: 0,
+    dayOfMonth: 1,
+    job: 'monthly',
+    workflowFile: 'monthly.yml',
+    description: '1st of month macro review',
+  },
+];
+
+/** Map of all valid job names to workflow files */
+export const ALL_JOBS: Record<string, string> = Object.fromEntries(
+  PIPELINE_SCHEDULE.map((s) => [s.job, s.workflowFile])
+);
+
+/**
+ * Converts a UTC Date into IST (UTC + 5:30) slot coordinates,
+ * rounding to the nearest 15-minute tick to eliminate minor jitter.
+ */
+export function getISTTime(date: Date): {
+  hours: number;
+  minutes: number;
+  dayOfWeek: number;
+  dayOfMonth: number;
+  formattedIST: string;
+} {
+  const slotMs = 15 * 60 * 1000;
+  const roundedEpoch = Math.round(date.getTime() / slotMs) * slotMs;
+  const istEpoch = roundedEpoch + 5.5 * 60 * 60 * 1000;
+  const istDate = new Date(istEpoch);
+
+  const hours = istDate.getUTCHours();
+  const minutes = istDate.getUTCMinutes();
+  const dayOfWeek = istDate.getUTCDay();
+  const dayOfMonth = istDate.getUTCDate();
+
+  const pad = (n: number) => n.toString().padStart(2, '0');
+  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const formattedIST = `${days[dayOfWeek]} ${pad(hours)}:${pad(minutes)} IST`;
+
+  return { hours, minutes, dayOfWeek, dayOfMonth, formattedIST };
+}
+
+/**
+ * Returns any pipeline jobs scheduled to execute for the given Date slot.
+ */
+export function getJobsForDate(date: Date): ScheduledSlot[] {
+  const ist = getISTTime(date);
+  return PIPELINE_SCHEDULE.filter((slot) => {
+    if (slot.hours !== ist.hours || slot.minutes !== ist.minutes) {
+      return false;
+    }
+    if (slot.dayOfMonth !== undefined && slot.dayOfMonth !== ist.dayOfMonth) {
+      return false;
+    }
+    if (slot.daysOfWeek && !slot.daysOfWeek.includes(ist.dayOfWeek)) {
+      return false;
+    }
+    return true;
+  });
+}
 
 /**
  * Triggers a GitHub Actions workflow via the REST API and records the dispatch.
  */
 export async function triggerWorkflow(
-  job: 'daily' | 'retro',
+  jobName: string,
   triggerType: 'cron' | 'manual' | 'http',
   env: Env
 ): Promise<DispatchRecord> {
   const owner = env.REPO_OWNER || 'ahampriyanshu';
   const repo = env.REPO_NAME || 'kosh';
   const branch = env.DEFAULT_BRANCH || 'main';
-  const workflowFile = JOB_FILE_MAP[job];
+  const workflowFile = ALL_JOBS[jobName];
   const now = new Date();
   const dispatchedAt = now.toISOString();
-  const recordId = `${job}-${now.getTime()}`;
+  const recordId = `${jobName}-${now.getTime()}`;
+
+  if (!workflowFile) {
+    const errorRecord: DispatchRecord = {
+      id: recordId,
+      workflow: 'unknown',
+      targetJob: jobName,
+      dispatchedAt,
+      triggerType,
+      status: 'error',
+      httpStatus: 400,
+      branch,
+      error: `Unknown job '${jobName}'. Valid jobs: ${Object.keys(ALL_JOBS).join(', ')}`,
+    };
+    await persistRecord(errorRecord, env);
+    return errorRecord;
+  }
 
   if (!env.GITHUB_TOKEN) {
     const errorRecord: DispatchRecord = {
       id: recordId,
       workflow: workflowFile,
-      targetJob: job,
+      targetJob: jobName,
       dispatchedAt,
       triggerType,
       status: 'error',
@@ -91,7 +258,7 @@ export async function triggerWorkflow(
       headers: {
         Accept: 'application/vnd.github+json',
         Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-        'User-Agent': 'Kosh-Cron-Dispatcher/1.0',
+        'User-Agent': 'Kosh-Cron-Dispatcher/2.0',
         'X-GitHub-Api-Version': '2022-11-28',
       },
       body: JSON.stringify({ ref: branch }),
@@ -102,7 +269,7 @@ export async function triggerWorkflow(
       const failRecord: DispatchRecord = {
         id: recordId,
         workflow: workflowFile,
-        targetJob: job,
+        targetJob: jobName,
         dispatchedAt,
         triggerType,
         status: 'error',
@@ -114,11 +281,10 @@ export async function triggerWorkflow(
       return failRecord;
     }
 
-    // Success response from GitHub dispatches is 204 No Content
     const record: DispatchRecord = {
       id: recordId,
       workflow: workflowFile,
-      targetJob: job,
+      targetJob: jobName,
       dispatchedAt,
       triggerType,
       status: 'dispatched',
@@ -126,19 +292,21 @@ export async function triggerWorkflow(
       branch,
     };
 
-    // Optionally fetch the created workflow run ID for observability
+    // Attempt to grab the created run metadata
     try {
       const runsUrl = `https://api.github.com/repos/${owner}/${repo}/actions/workflows/${workflowFile}/runs?per_page=1`;
       const runsRes = await fetch(runsUrl, {
         headers: {
           Accept: 'application/vnd.github+json',
           Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-          'User-Agent': 'Kosh-Cron-Dispatcher/1.0',
+          'User-Agent': 'Kosh-Cron-Dispatcher/2.0',
           'X-GitHub-Api-Version': '2022-11-28',
         },
       });
       if (runsRes.ok) {
-        const data = (await runsRes.json()) as { workflow_runs?: Array<{ id: number; html_url: string; status: string }> };
+        const data = (await runsRes.json()) as {
+          workflow_runs?: Array<{ id: number; html_url: string; status: string }>;
+        };
         const latestRun = data.workflow_runs?.[0];
         if (latestRun) {
           record.workflowRunId = latestRun.id;
@@ -147,7 +315,7 @@ export async function triggerWorkflow(
         }
       }
     } catch {
-      // Non-fatal if metadata fetch fails
+      // Non-fatal
     }
 
     await persistRecord(record, env);
@@ -157,13 +325,13 @@ export async function triggerWorkflow(
     const networkFailRecord: DispatchRecord = {
       id: recordId,
       workflow: workflowFile,
-      targetJob: job,
+      targetJob: jobName,
       dispatchedAt,
       triggerType,
       status: 'error',
       httpStatus: 500,
       branch,
-      error: `Network/Fetch error: ${message}`,
+      error: `Network error: ${message}`,
     };
     await persistRecord(networkFailRecord, env);
     return networkFailRecord;
@@ -171,18 +339,16 @@ export async function triggerWorkflow(
 }
 
 /**
- * Persists dispatch records to Cloudflare KV (if bound) and prints structured log.
+ * Persists dispatch records to structured logs and Cloudflare KV (if bound).
  */
 async function persistRecord(record: DispatchRecord, env: Env): Promise<void> {
   console.log(`[DISPATCH] ${JSON.stringify(record)}`);
 
   if (env.DISPATCH_LOGS) {
     try {
-      // Store historical log
       await env.DISPATCH_LOGS.put(`dispatch:${record.id}`, JSON.stringify(record), {
         expirationTtl: 60 * 60 * 24 * 30, // 30-day retention
       });
-      // Store latest pointer for quick status lookups
       await env.DISPATCH_LOGS.put(`latest:${record.targetJob}`, JSON.stringify(record));
     } catch (e) {
       console.warn('Failed to write dispatch log to KV:', e);
@@ -192,73 +358,102 @@ async function persistRecord(record: DispatchRecord, env: Env): Promise<void> {
 
 export default {
   /**
-   * Cloudflare Workers Scheduled Cron Handler.
-   * Runs precisely at 08:30 IST (03:00 UTC) and 14:00 IST (08:30 UTC), Mon-Fri.
+   * Master 15-Minute Tick Handler.
+   * Evaluates current IST time and dispatches any scheduled pipeline jobs.
    */
   async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-    const cron = controller.cron;
-    const matched = SCHEDULE_MAP[cron];
+    const now = new Date(controller.scheduledTime || Date.now());
+    const ist = getISTTime(now);
+    const matchedJobs = getJobsForDate(now);
 
-    if (!matched) {
-      console.log(`[CRON] Unhandled cron expression: ${cron}`);
+    if (matchedJobs.length === 0) {
+      console.log(`[TICK] ${ist.formattedIST} — No jobs scheduled for this slot.`);
       return;
     }
 
-    console.log(`[CRON] Firing precision trigger for job: ${matched.job} (${matched.file}) at ${new Date().toISOString()}`);
-    ctx.waitUntil(triggerWorkflow(matched.job, 'cron', env));
+    console.log(
+      `[TICK] ${ist.formattedIST} — Firing ${matchedJobs.length} job(s): ${matchedJobs
+        .map((j) => `${j.job} (${j.workflowFile})`)
+        .join(', ')}`
+    );
+
+    ctx.waitUntil(
+      Promise.all(matchedJobs.map((slot) => triggerWorkflow(slot.job, 'cron', env)))
+    );
   },
 
   /**
-   * HTTP Handler for health checks, status verification, and manual dispatch.
+   * HTTP Handler for health check, schedule inspection, and manual testing.
    */
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // Health check
+    // Health check & Overview
     if (path === '/' || path === '/health') {
+      const now = new Date();
+      const ist = getISTTime(now);
       return new Response(
-        JSON.stringify({
-          status: 'ok',
-          service: 'kosh-cron-dispatcher',
-          activeCrons: Object.keys(SCHEDULE_MAP),
-          targetJobs: ['daily', 'retro'],
-          time: new Date().toISOString(),
-        }),
+        JSON.stringify(
+          {
+            status: 'ok',
+            service: 'kosh-cron-dispatcher',
+            version: '2.0.0 (Master Tick)',
+            currentTimeUTC: now.toISOString(),
+            currentTimeIST: ist.formattedIST,
+            activeJobsCount: PIPELINE_SCHEDULE.length,
+            schedule: PIPELINE_SCHEDULE.map((s) => ({
+              job: s.job,
+              workflow: s.workflowFile,
+              timeIST: `${s.hours.toString().padStart(2, '0')}:${s.minutes
+                .toString()
+                .padStart(2, '0')}`,
+              days: s.daysOfWeek ? s.daysOfWeek.join(',') : s.dayOfMonth ? `Day ${s.dayOfMonth}` : 'all',
+              description: s.description,
+            })),
+          },
+          null,
+          2
+        ),
         { headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    // Inspect latest dispatch history
+    // Schedule listing endpoint
+    if (path === '/schedule') {
+      return new Response(JSON.stringify(PIPELINE_SCHEDULE, null, 2), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Status inspection
     if (path === '/status' || path === '/history') {
       if (!env.DISPATCH_LOGS) {
         return new Response(
           JSON.stringify({
-            message: 'KV namespace DISPATCH_LOGS is not bound. Inspect logs via Cloudflare dashboard or wrangler tail.',
+            message:
+              'KV namespace DISPATCH_LOGS is not bound. Inspect logs via Cloudflare dashboard or wrangler tail.',
+            jobs: Object.keys(ALL_JOBS),
           }),
           { status: 200, headers: { 'Content-Type': 'application/json' } }
         );
       }
 
-      const [latestDaily, latestRetro] = await Promise.all([
-        env.DISPATCH_LOGS.get('latest:daily'),
-        env.DISPATCH_LOGS.get('latest:retro'),
-      ]);
-
-      return new Response(
-        JSON.stringify({
-          latest: {
-            daily: latestDaily ? JSON.parse(latestDaily) : null,
-            retro: latestRetro ? JSON.parse(latestRetro) : null,
-          },
-        }),
-        { headers: { 'Content-Type': 'application/json' } }
+      const statusMap: Record<string, unknown> = {};
+      await Promise.all(
+        Object.keys(ALL_JOBS).map(async (job) => {
+          const val = await env.DISPATCH_LOGS!.get(`latest:${job}`);
+          statusMap[job] = val ? JSON.parse(val) : null;
+        })
       );
+
+      return new Response(JSON.stringify({ latestDispatches: statusMap }, null, 2), {
+        headers: { 'Content-Type': 'application/json' },
+      });
     }
 
-    // Manual test dispatch endpoint: /dispatch?job=daily (or /dispatch?job=retro)
+    // Manual test trigger endpoint: /dispatch?job=feed-news (or daily, retro, etc.)
     if (path === '/dispatch') {
-      // Check auth if ADMIN_KEY is configured
       if (env.ADMIN_KEY) {
         const authHeader = request.headers.get('Authorization');
         const keyParam = url.searchParams.get('key');
@@ -273,10 +468,12 @@ export default {
       }
 
       const jobParam = url.searchParams.get('job');
-      if (jobParam !== 'daily' && jobParam !== 'retro') {
+      if (!jobParam || !ALL_JOBS[jobParam]) {
         return new Response(
           JSON.stringify({
-            error: "Invalid job parameter. Must be 'daily' or 'retro'. Example: /dispatch?job=daily",
+            error: `Invalid or missing job parameter '${jobParam}'.`,
+            availableJobs: Object.keys(ALL_JOBS),
+            example: '/dispatch?job=feed-news&key=YOUR_ADMIN_KEY',
           }),
           { status: 400, headers: { 'Content-Type': 'application/json' } }
         );

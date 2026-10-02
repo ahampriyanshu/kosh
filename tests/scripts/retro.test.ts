@@ -95,7 +95,7 @@ describe('runRetro', () => {
     expect(first.sourceData.tickers).toEqual(['X.NS']);
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
-    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Daily Retro', expect.any(String));
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Market Close & Daily Retro', expect.any(String));
     expect(second.emailSent).toBe(true);
   });
 

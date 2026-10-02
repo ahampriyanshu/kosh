@@ -3,8 +3,8 @@
 @theme {
   --font-display: var(--font-lato), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: var(--font-newsreader), Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-sans: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: var(--font-jetbrains), Monaco, Menlo, "Courier New", monospace;
+  --font-sans: var(--font-lato), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   --color-bg: var(--color-background-primary);
   --color-surface: var(--color-surface-primary);
@@ -147,7 +147,7 @@ body {
   width: 100%;
   background-color: var(--color-background-primary);
   color: var(--color-text-primary);
-  font-family: var(--font-poppins), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   transition:
@@ -650,7 +650,7 @@ select {
 }
 
 .kicker-tag {
-  font-family: var(--font-jetbrains), monospace;
+  font-family: var(--font-serif);
   font-size: 0.6875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -763,26 +763,26 @@ select {
 }
 
 /* Broadsheet Newspaper Core Utilities */
+.site-header.broadsheet-masthead,
 .broadsheet-masthead {
-  border-bottom: 3px double var(--color-ink);
-  padding-bottom: 0.75rem;
-  margin-bottom: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
-.broadsheet-ear {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--color-muted);
+.broadsheet-masthead .nav-link {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  line-height: 1.4;
 }
 
 .broadsheet-title {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   text-transform: uppercase;
   line-height: 1.05;
   color: var(--color-ink);
@@ -795,12 +795,8 @@ select {
   font-size: 0.8125rem;
   color: var(--color-muted);
   text-align: center;
-  letter-spacing: 0.04em;
+  margin: 0;
   padding: 0.35rem 0;
-  border-top: 1px solid var(--color-hairline);
-  border-bottom: 1px solid var(--color-hairline);
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
 }
 
 .broadsheet-headline {
@@ -808,7 +804,7 @@ select {
   font-size: clamp(1.4rem, 2.2vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
   color: var(--color-ink);
 }
 
@@ -822,46 +818,13 @@ select {
   margin-bottom: 0.75rem;
 }
 
-.broadsheet-byline {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-muted);
-  margin-bottom: 1rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 1px solid var(--color-hairline);
-}
-
 .broadsheet-dropcap::first-letter {
   font-family: var(--font-serif);
   float: left;
-  font-size: 3.25rem;
-  line-height: 0.8;
-  padding-top: 4px;
-  padding-right: 8px;
-  padding-bottom: 2px;
+  font-size: 3rem;
+  line-height: 0.85;
+  padding-top: 2px;
+  padding-right: 6px;
   font-weight: 700;
   color: var(--color-ink);
-}
-
-.broadsheet-notice-box {
-  border: 1px solid var(--color-ink);
-  padding: 0.875rem 1rem;
-  margin: 1.25rem 0;
-  background-color: var(--color-surface-secondary);
-}
-
-.broadsheet-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-ink);
-  padding-bottom: 0.25rem;
-  border-bottom: 1px solid var(--color-ink);
-  margin-bottom: 0.75rem;
-  display: block;
 }
