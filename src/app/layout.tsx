@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { JetBrains_Mono, Lato, Poppins } from 'next/font/google';
+import { JetBrains_Mono, Lato, Newsreader, Poppins } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
@@ -25,6 +25,14 @@ const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains',
   weight: ['400', '500', '700'],
+  display: 'swap',
+});
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  variable: '--font-newsreader',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
@@ -122,7 +130,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${jetbrains.variable}`}
+      className={`${poppins.variable} ${lato.variable} ${jetbrains.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -143,12 +151,29 @@ export default function RootLayout({
         <div className="app-container">
           <div className="main-wrapper">
             <div className="content-area">
-              <header className="site-header">
-                <div className="header-container">
+              <header className="site-header broadsheet-masthead">
+                {/* Top Ear Metadata */}
+                <div className="flex flex-wrap items-center justify-between broadsheet-ear pb-2 mb-2 border-b border-[var(--color-hairline)]">
+                  <span>MUMBAI · NATIONAL STOCK EXCHANGE (NSE) · BSE</span>
+                  <span>PRICE: ₹0.00 / GIT-AUDITED · EST. JUNE 2026</span>
+                </div>
+
+                {/* Newspaper Grand Title */}
+                <div className="text-center py-2">
+                  <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
+                    <span className="broadsheet-title block">Kosh Daily</span>
+                  </Link>
+                  <p className="broadsheet-motto">
+                    The Daily Journal of Indian Equities, Market Microstructure &amp; Audited Positional Bets
+                  </p>
+                </div>
+
+                {/* Navigation and Actions */}
+                <div className="header-container pt-1">
                   <div className="brand-lockup">
-                    <Link href="/" className="brand-name">
-                      Kosh
-                    </Link>
+                    <span className="font-mono text-xs uppercase font-bold tracking-wider text-[var(--color-ink)]">
+                      DISPATCH DESK
+                    </span>
                   </div>
                   <NavBar />
                   <div className="header-actions">
