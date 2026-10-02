@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "id": "2",
+  "type": "research",
+  "dateKey": "2",
+  "generatedAt": "2026-10-02T12:26:34.623Z",
+  "sourceData": {
+    "tickers": [
+      "HDFCBANK.NS"
+    ],
+    "priceSnapshot": {
+      "HDFCBANK.NS": 721.2
+    },
+    "searchTimestamp": "2026-10-02T12:26:34.623Z"
+  },
+  "content": {
+    "items": [
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC BANK LTD",
+        "asOf": "2026-10-02T12:26:34.623Z",
+        "price": 721.2,
+        "metrics": [
+          {
+            "label": "LTP",
+            "value": "Rs 721.2"
+          },
+          {
+            "label": "52W Range",
+            "value": "Rs 681.9 - Rs 1,020.5"
+          },
+          {
+            "label": "Trend",
+            "value": "neutral"
+          },
+          {
+            "label": "RSI",
+            "value": "49.3"
+          },
+          {
+            "label": "P/E",
+            "value": "15.77"
+          },
+          {
+            "label": "MACD",
+            "value": "-0.40 / -0.86"
+          }
+        ],
+        "fundamentals": {
+          "growth": "Q1 FY27 net profit +4.98%, NII +6.7%; average deposits +13.3%, average gross advances +13.4%; leveraging AI, cross-selling synergies, rural expansion; FY27 credit growth forecast 15%, deposit growth 13.6%.",
+          "valuation": "Trades at ~26% discount to ICICI Bank (P/B), ~6% discount to Kotak Mahindra Bank, and nearly 30% below its 52-week high of ₹1,020.35."
+        },
+        "technicals": {
+          "trend": "Medium-term falling trend channel, stock below all major moving averages, broke support at ₹743 (rectangle formation) signaling potential fall to ₹665.",
+          "momentum": "RSI is neutral at 49.3-51.241; MACD is neutral at 0.026.",
+          "levels": "Immediate pivot ₹717.22; resistance at ₹728.19, ₹733.67, ₹744.64, and ₹737; support at ₹711.74, ₹700.77, and ₹695.29."
+        },
+        "sentiment": {
+          "news": "RBI approval of Anup Bagchi as new MD & CEO on Oct 1, 2026, brought clarity and positive market reaction (ADRs +5%, domestic stock +1.76%); turbulent year due to leadership changes and post-merger challenges.",
+          "brokerage": "Jefferies maintained 'Buy' (target ₹880); Motilal Oswal 'Buy' (target ₹925); UBS 'Buy' (target ₹1,000); Bernstein 'Outperform' (target ₹1,150); Morgan Stanley 'Overweight' (target ₹1,025); Nuvama 'Buy' (target ₹875, cut from ₹1,025); HSBC downgraded ADRs to 'Hold' (target $26.10)."
+        },
+        "entryExit": {
+          "fundamental": "Supports entry due to deep valuation discount and strong long-term growth prospects despite governance risks and execution challenges.",
+          "technicalSentiment": "Wait for clearer signals; technicals show a falling trend and broken support, but positive sentiment from new CEO appointment and brokerage targets suggest potential for rebound."
+        },
+        "targets": [
+          {
+            "source": "Jefferies",
+            "target": "₹880",
+            "duration": "~2 years (based on Sept 2028 book value)",
+            "view": "~20% upside"
+          },
+          {
+            "source": "Motilal Oswal",
+            "target": "₹925",
+            "duration": "Long-term (anticipating improved FY28)",
+            "view": "~28% upside"
+          },
+          {
+            "source": "UBS",
+            "target": "₹1,000",
+            "duration": "Unspecified",
+            "view": "39% upside"
+          },
+          {
+            "source": "Bernstein",
+            "target": "₹1,150",
+            "duration": "Unspecified",
+            "view": "60% upside"
+          },
+          {
+            "source": "Morgan Stanley",
+            "target": "₹1,025",
+            "duration": "Unspecified",
+            "view": "Deep value"
+          },
+          {
+            "source": "Nuvama",
+            "target": "₹875",
+            "duration": "Unspecified",
+            "view": "Unspecified upside"
+          },
+          {
+            "source": "HSBC",
+            "target": "$26.10 (ADR)",
+            "duration": "Unspecified",
+            "view": "Unspecified"
+          },
+          {
+            "source": "Analyst Consensus (11 analysts)",
+            "target": "₹972.30",
+            "duration": "Unspecified",
+            "view": "34.82% upside"
+          }
+        ],
+        "recommendation": {
+          "action": "hold",
+          "reasoning": "While technicals are weak and risks exist, the stock offers deep value, strong growth prospects, and a positive catalyst from new leadership, justifying a hold for potential long-term recovery."
+        }
+      }
+    ]
+  },
+  "emailSent": false,
+  "checksum": "sha256:033795aedb8f98645d11f18ffe3620ae13dde46f113294a1a6d693b10a620c68"
+}
