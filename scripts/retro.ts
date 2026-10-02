@@ -13,6 +13,7 @@ import { fetchUniverse } from '../lib/feed/universe';
 import { computeInternals } from '../lib/feed/internals';
 import { buildSnapshot } from '../lib/feed/merge';
 import { writeSnapshot, writeSlice } from '../lib/feed/store';
+import { computeMoodSnapshot } from '../lib/sentiment';
 import {
   AlertSchema,
   RetroContentSchema,
@@ -49,8 +50,10 @@ async function refreshMarketClosingSlices(date: string, nowIso: string): Promise
     await writeSlice(date, 'universe', universe, UniverseSliceSchema);
     await writeSlice(date, 'internals', internals, InternalsSliceSchema);
     const snapshot = await buildSnapshot(date, '1d', nowIso);
+    const mood = computeMoodSnapshot(snapshot, 'closing');
+    snapshot.sentiment = mood;
     await writeSnapshot(date, snapshot);
-    console.log(`Updated official closing snapshot for ${date}.`);
+    console.log(`Updated official closing snapshot and mood index for ${date} (${mood.composite}/100 · ${mood.regime}).`);
   } catch (err) {
     console.warn(`Could not refresh closing snapshot for ${date}:`, err);
   }

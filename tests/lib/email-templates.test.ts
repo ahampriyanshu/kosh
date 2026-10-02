@@ -18,7 +18,7 @@ const sampleSnapshot = {
   globalIndices: [], commodities: [], currencies: [], topGainers: [], topLosers: [],
   mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [],
   news: [], streetRecommendations: [], corporateActions: [],
-  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null, derivatives: null,
 };
 
 const dailyContent: DailyContent = {

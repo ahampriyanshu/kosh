@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { getLatest, getManifest, readAllLedgers } from '../lib/reports';
 import type { DailyContent, RetroContent } from '../../lib/schemas';
+import { MarketMoodIndex } from '../components/MarketMoodIndex';
+import { computeMoodSnapshot } from '../../lib/sentiment';
 
 function formatCrore(value: number): string {
   const sign = value > 0 ? '+' : value < 0 ? '−' : '';
@@ -30,6 +32,7 @@ export default async function TodayPage() {
 
   const dailyContent = daily ? (daily.content as DailyContent) : null;
   const snapshot = dailyContent?.snapshot;
+  const mood = snapshot?.sentiment ?? (snapshot ? computeMoodSnapshot(snapshot, 'closing') : null);
 
   // Aggregate stats across all months from the ledger
   let totalBets = 0;
@@ -200,6 +203,9 @@ export default async function TodayPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-t border-b border-[var(--color-hairline)]">
         {/* ── Column 1: Market Breadth, Flows, Sectors (Left, 3 cols) ── */}
         <aside className="md:col-span-3 pr-0 md:pr-5 py-4 border-b md:border-b-0 md:border-r border-[var(--color-hairline)] space-y-6">
+          {/* Market Mood Index */}
+          {mood && <MarketMoodIndex mood={mood} />}
+
           {/* Market Breadth */}
           {snapshot?.breadth && (
             <div>

@@ -14,11 +14,13 @@ vi.mock('../../lib/portfolio', () => ({ readPortfolio: h.readPortfolio }));
 vi.mock('../../lib/market-data', () => ({
   getQuoteDetail: h.getQuoteDetail,
   getHistorical: h.getHistorical,
+  getUniverseQuotes: vi.fn().mockResolvedValue([]),
 }));
 vi.mock('../../lib/indicators', () => ({ sma: h.sma }));
 vi.mock('../../lib/llm', () => ({ generateGroundedObject: h.generateGroundedObject }));
 vi.mock('../../lib/storage', () => ({
   writeReport: h.writeReport,
+  atomicWriteJson: vi.fn().mockResolvedValue(undefined),
   computeChecksum: () => 'sha256:test',
 }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));

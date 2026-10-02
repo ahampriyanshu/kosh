@@ -385,6 +385,7 @@ export const CorpActionSchema = z.object({
 });
 export const GiftNiftySchema = z.object({ value: z.number(), changePct: z.number() });
 export const BondYieldSchema = z.object({ name: z.string(), value: z.number(), changeBps: z.number() });
+export const VixSchema = z.object({ value: z.number(), changePct: z.number() });
 export const DerivativesDataSchema = z.object({
   pcrOi: z.number().nullable(),
   pcrVolume: z.number().nullable(),
@@ -444,7 +445,7 @@ export const MarketSnapshotSchema = z.object({
   news: z.array(NewsGroupSchema),
   streetRecommendations: z.array(StreetRecSchema),
   corporateActions: z.array(CorpActionSchema),
-  derivatives: DerivativesDataSchema.nullable().default(null),
+  derivatives: DerivativesDataSchema.nullable().optional().default(null),
   sentiment: MoodSnapshotSchema.nullable().optional(),
 });
 export type MarketSnapshot = z.infer<typeof MarketSnapshotSchema>;
@@ -495,6 +496,7 @@ export const NewsSliceSchema = z.object({ news: z.array(NewsGroupSchema), street
 export const FlowsSliceSchema = z.object({
   fiiDii: FiiDiiSchema.nullable(), corporateActions: z.array(CorpActionSchema),
   giftNifty: GiftNiftySchema.nullable(), bondYield: BondYieldSchema.nullable(),
+  derivatives: DerivativesDataSchema.nullable().default(null),
 });
 export type IndicesSlice = z.infer<typeof IndicesSliceSchema>;
 export type GlobalSlice = z.infer<typeof GlobalSliceSchema>;
