@@ -51,7 +51,7 @@ export default function RecommendationsList({ recs }: RecommendationsListProps) 
           {recs.map((rec, idx) => (
             <tr key={idx} className="group hover:bg-[var(--color-raised)] transition-colors">
               <td className="py-3 pr-4">
-                <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
+                <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                   {ticker(rec.ticker)}
                 </span>
               </td>
@@ -62,13 +62,13 @@ export default function RecommendationsList({ recs }: RecommendationsListProps) 
               </td>
               <td className="py-3 pr-4">
                 <span
-                  className={`inline-block font-sans text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${actionStyle(rec.action)}`}
+                  className={`inline-block font-sans text-xs font-semibold uppercase tracking-wider px-2 py-0.5 ${actionStyle(rec.action)}`}
                 >
                   {rec.action}
                 </span>
               </td>
               <td className="py-3 pr-4 text-right">
-                <span className="font-mono text-sm text-[var(--color-ink)]">
+                <span className="tabular-nums text-sm text-[var(--color-ink)]">
                   {rec.target !== undefined
                     ? rec.target.toLocaleString('en-IN', {
                         minimumFractionDigits: 0,

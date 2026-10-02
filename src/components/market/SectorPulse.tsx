@@ -15,13 +15,13 @@ export function SectorPulse({ sectors }: SectorPulseProps) {
   const maxAbs = Math.max(...sorted.map((s) => Math.abs(s.changePct)), 1);
 
   return (
-    <div className="broadsheet-card border border-[var(--color-hairline)] bg-[var(--color-surface)]">
+    <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-4">
       {/* Header */}
       <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--color-hairline)]">
-        <span className="kicker-tag text-[var(--color-ink)]">
-          SECTOR ROTATION PULSE
+        <span className="font-serif font-bold text-xs uppercase tracking-wider text-[var(--color-ink)]">
+          Sector Rotation Pulse
         </span>
-        <div className="flex items-center gap-2 font-mono text-[11px]">
+        <div className="flex items-center gap-2 text-[11px]">
           <span className="text-[var(--color-muted)]">Leader:</span>
           <span className="font-bold text-[var(--color-bullish)]">
             {leader.sector} {leader.changePct >= 0 ? '+' : ''}{leader.changePct.toFixed(2)}%
@@ -38,30 +38,30 @@ export function SectorPulse({ sectors }: SectorPulseProps) {
           return (
             <div
               key={s.sector}
-              className="flex items-center justify-between text-xs py-1 px-1.5 rounded-sm hover:bg-[var(--color-raised)] transition-colors"
+              className="flex items-center justify-between text-xs py-1 px-1.5 hover:bg-[var(--color-raised)] transition-colors"
             >
               <span className="font-sans font-medium text-[var(--color-ink)] w-28 truncate">
                 {s.sector}
               </span>
 
               {/* Center Momentum Divergence Bar */}
-              <div className="flex-1 mx-3 flex items-center h-2 bg-[var(--color-surface-hover)]/60 rounded-full overflow-hidden relative">
+              <div className="flex-1 mx-3 flex items-center h-1.5 bg-[var(--color-surface-hover)]/60 overflow-hidden relative">
                 {isPositive ? (
                   <div
                     style={{ width: `${barWidth}%` }}
-                    className="h-full bg-[var(--color-bullish)] rounded-full transition-all duration-300"
+                    className="h-full bg-[var(--color-bullish)] transition-all duration-300"
                   />
                 ) : (
                   <div
                     style={{ width: `${barWidth}%` }}
-                    className="h-full bg-[var(--color-bearish)] rounded-full transition-all duration-300"
+                    className="h-full bg-[var(--color-bearish)] transition-all duration-300"
                   />
                 )}
               </div>
 
               {/* Numerical Delta */}
               <span
-                className={`font-mono text-xs font-semibold tabular-nums w-14 text-right ${
+                className={`text-xs font-semibold tabular-nums w-14 text-right ${
                   isPositive ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
                 }`}
               >
@@ -75,7 +75,7 @@ export function SectorPulse({ sectors }: SectorPulseProps) {
 
       {/* Footer Laggard Note */}
       {laggard && laggard.changePct < 0 && (
-        <div className="pt-2.5 mt-2 border-t border-[var(--color-hairline)]/70 flex items-center justify-between text-[11px] font-mono text-[var(--color-muted)]">
+        <div className="pt-2.5 mt-2 border-t border-[var(--color-hairline)]/70 flex items-center justify-between text-[11px] text-[var(--color-muted)]">
           <span>Heaviest Drag</span>
           <span className="text-[var(--color-bearish)] font-semibold">
             {laggard.sector} ({laggard.changePct.toFixed(2)}%)

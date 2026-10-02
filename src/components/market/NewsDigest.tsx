@@ -62,11 +62,11 @@ export function NewsDigest({ groups, limit = 6 }: NewsDigestProps) {
           <span className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-brand)]">
             {THEME_LABELS[category]}
           </span>
-          <p className="font-display font-semibold text-[var(--color-ink)] leading-snug mt-0.5">
+          <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug mt-0.5">
             {item.headline}
           </p>
           {isRealSource(item.source) && (
-            <span className="font-mono text-xs text-[var(--color-faint)]">{item.source}</span>
+            <span className="text-xs text-[var(--color-faint)]">{item.source}</span>
           )}
         </li>
       ))}

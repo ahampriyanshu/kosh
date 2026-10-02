@@ -48,7 +48,7 @@ export function Masthead({ dateStr, reportCount }: MastheadProps) {
   return (
     <div className="border-b border-[var(--color-hairline)] pb-6 mb-8">
       {/* Top Metadata Strip */}
-      <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[var(--color-muted)] pb-3 border-b border-[var(--color-hairline)]">
+      <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--color-muted)] pb-3 border-b border-[var(--color-hairline)]">
         <div className="flex items-center gap-2">
           <span className="font-semibold text-[var(--color-ink)] tracking-wider uppercase">
             NSE & BSE INTELLIGENCE
@@ -98,8 +98,8 @@ export function Masthead({ dateStr, reportCount }: MastheadProps) {
           </p>
         </div>
 
-        <div className="flex items-center gap-3 font-mono text-xs text-[var(--color-muted)] self-start md:self-end">
-          <span className="px-2 py-1 rounded bg-[var(--color-raised)] border border-[var(--color-hairline)]">
+        <div className="flex items-center gap-3 text-xs text-[var(--color-muted)] self-start md:self-end">
+          <span className="px-2 py-0.5 border border-[var(--color-hairline)]">
             Vol. 2026
           </span>
           {reportCount && reportCount > 0 && (

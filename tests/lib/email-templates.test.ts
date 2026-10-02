@@ -160,8 +160,7 @@ describe('email templates', () => {
     ];
 
     for (const html of rendered) {
-      expect(html).toContain("font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif");
-      expect(html).toContain("font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif");
+      expect(html).toContain("font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif");
       expect(html).toContain('href="https://kosh.ahampriyanshu.com"');
       expect(html).toContain('target="_blank"');
       expect(html).toContain('rel="noopener noreferrer"');

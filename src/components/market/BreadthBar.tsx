@@ -16,7 +16,7 @@ export default function BreadthBar({ breadth }: BreadthBarProps) {
   return (
     <div>
       {/* Horizontal bar */}
-      <div className="flex h-2 rounded overflow-hidden">
+      <div className="flex h-2 overflow-hidden">
         <div
           className="bg-[var(--color-bullish)]"
           style={{ flex: advances }}
@@ -28,7 +28,7 @@ export default function BreadthBar({ breadth }: BreadthBarProps) {
       </div>
 
       {/* Caption */}
-      <p className="mt-2 font-mono text-xs tabular-nums">
+      <p className="mt-2 text-xs tabular-nums">
         <span style={{ color: 'var(--color-bullish)' }}>▲ {advances.toLocaleString()}</span>
         {' '}
         <span style={{ color: 'var(--color-bearish)' }}>▼ {declines.toLocaleString()}</span>

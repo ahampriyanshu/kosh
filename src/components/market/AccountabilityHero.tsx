@@ -50,7 +50,7 @@ export async function AccountabilityHero() {
 
         <Link
           href="/scorecard"
-          className="font-mono text-xs font-semibold text-[var(--color-brand)] hover:underline inline-flex items-center gap-1"
+          className="text-xs font-semibold text-[var(--color-brand)] hover:underline inline-flex items-center gap-1"
         >
           View Graded Calls Archive →
         </Link>
@@ -62,10 +62,10 @@ export async function AccountabilityHero() {
           <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
             Graded Positional Calls
           </span>
-          <span className="font-mono text-2xl font-bold text-[var(--color-ink)] tabular-nums">
+          <span className="font-serif text-2xl font-bold text-[var(--color-ink)] tabular-nums">
             {totalBets}
           </span>
-          <span className="font-mono text-[11px] text-[var(--color-faint)] block mt-0.5">
+          <span className="tabular-nums text-[11px] text-[var(--color-faint)] block mt-0.5">
             Since June 2026
           </span>
         </div>
@@ -74,10 +74,10 @@ export async function AccountabilityHero() {
           <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
             Strict Win Rate (Hit vs Miss)
           </span>
-          <span className="font-mono text-2xl font-bold text-[var(--color-bullish)] tabular-nums">
+          <span className="font-serif text-2xl font-bold text-[var(--color-bullish)] tabular-nums">
             {winRate}%
           </span>
-          <span className="font-mono text-[11px] text-[var(--color-faint)] block mt-0.5">
+          <span className="tabular-nums text-[11px] text-[var(--color-faint)] block mt-0.5">
             Directional accuracy
           </span>
         </div>
@@ -86,13 +86,13 @@ export async function AccountabilityHero() {
           <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
             Outcome Distribution
           </span>
-          <span className="font-mono text-base font-semibold text-[var(--color-ink)] tabular-nums block">
+          <span className="text-base font-semibold text-[var(--color-ink)] tabular-nums block">
             <span className="text-[var(--color-bullish)]">{hits} Hits</span> ·{' '}
             <span className="text-[var(--color-muted)]">{partials} Partials</span> ·{' '}
             <span className="text-[var(--color-bearish)]">{misses} Misses</span>
           </span>
           {/* Proportion bar */}
-          <div className="w-full h-1.5 bg-[var(--color-surface-hover)] rounded-full mt-2 overflow-hidden flex">
+          <div className="w-full h-1.5 bg-[var(--color-surface-hover)] mt-2 overflow-hidden flex">
             <div style={{ width: `${hitPct}%` }} className="bg-[var(--color-bullish)] h-full" title={`Hits: ${hits}`} />
             <div style={{ width: `${partialPct}%` }} className="bg-amber-400 h-full" title={`Partials: ${partials}`} />
             <div style={{ width: `${missPct}%` }} className="bg-[var(--color-bearish)] h-full" title={`Misses: ${misses}`} />
@@ -103,10 +103,10 @@ export async function AccountabilityHero() {
           <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
             Verification Protocol
           </span>
-          <span className="font-mono text-sm font-semibold text-[var(--color-ink)] block">
+          <span className="text-sm font-semibold text-[var(--color-ink)] block">
             GitHub Actions Auto-Grade
           </span>
-          <span className="font-mono text-[11px] text-[var(--color-muted)] block mt-0.5">
+          <span className="text-[11px] text-[var(--color-muted)] block mt-0.5">
             Zero hindsight editing · Commit audit
           </span>
         </div>
@@ -116,14 +116,14 @@ export async function AccountabilityHero() {
       {recentMissNotes.length > 0 && (
         <div className="pt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2">
-            <span className="font-mono font-bold uppercase text-[10px] px-1.5 py-0.5 rounded bg-[var(--color-bearish-bg)] text-[var(--color-bearish)]">
+            <span className="font-bold uppercase text-[10px] px-1.5 py-0.5 border border-[var(--color-hairline)] text-[var(--color-bearish)]">
               Audited Blindspot
             </span>
             <span className="font-sans text-[var(--color-muted)] truncate max-w-md">
               {recentMissNotes[0]}
             </span>
           </div>
-          <span className="font-mono text-[11px] text-[var(--color-faint)] shrink-0">
+          <span className="text-[11px] text-[var(--color-faint)] shrink-0">
             Open retro grading every Sunday 21:00 IST
           </span>
         </div>

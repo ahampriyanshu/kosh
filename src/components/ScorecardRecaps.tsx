@@ -16,7 +16,7 @@ function RecapReportRow({ report }: { report: ReportEnvelope }) {
     <li className="flex flex-wrap items-center gap-3 py-3">
       <a
         href={dateReportPath(report.dateKey)}
-        className="font-mono text-sm text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
+        className="tabular-nums text-sm text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
       >
         {report.dateKey}
       </a>

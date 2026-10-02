@@ -96,7 +96,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
                   <tr key={bet.ticker}>
                     <td className="py-2.5 pr-4">
                       <div>
-                        <span className="font-mono text-sm font-semibold text-[var(--color-ink)]">
+                        <span className="font-serif text-sm font-semibold text-[var(--color-ink)]">
                           {bet.ticker.replace('.NS', '').replace('.BO', '')}
                         </span>
                         <div className="text-xs text-[var(--color-faint)] font-sans">{bet.name}</div>
@@ -104,7 +104,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
                     </td>
                     <td className="py-2.5 pr-4">
                       <span
-                        className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
+                        className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5"
                         style={{
                           backgroundColor:
                             bet.action === 'buy'
@@ -126,7 +126,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
                     <td className="py-2.5 pr-4">
                       <SignalBadge signal={bet.signal} />
                     </td>
-                    <td className="py-2.5 pr-4 text-right font-mono text-sm tabular-nums text-[var(--color-ink)]">
+                    <td className="py-2.5 pr-4 text-right text-sm tabular-nums text-[var(--color-ink)]">
                       {confidencePct(bet.confidence)}
                     </td>
                     <td className="py-2.5 text-[var(--color-muted)] text-sm leading-snug max-w-xs">
@@ -145,7 +145,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
       {/* Ledger rollup (Phase 3b) */}
       {content.ledgerRollup && (
         <ReportSection title="Ledger Rollup">
-          <p className="font-mono text-sm text-[var(--color-ink)] mb-2">
+          <p className="tabular-nums font-semibold text-sm text-[var(--color-ink)] mb-2">
             {content.ledgerRollup.hits} / {content.ledgerRollup.total} hits
           </p>
           <p className="text-sm text-[var(--color-muted)] leading-relaxed">{content.ledgerRollup.summary}</p>

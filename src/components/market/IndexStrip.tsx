@@ -16,7 +16,7 @@ export function IndexStrip({ indices }: IndexStripProps) {
           className="min-w-0"
         >
           <p className="font-sans text-xs text-[var(--color-muted)] mb-1 truncate">{idx.name}</p>
-          <p className="font-mono text-lg tabular-nums text-[var(--color-ink)] leading-tight">
+          <p className="text-lg tabular-nums text-[var(--color-ink)] leading-tight">
             {idx.ltp.toLocaleString('en-IN')}
           </p>
           <Pct value={idx.changePct} className="text-sm" />

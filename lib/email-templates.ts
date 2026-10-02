@@ -12,9 +12,9 @@ import type {
 import { EMAIL_LOGO_CONTENT_ID } from './email-assets';
 import { formatPeriodLabel, formatPeriodText } from './time';
 
-const font = `font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
-const display = `font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif`;
-const mono = `font-family:'JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace`;
+const font = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif`;
+const display = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif`;
+const mono = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif;font-variant-numeric:tabular-nums`;
 const KOSH_URL = 'https://kosh.ahampriyanshu.com';
 const AUTHOR_URL = 'https://ahampriyanshu.com';
 
@@ -101,7 +101,7 @@ export function formatDisplayDate(value: string): string {
 }
 
 function badge(label: string, fg: string, bg: string, border: string): string {
-  return `<span style="${font};display:inline-block;font-size:12px;font-weight:700;line-height:16px;color:${fg};background:${bg};border:1px solid ${border};border-radius:6px;padding:2px 8px;vertical-align:middle">${escapeHtml(label)}</span>`;
+  return `<span style="${font};display:inline-block;font-size:11px;font-weight:700;line-height:16px;color:${fg};background:${bg};border:1px solid ${border};padding:1px 6px;vertical-align:middle;text-transform:uppercase;letter-spacing:0.04em">${escapeHtml(label)}</span>`;
 }
 
 function signalBadge(signal: Signal): string {
@@ -139,7 +139,7 @@ function section(title: string, body: string): string {
 
 function card(body: string, borderColor = colors.border): string {
   return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${borderColor};border-radius:8px">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${borderColor}">
       <tr>
         <td style="padding:14px 16px">${body}</td>
       </tr>
@@ -185,7 +185,7 @@ function renderShell(options: {
     <style>
       @media only screen and (max-width: 600px) {
         .email-outer { padding: 0 !important; }
-        .email-container { border-left: 0 !important; border-right: 0 !important; border-radius: 0 !important; }
+        .email-container { border-left: 0 !important; border-right: 0 !important; }
         .email-pad { padding-left: 20px !important; padding-right: 20px !important; }
         .email-title { font-size: 24px !important; line-height: 30px !important; }
         .email-footer-link { display: block !important; text-align: left !important; padding-top: 8px !important; }
@@ -197,14 +197,14 @@ function renderShell(options: {
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:${colors.bg}">
       <tr>
         <td class="email-outer" align="center" style="padding:24px 12px">
-          <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border};border-radius:8px">
+          <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border}">
             <tr>
               <td class="email-pad" style="padding:28px 32px 18px 32px;border-bottom:1px solid ${colors.border}">
                 <table role="presentation" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:0 0 18px 0">
                   <tr>
                     <td style="padding:0 10px 0 0;vertical-align:middle">
                       <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block">
-                        <img src="cid:${EMAIL_LOGO_CONTENT_ID}" width="32" height="32" alt="Kosh" style="display:block;width:32px;height:32px;border:0;border-radius:6px">
+                        <img src="cid:${EMAIL_LOGO_CONTENT_ID}" width="32" height="32" alt="Kosh" style="display:block;width:32px;height:32px;border:0">
                       </a>
                     </td>
                     <td style="padding:0;vertical-align:middle">
@@ -219,7 +219,7 @@ function renderShell(options: {
             ${options.children}
             <tr>
               <td class="email-pad" style="padding:22px 32px 22px 32px">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border};border-radius:8px">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border}">
                   <tr>
                     <td style="padding:12px 14px">
                       <p style="${font};margin:0;color:${colors.muted};font-size:13px;line-height:20px">
@@ -525,7 +525,7 @@ function fiftyTwoBlock(s: MarketSnapshot): string {
 function fiiDiiBlock(fd: NonNullable<MarketSnapshot['fiiDii']>): string {
   const cell = (label: string, val: number) => `
     <td width="50%" style="padding:0;vertical-align:top">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border};border-radius:8px">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:separate;background:${colors.raised};border:1px solid ${colors.border}">
         <tr>
           <td style="padding:12px 14px">
             <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.faint};margin:0 0 2px 0">${escapeHtml(label)}</div>

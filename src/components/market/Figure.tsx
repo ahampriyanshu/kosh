@@ -5,7 +5,7 @@ import { ReportSection } from '../ui/ReportSection';
 export function Pct({ value, className = '' }: { value: number; className?: string }) {
   const color = value > 0 ? 'var(--color-bullish)' : value < 0 ? 'var(--color-bearish)' : 'var(--color-neutral)';
   return (
-    <span className={`font-mono tabular-nums ${className}`} style={{ color }}>
+    <span className={`tabular-nums ${className}`} style={{ color }}>
       {value > 0 ? '+' : ''}{value.toFixed(2)}%
     </span>
   );
@@ -16,7 +16,7 @@ export function Stat({ label, children }: { label: string; children: ReactNode }
   return (
     <div>
       <p className="font-sans text-xs text-[var(--color-faint)] mb-0.5">{label}</p>
-      <div className="font-mono text-[var(--color-ink)]">{children}</div>
+      <div className="tabular-nums text-[var(--color-ink)]">{children}</div>
     </div>
   );
 }

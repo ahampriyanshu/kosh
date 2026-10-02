@@ -49,18 +49,18 @@ export default function CorpActionsList({ actions }: CorpActionsListProps) {
           {actions.map((action, idx) => (
             <tr key={idx} className="group hover:bg-[var(--color-raised)] transition-colors">
               <td className="py-2.5 pr-4">
-                <span className="font-mono text-sm text-[var(--color-muted)]">
+                <span className="tabular-nums text-sm text-[var(--color-muted)]">
                   {action.date}
                 </span>
               </td>
               <td className="py-2.5 pr-4">
-                <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
+                <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                   {ticker(action.ticker)}
                 </span>
               </td>
               <td className="py-2.5 pr-4">
                 <span
-                  className={`inline-block font-sans text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${typeBadgeStyle(action.type)}`}
+                  className={`inline-block font-sans text-xs font-semibold uppercase tracking-wider px-2 py-0.5 ${typeBadgeStyle(action.type)}`}
                 >
                   {action.type}
                 </span>

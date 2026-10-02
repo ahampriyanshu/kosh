@@ -36,14 +36,14 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
                 key={idx}
                 className="border-l-2 border-[var(--color-hairline)] pl-3"
               >
-                <p className="font-display font-semibold text-[var(--color-ink)] leading-snug">
+                <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug">
                   {item.headline}
                 </p>
                 <p className="text-sm text-[var(--color-muted)] mt-0.5">
                   {item.summary}
                 </p>
                 <div className="mt-1.5 flex flex-wrap items-center gap-2">
-                  <span className="font-mono text-xs text-[var(--color-faint)]">
+                  <span className="text-xs text-[var(--color-faint)]">
                     {item.source}
                   </span>
                   {item.tickers && item.tickers.length > 0 && (
@@ -51,7 +51,7 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
                       {item.tickers.map((t) => (
                         <span
                           key={t}
-                          className="font-mono text-xs bg-[var(--color-raised)] text-[var(--color-ink)] px-1.5 py-0.5 rounded"
+                          className="font-serif text-xs border border-[var(--color-hairline)] text-[var(--color-ink)] px-1.5 py-0.5"
                         >
                           {ticker(t)}
                         </span>

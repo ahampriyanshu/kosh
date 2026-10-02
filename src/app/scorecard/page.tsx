@@ -46,38 +46,38 @@ export default async function ScorecardPage() {
 
       {/* Aggregate Calibration Barometer */}
       {totalBets > 0 && (
-        <div className="broadsheet-card mb-8 border border-[var(--color-hairline)] bg-[var(--color-surface)]">
+        <div className="mb-8 border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5">
           <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--color-hairline)]">
-            <span className="kicker-tag text-[var(--color-ink)]">
-              ALL-TIME PREDICTION CALIBRATION MATRIX
+            <span className="font-serif font-bold text-sm tracking-wide text-[var(--color-ink)] uppercase">
+              All-Time Performance Record
             </span>
-            <span className="font-mono text-xs text-[var(--color-muted)]">
+            <span className="tabular-nums text-xs text-[var(--color-muted)]">
               Audited June 2026 – Present
             </span>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-3 border-b border-[var(--color-hairline)]/70">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 py-3 border-b border-[var(--color-hairline)]">
             <div>
               <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
                 Total Positional Bets
               </span>
-              <span className="font-mono text-2xl font-bold text-[var(--color-ink)] tabular-nums">
+              <span className="font-serif text-2xl font-bold text-[var(--color-ink)] tabular-nums">
                 {totalBets}
               </span>
             </div>
             <div>
               <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
-                Strict Directional Win Rate
+                Directional Win Rate
               </span>
-              <span className="font-mono text-2xl font-bold text-[var(--color-bullish)] tabular-nums">
+              <span className="font-serif text-2xl font-bold text-[var(--color-bullish)] tabular-nums">
                 {winRate}%
               </span>
             </div>
             <div>
               <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
-                Hit vs. Miss Ratio
+                Hit vs. Miss
               </span>
-              <span className="font-mono text-lg font-semibold text-[var(--color-ink)] tabular-nums">
+              <span className="text-base font-semibold text-[var(--color-ink)] tabular-nums">
                 <span className="text-[var(--color-bullish)]">{hits} Hits</span> /{' '}
                 <span className="text-[var(--color-bearish)]">{misses} Misses</span>
               </span>
@@ -86,7 +86,7 @@ export default async function ScorecardPage() {
               <span className="font-sans text-xs text-[var(--color-muted)] block mb-0.5">
                 Partials / Scratch
               </span>
-              <span className="font-mono text-lg font-semibold text-[var(--color-muted)] tabular-nums">
+              <span className="text-base font-semibold text-[var(--color-muted)] tabular-nums">
                 {partials} Calls
               </span>
             </div>
@@ -95,16 +95,16 @@ export default async function ScorecardPage() {
           {/* Monthly Breakdown Ribbon */}
           {monthlyStats.length > 0 && (
             <div className="pt-3">
-              <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-[var(--color-muted)] block mb-2">
-                Monthly Hit-Rate Track Record
+              <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)] block mb-2">
+                Monthly Breakdown
               </span>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs tabular-nums">
                 {monthlyStats.map((m) => {
                   const mWin = m.hits + m.misses > 0 ? ((m.hits / (m.hits + m.misses)) * 100).toFixed(0) : '0';
                   return (
                     <div
                       key={m.month}
-                      className="p-2 rounded bg-[var(--color-raised)] border border-[var(--color-hairline)] flex items-center justify-between"
+                      className="p-2 border border-[var(--color-hairline)] flex items-center justify-between"
                     >
                       <span className="font-bold text-[var(--color-ink)]">{m.month}</span>
                       <span className="text-[var(--color-bullish)] font-semibold">
@@ -122,10 +122,10 @@ export default async function ScorecardPage() {
       {/* Recaps Archive List */}
       <div className="space-y-4">
         <h2 className="font-serif text-xl font-bold text-[var(--color-ink)]">
-          Weekly Recap Archive & Learning Loops
+          Weekly Recap Archive
         </h2>
         {sortedRecaps.length === 0 ? (
-          <div className="py-16 text-center border border-dashed border-[var(--color-hairline)] rounded-xl">
+          <div className="py-16 text-center border border-dashed border-[var(--color-hairline)]">
             <p className="font-serif text-xl text-[var(--color-faint)]">
               No graded calls yet — the first Saturday recap will populate this.
             </p>
