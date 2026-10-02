@@ -1,21 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { getHistoricalMoods, computeMoodSnapshot } from '../../../lib/sentiment';
+import { getHistoricalMoods } from '../../../lib/sentiment';
 import { MarketMoodIndex } from '../../components/MarketMoodIndex';
 import { PageHeader } from '../../components/ui/PageHeader';
-import type { MoodSnapshot, SentimentRegime } from '../../../lib/schemas';
+import type { MoodSnapshot } from '../../../lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'Market Mood Index | Kosh',
+  title: 'Market Mood Index | Kosh Daily',
   description: 'Audited 0-100 Composite Market Mood Index and Factor Attribution across Breadth, Institutional Flows, Volatility, and Derivatives.',
-};
-
-const REGIME_BADGES: Record<SentimentRegime, { text: string; bg: string; border: string }> = {
-  'Extreme Fear': { text: 'text-red-700 dark:text-red-400', bg: 'bg-red-50 dark:bg-red-950/40', border: 'border-red-300 dark:border-red-800' },
-  'Fear': { text: 'text-amber-700 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-950/40', border: 'border-amber-300 dark:border-amber-800' },
-  'Neutral': { text: 'text-zinc-600 dark:text-zinc-400', bg: 'bg-zinc-100 dark:bg-zinc-800/40', border: 'border-zinc-300 dark:border-zinc-700' },
-  'Greed': { text: 'text-emerald-700 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-950/40', border: 'border-emerald-300 dark:border-emerald-800' },
-  'Extreme Greed': { text: 'text-teal-700 dark:text-teal-400', bg: 'bg-teal-50 dark:bg-teal-950/40', border: 'border-teal-300 dark:border-teal-800' },
 };
 
 export default function SentimentPage() {
@@ -40,24 +32,30 @@ export default function SentimentPage() {
   const { categories } = currentMood;
 
   return (
-    <div className="pb-16 font-serif">
+    <div className="font-serif text-[var(--color-ink)] pb-16">
+      {/* Broadsheet Page Masthead / Ear */}
+      <div className="pb-2 mb-4 border-b border-[var(--color-hairline)] flex flex-wrap items-center justify-between text-xs font-mono text-[var(--color-muted)]">
+        <span>MUMBAI · NATIONAL STOCK EXCHANGE · DERIVATIVES &amp; CASH DESK</span>
+        <span>AUDITED 0–100 COMPOSITE SENTIMENT LEDGER</span>
+      </div>
+
       <PageHeader
         title="Market Mood Index (MMI)"
-        description="Audited 0–100 composite risk-on / risk-off sentiment barometer synthesizing cash market breadth, institutional cash flows, volatility, and derivatives options skew."
+        description="Daily quantitative synthesis of cash market breadth, institutional cash flows, implied volatility, and derivatives options skew for the Indian equity market."
       />
 
       {/* Hero Master Sentiment Beam */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
-        <div className="lg:col-span-6">
-          <MarketMoodIndex mood={currentMood} />
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 my-8 border-t border-b border-[var(--color-hairline)] py-6">
+        <div className="md:col-span-5 pr-0 md:pr-6 border-b md:border-b-0 md:border-r border-[var(--color-hairline)]">
+          <MarketMoodIndex mood={currentMood} compact />
         </div>
 
         {/* Executive Attribution Deck */}
-        <div className="lg:col-span-6 flex flex-col justify-between border border-[var(--color-hairline)] bg-[var(--color-surface)] p-6">
+        <div className="md:col-span-7 flex flex-col justify-between space-y-4">
           <div>
-            <div className="flex items-center justify-between pb-2 mb-3 border-b border-[var(--color-hairline)] text-xs font-mono text-[var(--color-muted)]">
+            <div className="flex items-center justify-between pb-1.5 mb-3 border-b border-[var(--color-hairline)] text-xs font-mono text-[var(--color-muted)]">
               <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
-                Quantitative Factor Attribution
+                Factor Attribution &amp; Driver Analysis
               </span>
               <span>
                 As of: {currentMood.asOf.slice(0, 10)}
@@ -65,217 +63,211 @@ export default function SentimentPage() {
             </div>
 
             <h3 className="font-serif text-xl font-bold text-[var(--color-ink)] mb-3 leading-snug">
-              What Is Driving Today&apos;s Market Regime?
+              What Is Driving Today&apos;s Trading Posture?
             </h3>
 
-            <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">
+            <p className="text-sm leading-relaxed text-[var(--color-ink)] mb-4 text-justify">
               {currentMood.summary}
             </p>
 
-            <ul className="space-y-2 text-xs font-mono text-[var(--color-muted)] mb-4">
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[var(--color-ink)]">• Breadth:</span>
-                <span>{categories.breadth.summary}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[var(--color-ink)]">• Flows:</span>
-                <span>{categories.flows.summary}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[var(--color-ink)]">• Volatility:</span>
-                <span>{categories.volatility.summary}</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-bold text-[var(--color-ink)]">• Derivatives:</span>
-                <span>{categories.derivatives.summary}</span>
-              </li>
-            </ul>
+            <div className="divide-y divide-[var(--color-hairline)]/70 text-xs">
+              <div className="py-2 flex items-start gap-2">
+                <span className="font-mono font-bold text-[var(--color-ink)] shrink-0 w-28">Breadth:</span>
+                <span className="text-[var(--color-muted)]">{categories.breadth.summary}</span>
+              </div>
+              <div className="py-2 flex items-start gap-2">
+                <span className="font-mono font-bold text-[var(--color-ink)] shrink-0 w-28">Flows:</span>
+                <span className="text-[var(--color-muted)]">{categories.flows.summary}</span>
+              </div>
+              <div className="py-2 flex items-start gap-2">
+                <span className="font-mono font-bold text-[var(--color-ink)] shrink-0 w-28">Volatility:</span>
+                <span className="text-[var(--color-muted)]">{categories.volatility.summary}</span>
+              </div>
+              <div className="py-2 flex items-start gap-2">
+                <span className="font-mono font-bold text-[var(--color-ink)] shrink-0 w-28">Derivatives:</span>
+                <span className="text-[var(--color-muted)]">{categories.derivatives.summary}</span>
+              </div>
+            </div>
           </div>
 
-          <div className="pt-3 border-t border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono text-[var(--color-faint)]">
+          <div className="pt-3 border-t border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono text-[var(--color-muted)]">
             <span>Primary Session: {currentMood.session === 'closing' ? 'Official Close (15:45 IST)' : 'Morning Stance (08:30 IST)'}</span>
-            <span>Immutable Git Record</span>
+            <span>Immutable SHA-256 Digest</span>
           </div>
         </div>
       </div>
 
       {/* 4 Standalone Category Deep-Dive Grid */}
       <div className="mb-12">
-        <div className="pb-2 mb-6 border-b-2 border-[var(--color-ink)] flex items-baseline justify-between">
-          <h2 className="font-serif text-xl font-bold text-[var(--color-ink)]">
+        <div className="pb-1 mb-6 border-b-2 border-[var(--color-ink)] flex items-baseline justify-between">
+          <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] uppercase tracking-wider">
             The Four Category Sub-Indexes
           </h2>
           <span className="text-xs font-mono text-[var(--color-muted)]">
-            Equal 25% Factor Weighting
+            Equal 25% Factor Attribution
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)]">
           {/* Category 1: Breadth */}
-          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-serif text-lg font-bold text-[var(--color-ink)]">
-                  1. Breadth &amp; Participation
-                </h3>
-                <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
-                  {categories.breadth.score} / 100
+          <div className="space-y-3 pb-6 md:pb-0 pr-0 md:pr-6">
+            <div className="flex items-baseline justify-between pb-1.5 border-b border-[var(--color-hairline)]">
+              <h3 className="font-serif font-bold text-base text-[var(--color-ink)]">
+                1. Breadth &amp; Participation
+              </h3>
+              <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
+                {categories.breadth.score} / 100 <span className="text-xs font-normal text-[var(--color-muted)]">[{categories.breadth.regime}]</span>
+              </span>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify">
+              {categories.breadth.summary}
+            </p>
+            <div className="grid grid-cols-3 gap-2 py-2 border-y border-[var(--color-hairline)] text-center text-xs font-mono">
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">A/D Ratio</span>
+                <span className="font-bold text-[var(--color-ink)]">{String(categories.breadth.metrics.adRatio ?? '1.0')}</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">% Advancing</span>
+                <span className="font-bold text-[var(--color-ink)]">{String(categories.breadth.metrics.pctAdvancing ?? '50')}%</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">52W Extremes</span>
+                <span className="font-bold text-[var(--color-ink)]">
+                  {String(categories.breadth.metrics.near52wHighs ?? 0)}H / {String(categories.breadth.metrics.near52wLows ?? 0)}L
                 </span>
               </div>
-              <p className="text-xs text-[var(--color-muted)] leading-relaxed mb-4">
-                {categories.breadth.summary}
-              </p>
-              <div className="grid grid-cols-3 gap-2 p-3 bg-[var(--color-raised)] text-center text-xs font-mono">
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">A/D Ratio</span>
-                  <span className="font-bold text-[var(--color-ink)]">{String(categories.breadth.metrics.adRatio ?? '1.0')}</span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">% Advancing</span>
-                  <span className="font-bold text-[var(--color-ink)]">{String(categories.breadth.metrics.pctAdvancing ?? '50')}%</span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">52W Highs/Lows</span>
-                  <span className="font-bold text-[var(--color-ink)]">
-                    {String(categories.breadth.metrics.near52wHighs ?? 0)} / {String(categories.breadth.metrics.near52wLows ?? 0)}
-                  </span>
-                </div>
-              </div>
             </div>
-            <div className="mt-4 pt-2 border-t border-[var(--color-hairline)] text-[11px] font-mono text-[var(--color-faint)]">
-              Weight: 25% · Data: Nifty 500 Equities
-            </div>
+            <p className="text-[11px] font-mono text-[var(--color-faint)]">
+              Weight: 25% · Data Source: Nifty 500 Equities Universe
+            </p>
           </div>
 
           {/* Category 2: Institutional Flows */}
-          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-serif text-lg font-bold text-[var(--color-ink)]">
-                  2. Institutional Cash Flows
-                </h3>
-                <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
-                  {categories.flows.score} / 100
+          <div className="space-y-3 pt-6 md:pt-0 pl-0 md:pl-6">
+            <div className="flex items-baseline justify-between pb-1.5 border-b border-[var(--color-hairline)]">
+              <h3 className="font-serif font-bold text-base text-[var(--color-ink)]">
+                2. Institutional Cash Flows
+              </h3>
+              <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
+                {categories.flows.score} / 100 <span className="text-xs font-normal text-[var(--color-muted)]">[{categories.flows.regime}]</span>
+              </span>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify">
+              {categories.flows.summary}
+            </p>
+            <div className="grid grid-cols-3 gap-2 py-2 border-y border-[var(--color-hairline)] text-center text-xs font-mono">
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">FII Net Cash</span>
+                <span className={`font-bold ${(Number(categories.flows.metrics.fiiNet ?? 0) >= 0) ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                  {Number(categories.flows.metrics.fiiNet ?? 0) >= 0 ? '+' : ''}
+                  {Number(categories.flows.metrics.fiiNet ?? 0).toLocaleString()} Cr
                 </span>
               </div>
-              <p className="text-xs text-[var(--color-muted)] leading-relaxed mb-4">
-                {categories.flows.summary}
-              </p>
-              <div className="grid grid-cols-3 gap-2 p-3 bg-[var(--color-raised)] text-center text-xs font-mono">
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">FII Net Cash</span>
-                  <span className={`font-bold ${(Number(categories.flows.metrics.fiiNet ?? 0) >= 0) ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
-                    {Number(categories.flows.metrics.fiiNet ?? 0) >= 0 ? '+' : ''}
-                    {Number(categories.flows.metrics.fiiNet ?? 0).toLocaleString()} Cr
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">DII Net Cash</span>
-                  <span className={`font-bold ${(Number(categories.flows.metrics.diiNet ?? 0) >= 0) ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
-                    {Number(categories.flows.metrics.diiNet ?? 0) >= 0 ? '+' : ''}
-                    {Number(categories.flows.metrics.diiNet ?? 0).toLocaleString()} Cr
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">Net Imbalance</span>
-                  <span className="font-bold text-[var(--color-ink)]">
-                    {Number(categories.flows.metrics.totalNet ?? 0) >= 0 ? '+' : ''}
-                    {Number(categories.flows.metrics.totalNet ?? 0).toLocaleString()} Cr
-                  </span>
-                </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">DII Net Cash</span>
+                <span className={`font-bold ${(Number(categories.flows.metrics.diiNet ?? 0) >= 0) ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                  {Number(categories.flows.metrics.diiNet ?? 0) >= 0 ? '+' : ''}
+                  {Number(categories.flows.metrics.diiNet ?? 0).toLocaleString()} Cr
+                </span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">Net Imbalance</span>
+                <span className="font-bold text-[var(--color-ink)]">
+                  {Number(categories.flows.metrics.totalNet ?? 0) >= 0 ? '+' : ''}
+                  {Number(categories.flows.metrics.totalNet ?? 0).toLocaleString()} Cr
+                </span>
               </div>
             </div>
-            <div className="mt-4 pt-2 border-t border-[var(--color-hairline)] text-[11px] font-mono text-[var(--color-faint)]">
-              Weight: 25% · Data: NSE / BSE Institutional Disclosures
-            </div>
+            <p className="text-[11px] font-mono text-[var(--color-faint)]">
+              Weight: 25% · Data Source: NSE / BSE Institutional Disclosures
+            </p>
           </div>
+        </div>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] pt-8 mt-8 border-t border-[var(--color-hairline)]">
           {/* Category 3: Volatility & Macro Risk */}
-          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-serif text-lg font-bold text-[var(--color-ink)]">
-                  3. Volatility &amp; Macro Risk
-                </h3>
-                <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
-                  {categories.volatility.score} / 100
+          <div className="space-y-3 pb-6 md:pb-0 pr-0 md:pr-6">
+            <div className="flex items-baseline justify-between pb-1.5 border-b border-[var(--color-hairline)]">
+              <h3 className="font-serif font-bold text-base text-[var(--color-ink)]">
+                3. Volatility &amp; Macro Risk
+              </h3>
+              <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
+                {categories.volatility.score} / 100 <span className="text-xs font-normal text-[var(--color-muted)]">[{categories.volatility.regime}]</span>
+              </span>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify">
+              {categories.volatility.summary}
+            </p>
+            <div className="grid grid-cols-3 gap-2 py-2 border-y border-[var(--color-hairline)] text-center text-xs font-mono">
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">India VIX</span>
+                <span className="font-bold text-[var(--color-ink)]">{Number(categories.volatility.metrics.vix ?? 14).toFixed(2)}</span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">VIX 1D Delta</span>
+                <span className={`font-bold ${(Number(categories.volatility.metrics.vixChangePct ?? 0) > 0) ? 'text-[var(--color-bearish)]' : 'text-[var(--color-bullish)]'}`}>
+                  {Number(categories.volatility.metrics.vixChangePct ?? 0) >= 0 ? '+' : ''}
+                  {Number(categories.volatility.metrics.vixChangePct ?? 0).toFixed(1)}%
                 </span>
               </div>
-              <p className="text-xs text-[var(--color-muted)] leading-relaxed mb-4">
-                {categories.volatility.summary}
-              </p>
-              <div className="grid grid-cols-3 gap-2 p-3 bg-[var(--color-raised)] text-center text-xs font-mono">
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">India VIX</span>
-                  <span className="font-bold text-[var(--color-ink)]">{Number(categories.volatility.metrics.vix ?? 14).toFixed(2)}</span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">VIX 1D Delta</span>
-                  <span className={`font-bold ${(Number(categories.volatility.metrics.vixChangePct ?? 0) > 0) ? 'text-[var(--color-bearish)]' : 'text-[var(--color-bullish)]'}`}>
-                    {Number(categories.volatility.metrics.vixChangePct ?? 0) >= 0 ? '+' : ''}
-                    {Number(categories.volatility.metrics.vixChangePct ?? 0).toFixed(1)}%
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">Gold Delta</span>
-                  <span className="font-bold text-[var(--color-ink)]">
-                    {Number(categories.volatility.metrics.goldChangePct ?? 0) >= 0 ? '+' : ''}
-                    {Number(categories.volatility.metrics.goldChangePct ?? 0).toFixed(1)}%
-                  </span>
-                </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">Gold Delta</span>
+                <span className="font-bold text-[var(--color-ink)]">
+                  {Number(categories.volatility.metrics.goldChangePct ?? 0) >= 0 ? '+' : ''}
+                  {Number(categories.volatility.metrics.goldChangePct ?? 0).toFixed(1)}%
+                </span>
               </div>
             </div>
-            <div className="mt-4 pt-2 border-t border-[var(--color-hairline)] text-[11px] font-mono text-[var(--color-faint)]">
-              Weight: 25% · Inverted Volatility Scale (Low VIX = Greed)
-            </div>
+            <p className="text-[11px] font-mono text-[var(--color-faint)]">
+              Weight: 25% · Inverted Volatility Scale (Low VIX = Greed / Complacency)
+            </p>
           </div>
 
           {/* Category 4: Derivatives & Options Skew */}
-          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="font-serif text-lg font-bold text-[var(--color-ink)]">
-                  4. Derivatives &amp; Options Skew
-                </h3>
-                <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
-                  {categories.derivatives.score} / 100
+          <div className="space-y-3 pt-6 md:pt-0 pl-0 md:pl-6">
+            <div className="flex items-baseline justify-between pb-1.5 border-b border-[var(--color-hairline)]">
+              <h3 className="font-serif font-bold text-base text-[var(--color-ink)]">
+                4. Derivatives &amp; Options Skew
+              </h3>
+              <span className="font-mono text-sm font-bold tabular-nums text-[var(--color-ink)]">
+                {categories.derivatives.score} / 100 <span className="text-xs font-normal text-[var(--color-muted)]">[{categories.derivatives.regime}]</span>
+              </span>
+            </div>
+            <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify">
+              {categories.derivatives.summary}
+            </p>
+            <div className="grid grid-cols-3 gap-2 py-2 border-y border-[var(--color-hairline)] text-center text-xs font-mono">
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">Nifty OI PCR</span>
+                <span className="font-bold text-[var(--color-ink)]">
+                  {categories.derivatives.metrics.pcrOi !== null ? Number(categories.derivatives.metrics.pcrOi).toFixed(2) : '1.00'}
                 </span>
               </div>
-              <p className="text-xs text-[var(--color-muted)] leading-relaxed mb-4">
-                {categories.derivatives.summary}
-              </p>
-              <div className="grid grid-cols-3 gap-2 p-3 bg-[var(--color-raised)] text-center text-xs font-mono">
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">Nifty OI PCR</span>
-                  <span className="font-bold text-[var(--color-ink)]">
-                    {categories.derivatives.metrics.pcrOi !== null ? Number(categories.derivatives.metrics.pcrOi).toFixed(2) : '1.00'}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">Volume PCR</span>
-                  <span className="font-bold text-[var(--color-ink)]">
-                    {categories.derivatives.metrics.pcrVolume !== null ? Number(categories.derivatives.metrics.pcrVolume).toFixed(2) : '1.00'}
-                  </span>
-                </div>
-                <div>
-                  <span className="text-[10px] text-[var(--color-muted)] block">Hedging Tone</span>
-                  <span className="font-bold text-[var(--color-ink)]">
-                    {Number(categories.derivatives.metrics.pcrOi ?? 1) > 1.25 ? 'High Protection' : Number(categories.derivatives.metrics.pcrOi ?? 1) < 0.75 ? 'Low Hedging' : 'Balanced'}
-                  </span>
-                </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">Volume PCR</span>
+                <span className="font-bold text-[var(--color-ink)]">
+                  {categories.derivatives.metrics.pcrVolume !== null ? Number(categories.derivatives.metrics.pcrVolume).toFixed(2) : '1.00'}
+                </span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] block">Hedging Tone</span>
+                <span className="font-bold text-[var(--color-ink)]">
+                  {Number(categories.derivatives.metrics.pcrOi ?? 1) > 1.25 ? 'High Protection' : Number(categories.derivatives.metrics.pcrOi ?? 1) < 0.75 ? 'Low Hedging' : 'Balanced'}
+                </span>
               </div>
             </div>
-            <div className="mt-4 pt-2 border-t border-[var(--color-hairline)] text-[11px] font-mono text-[var(--color-faint)]">
-              Weight: 25% · Contrarian Options Positioning
-            </div>
+            <p className="text-[11px] font-mono text-[var(--color-faint)]">
+              Weight: 25% · Contrarian Options Skew (High PCR = Oversold Fear)
+            </p>
           </div>
         </div>
       </div>
 
       {/* Historical Sentiment Timeseries Table */}
       <div className="mb-12">
-        <div className="pb-2 mb-4 border-b-2 border-[var(--color-ink)] flex items-baseline justify-between">
-          <h2 className="font-serif text-xl font-bold text-[var(--color-ink)]">
+        <div className="pb-1 mb-4 border-b-2 border-[var(--color-ink)] flex items-baseline justify-between">
+          <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] uppercase tracking-wider">
             Historical Sentiment Timeseries
           </h2>
           <span className="text-xs font-mono text-[var(--color-muted)]">
@@ -283,103 +275,113 @@ export default function SentimentPage() {
           </span>
         </div>
 
-        <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] overflow-x-auto">
-          <table className="w-full text-left text-xs font-mono border-collapse">
+        <div className="border border-[var(--color-hairline)] overflow-x-auto">
+          <table className="w-full text-left text-xs font-serif border-collapse">
             <thead>
-              <tr className="border-b border-[var(--color-hairline)] bg-[var(--color-raised)] text-[var(--color-muted)]">
-                <th className="py-2.5 px-3">Date</th>
-                <th className="py-2.5 px-3">Session</th>
-                <th className="py-2.5 px-3">Mood Score</th>
-                <th className="py-2.5 px-3">Regime</th>
-                <th className="py-2.5 px-3">Breadth</th>
-                <th className="py-2.5 px-3">Flows</th>
-                <th className="py-2.5 px-3">Volatility</th>
-                <th className="py-2.5 px-3">Derivatives</th>
+              <tr className="border-b border-[var(--color-hairline)] bg-[var(--color-raised)] text-[var(--color-muted)] font-mono text-[11px]">
+                <th className="py-2 px-3 font-semibold">Date</th>
+                <th className="py-2 px-3 font-semibold">Session</th>
+                <th className="py-2 px-3 font-semibold">Mood Score</th>
+                <th className="py-2 px-3 font-semibold">Regime</th>
+                <th className="py-2 px-3 font-semibold">Breadth</th>
+                <th className="py-2 px-3 font-semibold">Flows</th>
+                <th className="py-2 px-3 font-semibold">Volatility</th>
+                <th className="py-2 px-3 font-semibold">Derivatives</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]">
-              {history.map(({ date, mood }) => {
-                const badge = REGIME_BADGES[mood.regime] ?? REGIME_BADGES.Neutral;
-                return (
-                  <tr key={date} className="hover:bg-[var(--color-raised)]/50 transition-colors">
-                    <td className="py-2 px-3 font-bold text-[var(--color-ink)]">
-                      <Link href={`/reports/${date.replace(/-/g, '/')}`} className="hover:underline">
-                        {date}
-                      </Link>
-                    </td>
-                    <td className="py-2 px-3 text-[var(--color-muted)]">
-                      {mood.session === 'closing' ? 'Close' : 'Morning'}
-                    </td>
-                    <td className="py-2 px-3 font-bold tabular-nums text-sm text-[var(--color-ink)]">
-                      {mood.composite} / 100
-                    </td>
-                    <td className="py-2 px-3">
-                      <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold border ${badge.bg} ${badge.text} ${badge.border}`}>
-                        {mood.regime}
-                      </span>
-                    </td>
-                    <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
-                      {mood.categories.breadth.score}
-                    </td>
-                    <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
-                      {mood.categories.flows.score}
-                    </td>
-                    <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
-                      {mood.categories.volatility.score}
-                    </td>
-                    <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
-                      {mood.categories.derivatives.score}
-                    </td>
-                  </tr>
-                );
-              })}
+            <tbody className="divide-y divide-[var(--color-hairline)]/70 font-mono text-xs">
+              {history.map(({ date, mood }) => (
+                <tr key={date} className="hover:bg-[var(--color-raised)]/40 transition-colors">
+                  <td className="py-2 px-3 font-semibold text-[var(--color-ink)]">
+                    <Link href={`/reports/${date.replace(/-/g, '/')}`} className="underline hover:text-[var(--color-ink)]">
+                      {date}
+                    </Link>
+                  </td>
+                  <td className="py-2 px-3 text-[var(--color-muted)]">
+                    {mood.session === 'closing' ? 'Close' : 'Morning'}
+                  </td>
+                  <td className="py-2 px-3 font-bold tabular-nums text-sm text-[var(--color-ink)]">
+                    {mood.composite} <span className="text-[10px] font-normal text-[var(--color-muted)]">/ 100</span>
+                  </td>
+                  <td className="py-2 px-3 uppercase text-[11px] text-[var(--color-ink)] font-semibold">
+                    [ {mood.regime} ]
+                  </td>
+                  <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
+                    {mood.categories.breadth.score}
+                  </td>
+                  <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
+                    {mood.categories.flows.score}
+                  </td>
+                  <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
+                    {mood.categories.volatility.score}
+                  </td>
+                  <td className="py-2 px-3 tabular-nums text-[var(--color-muted)]">
+                    {mood.categories.derivatives.score}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
 
-      {/* Educational Framework: The 5 Regimes */}
-      <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-6">
-        <h3 className="font-serif text-lg font-bold text-[var(--color-ink)] mb-2">
-          The Five Sentiment Regimes &amp; Trading Rules
-        </h3>
-        <p className="text-xs text-[var(--color-muted)] mb-4">
-          How quantitative desks use the Kosh Market Mood Index for contrarian and trend positioning:
+      {/* Official Notice Box: The 5 Regimes */}
+      <div className="p-4 border border-[var(--color-ink)] font-serif text-xs">
+        <div className="flex items-center justify-between pb-1.5 mb-2 border-b border-[var(--color-hairline)]">
+          <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            Audited Framework: The Five Sentiment Regimes &amp; Trading Rules
+          </span>
+          <span className="font-mono text-[11px] text-[var(--color-muted)]">
+            Quantitative Interpretation
+          </span>
+        </div>
+        <p className="text-[var(--color-muted)] mb-3 leading-relaxed text-justify">
+          The Kosh Market Mood Index acts as a counter-cyclical and momentum thermometer. Institutional traders use extremes to identify asymmetric contrarian inflection points and mid-range readings to confirm trend continuation:
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 text-xs font-mono">
-          <div className="p-3 border border-red-200 dark:border-red-900 bg-red-50/50 dark:bg-red-950/20">
-            <span className="font-bold text-red-700 dark:text-red-400 block mb-1">0 – 25 Extreme Fear</span>
-            <p className="text-[11px] text-[var(--color-muted)]">
-              Capitulation &amp; panic hedging. Highest asymmetric risk-reward for long-term contrarian accumulation.
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2 border-t border-[var(--color-hairline)]">
+          <div className="space-y-1">
+            <span className="font-mono font-bold text-xs uppercase text-[var(--color-bearish)] block">
+              0 – 25 Extreme Fear
+            </span>
+            <p className="text-[11px] text-[var(--color-muted)] leading-relaxed">
+              Market capitulation and panic hedging. Highest asymmetric risk-reward for long-term contrarian accumulation.
             </p>
           </div>
 
-          <div className="p-3 border border-amber-200 dark:border-amber-900 bg-amber-50/50 dark:bg-amber-950/20">
-            <span className="font-bold text-amber-700 dark:text-amber-400 block mb-1">26 – 45 Fear</span>
-            <p className="text-[11px] text-[var(--color-muted)]">
-              Institutional distribution or breadth erosion. Cautious sizing and defensive trailing stops recommended.
+          <div className="space-y-1">
+            <span className="font-mono font-bold text-xs uppercase text-[var(--color-ink)] block">
+              26 – 45 Fear
+            </span>
+            <p className="text-[11px] text-[var(--color-muted)] leading-relaxed">
+              Institutional distribution or breadth deterioration. Cautious sizing and defensive trailing stops recommended.
             </p>
           </div>
 
-          <div className="p-3 border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/20">
-            <span className="font-bold text-zinc-700 dark:text-zinc-300 block mb-1">46 – 55 Neutral</span>
-            <p className="text-[11px] text-[var(--color-muted)]">
-              Equilibrium consolidation. Market awaiting fresh earnings or macro policy triggers. Rangebound setups favored.
+          <div className="space-y-1">
+            <span className="font-mono font-bold text-xs uppercase text-[var(--color-muted)] block">
+              46 – 55 Neutral
+            </span>
+            <p className="text-[11px] text-[var(--color-muted)] leading-relaxed">
+              Equilibrium consolidation. Market awaiting fresh earnings or policy catalysts. Rangebound setups favored.
             </p>
           </div>
 
-          <div className="p-3 border border-emerald-200 dark:border-emerald-900 bg-emerald-50/50 dark:bg-emerald-950/20">
-            <span className="font-bold text-emerald-700 dark:text-emerald-400 block mb-1">56 – 75 Greed</span>
-            <p className="text-[11px] text-[var(--color-muted)]">
-              Broad-based trend expansion and steady institutional inflows. Trend-following and momentum strategies work best.
+          <div className="space-y-1">
+            <span className="font-mono font-bold text-xs uppercase text-[var(--color-ink)] block">
+              56 – 75 Greed
+            </span>
+            <p className="text-[11px] text-[var(--color-muted)] leading-relaxed">
+              Broad-based trend expansion and steady institutional inflows. Trend-following and momentum strategies favored.
             </p>
           </div>
 
-          <div className="p-3 border border-teal-200 dark:border-teal-900 bg-teal-50/50 dark:bg-teal-950/20">
-            <span className="font-bold text-teal-700 dark:text-teal-400 block mb-1">76 – 100 Extreme Greed</span>
-            <p className="text-[11px] text-[var(--color-muted)]">
-              Speculative froth and depleted downside hedging. Elevated risk of sharp mean-reversion pullbacks. Trim into strength.
+          <div className="space-y-1">
+            <span className="font-mono font-bold text-xs uppercase text-[var(--color-bullish)] block">
+              76 – 100 Euphoria
+            </span>
+            <p className="text-[11px] text-[var(--color-muted)] leading-relaxed">
+              Speculative froth and depleted downside protection. Elevated risk of sharp mean-reversion. Trim into strength.
             </p>
           </div>
         </div>
