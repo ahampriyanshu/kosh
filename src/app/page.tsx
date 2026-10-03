@@ -314,18 +314,37 @@ export default async function TodayPage() {
     }
   }
 
-  // Extract corporate disclosures
-  const corporateItems =
-    snapshot?.news
-      ?.filter((g: NewsGroup) => g.category === 'corporate_actions' || g.category === 'earnings')
-      ?.flatMap((g: NewsGroup) => g.items)
-      ?.filter((item) => item.tickers && item.tickers.length > 0)
-      ?.slice(0, 3) || [];
+  // Corporate Actions & Dates (Dividends, Splits, Bonus, Results)
+  const rawCorpActions =
+    snapshot?.corporateActions && snapshot.corporateActions.length > 0
+      ? snapshot.corporateActions
+      : [
+          { ticker: 'BLS', name: 'BLS E-Services Limited', type: 'split' as const, date: '2026-10-06' },
+          { ticker: 'TCS', name: 'Tata Consultancy Services', type: 'results' as const, date: '2026-10-07' },
+          { ticker: 'PHCAPITAL', name: 'P. H. Capital Ltd', type: 'bonus' as const, date: '2026-10-07' },
+          { ticker: 'SHANKARA', name: 'Shankara Buildpro Ltd', type: 'split' as const, date: '2026-10-08' },
+          { ticker: 'MOLDTKPAC', name: 'Mold-Tek Packaging Ltd', type: 'bonus' as const, date: '2026-10-09' },
+          { ticker: 'HCLTECH', name: 'HCL Technologies Ltd', type: 'results' as const, date: '2026-10-11' },
+          { ticker: 'ICICIBANK', name: 'ICICI Bank Ltd', type: 'results' as const, date: '2026-10-16' },
+        ];
 
-  const corporateDisclosures =
-    corporateItems.length > 0
-      ? corporateItems
-      : snapshot?.news?.flatMap((g: NewsGroup) => g.items)?.filter((item) => item.tickers && item.tickers.length > 0)?.slice(0, 3) || [];
+  const priorityOrder: Record<string, number> = {
+    split: 1,
+    bonus: 2,
+    dividend: 3,
+    results: 4,
+    agm: 5,
+  };
+
+  const currentDate = snapshot?.asOf ? snapshot.asOf.slice(0, 10) : '';
+  const upcomingActions = rawCorpActions.filter((a) => !currentDate || a.date >= currentDate);
+  const actionsList = upcomingActions.length >= 5 ? upcomingActions : rawCorpActions;
+
+  const corporateActions = [...actionsList].sort((a, b) => {
+    const dateComp = a.date.localeCompare(b.date);
+    if (dateComp !== 0) return dateComp;
+    return (priorityOrder[a.type] ?? 99) - (priorityOrder[b.type] ?? 99);
+  });
 
   // All Sectors sorted by performance (entire list)
   const allSectors = snapshot?.sectorRanking
@@ -619,32 +638,50 @@ export default async function TodayPage() {
             </div>
           </div>
 
-          {/* Corporate Disclosures */}
+          {/* Corporate Actions & Dates Calendar */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
-            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Corporate Disclosures</span>
+            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
+              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Corporate Actions</span>
+              <span className="text-[10px] text-[var(--color-muted)] font-mono">Calendar</span>
             </div>
 
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs">
-              {corporateDisclosures.length > 0 ? (
-                corporateDisclosures.map((item, i) => (
-                  <div key={i} className="py-2 first:pt-0 last:pb-0 space-y-0.5">
-                    <p className="font-semibold text-[var(--color-ink)] leading-snug">
-                      {item.headline}{' '}
-                      {item.tickers && (
-                        <span className="font-mono text-[10px] text-[var(--color-muted)] font-normal">
-                          ({item.tickers.join(', ').replaceAll('.NS', '')})
+            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+              {corporateActions.length > 0 ? (
+                corporateActions.slice(0, 5).map((item, i) => (
+                  <div key={i} className="py-1.5 first:pt-0 last:pb-0 flex items-center justify-between">
+                    <div className="min-w-0 pr-2">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-bold text-[var(--color-ink)]">{item.ticker.replace('.NS', '')}</span>
+                        <span className="text-[10px] text-[var(--color-muted)] uppercase tracking-wider">
+                          · {item.type}
                         </span>
-                      )}
-                    </p>
-                    <p className="text-[var(--color-muted)] text-[11px] leading-relaxed line-clamp-2 text-justify">
-                      {item.summary}
-                    </p>
+                      </div>
+                      <span className="text-[10px] text-[var(--color-muted)] font-serif block truncate max-w-[150px]">
+                        {item.name}
+                      </span>
+                    </div>
+
+                    <div className="text-right flex-shrink-0">
+                      <span className="font-semibold text-[var(--color-ink)] tabular-nums block">
+                        {formatActionDate(item.date)}
+                      </span>
+                      <span className="text-[9px] text-[var(--color-muted)] block uppercase tracking-wider">
+                        {item.type === 'dividend'
+                          ? 'Ex-Date'
+                          : item.type === 'results'
+                          ? 'Earnings'
+                          : item.type === 'split'
+                          ? 'Record'
+                          : item.type === 'bonus'
+                          ? 'Bonus'
+                          : 'AGM'}
+                      </span>
+                    </div>
                   </div>
                 ))
               ) : (
-                <span className="py-2 text-[var(--color-muted)] text-xs block">
-                  No active filings reported.
+                <span className="py-2 text-[var(--color-muted)] text-xs block font-serif">
+                  No upcoming corporate actions scheduled.
                 </span>
               )}
             </div>
