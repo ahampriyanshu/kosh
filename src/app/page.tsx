@@ -397,7 +397,7 @@ export default async function TodayPage() {
   });
 
   return (
-    <div className="font-serif text-[var(--color-ink)] pb-16">
+    <div className="homepage-dashboard font-serif text-[var(--color-ink)] pb-16">
       {/* ── Running Ticker Tape (Full Width) ── */}
       {snapshot && <MarketMarquee snapshot={snapshot} />}
 
@@ -421,9 +421,10 @@ export default async function TodayPage() {
           ROW 1: THE DISPATCH DESK (Connected 3-Column Newspaper Grid)
           Left (3 cols) | Middle (6 cols) | Right (3 cols)
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="homepage-section-heading"><h2>Market pulse</h2></div>
+      <div className="homepage-grid grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 1A. Left Column (3 cols): Market Mood, Global Benchmarks, Macro Commodities & FX */}
-        <div className="md:col-span-3 p-4 space-y-5">
+        <div className="md:col-span-3 p-5 xl:p-6 space-y-6">
           {mood && (
             <section aria-label="Sentiment Index" className="pb-3">
               <div className="mb-1 flex items-center gap-2 text-xs">
@@ -557,22 +558,23 @@ export default async function TodayPage() {
         </div>
 
         {/* 1B. Middle Column (6 cols): 8 Major Headlines */}
-        <div className="md:col-span-6 p-4 space-y-3">
-          <div className="space-y-3.5 text-xs">
+        <div className="md:col-span-6 p-5 xl:p-6 space-y-4">
+          <div className="homepage-stories text-sm">
             {eightMajorHeadlines.map((story, i) => (
-              <div key={i} className="space-y-1">
-                <h2 className="font-serif text-base font-bold text-[var(--color-ink)] leading-snug">
+              <article key={i} className="homepage-story">
+                {story.category && <p className="homepage-story-category">{story.category}</p>}
+                <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] leading-snug">
                   {story.headline}
                 </h2>
-                <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify">
+                <p className="text-sm text-[var(--color-muted)] leading-relaxed">
                   {story.summary}
                 </p>
                 {story.tickers && story.tickers.length > 0 && (
-                  <div className="text-[10px] font-mono text-[var(--color-muted)] pt-0.5">
+                  <div className="text-xs font-mono text-[var(--color-muted)] pt-1">
                     <span>{story.tickers.join(', ').replaceAll('.NS', '')}</span>
                   </div>
                 )}
-              </div>
+              </article>
             ))}
           </div>
 
@@ -589,7 +591,7 @@ export default async function TodayPage() {
         </div>
 
         {/* 1C. Right Column (3 cols): IPO in Focus & Corporate Disclosures */}
-        <div className="md:col-span-3 p-4 space-y-5">
+        <div className="md:col-span-3 p-5 xl:p-6 space-y-6">
           {/* IPO in Focus */}
           <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
@@ -673,9 +675,10 @@ export default async function TodayPage() {
           ROW 2: MARKET MICROSTRUCTURE LEDGER (Connected 3-Column Newspaper Grid)
           Left: Gainers, Losers, Most Traded | Middle: Sector Rotation | Right: 52W High & Low
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="homepage-section-heading"><h2>Market activity</h2></div>
+      <div className="homepage-grid grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 2A. Col 1 (4 cols): Gainers, Losers, Most Traded */}
-        <div className="md:col-span-4 p-4 space-y-4">
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-5">
           {/* Top Gainers */}
           <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
@@ -776,7 +779,7 @@ export default async function TodayPage() {
         </div>
 
         {/* 2B. Col 2 (4 cols): Sector Rotation */}
-        <div className="md:col-span-4 p-4 space-y-2">
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-3">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
             <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
           </div>
@@ -814,7 +817,7 @@ export default async function TodayPage() {
         </div>
 
         {/* 2C. Col 3 (4 cols): Near 52-Week High & Low */}
-        <div className="md:col-span-4 p-4 space-y-4">
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-5">
           {/* Near 52-Week High */}
           <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
@@ -867,9 +870,10 @@ export default async function TodayPage() {
           ROW 3: RESEARCH & THE STREET CONSENSUS (Connected 3-Column Newspaper Grid)
           Left: Street Consensus | Middle: Tactical Bets | Right: Structural Bets
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="homepage-section-heading"><h2>Research &amp; strategy</h2></div>
+      <div className="homepage-grid grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 3A. Col 1 (4 cols): Street Consensus */}
-        <div className="md:col-span-4 p-4 space-y-3">
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
             <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Street Consensus</span>
           </div>
@@ -930,7 +934,7 @@ export default async function TodayPage() {
         </div>
 
         {/* 3B. Col 2 (4 cols): Short-Term Tactical Bets */}
-        <div className="md:col-span-4 p-4 space-y-3">
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
             <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Short-Term Tactical Bets</span>
             <Link href="/bets/short-term" className="text-[10px] text-[var(--color-muted)] hover:text-[var(--color-ink)] font-mono">
@@ -966,7 +970,7 @@ export default async function TodayPage() {
         </div>
 
         {/* 3C. Col 3 (4 cols): Long-Term Structural Bets */}
-        <div className="md:col-span-4 p-4 space-y-3">
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
             <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Long-Term Structural Bets</span>
             <Link href="/bets/long-term" className="text-[10px] text-[var(--color-muted)] hover:text-[var(--color-ink)] font-mono">

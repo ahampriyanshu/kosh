@@ -33,7 +33,7 @@ describe('TodayPage (/)', () => {
     const html = renderToStaticMarkup(pageComponent);
 
     // Extract headlines from middle column
-    const headlineCount = (html.match(/<h2 class="font-serif text-base font-bold text-\[var\(--color-ink\)\] leading-snug">/g) || []).length;
+    const headlineCount = (html.match(/<article class="homepage-story">/g) || []).length;
     expect(headlineCount).toBe(8);
   });
 });
