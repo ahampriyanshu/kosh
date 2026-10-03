@@ -297,17 +297,17 @@ export function computeMoodSnapshot(
   const regime = getRegime(composite);
 
   // Synthesize overarching broadsheet summary
-  let summary = `Market sentiment resides in ${regime} territory (${composite}/100). `;
+  let summary = '';
   if (composite <= 25) {
-    summary += `Capitulation levels: severe institutional selling and heavy hedging signal asymmetric contrarian accumulation.`;
+    summary = 'Capitulation levels: severe institutional selling and heavy hedging signal an oversold contrarian setup.';
   } else if (composite <= 45) {
-    summary += `Defensive positioning dominates: institutional outflows or breadth deterioration counsel strict risk management.`;
+    summary = 'Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.';
   } else if (composite <= 55) {
-    summary += `Equilibrium regime: balanced market breadth and calm volatility as participants await fresh catalysts.`;
+    summary = 'Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.';
   } else if (composite <= 75) {
-    summary += `Risk-on expansion: broad cash participation and healthy institutional momentum support trend continuation.`;
+    summary = 'Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.';
   } else {
-    summary += `Overheated speculative euphoria: low options hedging and euphoric breadth indicate elevated mean-reversion risk.`;
+    summary = 'Speculative euphoria: depleted options hedging and compressed volatility indicate elevated mean-reversion risk.';
   }
 
   return {

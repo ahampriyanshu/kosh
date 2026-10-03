@@ -14,68 +14,54 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
 
   // Percentage position of composite score on 0-100 scale
   const needlePos = Math.max(1, Math.min(99, composite));
+  const cleanSummary = mood.summary
+    .replace(/^Market sentiment resides in [^.]+\.\s*/i, '')
+    .trim() || mood.summary;
 
   return (
-    <div className={`font-serif ${compact ? 'pb-3' : 'pb-4 border-b border-[var(--color-hairline)]'}`} aria-label="Market Mood Index">
+    <div className={`font-serif ${compact ? 'space-y-2' : 'pb-4 border-b border-[var(--color-hairline)]'}`} aria-label="Market Mood Index">
       {/* Broadsheet Column Header */}
-      <div className="flex items-center justify-between pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs">
-        <h2 className="font-serif font-bold text-sm text-[var(--color-ink)] uppercase tracking-wider">
+      <div className="flex items-center justify-between pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+        <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">
           Market Mood Index
-        </h2>
-        {!compact && (
-          <span className="font-mono text-[10px] text-[var(--color-muted)]">
-            {session === 'closing' ? 'Official Close (15:45 IST)' : 'Morning Stance (08:30 IST)'}
+        </span>
+        <div className="flex items-center gap-1.5 font-mono text-xs">
+          {!compact && (
+            <span className="text-[10px] text-[var(--color-muted)]">
+              {session === 'closing' ? 'Official Close (15:45 IST)' : 'Morning Stance (08:30 IST)'} ·
+            </span>
+          )}
+          <span className="font-bold text-[var(--color-ink)] tabular-nums">
+            {composite} <span className="text-[var(--color-muted)] font-normal">/ 100</span>
           </span>
-        )}
-      </div>
-
-      {/* Main Score & Typographic Regime */}
-      <div className="flex items-baseline justify-between mb-2">
-        <div className="flex items-baseline gap-1.5">
-          <span className="font-serif text-2xl md:text-3xl font-bold tabular-nums text-[var(--color-ink)] tracking-tight">
-            {composite}
-          </span>
-          <span className="font-mono text-xs text-[var(--color-muted)]">
-            / 100
+          <span className="text-[var(--color-muted)]">·</span>
+          <span className="font-semibold text-[var(--color-ink)] uppercase tracking-wide">
+            {regime}
           </span>
         </div>
-        <span className="font-serif font-semibold text-xs tracking-wider uppercase text-[var(--color-ink)]">
-          [ {regime} ]
-        </span>
       </div>
 
-      {/* Engraved 5-Zone Broadsheet Barometer */}
-      <div className="space-y-1 mb-2.5">
-        <div className="relative h-1.5 bg-[var(--color-hairline)] flex">
-          {/* Extreme Fear (0-25) */}
-          <div className="w-[25%] border-r border-[var(--color-surface)] bg-[var(--color-bearish)] opacity-85" title="Extreme Fear (0-25)" />
-          {/* Fear (26-45) */}
-          <div className="w-[20%] border-r border-[var(--color-surface)] bg-[var(--color-bearish)] opacity-40" title="Fear (26-45)" />
-          {/* Neutral (46-55) */}
-          <div className="w-[10%] border-r border-[var(--color-surface)] bg-[var(--color-muted)] opacity-35" title="Neutral (46-55)" />
-          {/* Greed (56-75) */}
-          <div className="w-[20%] border-r border-[var(--color-surface)] bg-[var(--color-bullish)] opacity-40" title="Greed (56-75)" />
-          {/* Extreme Greed (76-100) */}
-          <div className="w-[25%] bg-[var(--color-bullish)] opacity-85" title="Extreme Greed (76-100)" />
-
-          {/* Precision Needle Pointer */}
+      {/* Engraved Newsprint Barometer Track */}
+      <div className="space-y-1 mb-2">
+        <div className="relative h-1 bg-[var(--color-hairline)]">
+          {/* Subtle 50 mid-tick */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-muted)]/40" />
+          {/* Engraved Needle Pointer */}
           <div
-            className="absolute -top-1 w-0.5 h-3.5 bg-[var(--color-ink)] shadow-sm"
-            style={{ left: `${needlePos}%` }}
+            className="absolute -top-0.5 w-1.5 h-2 bg-[var(--color-ink)]"
+            style={{ left: `${needlePos}%`, transform: 'translateX(-50%)' }}
           />
         </div>
-
-        {/* Meter Labels */}
-        <div className="flex justify-between text-[9px] font-mono text-[var(--color-muted)] px-0.5">
-          <span>0 Extreme Fear</span>
+        <div className="flex justify-between text-[10px] font-mono text-[var(--color-muted)]">
+          <span>0 Fear</span>
           <span>50 Neutral</span>
-          <span>100 Euphoria</span>
+          <span>100 Greed</span>
         </div>
       </div>
 
-      {/* Narrative Attribution */}
-      <p className="text-xs text-[var(--color-muted)] leading-relaxed mb-3 text-justify">
-        {mood.summary}
+      {/* Narrative Editorial Summary */}
+      <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify mb-2">
+        {cleanSummary}
       </p>
 
       {/* 4 Category Sub-Indexes Typeset as Financial Ledger (or link to full index) */}
