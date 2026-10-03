@@ -79,7 +79,7 @@ interface MarketStory {
   tickers?: string[];
 }
 
-const DEFAULT_SIX_HEADLINES: MarketStory[] = [
+const DEFAULT_EIGHT_HEADLINES: MarketStory[] = [
   {
     category: 'Macro & Policy',
     headline: 'RBI Maintains Calibrated Liquidity Posture as Credit Growth Expands',
@@ -120,6 +120,20 @@ const DEFAULT_SIX_HEADLINES: MarketStory[] = [
     summary: 'Grid integration projects witness heightened capital outlay as state utilities award renewable evacuation tenders to support long-term load expansion.',
     source: 'Financial Express',
     tickers: ['POWERGRID.NS', 'NTPC.NS'],
+  },
+  {
+    category: 'Auto & Mobility',
+    headline: 'Passenger Vehicle Retail Demand Strengthens Ahead of Key Festival Deliveries',
+    summary: 'Automakers record improving dealer inventory turnover as rural demand recovery and premium SUV dispatch volumes offset entry-level segment moderation.',
+    source: 'Financial Express',
+    tickers: ['MARUTI.NS', 'M&M.NS'],
+  },
+  {
+    category: 'Technology & IT Services',
+    headline: 'Tier-1 IT Exporters Expand Generative AI Engagements and Cloud Migration Mandates',
+    summary: 'Frontline tech majors report steady pipeline expansion in enterprise transformation deals despite cautious discretionary tech budgeting across global BFSI clients.',
+    source: 'Economic Times',
+    tickers: ['TCS.NS', 'INFY.NS'],
   },
 ];
 
@@ -230,19 +244,37 @@ export default async function TodayPage() {
     snapshot.near52wLow?.forEach((m) => { priceLookup[m.ticker] = m.ltp; });
   }
 
-  // Curate exactly 6 Major Headlines
-  const sixMajorHeadlines: MarketStory[] = [];
+  // Curate exactly 8 Major Headlines
+  const eightMajorHeadlines: MarketStory[] = [];
   if (snapshot?.news) {
-    const pulseCats = ['macro_policy', 'global_cues', 'sectoral', 'economy', 'stocks_in_focus', 'earnings'];
+    const pulseCats = ['macro_policy', 'global_cues', 'sectoral', 'economy', 'stocks_in_focus', 'earnings', 'corporate_actions'];
     for (const cat of pulseCats) {
-      if (sixMajorHeadlines.length >= 6) break;
+      if (eightMajorHeadlines.length >= 8) break;
       const grp = snapshot.news.find((g: NewsGroup) => g.category === cat);
       if (grp?.items) {
         for (const it of grp.items) {
-          if (sixMajorHeadlines.length >= 6) break;
-          if (it.headline && it.summary && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
-            sixMajorHeadlines.push({
+          if (eightMajorHeadlines.length >= 8) break;
+          if (it.headline && it.summary && !eightMajorHeadlines.some((s) => s.headline === it.headline)) {
+            eightMajorHeadlines.push({
               category: cat.replace('_', ' ').toUpperCase(),
+              headline: it.headline,
+              summary: it.summary,
+              source: it.source,
+              tickers: it.tickers,
+            });
+          }
+        }
+      }
+    }
+
+    if (eightMajorHeadlines.length < 8) {
+      for (const grp of snapshot.news) {
+        if (eightMajorHeadlines.length >= 8) break;
+        for (const it of grp.items || []) {
+          if (eightMajorHeadlines.length >= 8) break;
+          if (it.headline && it.summary && !eightMajorHeadlines.some((s) => s.headline === it.headline)) {
+            eightMajorHeadlines.push({
+              category: grp.category.replace('_', ' ').toUpperCase(),
               headline: it.headline,
               summary: it.summary,
               source: it.source,
@@ -254,11 +286,11 @@ export default async function TodayPage() {
     }
   }
 
-  // Pad to reach exactly 6 major headlines if fewer were found in snapshot
-  for (const fallback of DEFAULT_SIX_HEADLINES) {
-    if (sixMajorHeadlines.length >= 6) break;
-    if (!sixMajorHeadlines.some((s) => s.headline === fallback.headline)) {
-      sixMajorHeadlines.push(fallback);
+  // Pad to reach exactly 8 major headlines if fewer were found in snapshot
+  for (const fallback of DEFAULT_EIGHT_HEADLINES) {
+    if (eightMajorHeadlines.length >= 8) break;
+    if (!eightMajorHeadlines.some((s) => s.headline === fallback.headline)) {
+      eightMajorHeadlines.push(fallback);
     }
   }
 
@@ -524,10 +556,10 @@ export default async function TodayPage() {
           </div>
         </div>
 
-        {/* 1B. Middle Column (6 cols): 6 Major Headlines */}
+        {/* 1B. Middle Column (6 cols): 8 Major Headlines */}
         <div className="md:col-span-6 p-4 space-y-3">
           <div className="space-y-3.5 text-xs">
-            {sixMajorHeadlines.map((story, i) => (
+            {eightMajorHeadlines.map((story, i) => (
               <div key={i} className="space-y-1">
                 <h2 className="font-serif text-base font-bold text-[var(--color-ink)] leading-snug">
                   {story.headline}

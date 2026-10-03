@@ -27,4 +27,13 @@ describe('TodayPage (/)', () => {
     expect(html).toContain('FII Net Cash');
     expect(html).toContain('DII Net Cash');
   });
+
+  it('renders 8 major headlines per edition on the homepage', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    // Extract headlines from middle column
+    const headlineCount = (html.match(/<h2 class="font-serif text-base font-bold text-\[var\(--color-ink\)\] leading-snug">/g) || []).length;
+    expect(headlineCount).toBe(8);
+  });
 });
