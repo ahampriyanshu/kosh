@@ -84,4 +84,13 @@ describe('MarketMoodIndex Component', () => {
 
     expect(html).toContain('Morning Stance (08:30 IST)');
   });
+
+  it('omits factor attribution and renders direct link to index section when showFactors is false', () => {
+    const html = renderToStaticMarkup(createElement(MarketMoodIndex, { mood: mockMood, showFactors: false }));
+
+    expect(html).not.toContain('Factor Attribution');
+    expect(html).not.toContain('1. Breadth &amp; Participation');
+    expect(html).toContain('href="/sentiment"');
+    expect(html).toContain('Explore Market Mood Index');
+  });
 });

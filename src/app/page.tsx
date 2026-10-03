@@ -383,7 +383,7 @@ export default async function TodayPage() {
         {/* 1A. Left Column (3 cols): Market Mood, Global Benchmarks, Macro Commodities & FX */}
         <div className="md:col-span-3 p-4 space-y-5">
           {/* Market Mood Index */}
-          {mood && <MarketMoodIndex mood={mood} compact={true} />}
+          {mood && <MarketMoodIndex mood={mood} compact={true} showFactors={false} />}
 
           {/* Global Benchmarks */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
@@ -477,13 +477,6 @@ export default async function TodayPage() {
 
         {/* 1B. Middle Column (6 cols): 5 Major Headlines */}
         <div className="md:col-span-6 p-4 space-y-3">
-          <div className="flex items-center justify-between pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono text-[var(--color-muted)]">
-            <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">
-              5 Major Headlines
-            </span>
-            <span>{daily ? daily.dateKey : 'Daily Briefing'}</span>
-          </div>
-
           <div className="divide-y divide-[var(--color-hairline)]/60 text-xs">
             {fiveMajorHeadlines.map((story, i) => (
               <div key={i} className="py-2.5 first:pt-0 last:pb-0 space-y-1">

@@ -767,7 +767,7 @@ select {
 .broadsheet-masthead {
   padding-top: 0.5rem;
   padding-bottom: 0;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
   border-bottom: none;
 }
 

@@ -81,7 +81,7 @@ export function MarketMarquee({ snapshot }: MarketMarqueeProps) {
 
   return (
     <div
-      className="relative overflow-hidden py-2 mb-6 border-b border-[var(--color-hairline)] font-serif select-none"
+      className="relative overflow-hidden py-2 border-b border-[var(--color-hairline)] font-serif select-none"
       aria-label="Market Marquee Ticker"
     >
       {/* Marquee Track Container with Edge Gradient Fades */}

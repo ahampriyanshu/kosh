@@ -6,9 +6,10 @@ import type { MoodSnapshot } from '../../lib/schemas';
 interface MarketMoodIndexProps {
   mood: MoodSnapshot;
   compact?: boolean;
+  showFactors?: boolean;
 }
 
-export function MarketMoodIndex({ mood, compact = false }: MarketMoodIndexProps) {
+export function MarketMoodIndex({ mood, compact = false, showFactors = true }: MarketMoodIndexProps) {
   const { composite, regime, session, categories } = mood;
 
   // Percentage position of composite score on 0-100 scale
@@ -77,79 +78,90 @@ export function MarketMoodIndex({ mood, compact = false }: MarketMoodIndexProps)
         {mood.summary}
       </p>
 
-      {/* 4 Category Sub-Indexes Typeset as Financial Ledger */}
-      <div className="space-y-2 pt-2 border-t border-[var(--color-hairline)] text-xs">
-        <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1">
-          <span>Factor Attribution</span>
-          <span>Score (Weight)</span>
-        </div>
+      {/* 4 Category Sub-Indexes Typeset as Financial Ledger (or link to full index) */}
+      {showFactors ? (
+        <div className="space-y-2 pt-2 border-t border-[var(--color-hairline)] text-xs">
+          <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-[var(--color-muted)] mb-1">
+            <span>Factor Attribution</span>
+            <span>Score (Weight)</span>
+          </div>
 
-        {/* 1. Breadth & Price Action */}
-        <div className="space-y-0.5">
-          <div className="flex justify-between text-xs">
-            <span className="text-[var(--color-ink)]">1. Breadth &amp; Participation</span>
-            <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
-              {categories.breadth.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.breadth.weight * 100)}%)</span>
-            </span>
+          {/* 1. Breadth & Price Action */}
+          <div className="space-y-0.5">
+            <div className="flex justify-between text-xs">
+              <span className="text-[var(--color-ink)]">1. Breadth &amp; Participation</span>
+              <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
+                {categories.breadth.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.breadth.weight * 100)}%)</span>
+              </span>
+            </div>
+            <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
+              <div
+                className="h-full bg-[var(--color-ink)]"
+                style={{ width: `${categories.breadth.score}%` }}
+              />
+            </div>
           </div>
-          <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
-            <div
-              className="h-full bg-[var(--color-ink)]"
-              style={{ width: `${categories.breadth.score}%` }}
-            />
+
+          {/* 2. Institutional Flows */}
+          <div className="space-y-0.5">
+            <div className="flex justify-between text-xs">
+              <span className="text-[var(--color-ink)]">2. Institutional Flows</span>
+              <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
+                {categories.flows.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.flows.weight * 100)}%)</span>
+              </span>
+            </div>
+            <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
+              <div
+                className="h-full bg-[var(--color-ink)]"
+                style={{ width: `${categories.flows.score}%` }}
+              />
+            </div>
+          </div>
+
+          {/* 3. Volatility & Macro Risk */}
+          <div className="space-y-0.5">
+            <div className="flex justify-between text-xs">
+              <span className="text-[var(--color-ink)]">3. Volatility &amp; Risk (VIX)</span>
+              <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
+                {categories.volatility.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.volatility.weight * 100)}%)</span>
+              </span>
+            </div>
+            <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
+              <div
+                className="h-full bg-[var(--color-ink)]"
+                style={{ width: `${categories.volatility.score}%` }}
+              />
+            </div>
+          </div>
+
+          {/* 4. Derivatives & Options Skew */}
+          <div className="space-y-0.5">
+            <div className="flex justify-between text-xs">
+              <span className="text-[var(--color-ink)]">4. Derivatives &amp; Options PCR</span>
+              <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
+                {categories.derivatives.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.derivatives.weight * 100)}%)</span>
+              </span>
+            </div>
+            <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
+              <div
+                className="h-full bg-[var(--color-ink)]"
+                style={{ width: `${categories.derivatives.score}%` }}
+              />
+            </div>
           </div>
         </div>
-
-        {/* 2. Institutional Flows */}
-        <div className="space-y-0.5">
-          <div className="flex justify-between text-xs">
-            <span className="text-[var(--color-ink)]">2. Institutional Flows</span>
-            <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
-              {categories.flows.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.flows.weight * 100)}%)</span>
-            </span>
-          </div>
-          <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
-            <div
-              className="h-full bg-[var(--color-ink)]"
-              style={{ width: `${categories.flows.score}%` }}
-            />
-          </div>
+      ) : (
+        <div className="pt-2 border-t border-[var(--color-hairline)] text-xs font-mono">
+          <Link
+            href="/sentiment"
+            className="underline hover:text-[var(--color-ink)] transition-colors inline-block"
+          >
+            Explore Market Mood Index &rarr;
+          </Link>
         </div>
+      )}
 
-        {/* 3. Volatility & Macro Risk */}
-        <div className="space-y-0.5">
-          <div className="flex justify-between text-xs">
-            <span className="text-[var(--color-ink)]">3. Volatility &amp; Risk (VIX)</span>
-            <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
-              {categories.volatility.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.volatility.weight * 100)}%)</span>
-            </span>
-          </div>
-          <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
-            <div
-              className="h-full bg-[var(--color-ink)]"
-              style={{ width: `${categories.volatility.score}%` }}
-            />
-          </div>
-        </div>
-
-        {/* 4. Derivatives & Options Skew */}
-        <div className="space-y-0.5">
-          <div className="flex justify-between text-xs">
-            <span className="text-[var(--color-ink)]">4. Derivatives &amp; Options PCR</span>
-            <span className="font-mono tabular-nums font-semibold text-[var(--color-ink)]">
-              {categories.derivatives.score} <span className="font-normal text-[var(--color-muted)] text-[10px]">({Math.round(categories.derivatives.weight * 100)}%)</span>
-            </span>
-          </div>
-          <div className="h-0.5 bg-[var(--color-hairline)] overflow-hidden">
-            <div
-              className="h-full bg-[var(--color-ink)]"
-              style={{ width: `${categories.derivatives.score}%` }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {!compact && (
+      {!compact && showFactors && (
         <div className="mt-2.5 pt-1.5 border-t border-[var(--color-hairline)] text-right text-xs">
           <Link
             href="/sentiment"
