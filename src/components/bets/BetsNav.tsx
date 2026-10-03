@@ -12,12 +12,9 @@ export function BetsNav() {
     <header className="border-b border-[var(--color-hairline)] pb-4 mb-8">
       <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
         <div>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)]">
-            Kosh Quantitative Intelligence · Systematic Strategies
-          </div>
-          <div className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)] mt-1">
+          <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
             Systematic Equities Research
-          </div>
+          </h1>
         </div>
 
         <nav aria-label="Strategy Horizon" className="flex items-center gap-3 text-xs font-mono">

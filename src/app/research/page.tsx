@@ -10,18 +10,15 @@ export default async function ResearchPage() {
     <div>
       <PageHeader
         title="Stock Research"
-        description={(
-          <>
-            Deep research runs across requested companies.{' '}
-            <a
-              href="https://github.com/ahampriyanshu/kosh/edit/main/data/research-requests.ts"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold text-[var(--color-brand)] underline underline-offset-4"
-            >
-              Add New
-            </a>
-          </>
+        action={(
+          <a
+            href="https://github.com/ahampriyanshu/kosh/edit/main/data/research-requests.ts"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-mono font-semibold text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors border border-[var(--color-hairline)] px-2.5 py-1"
+          >
+            + Add New
+          </a>
         )}
       />
 

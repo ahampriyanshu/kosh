@@ -67,7 +67,7 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
 function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
   return (
     <div>
-      <PageHeader title="Portfolio" description="Holdings view for a broker-synced portfolio." />
+      <PageHeader title="Portfolio" />
 
       <section>
         <div className="max-w-3xl">
@@ -231,7 +231,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
 
   return (
     <div>
-      <PageHeader title="Portfolio" description="Holdings, allocation, and current portfolio movement." />
+      <PageHeader title="Portfolio" />
 
       <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
         <p className="tabular-nums text-xs text-[var(--color-faint)]">

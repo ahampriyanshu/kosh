@@ -7,7 +7,7 @@ export default async function OutlookPage() {
 
   return (
     <div>
-      <PageHeader title="Outlook" description="Forward-looking weekly and monthly market notes." />
+      <PageHeader title="Outlook" />
       <OutlookMonthArchive entries={manifest.reports} />
     </div>
   );
