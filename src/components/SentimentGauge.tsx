@@ -82,14 +82,14 @@ export function SentimentGauge({ score, regime, compact = false }: SentimentGaug
 
         <circle cx={marker.x} cy={marker.y} r="6.5" fill="#202622" />
 
-        <text x="180" y="137" textAnchor="middle" fill="#202622" fontSize="48" fontWeight="600" fontFamily="Georgia, serif">
+        <text x="180" y="137" textAnchor="middle" fill="#202622" fontSize="48" fontWeight="600" fontFamily="var(--font-newsreader)">
           {boundedScore}
         </text>
-        <text x="180" y="160" textAnchor="middle" fill="#737870" fontSize="12" fontWeight="600" letterSpacing="0.4" fontFamily="Arial, sans-serif">
+        <text x="180" y="160" textAnchor="middle" fill="#737870" fontSize="12" fontWeight="600" letterSpacing="0.4" fontFamily="var(--font-newsreader)">
           {regime}
         </text>
-        <text x="43" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontFamily="Arial, sans-serif">Oversold</text>
-        <text x="317" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontFamily="Arial, sans-serif">Overbought</text>
+        <text x="43" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontFamily="var(--font-newsreader)">Oversold</text>
+        <text x="317" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontFamily="var(--font-newsreader)">Overbought</text>
       </svg>
     </figure>
   );

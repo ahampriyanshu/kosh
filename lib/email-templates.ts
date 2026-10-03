@@ -822,14 +822,88 @@ export function renderDailyEmail(content: DailyContent, issueNumber?: number): s
 
 export function renderWeeklyEmail(content: WeeklyContent, period: string): string {
   const periodLabel = formatPeriodLabel(period);
+  const parts: string[] = [];
+
+  if (content.themes && content.themes.length > 0) {
+    parts.push(section('Themes', bulletList(content.themes)));
+  }
+
+  if (content.multiAssetScorecard && content.multiAssetScorecard.length > 0) {
+    const assetRows = content.multiAssetScorecard
+      .map(
+        (a) => `
+        <tr>
+          <td style="${font};padding:7px 10px 7px 0;color:${colors.text};font-size:13px;line-height:18px;border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(a.asset)}</strong> <span style="font-size:11px;color:${colors.muted}">${escapeHtml(a.symbol)}</span></td>
+          <td align="right" style="${mono};padding:7px 10px 7px 0;color:${colors.text};font-size:13px;line-height:18px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(a.close.toLocaleString('en-IN', { maximumFractionDigits: 2 }))}</td>
+          <td align="right" style="${mono};padding:7px 0;font-size:13px;line-height:18px;white-space:nowrap;color:${a.returnPct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(a.returnPct >= 0 ? '+' : '')}${escapeHtml(a.returnPct.toFixed(2))}%</strong></td>
+        </tr>`,
+      )
+      .join('');
+    parts.push(section('Multi-Asset Scorecard', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${assetRows}</table>`));
+  }
+
+  if (content.sectorGrowth && content.sectorGrowth.length > 0) {
+    const secRows = content.sectorGrowth
+      .map(
+        (s) => `
+        <tr>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;border-bottom:1px solid ${colors.border}">${escapeHtml(String(s.rank))}. ${escapeHtml(s.sector)}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;color:${s.weeklyReturnPct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(s.weeklyReturnPct >= 0 ? '+' : '')}${escapeHtml(s.weeklyReturnPct.toFixed(2))}%</strong></td>
+        </tr>`,
+      )
+      .join('');
+    parts.push(section('Sector Growth & Relative Rotation', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${secRows}</table>`));
+  }
+
+  if (content.fiiDiiWeekly) {
+    const f = content.fiiDiiWeekly;
+    const fiiHtml = `<div style="${mono};font-size:13px;padding:8px 0;border-bottom:1px solid ${colors.border}">
+      <div>FII Net Cash: <strong style="color:${f.fiiNetCrore >= 0 ? colors.bullish : colors.bearish}">${f.fiiNetCrore >= 0 ? '+' : '−'}₹${Math.abs(f.fiiNetCrore).toLocaleString('en-IN')} cr</strong></div>
+      <div>DII Net Cash: <strong style="color:${f.diiNetCrore >= 0 ? colors.bullish : colors.bearish}">${f.diiNetCrore >= 0 ? '+' : '−'}₹${Math.abs(f.diiNetCrore).toLocaleString('en-IN')} cr</strong></div>
+      ${f.summary ? `<p style="${font};font-size:12px;color:${colors.muted};margin:6px 0 0 0">${escapeHtml(f.summary)}</p>` : ''}
+    </div>`;
+    parts.push(section('Institutional Cash Flow Dynamics', fiiHtml));
+  }
+
+  if (content.portfolioFocus && content.portfolioFocus.length > 0) {
+    const portRows = content.portfolioFocus
+      .map(
+        (p) => `
+        <div style="padding:8px 0;border-bottom:1px solid ${colors.border}">
+          <div style="${mono};font-size:13px;font-weight:700;color:${colors.text}">${escapeHtml(p.ticker.replace('.NS', ''))} · <span style="${font};font-weight:400;color:${colors.muted}">${escapeHtml(p.name)}</span></div>
+          <div style="${font};font-size:12px;color:${colors.muted};margin:2px 0"><strong style="color:${colors.text}">Recent:</strong> ${escapeHtml(p.recentEvents)}</div>
+          <div style="${font};font-size:12px;color:${colors.text};margin:2px 0"><strong style="color:${colors.text}">Upcoming:</strong> ${escapeHtml(p.upcomingCatalysts)}</div>
+        </div>`,
+      )
+      .join('');
+    parts.push(section('Portfolio Focus & Catalyst Radar', portRows));
+  }
+
+  if (content.iposInFocus && content.iposInFocus.length > 0) {
+    const ipoRows = content.iposInFocus
+      .map(
+        (ipo) => `
+        <tr>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(ipo.company)}</strong></td>
+          <td style="${mono};padding:6px 10px 6px 0;color:${colors.muted};font-size:12px;border-bottom:1px solid ${colors.border}">${escapeHtml(ipo.priceBand)}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:12px;color:${colors.bullish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(ipo.gmp)}</strong></td>
+        </tr>`,
+      )
+      .join('');
+    parts.push(section('IPOs in Focus · Primary Market', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${ipoRows}</table>`));
+  }
+
+  if (content.positionalBets && content.positionalBets.length > 0) {
+    parts.push(section('Positional Bets', betRows(content.positionalBets)));
+  }
+
+  parts.push(section('Indian Indices', indexTable(content.snapshot)));
+
   return renderShell({
     title: 'Weekly Outlook',
     eyebrow: periodLabel,
     preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${periodLabel}`,
-    children:
-      section('Themes', bulletList(content.themes)) +
-      section('Positional Bets', betRows(content.positionalBets)) +
-      section('Indian Indices', indexTable(content.snapshot)),
+    children: parts.join(''),
   });
 }
 
@@ -837,8 +911,48 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
   const parts = [
     section('Sector Insights', bulletList(content.sectorInsights)),
     section('Macro Themes', bulletList(content.macroThemes)),
-    section('Mid-Term Bets', betRows(content.midTermBets)),
   ];
+
+  if (content.multiAssetScorecard && content.multiAssetScorecard.length > 0) {
+    const assetRows = content.multiAssetScorecard
+      .map(
+        (a) => `
+        <tr>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;border-bottom:1px solid ${colors.border}">${escapeHtml(a.asset)}</td>
+          <td style="${mono};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;border-bottom:1px solid ${colors.border}">${escapeHtml(a.close.toLocaleString('en-IN'))}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;color:${a.returnPct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(a.returnPct >= 0 ? '+' : '')}${escapeHtml(a.returnPct.toFixed(2))}%</strong></td>
+        </tr>`,
+      )
+      .join('');
+    parts.push(section('Multi-Asset Scorecard', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${assetRows}</table>`));
+  }
+
+  if (content.sectorLeadership && content.sectorLeadership.length > 0) {
+    const secRows = content.sectorLeadership
+      .map(
+        (s) => `
+        <tr>
+          <td style="${font};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;border-bottom:1px solid ${colors.border}">${escapeHtml(String(s.rank))}. ${escapeHtml(s.sector)}</td>
+          <td align="right" style="${mono};padding:6px 0;font-size:13px;color:${s.weeklyReturnPct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(s.weeklyReturnPct >= 0 ? '+' : '')}${escapeHtml(s.weeklyReturnPct.toFixed(2))}%</strong></td>
+        </tr>`,
+      )
+      .join('');
+    parts.push(section('Sector Leadership', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${secRows}</table>`));
+  }
+
+  if (content.fiiDiiMonthly) {
+    const f = content.fiiDiiMonthly;
+    const fiiHtml = `<div style="${mono};font-size:13px;padding:8px 0;border-bottom:1px solid ${colors.border}">
+      <div>FII Net Cash: <strong style="color:${f.fiiNetCrore >= 0 ? colors.bullish : colors.bearish}">${f.fiiNetCrore >= 0 ? '+' : '−'}₹${Math.abs(f.fiiNetCrore).toLocaleString('en-IN')} cr</strong></div>
+      <div>DII Net Cash: <strong style="color:${f.diiNetCrore >= 0 ? colors.bullish : colors.bearish}">${f.diiNetCrore >= 0 ? '+' : '−'}₹${Math.abs(f.diiNetCrore).toLocaleString('en-IN')} cr</strong></div>
+      ${f.summary ? `<p style="${font};font-size:12px;color:${colors.muted};margin:6px 0 0 0">${escapeHtml(f.summary)}</p>` : ''}
+    </div>`;
+    parts.push(section('Institutional Monthly Flow Dynamics', fiiHtml));
+  }
+
+  if (content.midTermBets && content.midTermBets.length > 0) {
+    parts.push(section('Mid-Term Bets', betRows(content.midTermBets)));
+  }
 
   if (content.ledgerRollup) {
     const hitsSummary = `<div style="${font};font-size:15px;line-height:22px;margin:0 0 8px 0;color:${colors.text};font-weight:700">${escapeHtml(String(content.ledgerRollup.hits))}/${escapeHtml(String(content.ledgerRollup.total))} bets hit</div>`;

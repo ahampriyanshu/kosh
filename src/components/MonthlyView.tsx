@@ -67,69 +67,162 @@ export function MonthlyView({ content }: MonthlyViewProps) {
         )}
       </ReportSection>
 
-      {/* Mid-Term Bets */}
-      <ReportSection title="Mid-Term Bets">
-        {content.midTermBets.length > 0 ? (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[var(--color-hairline)]">
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2 pr-4">
-                    Ticker
-                  </th>
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2 pr-4">
-                    Action
-                  </th>
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2 pr-4">
-                    Signal
-                  </th>
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-right py-2 pr-4">
-                    Confidence
-                  </th>
-                  <th className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-faint)] text-left py-2">
-                    Thesis
-                  </th>
+      {/* Multi-Asset Performance Scorecard */}
+      {content.multiAssetScorecard && content.multiAssetScorecard.length > 0 && (
+        <ReportSection title="Multi-Asset Performance Scorecard">
+          <div className="overflow-x-auto border border-[var(--color-hairline)] bg-[var(--color-surface)]">
+            <table className="w-full text-left text-xs font-mono">
+              <thead className="text-[10px] uppercase text-[var(--color-muted)] bg-[var(--color-raised)]/30 border-b border-[var(--color-hairline)]">
+                <tr>
+                  <th className="py-2.5 px-3 font-bold">Asset Class</th>
+                  <th className="py-2.5 px-3 font-bold">Benchmark</th>
+                  <th className="py-2.5 px-3 text-right font-bold">Close Price</th>
+                  <th className="py-2.5 px-3 text-right font-bold">Monthly Return</th>
+                  <th className="py-2.5 px-3 min-w-[200px] font-bold">Macro Context</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]">
+              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+                {content.multiAssetScorecard.map((item) => {
+                  const isPos = item.returnPct >= 0;
+                  return (
+                    <tr key={item.symbol} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
+                      <td className="py-2 px-3 font-bold text-[var(--color-ink)]">{item.asset}</td>
+                      <td className="py-2 px-3 text-[10px] text-[var(--color-muted)]">{item.symbol}</td>
+                      <td className="py-2 px-3 text-right tabular-nums text-[var(--color-ink)] font-semibold">
+                        {item.close.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
+                      </td>
+                      <td
+                        className={`py-2 px-3 text-right tabular-nums font-bold ${
+                          isPos ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                        }`}
+                      >
+                        {isPos ? '+' : ''}{item.returnPct.toFixed(2)}%
+                      </td>
+                      <td className="py-2 px-3 text-[11px] font-serif text-[var(--color-muted)] leading-relaxed">
+                        {item.context || '—'}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </ReportSection>
+      )}
+
+      {/* Sector Leadership */}
+      {content.sectorLeadership && content.sectorLeadership.length > 0 && (
+        <ReportSection title="Sector Leadership">
+          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            {content.sectorLeadership.map((s) => (
+              <div key={s.sector} className="py-2 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] text-[var(--color-muted)] w-4 text-right">{s.rank}.</span>
+                  <span className="font-bold text-[var(--color-ink)]">{s.sector}</span>
+                </div>
+                <span
+                  className={`font-bold tabular-nums ${
+                    s.weeklyReturnPct >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                  }`}
+                >
+                  {s.weeklyReturnPct >= 0 ? '+' : ''}{s.weeklyReturnPct.toFixed(2)}%
+                </span>
+              </div>
+            ))}
+          </div>
+        </ReportSection>
+      )}
+
+      {/* Institutional Monthly Cash Flows */}
+      {content.fiiDiiMonthly && (
+        <ReportSection title="Institutional Cash Flow Dynamics">
+          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-4 text-xs font-mono space-y-3">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] uppercase block">FII Net Cash</span>
+                <span
+                  className={`text-base font-bold tabular-nums ${
+                    content.fiiDiiMonthly.fiiNetCrore >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                  }`}
+                >
+                  {content.fiiDiiMonthly.fiiNetCrore >= 0 ? '+' : '−'}₹
+                  {Math.abs(content.fiiDiiMonthly.fiiNetCrore).toLocaleString('en-IN')} cr
+                </span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] uppercase block">DII Net Cash</span>
+                <span
+                  className={`text-base font-bold tabular-nums ${
+                    content.fiiDiiMonthly.diiNetCrore >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                  }`}
+                >
+                  {content.fiiDiiMonthly.diiNetCrore >= 0 ? '+' : '−'}₹
+                  {Math.abs(content.fiiDiiMonthly.diiNetCrore).toLocaleString('en-IN')} cr
+                </span>
+              </div>
+            </div>
+            {content.fiiDiiMonthly.summary && (
+              <p className="text-xs font-serif text-[var(--color-muted)] pt-2 border-t border-[var(--color-hairline)]/60 leading-relaxed">
+                {content.fiiDiiMonthly.summary}
+              </p>
+            )}
+          </div>
+        </ReportSection>
+      )}
+
+      {/* Mid-Term Bets (Historical Archive) */}
+      {content.midTermBets && content.midTermBets.length > 0 && (
+        <ReportSection title="Mid-Term Bets (Historical Archive)">
+          <div className="overflow-x-auto border border-[var(--color-hairline)] bg-[var(--color-surface)]">
+            <table className="w-full text-xs font-mono text-left">
+              <thead className="text-[10px] uppercase text-[var(--color-muted)] bg-[var(--color-raised)]/30 border-b border-[var(--color-hairline)]">
+                <tr>
+                  <th className="py-2.5 px-3 font-bold">Ticker</th>
+                  <th className="py-2.5 px-3 font-bold">Action</th>
+                  <th className="py-2.5 px-3 font-bold">Signal</th>
+                  <th className="py-2.5 px-3 text-right font-bold">Confidence</th>
+                  <th className="py-2.5 px-3 font-bold">Thesis</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--color-hairline)]/60">
                 {content.midTermBets.map((bet) => (
-                  <tr key={bet.ticker}>
-                    <td className="py-2.5 pr-4">
+                  <tr key={bet.ticker} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
+                    <td className="py-2 px-3">
                       <div>
-                        <span className="font-serif text-sm font-semibold text-[var(--color-ink)]">
+                        <span className="font-bold text-[var(--color-ink)]">
                           {bet.ticker.replace('.NS', '').replace('.BO', '')}
                         </span>
-                        <div className="text-xs text-[var(--color-faint)] font-sans">{bet.name}</div>
+                        <div className="text-[10px] text-[var(--color-muted)]">{bet.name}</div>
                       </div>
                     </td>
-                    <td className="py-2.5 pr-4">
+                    <td className="py-2 px-3">
                       <span
-                        className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5"
+                        className="font-bold text-[10px] uppercase tracking-wider px-1.5 py-0.5 border"
                         style={{
-                          backgroundColor:
+                          borderColor:
                             bet.action === 'buy'
-                              ? 'var(--color-bullish-bg)'
+                              ? 'var(--color-bullish)'
                               : bet.action === 'sell'
-                              ? 'var(--color-bearish-bg)'
-                              : 'var(--color-neutral-bg)',
+                              ? 'var(--color-bearish)'
+                              : 'var(--color-hairline)',
                           color:
                             bet.action === 'buy'
                               ? 'var(--color-bullish)'
                               : bet.action === 'sell'
                               ? 'var(--color-bearish)'
-                              : 'var(--color-neutral)',
+                              : 'var(--color-ink)',
                         }}
                       >
                         {bet.action.toUpperCase()}
                       </span>
                     </td>
-                    <td className="py-2.5 pr-4">
+                    <td className="py-2 px-3">
                       <SignalBadge signal={bet.signal} />
                     </td>
-                    <td className="py-2.5 pr-4 text-right text-sm tabular-nums text-[var(--color-ink)]">
+                    <td className="py-2 px-3 text-right tabular-nums text-[var(--color-ink)] font-semibold">
                       {confidencePct(bet.confidence)}
                     </td>
-                    <td className="py-2.5 text-[var(--color-muted)] text-sm leading-snug max-w-xs">
+                    <td className="py-2 px-3 text-[11px] font-serif text-[var(--color-muted)] leading-relaxed max-w-xs">
                       {bet.thesis}
                     </td>
                   </tr>
@@ -137,10 +230,8 @@ export function MonthlyView({ content }: MonthlyViewProps) {
               </tbody>
             </table>
           </div>
-        ) : (
-          <p className="text-sm text-[var(--color-faint)]">No mid-term bets this month.</p>
-        )}
-      </ReportSection>
+        </ReportSection>
+      )}
 
       {/* Ledger rollup (Phase 3b) */}
       {content.ledgerRollup && (

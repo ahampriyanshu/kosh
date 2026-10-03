@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { structure } from './llm';
-import { BetSchema, type MarketSnapshot } from './schemas';
+import { BetSchema, PortfolioFocusItemSchema, IpoFocusItemSchema, type MarketSnapshot } from './schemas';
 
 function snapshotDigest(s: MarketSnapshot): string {
   const idx = s.indianIndices.map((i) => `${i.name} ${i.ltp} (${i.changePct >= 0 ? '+' : ''}${i.changePct.toFixed(2)}%)`).join(', ');
@@ -20,10 +20,17 @@ export async function buildDailyNarrative(s: MarketSnapshot): Promise<z.infer<ty
   );
 }
 
-const WeeklyNarrativeSchema = z.object({ themes: z.array(z.string()).max(6), positionalBets: z.array(BetSchema).max(5) });
+const WeeklyNarrativeSchema = z.object({
+  themes: z.array(z.string()).max(6),
+  portfolioFocus: z.array(PortfolioFocusItemSchema),
+  iposInFocus: z.array(IpoFocusItemSchema),
+});
 export async function buildWeeklyNarrative(s: MarketSnapshot): Promise<z.infer<typeof WeeklyNarrativeSchema>> {
   return structure(
-    `You are a swing strategist for the Indian market. Given this 7-day aggregated snapshot, write up to 6 forward-looking "themes" and up to 5 "positionalBets" for the coming week. Each bet: { ticker (NSE symbol), name, thesis, action (buy/sell/hold), signal (bullish/bearish/neutral), confidence 0..1 }. Base bets on the snapshot's movers/sectors/flows.\n\n${snapshotDigest(s)}`,
+    `You are an institutional equity strategist for the Indian market. Given this 7-day aggregated market snapshot:
+1) "themes": 3-6 forward-looking macro/sectoral themes and market risk factors for the coming week.
+2) "portfolioFocus": 3-5 focus items for key Indian large-cap holdings. Each item: { ticker (NSE symbol), name, recentEvents (what news/filing affected the company this week), upcomingCatalysts (earnings, AGM, order wins, product rollout), riskNote }.
+3) "iposInFocus": upcoming or active Indian primary market IPOs. Each item: { company, priceBand, issueSize, gmp, gmpPct, subscription, status, listingDate }.\n\n${snapshotDigest(s)}`,
     WeeklyNarrativeSchema,
   );
 }

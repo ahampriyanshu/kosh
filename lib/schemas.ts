@@ -451,10 +451,63 @@ export const MarketSnapshotSchema = z.object({
 export type MarketSnapshot = z.infer<typeof MarketSnapshotSchema>;
 
 // ---- Phase 3 content schemas ----
+export const MultiAssetItemSchema = z.object({
+  asset: z.string(),
+  symbol: z.string(),
+  close: z.number(),
+  returnPct: z.number(),
+  context: z.string().optional(),
+});
+export type MultiAssetItem = z.infer<typeof MultiAssetItemSchema>;
+
+export const SectorGrowthItemSchema = z.object({
+  sector: z.string(),
+  weeklyReturnPct: z.number(),
+  rank: z.number(),
+  stance: z.enum(['leading', 'lagging', 'neutral']).optional(),
+});
+export type SectorGrowthItem = z.infer<typeof SectorGrowthItemSchema>;
+
+export const FiiDiiWeeklySchema = z.object({
+  fiiNetCrore: z.number(),
+  diiNetCrore: z.number(),
+  netInstitutionalCrore: z.number(),
+  summary: z.string().optional(),
+});
+export type FiiDiiWeekly = z.infer<typeof FiiDiiWeeklySchema>;
+
+export const PortfolioFocusItemSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  recentEvents: z.string(),
+  upcomingCatalysts: z.string(),
+  riskNote: z.string().optional(),
+});
+export type PortfolioFocusItem = z.infer<typeof PortfolioFocusItemSchema>;
+
+export const IpoFocusItemSchema = z.object({
+  company: z.string(),
+  priceBand: z.string(),
+  issueSize: z.string(),
+  gmp: z.string(),
+  gmpPct: z.string(),
+  subscription: z.string(),
+  status: z.string(),
+  listingDate: z.string().optional(),
+});
+export type IpoFocusItem = z.infer<typeof IpoFocusItemSchema>;
+
 export const WeeklyContentSchema = z.object({
   snapshot: MarketSnapshotSchema,
-  themes: z.array(z.string()),
-  positionalBets: z.array(BetSchema),
+  period: z.string().optional(),
+  themes: z.array(z.string()).default([]),
+  positionalBets: z.array(BetSchema).optional(), // Optional backward compatibility for legacy archives
+  multiAssetScorecard: z.array(MultiAssetItemSchema).optional(),
+  sectorGrowth: z.array(SectorGrowthItemSchema).optional(),
+  fiiDiiWeekly: FiiDiiWeeklySchema.nullable().optional(),
+  portfolioFocus: z.array(PortfolioFocusItemSchema).optional(),
+  iposInFocus: z.array(IpoFocusItemSchema).optional(),
+  macroThemes: z.array(z.string()).optional(),
 });
 export type WeeklyContent = z.infer<typeof WeeklyContentSchema>;
 
@@ -467,10 +520,21 @@ export const LedgerRollupSchema = z.object({
 
 export const MonthlyContentSchema = z.object({
   snapshot: MarketSnapshotSchema,
-  sectorInsights: z.array(z.string()),
-  macroThemes: z.array(z.string()),
-  midTermBets: z.array(BetSchema),
-  ledgerRollup: LedgerRollupSchema.nullable(),
+  period: z.string().optional(),
+  sectorInsights: z.array(z.string()).default([]),
+  macroThemes: z.array(z.string()).default([]),
+  midTermBets: z.array(BetSchema).optional(), // Optional backward compatibility for legacy archives
+  ledgerRollup: LedgerRollupSchema.nullable().optional(),
+  multiAssetScorecard: z.array(MultiAssetItemSchema).optional(),
+  sectorLeadership: z.array(SectorGrowthItemSchema).optional(),
+  fiiDiiMonthly: FiiDiiWeeklySchema.nullable().optional(),
+  portfolioReview: z.object({
+    monthlyReturnPct: z.number(),
+    benchmarkReturnPct: z.number().optional().default(0),
+    topContributors: z.array(z.string()).default([]),
+    drags: z.array(z.string()).default([]),
+    keyLearnings: z.array(z.string()).default([]),
+  }).optional(),
 });
 export type MonthlyContent = z.infer<typeof MonthlyContentSchema>;
 

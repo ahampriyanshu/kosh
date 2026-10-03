@@ -48,7 +48,7 @@ export async function runMonthly(now: Date = new Date()): Promise<void> {
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1, id: `monthly-${period}`, type: 'monthly', dateKey: period,
     generatedAt: now.toISOString(),
-    sourceData: { tickers: content.midTermBets.map((b) => b.ticker), priceSnapshot: {}, searchTimestamp: now.toISOString() },
+    sourceData: { tickers: (content.midTermBets ?? []).map((b) => b.ticker), priceSnapshot: {}, searchTimestamp: now.toISOString() },
     content, checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
