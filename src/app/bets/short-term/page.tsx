@@ -3,23 +3,22 @@ import Link from 'next/link';
 import { BetsNav } from '../../../components/bets/BetsNav';
 
 export const metadata: Metadata = {
-  title: 'Short-Term Quantitative Bets | Methodology & Models | Kosh',
+  title: 'Short-Term Tactical Models | Methodology & Formulation | Kosh',
   description:
-    'Systematic tactical swing and momentum models (1-4 week horizon) driven by dual momentum, volume velocity, ATR volatility bands, and hybrid LLM synthesis.',
+    'Mathematical formulations and execution protocols for short-term tactical equity bets across Indian equities.',
   alternates: { canonical: '/bets/short-term' },
 };
 
 interface TacticalSetup {
   ticker: string;
   name: string;
-  model: 'Momentum Breakout' | 'Mean Reversion';
+  model: string;
   quantScore: number;
   entryPrice: number;
   targetPrice: number;
   stopLossPrice: number;
   riskReward: string;
-  triggers: string[];
-  status: 'Active' | 'Target Hit' | 'Monitoring';
+  triggers: string;
 }
 
 const SAMPLE_TACTICAL_SETUPS: TacticalSetup[] = [
@@ -32,8 +31,7 @@ const SAMPLE_TACTICAL_SETUPS: TacticalSetup[] = [
     targetPrice: 7650,
     stopLossPrice: 6855,
     riskReward: '1:2.0',
-    triggers: ['20 EMA > 50 SMA alignment', 'RS vs Nifty 50: 1.42x', 'Volume 2.1x 20-day SMA', 'RSI 62.4'],
-    status: 'Active',
+    triggers: '20 EMA > 50 SMA; RS vs Nifty 1.42; Vol 2.1x SMA20; RSI 62.4',
   },
   {
     ticker: 'BHARATFORG',
@@ -44,8 +42,7 @@ const SAMPLE_TACTICAL_SETUPS: TacticalSetup[] = [
     targetPrice: 1610,
     stopLossPrice: 1422,
     riskReward: '1:2.0',
-    triggers: ['20-day high breakout', 'Delivery % at 58.4%', 'Volume surge 1.9x', 'RSI 59.8'],
-    status: 'Active',
+    triggers: '20-day high breakout; Delivery 58.4%; Vol 1.9x SMA20; RSI 59.8',
   },
   {
     ticker: 'HDFCBANK',
@@ -56,339 +53,202 @@ const SAMPLE_TACTICAL_SETUPS: TacticalSetup[] = [
     targetPrice: 1725,
     stopLossPrice: 1598,
     riskReward: '1:2.0',
-    triggers: ['Lower Bollinger touch (20, 2)', 'RSI oversold at 31.2', 'Delivery 62.1%', 'Pierced key support with hammer wick'],
-    status: 'Monitoring',
+    triggers: 'Lower Bollinger Band touch (20, 2); RSI 31.2; Delivery 62.1%',
   },
 ];
 
 export default function ShortTermBetsPage() {
   return (
-    <div className="max-w-5xl mx-auto space-y-10 pb-16 font-serif text-[var(--color-ink)]">
+    <article className="max-w-4xl mx-auto space-y-12 pb-20 font-serif text-[var(--color-ink)] leading-relaxed">
       <BetsNav />
 
-      {/* 1. Executive Summary & Objective */}
+      {/* Title & Metadata Header */}
+      <header className="space-y-3">
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-ink)] leading-tight">
+          Tactical Equity Models: Dual Momentum Velocity and Volatility-Constrained Reversion
+        </h1>
+        <p className="font-mono text-xs text-[var(--color-muted)]">
+          Horizon: 5 to 20 Trading Sessions · Asset Class: NSE Large &amp; Mid-Cap Equities · Engine: TypeScript &amp; TechnicalIndicators
+        </p>
+      </header>
+
+      {/* Abstract */}
+      <section className="border-l-2 border-[var(--color-ink)] pl-4 italic text-sm text-[var(--color-muted)]">
+        <p>
+          Abstract—Unconstrained generative language models frequently hallucinate technical support levels,
+          fail to preserve consistent risk-reward asymmetry, and produce recommendations unmoored from verifiable
+          price memory. This paper details the mathematical specifications governing Kosh&apos;s short-term tactical
+          equity desk. We separate deterministic signal computation (trend alignment, relative strength, volume acceleration,
+          and ATR envelope sizing) from qualitative synthesis, deploying large language models exclusively for
+          institutional catalyst contextualization.
+        </p>
+      </section>
+
+      {/* Section I */}
       <section className="space-y-4">
-        <div className="border-b border-[var(--color-hairline)] pb-2 flex items-center justify-between text-xs font-mono">
-          <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
-            Section 01 · Objective &amp; Philosophy
-          </span>
-          <span className="text-[var(--color-muted)]">Horizon: 5 to 20 Sessions</span>
+        <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
+          I. The Quantitative Mandate
+        </h2>
+        <p className="text-base text-justify">
+          Short-term trading recommendations fail primarily due to poor risk sizing rather than poor entry timing.
+          When an artificial intelligence model is prompted to produce trades without computational constraints, it
+          invariably selects high-salience tickers and projects arbitrary price targets. To establish an auditable,
+          quantitatively sound record, Kosh enforces three non-negotiable operational invariants:
+        </p>
+        <ol className="list-decimal list-inside space-y-2 text-sm text-[var(--color-ink)] pl-2">
+          <li>
+            <strong>Deterministic Signal Verification:</strong> No equity is considered for tactical positioning unless
+            it satisfies closed-form algorithmic criteria calculated from verified exchange OHLCV data.
+          </li>
+          <li>
+            <strong>Volatility-Calibrated Risk Bounds:</strong> Profit objectives and invalidation stops are strictly
+            derived from the 14-period Average True Range (ATR), ensuring stops accommodate asset-specific noise.
+          </li>
+          <li>
+            <strong>Temporal Invalidation:</strong> Capital must not remain trapped in stagnant consolidation. Any setup
+            reaching 20 trading sessions without fulfilling either target or stop is liquidated at market.
+          </li>
+        </ol>
+      </section>
+
+      {/* Section II */}
+      <section className="space-y-6">
+        <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
+          II. Mathematical Specifications &amp; Formulas
+        </h2>
+
+        {/* Model A */}
+        <div className="space-y-3">
+          <h3 className="text-lg font-bold text-[var(--color-ink)]">
+            A. Dual Momentum &amp; Volume Surge (Trend Continuation)
+          </h3>
+          <p className="text-sm text-justify text-[var(--color-muted)]">
+            Designed to exploit institutional momentum bursts in liquid equities outperforming the broader benchmark.
+            The model requires joint confirmation of structural trend alignment, positive relative strength alpha over
+            the Nifty 50, abnormal volume velocity, and unexhausted momentum.
+          </p>
+
+          <div className="font-mono text-xs text-[var(--color-ink)] bg-transparent py-2 pl-4 border-l border-[var(--color-hairline)] space-y-1.5">
+            <div>1. Trend Invariant: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price(t) &gt; EMA(20, t) &gt; SMA(50, t)</div>
+            <div>2. Relative Strength: &nbsp;&nbsp;&nbsp;[Return(Stock, 20d) / Return(NIFTY 50, 20d)] &ge; 1.20</div>
+            <div>3. Volume Acceleration: &nbsp;Volume(t) &ge; 1.80 &times; SMA(Volume, 20)</div>
+            <div>4. Momentum Window: &nbsp;&nbsp;&nbsp;&nbsp;55.0 &le; RSI(14, t) &le; 68.0</div>
+          </div>
+
+          <p className="text-sm text-justify text-[var(--color-muted)]">
+            The exit envelope enforces an exact 1:2.0 risk-to-reward ratio adjusted for volatility:
+          </p>
+
+          <div className="font-mono text-xs text-[var(--color-ink)] py-2 pl-4 border-l border-[var(--color-hairline)] space-y-1.5">
+            <div>Stop-Loss = Entry Price &minus; [ 1.50 &times; ATR(14) ]</div>
+            <div>Target &nbsp;&nbsp;&nbsp;= Entry Price + [ 3.00 &times; ATR(14) ]</div>
+          </div>
         </div>
 
-        <p className="text-base sm:text-lg leading-relaxed text-[var(--color-ink)]">
-          Short-term bets at Kosh eliminate reliance on unconstrained large language model predictions.
-          Instead of prompting an LLM to recommend stocks out of thin air—which leads to hallucinated
-          support levels, unexecutable entry targets, and zero backtestability—we employ a{' '}
-          <strong>Quant-First Deterministic Engine</strong>. Every candidate is evaluated through hard mathematical
-          gates across 75+ liquid Indian equities, with Gemini restricted strictly to translating verified
-          quantitative metrics into institutional-grade narrative context.
+        {/* Model B */}
+        <div className="space-y-3 pt-4">
+          <h3 className="text-lg font-bold text-[var(--color-ink)]">
+            B. Contrarian Mean-Reversion (Oversold Quality Bounce)
+          </h3>
+          <p className="text-sm text-justify text-[var(--color-muted)]">
+            Designed to capture high-probability counter-trend reversals in premier large-cap businesses experiencing
+            transitory liquidation. The model requires extreme volatility band extension, oversold exhaustion, and
+            elevated delivery absorption by institutional participants.
+          </p>
+
+          <div className="font-mono text-xs text-[var(--color-ink)] bg-transparent py-2 pl-4 border-l border-[var(--color-hairline)] space-y-1.5">
+            <div>1. Volatility Band: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Price(t) &le; LowerBand(Bollinger, 20, 2&sigma;)</div>
+            <div>2. Oscillator State: &nbsp;&nbsp;&nbsp;&nbsp;RSI(14, t) &le; 32.0</div>
+            <div>3. Delivery Inflow: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delivery Percentage &ge; 55.0% on NSE</div>
+            <div>4. Quality Baseline: &nbsp;&nbsp;&nbsp;&nbsp;Market Cap &ge; ₹25,000 cr &amp; TTM Operating Profit &gt; 0</div>
+          </div>
+
+          <div className="font-mono text-xs text-[var(--color-ink)] py-2 pl-4 border-l border-[var(--color-hairline)] space-y-1.5">
+            <div>Stop-Loss = Min(Low, 5 sessions) &minus; 0.50%</div>
+            <div>Target &nbsp;&nbsp;&nbsp;= EMA(20) Mean-Reversion Bound</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section III */}
+      <section className="space-y-4">
+        <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
+          III. The Hybrid Quant-LLM Interface
+        </h2>
+        <p className="text-sm text-justify">
+          The integration between quantitative screening and generative language models is strictly unidirectional.
+          The TypeScript screening pipeline processes daily Bhavcopy data across the universe, verifies the mathematical
+          inequalities, computes the 14-period ATR bounds, and outputs an immutable data payload:
+        </p>
+        <div className="font-mono text-xs text-[var(--color-muted)] pl-4 border-l border-[var(--color-hairline)]">
+          <code>&#123; ticker, entry, stopLoss, target, quantScore, triggers &#125;</code>
+        </div>
+        <p className="text-sm text-justify">
+          Gemini 2.5 is invoked with this immutable payload and a constrained system prompt. It is charged solely with
+          reviewing exchange corporate filings, regulatory updates, and upcoming earnings dates to write a concise
+          two-sentence investment rationale. The model possesses no tool or authority to alter price numbers, adjust
+          risk multiples, or insert tickers outside the quantitatively qualified set.
+        </p>
+      </section>
+
+      {/* Section IV */}
+      <section className="space-y-4">
+        <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
+          IV. Active Tactical Candidate Ledger
+        </h2>
+        <p className="text-xs font-mono text-[var(--color-muted)]">
+          Table 1: Current setups meeting algorithmic threshold criteria (Screening Universe: NIFTY 100).
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 font-mono text-xs">
-          <div className="border border-[var(--color-hairline)] p-4 bg-[var(--color-surface)]">
-            <div className="text-[10px] uppercase text-[var(--color-muted)] mb-1">Target Horizon</div>
-            <div className="text-lg font-bold text-[var(--color-ink)]">1 to 4 Weeks</div>
-            <p className="text-[11px] text-[var(--color-muted)] mt-1 font-serif">
-              Designed to capture tactical swings, institutional volume shocks, and momentum continuations.
-            </p>
-          </div>
-          <div className="border border-[var(--color-hairline)] p-4 bg-[var(--color-surface)]">
-            <div className="text-[10px] uppercase text-[var(--color-muted)] mb-1">Risk Asymmetry</div>
-            <div className="text-lg font-bold text-[var(--color-bullish)]">Min 1 : 2.0 R:R</div>
-            <p className="text-[11px] text-[var(--color-muted)] mt-1 font-serif">
-              Calculated using 14-period Average True Range (ATR) so targets adapt to asset volatility.
-            </p>
-          </div>
-          <div className="border border-[var(--color-hairline)] p-4 bg-[var(--color-surface)]">
-            <div className="text-[10px] uppercase text-[var(--color-muted)] mb-1">Exit Discipline</div>
-            <div className="text-lg font-bold text-[var(--color-ink)]">Hard Time-Stop</div>
-            <p className="text-[11px] text-[var(--color-muted)] mt-1 font-serif">
-              20 trading sessions maximum holding duration. Unmet setups are closed to redeploy capital.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Core Quantitative Formulas */}
-      <section className="space-y-6">
-        <div className="border-b border-[var(--color-hairline)] pb-2 flex items-center justify-between text-xs font-mono">
-          <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
-            Section 02 · Quantitative Screening Formulas
-          </span>
-          <span className="text-[var(--color-muted)]">Algorithmic Filters</span>
-        </div>
-
-        {/* Model A: Dual Momentum */}
-        <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-6 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--color-hairline)] pb-3">
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)] block">Model A</span>
-              <h3 className="font-serif text-xl font-bold text-[var(--color-ink)]">
-                Dual Momentum &amp; Volume Surge (Trend Continuation)
-              </h3>
-            </div>
-            <span className="font-mono text-xs font-bold px-2 py-0.5 border border-[var(--color-bullish)] text-[var(--color-bullish)] self-start sm:self-auto">
-              BULLISH BREAKOUT
-            </span>
-          </div>
-
-          <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-            Captures large-cap and high-liquidity stocks exhibiting sustained institutional accumulation,
-            positive relative alpha over the Nifty 50, and volatility expansion above key moving averages.
-          </p>
-
-          <div className="bg-[var(--color-bg)] border border-[var(--color-hairline)] p-4 font-mono text-xs space-y-2.5">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-ink)]">
-              Formal Entry Criteria:
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] text-[var(--color-muted)]">
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">1. Trend Alignment Gate:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  Close &gt; EMA(20) &gt; SMA(50)
-                </code>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">2. Relative Strength (RS):</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  Return(Stock, 20d) / Return(NIFTY, 20d) &ge; 1.20
-                </code>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">3. Volume Expansion Gate:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  Volume(Today) &ge; 1.80 &times; SMA(Volume, 20)
-                </code>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">4. Momentum Sweet Spot:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  55.0 &le; RSI(14) &le; 68.0
-                </code>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs pt-2">
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-raised)]/20">
-              <span className="text-[10px] text-[var(--color-muted)] uppercase block">Dynamic Stop-Loss Formula</span>
-              <div className="font-bold text-sm text-[var(--color-bearish)] mt-0.5">
-                Stop-Loss = Entry &minus; (1.50 &times; ATR<sub>14</sub>)
-              </div>
-              <p className="text-[10px] text-[var(--color-muted)] mt-1 font-serif">
-                Positions the invalidation level beyond normal daily intraday noise.
-              </p>
-            </div>
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-raised)]/20">
-              <span className="text-[10px] text-[var(--color-muted)] uppercase block">Profit Target Formula</span>
-              <div className="font-bold text-sm text-[var(--color-bullish)] mt-0.5">
-                Target = Entry + (3.00 &times; ATR<sub>14</sub>)
-              </div>
-              <p className="text-[10px] text-[var(--color-muted)] mt-1 font-serif">
-                Guarantees an asymmetric 1:2.0 risk-to-reward ratio prior to trade confirmation.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Model B: Mean Reversion */}
-        <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-6 space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[var(--color-hairline)] pb-3">
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)] block">Model B</span>
-              <h3 className="font-serif text-xl font-bold text-[var(--color-ink)]">
-                Contrarian Mean-Reversion (Oversold Quality Bounce)
-              </h3>
-            </div>
-            <span className="font-mono text-xs font-bold px-2 py-0.5 border border-[var(--color-neutral)] text-[var(--color-ink)] self-start sm:self-auto">
-              TACTICAL DIP
-            </span>
-          </div>
-
-          <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-            Identifies high-quality large-cap equities experiencing extreme panic selling or localized liquidation
-            into major structural support where institutional delivery accumulation is surging.
-          </p>
-
-          <div className="bg-[var(--color-bg)] border border-[var(--color-hairline)] p-4 font-mono text-xs space-y-2.5">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-ink)]">
-              Formal Entry Criteria:
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-[11px] text-[var(--color-muted)]">
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">1. Volatility Band Penetration:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  Close &le; LowerBand(Bollinger, 20, 2&sigma;)
-                </code>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">2. Exhaustion Momentum:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  RSI(14) &le; 32.0 (Oversold extreme)
-                </code>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">3. Institutional Absorption:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  Delivery Percentage &ge; 55.0% on NSE
-                </code>
-              </div>
-              <div className="space-y-1">
-                <span className="text-[var(--color-ink)] font-semibold">4. Fundamental Quality Baseline:</span>
-                <code className="block bg-[var(--color-surface)] p-1.5 border border-[var(--color-hairline)] text-[var(--color-ink)]">
-                  Market Cap &gt; ₹25,000 cr &amp; TTM OCF &gt; 0
-                </code>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs pt-2">
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-raised)]/20">
-              <span className="text-[10px] text-[var(--color-muted)] uppercase block">Dynamic Stop-Loss Formula</span>
-              <div className="font-bold text-sm text-[var(--color-bearish)] mt-0.5">
-                Stop-Loss = Min(Low, 5d) &minus; 0.50%
-              </div>
-              <p className="text-[10px] text-[var(--color-muted)] mt-1 font-serif">
-                Structural invalidation if the multi-day liquidation low fails to hold.
-              </p>
-            </div>
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-raised)]/20">
-              <span className="text-[10px] text-[var(--color-muted)] uppercase block">Profit Target Formula</span>
-              <div className="font-bold text-sm text-[var(--color-bullish)] mt-0.5">
-                Target = EMA(20) Mean-Reversion Bound
-              </div>
-              <p className="text-[10px] text-[var(--color-muted)] mt-1 font-serif">
-                Statistical mean price return as the oversold anomaly corrects.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. The Hybrid Quant-LLM Protocol */}
-      <section className="space-y-4">
-        <div className="border-b border-[var(--color-hairline)] pb-2 flex items-center justify-between text-xs font-mono">
-          <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
-            Section 03 · Execution Protocol &amp; LLM Synthesis
-          </span>
-          <span className="text-[var(--color-muted)]">Quant-First Architecture</span>
-        </div>
-
-        <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-6 space-y-4">
-          <h3 className="font-serif text-lg font-bold text-[var(--color-ink)]">
-            How Quantitative Logic and Gemini 2.5 Interact
-          </h3>
-          <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-            In Kosh, the quantitative screener runs strictly in deterministic TypeScript using verified market
-            data from Yahoo Finance and the National Stock Exchange. The LLM is prohibited from selecting stocks,
-            choosing trade directions, or altering stop-loss and target price levels.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 font-mono text-xs pt-2">
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-bg)]">
-              <div className="text-[10px] font-bold text-[var(--color-muted)] uppercase">Step 1</div>
-              <div className="font-bold text-[var(--color-ink)] mt-1">Data Ingestion</div>
-              <p className="text-[10px] font-serif text-[var(--color-muted)] mt-1">
-                EOD OHLCV candle histories loaded for Nifty 50 and Next 50 universe.
-              </p>
-            </div>
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-bg)]">
-              <div className="text-[10px] font-bold text-[var(--color-muted)] uppercase">Step 2</div>
-              <div className="font-bold text-[var(--color-ink)] mt-1">Quant Screener</div>
-              <p className="text-[10px] font-serif text-[var(--color-muted)] mt-1">
-                Calculates RSI, EMAs, ATR, and volume ratios. Computes composite score (0-100).
-              </p>
-            </div>
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-bg)]">
-              <div className="text-[10px] font-bold text-[var(--color-muted)] uppercase">Step 3</div>
-              <div className="font-bold text-[var(--color-ink)] mt-1">Risk Bounds</div>
-              <p className="text-[10px] font-serif text-[var(--color-muted)] mt-1">
-                Computes mathematical Stop-Loss and Target with minimum 1:2.0 R:R requirement.
-              </p>
-            </div>
-            <div className="border border-[var(--color-hairline)] p-3 bg-[var(--color-bg)]">
-              <div className="text-[10px] font-bold text-[var(--color-muted)] uppercase">Step 4</div>
-              <div className="font-bold text-[var(--color-ink)] mt-1">LLM Rationale</div>
-              <p className="text-[10px] font-serif text-[var(--color-muted)] mt-1">
-                Gemini translates verified factors into a 2-sentence institutional thesis.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Active Screen & Monitored Setups */}
-      <section className="space-y-4">
-        <div className="border-b border-[var(--color-hairline)] pb-2 flex items-center justify-between text-xs font-mono">
-          <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
-            Section 04 · Active Model Setups (Quantitative Screen)
-          </span>
-          <span className="text-[var(--color-muted)]">Live Demonstration Ledger</span>
-        </div>
-
-        <div className="overflow-x-auto border border-[var(--color-hairline)] bg-[var(--color-surface)]">
-          <table className="w-full text-left text-xs font-mono">
-            <thead className="text-[10px] uppercase text-[var(--color-muted)] bg-[var(--color-raised)]/30 border-b border-[var(--color-hairline)]">
-              <tr>
-                <th className="py-2.5 px-3 font-bold">Ticker</th>
-                <th className="py-2.5 px-3 font-bold">Model Setup</th>
-                <th className="py-2.5 px-3 text-right font-bold">Quant Score</th>
-                <th className="py-2.5 px-3 text-right font-bold">Entry Ref</th>
-                <th className="py-2.5 px-3 text-right font-bold">Stop-Loss</th>
-                <th className="py-2.5 px-3 text-right font-bold">Target</th>
-                <th className="py-2.5 px-3 text-center font-bold">R : R</th>
-                <th className="py-2.5 px-3 min-w-[220px] font-bold">Technical Triggers</th>
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
+            <thead>
+              <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
+                <th className="py-2 pr-3 font-semibold">Ticker</th>
+                <th className="py-2 pr-3 font-semibold">Model</th>
+                <th className="py-2 pr-3 text-right font-semibold">Score</th>
+                <th className="py-2 pr-3 text-right font-semibold">Entry Ref</th>
+                <th className="py-2 pr-3 text-right font-semibold">Stop-Loss</th>
+                <th className="py-2 pr-3 text-right font-semibold">Target</th>
+                <th className="py-2 pr-3 text-center font-semibold">R : R</th>
+                <th className="py-2 font-semibold">Algorithmic Triggers</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]/60">
+            <tbody className="divide-y divide-[var(--color-hairline)]">
               {SAMPLE_TACTICAL_SETUPS.map((s) => (
-                <tr key={s.ticker} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
-                  <td className="py-2.5 px-3">
-                    <span className="font-bold text-[var(--color-ink)] text-sm">{s.ticker}</span>
-                    <div className="text-[10px] text-[var(--color-muted)] font-serif">{s.name}</div>
+                <tr key={s.ticker}>
+                  <td className="py-2.5 pr-3">
+                    <span className="font-bold text-[var(--color-ink)]">{s.ticker}</span>
+                    <span className="text-[10px] text-[var(--color-muted)] block font-serif">{s.name}</span>
                   </td>
-                  <td className="py-2.5 px-3">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-ink)]">
-                      {s.model}
-                    </span>
+                  <td className="py-2.5 pr-3 text-[11px] text-[var(--color-ink)]">{s.model}</td>
+                  <td className="py-2.5 pr-3 text-right font-semibold tabular-nums text-[var(--color-ink)]">
+                    {s.quantScore}
                   </td>
-                  <td className="py-2.5 px-3 text-right font-bold tabular-nums text-[var(--color-ink)]">
-                    {s.quantScore}/100
-                  </td>
-                  <td className="py-2.5 px-3 text-right font-semibold tabular-nums text-[var(--color-ink)]">
+                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)] font-semibold">
                     ₹{s.entryPrice.toLocaleString('en-IN')}
                   </td>
-                  <td className="py-2.5 px-3 text-right tabular-nums text-[var(--color-bearish)] font-semibold">
+                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)]">
                     ₹{s.stopLossPrice.toLocaleString('en-IN')}
-                    <div className="text-[9px] text-[var(--color-muted)]">
-                      (-{(((s.entryPrice - s.stopLossPrice) / s.entryPrice) * 100).toFixed(1)}%)
-                    </div>
                   </td>
-                  <td className="py-2.5 px-3 text-right tabular-nums text-[var(--color-bullish)] font-semibold">
+                  <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
                     ₹{s.targetPrice.toLocaleString('en-IN')}
-                    <div className="text-[9px] text-[var(--color-muted)]">
-                      (+{(((s.targetPrice - s.entryPrice) / s.entryPrice) * 100).toFixed(1)}%)
-                    </div>
                   </td>
-                  <td className="py-2.5 px-3 text-center font-bold text-[var(--color-ink)]">
-                    {s.riskReward}
-                  </td>
-                  <td className="py-2.5 px-3 text-[11px] font-serif text-[var(--color-muted)]">
-                    {s.triggers.join(' · ')}
-                  </td>
+                  <td className="py-2.5 pr-3 text-center text-[var(--color-muted)]">{s.riskReward}</td>
+                  <td className="py-2.5 text-[11px] font-serif text-[var(--color-muted)]">{s.triggers}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <div className="flex justify-between items-center text-xs font-mono text-[var(--color-muted)] pt-2 border-t border-[var(--color-hairline)]">
-          <span>Evaluated daily at 18:30 IST following official NSE Bhavcopy reconciliation.</span>
+        <footer className="flex justify-between items-center text-xs font-mono text-[var(--color-muted)] pt-3">
+          <span>Evaluated daily at 18:30 IST upon official NSE Bhavcopy reconciliation.</span>
           <Link href="/bets/long-term" className="underline hover:text-[var(--color-ink)]">
-            Explore Long-Term Strategic Bets &rarr;
+            Review Strategic Long-Term Models &rarr;
           </Link>
-        </div>
+        </footer>
       </section>
-    </div>
+    </article>
   );
 }

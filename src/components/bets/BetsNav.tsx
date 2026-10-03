@@ -9,40 +9,41 @@ export function BetsNav() {
   const isLongTerm = pathname.includes('/bets/long-term');
 
   return (
-    <div className="border-b border-[var(--color-hairline)] pb-4 mb-8">
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+    <header className="border-b border-[var(--color-hairline)] pb-4 mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
         <div>
-          <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)] mb-1">
-            Systematic Alpha · Quant Desk
+          <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)]">
+            Kosh Quantitative Intelligence · Systematic Strategies
           </div>
-          <h1 className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)]">
-            Quantitative Bets &amp; Formulas
-          </h1>
+          <div className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-ink)] mt-1">
+            Systematic Equities Research
+          </div>
         </div>
 
-        <nav aria-label="Bets Horizon" className="flex items-center gap-1 border border-[var(--color-hairline)] p-1 bg-[var(--color-surface)] font-mono text-xs">
+        <nav aria-label="Strategy Horizon" className="flex items-center gap-3 text-xs font-mono">
           <Link
             href="/bets/short-term"
-            className={`px-3 py-1.5 transition-colors ${
+            className={`pb-0.5 border-b transition-colors ${
               isShortTerm
-                ? 'bg-[var(--color-raised)] text-[var(--color-ink)] font-bold shadow-sm'
-                : 'text-[var(--color-muted)] hover:text-[var(--color-ink)]'
+                ? 'border-[var(--color-ink)] text-[var(--color-ink)] font-bold'
+                : 'border-transparent text-[var(--color-muted)] hover:text-[var(--color-ink)]'
             }`}
           >
             Short-Term (1–4W)
           </Link>
+          <span className="text-[var(--color-hairline)]">/</span>
           <Link
             href="/bets/long-term"
-            className={`px-3 py-1.5 transition-colors ${
+            className={`pb-0.5 border-b transition-colors ${
               isLongTerm
-                ? 'bg-[var(--color-raised)] text-[var(--color-ink)] font-bold shadow-sm'
-                : 'text-[var(--color-muted)] hover:text-[var(--color-ink)]'
+                ? 'border-[var(--color-ink)] text-[var(--color-ink)] font-bold'
+                : 'border-transparent text-[var(--color-muted)] hover:text-[var(--color-ink)]'
             }`}
           >
             Long-Term (3–12M)
           </Link>
         </nav>
       </div>
-    </div>
+    </header>
   );
 }
