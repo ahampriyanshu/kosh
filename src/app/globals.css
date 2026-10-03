@@ -733,6 +733,10 @@ select {
   border-bottom: none;
 }
 
+.broadsheet-masthead a {
+  font-style: normal;
+}
+
 .broadsheet-masthead .nav-link {
   font-family: var(--font-serif);
   font-size: 0.875rem;
