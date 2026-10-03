@@ -500,9 +500,12 @@ export default async function TodayPage() {
           </div>
 
           {daily && (
-            <div className="pt-2 border-t border-[var(--color-hairline)] text-xs font-mono">
-              <Link href={`/reports/${daily.dateKey.replace(/-/g, '/')}`} className="underline hover:text-[var(--color-ink)] transition-colors">
-                Read daily dispatch ({daily.dateKey}) &rarr;
+            <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
+              <Link
+                href={`/reports/${daily.dateKey.replace(/-/g, '/')}`}
+                className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+              >
+                [Continued on Page 2 · Full Daily Dispatch &rarr;]
               </Link>
             </div>
           )}
@@ -785,9 +788,12 @@ export default async function TodayPage() {
             })}
           </div>
 
-          <div className="pt-2 border-t border-[var(--color-hairline)] text-right">
-            <Link href="/research" className="underline hover:text-[var(--color-ink)] transition-colors font-serif text-xs">
-              Explore research library &rarr;
+          <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
+            <Link
+              href="/research"
+              className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+            >
+              [Turn to Page 4 · Full Research Desk &rarr;]
             </Link>
           </div>
         </div>
@@ -855,9 +861,12 @@ export default async function TodayPage() {
             ))}
           </div>
 
-          <div className="pt-2 border-t border-[var(--color-hairline)] text-right">
-            <Link href="/portfolio" className="underline hover:text-[var(--color-ink)] transition-colors font-serif text-xs">
-              View model portfolio &rarr;
+          <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
+            <Link
+              href="/portfolio"
+              className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+            >
+              [Turn to Page 5 · Audited Model Portfolio &rarr;]
             </Link>
           </div>
         </div>
@@ -959,9 +968,12 @@ export default async function TodayPage() {
           </table>
         </div>
 
-        <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-mono">
-          <Link href="/scorecard" className="underline hover:text-[var(--color-ink)] transition-colors">
-            View full scorecard &rarr;
+        <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
+          <Link
+            href="/scorecard"
+            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+          >
+            [Turn to Page 6 · Comprehensive Historical Scorecard &rarr;]
           </Link>
         </div>
       </div>

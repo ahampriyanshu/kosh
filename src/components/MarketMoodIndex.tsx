@@ -151,23 +151,23 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
           </div>
         </div>
       ) : (
-        <div className="pt-2 border-t border-[var(--color-hairline)] text-xs font-mono">
+        <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
           <Link
             href="/sentiment"
-            className="underline hover:text-[var(--color-ink)] transition-colors inline-block"
+            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
           >
-            Explore Market Mood Index &rarr;
+            [Turn to Page 3 · Market Mood Index &rarr;]
           </Link>
         </div>
       )}
 
       {!compact && showFactors && (
-        <div className="mt-2.5 pt-1.5 border-t border-[var(--color-hairline)] text-right text-xs">
+        <div className="mt-2.5 pt-1.5 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
           <Link
             href="/sentiment"
-            className="underline hover:text-[var(--color-ink)] transition-colors"
+            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
           >
-            Explore Historical Timeseries &rarr;
+            [Turn to Page 3 · Historical Sentiment Timeseries &rarr;]
           </Link>
         </div>
       )}
