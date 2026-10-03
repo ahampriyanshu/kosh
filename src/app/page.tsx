@@ -866,7 +866,7 @@ export default async function TodayPage() {
       {/* ══════════════════════════════════════════════════════════════════════
           ROW 4: AUDITED POSITIONAL LEDGER (Connected Broadsheet Table)
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="p-4 space-y-3 border-b border-[var(--color-hairline)]">
+      <div className="p-4 space-y-3">
         {/* Clean Inline Stats Ribbon */}
         <div className="py-2 border-b border-[var(--color-hairline)] grid grid-cols-2 sm:grid-cols-5 text-center text-xs font-mono divide-x divide-[var(--color-hairline)]">
           <div>
@@ -959,9 +959,8 @@ export default async function TodayPage() {
           </table>
         </div>
 
-        <div className="flex items-center justify-between pt-2 border-t border-[var(--color-hairline)] text-xs font-serif text-[var(--color-muted)]">
-          <span>Committed to git repository ledger.</span>
-          <Link href="/scorecard" className="underline hover:text-[var(--color-ink)] transition-colors font-mono">
+        <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-mono">
+          <Link href="/scorecard" className="underline hover:text-[var(--color-ink)] transition-colors">
             View full scorecard &rarr;
           </Link>
         </div>
