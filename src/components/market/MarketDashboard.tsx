@@ -55,7 +55,7 @@ function NearList({ rows, kind }: { rows: Array<NearHigh | NearLow>; kind: 'high
     );
   }
   return (
-    <div className="divide-y divide-[var(--color-hairline)]">
+    <div>
       {rows.map((item) => {
         const pct = kind === 'high' ? (item as NearHigh).pctFromHigh : (item as NearLow).pctFromLow;
         return (

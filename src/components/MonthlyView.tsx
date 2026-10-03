@@ -81,7 +81,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
                   <th className="py-2.5 px-3 min-w-[200px] font-bold">Macro Context</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+              <tbody>
                 {content.multiAssetScorecard.map((item) => {
                   const isPos = item.returnPct >= 0;
                   return (
@@ -113,7 +113,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
       {/* Sector Leadership */}
       {content.sectorLeadership && content.sectorLeadership.length > 0 && (
         <ReportSection title="Sector Leadership">
-          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 text-xs font-mono">
             {content.sectorLeadership.map((s) => (
               <div key={s.sector} className="py-2 flex items-center justify-between">
                 <div className="flex items-center gap-2">
@@ -184,7 +184,7 @@ export function MonthlyView({ content }: MonthlyViewProps) {
                   <th className="py-2.5 px-3 font-bold">Thesis</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+              <tbody>
                 {content.midTermBets.map((bet) => (
                   <tr key={bet.ticker} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
                     <td className="py-2 px-3">

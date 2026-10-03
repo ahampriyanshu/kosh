@@ -26,7 +26,7 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
       {nonEmpty.map((group) => (
         <div key={group.category}>
           {showCategoryLabels && (
-            <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-3">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-3">
               {CATEGORY_LABELS[group.category]}
             </h3>
           )}
@@ -34,7 +34,6 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
             {group.items.map((item, idx) => (
               <li
                 key={idx}
-                className="border-l-2 border-[var(--color-hairline)] pl-3"
               >
                 <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug">
                   {item.headline}

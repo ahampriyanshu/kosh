@@ -296,7 +296,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]">
+            <tbody>
               {sortedHoldings.map((holding) => (
                 <tr key={holding.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
                   <td className="py-3.5 pr-6">

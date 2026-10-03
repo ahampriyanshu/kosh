@@ -45,7 +45,7 @@ export default function CorpActionsList({ actions }: CorpActionsListProps) {
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-[var(--color-hairline)]">
+        <tbody>
           {actions.map((action, idx) => (
             <tr key={idx} className="group hover:bg-[var(--color-raised)] transition-colors">
               <td className="py-2.5 pr-4">

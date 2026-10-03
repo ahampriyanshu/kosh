@@ -78,7 +78,7 @@ export function RetroView({ content }: RetroViewProps) {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]">
+              <tbody>
                 {content.evaluated.map((ev) => (
                   <tr key={ev.ticker}>
                     <td className="py-2.5 pr-4">

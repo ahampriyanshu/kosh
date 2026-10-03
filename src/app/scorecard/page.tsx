@@ -188,7 +188,7 @@ export default async function ScorecardPage() {
 
         {/* Detailed Master Table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-serif divide-y divide-[var(--color-hairline)]">
+          <table className="w-full text-left text-xs font-serif">
             <thead className="text-[10px] font-mono uppercase text-[var(--color-muted)]">
               <tr>
                 <th className="py-2 px-2">Date</th>
@@ -201,7 +201,7 @@ export default async function ScorecardPage() {
                 <th className="py-2 px-2 min-w-[200px]">Thesis &amp; Audit Note</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]/60 font-mono text-[11px]">
+            <tbody className="font-mono text-[11px]">
               {allBets.length > 0 ? (
                 allBets.map((bet, idx) => (
                   <tr key={idx} className="hover:bg-[var(--color-hairline)]/20 transition-colors">

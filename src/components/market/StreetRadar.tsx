@@ -20,7 +20,7 @@ export function StreetRadar({ recs, priceLookup = {} }: StreetRadarProps) {
         </span>
       </div>
 
-      <div className="divide-y divide-[var(--color-hairline)]/60">
+      <div>
         {recs.map((rec, idx) => {
           const ltp = priceLookup[rec.ticker];
           let upsidePct: number | null = null;

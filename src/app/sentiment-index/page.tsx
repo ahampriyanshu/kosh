@@ -217,7 +217,7 @@ export default function SentimentIndexPage() {
                 <th className="px-3 py-3 font-medium">Options</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]">
+            <tbody>
               {history.map(({ date, mood }) => {
                 const historyBand = getSentimentBand(mood.composite);
                 return (

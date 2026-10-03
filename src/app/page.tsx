@@ -410,14 +410,14 @@ export default async function TodayPage() {
           {fiiDii && (
             <div className="pt-2 border-t border-[var(--color-hairline)]">
               <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
-                <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Institutional Flows</span>
+                <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Institutional Flows</span>
                 {fiiDii.asOf && (
                   <span className="text-[10px] text-[var(--color-muted)] font-mono">
                     {fiiDii.asOf}
                   </span>
                 )}
               </div>
-              <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+              <div className="text-xs font-mono">
                 <div className="py-1 flex items-center justify-between">
                   <span className="text-[var(--color-muted)]">FII Net Cash</span>
                   <span className="font-semibold text-[var(--color-ink)] tabular-nums">
@@ -437,9 +437,9 @@ export default async function TodayPage() {
           {/* Global Benchmarks */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Global Benchmarks</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Global Benchmarks</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {snapshot?.giftNifty && (
                 <div className="py-1 flex items-center justify-between">
                   <span className="text-[var(--color-ink)]">GIFT Nifty</span>
@@ -468,9 +468,9 @@ export default async function TodayPage() {
           {/* Macro Commodities & FX */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Macro Commodities &amp; FX</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Macro Commodities &amp; FX</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {gold && (
                 <div className="py-1 flex items-center justify-between">
                   <span className="text-[var(--color-ink)]">MCX Gold</span>
@@ -561,10 +561,10 @@ export default async function TodayPage() {
           {/* IPO in Focus */}
           <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">IPO in Focus</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">IPO in Focus</span>
             </div>
 
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs">
+            <div className="text-xs">
               {PRIMARY_MARKET_IPOS.map((ipo, i) => (
                 <div key={i} className="py-2 first:pt-0 last:pb-0 space-y-0.5">
                   <div className="flex items-baseline justify-between font-mono">
@@ -589,11 +589,11 @@ export default async function TodayPage() {
           {/* Corporate Actions & Dates Calendar */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Corporate Actions</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Corporate Actions</span>
               <span className="text-[10px] text-[var(--color-muted)] font-mono">Calendar</span>
             </div>
 
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {corporateActions.length > 0 ? (
                 corporateActions.slice(0, 5).map((item, i) => (
                   <div key={i} className="py-1.5 first:pt-0 last:pb-0 flex items-center justify-between">
@@ -647,9 +647,9 @@ export default async function TodayPage() {
           {/* Top Gainers */}
           <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Session Gainers</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Session Gainers</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {snapshot?.topGainers && snapshot.topGainers.length > 0 ? (
                 snapshot.topGainers.slice(0, 5).map((g) => (
                   <div key={g.ticker} className="py-1 flex items-center justify-between">
@@ -669,9 +669,9 @@ export default async function TodayPage() {
           {/* Top Losers */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Session Losers</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Session Losers</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {snapshot?.topLosers && snapshot.topLosers.length > 0 ? (
                 snapshot.topLosers.slice(0, 5).map((l) => (
                   <div key={l.ticker} className="py-1 flex items-center justify-between">
@@ -691,14 +691,14 @@ export default async function TodayPage() {
           {/* Most Traded & Volume Shockers */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Most Traded &amp; Volume Shockers</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Most Traded &amp; Volume Shockers</span>
             </div>
 
             {/* High Turnover */}
-            <div className="text-[10px] font-mono text-[var(--color-muted)] uppercase tracking-wider pb-1 font-semibold">
+            <div className="font-serif text-[10px] text-[var(--color-muted)] uppercase tracking-wider pb-1 font-semibold">
               High Turnover
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono pb-2">
+            <div className="text-xs font-mono pb-2">
               {snapshot?.mostActive && snapshot.mostActive.length > 0 ? (
                 snapshot.mostActive.slice(0, 3).map((item) => (
                   <div key={item.ticker} className="py-1.5 flex items-center justify-between">
@@ -718,11 +718,11 @@ export default async function TodayPage() {
             </div>
 
             {/* Volume Shockers */}
-            <div className="text-[10px] font-mono text-[var(--color-muted)] uppercase tracking-wider pt-2 border-t border-[var(--color-hairline)]/40 pb-1 font-semibold flex items-center justify-between">
+            <div className="font-serif text-[10px] text-[var(--color-muted)] uppercase tracking-wider pt-2 border-t border-[var(--color-hairline)]/40 pb-1 font-semibold flex items-center justify-between">
               <span>Volume Shockers</span>
               <span className="text-[10px] text-[var(--color-bullish)] lowercase font-mono">vs 20d avg</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {volumeShockers.slice(0, 3).map((item) => (
                 <div key={item.ticker} className="py-1.5 flex items-center justify-between">
                   <div>
@@ -743,23 +743,16 @@ export default async function TodayPage() {
           </div>
         </div>
 
-        {/* 2B. Col 2 (4 cols): Sector Rotation (Full Ranked Performance Table) */}
+        {/* 2B. Col 2 (4 cols): Sector Rotation */}
         <div className="md:col-span-4 p-4 space-y-2">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
-            <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
-            {allSectors.length > 0 && (
-              <span className="text-[10px] text-[var(--color-muted)] font-mono">
-                {allSectors.filter((s) => s.changePct >= 0).length} Adv / {allSectors.filter((s) => s.changePct < 0).length} Dec
-              </span>
-            )}
+            <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
           </div>
 
-          <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+          <div className="text-xs font-mono">
             {allSectors.length > 0 ? (
               allSectors.map((s, idx) => {
                 const isPos = s.changePct >= 0;
-                const maxAbs = Math.max(...allSectors.map((sec) => Math.abs(sec.changePct)), 1);
-                const barWidth = Math.min(100, Math.round((Math.abs(s.changePct) / maxAbs) * 100));
 
                 return (
                   <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
@@ -768,14 +761,6 @@ export default async function TodayPage() {
                       <span className="font-serif text-[var(--color-ink)] font-medium truncate">
                         {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
                       </span>
-                    </div>
-
-                    {/* Relative Momentum Divergence Bar */}
-                    <div className="flex-1 h-1.5 bg-[var(--color-hairline)]/40 overflow-hidden relative rounded-full">
-                      <div
-                        style={{ width: `${barWidth}%` }}
-                        className={`h-full ${isPos ? 'bg-[var(--color-bullish)]' : 'bg-[var(--color-bearish)]'}`}
-                      />
                     </div>
 
                     <span
@@ -794,17 +779,6 @@ export default async function TodayPage() {
               </span>
             )}
           </div>
-
-          {allSectors.length > 0 && (
-            <div className="pt-2 border-t border-[var(--color-hairline)] flex items-center justify-between text-[11px] font-mono">
-              <span className="text-[var(--color-muted)]">
-                Leader: <strong className="text-[var(--color-bullish)]">{allSectors[0].sector} ({allSectors[0].changePct >= 0 ? '+' : ''}{allSectors[0].changePct.toFixed(2)}%)</strong>
-              </span>
-              <span className="text-[var(--color-muted)]">
-                Drag: <strong className="text-[var(--color-bearish)]">{allSectors[allSectors.length - 1].sector} ({allSectors[allSectors.length - 1].changePct.toFixed(2)}%)</strong>
-              </span>
-            </div>
-          )}
         </div>
 
         {/* 2C. Col 3 (4 cols): Near 52-Week High & Low */}
@@ -812,9 +786,9 @@ export default async function TodayPage() {
           {/* Near 52-Week High */}
           <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Near 52-Week High</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Near 52-Week High</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {near52HighItems.slice(0, 4).map((item) => (
                 <div key={item.ticker} className="py-1 flex items-center justify-between">
                   <div>
@@ -835,9 +809,9 @@ export default async function TodayPage() {
           {/* Near 52-Week Low */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Near 52-Week Low</span>
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Near 52-Week Low</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+            <div className="text-xs font-mono">
               {near52LowItems.slice(0, 4).map((item) => (
                 <div key={item.ticker} className="py-1 flex items-center justify-between">
                   <div>
@@ -865,7 +839,7 @@ export default async function TodayPage() {
         {/* 3A. Col 1 (4 cols): Street Consensus */}
         <div className="md:col-span-4 p-4 space-y-3">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-            <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Street Consensus</span>
+            <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Street Consensus</span>
           </div>
 
           <div className="space-y-3">
@@ -873,10 +847,10 @@ export default async function TodayPage() {
               if (!items || items.length === 0) return null;
               return (
                 <div key={category} className="space-y-1.5">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-[var(--color-muted)] font-bold block pb-0.5 border-b border-[var(--color-hairline)]/40">
+                  <span className="font-serif text-[10px] uppercase tracking-wider text-[var(--color-muted)] font-bold block pb-0.5 border-b border-[var(--color-hairline)]/40">
                     {category}
                   </span>
-                  <div className="divide-y divide-[var(--color-hairline)]/40 text-xs">
+                  <div className="text-xs">
                     {items.slice(0, 2).map((rec, i) => {
                       const ltp = priceLookup[rec.ticker];
                       const upside = ltp && rec.target ? ((rec.target - ltp) / ltp) * 100 : null;
@@ -925,11 +899,14 @@ export default async function TodayPage() {
 
         {/* 3B. Col 2 (4 cols): Short-Term Tactical Bets */}
         <div className="md:col-span-4 p-4 space-y-3">
-          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-            <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Short-Term Tactical Bets</span>
+          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
+            <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Short-Term Tactical Bets</span>
+            <Link href="/bets/short-term" className="text-[10px] text-[var(--color-muted)] hover:text-[var(--color-ink)] font-mono">
+              Model &rarr;
+            </Link>
           </div>
 
-          <div className="divide-y divide-[var(--color-hairline)]/60 text-xs">
+          <div className="text-xs">
             {TACTICAL_BETS.map((bet) => (
               <div key={bet.ticker} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
                 <div className="flex items-baseline justify-between font-mono">
@@ -942,7 +919,7 @@ export default async function TodayPage() {
                   </span>
                 </div>
 
-                <div className="py-1 border-y border-[var(--color-hairline)] flex justify-between font-mono text-[11px]">
+                <div className="py-1 flex justify-between font-mono text-[11px]">
                   <span className="text-[var(--color-muted)]">Entry: {bet.entry}</span>
                   <span className="font-bold text-[var(--color-bullish)]">Target: {bet.target}</span>
                   <span className="text-[var(--color-bearish)]">SL: {bet.stopLoss}</span>
@@ -958,11 +935,14 @@ export default async function TodayPage() {
 
         {/* 3C. Col 3 (4 cols): Long-Term Structural Bets */}
         <div className="md:col-span-4 p-4 space-y-3">
-          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-            <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Long-Term Structural Bets</span>
+          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
+            <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Long-Term Structural Bets</span>
+            <Link href="/bets/long-term" className="text-[10px] text-[var(--color-muted)] hover:text-[var(--color-ink)] font-mono">
+              Model &rarr;
+            </Link>
           </div>
 
-          <div className="divide-y divide-[var(--color-hairline)]/60 text-xs">
+          <div className="text-xs">
             {STRUCTURAL_BETS.map((bet) => (
               <div key={bet.ticker} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
                 <div className="flex items-baseline justify-between font-mono">

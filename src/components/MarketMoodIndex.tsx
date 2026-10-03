@@ -23,7 +23,7 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
     <div className={`font-serif ${compact ? 'space-y-2' : 'pb-4 border-b border-[var(--color-hairline)]'}`} aria-label="Sentiment Index">
       {/* Broadsheet Column Header */}
       <div className="flex items-center justify-between pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-        <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">
+        <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">
           Sentiment Index
         </span>
         <div className="flex items-center gap-1.5 font-mono text-xs">

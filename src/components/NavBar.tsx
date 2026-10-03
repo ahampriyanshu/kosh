@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { href: '/reports', label: 'Reports' },
   { href: '/sentiment-index', label: 'Sentiment Index' },
   { href: '/outlook', label: 'Outlook' },
+  { href: '/bets', label: 'Bets' },
   { href: '/scorecard', label: 'Scorecard' },
   { href: '/research', label: 'Research' },
   { href: '/portfolio', label: 'Portfolio' },

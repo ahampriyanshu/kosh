@@ -21,7 +21,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
       {multiAsset.length > 0 && (
         <section className="space-y-3">
           <div className="pb-1.5 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
-            <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            <span className="font-serif font-bold uppercase tracking-wider text-[var(--color-ink)]">
               Multi-Asset Performance Scorecard
             </span>
             <span className="text-[10px] text-[var(--color-muted)] font-mono">7-Day Benchmark Ledger</span>
@@ -38,7 +38,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
                   <th className="py-2.5 px-3 min-w-[200px] font-bold">Macro Context</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+              <tbody>
                 {multiAsset.map((item) => {
                   const isPos = item.returnPct >= 0;
                   return (
@@ -71,15 +71,15 @@ export function WeeklyView({ content }: WeeklyViewProps) {
       {sectorGrowth.length > 0 && (
         <section className="space-y-3">
           <div className="pb-1.5 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
-            <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            <span className="font-serif font-bold uppercase tracking-wider text-[var(--color-ink)]">
               Sector Growth &amp; Relative Rotation
             </span>
             <span className="text-[10px] text-[var(--color-muted)] font-mono">Ranked Weekly Performance</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] block pb-2">
+            <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 text-xs font-mono">
+              <span className="font-serif text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] block pb-2">
                 Top Performing Sectors
               </span>
               {sectorGrowth.slice(0, Math.ceil(sectorGrowth.length / 2)).map((s) => (
@@ -99,8 +99,8 @@ export function WeeklyView({ content }: WeeklyViewProps) {
               ))}
             </div>
 
-            <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] block pb-2">
+            <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-3 text-xs font-mono">
+              <span className="font-serif text-[10px] font-bold uppercase tracking-wider text-[var(--color-muted)] block pb-2">
                 Lagging &amp; Defensive Sectors
               </span>
               {sectorGrowth.slice(Math.ceil(sectorGrowth.length / 2)).map((s) => (
@@ -127,14 +127,14 @@ export function WeeklyView({ content }: WeeklyViewProps) {
       {flows && (
         <section className="space-y-3">
           <div className="pb-1.5 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
-            <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            <span className="font-serif font-bold uppercase tracking-wider text-[var(--color-ink)]">
               Institutional Cash Flow Dynamics
             </span>
             <span className="text-[10px] text-[var(--color-muted)] font-mono">Weekly Cumulative Inflow / Outflow</span>
           </div>
 
           <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-4">
-            <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[var(--color-hairline)] text-center font-mono">
+            <div className="grid grid-cols-1 sm:grid-cols-3 text-center font-mono">
               <div className="py-2 sm:py-0 px-3">
                 <span className="text-[10px] text-[var(--color-muted)] uppercase block mb-1">FII Net Cash</span>
                 <span
@@ -179,7 +179,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
       {portfolioFocus.length > 0 && (
         <section className="space-y-3">
           <div className="pb-1.5 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
-            <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            <span className="font-serif font-bold uppercase tracking-wider text-[var(--color-ink)]">
               Portfolio Holdings &amp; Company Catalyst Radar
             </span>
             <span className="text-[10px] text-[var(--color-muted)] font-mono">Holding Events &amp; Risk Disclosures</span>
@@ -195,7 +195,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
                   <th className="py-2.5 px-3 font-bold">Risk Assessment</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+              <tbody>
                 {portfolioFocus.map((item) => (
                   <tr key={item.ticker} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
                     <td className="py-2.5 px-3 align-top whitespace-nowrap">
@@ -223,7 +223,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
       {ipos.length > 0 && (
         <section className="space-y-3">
           <div className="pb-1.5 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
-            <span className="font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            <span className="font-serif font-bold uppercase tracking-wider text-[var(--color-ink)]">
               IPOs in Focus · Primary Market Calendar
             </span>
             <span className="text-[10px] text-[var(--color-muted)] font-mono">Weekly Primary Market Intelligence</span>
@@ -241,7 +241,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
                   <th className="py-2.5 px-3 font-bold text-center">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+              <tbody>
                 {ipos.map((ipo, idx) => (
                   <tr key={idx} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
                     <td className="py-2 px-3 font-bold text-[var(--color-ink)]">
@@ -294,7 +294,7 @@ export function WeeklyView({ content }: WeeklyViewProps) {
                   <th className="py-2 px-3 text-left">Thesis</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-[var(--color-hairline)]/60">
+              <tbody>
                 {legacyBets.map((bet) => (
                   <tr key={bet.ticker}>
                     <td className="py-2 px-3 font-bold">{bet.ticker.replace('.NS', '')}</td>

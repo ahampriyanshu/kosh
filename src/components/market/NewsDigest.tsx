@@ -56,10 +56,10 @@ export function NewsDigest({ groups, limit = 6 }: NewsDigestProps) {
   if (picks.length === 0) return null;
 
   return (
-    <ul className="divide-y divide-[var(--color-hairline)]">
+    <ul>
       {picks.map(({ category, item }, i) => (
         <li key={i} className="py-3">
-          <span className="font-sans text-[10px] font-semibold uppercase tracking-widest text-[var(--color-brand)]">
+          <span className="font-serif text-[10px] font-semibold uppercase tracking-widest text-[var(--color-brand)]">
             {THEME_LABELS[category]}
           </span>
           <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug mt-0.5">

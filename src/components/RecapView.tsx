@@ -95,7 +95,7 @@ export function RecapView({ content }: RecapViewProps) {
                       : 'var(--color-muted)';
 
                   return (
-                    <tr key={`${bet.ticker}-${i}`} className="border-b border-[var(--color-hairline)] last:border-0">
+                    <tr key={`${bet.ticker}-${i}`}>
                       <td className="py-3 pr-4">
                         <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                           {tickerFn(bet.ticker)}
