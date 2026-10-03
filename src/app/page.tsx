@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getLatest, getManifest, readAllLedgers } from '../lib/reports';
+import { getLatest, getManifest } from '../lib/reports';
 import type { DailyContent, RetroContent, MarketSnapshot } from '../../lib/schemas';
 import { SentimentGauge } from '../components/SentimentGauge';
 import { MarketMarquee } from '../components/market/MarketMarquee';
@@ -203,26 +203,11 @@ const STRUCTURAL_BETS: StructuralBet[] = [
   },
 ];
 
-interface FlattenedBet {
-  month: string;
-  gradedOn: string;
-  ticker: string;
-  name: string;
-  action: 'buy' | 'sell' | 'hold';
-  entryRef: number;
-  exitRef: number;
-  changePct: number;
-  outcome: 'hit' | 'miss' | 'partial';
-  thesis: string;
-  note: string;
-}
-
 export default async function TodayPage() {
-  const [daily, retro, manifest, ledgers] = await Promise.all([
+  const [daily, retro, manifest] = await Promise.all([
     getLatest('daily'),
     getLatest('retro'),
     getManifest(),
-    readAllLedgers(),
   ]);
 
   const today = new Date().toISOString().slice(0, 10);
@@ -234,43 +219,6 @@ export default async function TodayPage() {
   const dailyContent = daily ? (daily.content as DailyContent) : null;
   const snapshot = dailyContent?.snapshot;
   const mood = snapshot?.sentiment ?? (snapshot ? computeMoodSnapshot(snapshot, 'closing') : null);
-
-  // Aggregate stats across all months from the ledger
-  let totalBets = 0;
-  let hits = 0;
-  let misses = 0;
-  let partials = 0;
-  const allBets: FlattenedBet[] = [];
-
-  for (const ledger of ledgers) {
-    for (const entry of ledger.entries || []) {
-      for (const bet of entry.bets || []) {
-        totalBets++;
-        if (bet.outcome === 'hit') hits++;
-        else if (bet.outcome === 'miss') misses++;
-        else if (bet.outcome === 'partial') partials++;
-
-        allBets.push({
-          month: ledger.month,
-          gradedOn: entry.gradedOn,
-          ticker: bet.ticker.replace('.NS', ''),
-          name: bet.name,
-          action: bet.action,
-          entryRef: bet.entryRef,
-          exitRef: bet.exitRef,
-          changePct: bet.changePct,
-          outcome: bet.outcome,
-          thesis: bet.thesis,
-          note: bet.note,
-        });
-      }
-    }
-  }
-
-  // Sort bets chronologically newest first
-  allBets.sort((a, b) => b.gradedOn.localeCompare(a.gradedOn));
-
-  const winRate = hits + misses > 0 ? ((hits / (hits + misses)) * 100).toFixed(1) : '0';
 
   // Build price lookup map for recommendations
   const priceLookup: Record<string, number> = {};
@@ -1037,121 +985,6 @@ export default async function TodayPage() {
               </div>
             ))}
           </div>
-
-          <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
-            <Link
-              href="/portfolio"
-              className="text-[var(--color-ink)] hover:underline transition-colors"
-            >
-              Turn to Page 5 · Audited Model Portfolio
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          ROW 4: AUDITED POSITIONAL LEDGER (Connected Broadsheet Table)
-          ══════════════════════════════════════════════════════════════════════ */}
-      <div className="p-4 space-y-3">
-        {/* Clean Inline Stats Ribbon */}
-        <div className="py-2 border-b border-[var(--color-hairline)] grid grid-cols-2 sm:grid-cols-5 text-center text-xs font-mono divide-x divide-[var(--color-hairline)]">
-          <div>
-            <span className="text-[10px] text-[var(--color-muted)] uppercase block">Evaluated</span>
-            <span className="font-bold text-sm text-[var(--color-ink)] tabular-nums">{totalBets}</span>
-          </div>
-          <div>
-            <span className="text-[10px] text-[var(--color-muted)] uppercase block">Win Rate</span>
-            <span className="font-bold text-sm text-[var(--color-bullish)] tabular-nums">{winRate}%</span>
-          </div>
-          <div>
-            <span className="text-[10px] text-[var(--color-muted)] uppercase block">Hits</span>
-            <span className="font-bold text-sm text-[var(--color-bullish)] tabular-nums">{hits}</span>
-          </div>
-          <div>
-            <span className="text-[10px] text-[var(--color-muted)] uppercase block">Misses</span>
-            <span className="font-bold text-sm text-[var(--color-bearish)] tabular-nums">{misses}</span>
-          </div>
-          <div>
-            <span className="text-[10px] text-[var(--color-muted)] uppercase block">Scratch</span>
-            <span className="font-bold text-sm text-[var(--color-muted)] tabular-nums">{partials}</span>
-          </div>
-        </div>
-
-        {/* Detailed Master Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-serif divide-y divide-[var(--color-hairline)]">
-            <thead className="text-[10px] font-mono uppercase text-[var(--color-muted)]">
-              <tr>
-                <th className="py-2 px-2">Date</th>
-                <th className="py-2 px-2">Ticker</th>
-                <th className="py-2 px-2">Action</th>
-                <th className="py-2 px-2 text-right">Entry</th>
-                <th className="py-2 px-2 text-right">Exit</th>
-                <th className="py-2 px-2 text-right">Return</th>
-                <th className="py-2 px-2 text-center">Outcome</th>
-                <th className="py-2 px-2 min-w-[200px]">Thesis &amp; Audit Note</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]/60 font-mono text-[11px]">
-              {allBets.length > 0 ? (
-                allBets.map((bet, idx) => (
-                  <tr key={idx} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
-                    <td className="py-2 px-2 text-[var(--color-muted)] whitespace-nowrap">
-                      {bet.gradedOn}
-                    </td>
-                    <td className="py-2 px-2 whitespace-nowrap">
-                      <strong className="text-[var(--color-ink)] font-bold">{bet.ticker}</strong>
-                      <span className="text-[10px] text-[var(--color-muted)] block font-serif truncate max-w-[120px]">{bet.name}</span>
-                    </td>
-                    <td className="py-2 px-2 uppercase font-semibold">
-                      {bet.action}
-                    </td>
-                    <td className="py-2 px-2 text-right tabular-nums">
-                      ₹{bet.entryRef.toLocaleString('en-IN', { maximumFractionDigits: 1 })}
-                    </td>
-                    <td className="py-2 px-2 text-right tabular-nums">
-                      ₹{bet.exitRef.toLocaleString('en-IN', { maximumFractionDigits: 1 })}
-                    </td>
-                    <td className="py-2 px-2 text-right tabular-nums font-semibold">
-                      <span className={bet.changePct > 0 ? 'text-[var(--color-bullish)]' : bet.changePct < 0 ? 'text-[var(--color-bearish)]' : 'text-[var(--color-muted)]'}>
-                        {bet.changePct > 0 ? '+' : ''}{bet.changePct.toFixed(2)}%
-                      </span>
-                    </td>
-                    <td className="py-2 px-2 text-center whitespace-nowrap font-bold">
-                      {bet.outcome === 'hit' && (
-                        <span className="text-[var(--color-bullish)]">HIT</span>
-                      )}
-                      {bet.outcome === 'miss' && (
-                        <span className="text-[var(--color-bearish)]">MISS</span>
-                      )}
-                      {bet.outcome === 'partial' && (
-                        <span className="text-[var(--color-muted)]">SCRATCH</span>
-                      )}
-                    </td>
-                    <td className="py-2 px-2 font-serif text-[11px] text-[var(--color-muted)] leading-relaxed">
-                      <p className="text-[var(--color-ink)] font-medium mb-0.5">{bet.thesis}</p>
-                      <span className="font-mono text-[10px] text-[var(--color-muted)]">{bet.note}</span>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan={8} className="py-4 text-center text-xs text-[var(--color-muted)] font-serif">
-                    No evaluated ledger entries recorded yet.
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
-          <Link
-            href="/scorecard"
-            className="text-[var(--color-ink)] hover:underline transition-colors"
-          >
-            Turn to Page 6 · Comprehensive Historical Scorecard
-          </Link>
         </div>
       </div>
     </div>

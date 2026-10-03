@@ -14,5 +14,8 @@ describe('TodayPage (/)', () => {
     expect(html).toContain('Calendar');
     // Ensure no old natural language corporate disclosures header
     expect(html).not.toContain('Corporate Disclosures');
+    // Ensure portfolio link and positional ledger table were removed
+    expect(html).not.toContain('Turn to Page 5 · Audited Model Portfolio');
+    expect(html).not.toContain('Audited Positional Calls Ledger');
   });
 });
