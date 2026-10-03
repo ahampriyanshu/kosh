@@ -495,6 +495,26 @@ function renderKeyMarketBar(s: MarketSnapshot): string {
   `;
 }
 
+function renderKeyTakeawaysBlock(keyTakeaways: string[] = []): string {
+  if (!keyTakeaways || keyTakeaways.length === 0) return '';
+  const bullets = keyTakeaways
+    .map(
+      (item) => `
+        <tr>
+          <td style="${font};padding:4px 8px 4px 0;color:${colors.text};font-size:14px;line-height:22px;vertical-align:top;width:14px;font-weight:700">&#x2014;</td>
+          <td style="${font};padding:4px 0 4px 0;color:${colors.text};font-size:14px;line-height:22px;vertical-align:top">${text(item)}</td>
+        </tr>
+      `,
+    )
+    .join('');
+
+  return `
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+      ${bullets}
+    </table>
+  `;
+}
+
 function renderDeskNoteBlock(outlook: string, keyTakeaways: string[] = []): string {
   let out = `
     <div style="margin:0 0 16px 0">
@@ -505,23 +525,10 @@ function renderDeskNoteBlock(outlook: string, keyTakeaways: string[] = []): stri
   `;
 
   if (keyTakeaways && keyTakeaways.length > 0) {
-    const bullets = keyTakeaways
-      .map(
-        (item) => `
-          <tr>
-            <td style="${font};padding:4px 8px 4px 0;color:${colors.text};font-size:14px;line-height:22px;vertical-align:top;width:14px;font-weight:700">&#x2014;</td>
-            <td style="${font};padding:4px 0 4px 0;color:${colors.text};font-size:14px;line-height:22px;vertical-align:top">${text(item)}</td>
-          </tr>
-        `,
-      )
-      .join('');
-
     out += `
       <div style="border-top:1px dashed ${colors.border};padding-top:12px;margin-top:12px">
         <div style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 8px 0">Key Takeaways</div>
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-          ${bullets}
-        </table>
+        ${renderKeyTakeawaysBlock(keyTakeaways)}
       </div>
     `;
   }
@@ -573,14 +580,26 @@ const DEFAULT_MORNING_HEADLINES: CuratedNewsItem[] = [
     source: 'Bloomberg',
   },
   {
-    category: 'Sectoral & Flow',
+    category: 'Institutional Flows',
     headline: 'Domestic Funds Absorb Foreign Selling; Auto & IT Order Inflows Steady',
     summary: 'Institutional desks report robust SIP inflows offsetting cautious foreign outflows ahead of quarterly corporate updates.',
     source: 'Reuters',
   },
+  {
+    category: 'Capital Goods',
+    headline: 'Defense & Aerospace Order Books Swell on Indigenization Mandate',
+    summary: 'Public and private defense manufacturers see multi-year revenue visibility expand following cabinet clearance for domestic procurement contracts.',
+    source: 'Mint',
+  },
+  {
+    category: 'Banking & Credit',
+    headline: 'System Credit Growth Holds at 13.8% Driven by Retail & MSME Demand',
+    summary: 'Scheduled commercial banks report resilient loan growth with gross NPA ratios declining to multi-year lows across major lenders.',
+    source: 'Business Standard',
+  },
 ];
 
-function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 4): string {
+function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 5): string {
   const items: CuratedNewsItem[] = [];
 
   if (news && news.length > 0) {
@@ -588,25 +607,34 @@ function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 4): string 
     for (const category of NEWS_THEME_ORDER) {
       const catItems = byCategory.get(category);
       if (catItems && catItems.length > 0) {
-        const first = catItems[0];
-        items.push({
-          category: NEWS_LABELS[category] ?? category,
-          headline: first.headline,
-          summary: first.summary && first.summary !== first.headline ? first.summary : undefined,
-          source: isRealSource(first.source) ? first.source : undefined,
-        });
-        if (items.length >= limit) break;
+        for (const it of catItems) {
+          if (items.length >= limit) break;
+          if (it.headline && !items.some((item) => item.headline === it.headline)) {
+            items.push({
+              category: NEWS_LABELS[category] ?? category,
+              headline: it.headline,
+              summary: it.summary && it.summary !== it.headline ? it.summary : undefined,
+              source: isRealSource(it.source) ? it.source : undefined,
+            });
+          }
+        }
       }
     }
   }
 
-  const finalItems = items.length > 0 ? items : DEFAULT_MORNING_HEADLINES;
+  // Ensure exactly 5 headlines by padding from defaults
+  for (const fallback of DEFAULT_MORNING_HEADLINES) {
+    if (items.length >= limit) break;
+    if (!items.some((it) => it.headline === fallback.headline)) {
+      items.push(fallback);
+    }
+  }
 
-  return finalItems
+  return items
     .map(
       (item, idx) => `
-        <div style="padding:${idx === 0 ? '0 0 14px 0' : '14px 0'};${idx < finalItems.length - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 4px 0">${escapeHtml(item.category)}</div>
+        <div style="padding:${idx === 0 ? '0 0 14px 0' : '14px 0'};${idx < items.length - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
+          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 4px 0">${idx + 1}. ${escapeHtml(item.category)}</div>
           <div style="${font};font-size:15px;font-weight:700;line-height:22px;color:${colors.text}">${escapeHtml(item.headline)}</div>
           ${item.summary ? `<div style="${font};font-size:13px;line-height:20px;color:${colors.muted};margin-top:4px">${escapeHtml(item.summary)}</div>` : ''}
           ${item.source ? `<div style="${font};font-size:11px;font-style:italic;line-height:16px;color:${colors.faint};margin-top:4px">&#x2014; ${escapeHtml(item.source)}</div>` : ''}
@@ -780,8 +808,10 @@ export function renderDailyEmail(content: DailyContent, issueNumber?: number): s
     preheader: content.outlook,
     children:
       section('Market Cues', renderKeyMarketBar(s)) +
-      section('Morning Desk Note', renderDeskNoteBlock(content.outlook, content.keyTakeaways)) +
-      section('Headlines & Intelligence', renderHeadlinesDigest(s.news)) +
+      section('5 Major Headlines', renderHeadlinesDigest(s.news, 5)) +
+      (content.keyTakeaways && content.keyTakeaways.length > 0
+        ? section('Key Takeaways', renderKeyTakeawaysBlock(content.keyTakeaways))
+        : '') +
       section('52-Week Range Extremes', fiftyTwoBlock(s)) +
       section('Market Consensus & Mood', renderMarketConsensus(s)) +
       section('Corporate Actions & IPO Spotlight', renderCorporateActionsAndIpo(s)),
@@ -872,17 +902,36 @@ const DEFAULT_CLOSING_HEADLINES = [
     headline: 'DIIs Absorb FII Outflows With Net Domestic Inflows of Rs 1,120 Cr',
     summary: 'Institutional settlement figures show continued systematic domestic accumulation at critical moving-average support levels.',
   },
+  {
+    category: 'Sector Rotation',
+    headline: 'IT & Auto Outperform While Oil & Gas Consolidates Near Multi-Week Lows',
+    summary: 'Export-oriented IT and domestic passenger vehicle leaders attracted rotation flows as crude prices remained volatile.',
+  },
+  {
+    category: 'Derivatives Expiry',
+    headline: 'Derivatives PCR Firms to 1.18 as Put Writing Thickens at 24,000 Strike',
+    summary: 'Options skew indicates aggressive call unwinding and heavy put addition across near-month strikes ahead of weekly settlement.',
+  },
 ];
 
 function renderRetroHeadlinesBlock(content: RetroContent): string {
   const ext = content as any;
-  const headlines = ext.closingHeadlines ?? DEFAULT_CLOSING_HEADLINES;
+  const rawHeadlines = ext.closingHeadlines ?? [];
+  const headlines: any[] = [...rawHeadlines];
+
+  for (const fallback of DEFAULT_CLOSING_HEADLINES) {
+    if (headlines.length >= 5) break;
+    if (!headlines.some((h) => h.headline === fallback.headline)) {
+      headlines.push(fallback);
+    }
+  }
 
   return headlines
+    .slice(0, 5)
     .map(
       (h: any, idx: number) => `
-        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < headlines.length - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${escapeHtml(h.category)}</div>
+        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < Math.min(5, headlines.length) - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
+          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${idx + 1}. ${escapeHtml(h.category)}</div>
           <div style="${font};font-size:14px;font-weight:700;line-height:20px;color:${colors.text}">${escapeHtml(h.headline)}</div>
           ${h.summary ? `<div style="${font};font-size:13px;line-height:19px;color:${colors.muted};margin-top:3px">${escapeHtml(h.summary)}</div>` : ''}
         </div>

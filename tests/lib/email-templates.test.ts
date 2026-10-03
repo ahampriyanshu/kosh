@@ -186,9 +186,8 @@ describe('email templates', () => {
     expect(html).not.toContain('Summary');
     expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
-    expect(html).toContain('Morning Desk Note');
+    expect(html).toContain('5 Major Headlines');
     expect(html).toContain('Key Takeaways');
-    expect(html).toContain('Headlines &amp; Intelligence');
     expect(html).toContain('52-Week Range Extremes');
     expect(html).toContain('Market Consensus &amp; Mood');
     expect(html).toContain('Corporate Actions &amp; IPO Spotlight');
