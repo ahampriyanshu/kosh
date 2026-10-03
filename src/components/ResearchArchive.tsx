@@ -49,7 +49,7 @@ export function ResearchArchive({ reports }: { reports: ReportEnvelope[] }) {
           return (
             <li key={report.id} className="py-2">
               <Link href={`/research/${report.id}`} className="group inline-flex flex-wrap items-center gap-3 text-lg">
-                <span className="font-mono text-sm text-[var(--color-muted)]">{reportDate(report)}</span>
+                <span className="tabular-nums text-sm text-[var(--color-muted)]">{reportDate(report)}</span>
                 <ArchiveArrow />
                 <span className="font-sans font-medium text-[var(--color-brand)] group-hover:text-[var(--color-link-hover)]">
                   {tickers}

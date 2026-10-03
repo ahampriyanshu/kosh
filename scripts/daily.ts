@@ -11,6 +11,8 @@ import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
 import { DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema, type ReportEnvelope } from '../lib/schemas';
 
+import { computeMoodSnapshot } from '../lib/sentiment';
+
 async function refreshMarketSlices(date: string): Promise<void> {
   const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
   const internals = computeInternals(universe.quotes);
@@ -23,6 +25,8 @@ export async function runDaily(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   await refreshMarketSlices(date);
   const snapshot = await buildSnapshot(date, '1d', now.toISOString());
+  const mood = computeMoodSnapshot(snapshot, 'morning');
+  snapshot.sentiment = mood;
   await writeSnapshot(date, snapshot);
 
   const narrative = await buildDailyNarrative(snapshot);

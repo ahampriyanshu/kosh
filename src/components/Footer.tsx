@@ -20,8 +20,8 @@ const footerSections = [
   {
     title: 'Market',
     links: [
-      { label: 'Dashboard', href: '/' },
       { label: 'Reports', href: '/reports' },
+      { label: 'Market Mood', href: '/sentiment' },
       { label: 'Outlook', href: '/outlook' },
     ],
   },
@@ -33,66 +33,71 @@ const footerSections = [
       { label: 'Portfolio', href: '/portfolio' },
     ],
   },
-  {
-    title: 'Explore',
-    links: [
-      { label: 'Dashboard', href: '/' },
-      { label: 'Market Reports', href: '/reports' },
-      { label: 'Portfolio', href: '/portfolio' },
-    ],
-  },
 ];
 
 export function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="footer-enhanced">
-        <div className="footer-main">
-          <div className="footer-left">
-            <div className="footer-section footer-articles">
-              <h4 className="footer-section-title">Learn</h4>
-              <ul className="footer-links">
-                {financialArticles.map((article) => (
-                  <li key={article.href}>
-                    <a
-                      href={article.href}
-                      className="footer-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {article.label}
-                    </a>
+    <footer className="site-footer mt-16 pt-8 border-t border-[var(--color-hairline)] text-xs text-[var(--color-muted)] font-serif">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8">
+        <div className="md:col-span-5 space-y-2">
+          <p className="font-semibold text-sm text-[var(--color-ink)]">
+            Kosh
+          </p>
+          <p className="leading-relaxed">
+            Documenting my experiments with financial markets
+          </p>
+        </div>
+
+        <div className="md:col-span-4 grid grid-cols-2 gap-4">
+          {footerSections.map((section) => (
+            <div key={section.title}>
+              <h4 className="font-semibold text-[var(--color-ink)] mb-2">
+                {section.title}
+              </h4>
+              <ul className="space-y-1.5 list-none p-0 m-0">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="hover:text-[var(--color-ink)] transition-colors">
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="footer-right">
-            {footerSections.map((section) => (
-              <div className="footer-section" key={section.title}>
-                <h4 className="footer-section-title">{section.title}</h4>
-                <ul className="footer-links">
-                  {section.links.map((link) => (
-                    <li key={`${section.title}-${link.label}`}>
-                      <Link href={link.href} className="footer-link">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+        <div className="md:col-span-3">
+          <h4 className="font-semibold text-[var(--color-ink)] mb-2">
+            Learn
+          </h4>
+          <ul className="space-y-1.5 list-none p-0 m-0">
+            {financialArticles.map((article) => (
+              <li key={article.href}>
+                <a
+                  href={article.href}
+                  className="hover:text-[var(--color-ink)] transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {article.label}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
-      <div className="footer-divider" aria-hidden="true" />
-      <div className="footer-content">
+      <div className="pt-4 border-t border-[var(--color-hairline)] flex flex-wrap items-center justify-between gap-2">
         <p>
           made by{' '}
-          <a href="https://ahampriyanshu.com" target="_blank" rel="noopener noreferrer">
-            <strong>ahampriyanshu</strong>
+          <a
+            href="https://ahampriyanshu.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline text-[var(--color-ink)]"
+          >
+            ahampriyanshu
           </a>
         </p>
         <FooterActions />

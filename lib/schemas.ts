@@ -386,6 +386,42 @@ export const CorpActionSchema = z.object({
 export const GiftNiftySchema = z.object({ value: z.number(), changePct: z.number() });
 export const BondYieldSchema = z.object({ name: z.string(), value: z.number(), changeBps: z.number() });
 export const VixSchema = z.object({ value: z.number(), changePct: z.number() });
+export const DerivativesDataSchema = z.object({
+  pcrOi: z.number().nullable(),
+  pcrVolume: z.number().nullable(),
+  callVolumePct: z.number().nullable().optional(),
+  putVolumePct: z.number().nullable().optional(),
+  asOf: z.string().optional(),
+});
+export type DerivativesData = z.infer<typeof DerivativesDataSchema>;
+
+export const SentimentRegimeSchema = z.enum(['Extreme Fear', 'Fear', 'Neutral', 'Greed', 'Extreme Greed']);
+export type SentimentRegime = z.infer<typeof SentimentRegimeSchema>;
+
+export const CategoryMoodScoreSchema = z.object({
+  score: z.number().min(0).max(100),
+  regime: SentimentRegimeSchema,
+  label: z.string(),
+  weight: z.number(),
+  summary: z.string(),
+  metrics: z.record(z.string(), z.union([z.number(), z.string(), z.null()])),
+});
+export type CategoryMoodScore = z.infer<typeof CategoryMoodScoreSchema>;
+
+export const MoodSnapshotSchema = z.object({
+  composite: z.number().min(0).max(100),
+  regime: SentimentRegimeSchema,
+  session: z.enum(['morning', 'closing']),
+  asOf: z.string(),
+  summary: z.string(),
+  categories: z.object({
+    breadth: CategoryMoodScoreSchema,
+    flows: CategoryMoodScoreSchema,
+    volatility: CategoryMoodScoreSchema,
+    derivatives: CategoryMoodScoreSchema,
+  }),
+});
+export type MoodSnapshot = z.infer<typeof MoodSnapshotSchema>;
 
 export const MarketSnapshotSchema = z.object({
   asOf: z.string(),
@@ -409,6 +445,8 @@ export const MarketSnapshotSchema = z.object({
   news: z.array(NewsGroupSchema),
   streetRecommendations: z.array(StreetRecSchema),
   corporateActions: z.array(CorpActionSchema),
+  derivatives: DerivativesDataSchema.nullable().optional().default(null),
+  sentiment: MoodSnapshotSchema.nullable().optional(),
 });
 export type MarketSnapshot = z.infer<typeof MarketSnapshotSchema>;
 
@@ -458,6 +496,7 @@ export const NewsSliceSchema = z.object({ news: z.array(NewsGroupSchema), street
 export const FlowsSliceSchema = z.object({
   fiiDii: FiiDiiSchema.nullable(), corporateActions: z.array(CorpActionSchema),
   giftNifty: GiftNiftySchema.nullable(), bondYield: BondYieldSchema.nullable(),
+  derivatives: DerivativesDataSchema.nullable().default(null),
 });
 export type IndicesSlice = z.infer<typeof IndicesSliceSchema>;
 export type GlobalSlice = z.infer<typeof GlobalSliceSchema>;

@@ -9,7 +9,6 @@ import {
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
-import { EMAIL_LOGO_CONTENT_ID } from '../../lib/email-assets';
 import type { RetroContent, DailyContent, WeeklyContent, MonthlyContent, RecapContent, ResearchContent } from '../../lib/schemas';
 
 const sampleSnapshot = {
@@ -18,7 +17,7 @@ const sampleSnapshot = {
   globalIndices: [], commodities: [], currencies: [], topGainers: [], topLosers: [],
   mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [],
   news: [], streetRecommendations: [], corporateActions: [],
-  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
+  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null, derivatives: null,
 };
 
 const dailyContent: DailyContent = {
@@ -143,8 +142,8 @@ describe('formatDisplayDate', () => {
 });
 
 describe('email shell', () => {
-  it('renders the inline Kosh logo cid in report emails', () => {
-    expect(renderDailyEmail(dailyContent)).toContain(`src="cid:${EMAIL_LOGO_CONTENT_ID}"`);
+  it('renders without inline Kosh logo cid attachment', () => {
+    expect(renderDailyEmail(dailyContent)).not.toContain('cid:');
   });
 });
 
@@ -160,8 +159,7 @@ describe('email templates', () => {
     ];
 
     for (const html of rendered) {
-      expect(html).toContain("font-family:Poppins,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif");
-      expect(html).toContain("font-family:Lato,-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif");
+      expect(html).toContain("font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif");
       expect(html).toContain('href="https://kosh.ahampriyanshu.com"');
       expect(html).toContain('target="_blank"');
       expect(html).toContain('rel="noopener noreferrer"');
@@ -185,10 +183,14 @@ describe('email templates', () => {
     expect(html).toContain('Kosh');
     expect(html).toContain('Daily Brief');
     expect(html).toContain('15th June, 2026');
-    expect(html).toContain('Summary');
+    expect(html).not.toContain('Summary');
     expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
-    expect(html).not.toContain('Key Takeaways');
+    expect(html).toContain('5 Major Headlines');
+    expect(html).toContain('Key Takeaways');
+    expect(html).toContain('52-Week Range Extremes');
+    expect(html).toContain('Market Consensus &amp; Mood');
+    expect(html).toContain('Corporate Actions &amp; IPO Spotlight');
     expect(html).toContain('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
     expect(html).not.toContain('<script>alert');
   });
@@ -232,6 +234,8 @@ describe('email templates', () => {
     expect(html).toContain('Daily Retro');
     expect(html).toContain('14th June, 2026');
     expect(html).not.toContain('Mid-Session - 2026-06-14');
+    expect(html).toContain('Closing Session Wire');
+    expect(html).toContain('Session Movers');
     expect(html).toContain('Sell Alerts');
     expect(html).toContain('Portfolio Scan');
     expect(html).toContain('High');

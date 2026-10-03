@@ -8,9 +8,18 @@ import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderRetroEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
+import { fetchIndices } from '../lib/feed/indices';
+import { fetchUniverse } from '../lib/feed/universe';
+import { computeInternals } from '../lib/feed/internals';
+import { buildSnapshot } from '../lib/feed/merge';
+import { writeSnapshot, writeSlice } from '../lib/feed/store';
+import { computeMoodSnapshot } from '../lib/sentiment';
 import {
   AlertSchema,
   RetroContentSchema,
+  IndicesSliceSchema,
+  UniverseSliceSchema,
+  InternalsSliceSchema,
   type RetroContent,
   type ReportEnvelope,
 } from '../lib/schemas';
@@ -33,9 +42,30 @@ function avg(nums: number[]): number {
   return nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : 0;
 }
 
+async function refreshMarketClosingSlices(date: string, nowIso: string): Promise<void> {
+  try {
+    const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
+    const internals = computeInternals(universe.quotes);
+    await writeSlice(date, 'indices', indices, IndicesSliceSchema);
+    await writeSlice(date, 'universe', universe, UniverseSliceSchema);
+    await writeSlice(date, 'internals', internals, InternalsSliceSchema);
+    const snapshot = await buildSnapshot(date, '1d', nowIso);
+    const mood = computeMoodSnapshot(snapshot, 'closing');
+    snapshot.sentiment = mood;
+    await writeSnapshot(date, snapshot);
+    console.log(`Updated official closing snapshot and mood index for ${date} (${mood.composite}/100 · ${mood.regime}).`);
+  } catch (err) {
+    console.warn(`Could not refresh closing snapshot for ${date}:`, err);
+  }
+}
+
 export async function runRetro(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   const period1 = new Date(now.getTime() - 120 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  // Refresh the day's official closing snapshot so website and analytics reflect today's close
+  await refreshMarketClosingSlices(date, now.toISOString());
+
   const portfolio = await readPortfolio();
   const holdings = portfolio.holdings;
 
@@ -74,15 +104,16 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
   }
 
   let alerts: RetroContent['alerts'] = [];
-  let summary = 'No unusual intraday activity across portfolio holdings.';
+  let summary = 'No unusual closing session activity across portfolio holdings.';
 
   if (flags.length) {
     const flagBlock = flags
       .map((f) => `${f.ticker} (${f.name}): ${f.changePct.toFixed(1)}% vs prev close, vol ${f.volRatio.toFixed(1)}x avg, rules: ${f.rules.join(', ')}`)
       .join('\n');
     const researchPrompt =
-      `Indian market mid-session today (${date}). These portfolio holdings tripped deterministic alert rules. ` +
-      `Using current news, judge which are genuine SELL signals vs. noise (index-wide move, ex-dividend, known event).\n\n${flagBlock}`;
+      `Indian equity market closing session today (${date}). The market has closed for the day. ` +
+      `These portfolio holdings tripped end-of-day alert rules:\n\n${flagBlock}\n\n` +
+      `Using current market news, evaluate why these stocks moved, judge which represent genuine SELL/RISK signals vs. noise (market-wide pullback, ex-dividend, known event), and assess carry-over risk for tomorrow.`;
     const buildStructurePrompt = (research: string) =>
       `Return "alerts": only tickers that are genuine sell signals, each with ticker, name, reason, severity (high/medium/low), and triggeredRules (chosen from the rules listed for that ticker). ` +
       `Also a one-line "summary".\n\nResearch:\n${research}`;
@@ -110,9 +141,9 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
   };
 
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail('Kosh Daily Retro', renderRetroEmail(content));
+  await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(content));
   await writeReport({ ...base, emailSent: true });
-  console.log(`Mid-session ${base.id} written and emailed (${alerts.length} alerts).`);
+  console.log(`Market close retro ${base.id} written, closing snapshot updated, and emailed (${alerts.length} alerts).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

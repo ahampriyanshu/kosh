@@ -60,6 +60,7 @@ export async function buildSnapshot(date: string, window: MarketSnapshot['window
     corporateActions: flows?.corporateActions ?? [],
     giftNifty: flows?.giftNifty ?? null,
     bondYield: flows?.bondYield ?? null,
+    derivatives: flows?.derivatives ?? null,
   };
   return MarketSnapshotSchema.parse(snapshot);
 }

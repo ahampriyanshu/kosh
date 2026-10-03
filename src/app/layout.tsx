@@ -1,18 +1,13 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { JetBrains_Mono, Lato, Poppins } from 'next/font/google';
+import { Lato, Newsreader } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
 import { ThemeToggle } from '../components/ThemeToggle';
 import { siteConfig } from '../lib/site';
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
+import { getLatest, getManifest } from '../lib/reports';
+import type { DailyContent } from '../../lib/schemas';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -21,10 +16,11 @@ const lato = Lato({
   display: 'swap',
 });
 
-const jetbrains = JetBrains_Mono({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  variable: '--font-jetbrains',
-  weight: ['400', '500', '700'],
+  variable: '--font-newsreader',
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
@@ -114,15 +110,38 @@ export const viewport: Viewport = {
   colorScheme: 'light dark',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [daily, manifest] = await Promise.all([
+    getLatest('daily'),
+    getManifest(),
+  ]);
+
+  const dailyContent = daily ? (daily.content as DailyContent) : null;
+  const snapshot = dailyContent?.snapshot;
+
+  const pubDate = snapshot?.asOf
+    ? new Date(snapshot.asOf).toLocaleDateString('en-IN', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : new Date().toLocaleDateString('en-IN', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      });
+  const issueNumber = manifest.reports.length;
+
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${lato.variable} ${jetbrains.variable}`}
+      className={`${lato.variable} ${newsreader.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -143,13 +162,33 @@ export default function RootLayout({
         <div className="app-container">
           <div className="main-wrapper">
             <div className="content-area">
-              <header className="site-header">
-                <div className="header-container">
-                  <div className="brand-lockup">
-                    <Link href="/" className="brand-name">
-                      Kosh
-                    </Link>
+              <header className="site-header broadsheet-masthead">
+                {/* Dateline Bar (Wednesday, 30 September 2026 Issue 179) */}
+                <div className="flex flex-wrap items-center justify-between text-xs text-[var(--color-muted)] py-1.5 border-b border-[var(--color-hairline)] uppercase tracking-wider font-serif">
+                  <div>
+                    <span>{pubDate}</span>
                   </div>
+                  <div>
+                    <span>Issue {issueNumber}</span>
+                  </div>
+                </div>
+
+                {/* Newspaper Title */}
+                <div className="broadsheet-container pt-2">
+                  <Link
+                    href="/"
+                    className="inline-block hover:opacity-90 transition-opacity"
+                  >
+                    <span className="broadsheet-title">Kosh Daily</span>
+                  </Link>
+                </div>
+
+                {/* Line between title and navbar */}
+                <div className="border-t border-[var(--color-hairline)]" />
+
+                {/* Navigation and Actions */}
+                <div className="header-container py-1 border-b border-[var(--color-hairline)]">
+                  <div className="brand-lockup" />
                   <NavBar />
                   <div className="header-actions">
                     <ThemeToggle />

@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kosh-cron-dispatcher",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-02-01",
+  "triggers": {
+    "crons": [
+      "*/15 * * * *"
+    ]
+  },
+  "vars": {
+    "REPO_OWNER": "ahampriyanshu",
+    "REPO_NAME": "kosh",
+    "DEFAULT_BRANCH": "main"
+  }
+}

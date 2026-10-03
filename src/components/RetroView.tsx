@@ -31,7 +31,7 @@ export function RetroView({ content }: RetroViewProps) {
                   <SeverityBadge severity={alert.severity} />
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1 flex-wrap">
-                      <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
+                      <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                         {tickerFn(alert.ticker)}
                       </span>
                       <span className="text-sm text-[var(--color-muted)]">{alert.name}</span>
@@ -42,7 +42,7 @@ export function RetroView({ content }: RetroViewProps) {
                         {alert.triggeredRules.map((rule) => (
                           <span
                             key={rule}
-                            className="font-mono text-xs text-[var(--color-faint)]"
+                            className="text-xs text-[var(--color-faint)]"
                           >
                             {rule}
                           </span>
@@ -83,13 +83,13 @@ export function RetroView({ content }: RetroViewProps) {
                   <tr key={ev.ticker}>
                     <td className="py-2.5 pr-4">
                       <div>
-                        <span className="font-mono text-sm font-semibold text-[var(--color-ink)]">
+                        <span className="font-serif text-sm font-semibold text-[var(--color-ink)]">
                           {tickerFn(ev.ticker)}
                         </span>
                         <div className="text-xs text-[var(--color-faint)] font-sans">{ev.name}</div>
                       </div>
                     </td>
-                    <td className="py-2.5 pr-4 text-right font-mono text-sm tabular-nums text-[var(--color-ink)]">
+                    <td className="py-2.5 pr-4 text-right text-sm tabular-nums text-[var(--color-ink)]">
                       ₹{ev.price.toLocaleString('en-IN')}
                     </td>
                     <td className="py-2.5 pr-4 text-right">

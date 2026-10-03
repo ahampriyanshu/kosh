@@ -61,15 +61,15 @@ function NearList({ rows, kind }: { rows: Array<NearHigh | NearLow>; kind: 'high
         return (
           <div key={item.ticker} className="flex items-center justify-between py-2">
             <div className="flex items-center gap-3 min-w-0">
-              <span className="font-mono text-sm font-bold text-[var(--color-ink)]">{ticker(item.ticker)}</span>
+              <span className="font-serif text-sm font-bold text-[var(--color-ink)]">{ticker(item.ticker)}</span>
               <span className="font-sans text-sm text-[var(--color-muted)] truncate max-w-[140px]">{item.name}</span>
             </div>
             <div className="flex items-center gap-4 shrink-0">
-              <span className="font-mono text-sm tabular-nums text-[var(--color-ink)]">
+              <span className="text-sm tabular-nums text-[var(--color-ink)]">
                 {item.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </span>
               <span
-                className="font-mono text-sm tabular-nums"
+                className="text-sm tabular-nums"
                 style={{ color: kind === 'high' ? 'var(--color-bearish)' : 'var(--color-bullish)' }}
               >
                 {kind === 'high' ? '−' : '+'}
@@ -107,7 +107,7 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
             <div>
               <p className="font-sans text-xs text-[var(--color-faint)] mb-1">FII Net</p>
               <p
-                className="font-mono text-xl tabular-nums"
+                className="font-serif text-xl font-bold tabular-nums"
                 style={{ color: snapshot.fiiDii.fiiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
               >
                 {formatCrore(snapshot.fiiDii.fiiNet)}
@@ -116,14 +116,14 @@ export function MarketDashboard({ snapshot }: MarketDashboardProps) {
             <div>
               <p className="font-sans text-xs text-[var(--color-faint)] mb-1">DII Net</p>
               <p
-                className="font-mono text-xl tabular-nums"
+                className="font-serif text-xl font-bold tabular-nums"
                 style={{ color: snapshot.fiiDii.diiNet >= 0 ? 'var(--color-bullish)' : 'var(--color-bearish)' }}
               >
                 {formatCrore(snapshot.fiiDii.diiNet)}
               </p>
             </div>
           </div>
-          <p className="font-mono text-xs text-[var(--color-faint)] mt-2">As of {snapshot.fiiDii.asOf}</p>
+          <p className="text-xs text-[var(--color-faint)] tabular-nums mt-2">As of {snapshot.fiiDii.asOf}</p>
         </Section>
       )}
 

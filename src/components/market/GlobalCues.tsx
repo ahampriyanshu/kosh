@@ -25,7 +25,7 @@ export function GlobalCues({ globalIndices, commodities, currencies }: GlobalCue
             {globalIndices.map((idx) => (
               <div key={idx.symbol} className="flex items-center justify-between py-1">
                 <span className="text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{idx.name}</span>
-                <span className="font-mono tabular-nums text-sm text-[var(--color-ink)] mr-3">
+                <span className="tabular-nums text-sm text-[var(--color-ink)] mr-3">
                   {idx.ltp.toLocaleString()}
                 </span>
                 <Pct value={idx.changePct} className="text-sm" />
@@ -44,7 +44,7 @@ export function GlobalCues({ globalIndices, commodities, currencies }: GlobalCue
             {commodities.map((c) => (
               <div key={c.name} className="flex items-center justify-between py-1">
                 <span className="text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{c.name}</span>
-                <span className="font-mono tabular-nums text-sm text-[var(--color-ink)] mr-3">
+                <span className="tabular-nums text-sm text-[var(--color-ink)] mr-3">
                   {c.value.toLocaleString()}
                 </span>
                 <Pct value={c.changePct} className="text-sm" />
@@ -62,8 +62,8 @@ export function GlobalCues({ globalIndices, commodities, currencies }: GlobalCue
           <div className="space-y-1">
             {currencies.map((cur) => (
               <div key={cur.pair} className="flex items-center justify-between py-1">
-                <span className="font-mono tabular-nums text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{cur.pair}</span>
-                <span className="font-mono tabular-nums text-sm text-[var(--color-ink)] mr-3">
+                <span className="tabular-nums text-sm text-[var(--color-muted)] truncate flex-1 mr-4">{cur.pair}</span>
+                <span className="tabular-nums text-sm text-[var(--color-ink)] mr-3">
                   {cur.value.toLocaleString()}
                 </span>
                 <Pct value={cur.changePct} className="text-sm" />
