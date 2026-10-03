@@ -9,7 +9,6 @@ import type {
   Signal,
   MarketSnapshot,
 } from './schemas';
-import { EMAIL_LOGO_CONTENT_ID } from './email-assets';
 import { formatPeriodLabel, formatPeriodText } from './time';
 
 const font = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif`;
@@ -186,7 +185,40 @@ function renderShell(options: {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="x-apple-disable-message-reformatting">
     <title>${escapeHtml(options.title)}</title>
-    <style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet" type="text/css">
+    <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap');
+
+      @font-face {
+        font-family: 'Newsreader';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438weI_ADA.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Newsreader';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438wn4jADA.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: 'Newsreader';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('https://fonts.gstatic.com/s/newsreader/v26/cY9kfjOCX1hbuyalUrK439vogqC9yFZCYg7oRZaLP4obnf7fTXglsMwoT-ZA.ttf') format('truetype');
+      }
+
+      * {
+        font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+      }
+      body, table, td, p, a, h1, h2, h3, div, span, th {
+        font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
+      }
       @media only screen and (max-width: 600px) {
         .email-outer { padding: 0 !important; }
         .email-container { border-left: 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 0 !important; }
@@ -203,40 +235,11 @@ function renderShell(options: {
         <td class="email-outer" align="center" style="padding:24px 12px">
           <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border}">
             
-            <!-- Top Dateline Bar -->
-            <tr>
-              <td class="email-pad" style="padding:10px 32px;border-bottom:1px solid ${colors.border}">
-                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-                  <tr>
-                    <td align="left" style="${font};font-size:11px;line-height:16px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:${colors.muted}">
-                      ${escapeHtml(options.eyebrow)}
-                    </td>
-                    <td align="right" style="${font};font-size:11px;line-height:16px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:${colors.faint}">
-                      ${options.issueNumber ? `Issue ${escapeHtml(String(options.issueNumber))}` : 'NSE &amp; BSE INTELLIGENCE'}
-                    </td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-
             <!-- Grand Broadsheet Masthead -->
             <tr>
-              <td class="email-pad" align="center" style="padding:20px 32px 14px 32px;text-align:center">
-                <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;border-collapse:collapse">
-                  <tr>
-                    <td align="center" style="padding:0 0 8px 0">
-                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:inline-block">
-                        <img src="cid:${EMAIL_LOGO_CONTENT_ID}" width="32" height="32" alt="Kosh" style="display:block;margin:0 auto;width:32px;height:32px;border:0">
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td align="center">
-                      <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" class="broadsheet-name" style="${font};font-size:36px;line-height:40px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase;text-decoration:none;display:inline-block">Kosh</a>
-                      <span class="broadsheet-name" style="${font};font-size:36px;line-height:40px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase"> Daily</span>
-                    </td>
-                  </tr>
-                </table>
+              <td class="email-pad" align="center" style="padding:24px 32px 14px 32px;text-align:center">
+                <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" class="broadsheet-name" style="${font};font-size:38px;line-height:42px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase;text-decoration:none;display:inline-block">Kosh</a>
+                <span class="broadsheet-name" style="${font};font-size:38px;line-height:42px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase"> Daily</span>
               </td>
             </tr>
 
@@ -251,7 +254,7 @@ function renderShell(options: {
             <tr>
               <td class="email-pad" align="center" style="padding:10px 32px;text-align:center;border-bottom:1px solid ${colors.text}">
                 <h1 class="email-title" style="${font};margin:0;color:${colors.text};font-size:13px;line-height:18px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-align:center">
-                  ${escapeHtml(options.title)}
+                  ${escapeHtml(options.title)}${options.eyebrow ? ` &middot; ${escapeHtml(options.eyebrow)}` : ''}
                 </h1>
               </td>
             </tr>
@@ -641,12 +644,7 @@ export function renderDailyEmail(content: DailyContent, issueNumber?: number): s
   const has52w = s.near52wHigh.length > 0 || s.near52wLow.length > 0;
   const hasNews = s.news.some((g) => g.items.length > 0);
 
-  const parts: string[] = [
-    section(
-      'Summary',
-      `<p style="${font};margin:0;color:${colors.text};font-size:16px;line-height:26px">${text(content.outlook)}</p>`,
-    ),
-  ];
+  const parts: string[] = [];
   if (hasNews) parts.push(section('News', newsDigest(s.news)));
   if (s.fiiDii) parts.push(section('FII / DII Activity', fiiDiiBlock(s.fiiDii)));
   if (cues.length) parts.push(section('Market Cues', quoteTable(cues)));

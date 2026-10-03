@@ -9,7 +9,6 @@ import {
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
-import { EMAIL_LOGO_CONTENT_ID } from '../../lib/email-assets';
 import type { RetroContent, DailyContent, WeeklyContent, MonthlyContent, RecapContent, ResearchContent } from '../../lib/schemas';
 
 const sampleSnapshot = {
@@ -143,8 +142,8 @@ describe('formatDisplayDate', () => {
 });
 
 describe('email shell', () => {
-  it('renders the inline Kosh logo cid in report emails', () => {
-    expect(renderDailyEmail(dailyContent)).toContain(`src="cid:${EMAIL_LOGO_CONTENT_ID}"`);
+  it('renders without inline Kosh logo cid attachment', () => {
+    expect(renderDailyEmail(dailyContent)).not.toContain('cid:');
   });
 });
 
@@ -184,7 +183,7 @@ describe('email templates', () => {
     expect(html).toContain('Kosh');
     expect(html).toContain('Daily Brief');
     expect(html).toContain('15th June, 2026');
-    expect(html).toContain('Summary');
+    expect(html).not.toContain('Summary');
     expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
     expect(html).not.toContain('Key Takeaways');
