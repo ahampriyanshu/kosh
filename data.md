@@ -266,14 +266,22 @@ export const PIPELINE_SCHEDULE: ScheduledSlot[] = [
     description: 'Portfolio surveillance, AI sell signal screening & retro email dispatch',
   },
 
-  // ── Weekend Call Grading & Scorecard ──
+  // ── Weekend & Monthly Outlook Editions ──
   {
-    hours: 10,
+    hours: 21,
     minutes: 0,
-    daysOfWeek: [6], // Saturday
-    job: 'recap',
-    workflowFile: 'recap.yml',
-    description: 'Positional bet grading, outcome verification & audited scorecard ledger',
+    daysOfWeek: [0], // Sunday 21:00 IST
+    job: 'weekly-outlook',
+    workflowFile: 'weekly.yml',
+    description: 'Weekly Outlook: Portfolio events, IPOs in focus, sector growth, FII/DII flows & multi-asset scorecard',
+  },
+  {
+    hours: 8,
+    minutes: 0,
+    dayOfMonth: 1, // 1st of month 08:00 IST
+    job: 'monthly-outlook',
+    workflowFile: 'monthly.yml',
+    description: 'Monthly Digest: Multi-asset performance, sector leadership, monthly flow autopsy & macro review',
   },
 ];
 ```
@@ -304,20 +312,24 @@ Every record is stored as a single-line JSON object (`JSON.stringify(record) + '
 {"date":"2026-10-02","rankings":[{"rank":1,"sector":"IT","changePct":0.45},{"rank":2,"sector":"Pharma","changePct":-0.12},{"rank":3,"sector":"FMCG","changePct":-0.48},{"rank":11,"sector":"Realty","changePct":-2.65}]}
 ```
 
-### 6.5 `data/ledger/quantitative/corporate_actions.jsonl`
+### 6.5 `data/ledger/quantitative/multi_asset_weekly.jsonl`
 ```json
-{"dateCaptured":"2026-10-02","ticker":"TCS","name":"Tata Consultancy Services Ltd","type":"results","actionDate":"2026-10-07","announcedDate":"2026-09-20"}
-{"dateCaptured":"2026-10-02","ticker":"BLS","name":"BLS E-Services Limited","type":"split","actionDate":"2026-10-06","announcedDate":"2026-09-15"}
+{"weekId":"2026-W40","periodEndDate":"2026-10-02","assets":[{"asset":"Nifty 50","symbol":"^NSEI","close":25014.6,"returnPct":-1.22},{"asset":"BSE Sensex","symbol":"^BSESN","close":81688.4,"returnPct":-1.15},{"asset":"Gold MCX","symbol":"GC=F","close":75980,"returnPct":1.45},{"asset":"Silver MCX","symbol":"SI=F","close":93400,"returnPct":2.10},{"asset":"Brent Crude","symbol":"CL=F","close":78.2,"returnPct":4.85},{"asset":"India 10Y Yield","symbol":"IN10Y","close":6.82,"returnPct":-0.08},{"asset":"USD/INR","symbol":"USDINR=X","close":83.92,"returnPct":0.15}]}
 ```
 
-### 6.6 `data/ledger/qualitative/market_news.jsonl`
+### 6.6 `data/ledger/quantitative/weekly_ipos.jsonl`
+```json
+{"weekId":"2026-W40","dateFetched":"2026-10-04","ipos":[{"company":"Hyundai Motor India","priceBand":"₹1,865 – ₹1,960","issueSize":"₹27,870 cr","gmp":"+₹65","gmpPct":"+3.3%","subscription":"2.37×","status":"Closed","listingDate":"2026-10-22"},{"company":"Waaree Energies","priceBand":"₹1,427 – ₹1,503","issueSize":"₹4,321 cr","gmp":"+₹1,250","gmpPct":"+83.2%","subscription":"76.3×","status":"Upcoming","listingDate":"2026-10-28"}]}
+```
+
+### 6.7 `data/ledger/qualitative/market_news.jsonl`
 ```json
 {"date":"2026-10-02","session":"morning","category":"macro_policy","headline":"RBI MPC Keeps Repo Rate Unchanged at 6.50% Amid Resilient Growth","summary":"Monetary Policy Committee maintains status quo on policy rates with focused stance on inflation alignment.","sentiment":"neutral","tickers":[],"source":"Economic Times"}
 ```
 
-### 6.7 `data/ledger/qualitative/portfolio_alerts.jsonl`
+### 6.8 `data/ledger/qualitative/portfolio_events.jsonl`
 ```json
-{"date":"2026-10-02","ticker":"HDFCBANK.NS","name":"HDFC Bank","price":1642.5,"changePct":-3.4,"triggeredRules":["drawdown>3%","below 50DMA support"],"aiReason":"Heavy FII institutional block selling post quarterly updates; genuine downside support test.","severity":"high","isSellSignal":true}
+{"date":"2026-10-04","weekId":"2026-W40","ticker":"HDFCBANK.NS","name":"HDFC Bank","recentEvent":"Announced Q2 gross advance growth of 7% YoY; deposits grew 15.1% YoY.","upcomingCatalyst":"Board meeting for Q2 FY27 audited earnings on 16 Oct 2026.","impactAssessment":"Deposit rebalancing underway; positive long-term margin trajectory.","severity":"neutral"}
 ```
 
 ---
@@ -333,36 +345,170 @@ Every record is stored as a single-line JSON object (`JSON.stringify(record) + '
 | **Git Commit Spam** | 6 slice commits/day + rebase conflicts | 2 atomic session commits/day | **67% reduction in git operations** |
 | **`/sentiment-index` Load Time** | ~180ms (reads 30 JSON files) | **<1ms** (reads 1 JSONL file) | **99% faster disk I/O** |
 | **Historical Data Retention** | 0% (universe deleted daily) | 100% (persisted in JSONL ledgers) | **Full time-series backtest ready** |
+| **IPO Data Ingestion** | Hardcoded static fixtures | **Automated weekly live fetch** (Sundays) | **Automated fresh primary market data** |
 
 ---
 
-## 8. Open Discussion: The Ideal Weekly and Monthly Outlooks
+## 8. Finalized Architecture: Weekly & Monthly Outlook (No Bet Analysis)
 
-Per user instruction, the weekly and monthly outlook structures are deferred for future design alignment. Below are the key design questions and architectural concepts to evaluate:
+The legacy outlook structure relied on a `positionalBets` and `midTermBets` buy/sell tipping model. As instructed, **all bet analysis has been completely removed**. The new Outlook structure is strictly an **audited institutional intelligence dossier**:
 
-### 8.1 What Should the Ideal Weekly Outlook Look Like?
-- **Timing**: Sunday evening at 21:00 IST (pre-trading week preparation).
-- **Core Structural Proposals**:
-  1. **Macro & Central Bank Catalyst Radar**: Upcoming RBI/Fed meetings, CPI inflation prints, IIP data, US payrolls scheduled for the week.
-  2. **Weekly Sector Rotation Momentum**: Analysis of leading vs lagging sectors over a rolling 4-week window (Which sectors are entering accumulation vs distribution?).
-  3. **High-Conviction Positional Setups**: 3–5 tactical swing candidates selected using technical criteria (breakouts from consolidation, volume accumulation, institutional support).
-  4. **Market Regime Summary**: 7-day rolling Sentiment Index trajectory and options positioning into the weekly expiry.
+### 8.1 The 5 Pillars of the New Weekly Outlook
+Every Sunday at 21:00 IST (`scripts/weekly.ts`), the weekly pipeline executes:
 
-### 8.2 What Should the Ideal Monthly Outlook Look Like?
-- **Timing**: 1st trading day of each month at 08:00 IST.
-- **Core Structural Proposals**:
-  1. **Monthly Asset Class Performance Matrix**: Equities (Large, Mid, Small) vs Gold vs 10Y Sovereign Debt vs Crude vs INR.
-  2. **Institutional Flow Autopsy**: Monthly cumulative FII vs DII trajectory across primary and secondary markets.
-  3. **Quarterly Earnings Season Tracker**: Sector-by-sector profit growth, margin compression themes, and management guidance scorecards.
-  4. **Strategic Portfolio Asset Allocation**: Model rebalancing recommendations across cash, defensive equity, and tactical growth.
+1. **Portfolio Focus & Company Catalyst Surveillance**:
+   - Evaluates the actual model portfolio holdings against news, earnings calendar, and regulatory disclosures.
+   - Summarizes:
+     - Major news or events that affected each holding over the past week.
+     - Critical upcoming catalysts (e.g. board meetings, earnings dates, AGM, order wins, product launches) scheduled for the upcoming week/month.
+     - Clear, sober impact assessment without speculative price prediction.
+
+2. **IPOs in Focus (The Authoritative Weekly Primary Market Fetch)**:
+   - **Single weekly fetch**: Sunday is designated as the single time per week when comprehensive primary market data is extracted via Grounded Gemini LLM / Chittorgarh / NSE IPO portal.
+   - Extracts: Company name, sector, price band, issue size (₹ cr), Grey Market Premium (GMP in ₹ and %), total subscription multiple (QIB, NII, Retail), and key dates (Bidding Open/Close, Basis of Allotment, Listing Date).
+   - **Cross-App Data Sharing**: This dataset is saved to `data/staging/weekly_ipos.json` and `data/ledger/quantitative/weekly_ipos.jsonl`, directly populating both the **Weekly Outlook** and the **Homepage Primary Market Table** for the entire week!
+
+3. **Sector Growth & Relative Rotation**:
+   - Aggregates weekly returns across all 11+ NSE Sectoral Indices.
+   - Ranks sectors from strongest relative momentum to deepest drag.
+   - Highlights capital rotation themes (e.g. defensive flight into FMCG/Pharma vs cyclical outflow from Realty/Metals).
+
+4. **Institutional Flow Trend (FII vs. DII)**:
+   - 5-day rolling cumulative inflow/outflow balance in ₹ crore.
+   - Compares foreign institutional liquidation vs domestic mutual fund absorption capacity.
+   - Analyzes impact on market liquidity and rupee stability.
+
+5. **Multi-Asset Scorecard**:
+   - Cross-asset weekly performance table:
+     - Equities: Nifty 50, Sensex
+     - Safe Havens: Gold (MCX / Spot), Silver
+     - Energy / Commodities: Brent Crude Oil
+     - Sovereign Debt: India 10-Year Benchmark Yield
+     - Foreign Exchange: USD/INR
+   - Visualizes macro divergence (e.g. rising crude + rising dollar putting pressure on equity multiples).
+
+---
+
+### 8.2 Updated Schemas for Weekly & Monthly Outlooks
+
+#### A. `WeeklyContentSchema`
+```typescript
+export const WeeklyContentSchema = z.object({
+  snapshot: MarketSnapshotSchema,
+  period: z.string(), // e.g. "2026-W40"
+  
+  // 1. Multi-Asset Scorecard
+  multiAssetScorecard: z.array(z.object({
+    asset: z.string(),
+    symbol: z.string(),
+    close: z.number(),
+    returnPct: z.number(),
+    context: z.string(),
+  })),
+
+  // 2. Sector Growth & Rotation
+  sectorGrowth: z.array(z.object({
+    sector: z.string(),
+    weeklyReturnPct: z.number(),
+    rank: z.number(),
+    stance: z.enum(['leading', 'lagging', 'neutral']),
+  })),
+
+  // 3. Institutional Flows
+  fiiDiiWeekly: z.object({
+    fiiNetCrore: z.number(),
+    diiNetCrore: z.number(),
+    netInstitutionalCrore: z.number(),
+    summary: z.string(),
+  }),
+
+  // 4. Portfolio Focus & Holding Events
+  portfolioFocus: z.array(z.object({
+    ticker: z.string(),
+    name: z.string(),
+    recentEvents: z.string(),
+    upcomingCatalysts: z.string(),
+    riskNote: z.string().optional(),
+  })),
+
+  // 5. IPOs in Focus (Weekly Authoritative Ingestion)
+  iposInFocus: z.array(z.object({
+    company: z.string(),
+    priceBand: z.string(),
+    issueSize: z.string(),
+    gmp: z.string(),
+    gmpPct: z.string(),
+    subscription: z.string(),
+    status: z.string(),
+    listingDate: z.string().optional(),
+  })),
+
+  // 6. Macro & Week-Ahead Calendar
+  macroThemes: z.array(z.string()),
+});
+```
+
+#### B. `MonthlyContentSchema`
+```typescript
+export const MonthlyContentSchema = z.object({
+  snapshot: MarketSnapshotSchema,
+  period: z.string(), // e.g. "2026-09"
+
+  // 1. Multi-Asset Monthly Scorecard
+  multiAssetScorecard: z.array(z.object({
+    asset: z.string(),
+    symbol: z.string(),
+    close: z.number(),
+    monthlyReturnPct: z.number(),
+    yearToDateReturnPct: z.number().optional(),
+  })),
+
+  // 2. Sector Performance & Leadership
+  sectorLeadership: z.array(z.object({
+    sector: z.string(),
+    monthlyReturnPct: z.number(),
+    rank: z.number(),
+    driver: z.string(),
+  })),
+
+  // 3. Monthly Institutional Flow Autopsy
+  fiiDiiMonthly: z.object({
+    fiiNetCrore: z.number(),
+    diiNetCrore: z.number(),
+    netInstitutionalCrore: z.number(),
+    fiiTrend: z.string(),
+    diiTrend: z.string(),
+  }),
+
+  // 4. Portfolio Monthly Performance & Allocation
+  portfolioReview: z.object({
+    monthlyReturnPct: z.number(),
+    benchmarkReturnPct: z.number(),
+    topContributors: z.array(z.string()),
+    drags: z.array(z.string()),
+    keyLearnings: z.array(z.string()),
+  }),
+
+  // 5. Macro Policy & Thematic Review
+  macroThemes: z.array(z.string()),
+});
+```
 
 ---
 
 ## 9. Next Steps & Implementation Roadmap
 
-1. **Review & Approval**: Align on the 4-job timing schedule and the JSONL analytical ledger schema.
-2. **Phase 1: Consolidate Market Data Fetchers**: Create `scripts/morning-market.ts` (08:00 IST) and `scripts/evening-market.ts` (15:45 IST) with batching.
-3. **Phase 2: Consolidate LLM Intelligence**: Merge news, flows, and narrative generation into single-pass prompts.
-4. **Phase 3: Ledger Append Utility**: Implement `lib/ledger-store.ts` for clean, append-only JSONL writes.
-5. **Phase 4: Cloudflare Worker Schedule Update**: Update `workers/cron-dispatcher/src/index.ts` to dispatch the 4 new workflows.
-6. **Phase 5: Weekly & Monthly Design Session**: Discuss and implement the new weekly and monthly outlook templates.
+1. **Phase 1: Implement Updated Schemas (`lib/schemas.ts`)**:
+   - Update `WeeklyContentSchema` and `MonthlyContentSchema` to reflect the 5 new pillars.
+   - Remove `positionalBets` and `midTermBets` references.
+2. **Phase 2: Update Weekly Narrative Generator (`lib/reports-narrative.ts`)**:
+   - Add Grounded LLM extraction for weekly IPOs and portfolio company events.
+   - Compute multi-asset weekly scorecard and sector growth rankings from aggregated 7-day snapshots.
+3. **Phase 3: Refactor Weekly & Monthly Views (`src/components/WeeklyView.tsx` & `MonthlyView.tsx`)**:
+   - Typeset the 5 new pillars in authentic broadsheet typography.
+   - Remove the old buy/sell bet tables.
+4. **Phase 4: Wire Weekly IPO Data to Homepage**:
+   - Allow `src/app/page.tsx` to read the authoritative weekly IPO feed from `data/staging/weekly_ipos.json`.
+5. **Phase 5: Update Cloudflare Worker Dispatcher (`workers/cron-dispatcher/src/index.ts`)**:
+   - Align cron slots with the 4 daily jobs + Sunday Weekly Outlook + 1st-of-month Monthly Digest.
+
