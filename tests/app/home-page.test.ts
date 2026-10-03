@@ -18,4 +18,13 @@ describe('TodayPage (/)', () => {
     expect(html).not.toContain('Turn to Page 5 · Audited Model Portfolio');
     expect(html).not.toContain('Audited Positional Calls Ledger');
   });
+
+  it('renders minimal Institutional Flows with neutral ink typography', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    expect(html).toContain('Institutional Flows');
+    expect(html).toContain('FII Net Cash');
+    expect(html).toContain('DII Net Cash');
+  });
 });

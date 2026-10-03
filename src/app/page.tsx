@@ -417,16 +417,16 @@ export default async function TodayPage() {
                   </span>
                 )}
               </div>
-              <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-                <div className="p-2 border border-[var(--color-hairline)]/60 bg-[var(--color-surface)]">
-                  <span className="text-[10px] text-[var(--color-muted)] uppercase block">FII Net Cash</span>
-                  <span className={`font-bold tabular-nums text-sm ${fiiDii.fiiNet >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+              <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+                <div className="py-1 flex items-center justify-between">
+                  <span className="text-[var(--color-muted)]">FII Net Cash</span>
+                  <span className="font-semibold text-[var(--color-ink)] tabular-nums">
                     {fiiDii.fiiNet >= 0 ? '+' : ''}{fiiDii.fiiNet.toLocaleString('en-IN', { maximumFractionDigits: 0 })} cr
                   </span>
                 </div>
-                <div className="p-2 border border-[var(--color-hairline)]/60 bg-[var(--color-surface)]">
-                  <span className="text-[10px] text-[var(--color-muted)] uppercase block">DII Net Cash</span>
-                  <span className={`font-bold tabular-nums text-sm ${fiiDii.diiNet >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                <div className="py-1 flex items-center justify-between">
+                  <span className="text-[var(--color-muted)]">DII Net Cash</span>
+                  <span className="font-semibold text-[var(--color-ink)] tabular-nums">
                     {fiiDii.diiNet >= 0 ? '+' : ''}{fiiDii.diiNet.toLocaleString('en-IN', { maximumFractionDigits: 0 })} cr
                   </span>
                 </div>
