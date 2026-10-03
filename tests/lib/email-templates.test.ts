@@ -186,7 +186,12 @@ describe('email templates', () => {
     expect(html).not.toContain('Summary');
     expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
-    expect(html).not.toContain('Key Takeaways');
+    expect(html).toContain('Morning Desk Note');
+    expect(html).toContain('Key Takeaways');
+    expect(html).toContain('Headlines &amp; Intelligence');
+    expect(html).toContain('52-Week Range Extremes');
+    expect(html).toContain('Market Consensus &amp; Mood');
+    expect(html).toContain('Corporate Actions &amp; IPO Spotlight');
     expect(html).toContain('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
     expect(html).not.toContain('<script>alert');
   });
@@ -230,6 +235,8 @@ describe('email templates', () => {
     expect(html).toContain('Daily Retro');
     expect(html).toContain('14th June, 2026');
     expect(html).not.toContain('Mid-Session - 2026-06-14');
+    expect(html).toContain('Closing Session Wire');
+    expect(html).toContain('Session Movers');
     expect(html).toContain('Sell Alerts');
     expect(html).toContain('Portfolio Scan');
     expect(html).toContain('High');
