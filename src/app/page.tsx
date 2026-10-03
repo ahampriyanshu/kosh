@@ -421,34 +421,25 @@ export default async function TodayPage() {
           ROW 1: THE DISPATCH DESK (Connected 3-Column Newspaper Grid)
           Left (3 cols) | Middle (6 cols) | Right (3 cols)
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="homepage-section-heading"><h2>Market pulse</h2></div>
-      <div className="homepage-grid grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 1A. Left Column (3 cols): Market Mood, Global Benchmarks, Macro Commodities & FX */}
         <div className="md:col-span-3 p-5 xl:p-6 space-y-6">
           {mood && (
-            <section aria-label="Sentiment Index" className="pb-3">
+            <section aria-label="Sentiment Index">
               <div className="mb-1 flex items-center gap-2 text-xs">
-                <h2 className="font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">Sentiment Index</h2>
-              </div>
-              <SentimentGauge score={mood.composite} regime={mood.regime} compact />
-              <div className="mt-1 text-right text-xs font-serif italic">
-                <Link href="/sentiment-index" className="text-[var(--color-ink)] hover:underline">
-                  Open Sentiment Index
+                <Link href="/sentiment-index" className="hover:underline">
+                  <h2 className="font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">Sentiment Index</h2>
                 </Link>
               </div>
+              <SentimentGauge score={mood.composite} regime={mood.regime} compact />
             </section>
           )}
 
           {/* Institutional Flows (FII / DII Net Activity) */}
           {fiiDii && (
             <div className="pt-2 border-t border-[var(--color-hairline)]">
-              <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
+              <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
                 <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Institutional Flows</span>
-                {fiiDii.asOf && (
-                  <span className="text-[10px] text-[var(--color-muted)] font-mono">
-                    {fiiDii.asOf}
-                  </span>
-                )}
               </div>
               <div className="text-xs font-mono">
                 <div className="py-1 flex items-center justify-between">
@@ -562,7 +553,6 @@ export default async function TodayPage() {
           <div className="homepage-stories text-sm">
             {eightMajorHeadlines.map((story, i) => (
               <article key={i} className="homepage-story">
-                {story.category && <p className="homepage-story-category">{story.category}</p>}
                 <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] leading-snug">
                   {story.headline}
                 </h2>
@@ -675,8 +665,7 @@ export default async function TodayPage() {
           ROW 2: MARKET MICROSTRUCTURE LEDGER (Connected 3-Column Newspaper Grid)
           Left: Gainers, Losers, Most Traded | Middle: Sector Rotation | Right: 52W High & Low
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="homepage-section-heading"><h2>Market activity</h2></div>
-      <div className="homepage-grid grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 2A. Col 1 (4 cols): Gainers, Losers, Most Traded */}
         <div className="md:col-span-4 p-5 xl:p-6 space-y-5">
           {/* Top Gainers */}
@@ -870,8 +859,7 @@ export default async function TodayPage() {
           ROW 3: RESEARCH & THE STREET CONSENSUS (Connected 3-Column Newspaper Grid)
           Left: Street Consensus | Middle: Tactical Bets | Right: Structural Bets
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="homepage-section-heading"><h2>Research &amp; strategy</h2></div>
-      <div className="homepage-grid grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 3A. Col 1 (4 cols): Street Consensus */}
         <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">

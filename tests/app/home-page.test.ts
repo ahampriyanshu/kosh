@@ -19,13 +19,15 @@ describe('TodayPage (/)', () => {
     expect(html).not.toContain('Audited Positional Calls Ledger');
   });
 
-  it('renders minimal Institutional Flows with neutral ink typography', async () => {
+  it('renders minimal Institutional Flows with neutral ink typography and no date in heading', async () => {
     const pageComponent = await TodayPage();
     const html = renderToStaticMarkup(pageComponent);
 
     expect(html).toContain('Institutional Flows');
     expect(html).toContain('FII Net Cash');
     expect(html).toContain('DII Net Cash');
+    // Ensure "Open Sentiment Index" link is removed
+    expect(html).not.toContain('Open Sentiment Index');
   });
 
   it('renders 8 major headlines per edition on the homepage', async () => {
