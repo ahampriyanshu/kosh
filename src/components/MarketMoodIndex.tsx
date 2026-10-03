@@ -15,15 +15,17 @@ export function MarketMoodIndex({ mood, compact = false }: MarketMoodIndexProps)
   const needlePos = Math.max(1, Math.min(99, composite));
 
   return (
-    <div className="pb-4 border-b border-[var(--color-hairline)] font-serif" aria-label="Market Mood Index">
+    <div className={`font-serif ${compact ? 'pb-3' : 'pb-4 border-b border-[var(--color-hairline)]'}`} aria-label="Market Mood Index">
       {/* Broadsheet Column Header */}
       <div className="flex items-center justify-between pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs">
         <h2 className="font-serif font-bold text-sm text-[var(--color-ink)] uppercase tracking-wider">
           Market Mood Index
         </h2>
-        <span className="font-mono text-[10px] text-[var(--color-muted)]">
-          {session === 'closing' ? 'Official Close (15:45 IST)' : 'Morning Stance (08:30 IST)'}
-        </span>
+        {!compact && (
+          <span className="font-mono text-[10px] text-[var(--color-muted)]">
+            {session === 'closing' ? 'Official Close (15:45 IST)' : 'Morning Stance (08:30 IST)'}
+          </span>
+        )}
       </div>
 
       {/* Main Score & Typographic Regime */}
