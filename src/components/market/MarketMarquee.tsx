@@ -84,40 +84,32 @@ export function MarketMarquee({ snapshot }: MarketMarqueeProps) {
       className="relative overflow-hidden py-2 mb-6 border-b border-[var(--color-hairline)] font-serif select-none"
       aria-label="Market Marquee Ticker"
     >
-      <div className="flex items-center">
-        {/* Left Pinned Label */}
-        <div className="shrink-0 flex items-center gap-1.5 pr-3 mr-3 border-r border-[var(--color-hairline)] text-[10px] font-bold tracking-widest uppercase text-[var(--color-ink)] bg-[var(--color-bg)] z-10">
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-bullish)] animate-pulse" />
-          <span>Market Wire</span>
-        </div>
-
-        {/* Marquee Track Container with Edge Gradient Fades */}
-        <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_1.5rem,black_calc(100%-1.5rem),transparent)]">
-          <div className="animate-marquee flex items-center">
-            {marqueeItems.map((item, idx) => (
-              <div
-                key={`${item.key}-${idx}`}
-                className="flex items-center gap-1.5 px-4 shrink-0 text-xs border-r border-[var(--color-hairline)] last:border-r-0"
-              >
-                <span className="text-[var(--color-muted)] font-medium">{item.name}:</span>
-                <span className="tabular-nums font-semibold text-[var(--color-ink)]">
-                  {item.value}
+      {/* Marquee Track Container with Edge Gradient Fades */}
+      <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_1.5rem,black_calc(100%-1.5rem),transparent)]">
+        <div className="animate-marquee flex items-center">
+          {marqueeItems.map((item, idx) => (
+            <div
+              key={`${item.key}-${idx}`}
+              className="flex items-center gap-1.5 px-4 shrink-0 text-xs border-r border-[var(--color-hairline)] last:border-r-0"
+            >
+              <span className="text-[var(--color-muted)] font-medium">{item.name}:</span>
+              <span className="tabular-nums font-semibold text-[var(--color-ink)]">
+                {item.value}
+              </span>
+              {item.changePct !== undefined && (
+                <span
+                  className={`tabular-nums font-medium ${
+                    item.changePct >= 0
+                      ? 'text-[var(--color-bullish)]'
+                      : 'text-[var(--color-bearish)]'
+                  }`}
+                >
+                  {item.changePct >= 0 ? '▲ +' : '▼ '}
+                  {Math.abs(item.changePct).toFixed(2)}%
                 </span>
-                {item.changePct !== undefined && (
-                  <span
-                    className={`tabular-nums font-medium ${
-                      item.changePct >= 0
-                        ? 'text-[var(--color-bullish)]'
-                        : 'text-[var(--color-bearish)]'
-                    }`}
-                  >
-                    {item.changePct >= 0 ? '▲ +' : '▼ '}
-                    {Math.abs(item.changePct).toFixed(2)}%
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </div>
