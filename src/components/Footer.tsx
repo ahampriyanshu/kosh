@@ -28,7 +28,8 @@ const footerSections = [
   {
     title: 'Workspace',
     links: [
-      { label: 'Scorecard', href: '/scorecard' },
+      { label: 'Short Term', href: '/bets/short-term' },
+      { label: 'Long Term', href: '/bets/long-term' },
       { label: 'Research', href: '/research' },
       { label: 'Portfolio', href: '/portfolio' },
     ],

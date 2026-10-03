@@ -7,8 +7,8 @@ const NAV_ITEMS = [
   { href: '/reports', label: 'Reports' },
   { href: '/sentiment-index', label: 'Sentiment Index' },
   { href: '/outlook', label: 'Outlook' },
-  { href: '/bets', label: 'Bets' },
-  { href: '/scorecard', label: 'Scorecard' },
+  { href: '/bets/short-term', label: 'Short Term' },
+  { href: '/bets/long-term', label: 'Long Term' },
   { href: '/research', label: 'Research' },
   { href: '/portfolio', label: 'Portfolio' },
 ];
