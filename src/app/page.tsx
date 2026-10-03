@@ -14,6 +14,23 @@ function formatVolume(vol: number): string {
   return vol.toLocaleString('en-IN');
 }
 
+function formatActionDate(dateStr: string): string {
+  try {
+    const parts = dateStr.split('-');
+    if (parts.length === 3) {
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      const mIdx = parseInt(parts[1], 10) - 1;
+      const day = parts[2];
+      if (mIdx >= 0 && mIdx < 12) {
+        return `${day} ${months[mIdx]}`;
+      }
+    }
+    return dateStr;
+  } catch {
+    return dateStr;
+  }
+}
+
 interface IPOItem {
   company: string;
   priceBand: string;
@@ -62,7 +79,7 @@ interface MarketStory {
   tickers?: string[];
 }
 
-const DEFAULT_FIVE_HEADLINES: MarketStory[] = [
+const DEFAULT_SIX_HEADLINES: MarketStory[] = [
   {
     category: 'Macro & Policy',
     headline: 'RBI Maintains Calibrated Liquidity Posture as Credit Growth Expands',
@@ -96,6 +113,13 @@ const DEFAULT_FIVE_HEADLINES: MarketStory[] = [
     headline: 'Mainboard IPO Bidding Stays Resilient Amid Record Retail Participation',
     summary: 'Primary market issues witnessed robust subscription multiples across institutional and high-net-worth investor categories, reinforcing cash market depth.',
     source: 'Business Standard',
+  },
+  {
+    category: 'Energy & Infrastructure',
+    headline: 'Power Transmission & Green Corridor Capex Accelerates Across Key States',
+    summary: 'Grid integration projects witness heightened capital outlay as state utilities award renewable evacuation tenders to support long-term load expansion.',
+    source: 'Financial Express',
+    tickers: ['POWERGRID.NS', 'NTPC.NS'],
   },
 ];
 
@@ -258,18 +282,18 @@ export default async function TodayPage() {
     snapshot.near52wLow?.forEach((m) => { priceLookup[m.ticker] = m.ltp; });
   }
 
-  // Curate exactly 5 Major Headlines
-  const fiveMajorHeadlines: MarketStory[] = [];
+  // Curate exactly 6 Major Headlines
+  const sixMajorHeadlines: MarketStory[] = [];
   if (snapshot?.news) {
     const pulseCats = ['macro_policy', 'global_cues', 'sectoral', 'economy', 'stocks_in_focus', 'earnings'];
     for (const cat of pulseCats) {
-      if (fiveMajorHeadlines.length >= 5) break;
+      if (sixMajorHeadlines.length >= 6) break;
       const grp = snapshot.news.find((g: NewsGroup) => g.category === cat);
       if (grp?.items) {
         for (const it of grp.items) {
-          if (fiveMajorHeadlines.length >= 5) break;
-          if (it.headline && it.summary && !fiveMajorHeadlines.some((s) => s.headline === it.headline)) {
-            fiveMajorHeadlines.push({
+          if (sixMajorHeadlines.length >= 6) break;
+          if (it.headline && it.summary && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
+            sixMajorHeadlines.push({
               category: cat.replace('_', ' ').toUpperCase(),
               headline: it.headline,
               summary: it.summary,
@@ -282,11 +306,11 @@ export default async function TodayPage() {
     }
   }
 
-  // Pad to reach exactly 5 major headlines if fewer were found in snapshot
-  for (const fallback of DEFAULT_FIVE_HEADLINES) {
-    if (fiveMajorHeadlines.length >= 5) break;
-    if (!fiveMajorHeadlines.some((s) => s.headline === fallback.headline)) {
-      fiveMajorHeadlines.push(fallback);
+  // Pad to reach exactly 6 major headlines if fewer were found in snapshot
+  for (const fallback of DEFAULT_SIX_HEADLINES) {
+    if (sixMajorHeadlines.length >= 6) break;
+    if (!sixMajorHeadlines.some((s) => s.headline === fallback.headline)) {
+      sixMajorHeadlines.push(fallback);
     }
   }
 
@@ -533,26 +557,22 @@ export default async function TodayPage() {
           </div>
         </div>
 
-        {/* 1B. Middle Column (6 cols): 5 Major Headlines */}
+        {/* 1B. Middle Column (6 cols): 6 Major Headlines */}
         <div className="md:col-span-6 p-4 space-y-3">
-          <div className="divide-y divide-[var(--color-hairline)]/60 text-xs">
-            {fiveMajorHeadlines.map((story, i) => (
-              <div key={i} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
-                <div className="flex items-baseline gap-1.5">
-                  <span className="font-mono text-[11px] text-[var(--color-muted)] font-semibold">{i + 1}.</span>
-                  <h2 className="font-serif text-base font-bold text-[var(--color-ink)] leading-snug">
-                    {story.headline}
-                  </h2>
-                </div>
-                <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify pl-3.5">
+          <div className="space-y-3.5 text-xs">
+            {sixMajorHeadlines.map((story, i) => (
+              <div key={i} className="space-y-1">
+                <h2 className="font-serif text-base font-bold text-[var(--color-ink)] leading-snug">
+                  {story.headline}
+                </h2>
+                <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify">
                   {story.summary}
                 </p>
-                <div className="flex items-center gap-2 text-[11px] font-mono text-[var(--color-muted)] pl-3.5 pt-0.5">
-                  {story.source && <span>{story.source}</span>}
-                  {story.tickers && story.tickers.length > 0 && (
-                    <span>· {story.tickers.join(', ').replaceAll('.NS', '')}</span>
-                  )}
-                </div>
+                {story.tickers && story.tickers.length > 0 && (
+                  <div className="text-[10px] font-mono text-[var(--color-muted)] pt-0.5">
+                    <span>{story.tickers.join(', ').replaceAll('.NS', '')}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
