@@ -90,7 +90,7 @@ export function Footer() {
 
       <div className="pt-4 border-t border-[var(--color-hairline)] flex flex-wrap items-center justify-between gap-2">
         <p>
-          by{' '}
+          made by{' '}
           <a
             href="https://ahampriyanshu.com"
             target="_blank"
