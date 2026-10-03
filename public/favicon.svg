@@ -1,14 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none" role="img" aria-labelledby="title">
-  <title id="title">Kosh</title>
-  <defs>
-    <linearGradient id="rupee" x1="24" y1="13" x2="72" y2="84" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f4f7f5"/>
-      <stop offset=".34" stop-color="#aeb9b2"/>
-      <stop offset=".7" stop-color="#456156"/>
-      <stop offset="1" stop-color="#173c33"/>
-    </linearGradient>
-  </defs>
-
-  <path d="M33 18h19c11.6 0 19.5 6.2 19.5 16 0 10.6-8.6 17-22 17H35l29 31" stroke="#111" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M33 18h19c11.6 0 19.5 6.2 19.5 16 0 10.6-8.6 17-22 17H35l29 31" stroke="url(#rupee)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none" role="img" aria-labelledby="kosh-logo-title">
+  <title id="kosh-logo-title">Kosh</title>
+  <style>
+    .kosh-stem { fill: #111827; }
+    .kosh-accent { fill: #b8860b; }
+    @media (prefers-color-scheme: dark) {
+      .kosh-stem { fill: #f3f4f6; }
+      .kosh-accent { fill: #d4af37; }
+    }
+  </style>
+  <path class="kosh-stem" fill-rule="evenodd" clip-rule="evenodd" d="M 56.59 18.67 L 55.70 19.56 L 58.07 21.04 L 57.93 23.11 L 50.22 32.74 L 42.52 33.19 L 39.70 37.93 L 54.52 38.37 L 58.81 42.81 L 42.52 42.81 L 39.70 47.56 L 59.11 47.70 L 55.11 52.59 L 44.74 53.63 L 44.74 58.37 L 60.74 76.44 L 74.81 77.63 L 75.41 76.15 L 68.44 73.33 L 53.78 58.07 L 62.22 54.22 L 66.22 47.56 L 72.30 47.41 L 74.67 42.81 L 66.37 42.81 L 64.30 37.93 L 72.00 37.93 L 74.67 33.19 L 56.89 32.89 L 66.52 23.26 L 74.96 19.26 Z M 66.07 47.26 L 66.07 46.52 L 66.37 45.63 L 66.37 44.15 L 66.22 43.70 L 66.22 43.11 L 74.67 43.11 L 74.67 43.41 L 73.63 44.89 L 72.30 47.26 Z M 39.70 47.11 L 42.37 42.96 L 58.96 42.96 L 59.26 43.11 L 59.56 44.15 L 59.26 47.41 Z M 21.19 18.67 L 20.74 20.15 L 24.89 20.74 L 26.52 21.93 L 27.26 25.48 L 26.96 72.44 L 25.63 75.26 L 21.93 75.85 L 21.19 77.04 L 22.07 77.63 L 43.41 77.48 L 43.70 76.15 L 39.11 75.41 L 37.93 74.37 L 37.04 67.41 L 37.33 23.41 L 38.67 21.04 L 42.37 20.44 L 43.26 19.26 L 41.48 18.52 Z" />
+  <path class="kosh-accent" fill-rule="evenodd" clip-rule="evenodd" d="M 66.22 47.26 L 72.15 47.26 L 73.48 44.89 L 74.37 43.70 L 74.67 43.11 L 66.37 43.11 L 66.37 43.70 L 66.52 44.15 L 66.52 45.63 L 66.22 46.52 Z M 39.85 47.26 L 59.26 47.26 L 59.41 44.00 L 59.26 43.26 L 58.96 43.11 L 42.22 43.26 Z" />
 </svg>
