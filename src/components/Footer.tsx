@@ -44,7 +44,7 @@ export function Footer() {
             Kosh
           </p>
           <p className="leading-relaxed">
-            A daily journal of Indian equities, market microstructure, and positional research for the NSE &amp; BSE.
+            Documenting my experiments with financial markets
           </p>
         </div>
 
