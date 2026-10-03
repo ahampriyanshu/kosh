@@ -98,7 +98,8 @@ export function computeFlowsIndex(snapshot: MarketSnapshot): CategoryMoodScore {
 
   // Domestic buffer adjustment: DII buying softens FII selling shocks
   if (fiiNet < -1500 && diiNet > 2000) {
-    rawScore += Math.min(8, (diiNet / 4000) * 8);
+    const maxBuffer = Math.abs(fiiNet) >= 8000 ? 5 : 8;
+    rawScore += Math.min(maxBuffer, (diiNet / 4000) * maxBuffer);
   } else if (fiiNet < 0 && diiNet < 0) {
     rawScore -= 6; // Coordinated institutional selling
   }
@@ -153,14 +154,38 @@ export function computeVolatilityIndex(snapshot: MarketSnapshot): CategoryMoodSc
 
   // Intraday shock penalty
   if (vixChangePct > 4) {
-    rawScore -= Math.min(14, (vixChangePct / 2.0));
+    rawScore -= Math.min(18, (vixChangePct - 4) * 2.5 + 4);
   } else if (vixChangePct < -4) {
     rawScore += Math.min(6, (Math.abs(vixChangePct) / 3.0));
+  }
+
+  // Benchmark index drawdown penalty: equity sell-offs sharply curtail macro risk appetite
+  const nifty = snapshot.indianIndices?.find(
+    (i) => i.symbol === '^NSEI' || i.name.toUpperCase().includes('NIFTY 50')
+  );
+  const niftyChange = nifty?.changePct ?? 0;
+  if (niftyChange < -0.3) {
+    rawScore -= Math.min(15, Math.abs(niftyChange) * 12);
+  }
+
+  // Bond yield surge penalty: rising yields compress valuation multiples and risk tolerance
+  if (snapshot.bondYield?.changeBps && snapshot.bondYield.changeBps > 2) {
+    rawScore -= Math.min(6, snapshot.bondYield.changeBps);
   }
 
   // Safe haven flight check: Gold surge + Rupee depreciation during equities drop
   if (goldChange > 1.0 && usdinrChange > 0.3) {
     rawScore -= 6;
+  }
+
+  // Breadth & flow divergence cap: prevent calm/lagging VIX from masking heavy cash-market capitulation
+  const breadth = snapshot.breadth;
+  const adRatio = breadth?.adRatio ?? 1.0;
+  const isSevereCashSelloff =
+    (adRatio < 0.5 || (breadth && breadth.advances < breadth.declines * 0.4)) &&
+    (snapshot.fiiDii?.fiiNet ?? 0) < -3000;
+  if (isSevereCashSelloff && rawScore > 30) {
+    rawScore = Math.min(rawScore, 25);
   }
 
   const score = clamp(rawScore);
@@ -170,7 +195,7 @@ export function computeVolatilityIndex(snapshot: MarketSnapshot): CategoryMoodSc
   if (score >= 70) {
     summary = `Complacent volatility environment (India VIX subdued at ${vix.toFixed(2)})`;
   } else if (score <= 35) {
-    summary = `Elevated volatility & systemic risk (India VIX spiking at ${vix.toFixed(2)}, ${vixChangePct >= 0 ? '+' : ''}${vixChangePct.toFixed(1)}%)`;
+    summary = `Elevated volatility & systemic risk (India VIX at ${vix.toFixed(2)}, ${vixChangePct >= 0 ? '+' : ''}${vixChangePct.toFixed(1)}%)`;
   }
 
   return {

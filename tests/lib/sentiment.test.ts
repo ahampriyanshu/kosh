@@ -177,6 +177,28 @@ describe('Sentiment & Market Mood Engine', () => {
       const flightRes = computeVolatilityIndex(flightSnap);
       expect(flightRes.score).toBeLessThan(calmRes.score);
     });
+
+    it('penalizes score and enters extreme fear on Nifty drawdown and VIX surge', () => {
+      const snap = makeMockSnapshot({
+        indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 24500, changePct: -1.2 }],
+        vix: { value: 16.0, changePct: 8.5 },
+        bondYield: { name: 'India 10Y', value: 7.25, changeBps: 4 },
+      });
+      const res = computeVolatilityIndex(snap);
+      expect(res.score).toBeLessThanOrEqual(25);
+      expect(res.regime).toBe('Extreme Fear');
+    });
+
+    it('caps score to Extreme Fear on severe cash sell-off divergence even when VIX is calm', () => {
+      const snap = makeMockSnapshot({
+        vix: { value: 13.0, changePct: 0.0 }, // calm VIX
+        breadth: { advances: 15, declines: 45, unchanged: 0, adRatio: 0.33 },
+        fiiDii: { fiiNet: -5000, diiNet: 4000, unit: 'crore', asOf: '2026-10-02' },
+      });
+      const res = computeVolatilityIndex(snap);
+      expect(res.score).toBeLessThanOrEqual(25);
+      expect(res.regime).toBe('Extreme Fear');
+    });
   });
 
   describe('computeDerivativesIndex (DSI)', () => {

@@ -21,16 +21,30 @@ async function refreshMarketSlices(date: string): Promise<void> {
   await writeSlice(date, 'internals', internals, InternalsSliceSchema);
 }
 
-export async function runDaily(now: Date = new Date()): Promise<void> {
-  const date = istDateString(now);
-  await refreshMarketSlices(date);
+export interface RunDailyOptions {
+  sendEmail?: boolean;
+  deleteFeedSlices?: boolean;
+  skipRefresh?: boolean;
+  dateOverride?: string;
+  session?: 'morning' | 'closing';
+}
+
+export async function runDaily(now: Date = new Date(), options: RunDailyOptions = {}): Promise<void> {
+  const date = options.dateOverride ?? istDateString(now);
+  if (!options.skipRefresh) {
+    await refreshMarketSlices(date);
+  }
   const snapshot = await buildSnapshot(date, '1d', now.toISOString());
-  const mood = computeMoodSnapshot(snapshot, 'morning');
+  const session = options.session ?? 'morning';
+  const mood = computeMoodSnapshot(snapshot, session);
   snapshot.sentiment = mood;
   await writeSnapshot(date, snapshot);
 
   const narrative = await buildDailyNarrative(snapshot);
   const content = DailyContentSchema.parse({ snapshot, outlook: narrative.outlook, keyTakeaways: narrative.keyTakeaways });
+
+  const shouldSendEmail = options.sendEmail ?? true;
+  const shouldDeleteFeed = options.deleteFeedSlices ?? true;
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
@@ -43,10 +57,16 @@ export async function runDaily(now: Date = new Date()): Promise<void> {
     checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail('Kosh Daily Brief', renderDailyEmail(content));
-  await writeReport({ ...base, emailSent: true });
-  await deleteFeed(date); // clean up the feed slices after a successful publish
-  console.log(`Daily brief ${base.id} written and emailed.`);
+  if (shouldSendEmail) {
+    await sendReportEmail('Kosh Daily Brief', renderDailyEmail(content));
+    await writeReport({ ...base, emailSent: true });
+  } else {
+    await writeReport({ ...base, emailSent: true });
+  }
+  if (shouldDeleteFeed) {
+    await deleteFeed(date); // clean up the feed slices after a successful publish
+  }
+  console.log(`Daily brief ${base.id} written${shouldSendEmail ? ' and emailed' : ''}.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
