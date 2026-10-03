@@ -860,15 +860,6 @@ export default async function TodayPage() {
           ROW 4: AUDITED POSITIONAL LEDGER (Connected Broadsheet Table)
           ══════════════════════════════════════════════════════════════════════ */}
       <div className="p-4 space-y-3 border-b border-[var(--color-hairline)]">
-        <div className="flex items-baseline justify-between pb-1 border-b border-[var(--color-hairline)] text-xs font-mono">
-          <h2 className="font-serif font-bold text-sm text-[var(--color-ink)] uppercase tracking-wider">
-            Audited Positional Ledger
-          </h2>
-          <span className="text-[var(--color-muted)] text-[10px]">
-            {totalBets} EVALUATED CALLS · {winRate}% WIN RATE
-          </span>
-        </div>
-
         {/* Clean Inline Stats Ribbon */}
         <div className="py-2 border-b border-[var(--color-hairline)] grid grid-cols-2 sm:grid-cols-5 text-center text-xs font-mono divide-x divide-[var(--color-hairline)]">
           <div>
