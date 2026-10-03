@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getLatest, getManifest, readAllLedgers } from '../lib/reports';
 import type { DailyContent, RetroContent } from '../../lib/schemas';
 import { MarketMoodIndex } from '../components/MarketMoodIndex';
+import { MarketMarquee } from '../components/market/MarketMarquee';
 import { computeMoodSnapshot } from '../../lib/sentiment';
 
 function formatCrore(value: number): string {
@@ -129,53 +130,8 @@ export default async function TodayPage() {
 
   return (
     <div className="font-serif text-[var(--color-ink)] pb-12">
-      {/* ── Market Wire (The Running Tape) ── */}
-      {snapshot && (
-        <div className="py-2 mb-6 border-b border-[var(--color-hairline)] text-xs flex items-center overflow-x-auto whitespace-nowrap gap-4 divide-x divide-[var(--color-hairline)] scrollbar-none font-serif">
-          {snapshot.indianIndices.map((idx) => (
-            <div key={idx.symbol} className="first:pl-0 pl-4 flex items-center gap-1.5 shrink-0">
-              <span className="text-[var(--color-muted)]">{idx.name}:</span>
-              <span className="tabular-nums font-semibold text-[var(--color-ink)]">
-                {idx.ltp.toLocaleString('en-IN')}
-              </span>
-              <span
-                className={`tabular-nums ${
-                  idx.changePct >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
-                }`}
-              >
-                {idx.changePct >= 0 ? '▲ +' : '▼ '}
-                {Math.abs(idx.changePct).toFixed(2)}%
-              </span>
-            </div>
-          ))}
-          {snapshot.giftNifty && (
-            <div className="pl-4 flex items-center gap-1.5 shrink-0">
-              <span className="text-[var(--color-muted)]">Gift Nifty:</span>
-              <span className="tabular-nums font-semibold text-[var(--color-ink)]">
-                {snapshot.giftNifty.value.toLocaleString('en-IN')}
-              </span>
-              <span
-                className={`tabular-nums ${
-                  snapshot.giftNifty.changePct >= 0
-                    ? 'text-[var(--color-bullish)]'
-                    : 'text-[var(--color-bearish)]'
-                }`}
-              >
-                {snapshot.giftNifty.changePct >= 0 ? '▲ +' : '▼ '}
-                {Math.abs(snapshot.giftNifty.changePct).toFixed(2)}%
-              </span>
-            </div>
-          )}
-          {snapshot.vix && (
-            <div className="pl-4 flex items-center gap-1.5 shrink-0">
-              <span className="text-[var(--color-muted)]">India VIX:</span>
-              <span className="tabular-nums font-semibold text-[var(--color-ink)]">
-                {snapshot.vix.value.toFixed(2)}
-              </span>
-            </div>
-          )}
-        </div>
-      )}
+      {/* ── Market Wire (The Running Marquee Ticker) ── */}
+      {snapshot && <MarketMarquee snapshot={snapshot} />}
 
       {/* ── Mid-Session Alerts (if today) ── */}
       {midContent && midContent.alerts.length > 0 && (

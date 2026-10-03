@@ -174,9 +174,12 @@ export default async function RootLayout({
                 </div>
 
                 {/* Newspaper Title */}
-                <div className="text-center py-2">
-                  <Link href="/" className="inline-block hover:opacity-90 transition-opacity">
-                    <span className="broadsheet-title block">Kosh Daily</span>
+                <div className="broadsheet-container pt-2">
+                  <Link
+                    href="/"
+                    className="inline-block hover:opacity-90 transition-opacity"
+                  >
+                    <span className="broadsheet-title">Kosh Daily</span>
                   </Link>
                 </div>
 
