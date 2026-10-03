@@ -9,6 +9,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit -p tsconfig.node.json",
     "brief:daily": "node --env-file-if-exists=.env --import tsx scripts/daily.ts",
+    "email:preview": "npx tsx scripts/preview-emails.ts",
     "kite:session": "node --env-file-if-exists=.env --import tsx scripts/kite-session.ts",
     "portfolio:sync": "node --env-file-if-exists=.env --import tsx scripts/portfolio.ts",
     "dev": "next dev",
