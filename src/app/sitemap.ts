@@ -13,7 +13,7 @@ const staticRoutes: Array<{
   priority: number;
 }> = [
   { path: '/', changeFrequency: 'daily', priority: 1 },
-  { path: '/sentiment/', changeFrequency: 'daily', priority: 0.9 },
+  { path: '/sentiment-index/', changeFrequency: 'daily', priority: 0.9 },
   { path: '/reports/', changeFrequency: 'daily', priority: 0.9 },
   { path: '/outlook/', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/scorecard/', changeFrequency: 'weekly', priority: 0.7 },

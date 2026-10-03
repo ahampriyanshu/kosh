@@ -4,7 +4,6 @@ import { Lato, Newsreader } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
-import { ThemeToggle } from '../components/ThemeToggle';
 import { siteConfig } from '../lib/site';
 import { getLatest, getManifest } from '../lib/reports';
 import type { DailyContent } from '../../lib/schemas';
@@ -107,7 +106,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   themeColor: '#ffffff',
-  colorScheme: 'light dark',
+  colorScheme: 'light',
 };
 
 export default async function RootLayout({
@@ -142,22 +141,9 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${lato.variable} ${newsreader.variable}`}
+      data-mode="light"
       suppressHydrationWarning
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(() => {
-  try {
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-mode', theme);
-  } catch {
-    document.documentElement.setAttribute('data-mode', 'light');
-  }
-})();`,
-          }}
-        />
-      </head>
       <body>
         <div className="app-container">
           <div className="main-wrapper">
@@ -190,9 +176,6 @@ export default async function RootLayout({
                 <div className="header-container py-1 border-b border-[var(--color-hairline)]">
                   <div className="brand-lockup" />
                   <NavBar />
-                  <div className="header-actions">
-                    <ThemeToggle />
-                  </div>
                 </div>
               </header>
 

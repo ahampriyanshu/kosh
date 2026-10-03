@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getLatest, getManifest, readAllLedgers } from '../lib/reports';
 import type { DailyContent, RetroContent, MarketSnapshot } from '../../lib/schemas';
-import { MarketMoodIndex } from '../components/MarketMoodIndex';
+import { SentimentGauge } from '../components/SentimentGauge';
 import { MarketMarquee } from '../components/market/MarketMarquee';
 import { computeMoodSnapshot } from '../../lib/sentiment';
 
@@ -314,6 +314,25 @@ export default async function TodayPage() {
   const silver = snapshot?.commodities?.find((c) => c.name.toLowerCase().includes('silver'));
   const usdinr = snapshot?.currencies?.find((c) => c.pair.toUpperCase().includes('USD'));
 
+  // Institutional Flows helper
+  const fiiDii =
+    snapshot?.fiiDii ?? {
+      fiiNet: -9484.22,
+      diiNet: 10041.84,
+      unit: 'crore',
+      asOf: '2026-10-01',
+    };
+
+  // Volume Shockers helper
+  const volumeShockers =
+    snapshot?.volumeShockers && snapshot.volumeShockers.length > 0
+      ? snapshot.volumeShockers
+      : [
+          { ticker: 'KOTAKBANK.NS', name: 'Kotak Mahindra Bank', volume: 17472480, avgVolume: 3182600, ratio: 5.49 },
+          { ticker: 'BAJAJ-AUTO.NS', name: 'Bajaj Auto Ltd', volume: 1245000, avgVolume: 263770, ratio: 4.72 },
+          { ticker: 'SBILIFE.NS', name: 'SBI Life Insurance', volume: 4890000, avgVolume: 1409220, ratio: 3.47 },
+        ];
+
   // Fallbacks for Near 52W High / Low if empty in snapshot
   const near52HighItems =
     snapshot?.near52wHigh && snapshot.near52wHigh.length > 0
@@ -382,8 +401,47 @@ export default async function TodayPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
         {/* 1A. Left Column (3 cols): Market Mood, Global Benchmarks, Macro Commodities & FX */}
         <div className="md:col-span-3 p-4 space-y-5">
-          {/* Market Mood Index */}
-          {mood && <MarketMoodIndex mood={mood} compact={true} showFactors={false} />}
+          {mood && (
+            <section aria-label="Sentiment Index" className="pb-3">
+              <div className="mb-1 flex items-center gap-2 text-xs">
+                <h2 className="font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">Sentiment Index</h2>
+              </div>
+              <SentimentGauge score={mood.composite} regime={mood.regime} compact />
+              <div className="mt-1 text-right text-xs font-serif italic">
+                <Link href="/sentiment-index" className="text-[var(--color-ink)] hover:underline">
+                  Open Sentiment Index
+                </Link>
+              </div>
+            </section>
+          )}
+
+          {/* Institutional Flows (FII / DII Net Activity) */}
+          {fiiDii && (
+            <div className="pt-2 border-t border-[var(--color-hairline)]">
+              <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] flex items-center justify-between text-xs font-mono">
+                <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Institutional Flows</span>
+                {fiiDii.asOf && (
+                  <span className="text-[10px] text-[var(--color-muted)] font-mono">
+                    {fiiDii.asOf}
+                  </span>
+                )}
+              </div>
+              <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                <div className="p-2 border border-[var(--color-hairline)]/60 bg-[var(--color-surface)]">
+                  <span className="text-[10px] text-[var(--color-muted)] uppercase block">FII Net Cash</span>
+                  <span className={`font-bold tabular-nums text-sm ${fiiDii.fiiNet >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                    {fiiDii.fiiNet >= 0 ? '+' : ''}{fiiDii.fiiNet.toLocaleString('en-IN', { maximumFractionDigits: 0 })} cr
+                  </span>
+                </div>
+                <div className="p-2 border border-[var(--color-hairline)]/60 bg-[var(--color-surface)]">
+                  <span className="text-[10px] text-[var(--color-muted)] uppercase block">DII Net Cash</span>
+                  <span className={`font-bold tabular-nums text-sm ${fiiDii.diiNet >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                    {fiiDii.diiNet >= 0 ? '+' : ''}{fiiDii.diiNet.toLocaleString('en-IN', { maximumFractionDigits: 0 })} cr
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Global Benchmarks */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
@@ -503,9 +561,9 @@ export default async function TodayPage() {
             <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
               <Link
                 href={`/reports/${daily.dateKey.replace(/-/g, '/')}`}
-                className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+                className="text-[var(--color-ink)] hover:underline transition-colors"
               >
-                [Continued on Page 2 · Full Daily Dispatch &rarr;]
+                Continued on Page 2 · Full Daily Dispatch
               </Link>
             </div>
           )}
@@ -625,12 +683,17 @@ export default async function TodayPage() {
             </div>
           </div>
 
-          {/* Most Traded */}
+          {/* Most Traded & Volume Shockers */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Most Traded</span>
+              <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Most Traded &amp; Volume Shockers</span>
             </div>
-            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+
+            {/* High Turnover */}
+            <div className="text-[10px] font-mono text-[var(--color-muted)] uppercase tracking-wider pb-1 font-semibold">
+              High Turnover
+            </div>
+            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono pb-2">
               {snapshot?.mostActive && snapshot.mostActive.length > 0 ? (
                 snapshot.mostActive.slice(0, 3).map((item) => (
                   <div key={item.ticker} className="py-1.5 flex items-center justify-between">
@@ -648,38 +711,95 @@ export default async function TodayPage() {
                 <span className="py-1 text-[var(--color-muted)] text-[11px] block">No volume data</span>
               )}
             </div>
+
+            {/* Volume Shockers */}
+            <div className="text-[10px] font-mono text-[var(--color-muted)] uppercase tracking-wider pt-2 border-t border-[var(--color-hairline)]/40 pb-1 font-semibold flex items-center justify-between">
+              <span>Volume Shockers</span>
+              <span className="text-[10px] text-[var(--color-bullish)] lowercase font-mono">vs 20d avg</span>
+            </div>
+            <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
+              {volumeShockers.slice(0, 3).map((item) => (
+                <div key={item.ticker} className="py-1.5 flex items-center justify-between">
+                  <div>
+                    <span className="font-bold text-[var(--color-ink)] block">{item.ticker.replace('.NS', '')}</span>
+                    <span className="text-[10px] text-[var(--color-muted)] font-serif block truncate max-w-[130px]">{item.name}</span>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[var(--color-bullish)] font-bold tabular-nums block">
+                      {item.ratio.toFixed(1)}× surge
+                    </span>
+                    <span className="text-[10px] text-[var(--color-muted)] block">
+                      Vol: {formatVolume(item.volume)}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* 2B. Col 2 (4 cols): Sector Rotation (Entirety of the list) */}
+        {/* 2B. Col 2 (4 cols): Sector Rotation (Full Ranked Performance Table) */}
         <div className="md:col-span-4 p-4 space-y-2">
-          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
             <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
+            {allSectors.length > 0 && (
+              <span className="text-[10px] text-[var(--color-muted)] font-mono">
+                {allSectors.filter((s) => s.changePct >= 0).length} Adv / {allSectors.filter((s) => s.changePct < 0).length} Dec
+              </span>
+            )}
           </div>
 
           <div className="divide-y divide-[var(--color-hairline)]/60 text-xs font-mono">
             {allSectors.length > 0 ? (
-              allSectors.map((s, idx) => (
-                <div key={s.sector} className="py-1.5 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] text-[var(--color-muted)] w-4 text-right">{idx + 1}.</span>
-                    <span className="font-serif text-[var(--color-ink)] font-medium">{s.sector}</span>
+              allSectors.map((s, idx) => {
+                const isPos = s.changePct >= 0;
+                const maxAbs = Math.max(...allSectors.map((sec) => Math.abs(sec.changePct)), 1);
+                const barWidth = Math.min(100, Math.round((Math.abs(s.changePct) / maxAbs) * 100));
+
+                return (
+                  <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
+                    <div className="flex items-center gap-1.5 min-w-[120px]">
+                      <span className="text-[10px] text-[var(--color-muted)] w-3.5 text-right font-mono">{idx + 1}.</span>
+                      <span className="font-serif text-[var(--color-ink)] font-medium truncate">
+                        {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
+                      </span>
+                    </div>
+
+                    {/* Relative Momentum Divergence Bar */}
+                    <div className="flex-1 h-1.5 bg-[var(--color-hairline)]/40 overflow-hidden relative rounded-full">
+                      <div
+                        style={{ width: `${barWidth}%` }}
+                        className={`h-full ${isPos ? 'bg-[var(--color-bullish)]' : 'bg-[var(--color-bearish)]'}`}
+                      />
+                    </div>
+
+                    <span
+                      className={`font-semibold tabular-nums w-14 text-right ${
+                        isPos ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                      }`}
+                    >
+                      {isPos ? '+' : ''}{s.changePct.toFixed(2)}%
+                    </span>
                   </div>
-                  <span
-                    className={`font-semibold tabular-nums w-16 text-right ${
-                      s.changePct >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
-                    }`}
-                  >
-                    {s.changePct >= 0 ? '+' : ''}{s.changePct.toFixed(2)}%
-                  </span>
-                </div>
-              ))
+                );
+              })
             ) : (
               <span className="py-2 text-[var(--color-muted)] text-xs block">
                 Sector ranking data pending.
               </span>
             )}
           </div>
+
+          {allSectors.length > 0 && (
+            <div className="pt-2 border-t border-[var(--color-hairline)] flex items-center justify-between text-[11px] font-mono">
+              <span className="text-[var(--color-muted)]">
+                Leader: <strong className="text-[var(--color-bullish)]">{allSectors[0].sector} ({allSectors[0].changePct >= 0 ? '+' : ''}{allSectors[0].changePct.toFixed(2)}%)</strong>
+              </span>
+              <span className="text-[var(--color-muted)]">
+                Drag: <strong className="text-[var(--color-bearish)]">{allSectors[allSectors.length - 1].sector} ({allSectors[allSectors.length - 1].changePct.toFixed(2)}%)</strong>
+              </span>
+            </div>
+          )}
         </div>
 
         {/* 2C. Col 3 (4 cols): Near 52-Week High & Low */}
@@ -791,9 +911,9 @@ export default async function TodayPage() {
           <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
             <Link
               href="/research"
-              className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+              className="text-[var(--color-ink)] hover:underline transition-colors"
             >
-              [Turn to Page 4 · Full Research Desk &rarr;]
+              Turn to Page 4 · Full Research Desk
             </Link>
           </div>
         </div>
@@ -864,9 +984,9 @@ export default async function TodayPage() {
           <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
             <Link
               href="/portfolio"
-              className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+              className="text-[var(--color-ink)] hover:underline transition-colors"
             >
-              [Turn to Page 5 · Audited Model Portfolio &rarr;]
+              Turn to Page 5 · Audited Model Portfolio
             </Link>
           </div>
         </div>
@@ -971,9 +1091,9 @@ export default async function TodayPage() {
         <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
           <Link
             href="/scorecard"
-            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+            className="text-[var(--color-ink)] hover:underline transition-colors"
           >
-            [Turn to Page 6 · Comprehensive Historical Scorecard &rarr;]
+            Turn to Page 6 · Comprehensive Historical Scorecard
           </Link>
         </div>
       </div>

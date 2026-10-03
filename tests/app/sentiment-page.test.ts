@@ -1,22 +1,21 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import SentimentPage from '../../src/app/sentiment/page';
+import SentimentIndexPage from '../../src/app/sentiment-index/page';
 
 (globalThis as typeof globalThis & { React: typeof React }).React = React;
 
-describe('SentimentPage (/sentiment)', () => {
+describe('SentimentIndexPage (/sentiment-index)', () => {
   it('renders the page header, master mood index, and 4 category deep dives', async () => {
-    const pageComponent = await SentimentPage();
+    const pageComponent = await SentimentIndexPage();
     const html = renderToStaticMarkup(pageComponent);
 
-    expect(html).toContain('Market Mood Index (MMI)');
-    expect(html).toContain('The Four Category Sub-Indexes');
-    expect(html).toContain('1. Breadth &amp; Participation');
-    expect(html).toContain('2. Institutional Cash Flows');
-    expect(html).toContain('3. Volatility &amp; Macro Risk');
-    expect(html).toContain('4. Derivatives &amp; Options Skew');
-    expect(html).toContain('Historical Sentiment Timeseries');
-    expect(html).toContain('The Five Sentiment Regimes &amp; Trading Rules');
+    expect(html).toContain("Today&#x27;s reading");
+    expect(html).toContain('What shapes the reading');
+    expect(html).toContain('Breadth &amp; participation');
+    expect(html).toContain('Institutional flows');
+    expect(html).toContain('Volatility &amp; risk appetite');
+    expect(html).toContain('Options positioning');
+    expect(html).toContain('Recent readings');
   });
 });

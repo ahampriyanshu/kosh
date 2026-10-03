@@ -50,9 +50,9 @@ export async function AccountabilityHero() {
 
         <Link
           href="/scorecard"
-          className="text-xs font-semibold text-[var(--color-brand)] hover:underline inline-flex items-center gap-1"
+          className="text-xs font-semibold text-[var(--color-ink)] hover:underline inline-flex items-center gap-1"
         >
-          View Graded Calls Archive →
+          View Graded Calls Archive
         </Link>
       </div>
 

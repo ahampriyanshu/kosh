@@ -16,14 +16,15 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
   const needlePos = Math.max(1, Math.min(99, composite));
   const cleanSummary = mood.summary
     .replace(/^Market sentiment resides in [^.]+\.\s*/i, '')
-    .trim() || mood.summary;
+    .trim();
+  const summary = compact && /^Capitulation levels:/i.test(cleanSummary) ? '' : cleanSummary;
 
   return (
-    <div className={`font-serif ${compact ? 'space-y-2' : 'pb-4 border-b border-[var(--color-hairline)]'}`} aria-label="Market Mood Index">
+    <div className={`font-serif ${compact ? 'space-y-2' : 'pb-4 border-b border-[var(--color-hairline)]'}`} aria-label="Sentiment Index">
       {/* Broadsheet Column Header */}
       <div className="flex items-center justify-between pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
         <span className="font-bold text-[var(--color-ink)] uppercase tracking-wider">
-          Market Mood Index
+          Sentiment Index
         </span>
         <div className="flex items-center gap-1.5 font-mono text-xs">
           {!compact && (
@@ -43,7 +44,7 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
 
       {/* Engraved Newsprint Barometer Track */}
       <div className="space-y-1 mb-2">
-        <div className="relative h-1 bg-[var(--color-hairline)]">
+        <div className="relative h-1 bg-[linear-gradient(90deg,var(--color-bullish)_0%,#d8c08d_50%,var(--color-bearish)_100%)]">
           {/* Subtle 50 mid-tick */}
           <div className="absolute left-1/2 top-0 bottom-0 w-px bg-[var(--color-muted)]/40" />
           {/* Engraved Needle Pointer */}
@@ -53,16 +54,18 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
           />
         </div>
         <div className="flex justify-between text-[10px] font-mono text-[var(--color-muted)]">
-          <span>0 Fear</span>
-          <span>50 Neutral</span>
-          <span>100 Greed</span>
+          <span>0 Oversold</span>
+          <span>50 Balanced</span>
+          <span>100 Overbought</span>
         </div>
       </div>
 
       {/* Narrative Editorial Summary */}
-      <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify mb-2">
-        {cleanSummary}
-      </p>
+      {summary && (
+        <p className="text-xs text-[var(--color-muted)] leading-relaxed text-justify mb-2">
+          {summary}
+        </p>
+      )}
 
       {/* 4 Category Sub-Indexes Typeset as Financial Ledger (or link to full index) */}
       {showFactors ? (
@@ -139,10 +142,10 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
       ) : (
         <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
           <Link
-            href="/sentiment"
-            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+            href="/sentiment-index"
+            className="text-[var(--color-ink)] hover:underline transition-colors"
           >
-            [Turn to Page 3 · Market Mood Index &rarr;]
+            Open Sentiment Index
           </Link>
         </div>
       )}
@@ -150,10 +153,10 @@ export function MarketMoodIndex({ mood, compact = false, showFactors = true }: M
       {!compact && showFactors && (
         <div className="mt-2.5 pt-1.5 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
           <Link
-            href="/sentiment"
-            className="text-[var(--color-muted)] hover:text-[var(--color-ink)] hover:underline transition-colors"
+            href="/sentiment-index"
+            className="text-[var(--color-ink)] hover:underline transition-colors"
           >
-            [Turn to Page 3 · Historical Sentiment Timeseries &rarr;]
+            View sentiment history
           </Link>
         </div>
       )}

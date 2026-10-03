@@ -21,7 +21,7 @@ const footerSections = [
     title: 'Market',
     links: [
       { label: 'Reports', href: '/reports' },
-      { label: 'Market Mood', href: '/sentiment' },
+      { label: 'Sentiment Index', href: '/sentiment-index' },
       { label: 'Outlook', href: '/outlook' },
     ],
   },

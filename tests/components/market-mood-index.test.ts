@@ -71,11 +71,11 @@ describe('MarketMoodIndex Component', () => {
     expect(html).toContain('36');
   });
 
-  it('contains link to the full /sentiment breakdown page', () => {
+  it('contains link to the full /sentiment-index breakdown page', () => {
     const html = renderToStaticMarkup(createElement(MarketMoodIndex, { mood: mockMood }));
 
-    expect(html).toContain('href="/sentiment"');
-    expect(html).toContain('Historical Sentiment Timeseries');
+    expect(html).toContain('href="/sentiment-index"');
+    expect(html).toContain('View sentiment history');
   });
 
   it('renders morning stance label when session is morning', () => {
@@ -90,7 +90,7 @@ describe('MarketMoodIndex Component', () => {
 
     expect(html).not.toContain('Factor Attribution');
     expect(html).not.toContain('1. Breadth &amp; Participation');
-    expect(html).toContain('href="/sentiment"');
-    expect(html).toContain('Turn to Page 3 · Market Mood Index');
+    expect(html).toContain('href="/sentiment-index"');
+    expect(html).toContain('Open Sentiment Index');
   });
 });
