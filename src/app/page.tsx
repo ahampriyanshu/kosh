@@ -397,7 +397,7 @@ export default async function TodayPage() {
   });
 
   return (
-    <div className="homepage-dashboard font-serif text-[var(--color-ink)] pb-16">
+    <div className="homepage-dashboard font-serif text-[var(--color-ink)]">
       {/* ── Running Ticker Tape (Full Width) ── */}
       {snapshot && <MarketMarquee snapshot={snapshot} />}
 

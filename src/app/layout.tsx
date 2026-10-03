@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { Lato, Newsreader } from 'next/font/google';
+import { Lato, Newsreader, Old_Standard_TT } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
@@ -20,6 +20,13 @@ const newsreader = Newsreader({
   variable: '--font-newsreader',
   weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
+  display: 'swap',
+});
+
+const oldStandard = Old_Standard_TT({
+  subsets: ['latin'],
+  variable: '--font-masthead',
+  weight: ['400', '700'],
   display: 'swap',
 });
 
@@ -140,7 +147,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${newsreader.variable}`}
+      className={`${lato.variable} ${newsreader.variable} ${oldStandard.variable}`}
       data-mode="light"
       suppressHydrationWarning
     >
