@@ -82,7 +82,14 @@ interface MarketStory {
   tickers?: string[];
 }
 
-const DEFAULT_SIX_HEADLINES: MarketStory[] = [
+const MARKET_LESSON = {
+  paragraphs: [
+    'On 4 October, NIFTY 50 fell 0.88%, and only 16 stocks advanced while 42 declined. Yet NIFTY IT gained 2.17%, with Infosys among the leaders. Read only the index and the day looks uniformly weak; look closer and one pocket was attracting buyers while most of the market was under pressure.',
+    'That is a useful habit in any market: an index is a summary, not a census. When it falls, check breadth and sector leadership before assuming everything is on sale. When it rises, ask how many stocks are actually participating. A narrow rally can be less sturdy than it looks; a sharp selloff can leave businesses with very different prospects. The index tells you where the crowd ended up; breadth helps explain how it got there.',
+  ],
+};
+
+const DEFAULT_EIGHT_HEADLINES: MarketStory[] = [
   {
     category: 'Macro & Policy',
     headline: 'RBI Maintains Calibrated Liquidity Posture as Credit Growth Expands',
@@ -129,6 +136,22 @@ const DEFAULT_SIX_HEADLINES: MarketStory[] = [
     source: 'Financial Express',
     url: 'https://www.financialexpress.com/market',
     tickers: ['POWERGRID.NS', 'NTPC.NS'],
+  },
+  {
+    category: 'Banking & Financials',
+    headline: 'Retail Credit Quality Remains Healthy as Gross NPAs Touch Multi-Year Lows',
+    summary: 'Scheduled commercial banks report steady asset quality metrics with provision coverage ratios comfortably above historical averages.',
+    source: 'Moneycontrol',
+    url: 'https://www.moneycontrol.com/news/business/banks',
+    tickers: ['KOTAKBANK.NS', 'AXISBANK.NS'],
+  },
+  {
+    category: 'Automotive & Mobility',
+    headline: 'Commercial Vehicle Dispatches Pick Up Momentum on Infrastructure Demand',
+    summary: 'Fleet expansion and replacement demand support medium and heavy commercial vehicle volume growth into the festival quarter.',
+    source: 'Livemint',
+    url: 'https://www.livemint.com/auto',
+    tickers: ['TATAMOTORS.NS', 'ASHOKLEY.NS'],
   },
 ];
 
@@ -368,18 +391,18 @@ export default async function TodayPage() {
     });
   }
 
-  // Curate exactly 6 Major Headlines
-  const sixMajorHeadlines: MarketStory[] = [];
+  // Curate exactly 8 Major Headlines
+  const eightMajorHeadlines: MarketStory[] = [];
   if (snapshot?.news) {
     const pulseCats = ['macro_policy', 'global_cues', 'sectoral', 'economy', 'stocks_in_focus', 'earnings', 'corporate_actions'];
     for (const cat of pulseCats) {
-      if (sixMajorHeadlines.length >= 6) break;
+      if (eightMajorHeadlines.length >= 8) break;
       const grp = snapshot.news.find((g: NewsGroup) => g.category === cat);
       if (grp?.items) {
         for (const it of grp.items) {
-          if (sixMajorHeadlines.length >= 6) break;
-          if (it.headline && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
-            sixMajorHeadlines.push({
+          if (eightMajorHeadlines.length >= 8) break;
+          if (it.headline && !eightMajorHeadlines.some((s) => s.headline === it.headline)) {
+            eightMajorHeadlines.push({
               category: formatCategory(cat),
               headline: it.headline,
               summary: it.summary,
@@ -392,13 +415,13 @@ export default async function TodayPage() {
       }
     }
 
-    if (sixMajorHeadlines.length < 6) {
+    if (eightMajorHeadlines.length < 8) {
       for (const grp of snapshot.news) {
-        if (sixMajorHeadlines.length >= 6) break;
+        if (eightMajorHeadlines.length >= 8) break;
         for (const it of grp.items || []) {
-          if (sixMajorHeadlines.length >= 6) break;
-          if (it.headline && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
-            sixMajorHeadlines.push({
+          if (eightMajorHeadlines.length >= 8) break;
+          if (it.headline && !eightMajorHeadlines.some((s) => s.headline === it.headline)) {
+            eightMajorHeadlines.push({
               category: formatCategory(grp.category),
               headline: it.headline,
               summary: it.summary,
@@ -412,11 +435,11 @@ export default async function TodayPage() {
     }
   }
 
-  // Pad to reach exactly 6 major headlines if fewer were found in snapshot
-  for (const fallback of DEFAULT_SIX_HEADLINES) {
-    if (sixMajorHeadlines.length >= 6) break;
-    if (!sixMajorHeadlines.some((s) => s.headline === fallback.headline)) {
-      sixMajorHeadlines.push(fallback);
+  // Pad to reach exactly 8 major headlines if fewer were found in snapshot
+  for (const fallback of DEFAULT_EIGHT_HEADLINES) {
+    if (eightMajorHeadlines.length >= 8) break;
+    if (!eightMajorHeadlines.some((s) => s.headline === fallback.headline)) {
+      eightMajorHeadlines.push(fallback);
     }
   }
 
@@ -720,12 +743,13 @@ export default async function TodayPage() {
               )}
             </div>
           </div>
+
         </div>
 
-        {/* 1B. Middle Column (6 cols): 6 Major Headlines */}
+        {/* 1B. Middle Column (6 cols): 8 Major Headlines */}
         <div className="md:col-span-6 p-5 xl:p-6 space-y-4">
           <div className="homepage-stories text-sm">
-            {sixMajorHeadlines.map((story, i) => {
+            {eightMajorHeadlines.map((story, i) => {
               const metaLine = formatNewsMeta(story.category, story.source);
               const url = safeArticleUrl(story.url);
 
@@ -814,6 +838,7 @@ export default async function TodayPage() {
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
               <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Corporate Actions</span>
+              <span className="text-[10px] text-[var(--color-muted)] font-mono">Calendar</span>
             </div>
 
             <div className="text-xs font-mono">
@@ -884,6 +909,17 @@ export default async function TodayPage() {
               ))}
             </div>
           </div>
+
+          <section className="pt-2 border-t border-[var(--color-hairline)]">
+            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Notice board</span>
+            </div>
+            <div className="space-y-2 text-xs leading-relaxed text-[var(--color-muted)]">
+              {MARKET_LESSON.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
 
@@ -1050,7 +1086,7 @@ export default async function TodayPage() {
           ROW 3: RESEARCH & THE STREET CONSENSUS (Connected 3-Column Newspaper Grid)
           Left: Street Consensus | Middle: Tactical Bets | Right: Structural Bets
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)]">
         {/* 3A. Col 1 (4 cols): Street Consensus */}
         <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">

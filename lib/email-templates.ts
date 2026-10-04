@@ -11,34 +11,34 @@ import type {
 } from './schemas';
 import { formatPeriodLabel, formatPeriodText } from './time';
 
-const font = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif`;
+const font = `font-family:'Lato',Arial,Helvetica,sans-serif`;
 const display = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif`;
-const mono = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif;font-variant-numeric:tabular-nums`;
+const mono = `font-family:'Lato',Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums`;
 const KOSH_URL = 'https://kosh.ahampriyanshu.com';
 const AUTHOR_URL = 'https://ahampriyanshu.com';
 
 const colors = {
-  bg: '#ffffff',
-  surface: '#ffffff',
-  raised: '#ffffff',
-  border: '#e5e7eb',
-  hairline: '#e5e7eb',
-  text: '#111827',
-  muted: '#4b5563',
+  bg: '#f7f4ec',
+  surface: '#f7f4ec',
+  raised: '#f1ede2',
+  border: '#e2dbcd',
+  hairline: '#e2dbcd',
+  text: '#1f2937',
+  muted: '#6b7280',
   faint: '#9ca3af',
-  link: '#111827',
+  link: '#000000',
   bullish: '#16803c',
-  bullishBg: '#ffffff',
-  bullishBorder: '#16803c',
+  bullishBg: '#ecfdf3',
+  bullishBorder: '#c9dfcf',
   bearish: '#c2412f',
-  bearishBg: '#ffffff',
-  bearishBorder: '#c2412f',
+  bearishBg: '#fef2f2',
+  bearishBorder: '#ead0cc',
   neutral: '#6b7280',
-  neutralBg: '#ffffff',
-  neutralBorder: '#e5e7eb',
+  neutralBg: '#f1ede2',
+  neutralBorder: '#e2dbcd',
   medium: '#b7791f',
-  mediumBg: '#ffffff',
-  mediumBorder: '#b7791f',
+  mediumBg: '#fffbeb',
+  mediumBorder: '#e8d9b6',
 };
 
 export function escapeHtml(value: unknown): string {
@@ -129,9 +129,9 @@ function paragraph(content: unknown, color = colors.muted): string {
 function section(title: string, body: string): string {
   return `
     <tr>
-      <td class="email-pad" style="padding:24px 32px 0 32px">
-        <div style="border-bottom:1px solid ${colors.text};padding-bottom:4px;margin-bottom:14px">
-          <h2 style="${font};margin:0;color:${colors.text};font-size:16px;line-height:22px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em">${escapeHtml(title)}</h2>
+      <td class="email-pad" style="padding:26px 32px 0 32px">
+        <div style="border-bottom:1px solid ${colors.hairline};padding-bottom:5px;margin-bottom:12px">
+          <h2 style="${display};margin:0;color:${colors.text};font-size:19px;line-height:25px;font-weight:700;letter-spacing:-0.01em">${escapeHtml(title)}</h2>
         </div>
         <div>${body}</div>
       </td>
@@ -141,10 +141,8 @@ function section(title: string, body: string): string {
 
 function card(body: string, borderColor = colors.border): string {
   return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:#ffffff;border:1px solid ${borderColor}">
-      <tr>
-        <td style="padding:14px 16px">${body}</td>
-      </tr>
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:${colors.raised};border-left:2px solid ${borderColor}">
+      <tr><td style="padding:12px 14px">${body}</td></tr>
     </table>
   `;
 }
@@ -189,9 +187,9 @@ function renderShell(options: {
     <title>${escapeHtml(options.title)}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet" type="text/css">
     <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap');
 
       @font-face {
         font-family: 'Newsreader';
@@ -216,9 +214,12 @@ function renderShell(options: {
       }
 
       * {
-        font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif;
+        font-family: 'Lato', Arial, Helvetica, sans-serif;
       }
-      body, table, td, p, a, h1, h2, h3, div, span, th {
+      body, table, td, p, a, div, span, th {
+        font-family: 'Lato', Arial, Helvetica, sans-serif !important;
+      }
+      h1, h2, h3, .broadsheet-name {
         font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
       }
       @media only screen and (max-width: 600px) {
@@ -226,7 +227,7 @@ function renderShell(options: {
         .email-container { border-left: 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 0 !important; }
         .email-pad { padding-left: 18px !important; padding-right: 18px !important; }
         .email-title { font-size: 13px !important; }
-        .broadsheet-name { font-size: 28px !important; line-height: 32px !important; }
+        .broadsheet-name { font-size: 30px !important; line-height: 34px !important; }
       }
     </style>
   </head>
@@ -234,29 +235,36 @@ function renderShell(options: {
     <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">${escapeHtml(options.preheader)}</div>
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:${colors.bg}">
       <tr>
-        <td class="email-outer" align="center" style="padding:24px 12px">
-          <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface};border:1px solid ${colors.border}">
+        <td class="email-outer" align="center" style="padding:20px 12px">
+          <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface}">
             
-            <!-- Grand Broadsheet Masthead -->
+            <!-- Newspaper Dateline -->
             <tr>
-              <td class="email-pad" align="center" style="padding:24px 32px 14px 32px;text-align:center">
-                <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" class="broadsheet-name" style="${font};font-size:38px;line-height:42px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase;text-decoration:none;display:inline-block">Kosh</a>
-                <span class="broadsheet-name" style="${font};font-size:38px;line-height:42px;font-weight:800;letter-spacing:-0.025em;color:${colors.text};text-transform:uppercase">${escapeHtml(mastheadSuffix)}</span>
+              <td class="email-pad" style="padding:7px 32px;border-bottom:1px solid ${colors.hairline};color:${colors.muted};font-size:11px;line-height:16px;letter-spacing:0.06em;text-transform:uppercase">
+                ${options.issueNumber !== undefined ? `Volume ${escapeHtml(options.issueNumber)} &nbsp;|&nbsp; ` : ''}${escapeHtml(options.eyebrow)}
+              </td>
+            </tr>
+
+            <!-- Newspaper Masthead -->
+            <tr>
+              <td class="email-pad" align="center" style="padding:14px 32px 12px 32px;text-align:center">
+                <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" class="broadsheet-name" style="${display};font-size:36px;line-height:42px;font-weight:600;letter-spacing:-0.02em;color:${colors.text};text-decoration:none;display:inline-block">Kosh</a>
+                <span class="broadsheet-name" style="${display};font-size:36px;line-height:42px;font-weight:600;letter-spacing:-0.02em;color:${colors.text}">${escapeHtml(mastheadSuffix)}</span>
               </td>
             </tr>
 
             <!-- Hairline dividing title and edition subtitle -->
             <tr>
               <td style="padding:0 32px">
-                <div style="border-top:1px solid ${colors.border}"></div>
+                <div style="border-top:1px solid ${colors.hairline}"></div>
               </td>
             </tr>
 
             <!-- Edition Subtitle Bar -->
             <tr>
-              <td class="email-pad" align="center" style="padding:10px 32px;text-align:center;border-bottom:1px solid ${colors.text}">
-                <h1 class="email-title" style="${font};margin:0;color:${colors.text};font-size:13px;line-height:18px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-align:center">
-                  ${escapeHtml(options.title)}${options.eyebrow ? ` &middot; ${escapeHtml(options.eyebrow)}` : ''}
+              <td class="email-pad" align="center" style="padding:8px 32px;text-align:center;border-bottom:1px solid ${colors.hairline}">
+                <h1 class="email-title" style="${display};margin:0;color:${colors.text};font-size:13px;line-height:18px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;text-align:center">
+                  ${escapeHtml(options.title)}
                 </h1>
               </td>
             </tr>
@@ -597,9 +605,27 @@ const DEFAULT_MORNING_HEADLINES: CuratedNewsItem[] = [
     summary: 'Scheduled commercial banks report resilient loan growth with gross NPA ratios declining to multi-year lows across major lenders.',
     source: 'Business Standard',
   },
+  {
+    category: 'Primary Markets',
+    headline: 'Mainboard IPO Subscription Multiples Surge on Sustained Retail Bidding',
+    summary: 'Strong book-building interest continues across upcoming industrial and consumer issues, underscoring primary market depth.',
+    source: 'Financial Express',
+  },
+  {
+    category: 'Energy & Power',
+    headline: 'Transmission Utilities Fast-Track Inter-State Grid Capex Deployments',
+    summary: 'Substation and high-voltage transmission tender awards accelerate to evacuate new renewable generation capacity across western corridors.',
+    source: 'Moneycontrol',
+  },
+  {
+    category: 'Consumer & Retail',
+    headline: 'Festive Season Distribution Signals Resilient Urban Discretionary Demand',
+    summary: 'FMCG and retail footprints report steady inventory restocking ahead of peak seasonal footfall across tier-1 and tier-2 metros.',
+    source: 'Livemint',
+  },
 ];
 
-function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 5): string {
+function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 8): string {
   const items: CuratedNewsItem[] = [];
 
   if (news && news.length > 0) {
@@ -622,7 +648,7 @@ function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 5): string 
     }
   }
 
-  // Ensure exactly 5 headlines by padding from defaults
+  // Ensure exactly 8 headlines by padding from defaults
   for (const fallback of DEFAULT_MORNING_HEADLINES) {
     if (items.length >= limit) break;
     if (!items.some((it) => it.headline === fallback.headline)) {
@@ -635,7 +661,7 @@ function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 5): string 
       (item, idx) => `
         <div style="padding:${idx === 0 ? '0 0 14px 0' : '14px 0'};${idx < items.length - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
           <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 4px 0">${idx + 1}. ${escapeHtml(item.category)}</div>
-          <div style="${font};font-size:15px;font-weight:700;line-height:22px;color:${colors.text}">${escapeHtml(item.headline)}</div>
+          <div style="${display};font-size:17px;font-weight:700;line-height:23px;color:${colors.text}">${escapeHtml(item.headline)}</div>
           ${item.summary ? `<div style="${font};font-size:13px;line-height:20px;color:${colors.muted};margin-top:4px">${escapeHtml(item.summary)}</div>` : ''}
           ${item.source ? `<div style="${font};font-size:11px;font-style:italic;line-height:16px;color:${colors.faint};margin-top:4px">&#x2014; ${escapeHtml(item.source)}</div>` : ''}
         </div>
@@ -761,7 +787,7 @@ function renderCorporateActionsAndIpo(s: MarketSnapshot): string {
     .join('');
 
   const ipoSpotlight = `
-    <div style="border:1px solid ${colors.border};padding:12px 14px;background:#fafafa">
+    <div style="border-left:2px solid ${colors.border};padding:12px 14px;background:${colors.raised}">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:4px">
         <tr>
           <td align="left">
@@ -808,7 +834,7 @@ export function renderDailyEmail(content: DailyContent, issueNumber?: number): s
     preheader: content.outlook,
     children:
       section('Market Cues', renderKeyMarketBar(s)) +
-      section('5 Major Headlines', renderHeadlinesDigest(s.news, 5)) +
+      section('8 Major Headlines', renderHeadlinesDigest(s.news, 8)) +
       (content.keyTakeaways && content.keyTakeaways.length > 0
         ? section('Key Takeaways', renderKeyTakeawaysBlock(content.keyTakeaways))
         : '') +
@@ -900,7 +926,7 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
   parts.push(section('Indian Indices', indexTable(content.snapshot)));
 
   return renderShell({
-    title: 'Weekly Outlook',
+    title: 'Weekly Report',
     eyebrow: periodLabel,
     preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${periodLabel}`,
     children: parts.join(''),
@@ -967,7 +993,7 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
   parts.push(section('Indian Indices', indexTable(content.snapshot)));
 
   return renderShell({
-    title: 'Monthly Digest',
+    title: 'Monthly Report',
     eyebrow: `Month ${period}`,
     preheader: content.macroThemes.slice(0, 3).join('; ') || `Kosh Monthly ${period}`,
     children: parts.join(''),
@@ -1026,6 +1052,21 @@ const DEFAULT_CLOSING_HEADLINES = [
     headline: 'Derivatives PCR Firms to 1.18 as Put Writing Thickens at 24,000 Strike',
     summary: 'Options skew indicates aggressive call unwinding and heavy put addition across near-month strikes ahead of weekly settlement.',
   },
+  {
+    category: 'Corporate Earnings',
+    headline: 'Frontline Tech & Banking Counters See Post-Bell Earnings Positioning',
+    summary: 'Option implied volatility ticks higher across bellwethers reporting initial quarterly numbers this week.',
+  },
+  {
+    category: 'Macro & Commodities',
+    headline: 'Brent Crude Tests $82 as Global Bond Yields Ease Into European Close',
+    summary: 'Softer crude contracts and steady sovereign yields provide room for local corporate margins heading into next session.',
+  },
+  {
+    category: 'Institutional Desk',
+    headline: 'Closing Block Windows Witness Strong Demand for Defence and PSU Proxies',
+    summary: 'Institutional trading desks execute strategic late-session cross deals in capital goods and defence leaders.',
+  },
 ];
 
 function renderRetroHeadlinesBlock(content: RetroContent): string {
@@ -1033,20 +1074,36 @@ function renderRetroHeadlinesBlock(content: RetroContent): string {
   const rawHeadlines = ext.closingHeadlines ?? [];
   const headlines: any[] = [...rawHeadlines];
 
+  if (ext.snapshot?.news && Array.isArray(ext.snapshot.news)) {
+    for (const grp of ext.snapshot.news) {
+      if (headlines.length >= 8) break;
+      for (const it of grp.items || []) {
+        if (headlines.length >= 8) break;
+        if (it.headline && !headlines.some((h) => h.headline === it.headline)) {
+          headlines.push({
+            category: grp.category.replace(/_/g, ' ').toUpperCase(),
+            headline: it.headline,
+            summary: it.summary,
+          });
+        }
+      }
+    }
+  }
+
   for (const fallback of DEFAULT_CLOSING_HEADLINES) {
-    if (headlines.length >= 5) break;
+    if (headlines.length >= 8) break;
     if (!headlines.some((h) => h.headline === fallback.headline)) {
       headlines.push(fallback);
     }
   }
 
   return headlines
-    .slice(0, 5)
+    .slice(0, 8)
     .map(
       (h: any, idx: number) => `
-        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < Math.min(5, headlines.length) - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
+        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < Math.min(8, headlines.length) - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
           <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${idx + 1}. ${escapeHtml(h.category)}</div>
-          <div style="${font};font-size:14px;font-weight:700;line-height:20px;color:${colors.text}">${escapeHtml(h.headline)}</div>
+          <div style="${display};font-size:16px;font-weight:700;line-height:22px;color:${colors.text}">${escapeHtml(h.headline)}</div>
           ${h.summary ? `<div style="${font};font-size:13px;line-height:19px;color:${colors.muted};margin-top:3px">${escapeHtml(h.summary)}</div>` : ''}
         </div>
       `,

@@ -44,7 +44,7 @@ const monthlyContent: MonthlyContent = {
   ledgerRollup: null,
 };
 
-const midSessionContent: RetroContent = {
+const retroSurveillanceContent: RetroContent = {
   date: '2026-06-14',
   summary: 'One portfolio holding breached rules.',
   alerts: [
@@ -153,7 +153,7 @@ describe('email templates', () => {
       renderDailyEmail(dailyContent),
       renderWeeklyEmail(weeklyContent, '2026-W25'),
       renderMonthlyEmail(monthlyContent, '2026-06'),
-      renderRetroEmail(midSessionContent),
+      renderRetroEmail(retroSurveillanceContent),
       renderRecapEmail(recapContent, 'Weekly Recap'),
       renderResearchEmail(researchContent),
     ];
@@ -186,7 +186,7 @@ describe('email templates', () => {
     expect(html).not.toContain('Summary');
     expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
-    expect(html).toContain('5 Major Headlines');
+    expect(html).toContain('8 Major Headlines');
     expect(html).toContain('Key Takeaways');
     expect(html).toContain('52-Week Range Extremes');
     expect(html).toContain('Market Consensus &amp; Mood');
@@ -199,7 +199,7 @@ describe('email templates', () => {
     const html = renderWeeklyEmail(weeklyContent, '2026-W25');
 
     expect(html).toContain('<!doctype html>');
-    expect(html).toContain('Weekly Outlook');
+    expect(html).toContain('Weekly Report');
     expect(html).toContain('Jun 2026, Week 3');
     expect(html).not.toContain('2026-W25');
     expect(html).not.toContain('Weekly — 2026-W25');
@@ -215,7 +215,7 @@ describe('email templates', () => {
     const html = renderMonthlyEmail(monthlyContent, '2026-06');
 
     expect(html).toContain('<!doctype html>');
-    expect(html).toContain('Monthly Digest');
+    expect(html).toContain('Monthly Report');
     expect(html).toContain('2026-06');
     expect(html).not.toContain('Monthly — 2026-06');
     expect(html).toContain('Sector Insights');
@@ -228,12 +228,12 @@ describe('email templates', () => {
     expect(html).toContain('NIFTY 50');
   });
 
-  it('renders mid-session alerts and portfolio scan details', () => {
-    const html = renderRetroEmail(midSessionContent);
+  it('renders market close surveillance alerts and portfolio scan details', () => {
+    const html = renderRetroEmail(retroSurveillanceContent);
 
     expect(html).toContain('Daily Retro');
     expect(html).toContain('14th June, 2026');
-    expect(html).not.toContain('Mid-Session - 2026-06-14');
+    expect(html).not.toContain('Mid-Session');
     expect(html).toContain('Closing Session Wire');
     expect(html).toContain('Session Movers');
     expect(html).toContain('Sell Alerts');

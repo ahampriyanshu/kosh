@@ -50,6 +50,6 @@ describe('runWeekly', () => {
     expect(first.id).toMatch(/^weekly-2026-W/);
     expect(first.content.themes).toEqual(['rotation']);
     expect(first.content.snapshot.window).toBe('7d');
-    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Weekly Outlook', expect.any(String));
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Weekly Report', expect.any(String));
   });
 });

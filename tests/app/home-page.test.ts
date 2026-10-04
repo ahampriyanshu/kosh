@@ -32,13 +32,13 @@ describe('TodayPage (/)', () => {
     expect(html).not.toContain('Open Sentiment Index');
   });
 
-  it('renders 6 major headlines with Category - Source header, title, and stock badges as a full clickable card', async () => {
+  it('renders 8 major headlines with Category - Source header, title, and stock badges as a full clickable card', async () => {
     const pageComponent = await TodayPage();
     const html = renderToStaticMarkup(pageComponent);
 
     // Extract headlines from middle column
     const headlineCount = (html.match(/<article class="homepage-story">/g) || []).length;
-    expect(headlineCount).toBe(6);
+    expect(headlineCount).toBe(8);
 
     // Ensure story summary paragraph is not rendered in homepage stories
     expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?<p class="text-sm text-\[var\(--color-muted\)\] leading-relaxed">/);

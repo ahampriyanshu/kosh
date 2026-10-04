@@ -93,7 +93,7 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
   const date = istDateString(now);
   const nowIso = now.toISOString();
 
-  console.log(`[weekly] Running Kosh Weekly Outlook generation for ${period} (${date})...`);
+  console.log(`[weekly] Running Kosh Weekly Report generation for ${period} (${date})...`);
   const snapshot = aggregateSnapshots(await loadWindowSnapshots(date, 7), '7d');
   const narrative = await buildWeeklyNarrative(snapshot);
 
@@ -201,9 +201,9 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
     checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail('Kosh Weekly Outlook', renderWeeklyEmail(content, period));
+  await sendReportEmail('Kosh Weekly Report', renderWeeklyEmail(content, period));
   await writeReport({ ...base, emailSent: true });
-  console.log(`[weekly] Successfully written and emailed weekly outlook ${base.id}.`);
+  console.log(`[weekly] Successfully written and emailed Weekly Report ${base.id}.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

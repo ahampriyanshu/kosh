@@ -1,10 +1,16 @@
 import { generateGroundedObject } from '../llm';
 import { NewsSliceSchema, type NewsSlice } from '../schemas';
 
-export async function fetchNews(now: Date = new Date()): Promise<NewsSlice> {
+export async function fetchNews(
+  now: Date = new Date(),
+  session: 'morning' | 'closing' | 'evening' = 'morning',
+): Promise<NewsSlice> {
   const date = now.toISOString().slice(0, 10);
+  const sessionDescriptor = session === 'morning'
+    ? 'morning pre-market opening'
+    : 'evening market close and post-market';
   const researchPrompt =
-    `Research today's (${date}) most important Indian stock-market news using current sources. ` +
+    `Research today's (${date}) ${sessionDescriptor} most important Indian stock-market news using current sources. ` +
     `Cover: macro/policy (RBI, inflation, govt), global cues, earnings/results, sectoral moves, ` +
     `corporate actions/M&A, and specific stocks in focus. ` +
     `Also actively research notable institutional brokerage and equity research analyst recommendations published recently for Indian stocks ` +
@@ -12,7 +18,7 @@ export async function fetchNews(now: Date = new Date()): Promise<NewsSlice> {
     `with the exact brokerage name, stock ticker, rating/action, target price, and rationale).`;
   const buildStructurePrompt = (research: string) =>
     `From the research, produce: "news" grouped by category ` +
-    `(one of macro_policy, global_cues, earnings, sectoral, corporate_actions, stocks_in_focus), producing at least 6 to 10 distinct news items total across the categories (with at least 1 per major category), each item with ` +
+    `(one of macro_policy, global_cues, earnings, sectoral, corporate_actions, stocks_in_focus), producing at least 8 to 14 distinct news items total across the categories (with at least 1 per major category), each item with ` +
     `headline, summary, source, url (the canonical URL of the specific source article), optional tickers (NSE symbols like RELIANCE.NS), and sentiment (bullish/bearish/neutral). ` +
     `"source" MUST be the actual news outlet/publication name (e.g. Economic Times, Moneycontrol, Reuters, Business Standard, Livemint) — never a placeholder like "Research text". ` +
     `"url" MUST be the actual article URL for that item, not the publisher homepage, a search page, or an invented URL. Omit the item if its article URL cannot be verified. ` +

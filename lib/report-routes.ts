@@ -28,32 +28,35 @@ export function dateReportPath(date: string): string {
   return `/reports/${match[1]}/${match[2]}/${match[3]}`;
 }
 
-export function outlookPath(entry: ManifestEntry): string {
+export function reportPath(entry: ManifestEntry): string {
   if (entry.type === 'monthly') {
     const match = MONTH_RE.exec(entry.dateKey);
-    if (!match) return '/outlook';
-    return `/outlook/${match[1]}/${match[2]}/month`;
+    if (!match) return '/reports';
+    return `/reports/${match[1]}/${match[2]}/month`;
   }
 
   if (entry.type === 'weekly') {
     const weekStart = isoWeekStart(entry.dateKey);
-    if (!weekStart) return '/outlook';
+    if (!weekStart) return '/reports';
 
     const year = String(weekStart.getUTCFullYear());
     const month = String(weekStart.getUTCMonth() + 1).padStart(2, '0');
     const monthStart = new Date(Date.UTC(weekStart.getUTCFullYear(), weekStart.getUTCMonth(), 1));
     const firstMonthDayNum = (monthStart.getUTCDay() + 6) % 7;
     const weekOfMonth = Math.floor((weekStart.getUTCDate() + firstMonthDayNum - 1) / 7) + 1;
-    return `/outlook/${year}/${month}/week-${weekOfMonth}`;
+    return `/reports/${year}/${month}/week-${weekOfMonth}`;
   }
 
-  return '/outlook';
+  if (entry.type === 'daily' || entry.type === 'retro') {
+    return dateReportPath(entry.date);
+  }
+
+  return '/reports';
 }
 
 export function entryPath(entry: ManifestEntry): string {
-  if (entry.type === 'weekly' || entry.type === 'monthly') return outlookPath(entry);
   if (entry.type === 'research') return `/research/${entry.id}`;
-  return dateReportPath(entry.date);
+  return reportPath(entry);
 }
 
 export function parseDateReportSlug(slug: string[]): string | null {
@@ -63,10 +66,24 @@ export function parseDateReportSlug(slug: string[]): string | null {
   return `${year}-${month}-${day}`;
 }
 
-export function parseOutlookSlug(slug: string[]): { year: string; month: string; period: string } | null {
+export type ParsedReportSlug =
+  | { type: 'daily'; date: string; year: string; month: string; day: string }
+  | { type: 'weekly'; year: string; month: string; period: string }
+  | { type: 'monthly'; year: string; month: string; period: 'month' };
+
+export function parseReportSlug(slug: string[]): ParsedReportSlug | null {
   if (slug.length !== 3) return null;
-  const [year, month, period] = slug;
+  const [year, month, third] = slug;
   if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month)) return null;
-  if (period !== 'month' && !/^week-[1-5]$/.test(period)) return null;
-  return { year, month, period };
+
+  if (/^\d{2}$/.test(third)) {
+    return { type: 'daily', date: `${year}-${month}-${third}`, year, month, day: third };
+  }
+  if (/^week-[1-6]$/.test(third)) {
+    return { type: 'weekly', year, month, period: third };
+  }
+  if (third === 'month') {
+    return { type: 'monthly', year, month, period: 'month' };
+  }
+  return null;
 }

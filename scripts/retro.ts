@@ -216,7 +216,7 @@ export async function runRetro(now: Date = new Date(), options: { sendEmail?: bo
   await writeReport({ ...base, emailSent: false });
   if (shouldSendEmail) {
     try {
-      await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(retroContent));
+      await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail({ ...retroContent, snapshot: snapshot ?? undefined } as any));
       await writeReport({ ...base, emailSent: true });
     } catch (e) {
       console.warn('[retro] Could not send email:', e);

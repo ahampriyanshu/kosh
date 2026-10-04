@@ -17,6 +17,6 @@ describe('PortfolioPage (/portfolio)', () => {
     expect(html).toContain('Portfolio Surveillance &amp; Audit');
     expect(html).toContain('Market Close Risk Screening &amp; Technical Exceptions');
     expect(html).toContain('Audit As Of');
-    expect(html).toContain('Full Retrospective');
+    expect(html).toContain('Full Daily Report');
   });
 });

@@ -8,11 +8,11 @@ import { WeeklyView } from './WeeklyView';
 import { PageHeader } from './ui/PageHeader';
 
 const TYPE_TITLES: Record<string, string> = {
-  daily: 'Daily Brief',
-  retro: 'Mid-Session',
+  daily: 'Daily Report',
+  retro: 'Daily Report',
   recap: 'Weekly Recap',
-  weekly: 'Weekly Outlook',
-  monthly: 'Monthly Outlook',
+  weekly: 'Weekly Report',
+  monthly: 'Monthly Report',
   research: 'Research',
 };
 

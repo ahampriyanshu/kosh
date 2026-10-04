@@ -18,8 +18,8 @@ export function DailyView({ content }: DailyViewProps) {
 
   return (
     <div className="space-y-8">
-      {/* Outlook */}
-      <ReportSection title="Market Outlook">
+      {/* Daily market summary */}
+      <ReportSection title="Market Summary">
         <p className="text-[var(--color-ink)] leading-relaxed">{content.outlook}</p>
       </ReportSection>
 
@@ -39,7 +39,7 @@ export function DailyView({ content }: DailyViewProps) {
       {/* Curated Market News Digest */}
       {hasNews && (
         <ReportSection title="Top Stories & Market Intelligence">
-          <NewsDigest groups={content.snapshot.news} limit={6} />
+          <NewsDigest groups={content.snapshot.news} limit={8} />
         </ReportSection>
       )}
 

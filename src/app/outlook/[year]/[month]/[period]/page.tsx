@@ -1,34 +1,24 @@
-import { notFound } from 'next/navigation';
-import { getManifest, getReport } from '../../../../../lib/reports';
-import { OUTLOOK_REPORT_TYPES } from '../../../../../../lib/report-taxonomy';
-import { outlookPath, parseOutlookSlug } from '../../../../../../lib/report-routes';
-import { ReportDetail } from '../../../../../components/ReportDetail';
+import { getManifest } from '../../../../../lib/reports';
+import { reportPath } from '../../../../../../lib/report-routes';
+import { LegacyOutlookRedirect } from './LegacyOutlookRedirect';
 
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const manifest = await getManifest();
   return manifest.reports
-    .filter((entry) => OUTLOOK_REPORT_TYPES.includes(entry.type as (typeof OUTLOOK_REPORT_TYPES)[number]))
+    .filter((entry) => entry.type === 'weekly' || entry.type === 'monthly')
     .map((entry) => {
-      const [, , year, month, period] = outlookPath(entry).split('/');
+      const [, , year, month, period] = reportPath(entry).split('/');
       return { year, month, period };
     });
 }
 
-interface OutlookDetailPageProps {
+interface LegacyOutlookPageProps {
   params: Promise<{ year: string; month: string; period: string }>;
 }
 
-export default async function OutlookDetailPage({ params }: OutlookDetailPageProps) {
+export default async function LegacyOutlookPage({ params }: LegacyOutlookPageProps) {
   const { year, month, period } = await params;
-  const parsed = parseOutlookSlug([year, month, period]);
-  if (!parsed) notFound();
-
-  const manifest = await getManifest();
-  const entry = manifest.reports.find((candidate) => outlookPath(candidate) === `/outlook/${year}/${month}/${period}`);
-  if (!entry) notFound();
-
-  const envelope = await getReport(entry.id);
-  return <ReportDetail envelope={envelope} />;
+  return <LegacyOutlookRedirect destination={`/reports/${year}/${month}/${period}`} />;
 }
