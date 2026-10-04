@@ -778,16 +778,15 @@ select {
 
 .broadsheet-title {
   display: inline-block;
-  font-family: var(--font-masthead), "UnifrakturMaguntia", "Old English Text MT", "Chomsky", Georgia, serif;
-  font-size: clamp(2.75rem, 7vw, 4.5rem);
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-family: var(--font-masthead), "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.35rem, 5.5vw, 3.75rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
   text-transform: none;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--color-ink);
   margin: 0;
-  padding: 0.25rem 0 0.15rem;
-  text-shadow: 0.5px 0 0 currentColor;
+  padding: 0.2rem 0 0.1rem;
 }
 
 .broadsheet-motto {

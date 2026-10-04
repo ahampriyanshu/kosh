@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { Lato, Newsreader, UnifrakturMaguntia } from 'next/font/google';
+import { Lato, Newsreader, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
@@ -23,10 +23,11 @@ const newsreader = Newsreader({
   display: 'swap',
 });
 
-const unifraktur = UnifrakturMaguntia({
+const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-masthead',
-  weight: '400',
+  weight: ['600', '700', '800', '900'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
@@ -147,7 +148,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${newsreader.variable} ${unifraktur.variable}`}
+      className={`${lato.variable} ${newsreader.variable} ${playfair.variable}`}
       data-mode="light"
       suppressHydrationWarning
     >
