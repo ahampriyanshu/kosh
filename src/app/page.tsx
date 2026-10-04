@@ -471,41 +471,6 @@ export default async function TodayPage() {
             </div>
           )}
 
-          {/* Sector Rotation */}
-          <div className="pt-2 border-t border-[var(--color-hairline)]">
-            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
-              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
-            </div>
-
-            <div className="text-xs font-mono">
-              {allSectors.length > 0 ? (
-                allSectors.map((s) => {
-                  const isPos = s.changePct >= 0;
-
-                  return (
-                    <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
-                      <span className="font-serif text-[var(--color-ink)] font-medium truncate">
-                        {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
-                      </span>
-
-                      <span
-                        className={`font-semibold tabular-nums w-14 text-right ${
-                          isPos ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
-                        }`}
-                      >
-                        {isPos ? '+' : ''}{s.changePct.toFixed(2)}%
-                      </span>
-                    </div>
-                  );
-                })
-              ) : (
-                <span className="py-2 text-[var(--color-muted)] text-xs block">
-                  Sector ranking data pending.
-                </span>
-              )}
-            </div>
-          </div>
-
           {/* Global Benchmarks */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
@@ -591,6 +556,41 @@ export default async function TodayPage() {
                     {snapshot.bondYield.value.toFixed(2)}% ({snapshot.bondYield.changeBps >= 0 ? '+' : ''}{snapshot.bondYield.changeBps} bps)
                   </span>
                 </div>
+              )}
+            </div>
+          </div>
+
+          {/* Sector Rotation */}
+          <div className="pt-2 border-t border-[var(--color-hairline)]">
+            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
+            </div>
+
+            <div className="text-xs font-mono">
+              {allSectors.length > 0 ? (
+                allSectors.map((s) => {
+                  const isPos = s.changePct >= 0;
+
+                  return (
+                    <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
+                      <span className="font-serif text-[var(--color-ink)] font-medium truncate">
+                        {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
+                      </span>
+
+                      <span
+                        className={`font-semibold tabular-nums w-14 text-right ${
+                          isPos ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                        }`}
+                      >
+                        {isPos ? '+' : ''}{s.changePct.toFixed(2)}%
+                      </span>
+                    </div>
+                  );
+                })
+              ) : (
+                <span className="py-2 text-[var(--color-muted)] text-xs block">
+                  Sector ranking data pending.
+                </span>
               )}
             </div>
           </div>
