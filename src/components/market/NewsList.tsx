@@ -3,6 +3,16 @@ import { ticker } from './Figure';
 
 type NewsCategory = MarketSnapshot['news'][number]['category'];
 
+function safeArticleUrl(value?: string): string | undefined {
+  if (!value) return undefined;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 const CATEGORY_LABELS: Record<NewsCategory, string> = {
   macro_policy: 'Macro & Policy',
   global_cues: 'Global Cues',
@@ -36,7 +46,11 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
                 key={idx}
               >
                 <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug">
-                  {item.headline}
+                  {safeArticleUrl(item.url) ? (
+                    <a href={safeArticleUrl(item.url)} target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline underline-offset-4">
+                      {item.headline}
+                    </a>
+                  ) : item.headline}
                 </p>
                 <p className="text-sm text-[var(--color-muted)] mt-0.5">
                   {item.summary}

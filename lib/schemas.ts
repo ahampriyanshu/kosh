@@ -372,6 +372,7 @@ export const FiiDiiSchema = z.object({ fiiNet: z.number(), diiNet: z.number(), u
 export const NewsCategorySchema = z.enum(['macro_policy', 'global_cues', 'earnings', 'sectoral', 'corporate_actions', 'stocks_in_focus']);
 export const NewsItemSchema = z.object({
   headline: z.string(), summary: z.string(), source: z.string(),
+  url: z.string().url().optional(),
   tickers: z.array(z.string()).optional(), sentiment: SignalSchema,
 });
 export const NewsGroupSchema = z.object({ category: NewsCategorySchema, items: z.array(NewsItemSchema) });

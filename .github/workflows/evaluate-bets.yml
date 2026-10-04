@@ -24,7 +24,12 @@ jobs:
 
       - run: npx tsx scripts/evaluate-bets.ts
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+          GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1 }}
+          GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2 }}
+          GOOGLE_MODEL: ${{ secrets.GOOGLE_MODEL }}
+          GOOGLE_MODEL_FALLBACK_1: ${{ secrets.GOOGLE_MODEL_FALLBACK_1 }}
+          GOOGLE_MODEL_FALLBACK_2: ${{ secrets.GOOGLE_MODEL_FALLBACK_2 }}
 
       - name: Commit settled bets
         run: |

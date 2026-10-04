@@ -220,5 +220,11 @@ export async function runMonthly(now: Date = new Date(), options: RunMonthlyOpti
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runMonthly().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
+  const skipDateCheck = process.argv.includes('--force');
+  runMonthly(new Date(), { skipDateCheck })
+    .then(() => process.exit(0))
+    .catch((e) => {
+      console.error(e);
+      process.exit(1);
+    });
 }

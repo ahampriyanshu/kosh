@@ -1,6 +1,38 @@
 {
   "reports": [
     {
+      "id": "weekly-2026-W40",
+      "type": "weekly",
+      "dateKey": "2026-W40",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/weekly/weekly-2026-W40.json",
+      "checksum": "sha256:002f7ee536f1265c4ca2e21b5f3fe9d22571ec56a0daff9d05a4a712f74e8b98"
+    },
+    {
+      "id": "retro-2026-10-04",
+      "type": "retro",
+      "dateKey": "2026-10-04",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/retro/retro-2026-10-04.json",
+      "checksum": "sha256:f3f2abb656552967ddad3295dd3a5d31674b43fffbce8360c8d2c0a3ab5e6237"
+    },
+    {
+      "id": "monthly-2026-09",
+      "type": "monthly",
+      "dateKey": "2026-09",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/monthly/monthly-2026-09.json",
+      "checksum": "sha256:af771a374b41058baeb69616756511a1eddd229b5830db3d22956f572cac9f00"
+    },
+    {
+      "id": "daily-2026-10-04",
+      "type": "daily",
+      "dateKey": "2026-10-04",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/daily/daily-2026-10-04.json",
+      "checksum": "sha256:b59f45c7c79ca5bf3e0c9af579cb77837fc7f7b75fbaf5a3d9d3e442bc0ef09b"
+    },
+    {
       "id": "daily-2026-10-02",
       "type": "daily",
       "dateKey": "2026-10-02",
@@ -15,14 +47,6 @@
       "date": "2026-10-01",
       "path": "reports/2026/10/retro/retro-2026-10-01.json",
       "checksum": "sha256:f317bf4bd45f5b12d769cf58ef3391331b400d9a2d4438ec5fbacd00a298d4bc"
-    },
-    {
-      "id": "monthly-2026-09",
-      "type": "monthly",
-      "dateKey": "2026-09",
-      "date": "2026-09-30",
-      "path": "reports/2026/09/monthly/monthly-2026-09.json",
-      "checksum": "sha256:f3b34fa5da73325dd66f648c33c92cb2862ca5e5f6ab12b2740077714805541e"
     },
     {
       "id": "daily-2026-09-30",
@@ -63,14 +87,6 @@
       "date": "2026-09-28",
       "path": "reports/2026/09/daily/daily-2026-09-28.json",
       "checksum": "sha256:600ac642e8ec1b38180aab1d17f211799d5f7110b250bcf1e8de2ba6561e4c32"
-    },
-    {
-      "id": "weekly-2026-W40",
-      "type": "weekly",
-      "dateKey": "2026-W40",
-      "date": "2026-09-27",
-      "path": "reports/2026/09/weekly/weekly-2026-W40.json",
-      "checksum": "sha256:2db9fa827c2c699ba3839fc1298b1c14ed96feff3a27600af0d71071927f7449"
     },
     {
       "id": "recap-2026-09-26",
@@ -1442,8 +1458,8 @@
     }
   ],
   "latest": {
-    "retro": "retro-2026-10-01",
-    "daily": "daily-2026-10-02",
+    "retro": "retro-2026-10-04",
+    "daily": "daily-2026-10-04",
     "weekly": "weekly-2026-W40",
     "recap": "recap-2026-09-26",
     "monthly": "monthly-2026-09",

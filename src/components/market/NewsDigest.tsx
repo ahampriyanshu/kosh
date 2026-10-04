@@ -3,6 +3,16 @@ import type { MarketSnapshot } from '../../../lib/schemas';
 type NewsCategory = MarketSnapshot['news'][number]['category'];
 type NewsItem = MarketSnapshot['news'][number]['items'][number];
 
+function safeArticleUrl(value?: string): string | undefined {
+  if (!value) return undefined;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
 // Fixed theme order — stable across reruns.
 const THEME_ORDER: NewsCategory[] = [
   'macro_policy',
@@ -63,7 +73,11 @@ export function NewsDigest({ groups, limit = 6 }: NewsDigestProps) {
             {THEME_LABELS[category]}
           </span>
           <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug mt-0.5">
-            {item.headline}
+            {safeArticleUrl(item.url) ? (
+              <a href={safeArticleUrl(item.url)} target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline underline-offset-4">
+                {item.headline}
+              </a>
+            ) : item.headline}
           </p>
           {isRealSource(item.source) && (
             <span className="text-xs text-[var(--color-faint)]">{item.source}</span>

@@ -149,14 +149,14 @@ export default async function RootLayout({
           <div className="main-wrapper">
             <div className="content-area">
               <header className="site-header broadsheet-masthead">
-                {/* Dateline Bar (Wednesday, 30 September 2026 Issue 179) */}
-                <div className="flex flex-wrap items-center justify-between text-xs text-[var(--color-muted)] py-1.5 border-b border-[var(--color-hairline)] uppercase tracking-wider font-serif">
-                  <div>
-                    <span>{pubDate}</span>
+                {/* Newspaper volume and issue dateline */}
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-muted)] py-1.5 border-b border-[var(--color-hairline)] uppercase tracking-wider font-serif">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span>Volume {issueNumber}</span>
+                    <span aria-hidden="true">|</span>
+                    <span>Issue on {pubDate}</span>
                   </div>
-                  <div>
-                    <span>Issue {issueNumber}</span>
-                  </div>
+                  <span>Indian Equities · NSE &amp; BSE</span>
                 </div>
 
                 {/* Newspaper Title */}

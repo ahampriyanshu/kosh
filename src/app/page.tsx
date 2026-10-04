@@ -4,6 +4,7 @@ import type { DailyContent, RetroContent, MarketSnapshot } from '../../lib/schem
 import { SentimentGauge } from '../components/SentimentGauge';
 import { MarketMarquee } from '../components/market/MarketMarquee';
 import { computeMoodSnapshot } from '../../lib/sentiment';
+import { getActiveBets } from '../../lib/bets-store';
 
 type NewsGroup = MarketSnapshot['news'][number];
 
@@ -229,10 +230,12 @@ const STRUCTURAL_BETS: StructuralBet[] = [
 ];
 
 export default async function TodayPage() {
-  const [daily, retro, manifest] = await Promise.all([
+  const [daily, retro, manifest, activeShortBets, activeLongBets] = await Promise.all([
     getLatest('daily'),
     getLatest('retro'),
     getManifest(),
+    getActiveBets('short_term'),
+    getActiveBets('long_term'),
   ]);
 
   const today = new Date().toISOString().slice(0, 10);
@@ -438,13 +441,8 @@ export default async function TodayPage() {
         {/* 1A. Left Column (3 cols): Market Mood, Global Benchmarks, Macro Commodities & FX */}
         <div className="md:col-span-3 p-5 xl:p-6 space-y-6">
           {mood && (
-            <section aria-label="Sentiment Index" className="pt-2 border-t border-[var(--color-hairline)]">
-              <Link href="/sentiment-index" className="block group !not-italic [font-style:normal] no-underline">
-                <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-                  <h2 className="font-serif font-bold text-[var(--color-ink)] group-hover:underline uppercase tracking-wider not-italic inline [font-style:normal]">
-                    Sentiment Index
-                  </h2>
-                </div>
+            <section aria-label="Sentiment Index">
+              <Link href="/sentiment-index" className="block group [font-style:normal] no-underline">
                 <SentimentGauge score={mood.composite} regime={mood.regime} compact />
               </Link>
             </section>
@@ -950,29 +948,45 @@ export default async function TodayPage() {
           </div>
 
           <div className="text-xs">
-            {TACTICAL_BETS.map((bet) => (
-              <div key={bet.ticker} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
-                <div className="flex items-baseline justify-between font-mono">
-                  <div>
-                    <span className="font-bold text-sm text-[var(--color-ink)]">{bet.ticker}</span>
-                    <span className="text-[10px] text-[var(--color-muted)] block font-serif">{bet.name}</span>
+            {(activeShortBets.length > 0 ? activeShortBets.slice(0, 3) : TACTICAL_BETS).map((item) => {
+              const isStoreBet = 'entryPrice' in item;
+              const ticker = item.ticker;
+              const name = item.name;
+              const action = isStoreBet ? item.action.toUpperCase() : item.action;
+              const horizon = isStoreBet ? (item.category || '2–3 Weeks') : item.horizon;
+              const entry = isStoreBet ? `₹${item.entryPrice.toLocaleString('en-IN')}` : item.entry;
+              const target = isStoreBet
+                ? `₹${item.targetPrice.toLocaleString('en-IN')} (+${(((item.targetPrice - item.entryPrice) / item.entryPrice) * 100).toFixed(1)}%)`
+                : item.target;
+              const stopLoss = isStoreBet
+                ? `₹${item.stopLossPrice.toLocaleString('en-IN')} (${(((item.stopLossPrice - item.entryPrice) / item.entryPrice) * 100).toFixed(1)}%)`
+                : item.stopLoss;
+              const catalyst = isStoreBet ? (item.thesis || item.triggers) : item.catalyst;
+
+              return (
+                <div key={ticker} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
+                  <div className="flex items-baseline justify-between font-mono">
+                    <div>
+                      <span className="font-bold text-sm text-[var(--color-ink)]">{ticker}</span>
+                      <span className="text-[10px] text-[var(--color-muted)] block font-serif">{name}</span>
+                    </div>
+                    <span className="text-[10px] font-mono uppercase text-[var(--color-bullish)] font-semibold">
+                      {action} · {horizon}
+                    </span>
                   </div>
-                  <span className="text-[10px] font-mono uppercase text-[var(--color-bullish)] font-semibold">
-                    {bet.action} · {bet.horizon}
-                  </span>
-                </div>
 
-                <div className="py-1 flex justify-between font-mono text-[11px]">
-                  <span className="text-[var(--color-muted)]">Entry: {bet.entry}</span>
-                  <span className="font-bold text-[var(--color-bullish)]">Target: {bet.target}</span>
-                  <span className="text-[var(--color-bearish)]">SL: {bet.stopLoss}</span>
-                </div>
+                  <div className="py-1 flex justify-between font-mono text-[11px]">
+                    <span className="text-[var(--color-muted)]">Entry: {entry}</span>
+                    <span className="font-bold text-[var(--color-bullish)]">Target: {target}</span>
+                    <span className="text-[var(--color-bearish)]">SL: {stopLoss}</span>
+                  </div>
 
-                <p className="text-[11px] text-[var(--color-muted)] font-serif leading-relaxed text-justify">
-                  {bet.catalyst}
-                </p>
-              </div>
-            ))}
+                  <p className="text-[11px] text-[var(--color-muted)] font-serif leading-relaxed text-justify">
+                    {catalyst}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -986,27 +1000,39 @@ export default async function TodayPage() {
           </div>
 
           <div className="text-xs">
-            {STRUCTURAL_BETS.map((bet) => (
-              <div key={bet.ticker} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
-                <div className="flex items-baseline justify-between font-mono">
-                  <div>
-                    <span className="font-bold text-sm text-[var(--color-ink)]">{bet.ticker}</span>
-                    <span className="text-[10px] text-[var(--color-muted)] block font-serif">{bet.name}</span>
+            {(activeLongBets.length > 0 ? activeLongBets.slice(0, 3) : STRUCTURAL_BETS).map((item) => {
+              const isStoreBet = 'entryPrice' in item;
+              const ticker = item.ticker;
+              const name = item.name;
+              const cagrTarget = isStoreBet
+                ? `+${(((item.targetPrice - item.entryPrice) / item.entryPrice) * 100).toFixed(1)}% Target`
+                : item.cagrTarget;
+              const theme = isStoreBet ? item.category : item.theme;
+              const horizon = isStoreBet ? `Exp ${item.expiryDate}` : item.horizon;
+              const thesis = item.thesis;
+
+              return (
+                <div key={ticker} className="py-2.5 first:pt-0 last:pb-0 space-y-1">
+                  <div className="flex items-baseline justify-between font-mono">
+                    <div>
+                      <span className="font-bold text-sm text-[var(--color-ink)]">{ticker}</span>
+                      <span className="text-[10px] text-[var(--color-muted)] block font-serif">{name}</span>
+                    </div>
+                    <span className="font-bold text-[var(--color-bullish)] text-xs tabular-nums font-mono">
+                      {cagrTarget}
+                    </span>
                   </div>
-                  <span className="font-bold text-[var(--color-bullish)] text-xs tabular-nums">
-                    {bet.cagrTarget}
-                  </span>
-                </div>
 
-                <div className="text-[10px] font-mono text-[var(--color-muted)] pb-0.5">
-                  {bet.theme} · {bet.horizon}
-                </div>
+                  <div className="text-[10px] font-mono text-[var(--color-muted)] pb-0.5">
+                    {theme} · {horizon}
+                  </div>
 
-                <p className="text-[11px] text-[var(--color-ink)] font-serif leading-relaxed text-justify">
-                  {bet.thesis}
-                </p>
-              </div>
-            ))}
+                  <p className="text-[11px] text-[var(--color-ink)] font-serif leading-relaxed text-justify">
+                    {thesis}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
