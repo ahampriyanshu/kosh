@@ -82,9 +82,13 @@ data/
 │           └── 2026-10-02.json      ◄── Complete atomic daily snapshot (Immutable)
 │
 ├── reports/                         ◄── PUBLISHED ENVELOPES (Public Archive)
-│   └── 2026/10/2026-10-02/
+│   └── 2026/10/
 │       ├── daily-2026-10-02.json    ◄── Morning brief report envelope
-│       └── retro-2026-10-02.json    ◄── Market close retrospective envelope
+│       ├── retro-2026-10-02.json    ◄── Market close retrospective envelope
+│       ├── weekly/
+│       │   └── weekly-2026-W40.json ◄── Weekly Outlook report envelope
+│       └── monthly/
+│           └── monthly-2026-09.json ◄── Monthly Digest report envelope
 │
 └── ledger/                          ◄── ANALYTICAL PLANE (Quantitative & Qualitative Ledgers)
     ├── quantitative/                ◄── Time-series tabular records (Append-only NDJSON / JSONL)
@@ -254,6 +258,43 @@ Instead of running 11 staggered jobs, the entire daily lifecycle is executed by 
      - Sets status to `'closed'`, appends post-mortem notes, and saves atomically to `data/bets.json`.
      - Updates public records on `/bets/short-term` and `/bets/long-term`.
 * **Reliability**: Deterministic math evaluation, zero user intervention required, 100% auditable history.
+
+---
+
+### Job 6: `weekly-outlook` (Sunday Weekly Dossier & Tactical Bet Issuance)
+* **Execution Time**: Sundays at 21:00 PM IST (15:30 UTC).
+* **Execution Engine**: GitHub Actions / Node script (`scripts/weekly.ts`, `.github/workflows/weekly.yml`).
+* **Source**: 7-day aggregated market snapshots (`aggregateSnapshots`) + Grounded Gemini 2.5 Flash.
+* **Batching & Data Extraction**:
+  - Aggregates rolling 7-day snapshots across Indian indices, sectors, currencies, and commodities.
+  - Prompts Gemini with Grounded Google Search to extract current primary market IPOs (GMP, price band, subscriptions) and upcoming company catalysts.
+* **Exact Outputs Produced**:
+  1. **Weekly Report Envelope**: Writes `data/reports/{yyyy}/{mm}/weekly/weekly-{period}.json` validated against `WeeklyContentSchema`.
+  2. **Primary Market Staging & Ledger**: Generates `data/staging/weekly_ipos.json` and appends to `data/ledger/quantitative/weekly_ipos.jsonl`.
+  3. **Multi-Asset Weekly Ledger**: Appends weekly returns across 7 cross-asset instruments to `data/ledger/quantitative/multi_asset_weekly.jsonl`.
+  4. **Portfolio Catalysts Ledger**: Appends company events to `data/ledger/qualitative/portfolio_events.jsonl`.
+  5. **Weekly Short-Term Bet Generation**: Identifies 3–5 high-probability tactical positions based on deterministic mathematical models (Mean Reversion, Block Accumulation, 52W Breakouts) and appends them to `data/bets.json` with `callDate` and custom 5–20 day `expiryDate`.
+  6. **Email Dispatch**: Dispatches the **Kosh Weekly Outlook** HTML email to subscribers via Resend API (`renderWeeklyEmail`).
+  7. **Static Web Route**: Prerenders static broadsheet page at `/outlook/[year]/[month]/week-[w]`.
+* **Downstream Consumers**: Homepage IPO tracker (`/`), Outlook Archive (`/outlook`), Short-Term Bets Ledger (`/bets/short-term`), and subscriber email inboxes.
+
+---
+
+### Job 7: `monthly-outlook` (1st-of-Month Macro Digest & Strategic Bet Issuance)
+* **Execution Time**: 1st of every month at 08:00 AM IST (02:30 UTC).
+* **Execution Engine**: GitHub Actions / Node script (`scripts/monthly.ts`, `.github/workflows/monthly.yml`).
+* **Source**: 30-day aggregated market snapshots (`loadWindowSnapshots`) + Grounded Gemini 2.5 Flash + portfolio ledger.
+* **What it does**:
+  - Gathers 30-day historical window across all 11 NSE sectors, benchmark indices, and cumulative institutional flows.
+  - Performs sector leadership attribution and macro thematic synthesis.
+* **Exact Outputs Produced**:
+  1. **Monthly Report Envelope**: Writes `data/reports/{yyyy}/{mm}/monthly/monthly-{period}.json` validated against `MonthlyContentSchema`.
+  2. **Monthly Sector Leadership Ledger**: Appends to `data/ledger/quantitative/sector_leadership_monthly.jsonl`.
+  3. **Monthly Institutional Flow Autopsy**: Appends to `data/ledger/quantitative/institutional_flows_monthly.jsonl`.
+  4. **Monthly Long-Term Bet Generation**: Screens 2–4 structural compounders based on fundamental criteria (Piotroski $\ge 8$, ROIC $>20\%$, Duopoly moat, debt deleveraging) and appends them to `data/bets.json` with `callDate` and 3–12 month `expiryDate`.
+  5. **Email Dispatch**: Dispatches the **Kosh Monthly Digest** HTML email to subscribers via Resend API (`renderMonthlyEmail`).
+  6. **Static Web Route**: Prerenders static broadsheet page at `/outlook/[year]/[month]/month`.
+* **Downstream Consumers**: Monthly Digest Archive (`/outlook`), Long-Term Bets Ledger (`/bets/long-term`), and subscriber email inboxes.
 
 ---
 
@@ -535,6 +576,207 @@ export const MonthlyContentSchema = z.object({
   macroThemes: z.array(z.string()),
 });
 ```
+
+---
+
+### 8.3 The 5 Pillars of the Monthly Digest
+
+While the Weekly Outlook focuses on tactical setups, catalyst calendars, and primary market IPOs, the **Monthly Digest** (executed on the 1st of every month at 08:00 IST via `scripts/monthly.ts`) provides an authoritative macro and structural review:
+
+1. **Multi-Asset Monthly Scorecard**:
+   - 30-day comparative returns across equities (Nifty 50, Sensex), precious metals (Gold, Silver), commodities (Brent Crude), yields (India 10Y), and FX (USD/INR).
+   - Tracks Year-to-Date (YTD) performance to reveal structural macro trends and asset allocation shifts.
+2. **Sector Performance & Leadership Ranking**:
+   - Complete performance attribution across all 11 NSE sectors over the 30-day window.
+   - Identifies primary drivers: e.g. commodity cycle stimulus, domestic festive demand, export headwinds, or margin expansions.
+3. **Monthly Institutional Flow Autopsy (FII vs. DII)**:
+   - Aggregate monthly net balance of foreign institutional liquidation vs domestic institutional absorption in ₹ crore.
+   - Evaluates whether domestic mutual fund SIP flows are maintaining price stability or if foreign selling is exerting downward pressure on market multiples.
+4. **Portfolio Performance & Attribution Review**:
+   - Measures actual model portfolio monthly return against the benchmark Nifty 50.
+   - Details top contributing holdings, key drags, and honest retrospective takeaways without speculative excuse-making.
+5. **Macro Policy & Structural Themes**:
+   - Synthesizes central bank monetary policies (RBI MPC, US Federal Reserve), sovereign yield movements, geopolitical risks, and fiscal developments.
+
+---
+
+### 8.4 Complete Weekly Output Payload Specification (`weekly-{period}.json`)
+
+The authoritative weekly report is persisted as an immutable report envelope at `data/reports/{yyyy}/{mm}/weekly/weekly-{period}.json`. Below is the complete, validated payload structure:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "weekly-2026-W40",
+  "type": "weekly",
+  "dateKey": "2026-W40",
+  "generatedAt": "2026-10-04T15:30:00.000Z",
+  "sourceData": {
+    "tickers": ["HDFCBANK.NS", "INFY.NS", "RELIANCE.NS", "TRENT.NS", "BHARTIARTL.NS"],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-10-04T15:30:00.000Z"
+  },
+  "content": {
+    "period": "2026-W40",
+    "snapshot": {
+      "asOf": "2026-10-02T10:00:00.000Z",
+      "window": "7d",
+      "indianIndices": [
+        { "name": "NIFTY 50", "symbol": "^NSEI", "ltp": 25014.6, "changePct": -1.22 },
+        { "name": "SENSEX", "symbol": "^BSESN", "ltp": 81688.4, "changePct": -1.15 }
+      ],
+      "vix": { "value": 15.8, "changePct": 4.2 }
+    },
+    "multiAssetScorecard": [
+      { "asset": "Nifty 50", "symbol": "^NSEI", "close": 25014.6, "returnPct": -1.22, "context": "Indian large-cap benchmark" },
+      { "asset": "BSE Sensex", "symbol": "^BSESN", "close": 81688.4, "returnPct": -1.15, "context": "Headline 30-share index" },
+      { "asset": "Gold MCX", "symbol": "GC=F", "close": 75980.0, "returnPct": 1.45, "context": "Safe haven & domestic store of value" },
+      { "asset": "Silver MCX", "symbol": "SI=F", "close": 93400.0, "returnPct": 2.10, "context": "Industrial & precious hedge" },
+      { "asset": "Brent Crude", "symbol": "CL=F", "close": 78.2, "returnPct": 4.85, "context": "Energy import inflation barometer" },
+      { "asset": "India 10Y Yield", "symbol": "IN10Y", "close": 6.82, "returnPct": -0.08, "context": "Sovereign borrowing benchmark" },
+      { "asset": "USD / INR", "symbol": "USDINR=X", "close": 83.92, "returnPct": 0.15, "context": "Rupee foreign exchange stability" }
+    ],
+    "sectorGrowth": [
+      { "sector": "NIFTY PHARMA", "weeklyReturnPct": 1.42, "rank": 1, "stance": "leading" },
+      { "sector": "NIFTY FMCG", "weeklyReturnPct": 0.85, "rank": 2, "stance": "leading" },
+      { "sector": "NIFTY IT", "weeklyReturnPct": -2.35, "rank": 10, "stance": "lagging" },
+      { "sector": "NIFTY REALTY", "weeklyReturnPct": -3.10, "rank": 11, "stance": "lagging" }
+    ],
+    "fiiDiiWeekly": {
+      "fiiNetCrore": -14850.4,
+      "diiNetCrore": 16220.1,
+      "netInstitutionalCrore": 1369.7,
+      "summary": "Foreign Institutional Investors recorded weekly net outflows of ₹14,850.4 cr, with domestic institutions absorbing ₹16,220.1 cr in cash."
+    },
+    "portfolioFocus": [
+      {
+        "ticker": "HDFCBANK.NS",
+        "name": "HDFC Bank",
+        "recentEvents": "Gross advances grew 7.0% YoY, deposit growth robust at 15.1% YoY.",
+        "upcomingCatalysts": "Board meeting for Q2 FY27 audited earnings on 16 Oct 2026.",
+        "riskNote": "Loan-to-deposit ratio normalization trajectory requires continued monitoring."
+      }
+    ],
+    "iposInFocus": [
+      {
+        "company": "Hyundai Motor India",
+        "priceBand": "₹1,865 – ₹1,960",
+        "issueSize": "₹27,870 cr",
+        "gmp": "+₹65",
+        "gmpPct": "+3.3%",
+        "subscription": "2.37×",
+        "status": "Closed",
+        "listingDate": "2026-10-22"
+      },
+      {
+        "company": "Waaree Energies",
+        "priceBand": "₹1,427 – ₹1,503",
+        "issueSize": "₹4,321 cr",
+        "gmp": "+₹1,250",
+        "gmpPct": "+83.2%",
+        "subscription": "76.3×",
+        "status": "Upcoming",
+        "listingDate": "2026-10-28"
+      }
+    ],
+    "macroThemes": [
+      "Escalating West Asia geopolitical tensions driving crude towards $80/bbl.",
+      "Domestic liquidity absorption remains resilient against persistent FII selling pressure."
+    ]
+  },
+  "emailSent": true,
+  "checksum": "sha256:2db9fa827c2c699ba3839fc1298b1c14ed96feff3a27600af0d71071927f7449"
+}
+```
+
+---
+
+### 8.5 Complete Monthly Output Payload Specification (`monthly-{period}.json`)
+
+The monthly retrospective and macro digest is persisted at `data/reports/{yyyy}/{mm}/monthly/monthly-{period}.json`. Below is the complete, validated payload structure:
+
+```json
+{
+  "schemaVersion": 1,
+  "id": "monthly-2026-09",
+  "type": "monthly",
+  "dateKey": "2026-09",
+  "generatedAt": "2026-10-01T02:30:00.000Z",
+  "sourceData": {
+    "tickers": ["HDFCBANK.NS", "RELIANCE.NS", "TCS.NS", "TRENT.NS", "BEL.NS"],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-10-01T02:30:00.000Z"
+  },
+  "content": {
+    "period": "2026-09",
+    "snapshot": {
+      "asOf": "2026-09-30T10:00:00.000Z",
+      "window": "1mo",
+      "indianIndices": [
+        { "name": "NIFTY 50", "symbol": "^NSEI", "ltp": 25810.8, "changePct": 2.28 },
+        { "name": "SENSEX", "symbol": "^BSESN", "ltp": 84299.9, "changePct": 2.41 }
+      ],
+      "vix": { "value": 13.2, "changePct": -5.1 }
+    },
+    "multiAssetScorecard": [
+      { "asset": "Nifty 50", "symbol": "^NSEI", "close": 25810.8, "monthlyReturnPct": 2.28, "yearToDateReturnPct": 18.4 },
+      { "asset": "BSE Sensex", "symbol": "^BSESN", "close": 84299.9, "monthlyReturnPct": 2.41, "yearToDateReturnPct": 16.7 },
+      { "asset": "Gold MCX", "symbol": "GC=F", "close": 75600.0, "monthlyReturnPct": 4.12, "yearToDateReturnPct": 21.5 },
+      { "asset": "Silver MCX", "symbol": "SI=F", "close": 92800.0, "monthlyReturnPct": 6.85, "yearToDateReturnPct": 24.2 },
+      { "asset": "Brent Crude", "symbol": "CL=F", "close": 71.8, "monthlyReturnPct": -7.20, "yearToDateReturnPct": -6.8 },
+      { "asset": "India 10Y Yield", "symbol": "IN10Y", "close": 6.75, "monthlyReturnPct": -0.15, "yearToDateReturnPct": -0.42 },
+      { "asset": "USD / INR", "symbol": "USDINR=X", "close": 83.75, "monthlyReturnPct": -0.22, "yearToDateReturnPct": 0.65 }
+    ],
+    "sectorLeadership": [
+      { "sector": "NIFTY METAL", "monthlyReturnPct": 7.45, "rank": 1, "driver": "China monetary stimulus and fiscal rate cuts boosting base metal restocking." },
+      { "sector": "NIFTY AUTO", "monthlyReturnPct": 4.80, "rank": 2, "driver": "Festive channel inventory filling and commercial vehicle sales revival." },
+      { "sector": "NIFTY IT", "monthlyReturnPct": -3.85, "rank": 11, "driver": "Discretionary BFSI spend postponement and currency headwind." }
+    ],
+    "fiiDiiMonthly": {
+      "fiiNetCrore": -26420.5,
+      "diiNetCrore": 49810.2,
+      "netInstitutionalCrore": 23389.7,
+      "fiiTrend": "Persistent liquidation driven by high US Treasury yields and China tactical reallocation.",
+      "diiTrend": "Unprecedented domestic equity mutual fund inflows averaging >₹28,000 cr/month in SIPs."
+    },
+    "portfolioReview": {
+      "monthlyReturnPct": 3.42,
+      "benchmarkReturnPct": 2.28,
+      "topContributors": ["Trent (+14.2%)", "Bharat Electronics (+9.8%)", "Sun Pharma (+6.4%)"],
+      "drags": ["Tata Motors (-4.1%)", "Infosys (-3.2%)"],
+      "keyLearnings": [
+        "High ROIC compounders with domestic pricing power outperformed export cyclicals.",
+        "Hedging beta risk during global macro volatility protected capital."
+      ]
+    },
+    "macroThemes": [
+      "RBI MPC stance pivot: Shifting from withdrawal of accommodation to neutral.",
+      "Domestic Capex cycle: Private corporate capex accelerating alongside government infrastructure outlays."
+    ]
+  },
+  "emailSent": true,
+  "checksum": "sha256:f3b34fa5da73325dd66f648c33c92cb2862ca5e5f6ab12b2740077714805541e"
+}
+```
+
+---
+
+### 8.6 Multi-Channel Output Flow: How Weekly & Monthly Artifacts Feed the Platform
+
+The outputs produced by the weekly and monthly jobs propagate across multiple application surfaces:
+
+| Output Artifact | Producer Job | Target Storage / Destination | Downstream Consumers & Impact |
+|---|---|---|---|
+| **Weekly Report Envelope** | `weekly.ts` (Sun 21:00) | `data/reports/{y}/{m}/weekly/weekly-{period}.json` | Rendered on `/outlook/{year}/{month}/week-{w}`; archived in public record. |
+| **Monthly Report Envelope** | `monthly.ts` (1st 08:00) | `data/reports/{y}/{m}/monthly/monthly-{period}.json` | Rendered on `/outlook/{year}/{month}/month`; provides monthly performance audit. |
+| **Authoritative IPO Staging** | `weekly.ts` (Sun 21:00) | `data/staging/weekly_ipos.json` | Directly populates the **Homepage Primary Market Table** for the upcoming week. |
+| **Weekly IPO Time-Series** | `weekly.ts` (Sun 21:00) | `data/ledger/quantitative/weekly_ipos.jsonl` | Append-only historical tracking of Indian IPO GMP, subscription, and listing performance. |
+| **Multi-Asset Time-Series** | `weekly.ts` (Sun 21:00) | `data/ledger/quantitative/multi_asset_weekly.jsonl` | Append-only cross-asset macro correlation ledger (Nifty, Bullion, Crude, Yields). |
+| **Portfolio Events Ledger** | `weekly.ts` (Sun 21:00) | `data/ledger/qualitative/portfolio_events.jsonl` | Time-series qualitative log of portfolio company board meetings, earnings, and order wins. |
+| **Tactical Bet Issuance** | `weekly.ts` (Sun 21:00) | `data/bets.json` (`horizon: 'short_term'`) | Populates Section IV (Active Positions) of `/bets/short-term` with 5–20 day calls. |
+| **Strategic Bet Issuance** | `monthly.ts` (1st 08:00) | `data/bets.json` (`horizon: 'long_term'`) | Populates Section IV (Active Positions) of `/bets/long-term` with 3–12 month calls. |
+| **Weekly Outlook Email** | `weekly.ts` (Sun 21:00) | Resend Delivery API | Delivers institutional Sunday evening preparation dossier to subscriber inboxes. |
+| **Monthly Digest Email** | `monthly.ts` (1st 08:00) | Resend Delivery API | Delivers comprehensive month-in-review macro and attribution dispatch to subscribers. |
 
 ---
 
