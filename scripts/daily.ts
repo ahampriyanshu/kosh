@@ -65,8 +65,12 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
   };
   await writeReport({ ...base, emailSent: false });
   if (shouldSendEmail) {
-    await sendReportEmail('Kosh Daily Brief', renderDailyEmail(content));
-    await writeReport({ ...base, emailSent: true });
+    try {
+      await sendReportEmail('Kosh Daily Brief', renderDailyEmail(content));
+      await writeReport({ ...base, emailSent: true });
+    } catch (e) {
+      console.warn('[daily] Could not send email:', e);
+    }
   } else {
     await writeReport({ ...base, emailSent: true });
   }
@@ -102,9 +106,12 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
   if (shouldDeleteFeed) {
     await deleteFeed(date); // clean up the feed slices after a successful publish
   }
-  console.log(`Daily brief ${base.id} written${shouldSendEmail ? ' and emailed' : ''}.`);
+  console.log(`Daily brief ${base.id} written.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runDaily().then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
+  const dateArg = process.argv.slice(2).find((arg) => /^\d{4}-\d{2}-\d{2}$/.test(arg)) || process.env.DATE;
+  const targetNow = dateArg ? new Date(`${dateArg}T08:15:00+05:30`) : new Date();
+  const skipEmail = process.argv.includes('--no-email') || process.env.NO_EMAIL === 'true';
+  runDaily(targetNow, { dateOverride: dateArg, sendEmail: !skipEmail }).then(() => process.exit(0)).catch((e) => { console.error(e); process.exit(1); });
 }

@@ -46,7 +46,15 @@
       "dateKey": "2026-10-01",
       "date": "2026-10-01",
       "path": "reports/2026/10/retro/retro-2026-10-01.json",
-      "checksum": "sha256:f317bf4bd45f5b12d769cf58ef3391331b400d9a2d4438ec5fbacd00a298d4bc"
+      "checksum": "sha256:9cca75787549454700fa8e7d11e88c6bc8756e3dab2e65f46038073dbb35bd5c"
+    },
+    {
+      "id": "daily-2026-10-01",
+      "type": "daily",
+      "dateKey": "2026-10-01",
+      "date": "2026-10-01",
+      "path": "reports/2026/10/daily/daily-2026-10-01.json",
+      "checksum": "sha256:713b3ac038229cdc6010906f896b6acddebc375a8ea5fc7202032139b8076195"
     },
     {
       "id": "daily-2026-09-30",
@@ -1458,8 +1466,8 @@
     }
   ],
   "latest": {
-    "retro": "retro-2026-10-04",
-    "daily": "daily-2026-10-04",
+    "retro": "retro-2026-10-01",
+    "daily": "daily-2026-10-01",
     "weekly": "weekly-2026-W40",
     "recap": "recap-2026-09-26",
     "monthly": "monthly-2026-09",

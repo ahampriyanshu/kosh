@@ -59,7 +59,7 @@ async function refreshMarketClosingSlices(date: string, nowIso: string): Promise
   }
 }
 
-export async function runRetro(now: Date = new Date()): Promise<void> {
+export async function runRetro(now: Date = new Date(), options: { sendEmail?: boolean } = {}): Promise<void> {
   const date = istDateString(now);
   const period1 = new Date(now.getTime() - 120 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
@@ -140,9 +140,18 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
     checksum: computeChecksum(content),
   };
 
+  const shouldSendEmail = options.sendEmail ?? true;
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(content));
-  await writeReport({ ...base, emailSent: true });
+  if (shouldSendEmail) {
+    try {
+      await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(content));
+      await writeReport({ ...base, emailSent: true });
+    } catch (e) {
+      console.warn('[retro] Could not send email:', e);
+    }
+  } else {
+    await writeReport({ ...base, emailSent: true });
+  }
 
   // Append alerts to analytical ledger
   if (alerts.length > 0) {
@@ -161,11 +170,14 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
     }
   }
 
-  console.log(`Market close retro ${base.id} written, closing snapshot updated, and emailed (${alerts.length} alerts).`);
+  console.log(`Market close retro ${base.id} written, closing snapshot updated (${alerts.length} alerts).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runRetro()
+  const dateArg = process.argv.slice(2).find((arg) => /^\d{4}-\d{2}-\d{2}$/.test(arg)) || process.env.DATE;
+  const targetNow = dateArg ? new Date(`${dateArg}T16:15:00+05:30`) : new Date();
+  const skipEmail = process.argv.includes('--no-email') || process.env.NO_EMAIL === 'true';
+  runRetro(targetNow, { sendEmail: !skipEmail })
     .then(() => process.exit(0))
     .catch((e) => {
       console.error(e);

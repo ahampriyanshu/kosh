@@ -74,7 +74,9 @@ export async function runEveningMarket(now: Date = new Date()): Promise<MarketSn
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runEveningMarket().then(() => process.exit(0)).catch((e) => {
+  const dateArg = process.argv.slice(2).find((arg) => /^\d{4}-\d{2}-\d{2}$/.test(arg)) || process.env.DATE;
+  const targetNow = dateArg ? new Date(`${dateArg}T15:45:00+05:30`) : new Date();
+  runEveningMarket(targetNow).then(() => process.exit(0)).catch((e) => {
     console.error(e);
     process.exit(1);
   });
