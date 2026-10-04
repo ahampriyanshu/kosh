@@ -425,10 +425,12 @@ export default async function TodayPage() {
         {/* 1A. Left Column (3 cols): Market Mood, Global Benchmarks, Macro Commodities & FX */}
         <div className="md:col-span-3 p-5 xl:p-6 space-y-6">
           {mood && (
-            <section aria-label="Sentiment Index">
-              <div className="mb-1 flex items-center gap-2 text-xs">
-                <Link href="/sentiment-index" className="hover:underline">
-                  <h2 className="font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">Sentiment Index</h2>
+            <section aria-label="Sentiment Index" className="pt-2 border-t border-[var(--color-hairline)]">
+              <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+                <Link href="/sentiment-index" className="hover:underline not-italic">
+                  <h2 className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider not-italic inline">
+                    Sentiment Index
+                  </h2>
                 </Link>
               </div>
               <SentimentGauge score={mood.composite} regime={mood.regime} compact />
