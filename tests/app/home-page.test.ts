@@ -17,6 +17,8 @@ describe('TodayPage (/)', () => {
     // Ensure portfolio link and positional ledger table were removed
     expect(html).not.toContain('Turn to Page 5 · Audited Model Portfolio');
     expect(html).not.toContain('Audited Positional Calls Ledger');
+    expect(html).not.toContain('Surveillance Alert:');
+    expect(html).not.toContain('Section IV · Portfolio Surveillance');
   });
 
   it('renders minimal Institutional Flows with neutral ink typography and no date in heading', async () => {

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getLatest, getManifest } from '../lib/reports';
-import type { DailyContent, RetroContent, MarketSnapshot } from '../../lib/schemas';
+import type { DailyContent, MarketSnapshot } from '../../lib/schemas';
 import { SentimentGauge } from '../components/SentimentGauge';
 import { MarketMarquee } from '../components/market/MarketMarquee';
 import { computeMoodSnapshot } from '../../lib/sentiment';
@@ -230,15 +230,12 @@ const STRUCTURAL_BETS: StructuralBet[] = [
 ];
 
 export default async function TodayPage() {
-  const [daily, retro, manifest, activeShortBets, activeLongBets] = await Promise.all([
+  const [daily, manifest, activeShortBets, activeLongBets] = await Promise.all([
     getLatest('daily'),
-    getLatest('retro'),
     getManifest(),
     getActiveBets('short_term'),
     getActiveBets('long_term'),
   ]);
-
-  const retroContent = retro ? (retro.content as RetroContent) : null;
 
   const dailyContent = daily ? (daily.content as DailyContent) : null;
   const snapshot = dailyContent?.snapshot;
@@ -1018,108 +1015,6 @@ export default async function TodayPage() {
         </div>
       </div>
 
-      {/* ══════════════════════════════════════════════════════════════════════
-          ROW 4: PORTFOLIO SURVEILLANCE & RISK AUDIT
-          ══════════════════════════════════════════════════════════════════════ */}
-      {retroContent && (
-        <section aria-label="Portfolio Surveillance & Risk Audit" className="p-5 xl:p-6 space-y-6 border-t border-[var(--color-hairline)]">
-          <div className="border-b border-[var(--color-hairline)] pb-3 flex flex-wrap items-baseline justify-between gap-2">
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)] block">
-                Section IV · Portfolio Surveillance
-              </span>
-              <h2 className="text-lg md:text-xl font-serif font-bold text-[var(--color-ink)] tracking-tight">
-                Market Close Risk Screening &amp; Technical Exceptions
-              </h2>
-            </div>
-            <div className="flex items-center gap-4 text-xs font-mono">
-              <span className="text-[var(--color-muted)]">
-                Audit As Of {retro?.dateKey || 'Latest'} · 16:15 IST
-              </span>
-              {retro && (
-                <Link
-                  href={`/reports/${retro.id}`}
-                  className="text-[var(--color-ink)] hover:underline font-serif italic text-xs"
-                >
-                  Full Retrospective &rarr;
-                </Link>
-              )}
-            </div>
-          </div>
-
-          {retroContent.summary && (
-            <p className="text-xs md:text-sm font-serif italic text-[var(--color-muted)] max-w-3xl leading-relaxed border-b border-[var(--color-hairline)] pb-4">
-              &ldquo;{retroContent.summary}&rdquo;
-            </p>
-          )}
-
-          {retroContent.alerts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-              {retroContent.alerts.map((alert, idx) => {
-                const cleanTicker = alert.ticker.replace(/\.(NS|BO)$/, '');
-                const evalItem = retroContent.evaluated?.find(
-                  (e) => e.ticker.replace(/\.(NS|BO)$/, '') === cleanTicker
-                );
-                const change = evalItem ? evalItem.changePct : null;
-                const isHigh = alert.severity === 'high';
-
-                return (
-                  <article
-                    key={`${alert.ticker}-${idx}`}
-                    className="border-l-2 border-[var(--color-hairline)] pl-3.5 space-y-1.5"
-                  >
-                    <div className="flex items-baseline justify-between font-mono">
-                      <div>
-                        <span className="font-bold text-sm text-[var(--color-ink)]">{cleanTicker}</span>
-                        <span className="text-[10px] text-[var(--color-muted)] block font-serif truncate max-w-[180px]">
-                          {alert.name}
-                        </span>
-                      </div>
-                      <div className="text-right">
-                        {change !== null && (
-                          <span
-                            className={`text-xs font-mono font-semibold tabular-nums block ${
-                              change < 0 ? 'text-[var(--color-bearish)]' : 'text-[var(--color-bullish)]'
-                            }`}
-                          >
-                            {change > 0 ? '+' : ''}{change.toFixed(2)}%
-                          </span>
-                        )}
-                        <span
-                          className={`text-[9px] font-mono uppercase tracking-wider ${
-                            isHigh ? 'text-[var(--color-bearish)] font-bold' : 'text-[var(--color-muted)]'
-                          }`}
-                        >
-                          {alert.severity} alert
-                        </span>
-                      </div>
-                    </div>
-
-                    {alert.triggeredRules && alert.triggeredRules.length > 0 && (
-                      <div className="text-[10px] font-mono text-[var(--color-muted)]">
-                        {alert.triggeredRules.join(' · ')}
-                      </div>
-                    )}
-
-                    <p className="text-xs font-serif text-[var(--color-ink)] leading-relaxed text-justify">
-                      {alert.reason}
-                    </p>
-                  </article>
-                );
-              })}
-            </div>
-          ) : (
-            <div className="py-6 border-l-2 border-[var(--color-bullish)] pl-4">
-              <p className="font-serif text-sm font-semibold text-[var(--color-ink)]">
-                All Monitored Holdings Within Technical Bounds
-              </p>
-              <p className="font-serif text-xs text-[var(--color-muted)] mt-1">
-                Zero holdings breached drawdown, abnormal volume, or 50DMA moving average support during the latest closing session.
-              </p>
-            </div>
-          )}
-        </section>
-      )}
     </div>
   );
 }
