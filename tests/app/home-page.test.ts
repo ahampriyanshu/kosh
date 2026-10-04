@@ -32,13 +32,13 @@ describe('TodayPage (/)', () => {
     expect(html).not.toContain('Open Sentiment Index');
   });
 
-  it('renders 8 major headlines per edition on the homepage', async () => {
+  it('renders 6 major headlines per edition on the homepage', async () => {
     const pageComponent = await TodayPage();
     const html = renderToStaticMarkup(pageComponent);
 
     // Extract headlines from middle column
     const headlineCount = (html.match(/<article class="homepage-story">/g) || []).length;
-    expect(headlineCount).toBe(8);
+    expect(headlineCount).toBe(6);
   });
 
   it('renders Sector Rotation without ranking index numbers', async () => {

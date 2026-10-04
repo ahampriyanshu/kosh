@@ -10,7 +10,7 @@ export async function fetchNews(now: Date = new Date()): Promise<NewsSlice> {
     `recommendations published recently (with the brokerage name, action, and any price target).`;
   const buildStructurePrompt = (research: string) =>
     `From the research, produce: "news" grouped by category ` +
-    `(one of macro_policy, global_cues, earnings, sectoral, corporate_actions, stocks_in_focus), producing at least 8 to 12 distinct news items total across the categories (with at least 2 per major category), each item with ` +
+    `(one of macro_policy, global_cues, earnings, sectoral, corporate_actions, stocks_in_focus), producing at least 6 to 10 distinct news items total across the categories (with at least 1 per major category), each item with ` +
     `headline, summary, source, url (the canonical URL of the specific source article), optional tickers (NSE symbols like RELIANCE.NS), and sentiment (bullish/bearish/neutral). ` +
     `"source" MUST be the actual news outlet/publication name (e.g. Economic Times, Moneycontrol, Reuters, Business Standard, Livemint) — never a placeholder like "Research text". ` +
     `"url" MUST be the actual article URL for that item, not the publisher homepage, a search page, or an invented URL. Omit the item if its article URL cannot be verified. ` +
