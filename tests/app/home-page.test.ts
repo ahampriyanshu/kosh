@@ -38,4 +38,14 @@ describe('TodayPage (/)', () => {
     const headlineCount = (html.match(/<article class="homepage-story">/g) || []).length;
     expect(headlineCount).toBe(8);
   });
+
+  it('renders Sector Rotation without ranking index numbers', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    expect(html).toContain('Sector Rotation');
+    // Ensure no ranking index numbers like "1." in sector list
+    expect(html).not.toMatch(/text-\[10px\][^>]*w-3\.5[^>]*>1\.</);
+  });
 });
+

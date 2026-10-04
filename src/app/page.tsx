@@ -777,17 +777,14 @@ export default async function TodayPage() {
 
           <div className="text-xs font-mono">
             {allSectors.length > 0 ? (
-              allSectors.map((s, idx) => {
+              allSectors.map((s) => {
                 const isPos = s.changePct >= 0;
 
                 return (
                   <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
-                    <div className="flex items-center gap-1.5 min-w-[120px]">
-                      <span className="text-[10px] text-[var(--color-muted)] w-3.5 text-right font-mono">{idx + 1}.</span>
-                      <span className="font-serif text-[var(--color-ink)] font-medium truncate">
-                        {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
-                      </span>
-                    </div>
+                    <span className="font-serif text-[var(--color-ink)] font-medium truncate">
+                      {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
+                    </span>
 
                     <span
                       className={`font-semibold tabular-nums w-14 text-right ${
