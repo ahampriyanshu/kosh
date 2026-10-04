@@ -60,7 +60,7 @@ describe('runDaily', () => {
     expect(h.fetchUniverse).toHaveBeenCalledTimes(1);
     expect(h.computeInternals).toHaveBeenCalledWith([{ ticker: 'TCS.NS', name: 'TCS', sector: 'IT', ltp: 100, changePct: 1, volume: 1, avgVolume: 1, high52w: 110, low52w: 90 }]);
     expect(h.fetchGlobal).toHaveBeenCalledTimes(1);
-    expect(h.fetchNews).toHaveBeenCalledWith(NOW);
+    expect(h.fetchNews).toHaveBeenCalledWith(NOW, 'morning');
     expect(h.fetchFlows).toHaveBeenCalledWith(NOW);
     expect(h.writeSlice).toHaveBeenCalledTimes(6);
     expect(h.writeSlice.mock.invocationCallOrder.at(-1)).toBeLessThan(h.buildSnapshot.mock.invocationCallOrder[0]);

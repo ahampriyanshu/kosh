@@ -597,9 +597,27 @@ const DEFAULT_MORNING_HEADLINES: CuratedNewsItem[] = [
     summary: 'Scheduled commercial banks report resilient loan growth with gross NPA ratios declining to multi-year lows across major lenders.',
     source: 'Business Standard',
   },
+  {
+    category: 'Primary Markets',
+    headline: 'Mainboard IPO Subscription Multiples Surge on Sustained Retail Bidding',
+    summary: 'Strong book-building interest continues across upcoming industrial and consumer issues, underscoring primary market depth.',
+    source: 'Financial Express',
+  },
+  {
+    category: 'Energy & Power',
+    headline: 'Transmission Utilities Fast-Track Inter-State Grid Capex Deployments',
+    summary: 'Substation and high-voltage transmission tender awards accelerate to evacuate new renewable generation capacity across western corridors.',
+    source: 'Moneycontrol',
+  },
+  {
+    category: 'Consumer & Retail',
+    headline: 'Festive Season Distribution Signals Resilient Urban Discretionary Demand',
+    summary: 'FMCG and retail footprints report steady inventory restocking ahead of peak seasonal footfall across tier-1 and tier-2 metros.',
+    source: 'Livemint',
+  },
 ];
 
-function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 5): string {
+function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 8): string {
   const items: CuratedNewsItem[] = [];
 
   if (news && news.length > 0) {
@@ -622,7 +640,7 @@ function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 5): string 
     }
   }
 
-  // Ensure exactly 5 headlines by padding from defaults
+  // Ensure exactly 8 headlines by padding from defaults
   for (const fallback of DEFAULT_MORNING_HEADLINES) {
     if (items.length >= limit) break;
     if (!items.some((it) => it.headline === fallback.headline)) {
@@ -808,7 +826,7 @@ export function renderDailyEmail(content: DailyContent, issueNumber?: number): s
     preheader: content.outlook,
     children:
       section('Market Cues', renderKeyMarketBar(s)) +
-      section('5 Major Headlines', renderHeadlinesDigest(s.news, 5)) +
+      section('8 Major Headlines', renderHeadlinesDigest(s.news, 8)) +
       (content.keyTakeaways && content.keyTakeaways.length > 0
         ? section('Key Takeaways', renderKeyTakeawaysBlock(content.keyTakeaways))
         : '') +
@@ -1026,6 +1044,21 @@ const DEFAULT_CLOSING_HEADLINES = [
     headline: 'Derivatives PCR Firms to 1.18 as Put Writing Thickens at 24,000 Strike',
     summary: 'Options skew indicates aggressive call unwinding and heavy put addition across near-month strikes ahead of weekly settlement.',
   },
+  {
+    category: 'Corporate Earnings',
+    headline: 'Frontline Tech & Banking Counters See Post-Bell Earnings Positioning',
+    summary: 'Option implied volatility ticks higher across bellwethers reporting initial quarterly numbers this week.',
+  },
+  {
+    category: 'Macro & Commodities',
+    headline: 'Brent Crude Tests $82 as Global Bond Yields Ease Into European Close',
+    summary: 'Softer crude contracts and steady sovereign yields provide room for local corporate margins heading into next session.',
+  },
+  {
+    category: 'Institutional Desk',
+    headline: 'Closing Block Windows Witness Strong Demand for Defence and PSU Proxies',
+    summary: 'Institutional trading desks execute strategic late-session cross deals in capital goods and defence leaders.',
+  },
 ];
 
 function renderRetroHeadlinesBlock(content: RetroContent): string {
@@ -1033,18 +1066,34 @@ function renderRetroHeadlinesBlock(content: RetroContent): string {
   const rawHeadlines = ext.closingHeadlines ?? [];
   const headlines: any[] = [...rawHeadlines];
 
+  if (ext.snapshot?.news && Array.isArray(ext.snapshot.news)) {
+    for (const grp of ext.snapshot.news) {
+      if (headlines.length >= 8) break;
+      for (const it of grp.items || []) {
+        if (headlines.length >= 8) break;
+        if (it.headline && !headlines.some((h) => h.headline === it.headline)) {
+          headlines.push({
+            category: grp.category.replace(/_/g, ' ').toUpperCase(),
+            headline: it.headline,
+            summary: it.summary,
+          });
+        }
+      }
+    }
+  }
+
   for (const fallback of DEFAULT_CLOSING_HEADLINES) {
-    if (headlines.length >= 5) break;
+    if (headlines.length >= 8) break;
     if (!headlines.some((h) => h.headline === fallback.headline)) {
       headlines.push(fallback);
     }
   }
 
   return headlines
-    .slice(0, 5)
+    .slice(0, 8)
     .map(
       (h: any, idx: number) => `
-        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < Math.min(5, headlines.length) - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
+        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < Math.min(8, headlines.length) - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
           <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${idx + 1}. ${escapeHtml(h.category)}</div>
           <div style="${font};font-size:14px;font-weight:700;line-height:20px;color:${colors.text}">${escapeHtml(h.headline)}</div>
           ${h.summary ? `<div style="${font};font-size:13px;line-height:19px;color:${colors.muted};margin-top:3px">${escapeHtml(h.summary)}</div>` : ''}

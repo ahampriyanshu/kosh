@@ -39,7 +39,7 @@ export function DailyView({ content }: DailyViewProps) {
       {/* Curated Market News Digest */}
       {hasNews && (
         <ReportSection title="Top Stories & Market Intelligence">
-          <NewsDigest groups={content.snapshot.news} limit={6} />
+          <NewsDigest groups={content.snapshot.news} limit={8} />
         </ReportSection>
       )}
 

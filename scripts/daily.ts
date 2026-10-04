@@ -24,7 +24,7 @@ function dataDir(): string {
   return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
 }
 
-async function refreshMarketSlices(date: string, now: Date): Promise<void> {
+async function refreshMarketSlices(date: string, now: Date, session: 'morning' | 'closing' = 'morning'): Promise<void> {
   const [indices, universe, global, news, flows] = await Promise.all([
     fetchIndices(),
     fetchUniverse(),
@@ -32,7 +32,7 @@ async function refreshMarketSlices(date: string, now: Date): Promise<void> {
       console.warn('[daily] Could not fetch global slice:', err);
       return null;
     }),
-    fetchNews(now).catch((err) => {
+    fetchNews(now, session).catch((err) => {
       console.warn('[daily] Could not fetch news slice:', err);
       return null;
     }),
@@ -67,12 +67,12 @@ export interface RunDailyOptions {
 export async function runDaily(now: Date = new Date(), options: RunDailyOptions = {}): Promise<void> {
   const date = options.dateOverride ?? istDateString(now);
   const nowIso = now.toISOString();
+  const session = options.session ?? 'morning';
 
   if (!options.skipRefresh) {
-    await refreshMarketSlices(date, now);
+    await refreshMarketSlices(date, now, session);
   }
   const snapshot = await buildSnapshot(date, '1d', nowIso);
-  const session = options.session ?? 'morning';
   const mood = computeMoodSnapshot(snapshot, session);
   snapshot.sentiment = mood;
   await writeSnapshot(date, snapshot);

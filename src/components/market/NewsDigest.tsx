@@ -20,7 +20,7 @@ interface NewsDigestProps {
 }
 
 // Picks up to `limit` headlines, round-robin across themes for diversity.
-export function NewsDigest({ groups, limit = 6 }: NewsDigestProps) {
+export function NewsDigest({ groups, limit = 8 }: NewsDigestProps) {
   const byCategory = new Map(groups.map((g) => [g.category, g.items]));
   const picks: Array<{ category: NewsCategory; item: NewsItem }> = [];
 
