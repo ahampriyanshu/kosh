@@ -109,32 +109,63 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 };
 
+function formatPublishDateTime(dateOrIso?: string | Date | null): string {
+  if (!dateOrIso) return '';
+  const d = typeof dateOrIso === 'string' ? new Date(dateOrIso) : dateOrIso;
+  if (isNaN(d.getTime())) return '';
+
+  const parts = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  }).formatToParts(d);
+
+  const partMap: Record<string, string> = {};
+  for (const p of parts) {
+    partMap[p.type] = p.value;
+  }
+
+  const day = partMap.day?.padStart(2, '0') ?? '';
+  const month = partMap.month ?? '';
+  const year = partMap.year ?? '';
+  const hour = partMap.hour?.padStart(2, '0') ?? '';
+  const minute = partMap.minute?.padStart(2, '0') ?? '';
+  const dayPeriod = (partMap.dayPeriod ?? '').toUpperCase();
+
+  return `${day} ${month}, ${year}, ${hour}:${minute} ${dayPeriod} IST`;
+}
+
 export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [daily, manifest] = await Promise.all([
+  const [daily, retro, manifest] = await Promise.all([
     getLatest('daily'),
+    getLatest('retro'),
     getManifest(),
   ]);
 
   const dailyContent = daily ? (daily.content as DailyContent) : null;
   const snapshot = dailyContent?.snapshot;
 
-  const pubDate = snapshot?.asOf
-    ? new Date(snapshot.asOf).toLocaleDateString('en-IN', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
-    : new Date().toLocaleDateString('en-IN', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      });
+  const candidateDates = [
+    snapshot?.asOf,
+    daily?.generatedAt,
+    retro?.generatedAt,
+  ].filter((d): d is string => Boolean(d));
+
+  const lastActionIso = candidateDates.length > 0
+    ? candidateDates.reduce((latest, curr) =>
+        new Date(curr).getTime() > new Date(latest).getTime() ? curr : latest
+      )
+    : new Date().toISOString();
+
+  const formattedDateTime = formatPublishDateTime(lastActionIso);
   const issueNumber = manifest.reports.length;
 
   return (
@@ -154,7 +185,7 @@ export default async function RootLayout({
                   <div className="flex flex-wrap items-center gap-2">
                     <span>Volume {issueNumber}</span>
                     <span aria-hidden="true">|</span>
-                    <span>Issue on {pubDate}</span>
+                    <span>{formattedDateTime}</span>
                   </div>
                   <span>Indian Equities · NSE &amp; BSE</span>
                 </div>
