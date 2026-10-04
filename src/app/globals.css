@@ -686,6 +686,39 @@ select {
   border-bottom: none;
 }
 
+.portfolio-table {
+  width: 100%;
+  border-top: 1px solid var(--color-hairline);
+  border-bottom: 1px solid var(--color-hairline);
+  border-collapse: collapse;
+}
+
+.portfolio-table thead th {
+  padding: 0.8rem 0.9rem 0.8rem 0;
+  border-bottom: 1px solid var(--color-hairline);
+}
+
+.portfolio-table thead th:last-child,
+.portfolio-table tbody td:last-child {
+  padding-right: 0;
+}
+
+.portfolio-table thead th button {
+  font-family: var(--font-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.portfolio-table tbody td {
+  padding: 0.9rem 0.9rem 0.9rem 0;
+  vertical-align: middle;
+}
+
+.portfolio-table tbody tr:hover {
+  background-color: var(--color-surface-secondary);
+}
+
 .table-caption {
   font-family: var(--font-serif);
   font-size: 0.875rem;
