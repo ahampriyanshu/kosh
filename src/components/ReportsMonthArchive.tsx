@@ -21,8 +21,8 @@ interface WeekGroup {
 }
 
 const REPORT_LABELS: Record<ReportKind, string> = {
-  daily: 'Daily Brief',
-  retro: 'Mid-Session Report',
+  daily: 'Daily Report',
+  retro: 'Daily Report',
 };
 
 const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -174,23 +174,12 @@ export function ReportsMonthArchive({ entries }: { entries: ManifestEntry[] }) {
                 <li key={day.date} className="flex flex-wrap items-center gap-3 py-3">
                   <span className="tabular-nums text-sm text-[var(--color-muted)]">{day.date}</span>
                   <ArchiveArrow />
-                  <span className="flex flex-wrap items-center gap-x-4 gap-y-2">
-                    {(['daily', 'retro'] as const)
-                      .filter((type) => day.entries[type])
-                      .map((type, index) => (
-                        <span key={type} className="inline-flex items-center gap-4">
-                          {index > 0 && (
-                            <span aria-hidden="true" className="h-4 w-px bg-[var(--color-hairline)]" />
-                          )}
-                          <Link
-                            href={dateReportPath(day.date)}
-                            className="text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
-                          >
-                            {REPORT_LABELS[type]}
-                          </Link>
-                        </span>
-                      ))}
-                  </span>
+                  <Link
+                    href={dateReportPath(day.date)}
+                    className="text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
+                  >
+                    Daily Report
+                  </Link>
                 </li>
               ))}
             </ul>

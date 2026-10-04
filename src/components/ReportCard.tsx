@@ -5,7 +5,7 @@ import { VerificationBadge } from './VerificationBadge';
 import { IndexList } from './ui/IndexList';
 
 const TYPE_LABELS: Record<string, string> = {
-  daily: 'Daily Brief', retro: 'Mid-Session', recap: 'Weekly Recap',
+  daily: 'Daily Report', retro: 'Daily Report', recap: 'Weekly Recap',
   weekly: 'Weekly Outlook', monthly: 'Monthly Outlook', research: 'Research',
 };
 
@@ -45,7 +45,7 @@ export function ReportCard({
     entry.type === 'research' && ticker
       ? `${ticker} Research`
       : typeLabel;
-  const description = entry.type === 'retro' && alertCount !== undefined && alertCount > 0
+  const description = (entry.type === 'daily' || entry.type === 'retro') && alertCount !== undefined && alertCount > 0
     ? `${alertCount} alert${alertCount !== 1 ? 's' : ''}`
     : undefined;
 

@@ -19,7 +19,7 @@ function entry(id: string, type: ManifestEntry['type'], date: string): ManifestE
 }
 
 describe('ReportsMonthArchive', () => {
-  it('groups the latest month into week sections with daily and mid-session links', () => {
+  it('groups the latest month into week sections with clean daily report links', () => {
     const html = renderToStaticMarkup(createElement(ReportsMonthArchive, {
       entries: [
         entry('recap-2026-07-04', 'recap', '2026-07-04'),
@@ -33,9 +33,9 @@ describe('ReportsMonthArchive', () => {
     expect(html).toContain('Jul 2026, Week 1');
     expect(html).toContain('2026-07-03');
     expect(html).toContain('/reports/2026/07/03');
-    expect(html).toContain('Daily Brief');
-    expect(html).toContain('Mid-Session Report');
-    expect(html).toContain('h-4 w-px bg-[var(--color-hairline)]');
+    expect(html).toContain('Daily Report');
+    expect(html).not.toContain('Daily Brief');
+    expect(html).not.toContain('Mid-Session');
     expect(html).not.toContain('Weekly Recap');
     expect(html).not.toContain('Research');
     expect(html).not.toContain('2026-06-30');

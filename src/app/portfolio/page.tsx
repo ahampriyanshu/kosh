@@ -70,7 +70,7 @@ export default async function PortfolioPage() {
                   href={dateReportPath(auditDateKey)}
                   className="text-[var(--color-ink)] hover:underline font-serif italic text-xs"
                 >
-                  Full Retrospective &rarr;
+                  Full Daily Report &rarr;
                 </Link>
               )}
             </div>

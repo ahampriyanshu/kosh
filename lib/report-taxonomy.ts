@@ -4,8 +4,8 @@ export const REPORT_ARCHIVE_TYPES = ['daily', 'retro'] as const satisfies readon
 export const OUTLOOK_REPORT_TYPES = ['weekly', 'monthly'] as const satisfies readonly ReportType[];
 
 export const REPORT_TYPE_HEADINGS: Record<ReportType, string> = {
-  daily: 'Daily Briefs',
-  retro: 'Mid-Session',
+  daily: 'Daily Reports',
+  retro: 'Daily Reports',
   recap: 'Weekly Recaps',
   weekly: 'Weekly Outlooks',
   monthly: 'Monthly Outlooks',
