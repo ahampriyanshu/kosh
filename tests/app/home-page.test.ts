@@ -48,6 +48,12 @@ describe('TodayPage (/)', () => {
 
     // Ensure full card has link anchor to source
     expect(html).toMatch(/<article class="homepage-story"><a href="https:\/\/[^"]*"[^>]*>[\s\S]*?Macro &amp; Policy - Economic Times[\s\S]*?<\/a><\/article>/);
+
+    // Ensure no background color change on hover in news cards
+    expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?hover:bg-/);
+
+    // Ensure tickers are rendered as simple text, not boxed pills
+    expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?<span[^>]*border border-\[var\(--color-hairline\)\]/);
   });
 
   it('renders Sector Rotation without ranking index numbers', async () => {

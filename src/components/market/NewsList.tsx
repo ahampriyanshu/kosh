@@ -35,15 +35,8 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
                     {item.headline}
                   </h4>
                   {item.tickers && item.tickers.length > 0 && (
-                    <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                      {item.tickers.map((t) => (
-                        <span
-                          key={t}
-                          className="font-mono text-[11px] font-medium px-1.5 py-0.5 border border-[var(--color-hairline)] bg-[var(--color-paper)] text-[var(--color-ink)] rounded-sm"
-                        >
-                          {cleanTicker(t)}
-                        </span>
-                      ))}
+                    <div className="text-xs font-mono text-[var(--color-muted)] pt-0.5">
+                      {item.tickers.map((t) => cleanTicker(t)).join(', ')}
                     </div>
                   )}
                 </>
@@ -56,12 +49,12 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group block p-2.5 -mx-2.5 rounded transition-colors hover:bg-[var(--color-hairline)]/30 space-y-1.5 no-underline text-inherit"
+                      className="group block space-y-1 no-underline text-inherit"
                     >
                       {cardContent}
                     </a>
                   ) : (
-                    <div className="p-2.5 -mx-2.5 space-y-1.5">
+                    <div className="space-y-1">
                       {cardContent}
                     </div>
                   )}

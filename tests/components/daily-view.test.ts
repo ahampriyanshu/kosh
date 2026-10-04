@@ -79,9 +79,8 @@ describe('DailyView', () => {
     expect(html).toContain('Top Stories &amp; Market Intelligence');
     expect(html).toContain('Macro &amp; Policy - Economic Times');
     expect(html).toContain('RBI Maintains Accommodative Stance');
-    expect(html).toContain('HDFCBANK');
-    expect(html).toContain('ICICIBANK');
-    expect(html).toMatch(/<a href="https:\/\/economictimes\.indiatimes\.com\/rbi-policy"[^>]*>[\s\S]*?Macro &amp; Policy - Economic Times[\s\S]*?RBI Maintains Accommodative Stance[\s\S]*?HDFCBANK[\s\S]*?<\/a>/);
+    expect(html).toContain('HDFCBANK, ICICIBANK');
+    expect(html).toMatch(/<a href="https:\/\/economictimes\.indiatimes\.com\/rbi-policy"[^>]*>[\s\S]*?Macro &amp; Policy - Economic Times[\s\S]*?RBI Maintains Accommodative Stance[\s\S]*?HDFCBANK, ICICIBANK[\s\S]*?<\/a>/);
     expect(html).toContain('Street Consensus &amp; Brokerage Radar');
     expect(html).toContain('BEL');
     expect(html).toContain('Jefferies');
