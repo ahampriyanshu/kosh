@@ -76,7 +76,18 @@ interface MarketStory {
   headline: string;
   summary: string;
   source?: string;
+  url?: string;
   tickers?: string[];
+}
+
+function safeArticleUrl(value?: string): string | undefined {
+  if (!value) return undefined;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : undefined;
+  } catch {
+    return undefined;
+  }
 }
 
 const DEFAULT_EIGHT_HEADLINES: MarketStory[] = [
@@ -260,6 +271,7 @@ export default async function TodayPage() {
               headline: it.headline,
               summary: it.summary,
               source: it.source,
+              url: it.url,
               tickers: it.tickers,
             });
           }
@@ -278,6 +290,7 @@ export default async function TodayPage() {
               headline: it.headline,
               summary: it.summary,
               source: it.source,
+              url: it.url,
               tickers: it.tickers,
             });
           }
@@ -460,6 +473,41 @@ export default async function TodayPage() {
             </div>
           )}
 
+          {/* Sector Rotation */}
+          <div className="pt-2 border-t border-[var(--color-hairline)]">
+            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
+            </div>
+
+            <div className="text-xs font-mono">
+              {allSectors.length > 0 ? (
+                allSectors.map((s) => {
+                  const isPos = s.changePct >= 0;
+
+                  return (
+                    <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
+                      <span className="font-serif text-[var(--color-ink)] font-medium truncate">
+                        {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
+                      </span>
+
+                      <span
+                        className={`font-semibold tabular-nums w-14 text-right ${
+                          isPos ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
+                        }`}
+                      >
+                        {isPos ? '+' : ''}{s.changePct.toFixed(2)}%
+                      </span>
+                    </div>
+                  );
+                })
+              ) : (
+                <span className="py-2 text-[var(--color-muted)] text-xs block">
+                  Sector ranking data pending.
+                </span>
+              )}
+            </div>
+          </div>
+
           {/* Global Benchmarks */}
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
@@ -556,7 +604,11 @@ export default async function TodayPage() {
             {eightMajorHeadlines.map((story, i) => (
               <article key={i} className="homepage-story">
                 <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] leading-snug">
-                  {story.headline}
+                  {safeArticleUrl(story.url) ? (
+                    <a href={safeArticleUrl(story.url)} target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline underline-offset-4">
+                      {story.headline}
+                    </a>
+                  ) : story.headline}
                 </h2>
                 <p className="text-sm text-[var(--color-muted)] leading-relaxed">
                   {story.summary}
@@ -665,10 +717,10 @@ export default async function TodayPage() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           ROW 2: MARKET MICROSTRUCTURE LEDGER (Connected 3-Column Newspaper Grid)
-          Left: Gainers, Losers, Most Traded | Middle: Sector Rotation | Right: 52W High & Low
+          Left: Gainers & Losers | Middle: Most Traded & Volume Shockers | Right: 52W High & Low
           ══════════════════════════════════════════════════════════════════════ */}
       <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
-        {/* 2A. Col 1 (4 cols): Gainers, Losers, Most Traded */}
+        {/* 2A. Col 1 (4 cols): Gainers & Losers */}
         <div className="md:col-span-4 p-5 xl:p-6 space-y-5">
           {/* Top Gainers */}
           <div>
@@ -713,9 +765,12 @@ export default async function TodayPage() {
               )}
             </div>
           </div>
+        </div>
 
+        {/* 2B. Col 2 (4 cols): Most Traded & Volume Shockers */}
+        <div className="md:col-span-4 p-5 xl:p-6 space-y-5">
           {/* Most Traded & Volume Shockers */}
-          <div className="pt-2 border-t border-[var(--color-hairline)]">
+          <div>
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
               <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Most Traded &amp; Volume Shockers</span>
             </div>
@@ -766,41 +821,6 @@ export default async function TodayPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* 2B. Col 2 (4 cols): Sector Rotation */}
-        <div className="md:col-span-4 p-5 xl:p-6 space-y-3">
-          <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
-            <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Sector Rotation</span>
-          </div>
-
-          <div className="text-xs font-mono">
-            {allSectors.length > 0 ? (
-              allSectors.map((s) => {
-                const isPos = s.changePct >= 0;
-
-                return (
-                  <div key={s.sector} className="py-1.5 flex items-center justify-between gap-2 hover:bg-[var(--color-hairline)]/20 px-1 transition-colors">
-                    <span className="font-serif text-[var(--color-ink)] font-medium truncate">
-                      {s.sector.startsWith('NIFTY') ? s.sector : `Nifty ${s.sector}`}
-                    </span>
-
-                    <span
-                      className={`font-semibold tabular-nums w-14 text-right ${
-                        isPos ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'
-                      }`}
-                    >
-                      {isPos ? '+' : ''}{s.changePct.toFixed(2)}%
-                    </span>
-                  </div>
-                );
-              })
-            ) : (
-              <span className="py-2 text-[var(--color-muted)] text-xs block">
-                Sector ranking data pending.
-              </span>
-            )}
           </div>
         </div>
 
