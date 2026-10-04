@@ -53,103 +53,61 @@ export interface DispatchRecord {
  * Driven by a single 15-minute tick ('* / 15 * * * *') on Cloudflare Workers.
  */
 export const PIPELINE_SCHEDULE: ScheduledSlot[] = [
-  // ── Nightly Market Data Extraction (Mon–Fri) ──
-  {
-    hours: 2,
-    minutes: 0,
-    daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'feed-indices',
-    workflowFile: 'feed-indices.yml',
-    description: 'NSE & BSE benchmark index quotes',
-  },
-  {
-    hours: 2,
-    minutes: 15,
-    daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'feed-global',
-    workflowFile: 'feed-global.yml',
-    description: 'Global cues & currency/yields',
-  },
-  {
-    hours: 2,
-    minutes: 30,
-    daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'feed-universe',
-    workflowFile: 'feed-universe.yml',
-    description: 'Nifty 500 universe prices & volume',
-  },
-  {
-    hours: 2,
-    minutes: 45,
-    daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'feed-internals',
-    workflowFile: 'feed-internals.yml',
-    description: 'Market breadth & advance/decline internals',
-  },
-
-  // ── Morning Pre-Market News & Institutional Cash Flows (Mon–Fri) ──
-  {
-    hours: 6,
-    minutes: 0,
-    daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'feed-news',
-    workflowFile: 'feed-news.yml',
-    description: 'Morning market news synthesis',
-  },
-  {
-    hours: 6,
-    minutes: 30,
-    daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'feed-flows',
-    workflowFile: 'feed-flows.yml',
-    description: 'FII & DII institutional cash flows',
-  },
-
-  // ── Time-Sensitive Market Hours Publications (Mon–Fri) ──
+  // ── Morning Pipelines (Mon–Fri) ──
   {
     hours: 8,
-    minutes: 30,
+    minutes: 0,
     daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'daily',
-    workflowFile: 'daily.yml',
-    description: 'Kosh Daily Morning Brief (Delivered pre-market)',
+    job: 'morning-market-data',
+    workflowFile: 'morning-market.yml',
+    description: 'Fast pre-market quotes (Global cues, Gift Nifty, Commodities, FX)',
   },
+  {
+    hours: 8,
+    minutes: 15,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'morning-llm-intelligence',
+    workflowFile: 'daily.yml',
+    description: 'Kosh Daily Morning Brief & Sentiment Analysis',
+  },
+
+  // ── Evening Post-Market Pipelines (Mon–Fri) ──
   {
     hours: 15,
     minutes: 45,
     daysOfWeek: [1, 2, 3, 4, 5],
-    job: 'retro',
+    job: 'evening-market-data',
+    workflowFile: 'evening-market.yml',
+    description: 'Official NSE close quotes, market breadth & sector rankings',
+  },
+  {
+    hours: 16,
+    minutes: 15,
+    daysOfWeek: [1, 2, 3, 4, 5],
+    job: 'evening-llm-intelligence',
     workflowFile: 'retro.yml',
-    description: 'Market Close & Daily Retrospective (Post-close snapshot & risk surveillance)',
+    description: 'Market Close Portfolio Surveillance & Risk Screening',
   },
 
-  // ── Weekend & Monthly Audits ──
-  {
-    hours: 10,
-    minutes: 0,
-    daysOfWeek: [6],
-    job: 'recap',
-    workflowFile: 'recap.yml',
-    description: 'Saturday weekly call grading & audited scorecard',
-  },
+  // ── Periodic Dossiers (Weekly Sunday / Monthly 1st) ──
   {
     hours: 21,
     minutes: 0,
     daysOfWeek: [0],
-    job: 'weekly',
+    job: 'weekly-outlook',
     workflowFile: 'weekly.yml',
-    description: 'Sunday evening forward outlook for coming week',
+    description: 'Sunday evening forward outlook & tactical short-term bets',
   },
   {
-    hours: 0,
+    hours: 8,
     minutes: 0,
     dayOfMonth: 1,
-    job: 'monthly',
+    job: 'monthly-outlook',
     workflowFile: 'monthly.yml',
-    description: '1st of month macro review',
+    description: '1st of month institutional macro review & strategic long-term bets',
   },
 
-  // ── Nightly Systematic Bets Evaluation ──
+  // ── Nightly Systematic Bets Evaluation (Daily) ──
   {
     hours: 23,
     minutes: 0,
@@ -159,10 +117,14 @@ export const PIPELINE_SCHEDULE: ScheduledSlot[] = [
   },
 ];
 
-/** Map of all valid job names to workflow files */
-export const ALL_JOBS: Record<string, string> = Object.fromEntries(
-  PIPELINE_SCHEDULE.map((s) => [s.job, s.workflowFile])
-);
+/** Map of all valid job names to workflow files, including convenience aliases */
+export const ALL_JOBS: Record<string, string> = {
+  ...Object.fromEntries(PIPELINE_SCHEDULE.map((s) => [s.job, s.workflowFile])),
+  daily: 'daily.yml',
+  retro: 'retro.yml',
+  weekly: 'weekly.yml',
+  monthly: 'monthly.yml',
+};
 
 /**
  * Converts a UTC Date into IST (UTC + 5:30) slot coordinates,
@@ -482,7 +444,7 @@ export default {
           JSON.stringify({
             error: `Invalid or missing job parameter '${jobParam}'.`,
             availableJobs: Object.keys(ALL_JOBS),
-            example: '/dispatch?job=feed-news&key=YOUR_ADMIN_KEY',
+            example: '/dispatch?job=morning-market-data&key=YOUR_ADMIN_KEY',
           }),
           { status: 400, headers: { 'Content-Type': 'application/json' } }
         );

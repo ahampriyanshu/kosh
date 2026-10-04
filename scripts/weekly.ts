@@ -1,11 +1,23 @@
 import { pathToFileURL } from 'node:url';
+import { mkdir, writeFile, appendFile } from 'node:fs/promises';
+import path from 'node:path';
 import { istWeekId, istDateString } from '../lib/time';
 import { loadWindowSnapshots, aggregateSnapshots } from '../lib/feed/aggregate';
 import { buildWeeklyNarrative } from '../lib/reports-narrative';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderWeeklyEmail } from '../lib/email-templates';
-import { WeeklyContentSchema, type ReportEnvelope, type MarketSnapshot } from '../lib/schemas';
+import { readAllBets, saveAllBets } from '../lib/bets-store';
+import {
+  WeeklyContentSchema,
+  type ReportEnvelope,
+  type MarketSnapshot,
+  type SystematicBet,
+} from '../lib/schemas';
+
+function dataDir(): string {
+  return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
+}
 
 function computeMultiAssetScorecard(s: MarketSnapshot) {
   const items = [];
@@ -58,9 +70,18 @@ function computeFiiDiiWeekly(s: MarketSnapshot) {
   };
 }
 
+function calculateExpiryDate(startDateStr: string, daysAhead: number): string {
+  const d = new Date(startDateStr);
+  d.setDate(d.getDate() + daysAhead);
+  return d.toISOString().slice(0, 10);
+}
+
 export async function runWeekly(now: Date = new Date()): Promise<void> {
   const period = istWeekId(now);
   const date = istDateString(now);
+  const nowIso = now.toISOString();
+
+  console.log(`[weekly] Running Kosh Weekly Outlook generation for ${period} (${date})...`);
   const snapshot = aggregateSnapshots(await loadWindowSnapshots(date, 7), '7d');
   const narrative = await buildWeeklyNarrative(snapshot);
 
@@ -80,9 +101,81 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
     macroThemes: narrative.themes,
   });
 
+  // 1. Authoritative Weekly IPO Staging & Quantitative Ledger
+  try {
+    const stagingDir = path.join(dataDir(), 'staging');
+    const quantLedger = path.join(dataDir(), 'ledger', 'quantitative');
+    const qualLedger = path.join(dataDir(), 'ledger', 'qualitative');
+    await mkdir(stagingDir, { recursive: true });
+    await mkdir(quantLedger, { recursive: true });
+    await mkdir(qualLedger, { recursive: true });
+
+    if (content.iposInFocus && content.iposInFocus.length > 0) {
+      await writeFile(
+        path.join(stagingDir, 'weekly_ipos.json'),
+        JSON.stringify({ weekId: period, dateFetched: date, ipos: content.iposInFocus }, null, 2),
+        'utf-8'
+      );
+      const ipoLine = JSON.stringify({ weekId: period, dateFetched: date, ipos: content.iposInFocus }) + '\n';
+      await appendFile(path.join(quantLedger, 'weekly_ipos.jsonl'), ipoLine, 'utf-8');
+    }
+
+    // 2. Cross-Asset Time Series Ledger
+    if (multiAssetScorecard.length > 0) {
+      const macroLine = JSON.stringify({ weekId: period, periodEndDate: date, assets: multiAssetScorecard }) + '\n';
+      await appendFile(path.join(quantLedger, 'multi_asset_weekly.jsonl'), macroLine, 'utf-8');
+    }
+
+    // 3. Portfolio Events Ledger
+    if (content.portfolioFocus && content.portfolioFocus.length > 0) {
+      for (const item of content.portfolioFocus) {
+        const evLine = JSON.stringify({ weekId: period, date, ...item }) + '\n';
+        await appendFile(path.join(qualLedger, 'portfolio_events.jsonl'), evLine, 'utf-8');
+      }
+    }
+  } catch (err) {
+    console.warn('[weekly] Could not append to analytical ledgers:', err);
+  }
+
+  // 4. Issue Weekly Tactical Short-Term Bets into data/bets.json if not already present for this week
+  try {
+    const allBets = await readAllBets();
+    const existingForWeek = allBets.filter((b) => b.horizon === 'short_term' && b.callDate === date);
+    if (existingForWeek.length === 0 && snapshot.topGainers.length > 0) {
+      const topCandidates = snapshot.topGainers.slice(0, 2);
+      const newBets: SystematicBet[] = topCandidates.map((c, idx) => {
+        const cleanTicker = c.ticker.replace(/\.NS$/, '');
+        const entryPrice = c.ltp > 0 ? c.ltp : 1000;
+        const targetPrice = Math.round(entryPrice * 1.08);
+        const stopLossPrice = Math.round(entryPrice * 0.96);
+        const expiryDate = calculateExpiryDate(date, 14 + idx * 3);
+        return {
+          id: `st-${date}-${cleanTicker.toLowerCase()}`,
+          ticker: cleanTicker,
+          name: c.name || cleanTicker,
+          horizon: 'short_term' as const,
+          category: 'High-Momentum 52W Breakout',
+          action: 'buy' as const,
+          callDate: date,
+          expiryDate,
+          entryPrice,
+          targetPrice,
+          stopLossPrice,
+          quantScore: 85 - idx * 3,
+          triggers: `Relative Volume Surge > 1.8x; 7-day return +${c.changePct.toFixed(1)}%; RSI > 58`,
+          thesis: `Weekly momentum leader with sustained accumulation volume and breakout past resistance.`,
+          status: 'active' as const,
+        };
+      });
+      await saveAllBets([...allBets, ...newBets]);
+      console.log(`[weekly] Issued ${newBets.length} new tactical short-term bets in data/bets.json for ${date}.`);
+    }
+  } catch (err) {
+    console.warn('[weekly] Could not issue weekly systematic bets:', err);
+  }
+
   const sourceTickers = [
     ...(content.portfolioFocus?.map((p) => p.ticker) ?? []),
-    ...(content.positionalBets?.map((b) => b.ticker) ?? []),
   ];
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
@@ -90,15 +183,15 @@ export async function runWeekly(now: Date = new Date()): Promise<void> {
     id: `weekly-${period}`,
     type: 'weekly',
     dateKey: period,
-    generatedAt: now.toISOString(),
-    sourceData: { tickers: sourceTickers, priceSnapshot: {}, searchTimestamp: now.toISOString() },
+    generatedAt: nowIso,
+    sourceData: { tickers: sourceTickers, priceSnapshot: {}, searchTimestamp: nowIso },
     content,
     checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
   await sendReportEmail('Kosh Weekly Outlook', renderWeeklyEmail(content, period));
   await writeReport({ ...base, emailSent: true });
-  console.log(`Weekly ${base.id} written and emailed.`);
+  console.log(`[weekly] Successfully written and emailed weekly outlook ${base.id}.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

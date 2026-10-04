@@ -236,7 +236,7 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
             aria-label="Open portfolio phrase"
             className="cursor-pointer text-inherit outline-none hover:text-[var(--color-ink)] focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4"
           >
-            {portfolio.source === 'kite' ? 'Kite snapshot' : 'Manual snapshot'}
+            {portfolio.holdings.length} holdings
           </button>{' '}
           - {formatAsOf(portfolio.asOf)}
         </p>
@@ -329,9 +329,6 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
               ))}
             </tbody>
           </table>
-          <p className="mt-4 tabular-nums text-xs text-[var(--color-faint)]">
-            {holdings.length} holding{holdings.length !== 1 ? 's' : ''}
-          </p>
         </div>
       )}
     </div>

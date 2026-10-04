@@ -143,6 +143,24 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
   await writeReport({ ...base, emailSent: false });
   await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(content));
   await writeReport({ ...base, emailSent: true });
+
+  // Append alerts to analytical ledger
+  if (alerts.length > 0) {
+    try {
+      const fs = await import('node:fs/promises');
+      const p = await import('node:path');
+      const dataDir = process.env.KOSH_DATA_DIR || p.join(process.cwd(), 'data');
+      const qualDir = p.join(dataDir, 'ledger', 'qualitative');
+      await fs.mkdir(qualDir, { recursive: true });
+      for (const alert of alerts) {
+        const line = JSON.stringify({ date, ...alert, timestamp: now.toISOString() }) + '\n';
+        await fs.appendFile(p.join(qualDir, 'portfolio_alerts.jsonl'), line, 'utf-8');
+      }
+    } catch (err) {
+      console.warn('[retro] Could not append to portfolio_alerts.jsonl:', err);
+    }
+  }
+
   console.log(`Market close retro ${base.id} written, closing snapshot updated, and emailed (${alerts.length} alerts).`);
 }
 

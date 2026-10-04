@@ -1,4 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 const h = vi.hoisted(() => ({
   buildSnapshot: vi.fn(), writeSnapshot: vi.fn(), deleteFeed: vi.fn(), writeSlice: vi.fn(),
   fetchIndices: vi.fn(), fetchUniverse: vi.fn(), computeInternals: vi.fn(),
@@ -24,7 +27,10 @@ const snap = MarketSnapshotSchema.parse({
   news: [], streetRecommendations: [], corporateActions: [],
   giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
 });
-beforeEach(() => {
+let dir: string;
+beforeEach(async () => {
+  dir = await mkdtemp(path.join(tmpdir(), 'kosh-daily-'));
+  process.env.KOSH_DATA_DIR = dir;
   Object.values(h).forEach((m) => m.mockReset());
   h.buildSnapshot.mockResolvedValue(snap);
   h.fetchIndices.mockResolvedValue({ indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 100, changePct: 1 }], vix: null });
@@ -33,6 +39,11 @@ beforeEach(() => {
   h.buildDailyNarrative.mockResolvedValue({ outlook: 'steady', keyTakeaways: ['a'] });
   h.writeReport.mockResolvedValue(undefined); h.writeSnapshot.mockResolvedValue(undefined);
   h.writeSlice.mockResolvedValue(undefined); h.deleteFeed.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
+});
+
+afterEach(async () => {
+  delete process.env.KOSH_DATA_DIR;
+  await rm(dir, { recursive: true, force: true });
 });
 
 describe('runDaily', () => {

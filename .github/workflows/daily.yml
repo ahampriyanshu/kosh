@@ -2,7 +2,7 @@ name: Daily brief
 
 on:
   schedule:
-    - cron: '57 7 * * 1-5' # Targets 08:00 IST, weekdays; avoids crowded quarter-hour scheduler slots.
+    - cron: '12 8 * * 1-5' # Targets 08:15 IST, weekdays; avoids crowded quarter-hour scheduler slots.
       timezone: "Asia/Kolkata"
   workflow_dispatch: {}
 
@@ -35,7 +35,7 @@ jobs:
           EMAIL_REPLY_TO: ${{ secrets.EMAIL_REPLY_TO }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
 
-      - name: Commit snapshot + briefing (stages report, snapshot, and feed-slice cleanup)
+      - name: Commit snapshot + briefing (stages report, snapshot, and sentiment ledgers)
         run: |
           git config user.name "kosh-bot"
           git config user.email "kosh-bot@users.noreply.github.com"

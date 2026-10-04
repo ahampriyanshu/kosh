@@ -15,21 +15,18 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
   });
 
   describe('Pipeline Schedule & Jobs', () => {
-    it('contains all 11 scheduled jobs', () => {
+    it('contains all 7 streamlined scheduled jobs', () => {
       const jobNames = PIPELINE_SCHEDULE.map((s) => s.job);
-      expect(jobNames).toContain('feed-indices');
-      expect(jobNames).toContain('feed-global');
-      expect(jobNames).toContain('feed-universe');
-      expect(jobNames).toContain('feed-internals');
-      expect(jobNames).toContain('feed-news');
-      expect(jobNames).toContain('feed-flows');
-      expect(jobNames).toContain('daily');
-      expect(jobNames).toContain('retro');
-      expect(jobNames).toContain('recap');
-      expect(jobNames).toContain('weekly');
-      expect(jobNames).toContain('monthly');
-      expect(jobNames).toContain('evaluate-bets');
-      expect(PIPELINE_SCHEDULE.length).toBe(12);
+      expect(jobNames).toEqual([
+        'morning-market-data',
+        'morning-llm-intelligence',
+        'evening-market-data',
+        'evening-llm-intelligence',
+        'weekly-outlook',
+        'monthly-outlook',
+        'evaluate-bets',
+      ]);
+      expect(PIPELINE_SCHEDULE.length).toBe(7);
     });
 
     it('maps every job to a valid .yml workflow file', () => {
@@ -41,65 +38,58 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
   });
 
   describe('IST Time Slot & Tick Routing (getJobsForDate)', () => {
-    it('accurately converts UTC to IST and matches Monday 02:00 IST for feed-indices', () => {
-      // Monday 02:00 IST is Sunday 20:30 UTC
-      const date = new Date('2026-10-04T20:30:00Z');
+    it('accurately converts UTC to IST and matches Monday 08:00 IST for morning-market-data', () => {
+      // Monday 08:00 IST is Monday 02:30 UTC
+      const date = new Date('2026-10-05T02:30:00Z');
       const ist = getISTTime(date);
-      expect(ist.hours).toBe(2);
+      expect(ist.hours).toBe(8);
       expect(ist.minutes).toBe(0);
       expect(ist.dayOfWeek).toBe(1); // Monday
 
       const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['feed-indices']);
+      expect(jobs.map((j) => j.job)).toEqual(['morning-market-data']);
     });
 
-    it('matches Monday 06:00 IST for feed-news', () => {
-      // Monday 06:00 IST is Monday 00:30 UTC
-      const date = new Date('2026-10-05T00:30:00Z');
+    it('matches Monday 08:15 IST for morning-llm-intelligence', () => {
+      // Monday 08:15 IST is Monday 02:45 UTC
+      const date = new Date('2026-10-05T02:45:00Z');
       const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['feed-news']);
+      expect(jobs.map((j) => j.job)).toEqual(['morning-llm-intelligence']);
     });
 
-    it('matches Monday 06:30 IST for feed-flows', () => {
-      // Monday 06:30 IST is Monday 01:00 UTC
-      const date = new Date('2026-10-05T01:00:00Z');
-      const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['feed-flows']);
-    });
-
-    it('matches Monday 08:30 IST for daily morning brief', () => {
-      // Monday 08:30 IST is Monday 03:00 UTC
-      const date = new Date('2026-10-05T03:00:00Z');
-      const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['daily']);
-    });
-
-    it('matches Monday 15:45 IST for market close & daily retrospective', () => {
+    it('matches Monday 15:45 IST for evening-market-data', () => {
       // Monday 15:45 IST is Monday 10:15 UTC
       const date = new Date('2026-10-05T10:15:00Z');
       const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['retro']);
+      expect(jobs.map((j) => j.job)).toEqual(['evening-market-data']);
     });
 
-    it('matches Saturday 10:00 IST for weekly call grading recap', () => {
-      // Saturday 10:00 IST is Saturday 04:30 UTC
-      const date = new Date('2026-10-10T04:30:00Z');
+    it('matches Monday 16:15 IST for evening-llm-intelligence', () => {
+      // Monday 16:15 IST is Monday 10:45 UTC
+      const date = new Date('2026-10-05T10:45:00Z');
       const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['recap']);
+      expect(jobs.map((j) => j.job)).toEqual(['evening-llm-intelligence']);
     });
 
     it('matches Sunday 21:00 IST for weekly forward outlook', () => {
       // Sunday 21:00 IST is Sunday 15:30 UTC
       const date = new Date('2026-10-11T15:30:00Z');
       const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['weekly']);
+      expect(jobs.map((j) => j.job)).toEqual(['weekly-outlook']);
     });
 
-    it('matches 1st of month 00:00 IST for monthly recap', () => {
-      // Nov 1 00:00 IST is Oct 31 18:30 UTC
-      const date = new Date('2026-10-31T18:30:00Z');
+    it('matches 1st of month 08:00 IST for monthly outlook on weekends', () => {
+      // Nov 1, 2026 is Sunday. 08:00 IST is 02:30 UTC
+      const date = new Date('2026-11-01T02:30:00Z');
       const jobs = getJobsForDate(date);
-      expect(jobs.map((j) => j.job)).toEqual(['monthly']);
+      expect(jobs.map((j) => j.job)).toEqual(['monthly-outlook']);
+    });
+
+    it('matches daily 23:00 IST for evaluate-bets', () => {
+      // Daily 23:00 IST is 17:30 UTC
+      const date = new Date('2026-10-05T17:30:00Z');
+      const jobs = getJobsForDate(date);
+      expect(jobs.map((j) => j.job)).toEqual(['evaluate-bets']);
     });
 
     it('returns empty array during non-scheduled slots', () => {
@@ -113,7 +103,7 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
   describe('triggerWorkflow', () => {
     it('returns an error record if GITHUB_TOKEN is missing', async () => {
       const env: Env = { GITHUB_TOKEN: '' };
-      const record = await triggerWorkflow('feed-news', 'cron', env);
+      const record = await triggerWorkflow('morning-market-data', 'cron', env);
 
       expect(record.status).toBe('error');
       expect(record.error).toContain('GITHUB_TOKEN is not configured');
@@ -149,14 +139,14 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
         REPO_NAME: 'kosh',
       };
 
-      const record = await triggerWorkflow('feed-news', 'cron', env);
+      const record = await triggerWorkflow('morning-market-data', 'cron', env);
 
       expect(record.status).toBe('dispatched');
       expect(record.httpStatus).toBe(204);
       expect(record.workflowRunId).toBe(98765432);
       expect(record.workflowRunUrl).toBe('https://github.com/ahampriyanshu/kosh/actions/runs/98765432');
       expect(mockFetch).toHaveBeenCalledWith(
-        'https://api.github.com/repos/ahampriyanshu/kosh/actions/workflows/feed-news.yml/dispatches',
+        'https://api.github.com/repos/ahampriyanshu/kosh/actions/workflows/morning-market.yml/dispatches',
         expect.objectContaining({
           method: 'POST',
           headers: expect.objectContaining({
@@ -178,7 +168,7 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
 
       const body = (await res.json()) as { status: string; activeJobsCount: number };
       expect(body.status).toBe('ok');
-      expect(body.activeJobsCount).toBe(12);
+      expect(body.activeJobsCount).toBe(7);
     });
 
     it('returns 200 OK on /schedule', async () => {
@@ -190,11 +180,11 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
       expect(res.status).toBe(200);
 
       const body = (await res.json()) as Array<{ job: string }>;
-      expect(body.length).toBe(12);
+      expect(body.length).toBe(7);
     });
 
-    it('allows manual dispatch of any feed with auth', async () => {
-      const authedReq = new Request('https://worker.local/dispatch?job=feed-flows&key=my-admin-key');
+    it('allows manual dispatch of jobs or aliases with auth', async () => {
+      const authedReq = new Request('https://worker.local/dispatch?job=morning-market-data&key=my-admin-key');
       const env: Env = { GITHUB_TOKEN: 'test', ADMIN_KEY: 'my-admin-key' };
       const ctx = { waitUntil: vi.fn(), passThroughOnException: vi.fn() } as unknown as ExecutionContext;
 
@@ -206,7 +196,23 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
 
       const body = (await res.json()) as { status: string; targetJob: string };
       expect(body.status).toBe('dispatched');
-      expect(body.targetJob).toBe('feed-flows');
+      expect(body.targetJob).toBe('morning-market-data');
+    });
+
+    it('supports alias dispatch such as ?job=daily', async () => {
+      const authedReq = new Request('https://worker.local/dispatch?job=daily&key=my-admin-key');
+      const env: Env = { GITHUB_TOKEN: 'test', ADMIN_KEY: 'my-admin-key' };
+      const ctx = { waitUntil: vi.fn(), passThroughOnException: vi.fn() } as unknown as ExecutionContext;
+
+      const mockFetch = vi.fn().mockResolvedValue(new Response(null, { status: 204 }));
+      vi.stubGlobal('fetch', mockFetch);
+
+      const res = await worker.fetch(authedReq, env, ctx);
+      expect(res.status).toBe(200);
+
+      const body = (await res.json()) as { status: string; targetJob: string };
+      expect(body.status).toBe('dispatched');
+      expect(body.targetJob).toBe('daily');
     });
   });
 });

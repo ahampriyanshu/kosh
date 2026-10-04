@@ -1,4 +1,4 @@
-name: Weekly Recap
+name: Weekly Outlook
 
 on:
   schedule:
@@ -40,5 +40,5 @@ jobs:
           git config user.name "kosh-bot"
           git config user.email "kosh-bot@users.noreply.github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "chore(data): weekly recap $(date -u +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "chore(data): weekly outlook $(date -u +%Y-%m-%d)"
           git push

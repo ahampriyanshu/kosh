@@ -38,7 +38,8 @@ afterEach(async () => {
 
 describe('runPortfolioSync', () => {
   it('writes an encrypted Kite holdings snapshot to public/data/portfolio.enc.json', async () => {
-    await runPortfolioSync(NOW);
+    const targetFile = path.join(dir, 'public-data/portfolio.enc.json');
+    await runPortfolioSync(NOW, targetFile);
 
     expect(h.fetchKiteHoldingsSnapshot).toHaveBeenCalledWith(NOW);
     await expect(stat(path.join(dir, 'portfolio.json'))).rejects.toThrow();

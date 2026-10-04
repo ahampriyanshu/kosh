@@ -2,7 +2,7 @@ name: Market Close & Daily Retro
 
 on:
   schedule:
-    - cron: '42 15 * * 1-5' # Targets 15:45 IST, weekdays; avoids crowded quarter-hour scheduler slots.
+    - cron: '12 16 * * 1-5' # Targets 16:15 IST, weekdays; avoids crowded quarter-hour scheduler slots.
       timezone: "Asia/Kolkata"
   workflow_dispatch: {}
 

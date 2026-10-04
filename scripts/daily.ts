@@ -1,4 +1,6 @@
 import { pathToFileURL } from 'node:url';
+import { mkdir, appendFile } from 'node:fs/promises';
+import path from 'node:path';
 import { istDateString } from '../lib/time';
 import { buildSnapshot } from '../lib/feed/merge';
 import { writeSnapshot, deleteFeed, writeSlice } from '../lib/feed/store';
@@ -10,8 +12,11 @@ import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
 import { DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema, type ReportEnvelope } from '../lib/schemas';
-
 import { computeMoodSnapshot } from '../lib/sentiment';
+
+function dataDir(): string {
+  return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
+}
 
 async function refreshMarketSlices(date: string): Promise<void> {
   const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
@@ -31,10 +36,12 @@ export interface RunDailyOptions {
 
 export async function runDaily(now: Date = new Date(), options: RunDailyOptions = {}): Promise<void> {
   const date = options.dateOverride ?? istDateString(now);
+  const nowIso = now.toISOString();
+
   if (!options.skipRefresh) {
     await refreshMarketSlices(date);
   }
-  const snapshot = await buildSnapshot(date, '1d', now.toISOString());
+  const snapshot = await buildSnapshot(date, '1d', nowIso);
   const session = options.session ?? 'morning';
   const mood = computeMoodSnapshot(snapshot, session);
   snapshot.sentiment = mood;
@@ -51,8 +58,8 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
     id: `daily-${date}`,
     type: 'daily',
     dateKey: date,
-    generatedAt: now.toISOString(),
-    sourceData: { tickers: [], priceSnapshot: {}, searchTimestamp: now.toISOString() },
+    generatedAt: nowIso,
+    sourceData: { tickers: [], priceSnapshot: {}, searchTimestamp: nowIso },
     content,
     checksum: computeChecksum(content),
   };
@@ -63,6 +70,35 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
   } else {
     await writeReport({ ...base, emailSent: true });
   }
+
+  // Append to analytical ledgers
+  try {
+    const quantLedger = path.join(dataDir(), 'ledger', 'quantitative');
+    const qualLedger = path.join(dataDir(), 'ledger', 'qualitative');
+    await mkdir(quantLedger, { recursive: true });
+    await mkdir(qualLedger, { recursive: true });
+
+    const sentimentLine = JSON.stringify({
+      date,
+      session,
+      composite: mood.composite,
+      regime: mood.regime,
+      timestamp: nowIso,
+    }) + '\n';
+    await appendFile(path.join(quantLedger, 'sentiment_ledger.jsonl'), sentimentLine, 'utf-8');
+
+    const narrativeLine = JSON.stringify({
+      date,
+      session,
+      outlook: narrative.outlook,
+      keyTakeaways: narrative.keyTakeaways,
+      timestamp: nowIso,
+    }) + '\n';
+    await appendFile(path.join(qualLedger, 'daily_narratives.jsonl'), narrativeLine, 'utf-8');
+  } catch (err) {
+    console.warn('[daily] Could not append to analytical ledgers:', err);
+  }
+
   if (shouldDeleteFeed) {
     await deleteFeed(date); // clean up the feed slices after a successful publish
   }

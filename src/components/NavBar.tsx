@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const NAV_ITEMS = [
+  { href: '/', label: 'Home' },
   { href: '/reports', label: 'Reports' },
   { href: '/outlook', label: 'Outlook' },
   { href: '/bets/short-term', label: 'Short Term' },
@@ -18,7 +19,7 @@ export function NavBar() {
   return (
     <nav aria-label="Main navigation" className="main-nav">
       {NAV_ITEMS.map(({ href, label }) => {
-        const isActive = pathname.startsWith(href);
+        const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href);
         return (
           <Link
             key={href}

@@ -1,4 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 const h = vi.hoisted(() => ({
   readPortfolio: vi.fn(),
@@ -41,7 +44,10 @@ function makeCandles(close: number, volume: number, count = 25) {
   }));
 }
 
-beforeEach(() => {
+let dir: string;
+beforeEach(async () => {
+  dir = await mkdtemp(path.join(tmpdir(), 'kosh-retro-'));
+  process.env.KOSH_DATA_DIR = dir;
   Object.values(h).forEach((m) => m.mockReset());
   h.readPortfolio.mockResolvedValue({
     asOf: '2026-06-15T08:00:00.000Z',
@@ -65,6 +71,11 @@ beforeEach(() => {
   });
   h.writeReport.mockResolvedValue(undefined);
   h.sendReportEmail.mockResolvedValue(undefined);
+});
+
+afterEach(async () => {
+  delete process.env.KOSH_DATA_DIR;
+  await rm(dir, { recursive: true, force: true });
 });
 
 describe('runRetro', () => {
