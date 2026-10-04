@@ -313,5 +313,39 @@
     "triggers": "ROIC > 22%; FCF Yield 4.5%; 3-year revenue CAGR 18.2%; Net Debt/Equity < 0.15",
     "thesis": "Market-leading operating moat with strong reinvestment rate and secular domestic demand tailwinds.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-10-05-infy",
+    "ticker": "INFY",
+    "name": "Infosys",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-10-05",
+    "expiryDate": "2026-10-19",
+    "entryPrice": 1035,
+    "targetPrice": 1118,
+    "stopLossPrice": 994,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.1%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-10-05-hdfclife",
+    "ticker": "HDFCLIFE",
+    "name": "HDFC Life Insurance",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-10-05",
+    "expiryDate": "2026-10-22",
+    "entryPrice": 534.2,
+    "targetPrice": 577,
+    "stopLossPrice": 513,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +2.5%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
