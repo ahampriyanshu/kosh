@@ -2,39 +2,32 @@
 
 import Link from 'next/link';
 import { useEffect, useMemo, useState, type MouseEvent } from 'react';
-import type { ManifestEntry } from '../../lib/schemas';
-import { dateReportPath } from '../../lib/report-routes';
-import { ArchiveArrow } from './ui/ArchiveArrow';
 
-type ReportKind = 'daily' | 'retro';
-type ReportArchiveEntry = ManifestEntry & { type: ReportKind };
-
-interface DayGroup {
-  date: string;
-  entries: Partial<Record<ReportKind, ManifestEntry>>;
+export interface ReportArchiveCard {
+  id: string;
+  type: 'daily' | 'weekly' | 'monthly';
+  publishedAt: string;
+  href: string;
+  title: string;
+  description: string;
 }
 
 interface WeekGroup {
   key: string;
-  label: string;
-  days: DayGroup[];
+  weekNumber: number;
+  entries: ReportArchiveCard[];
 }
-
-const REPORT_LABELS: Record<ReportKind, string> = {
-  daily: 'Daily Report',
-  retro: 'Daily Report',
-};
 
 const SHORT_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-function monthId(date: string): string {
-  return date.slice(0, 7);
-}
 
 function monthLabel(month: string): string {
   const [year, monthNumber] = month.split('-').map(Number);
   if (!year || !monthNumber) return month;
   return `${SHORT_MONTHS[monthNumber - 1]} ${year}`;
+}
+
+function monthOf(date: string): string {
+  return date.slice(0, 7);
 }
 
 function weekOfMonth(date: string): number {
@@ -44,22 +37,23 @@ function weekOfMonth(date: string): number {
   return Math.floor((day + firstMonthDayNum - 1) / 7) + 1;
 }
 
-function weekLabel(date: string): string {
-  return `${monthLabel(monthId(date))}, Week ${weekOfMonth(date)}`;
+function publishedDate(date: string): string {
+  const [year, month, day] = date.split('-').map(Number);
+  if (!year || !month || !day) return date;
+  return new Date(Date.UTC(year, month - 1, day, 12)).toLocaleDateString('en-IN', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 }
 
-function archiveEntries(entries: ManifestEntry[]): ReportArchiveEntry[] {
-  return entries.filter((entry): entry is ReportArchiveEntry => (
-    entry.type === 'daily' || entry.type === 'retro'
-  ));
-}
-
-function availableMonths(entries: ManifestEntry[]): string[] {
-  return Array.from(new Set(archiveEntries(entries).map((entry) => monthId(entry.date))))
+function availableMonths(entries: ReportArchiveCard[]): string[] {
+  return Array.from(new Set(entries.map((entry) => monthOf(entry.publishedAt))))
     .sort((a, b) => b.localeCompare(a));
 }
 
-function initialMonth(entries: ManifestEntry[]): string | null {
+function initialMonth(entries: ReportArchiveCard[]): string | null {
   return availableMonths(entries)[0] ?? null;
 }
 
@@ -69,67 +63,59 @@ function monthFromLocation(): string | null {
   return month && /^\d{4}-\d{2}$/.test(month) ? month : null;
 }
 
-function monthHref(month: string | null): string {
-  return month ? `/reports?month=${encodeURIComponent(month)}` : '/reports';
+function monthHref(month: string): string {
+  return `/reports?month=${encodeURIComponent(month)}`;
 }
 
-function groupByWeek(entries: ManifestEntry[], month: string): WeekGroup[] {
-  const days = new Map<string, DayGroup>();
-
-  for (const entry of archiveEntries(entries)) {
-    if (monthId(entry.date) !== month) continue;
-    const existing = days.get(entry.date) ?? { date: entry.date, entries: {} };
-    existing.entries[entry.type] = entry;
-    days.set(entry.date, existing);
+function groupsForMonth(entries: ReportArchiveCard[], month: string): WeekGroup[] {
+  const grouped = new Map<number, ReportArchiveCard[]>();
+  for (const entry of entries) {
+    if (monthOf(entry.publishedAt) !== month || entry.type === 'monthly') continue;
+    const weekNumber = weekOfMonth(entry.publishedAt);
+    const weekEntries = grouped.get(weekNumber) ?? [];
+    weekEntries.push(entry);
+    grouped.set(weekNumber, weekEntries);
   }
 
-  const weeks = new Map<string, WeekGroup>();
-  for (const day of Array.from(days.values()).sort((a, b) => b.date.localeCompare(a.date))) {
-    const key = `${month}-W${weekOfMonth(day.date)}`;
-    const existing = weeks.get(key) ?? { key, label: weekLabel(day.date), days: [] };
-    existing.days.push(day);
-    weeks.set(key, existing);
-  }
-
-  return Array.from(weeks.values()).sort((a, b) => b.key.localeCompare(a.key));
+  return Array.from(grouped.entries())
+    .map(([weekNumber, weekEntries]) => ({
+      key: `${month}-W${weekNumber}`,
+      weekNumber,
+      entries: weekEntries.sort((a, b) => (
+        b.publishedAt.localeCompare(a.publishedAt) || reportTypeOrder(a.type) - reportTypeOrder(b.type)
+      )),
+    }))
+    .sort((a, b) => b.weekNumber - a.weekNumber);
 }
 
-function MonthNav({
-  previousMonth,
-  nextMonth,
-  onMove,
-}: {
-  previousMonth: string | null;
-  nextMonth: string | null;
-  onMove: (month: string | null, event: MouseEvent<HTMLAnchorElement>) => void;
-}) {
+function reportTypeOrder(type: ReportArchiveCard['type']): number {
+  return type === 'weekly' ? 0 : type === 'daily' ? 1 : 2;
+}
+
+function ReportArticle({ entry }: { entry: ReportArchiveCard }) {
+  const typeLabel = entry.type === 'daily' ? 'Daily Report' : entry.type === 'weekly' ? 'Weekly Report' : 'Monthly Report';
   return (
-    <nav className="mt-auto flex flex-wrap items-center justify-center gap-6 pt-10">
-      {previousMonth ? (
-        <Link
-          href={monthHref(previousMonth)}
-          onClick={(event) => onMove(previousMonth, event)}
-          className="border-b border-current pb-0.5 text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
-        >
-          {monthLabel(previousMonth)}
-        </Link>
-      ) : null}
-      {nextMonth ? (
-        <Link
-          href={monthHref(nextMonth)}
-          onClick={(event) => onMove(nextMonth, event)}
-          className="border-b border-current pb-0.5 text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
-        >
-          {monthLabel(nextMonth)}
-        </Link>
-      ) : (
-        <span className="text-xs text-[var(--color-faint)]">Latest month</span>
-      )}
-    </nav>
+    <article>
+      <Link href={entry.href} className="group block max-w-3xl text-[var(--color-ink)] no-underline">
+        <div className="mb-1.5 flex flex-wrap items-center gap-x-2 text-[10px] font-mono uppercase tracking-wider text-[var(--color-muted)]">
+          <span>{typeLabel}</span>
+          <span aria-hidden="true">·</span>
+          <time dateTime={entry.publishedAt}>Published {publishedDate(entry.publishedAt)}</time>
+        </div>
+        <h3 className="font-serif text-lg font-semibold leading-snug text-[var(--color-heading)] group-hover:underline decoration-[var(--color-hairline)] underline-offset-4 md:text-xl">
+          {entry.title}
+        </h3>
+        {entry.description ? (
+          <p className="mt-1.5 line-clamp-3 text-sm leading-relaxed text-[var(--color-muted)]">
+            {entry.description}
+          </p>
+        ) : null}
+      </Link>
+    </article>
   );
 }
 
-export function ReportsMonthArchive({ entries }: { entries: ManifestEntry[] }) {
+export function ReportsMonthArchive({ entries }: { entries: ReportArchiveCard[] }) {
   const months = useMemo(() => availableMonths(entries), [entries]);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(() => initialMonth(entries));
 
@@ -144,50 +130,61 @@ export function ReportsMonthArchive({ entries }: { entries: ManifestEntry[] }) {
     return () => window.removeEventListener('popstate', syncMonth);
   }, [months]);
 
-  const weeks = selectedMonth ? groupByWeek(entries, selectedMonth) : [];
-  const currentMonthIndex = selectedMonth ? months.indexOf(selectedMonth) : -1;
-  const previousMonth = currentMonthIndex >= 0 ? months[currentMonthIndex + 1] ?? null : null;
-  const nextMonth = currentMonthIndex > 0 ? months[currentMonthIndex - 1] ?? null : null;
+  const weeks = selectedMonth ? groupsForMonth(entries, selectedMonth) : [];
+  const monthlyReport = selectedMonth
+    ? entries.find((entry) => entry.type === 'monthly' && monthOf(entry.publishedAt) === selectedMonth)
+    : undefined;
 
-  function moveToMonth(month: string | null, event: MouseEvent<HTMLAnchorElement>) {
+  function selectMonth(month: string, event: MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
     window.history.pushState({}, '', monthHref(month));
     setSelectedMonth(month);
   }
 
-  if (!selectedMonth || weeks.length === 0) {
+  if (!selectedMonth) {
     return (
-      <div className="py-16 text-center border border-dashed border-[var(--color-hairline)]">
-        <p className="font-serif text-xl text-[var(--color-faint)]">No daily reports yet.</p>
+      <div className="py-16 text-center">
+        <p className="font-serif text-xl text-[var(--color-faint)]">No reports yet.</p>
       </div>
     );
   }
 
   return (
     <div className="flex min-h-[52vh] flex-col">
+      <nav aria-label="Report months" className="mb-8 flex gap-5 overflow-x-auto border-b border-[var(--color-hairline)] pb-2">
+        {months.map((month) => (
+          <Link
+            key={month}
+            href={monthHref(month)}
+            onClick={(event) => selectMonth(month, event)}
+            aria-current={selectedMonth === month ? 'page' : undefined}
+            className={`shrink-0 font-mono text-xs ${selectedMonth === month ? 'font-bold text-[var(--color-ink)]' : 'text-[var(--color-muted)] hover:text-[var(--color-ink)]'}`}
+          >
+            {monthLabel(month)}
+          </Link>
+        ))}
+      </nav>
+
+      <h1 className="mb-6 font-serif text-2xl font-semibold text-[var(--color-heading)]">{monthLabel(selectedMonth)}</h1>
+
       <div className="space-y-8">
+        {monthlyReport ? (
+          <section aria-label="Monthly report" className="border-b border-[var(--color-hairline)] pb-6">
+            <ReportArticle entry={monthlyReport} />
+          </section>
+        ) : null}
+
         {weeks.map((week) => (
-          <section key={week.key}>
-            <h2 className="mb-3 font-serif text-xl font-bold text-[var(--color-heading)]">{week.label}</h2>
-            <ul className="m-0 list-none p-0">
-              {week.days.map((day) => (
-                <li key={day.date} className="flex flex-wrap items-center gap-3 py-3">
-                  <span className="tabular-nums text-sm text-[var(--color-muted)]">{day.date}</span>
-                  <ArchiveArrow />
-                  <Link
-                    href={dateReportPath(day.date)}
-                    className="text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)]"
-                  >
-                    Daily Report
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <section key={week.key} aria-label={`Week ${week.weekNumber}`}>
+            <h2 className="mb-4 border-b border-[var(--color-hairline)] pb-2 font-serif text-lg font-semibold text-[var(--color-heading)]">
+              Week {week.weekNumber}
+            </h2>
+            <div className="space-y-5 pl-4 md:pl-6">
+              {week.entries.map((entry) => <ReportArticle key={entry.id} entry={entry} />)}
+            </div>
           </section>
         ))}
       </div>
-
-      <MonthNav previousMonth={previousMonth} nextMonth={nextMonth} onMove={moveToMonth} />
     </div>
   );
 }

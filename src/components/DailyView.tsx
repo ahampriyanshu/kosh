@@ -18,8 +18,8 @@ export function DailyView({ content }: DailyViewProps) {
 
   return (
     <div className="space-y-8">
-      {/* Outlook */}
-      <ReportSection title="Market Outlook">
+      {/* Daily market summary */}
+      <ReportSection title="Market Summary">
         <p className="text-[var(--color-ink)] leading-relaxed">{content.outlook}</p>
       </ReportSection>
 

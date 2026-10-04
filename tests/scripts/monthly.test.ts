@@ -63,6 +63,6 @@ describe('runMonthly', () => {
     expect(first.content.sectorInsights).toEqual(['IT firm']);
     expect(first.content.period).toBe(period);
     expect(first.content.portfolioReview).toBeDefined();
-    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Monthly Digest', expect.any(String));
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Monthly Report', expect.any(String));
   });
 });

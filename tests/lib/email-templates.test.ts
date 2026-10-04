@@ -199,7 +199,7 @@ describe('email templates', () => {
     const html = renderWeeklyEmail(weeklyContent, '2026-W25');
 
     expect(html).toContain('<!doctype html>');
-    expect(html).toContain('Weekly Outlook');
+    expect(html).toContain('Weekly Report');
     expect(html).toContain('Jun 2026, Week 3');
     expect(html).not.toContain('2026-W25');
     expect(html).not.toContain('Weekly — 2026-W25');
@@ -215,7 +215,7 @@ describe('email templates', () => {
     const html = renderMonthlyEmail(monthlyContent, '2026-06');
 
     expect(html).toContain('<!doctype html>');
-    expect(html).toContain('Monthly Digest');
+    expect(html).toContain('Monthly Report');
     expect(html).toContain('2026-06');
     expect(html).not.toContain('Monthly — 2026-06');
     expect(html).toContain('Sector Insights');

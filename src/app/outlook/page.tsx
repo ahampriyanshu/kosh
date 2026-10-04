@@ -1,8 +1,17 @@
-import { getManifest } from '../../lib/reports';
-import { OutlookMonthArchive } from '../../components/OutlookMonthArchive';
+'use client';
 
-export default async function OutlookPage() {
-  const manifest = await getManifest();
+import { useEffect } from 'react';
 
-  return <OutlookMonthArchive entries={manifest.reports} />;
+export default function OutlookRedirectPage() {
+  useEffect(() => {
+    window.location.replace(`/reports${window.location.search}`);
+  }, []);
+
+  return (
+    <div className="py-16 text-center">
+      <p className="font-serif text-sm text-[var(--color-muted)]">
+        Redirecting to Reports...
+      </p>
+    </div>
+  );
 }

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getManifest, getReport } from '../../../lib/reports';
-import { isOutlookReportType } from '../../../../lib/report-taxonomy';
-import { parseDateReportSlug } from '../../../../lib/report-routes';
+import { reportPath, parseReportSlug } from '../../../../lib/report-routes';
 import type { ReportType } from '../../../../lib/schemas';
 import { ReportDetail } from '../../../components/ReportDetail';
 
@@ -9,17 +8,22 @@ export const dynamicParams = false;
 
 export async function generateStaticParams() {
   const manifest = await getManifest();
-  const cleanDates = Array.from(
-    new Set(
-      manifest.reports
-        .filter((entry) => !isOutlookReportType(entry.type))
-        .map((entry) => entry.date),
-    ),
-  );
-  const cleanParams = cleanDates.map((date) => {
-    const [year, month, day] = date.split('-');
-    return { slug: [year, month, day] };
-  });
+  const slugSet = new Set<string>();
+  const cleanParams: Array<{ slug: string[] }> = [];
+
+  for (const entry of manifest.reports) {
+    if (entry.type === 'research' || entry.type === 'recap') continue;
+    const path = reportPath(entry);
+    const parts = path.replace(/^\/reports\//, '').split('/').filter(Boolean);
+    if (parts.length === 3) {
+      const key = parts.join('/');
+      if (!slugSet.has(key)) {
+        slugSet.add(key);
+        cleanParams.push({ slug: parts });
+      }
+    }
+  }
+
   return cleanParams;
 }
 
@@ -29,31 +33,40 @@ interface ReportPageProps {
 
 export default async function ReportPage({ params }: ReportPageProps) {
   const { slug } = await params;
-
-  const date = parseDateReportSlug(slug);
-  if (!date) notFound();
+  const parsed = parseReportSlug(slug);
+  if (!parsed) notFound();
 
   const manifest = await getManifest();
-  const entries = manifest.reports
-    .filter((entry) => entry.date === date && !isOutlookReportType(entry.type))
-    .sort((a, b) => reportOrder(a.type) - reportOrder(b.type) || b.id.localeCompare(a.id));
 
-  if (entries.length === 0) notFound();
+  if (parsed.type === 'daily') {
+    const entries = manifest.reports
+      .filter((entry) => entry.date === parsed.date && (entry.type === 'daily' || entry.type === 'retro'))
+      .sort((a, b) => reportOrder(a.type) - reportOrder(b.type) || b.id.localeCompare(a.id));
 
-  const reports = await Promise.all(entries.map((entry) => getReport(entry.id)));
+    if (entries.length === 0) notFound();
 
-  if (reports.length === 1) return <ReportDetail envelope={reports[0]!} />;
+    const reports = await Promise.all(entries.map((entry) => getReport(entry.id)));
 
-  return (
-    <div className="space-y-12">
-      {reports.map((report) => (
-        <ReportDetail key={report.id} envelope={report} />
-      ))}
-    </div>
-  );
+    if (reports.length === 1) return <ReportDetail envelope={reports[0]!} />;
+
+    return (
+      <div className="space-y-12">
+        {reports.map((report) => (
+          <ReportDetail key={report.id} envelope={report} />
+        ))}
+      </div>
+    );
+  }
+
+  const currentPath = `/reports/${slug.join('/')}`;
+  const entry = manifest.reports.find((candidate) => reportPath(candidate) === currentPath);
+  if (!entry) notFound();
+
+  const envelope = await getReport(entry.id);
+  return <ReportDetail envelope={envelope} />;
 }
 
 function reportOrder(type: ReportType): number {
-  const order: ReportType[] = ['daily', 'retro', 'recap', 'research', 'weekly', 'monthly'];
+  const order: ReportType[] = ['daily', 'retro', 'weekly', 'monthly', 'recap', 'research'];
   return order.indexOf(type);
 }

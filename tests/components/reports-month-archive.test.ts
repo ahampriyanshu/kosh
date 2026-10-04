@@ -2,47 +2,45 @@ import React, { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import { ReportsMonthArchive } from '../../src/components/ReportsMonthArchive';
-import type { ManifestEntry } from '../../lib/schemas';
+import { ReportsMonthArchive, type ReportArchiveCard } from '../../src/components/ReportsMonthArchive';
 
 (globalThis as typeof globalThis & { React: typeof React }).React = React;
 
-function entry(id: string, type: ManifestEntry['type'], date: string): ManifestEntry {
+function entry(id: string, type: ReportArchiveCard['type'], publishedAt: string): ReportArchiveCard {
   return {
     id,
     type,
-    dateKey: date,
-    date,
-    path: `reports/${date.slice(0, 4)}/${date.slice(5, 7)}/${type}/${id}.json`,
-    checksum: `sha256:${id}`,
+    publishedAt,
+    href: `/reports/${publishedAt.replaceAll('-', '/')}`,
+    title: `${type} headline`,
+    description: `${type} report summary with context and a brief market takeaway.`,
   };
 }
 
 describe('ReportsMonthArchive', () => {
-  it('groups the latest month into week sections with clean daily report links', () => {
+  it('lists monthly, weekly, and daily reports as dated story cards', () => {
     const html = renderToStaticMarkup(createElement(ReportsMonthArchive, {
       entries: [
-        entry('recap-2026-07-04', 'recap', '2026-07-04'),
-        entry('research-1', 'research', '2026-07-04'),
-        entry('retro-2026-07-03', 'retro', '2026-07-03'),
-        entry('daily-2026-07-03', 'daily', '2026-07-03'),
+        entry('monthly-2026-06', 'monthly', '2026-06-30'),
+        entry('weekly-2026-W26', 'weekly', '2026-06-28'),
         entry('daily-2026-06-30', 'daily', '2026-06-30'),
+        entry('daily-2026-06-21', 'daily', '2026-06-21'),
       ],
     }));
 
-    expect(html).toContain('Jul 2026, Week 1');
-    expect(html).toContain('2026-07-03');
-    expect(html).toContain('/reports/2026/07/03');
+    expect(html).toContain('Jun 2026');
+    expect(html).toContain('Week 5');
+    expect(html).toContain('Week 4');
+    expect(html).toContain('Monthly Report');
+    expect(html).toContain('Weekly Report');
     expect(html).toContain('Daily Report');
-    expect(html).not.toContain('Daily Brief');
-    expect(html).not.toContain('Mid-Session');
-    expect(html).not.toContain('Weekly Recap');
-    expect(html).not.toContain('Research');
-    expect(html).not.toContain('2026-06-30');
-    expect(html).not.toContain('divide-y');
+    expect(html).toContain('monthly headline');
+    expect(html).toContain('weekly headline');
+    expect(html).toContain('daily headline');
+    expect(html).toContain('Published 30 Jun 2026');
   });
 
-  it('links to the previous available month at the bottom', () => {
+  it('offers month navigation across published months', () => {
     const html = renderToStaticMarkup(createElement(ReportsMonthArchive, {
       entries: [
         entry('daily-2026-07-03', 'daily', '2026-07-03'),
@@ -52,7 +50,6 @@ describe('ReportsMonthArchive', () => {
 
     expect(html).toContain('/reports?month=2026-06');
     expect(html).toContain('Jun 2026');
-    expect(html).toContain('min-h-[52vh]');
-    expect(html).toContain('mt-auto');
+    expect(html).toContain('aria-label="Report months"');
   });
 });

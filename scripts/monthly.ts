@@ -111,7 +111,7 @@ export async function runMonthly(now: Date = new Date(), options: RunMonthlyOpti
   const date = istDateString(now);
   const nowIso = now.toISOString();
 
-  console.log(`[monthly] Running Kosh Monthly Digest generation for ${period}...`);
+  console.log(`[monthly] Running Kosh Monthly Report generation for ${period}...`);
   const snapshot = aggregateSnapshots(await loadWindowSnapshots(date, 30), '1mo');
   const narrative = await buildMonthlyNarrative(snapshot);
 
@@ -227,9 +227,9 @@ export async function runMonthly(now: Date = new Date(), options: RunMonthlyOpti
     checksum: computeChecksum(content),
   };
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail('Kosh Monthly Digest', renderMonthlyEmail(content, period));
+  await sendReportEmail('Kosh Monthly Report', renderMonthlyEmail(content, period));
   await writeReport({ ...base, emailSent: true });
-  console.log(`[monthly] Successfully written and emailed Monthly Digest ${base.id}.`);
+  console.log(`[monthly] Successfully written and emailed Monthly Report ${base.id}.`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

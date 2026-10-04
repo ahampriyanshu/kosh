@@ -82,6 +82,13 @@ interface MarketStory {
   tickers?: string[];
 }
 
+const MARKET_LESSON = {
+  paragraphs: [
+    'On 4 October, NIFTY 50 fell 0.88%, and only 16 stocks advanced while 42 declined. Yet NIFTY IT gained 2.17%, with Infosys among the leaders. Read only the index and the day looks uniformly weak; look closer and one pocket was attracting buyers while most of the market was under pressure.',
+    'That is a useful habit in any market: an index is a summary, not a census. When it falls, check breadth and sector leadership before assuming everything is on sale. When it rises, ask how many stocks are actually participating. A narrow rally can be less sturdy than it looks; a sharp selloff can leave businesses with very different prospects. The index tells you where the crowd ended up; breadth helps explain how it got there.',
+  ],
+};
+
 const DEFAULT_EIGHT_HEADLINES: MarketStory[] = [
   {
     category: 'Macro & Policy',
@@ -902,6 +909,17 @@ export default async function TodayPage() {
               ))}
             </div>
           </div>
+
+          <section className="pt-2 border-t border-[var(--color-hairline)]">
+            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Notice board</span>
+            </div>
+            <div className="space-y-2 text-xs leading-relaxed text-[var(--color-muted)]">
+              {MARKET_LESSON.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </section>
         </div>
       </div>
 
@@ -1068,7 +1086,7 @@ export default async function TodayPage() {
           ROW 3: RESEARCH & THE STREET CONSENSUS (Connected 3-Column Newspaper Grid)
           Left: Street Consensus | Middle: Tactical Bets | Right: Structural Bets
           ══════════════════════════════════════════════════════════════════════ */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)] border-b border-[var(--color-hairline)]">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-[var(--color-hairline)]">
         {/* 3A. Col 1 (4 cols): Street Consensus */}
         <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">

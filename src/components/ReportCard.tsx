@@ -6,7 +6,7 @@ import { IndexList } from './ui/IndexList';
 
 const TYPE_LABELS: Record<string, string> = {
   daily: 'Daily Report', retro: 'Daily Report', recap: 'Weekly Recap',
-  weekly: 'Weekly Outlook', monthly: 'Monthly Outlook', research: 'Research',
+  weekly: 'Weekly Report', monthly: 'Monthly Report', research: 'Research',
 };
 
 function formatDate(dateStr: string): string {

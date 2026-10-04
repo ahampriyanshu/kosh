@@ -11,8 +11,8 @@ const TYPE_TITLES: Record<string, string> = {
   daily: 'Daily Report',
   retro: 'Daily Report',
   recap: 'Weekly Recap',
-  weekly: 'Weekly Outlook',
-  monthly: 'Monthly Outlook',
+  weekly: 'Weekly Report',
+  monthly: 'Monthly Report',
   research: 'Research',
 };
 
