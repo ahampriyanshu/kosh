@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BetsNav } from '../../../components/bets/BetsNav';
+import { getActiveBets, getClosedBets } from '../../../../lib/bets-store';
 
 export const metadata: Metadata = {
   title: 'Short-Term Tactical Models | Methodology & Formulation | Kosh',
@@ -9,77 +10,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/bets/short-term' },
 };
 
-interface TacticalSetup {
-  ticker: string;
-  name: string;
-  category: string;
-  quantScore: number;
-  entryPrice: number;
-  targetPrice: number;
-  stopLossPrice: number;
-  riskReward: string;
-  triggers: string;
-}
+export default async function ShortTermBetsPage() {
+  const activeBets = await getActiveBets('short_term');
+  const closedBets = await getClosedBets('short_term');
 
-const SAMPLE_TACTICAL_SETUPS: TacticalSetup[] = [
-  {
-    ticker: 'TRENT',
-    name: 'Trent Ltd',
-    category: 'Dual Momentum Breakout',
-    quantScore: 92,
-    entryPrice: 7120,
-    targetPrice: 7650,
-    stopLossPrice: 6855,
-    riskReward: '1:2.0',
-    triggers: '20 EMA > 50 SMA; RS vs Nifty 1.42; Vol 2.1x SMA20; RSI 62.4',
-  },
-  {
-    ticker: 'BHARATFORG',
-    name: 'Bharat Forge Ltd',
-    category: 'Dual Momentum Breakout',
-    quantScore: 88,
-    entryPrice: 1485,
-    targetPrice: 1610,
-    stopLossPrice: 1422,
-    riskReward: '1:2.0',
-    triggers: '20-day high breakout; Delivery 58.4%; Vol 1.9x SMA20; RSI 59.8',
-  },
-  {
-    ticker: 'HDFCBANK',
-    name: 'HDFC Bank Ltd',
-    category: 'Contrarian Mean-Reversion',
-    quantScore: 84,
-    entryPrice: 1640,
-    targetPrice: 1725,
-    stopLossPrice: 1598,
-    riskReward: '1:2.0',
-    triggers: 'Lower Bollinger Band touch (20, 2); RSI 30.5; Delivery 62.1%',
-  },
-  {
-    ticker: 'HAL',
-    name: 'Hindustan Aeronautics Ltd',
-    category: 'Derivatives Long Build-Up',
-    quantScore: 89,
-    entryPrice: 4720,
-    targetPrice: 5120,
-    stopLossPrice: 4520,
-    riskReward: '1:2.0',
-    triggers: 'OI surge +11.4%; Positive basis +0.85%; Cash delivery 1.7x; PCR 1.15',
-  },
-  {
-    ticker: 'DIXON',
-    name: 'Dixon Technologies Ltd',
-    category: 'Post-Earnings Momentum (PEAD)',
-    quantScore: 91,
-    entryPrice: 13450,
-    targetPrice: 14650,
-    stopLossPrice: 12850,
-    riskReward: '1:2.0',
-    triggers: 'PAT beat +16.2%; Gap-up +4.1% on 3.1x volume; Closed above opening range',
-  },
-];
-
-export default function ShortTermBetsPage() {
   return (
     <article className="max-w-4xl mx-auto space-y-12 pb-20 font-serif text-[var(--color-ink)] leading-relaxed">
       <BetsNav />
@@ -90,7 +24,7 @@ export default function ShortTermBetsPage() {
           Tactical Equity Models: Four Distinct Short-Term Quantitative Setups
         </h1>
         <p className="font-mono text-xs text-[var(--color-muted)]">
-          Horizon: 5 to 20 Trading Sessions · Screening Universe: NSE NIFTY 100 &amp; F&amp;O Equities · Engine: TypeScript &amp; TechnicalIndicators
+          Issuance: Once Weekly · Settlement: Daily Late-Night Expiry Cron · Universe: NSE NIFTY 100 &amp; F&amp;O Equities
         </p>
       </header>
 
@@ -101,8 +35,9 @@ export default function ShortTermBetsPage() {
           indicators into sharply defined structural regimes. Rather than deploying a monolithic screening rule,
           Kosh classifies tactical setups into four specialized quantitative categories: Dual Momentum Breakouts,
           Contrarian Mean-Reversions, Derivatives Open Interest Build-Ups, and Post-Earnings Announcement Drift (PEAD).
-          Each model is governed by independent entry criteria, volatility-adjusted ATR risk bounds, and strict
-          time-based invalidation rules.
+          Every call carries an explicit Call Date and Expiry Date. A daily late-night settlement cron evaluates all calls
+          reaching their maturity date, settling them strictly as Hit or Miss, with automated causal post-mortems for
+          every missed objective.
         </p>
       </section>
 
@@ -170,7 +105,7 @@ export default function ShortTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Stop-Loss = Entry Price &minus; [ 1.50 &times; ATR(14) ]</div>
             <div>Target &nbsp;&nbsp;&nbsp;= Entry Price + [ 3.00 &times; ATR(14) ] &nbsp;(1 : 2.0 R:R)</div>
-            <div>Time-Stop = 20 trading sessions</div>
+            <div>Cadence &nbsp;&nbsp;= Called once weekly; Expiry set to 10–20 sessions</div>
           </div>
         </div>
 
@@ -194,7 +129,7 @@ export default function ShortTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Stop-Loss = Min(Low, 5 sessions) &minus; 0.50%</div>
             <div>Target &nbsp;&nbsp;&nbsp;= EMA(20) Mean-Reversion Bound</div>
-            <div>Time-Stop = 15 trading sessions</div>
+            <div>Cadence &nbsp;&nbsp;= Called once weekly; Expiry set to 10–15 sessions</div>
           </div>
         </div>
 
@@ -218,7 +153,7 @@ export default function ShortTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Stop-Loss = VWAP(Breakout Day) &minus; 0.75%</div>
             <div>Target &nbsp;&nbsp;&nbsp;= Highest Call Strike OI Resistance Wall (or +2.50 &times; ATR(14))</div>
-            <div>Time-Stop = Expiry week or 15 trading sessions</div>
+            <div>Cadence &nbsp;&nbsp;= Called once weekly; Expiry set to expiry week or 15 sessions</div>
           </div>
         </div>
 
@@ -242,7 +177,7 @@ export default function ShortTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Stop-Loss = Low(Earnings Day) &minus; 0.50%</div>
             <div>Target &nbsp;&nbsp;&nbsp;= Entry Price + [ 2.50 &times; ATR(14) ]</div>
-            <div>Time-Stop = 20 trading sessions</div>
+            <div>Cadence &nbsp;&nbsp;= Called once weekly; Expiry set to 15–20 sessions</div>
           </div>
         </div>
       </section>
@@ -250,77 +185,177 @@ export default function ShortTermBetsPage() {
       {/* Section III */}
       <section className="space-y-4">
         <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
-          III. The Hybrid Quant-LLM Execution Protocol
+          III. The Daily Settlement Cron &amp; Post-Mortem Architecture
         </h2>
         <p className="text-sm text-justify">
-          The interaction between quantitative screening and generative language models is strictly unidirectional.
-          The TypeScript screening pipeline evaluates Bhavcopy data, derivative sheets, and earnings filings,
-          validates every mathematical condition, and outputs an immutable data payload:
+          Every tactical call carries a deterministic lifecycle. A dedicated automated cron job executes daily at 23:00 IST:
         </p>
-        <div className="font-mono text-xs text-[var(--color-muted)] pl-4 border-l border-[var(--color-hairline)]">
-          <code>&#123; ticker, category, entry, stopLoss, target, quantScore, triggers &#125;</code>
-        </div>
-        <p className="text-sm text-justify">
-          Gemini 2.5 is invoked with this immutable payload and a constrained system prompt. It is tasked solely with
-          synthesizing exchange corporate filings, regulatory updates, and management commentary into a concise
-          two-sentence institutional investment thesis. The model possesses no tool or authority to alter price numbers,
-          adjust risk multiples, or insert tickers outside the quantitatively qualified set.
-        </p>
+        <ol className="list-decimal list-inside space-y-2 text-sm text-[var(--color-ink)] pl-2">
+          <li>
+            <strong>Expiry Identification:</strong> The engine queries all active bets where <code>expiryDate &le; today</code>.
+          </li>
+          <li>
+            <strong>Price Settlement:</strong> Official closing prices and intermediate candle extremes (high/low) are evaluated.
+            If the price achieved or exceeded the target, the call is settled strictly as <code>HIT</code>. Otherwise, it is settled strictly as <code>MISS</code>.
+          </li>
+          <li>
+            <strong>Causal Post-Mortem:</strong> For every call graded as a Miss, Gemini is invoked to audit the trade against
+            intraday tape records, sector rotation, and corporate filings. It logs two mandatory plain-text analyses:
+            <em> What went wrong</em> and <em> How could we have avoided it</em>.
+          </li>
+        </ol>
       </section>
 
-      {/* Section IV */}
+      {/* Section IV: Active Ledger */}
       <section className="space-y-4">
-        <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
-          IV. Active Tactical Candidate Ledger
-        </h2>
-        <p className="text-xs font-mono text-[var(--color-muted)]">
-          Table 1: Current setups meeting algorithmic threshold criteria across the four tactical categories.
-        </p>
-
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
-            <thead>
-              <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
-                <th className="py-2 pr-3 font-semibold">Ticker</th>
-                <th className="py-2 pr-3 font-semibold">Category</th>
-                <th className="py-2 pr-3 text-right font-semibold">Score</th>
-                <th className="py-2 pr-3 text-right font-semibold">Entry Ref</th>
-                <th className="py-2 pr-3 text-right font-semibold">Stop-Loss</th>
-                <th className="py-2 pr-3 text-right font-semibold">Target</th>
-                <th className="py-2 pr-3 text-center font-semibold">R : R</th>
-                <th className="py-2 font-semibold">Algorithmic Triggers</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]">
-              {SAMPLE_TACTICAL_SETUPS.map((s) => (
-                <tr key={s.ticker}>
-                  <td className="py-2.5 pr-3">
-                    <span className="font-bold text-[var(--color-ink)]">{s.ticker}</span>
-                    <span className="text-[10px] text-[var(--color-muted)] block font-serif">{s.name}</span>
-                  </td>
-                  <td className="py-2.5 pr-3 text-[11px] text-[var(--color-ink)]">{s.category}</td>
-                  <td className="py-2.5 pr-3 text-right font-semibold tabular-nums text-[var(--color-ink)]">
-                    {s.quantScore}
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)] font-semibold">
-                    ₹{s.entryPrice.toLocaleString('en-IN')}
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)]">
-                    ₹{s.stopLossPrice.toLocaleString('en-IN')}
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
-                    ₹{s.targetPrice.toLocaleString('en-IN')}
-                  </td>
-                  <td className="py-2.5 pr-3 text-center text-[var(--color-muted)]">{s.riskReward}</td>
-                  <td className="py-2.5 text-[11px] font-serif text-[var(--color-muted)]">{s.triggers}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="flex items-baseline justify-between border-b border-[var(--color-hairline)] pb-1">
+          <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            IV. Active Tactical Calls
+          </h2>
+          <span className="font-mono text-xs text-[var(--color-muted)]">
+            Frequency: Weekly · Active Count: {activeBets.length}
+          </span>
         </div>
 
-        <footer className="flex justify-between items-center text-xs font-mono text-[var(--color-muted)] pt-3">
-          <span>Evaluated daily at 18:30 IST upon official NSE Bhavcopy and F&amp;O data reconciliation.</span>
+        {activeBets.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
+              <thead>
+                <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
+                  <th className="py-2 pr-3 font-semibold">Ticker</th>
+                  <th className="py-2 pr-3 font-semibold">Category</th>
+                  <th className="py-2 pr-3 font-semibold">Call Date</th>
+                  <th className="py-2 pr-3 font-semibold">Expiry Date</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Entry</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Target</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Stop</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Score</th>
+                  <th className="py-2 font-semibold min-w-[200px]">Triggers &amp; Thesis</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--color-hairline)]">
+                {activeBets.map((s) => (
+                  <tr key={s.id}>
+                    <td className="py-2.5 pr-3 align-top">
+                      <span className="font-bold text-[var(--color-ink)]">{s.ticker}</span>
+                      <span className="text-[10px] text-[var(--color-muted)] block font-serif">{s.name}</span>
+                    </td>
+                    <td className="py-2.5 pr-3 text-[11px] align-top text-[var(--color-ink)]">{s.category}</td>
+                    <td className="py-2.5 pr-3 align-top text-[var(--color-muted)]">{s.callDate}</td>
+                    <td className="py-2.5 pr-3 align-top font-semibold text-[var(--color-ink)]">{s.expiryDate}</td>
+                    <td className="py-2.5 pr-3 text-right align-top tabular-nums font-semibold text-[var(--color-ink)]">
+                      ₹{s.entryPrice.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-2.5 pr-3 text-right align-top tabular-nums font-semibold text-[var(--color-ink)]">
+                      ₹{s.targetPrice.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-2.5 pr-3 text-right align-top tabular-nums text-[var(--color-muted)]">
+                      ₹{s.stopLossPrice.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-2.5 pr-3 text-right align-top font-semibold tabular-nums text-[var(--color-ink)]">
+                      {s.quantScore}
+                    </td>
+                    <td className="py-2.5 align-top text-[11px] text-[var(--color-muted)]">
+                      <div className="font-mono text-[10px] text-[var(--color-ink)]">{s.triggers}</div>
+                      <div className="font-serif mt-0.5 leading-snug">{s.thesis}</div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-xs font-mono text-[var(--color-muted)] py-4">No active tactical calls currently open.</p>
+        )}
+      </section>
+
+      {/* Section V: Closed Settlement & Post-Mortem Ledger */}
+      <section className="space-y-4">
+        <div className="flex items-baseline justify-between border-b border-[var(--color-hairline)] pb-1">
+          <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            V. Expiry Settlement &amp; Causal Audit Ledger
+          </h2>
+          <span className="font-mono text-xs text-[var(--color-muted)]">
+            Closed Record: {closedBets.length}
+          </span>
+        </div>
+
+        {closedBets.length > 0 ? (
+          <div className="space-y-6">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
+                <thead>
+                  <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
+                    <th className="py-2 pr-3 font-semibold">Ticker</th>
+                    <th className="py-2 pr-3 font-semibold">Category</th>
+                    <th className="py-2 pr-3 font-semibold">Call Date</th>
+                    <th className="py-2 pr-3 font-semibold">Closed On</th>
+                    <th className="py-2 pr-3 text-right font-semibold">Entry</th>
+                    <th className="py-2 pr-3 text-right font-semibold">Exit Price</th>
+                    <th className="py-2 pr-3 text-right font-semibold">Return</th>
+                    <th className="py-2 text-center font-semibold">Outcome</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--color-hairline)]">
+                  {closedBets.map((c) => (
+                    <tr key={c.id}>
+                      <td className="py-2.5 pr-3">
+                        <span className="font-bold text-[var(--color-ink)]">{c.ticker}</span>
+                        <span className="text-[10px] text-[var(--color-muted)] block font-serif">{c.name}</span>
+                      </td>
+                      <td className="py-2.5 pr-3 text-[11px] text-[var(--color-ink)]">{c.category}</td>
+                      <td className="py-2.5 pr-3 text-[var(--color-muted)]">{c.callDate}</td>
+                      <td className="py-2.5 pr-3 text-[var(--color-muted)]">{c.closedOn || c.expiryDate}</td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-muted)]">
+                        ₹{c.entryPrice.toLocaleString('en-IN')}
+                      </td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
+                        ₹{c.closePrice?.toLocaleString('en-IN') ?? '—'}
+                      </td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
+                        {c.returnPct !== undefined ? `${c.returnPct >= 0 ? '+' : ''}${c.returnPct}%` : '—'}
+                      </td>
+                      <td className="py-2.5 text-center font-bold text-xs uppercase tracking-wider">
+                        {c.outcome === 'hit' ? '[HIT]' : '[MISSED]'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Detailed Post-Mortem Notes for Misses */}
+            {closedBets.some((c) => c.outcome === 'miss' && c.postMortem) && (
+              <div className="space-y-4 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-ink)]">
+                  Post-Mortem Analysis on Missed Calls
+                </h3>
+                <div className="space-y-4">
+                  {closedBets
+                    .filter((c) => c.outcome === 'miss' && c.postMortem)
+                    .map((c) => (
+                      <div key={c.id} className="text-xs font-serif pl-4 border-l-2 border-[var(--color-hairline)] space-y-1">
+                        <div className="font-mono font-bold text-[var(--color-ink)]">
+                          {c.ticker} · {c.category} (Called: {c.callDate} &rarr; Closed: {c.closedOn})
+                        </div>
+                        <p className="text-[var(--color-ink)]">
+                          <strong>What went wrong:</strong> {c.postMortem?.whatWentWrong}
+                        </p>
+                        <p className="text-[var(--color-muted)]">
+                          <strong>How could we have avoided it:</strong> {c.postMortem?.howToAvoid}
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="text-xs font-mono text-[var(--color-muted)] py-4">No settled calls in the audit ledger yet.</p>
+        )}
+
+        <footer className="flex justify-between items-center text-xs font-mono text-[var(--color-muted)] pt-6 border-t border-[var(--color-hairline)]">
+          <span>Evaluated daily at 23:00 IST upon market data reconciliation.</span>
           <Link href="/bets/long-term" className="underline hover:text-[var(--color-ink)]">
             Review Strategic Long-Term Models &rarr;
           </Link>

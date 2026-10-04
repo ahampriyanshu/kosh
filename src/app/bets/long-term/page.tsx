@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BetsNav } from '../../../components/bets/BetsNav';
+import { getActiveBets, getClosedBets } from '../../../../lib/bets-store';
 
 export const metadata: Metadata = {
   title: 'Long-Term Strategic Models | Methodology & Formulation | Kosh',
@@ -9,76 +10,10 @@ export const metadata: Metadata = {
   alternates: { canonical: '/bets/long-term' },
 };
 
-interface StrategicSetup {
-  ticker: string;
-  name: string;
-  category: string;
-  sector: string;
-  compositeScore: number;
-  roe: number;
-  debtToEquity: number;
-  pegRatio: number;
-  salesCagr3Y: number;
-  fiiDiiStake: string;
-  thesis: string;
-}
+export default async function LongTermBetsPage() {
+  const activeBets = await getActiveBets('long_term');
+  const closedBets = await getClosedBets('long_term');
 
-const SAMPLE_STRATEGIC_SETUPS: StrategicSetup[] = [
-  {
-    ticker: 'LTIM',
-    name: 'LTIMindtree Ltd',
-    category: 'Quality Compounder',
-    sector: 'Information Technology',
-    compositeScore: 94,
-    roe: 26.4,
-    debtToEquity: 0.04,
-    pegRatio: 1.15,
-    salesCagr3Y: 18.2,
-    fiiDiiStake: '38.6% (+1.2% QoQ)',
-    thesis: 'Net-cash balance sheet with superior capital efficiency, multi-quarter deal ramp-ups in BFSI, and PEG below 1.2x.',
-  },
-  {
-    ticker: 'TITAN',
-    name: 'Titan Company Ltd',
-    category: 'Quality Compounder',
-    sector: 'Consumer Discretionary',
-    compositeScore: 91,
-    roe: 31.8,
-    debtToEquity: 0.42,
-    pegRatio: 1.45,
-    salesCagr3Y: 24.1,
-    fiiDiiStake: '32.4% (+0.6% QoQ)',
-    thesis: 'Structural market share gains in jewellery and eyewear, sustaining >30% ROE with persistent domestic institutional inflows.',
-  },
-  {
-    ticker: 'BEL',
-    name: 'Bharat Electronics Ltd',
-    category: 'Capex & De-leveraging',
-    sector: 'Defense & Aerospace',
-    compositeScore: 89,
-    roe: 24.5,
-    debtToEquity: 0.00,
-    pegRatio: 1.30,
-    salesCagr3Y: 19.8,
-    fiiDiiStake: '41.2% (+2.1% QoQ)',
-    thesis: 'Record order-book visibility exceeding 3.5x annual revenue, expanding operating margins from indigenization, and zero gross debt.',
-  },
-  {
-    ticker: 'ITC',
-    name: 'ITC Ltd',
-    category: 'Defensive Cash Flow',
-    sector: 'FMCG & Conglomerates',
-    compositeScore: 87,
-    roe: 28.2,
-    debtToEquity: 0.01,
-    pegRatio: 1.25,
-    salesCagr3Y: 14.5,
-    fiiDiiStake: '43.5% (+0.4% QoQ)',
-    thesis: 'Robust free-cash-flow yield exceeding 5.8%, high dividend payout resilience, and non-cigarette FMCG margin expansion.',
-  },
-];
-
-export default function LongTermBetsPage() {
   return (
     <article className="max-w-4xl mx-auto space-y-12 pb-20 font-serif text-[var(--color-ink)] leading-relaxed">
       <BetsNav />
@@ -89,7 +24,7 @@ export default function LongTermBetsPage() {
           Strategic Equity Models: Three High-Conviction Compounding Frameworks
         </h1>
         <p className="font-mono text-xs text-[var(--color-muted)]">
-          Horizon: 3 to 12 Months · Selection Universe: NIFTY 100 &amp; NIFTY Midcap 50 · Rebalance: Monthly Post-Earnings
+          Issuance: Once Monthly · Settlement: Daily Late-Night Expiry Cron · Universe: NIFTY 100 &amp; NIFTY Midcap 50
         </p>
       </header>
 
@@ -100,7 +35,9 @@ export default function LongTermBetsPage() {
           recommendations. Sustained economic outperformance across multi-quarter horizons stems from three distinct
           structural drivers: capital reinvestment efficiency in high-ROE franchises, operational de-leveraging following
           multi-year capex cycles, and defensive free-cash-flow yields in dividend-generating market leaders.
-          This paper formalizes the quantitative criteria and invalidation rules for these three strategic categories.
+          Every strategic call carries an explicit Call Date and Expiry Date. A dedicated daily late-night settlement cron
+          evaluates all positions upon maturity, settling outcomes strictly as Hit or Miss, accompanied by automated causal
+          post-mortems for every missed objective.
         </p>
       </section>
 
@@ -163,6 +100,7 @@ export default function LongTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Fundamental Stop = Annualized ROE &lt; 15.0% for two consecutive quarters</div>
             <div>Technical Stop &nbsp;&nbsp;= Weekly close &gt; 4.0% below the 200-day Simple Moving Average</div>
+            <div>Cadence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= Issued once monthly; Expiry set to 6–12 months</div>
           </div>
         </div>
 
@@ -188,6 +126,7 @@ export default function LongTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Fundamental Stop = Gross debt expansion or EBITDA margin contraction &gt; 200 bps YoY</div>
             <div>Technical Stop &nbsp;&nbsp;= Weekly close &gt; 4.0% below the 200-day Simple Moving Average</div>
+            <div>Cadence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= Issued once monthly; Expiry set to 6–12 months</div>
           </div>
         </div>
 
@@ -212,6 +151,7 @@ export default function LongTermBetsPage() {
           <div className="font-mono text-xs text-[var(--color-ink)] py-1 pl-4 border-l border-[var(--color-hairline)] space-y-1">
             <div>Fundamental Stop = Free Cash Flow turning negative for two quarters, or dividend cut</div>
             <div>Technical Stop &nbsp;&nbsp;= Weekly close &gt; 4.0% below the 200-day Simple Moving Average</div>
+            <div>Cadence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= Issued once monthly; Expiry set to 6–12 months</div>
           </div>
         </div>
       </section>
@@ -219,7 +159,7 @@ export default function LongTermBetsPage() {
       {/* Section III */}
       <section className="space-y-4">
         <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
-          III. Multi-Factor Scoring Formulation
+          III. Multi-Factor Scoring &amp; Settlement Architecture
         </h2>
         <p className="text-sm text-justify">
           To normalize comparison across the three categories, every qualified company is assigned an aggregate
@@ -229,74 +169,162 @@ export default function LongTermBetsPage() {
           Score<sub>LT</sub> = 0.30 &times; S<sub>CapitalEfficiency</sub> + 0.25 &times; S<sub>BalanceSheet</sub> + 0.25 &times; S<sub>Valuation</sub> + 0.20 &times; S<sub>Institutional</sub>
         </div>
         <p className="text-sm text-justify text-[var(--color-muted)]">
-          Hurdle Invariant: Only companies achieving a Score<sub>LT</sub> &ge; 85 are eligible for recommendation on the
-          active strategic ledger. Portfolio holdings are audited monthly following quarterly corporate disclosures.
+          The daily 23:00 IST cron inspects strategic calls on their specified maturity dates. Positions are settled
+          strictly as <code>HIT</code> or <code>MISS</code> based on target realization, with Gemini generating causal
+          post-mortems detailing thesis breakdowns and future prevention filters for any missed target.
         </p>
       </section>
 
-      {/* Section IV */}
+      {/* Section IV: Active Strategic Ledger */}
       <section className="space-y-4">
-        <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)] border-b border-[var(--color-hairline)] pb-1">
-          IV. Active Strategic Candidate Ledger
-        </h2>
-        <p className="text-xs font-mono text-[var(--color-muted)]">
-          Table 1: Current strategic equities meeting Score<sub>LT</sub> &ge; 85 across the three strategic categories.
-        </p>
-
-        <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
-            <thead>
-              <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
-                <th className="py-2 pr-3 font-semibold">Ticker</th>
-                <th className="py-2 pr-3 font-semibold">Category</th>
-                <th className="py-2 pr-3 font-semibold">Sector</th>
-                <th className="py-2 pr-3 text-right font-semibold">Score</th>
-                <th className="py-2 pr-3 text-right font-semibold">ROE</th>
-                <th className="py-2 pr-3 text-right font-semibold">D / E</th>
-                <th className="py-2 pr-3 text-right font-semibold">PEG</th>
-                <th className="py-2 pr-3 text-right font-semibold">3Y Sales</th>
-                <th className="py-2 pr-3 text-right font-semibold">Inst. Stake</th>
-                <th className="py-2 font-semibold min-w-[200px]">Strategic Thesis</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]">
-              {SAMPLE_STRATEGIC_SETUPS.map((s) => (
-                <tr key={s.ticker}>
-                  <td className="py-2.5 pr-3">
-                    <span className="font-bold text-[var(--color-ink)]">{s.ticker}</span>
-                    <span className="text-[10px] text-[var(--color-muted)] block font-serif">{s.name}</span>
-                  </td>
-                  <td className="py-2.5 pr-3 text-[11px] text-[var(--color-ink)]">{s.category}</td>
-                  <td className="py-2.5 pr-3 text-[10px] text-[var(--color-muted)]">{s.sector}</td>
-                  <td className="py-2.5 pr-3 text-right font-semibold tabular-nums text-[var(--color-ink)]">
-                    {s.compositeScore}
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
-                    {s.roe.toFixed(1)}%
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)]">
-                    {s.debtToEquity.toFixed(2)}x
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)]">
-                    {s.pegRatio.toFixed(2)}
-                  </td>
-                  <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-ink)]">
-                    {s.salesCagr3Y.toFixed(1)}%
-                  </td>
-                  <td className="py-2.5 pr-3 text-right text-[10px] text-[var(--color-muted)]">
-                    {s.fiiDiiStake}
-                  </td>
-                  <td className="py-2.5 text-[11px] font-serif text-[var(--color-muted)]">
-                    {s.thesis}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="flex items-baseline justify-between border-b border-[var(--color-hairline)] pb-1">
+          <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            IV. Active Strategic Calls
+          </h2>
+          <span className="font-mono text-xs text-[var(--color-muted)]">
+            Frequency: Monthly · Active Count: {activeBets.length}
+          </span>
         </div>
 
-        <footer className="flex justify-between items-center text-xs font-mono text-[var(--color-muted)] pt-3">
-          <span>Rebalanced monthly upon quarterly corporate filings and shareholding disclosures.</span>
+        {activeBets.length > 0 ? (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
+              <thead>
+                <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
+                  <th className="py-2 pr-3 font-semibold">Ticker</th>
+                  <th className="py-2 pr-3 font-semibold">Category</th>
+                  <th className="py-2 pr-3 font-semibold">Call Date</th>
+                  <th className="py-2 pr-3 font-semibold">Expiry Date</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Entry</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Target</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Stop</th>
+                  <th className="py-2 pr-3 text-right font-semibold">Score</th>
+                  <th className="py-2 font-semibold min-w-[200px]">Strategic Thesis</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[var(--color-hairline)]">
+                {activeBets.map((s) => (
+                  <tr key={s.id}>
+                    <td className="py-2.5 pr-3 align-top">
+                      <span className="font-bold text-[var(--color-ink)]">{s.ticker}</span>
+                      <span className="text-[10px] text-[var(--color-muted)] block font-serif">{s.name}</span>
+                    </td>
+                    <td className="py-2.5 pr-3 text-[11px] align-top text-[var(--color-ink)]">{s.category}</td>
+                    <td className="py-2.5 pr-3 align-top text-[var(--color-muted)]">{s.callDate}</td>
+                    <td className="py-2.5 pr-3 align-top font-semibold text-[var(--color-ink)]">{s.expiryDate}</td>
+                    <td className="py-2.5 pr-3 text-right align-top tabular-nums font-semibold text-[var(--color-ink)]">
+                      ₹{s.entryPrice.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-2.5 pr-3 text-right align-top tabular-nums font-semibold text-[var(--color-ink)]">
+                      ₹{s.targetPrice.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-2.5 pr-3 text-right align-top tabular-nums text-[var(--color-muted)]">
+                      ₹{s.stopLossPrice.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-2.5 pr-3 text-right align-top font-semibold tabular-nums text-[var(--color-ink)]">
+                      {s.quantScore}
+                    </td>
+                    <td className="py-2.5 align-top text-[11px] text-[var(--color-muted)]">
+                      <div className="font-mono text-[10px] text-[var(--color-ink)]">{s.triggers}</div>
+                      <div className="font-serif mt-0.5 leading-snug">{s.thesis}</div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="text-xs font-mono text-[var(--color-muted)] py-4">No active strategic calls currently open.</p>
+        )}
+      </section>
+
+      {/* Section V: Closed Settlement & Post-Mortem Ledger */}
+      <section className="space-y-4">
+        <div className="flex items-baseline justify-between border-b border-[var(--color-hairline)] pb-1">
+          <h2 className="text-base font-mono font-bold uppercase tracking-wider text-[var(--color-ink)]">
+            V. Expiry Settlement &amp; Causal Audit Ledger
+          </h2>
+          <span className="font-mono text-xs text-[var(--color-muted)]">
+            Closed Record: {closedBets.length}
+          </span>
+        </div>
+
+        {closedBets.length > 0 ? (
+          <div className="space-y-6">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs font-mono border-t border-b border-[var(--color-ink)]">
+                <thead>
+                  <tr className="border-b border-[var(--color-hairline)] text-[10px] uppercase text-[var(--color-muted)]">
+                    <th className="py-2 pr-3 font-semibold">Ticker</th>
+                    <th className="py-2 pr-3 font-semibold">Category</th>
+                    <th className="py-2 pr-3 font-semibold">Call Date</th>
+                    <th className="py-2 pr-3 font-semibold">Closed On</th>
+                    <th className="py-2 pr-3 text-right font-semibold">Entry</th>
+                    <th className="py-2 pr-3 text-right font-semibold">Exit Price</th>
+                    <th className="py-2 pr-3 text-right font-semibold">Return</th>
+                    <th className="py-2 text-center font-semibold">Outcome</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-[var(--color-hairline)]">
+                  {closedBets.map((c) => (
+                    <tr key={c.id}>
+                      <td className="py-2.5 pr-3">
+                        <span className="font-bold text-[var(--color-ink)]">{c.ticker}</span>
+                        <span className="text-[10px] text-[var(--color-muted)] block font-serif">{c.name}</span>
+                      </td>
+                      <td className="py-2.5 pr-3 text-[11px] text-[var(--color-ink)]">{c.category}</td>
+                      <td className="py-2.5 pr-3 text-[var(--color-muted)]">{c.callDate}</td>
+                      <td className="py-2.5 pr-3 text-[var(--color-muted)]">{c.closedOn || c.expiryDate}</td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums text-[var(--color-muted)]">
+                        ₹{c.entryPrice.toLocaleString('en-IN')}
+                      </td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
+                        ₹{c.closePrice?.toLocaleString('en-IN') ?? '—'}
+                      </td>
+                      <td className="py-2.5 pr-3 text-right tabular-nums font-semibold text-[var(--color-ink)]">
+                        {c.returnPct !== undefined ? `${c.returnPct >= 0 ? '+' : ''}${c.returnPct}%` : '—'}
+                      </td>
+                      <td className="py-2.5 text-center font-bold text-xs uppercase tracking-wider">
+                        {c.outcome === 'hit' ? '[HIT]' : '[MISSED]'}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Detailed Post-Mortem Notes for Misses */}
+            {closedBets.some((c) => c.outcome === 'miss' && c.postMortem) && (
+              <div className="space-y-4 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--color-ink)]">
+                  Post-Mortem Analysis on Missed Calls
+                </h3>
+                <div className="space-y-4">
+                  {closedBets
+                    .filter((c) => c.outcome === 'miss' && c.postMortem)
+                    .map((c) => (
+                      <div key={c.id} className="text-xs font-serif pl-4 border-l-2 border-[var(--color-hairline)] space-y-1">
+                        <div className="font-mono font-bold text-[var(--color-ink)]">
+                          {c.ticker} · {c.category} (Called: {c.callDate} &rarr; Closed: {c.closedOn})
+                        </div>
+                        <p className="text-[var(--color-ink)]">
+                          <strong>What went wrong:</strong> {c.postMortem?.whatWentWrong}
+                        </p>
+                        <p className="text-[var(--color-muted)]">
+                          <strong>How could we have avoided it:</strong> {c.postMortem?.howToAvoid}
+                        </p>
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="text-xs font-mono text-[var(--color-muted)] py-4">No settled calls in the audit ledger yet.</p>
+        )}
+
+        <footer className="flex justify-between items-center text-xs font-mono text-[var(--color-muted)] pt-6 border-t border-[var(--color-hairline)]">
+          <span>Evaluated daily at 23:00 IST upon market data reconciliation.</span>
           <Link href="/bets/short-term" className="underline hover:text-[var(--color-ink)]">
             &larr; Return to Short-Term Tactical Models
           </Link>

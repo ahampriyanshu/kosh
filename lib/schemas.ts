@@ -568,3 +568,44 @@ export type UniverseSlice = z.infer<typeof UniverseSliceSchema>;
 export type InternalsSlice = z.infer<typeof InternalsSliceSchema>;
 export type NewsSlice = z.infer<typeof NewsSliceSchema>;
 export type FlowsSlice = z.infer<typeof FlowsSliceSchema>;
+
+// ---- Systematic Bets (Short-Term & Long-Term) ----
+export const BetHorizonSchema = z.enum(['short_term', 'long_term']);
+export type BetHorizon = z.infer<typeof BetHorizonSchema>;
+
+export const BetOutcomeSchema = z.enum(['hit', 'miss']);
+export type BetOutcome = z.infer<typeof BetOutcomeSchema>;
+
+export const BetStatusSchema = z.enum(['active', 'closed']);
+export type BetStatus = z.infer<typeof BetStatusSchema>;
+
+export const PostMortemSchema = z.object({
+  whatWentWrong: z.string(),
+  howToAvoid: z.string(),
+  analyzedAt: z.string().optional(),
+});
+export type PostMortem = z.infer<typeof PostMortemSchema>;
+
+export const SystematicBetSchema = z.object({
+  id: z.string(),
+  ticker: z.string(),
+  name: z.string(),
+  horizon: BetHorizonSchema,
+  category: z.string(),
+  action: z.enum(['buy', 'sell']).default('buy'),
+  callDate: z.string(),
+  expiryDate: z.string(),
+  entryPrice: z.number(),
+  targetPrice: z.number(),
+  stopLossPrice: z.number(),
+  quantScore: z.number(),
+  triggers: z.string(),
+  thesis: z.string(),
+  status: BetStatusSchema.default('active'),
+  closedOn: z.string().optional(),
+  closePrice: z.number().optional(),
+  returnPct: z.number().optional(),
+  outcome: BetOutcomeSchema.optional(),
+  postMortem: PostMortemSchema.optional(),
+});
+export type SystematicBet = z.infer<typeof SystematicBetSchema>;

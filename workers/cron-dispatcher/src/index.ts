@@ -148,6 +148,15 @@ export const PIPELINE_SCHEDULE: ScheduledSlot[] = [
     workflowFile: 'monthly.yml',
     description: '1st of month macro review',
   },
+
+  // ── Nightly Systematic Bets Evaluation ──
+  {
+    hours: 23,
+    minutes: 0,
+    job: 'evaluate-bets',
+    workflowFile: 'evaluate-bets.yml',
+    description: 'Daily late-night evaluation and settlement of expiring systematic bets',
+  },
 ];
 
 /** Map of all valid job names to workflow files */
