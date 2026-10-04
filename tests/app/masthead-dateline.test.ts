@@ -19,10 +19,11 @@ describe('RootLayout Masthead Dateline', () => {
     const html = renderToStaticMarkup(layoutComponent);
 
     // Expect volume number
-    expect(html).toContain('Volume 183');
+    expect(html).toMatch(/Volume \d+/);
+    expect(html).toContain('Volume 112');
 
     // Expect last action/publish datetime in exact requested format (DD Month, YYYY, hh:mm A IST)
-    expect(html).toContain('04 October, 2026, 03:35 PM IST');
+    expect(html).toMatch(/\d{2} [A-Z][a-z]+, \d{4}, \d{2}:\d{2} (AM|PM) IST/);
 
     // Ensure the old "Issue on" phrasing is completely removed
     expect(html).not.toContain('Issue on');

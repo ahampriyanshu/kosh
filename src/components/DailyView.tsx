@@ -3,6 +3,7 @@ import { MarketDashboard } from './market/MarketDashboard';
 import { NewsDigest } from './market/NewsDigest';
 import RecommendationsList from './market/RecommendationsList';
 import CorpActionsList from './market/CorpActionsList';
+import { RetroView } from './RetroView';
 import { ReportSection } from './ui/ReportSection';
 
 interface DailyViewProps {
@@ -58,6 +59,37 @@ export function DailyView({ content }: DailyViewProps) {
 
       {/* Market Microstructure Dashboard */}
       <MarketDashboard snapshot={content.snapshot} />
+
+      {/* Session Close & Portfolio Surveillance */}
+      {content.retro ? (
+        <section aria-label="Session Close & Portfolio Surveillance" className="pt-6 border-t border-[var(--color-hairline)] space-y-6">
+          <div className="flex items-center justify-between gap-3 border-b border-[var(--color-hairline)] pb-3">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-muted)] block">
+                Session Close Surveillance
+              </span>
+              <h2 className="text-xl font-serif font-bold text-[var(--color-ink)]">
+                Market Close &amp; Portfolio Surveillance
+              </h2>
+            </div>
+            <span className="text-xs font-mono text-[var(--color-muted)] px-2 py-0.5 rounded border border-[var(--color-hairline)]">
+              16:15 IST
+            </span>
+          </div>
+          <RetroView content={content.retro} />
+        </section>
+      ) : (
+        <div className="pt-6 border-t border-[var(--color-hairline)]">
+          <div className="rounded border border-dashed border-[var(--color-hairline)] p-4 text-center">
+            <p className="text-xs uppercase tracking-widest font-semibold text-[var(--color-faint)] mb-1">
+              Closing Surveillance Pending
+            </p>
+            <p className="text-sm text-[var(--color-muted)]">
+              Official closing prices, end-of-day breadth, and portfolio risk screening update after the 15:30 IST market close.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

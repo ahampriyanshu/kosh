@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Lato, Newsreader } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
+import { MarketSessionStatus } from '../components/MarketSessionStatus';
 import { Footer } from '../components/Footer';
 import { siteConfig } from '../lib/site';
 import { getLatest, getManifest } from '../lib/reports';
@@ -187,7 +188,7 @@ export default async function RootLayout({
                     <span aria-hidden="true">|</span>
                     <span>{formattedDateTime}</span>
                   </div>
-                  <span>Indian Equities · NSE &amp; BSE</span>
+                  <MarketSessionStatus />
                 </div>
 
                 {/* Newspaper Title */}

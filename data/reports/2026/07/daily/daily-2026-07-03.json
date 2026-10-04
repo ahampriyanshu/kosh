@@ -5,8 +5,20 @@
   "dateKey": "2026-07-03",
   "generatedAt": "2026-07-03T06:06:27.919Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1304,
+      "TCS.NS": 2093.5,
+      "INFY.NS": 1047.2,
+      "HDFCBANK.NS": 801.05,
+      "ICICIBANK.NS": 1411.4
+    },
     "searchTimestamp": "2026-07-03T06:06:27.919Z"
   },
   "content": {
@@ -822,8 +834,60 @@
       "DIIs were significant net buyers (+1784.4cr), offsetting FII net selling (-311.82cr).",
       "Market breadth was positive with 35 advancing stocks against 22 declining.",
       "India VIX remained subdued at 11.8775."
-    ]
+    ],
+    "retro": {
+      "date": "2026-07-03",
+      "evaluated": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "price": 1304,
+          "changePct": 0.04,
+          "note": "+0.0% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "price": 2093.5,
+          "changePct": 1.23,
+          "note": "+1.2% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "price": 1047.2,
+          "changePct": 0.61,
+          "note": "+0.6% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "price": 801.05,
+          "changePct": 0.65,
+          "note": "+0.6% vs prev close, vol 0.8x avg"
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "price": 1411.4,
+          "changePct": 0.81,
+          "note": "+0.8% vs prev close, vol 0.9x avg"
+        }
+      ],
+      "alerts": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "reason": "Trading flat on a broadly positive market day, indicating relative weakness, and below 50DMA support.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        }
+      ],
+      "summary": "Reliance Industries showed a genuine sell signal due to relative weakness and breaking 50DMA support, while IT sector alerts for TCS and Infosys were considered noise amidst strong market rallies."
+    }
   },
   "emailSent": true,
-  "checksum": "sha256:04d87c662c3385a02f88f72e7a83aac4ed40dbe42daeb1bfc8d14c806848291d"
+  "checksum": "sha256:d014b25d63088f05fdd32289810f3ee425ebe337613e5599684f9d9e42754986"
 }

@@ -11,12 +11,12 @@ import { fetchGlobal } from '../lib/feed/global';
 import { fetchNews } from '../lib/feed/news';
 import { fetchFlows } from '../lib/feed/flows';
 import { buildDailyNarrative } from '../lib/reports-narrative';
-import { writeReport, computeChecksum } from '../lib/storage';
+import { writeReport, computeChecksum, findReportByRoute } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
 import {
   DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema,
-  GlobalSliceSchema, NewsSliceSchema, FlowsSliceSchema, type ReportEnvelope
+  GlobalSliceSchema, NewsSliceSchema, FlowsSliceSchema, type ReportEnvelope, type DailyContent
 } from '../lib/schemas';
 import { computeMoodSnapshot } from '../lib/sentiment';
 
@@ -78,7 +78,22 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
   await writeSnapshot(date, snapshot);
 
   const narrative = await buildDailyNarrative(snapshot);
-  const content = DailyContentSchema.parse({ snapshot, outlook: narrative.outlook, keyTakeaways: narrative.keyTakeaways });
+  let existingRetro: DailyContent['retro'];
+  try {
+    const existing = await findReportByRoute('daily', date);
+    if (existing?.content && typeof existing.content === 'object' && 'retro' in existing.content) {
+      existingRetro = (existing.content as DailyContent).retro;
+    }
+  } catch {
+    // ignore
+  }
+
+  const content = DailyContentSchema.parse({
+    snapshot,
+    outlook: narrative.outlook,
+    keyTakeaways: narrative.keyTakeaways,
+    ...(existingRetro ? { retro: existingRetro } : {}),
+  });
 
   const shouldSendEmail = options.sendEmail ?? true;
   const shouldDeleteFeed = options.deleteFeedSlices ?? true;

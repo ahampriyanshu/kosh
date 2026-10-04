@@ -16,10 +16,39 @@ export const BetSchema = z.object({
 });
 export type Bet = z.infer<typeof BetSchema>;
 
+export const AlertSeveritySchema = z.enum(['high', 'medium', 'low']);
+export type AlertSeverity = z.infer<typeof AlertSeveritySchema>;
+
+export const AlertSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  reason: z.string(),
+  severity: AlertSeveritySchema,
+  triggeredRules: z.array(z.string()),
+});
+export type Alert = z.infer<typeof AlertSchema>;
+
+export const RetroContentSchema = z.object({
+  date: z.string(),
+  evaluated: z.array(
+    z.object({
+      ticker: z.string(),
+      name: z.string(),
+      price: z.number(),
+      changePct: z.number(),
+      note: z.string(),
+    }),
+  ),
+  alerts: z.array(AlertSchema),
+  summary: z.string(),
+});
+export type RetroContent = z.infer<typeof RetroContentSchema>;
+
 export const DailyContentSchema = z.object({
   snapshot: z.lazy(() => MarketSnapshotSchema),
   outlook: z.string(),
   keyTakeaways: z.array(z.string()),
+  retro: RetroContentSchema.optional(),
 });
 export type DailyContent = z.infer<typeof DailyContentSchema>;
 
@@ -59,34 +88,6 @@ export const ManifestSchema = z.object({
   latest: z.record(z.string(), z.string()).default({}),
 });
 export type Manifest = z.infer<typeof ManifestSchema>;
-
-export const AlertSeveritySchema = z.enum(['high', 'medium', 'low']);
-export type AlertSeverity = z.infer<typeof AlertSeveritySchema>;
-
-export const AlertSchema = z.object({
-  ticker: z.string(),
-  name: z.string(),
-  reason: z.string(),
-  severity: AlertSeveritySchema,
-  triggeredRules: z.array(z.string()),
-});
-export type Alert = z.infer<typeof AlertSchema>;
-
-export const RetroContentSchema = z.object({
-  date: z.string(),
-  evaluated: z.array(
-    z.object({
-      ticker: z.string(),
-      name: z.string(),
-      price: z.number(),
-      changePct: z.number(),
-      note: z.string(),
-    }),
-  ),
-  alerts: z.array(AlertSchema),
-  summary: z.string(),
-});
-export type RetroContent = z.infer<typeof RetroContentSchema>;
 
 export const GradedBetSchema = z.object({
   ticker: z.string(),

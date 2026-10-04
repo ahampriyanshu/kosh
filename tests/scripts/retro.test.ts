@@ -100,11 +100,11 @@ describe('runRetro', () => {
     const first = h.writeReport.mock.calls[0][0];
     const second = h.writeReport.mock.calls[1][0];
 
-    expect(first.content.alerts).toEqual([]);
+    expect(first.content.retro.alerts).toEqual([]);
     expect(first.emailSent).toBe(false);
-    expect(first.id).toMatch(/^retro-/);
+    expect(first.id).toMatch(/^daily-/);
     expect(first.dateKey).toBeTruthy();
-    expect(first.type).toBe('retro');
+    expect(first.type).toBe('daily');
     expect(first.sourceData.tickers).toEqual(['X.NS']);
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
@@ -147,8 +147,10 @@ describe('runRetro', () => {
 
     expect(h.writeReport).toHaveBeenCalledTimes(2);
     const first = h.writeReport.mock.calls[0][0];
-    expect(first.content.alerts).toHaveLength(1);
-    expect(first.content.alerts[0].ticker).toBe('X.NS');
+    expect(first.content.retro.alerts).toHaveLength(1);
+    expect(first.content.retro.alerts[0].ticker).toBe('X.NS');
+    expect(first.id).toMatch(/^daily-/);
+    expect(first.type).toBe('daily');
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
   });
@@ -193,7 +195,7 @@ describe('runRetro', () => {
 
     const first = h.writeReport.mock.calls[0][0];
     // Only X.NS should remain — Y.NS was not in the flagged set
-    expect(first.content.alerts).toHaveLength(1);
-    expect(first.content.alerts[0].ticker).toBe('X.NS');
+    expect(first.content.retro.alerts).toHaveLength(1);
+    expect(first.content.retro.alerts[0].ticker).toBe('X.NS');
   });
 });

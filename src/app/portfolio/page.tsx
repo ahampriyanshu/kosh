@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PortfolioUnlock } from '../../components/PortfolioUnlock';
-import { getLatest } from '../../lib/reports';
+import { getLatest, getManifest, getReport } from '../../lib/reports';
 import { dateReportPath } from '../../../lib/report-routes';
-import type { RetroContent } from '../../../lib/schemas';
+import type { DailyContent, RetroContent } from '../../../lib/schemas';
 
 export const metadata: Metadata = {
   title: 'Portfolio & Risk Surveillance | Kosh',
@@ -13,8 +13,34 @@ export const metadata: Metadata = {
 };
 
 export default async function PortfolioPage() {
-  const retro = await getLatest('retro');
-  const retroContent = retro ? (retro.content as RetroContent) : null;
+  const latestDaily = await getLatest('daily');
+  let retroContent = (latestDaily?.content as DailyContent)?.retro ?? null;
+  let auditDateKey = latestDaily?.dateKey;
+
+  // Fallback to previous daily report if latest daily is morning-only (before 16:15 IST)
+  if (!retroContent) {
+    const manifest = await getManifest();
+    const dailyEntries = manifest.reports.filter((r) => r.type === 'daily');
+    for (const entry of dailyEntries) {
+      if (entry.id === latestDaily?.id) continue;
+      const report = await getReport(entry.id);
+      const content = report.content as DailyContent;
+      if (content?.retro) {
+        retroContent = content.retro;
+        auditDateKey = report.dateKey;
+        break;
+      }
+    }
+  }
+
+  // Also support legacy standalone retro report if present during migration
+  if (!retroContent) {
+    const legacyRetro = await getLatest('retro');
+    if (legacyRetro?.content) {
+      retroContent = legacyRetro.content as RetroContent;
+      auditDateKey = legacyRetro.dateKey;
+    }
+  }
 
   return (
     <div className="space-y-12">
@@ -37,11 +63,11 @@ export default async function PortfolioPage() {
             </div>
             <div className="flex items-center gap-4 text-xs font-mono">
               <span className="text-[var(--color-muted)]">
-                Audit As Of {retro?.dateKey || 'Latest'} · 16:15 IST
+                Audit As Of {auditDateKey || 'Latest'} · 16:15 IST
               </span>
-              {retro && (
+              {auditDateKey && (
                 <Link
-                  href={dateReportPath(retro.dateKey)}
+                  href={dateReportPath(auditDateKey)}
                   className="text-[var(--color-ink)] hover:underline font-serif italic text-xs"
                 >
                   Full Retrospective &rarr;

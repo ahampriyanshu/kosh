@@ -79,8 +79,24 @@ export async function writeReport(envelope: ReportEnvelope): Promise<void> {
 export async function readReport(id: string): Promise<ReportEnvelope> {
   const manifest = await readManifest();
   const entry = manifest.reports.find((r) => r.id === id);
-  if (!entry) throw new Error(`No manifest entry for report ${id}`);
-  const raw = await readFile(path.join(dataDir(), entry.path), 'utf8');
+  let raw: string;
+  if (entry) {
+    raw = await readFile(path.join(dataDir(), entry.path), 'utf8');
+  } else {
+    // Check archive fallback (e.g. data/archive/reports/YYYY/MM/type/id.json)
+    const match = id.match(/^([a-z]+)-(\d{4})-(\d{2})/);
+    if (match) {
+      const [, type, yyyy, mm] = match;
+      const archivePath = path.join(dataDir(), 'archive', 'reports', yyyy, mm, type, `${id}.json`);
+      try {
+        raw = await readFile(archivePath, 'utf8');
+      } catch {
+        throw new Error(`No manifest entry or archive found for report ${id}`);
+      }
+    } else {
+      throw new Error(`No manifest entry for report ${id}`);
+    }
+  }
   const envelope = ReportEnvelopeSchema.parse(JSON.parse(raw)); // validate shape on read
   const expected = computeChecksum(envelope.content);
   if (envelope.checksum !== expected) {

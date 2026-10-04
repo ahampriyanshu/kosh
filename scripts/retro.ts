@@ -4,7 +4,7 @@ import { readPortfolio } from '../lib/portfolio';
 import { getQuoteDetail, getHistorical } from '../lib/market-data';
 import { sma } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
-import { writeReport, computeChecksum } from '../lib/storage';
+import { writeReport, computeChecksum, findReportByRoute, readReport } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderRetroEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
@@ -17,10 +17,13 @@ import { computeMoodSnapshot } from '../lib/sentiment';
 import {
   AlertSchema,
   RetroContentSchema,
+  DailyContentSchema,
   IndicesSliceSchema,
   UniverseSliceSchema,
   InternalsSliceSchema,
   type RetroContent,
+  type DailyContent,
+  type MarketSnapshot,
   type ReportEnvelope,
 } from '../lib/schemas';
 
@@ -42,7 +45,34 @@ function avg(nums: number[]): number {
   return nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : 0;
 }
 
-async function refreshMarketClosingSlices(date: string, nowIso: string): Promise<void> {
+function fallbackSnapshot(asOf: string): MarketSnapshot {
+  return {
+    asOf,
+    window: '1d',
+    indianIndices: [],
+    giftNifty: null,
+    globalIndices: [],
+    commodities: [],
+    currencies: [],
+    bondYield: null,
+    vix: null,
+    breadth: null,
+    topGainers: [],
+    topLosers: [],
+    mostActive: [],
+    near52wHigh: [],
+    near52wLow: [],
+    volumeShockers: [],
+    sectorRanking: [],
+    fiiDii: null,
+    news: [],
+    streetRecommendations: [],
+    corporateActions: [],
+    derivatives: null,
+  };
+}
+
+async function refreshMarketClosingSlices(date: string, nowIso: string): Promise<MarketSnapshot | null> {
   try {
     const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
     const internals = computeInternals(universe.quotes);
@@ -54,17 +84,20 @@ async function refreshMarketClosingSlices(date: string, nowIso: string): Promise
     snapshot.sentiment = mood;
     await writeSnapshot(date, snapshot);
     console.log(`Updated official closing snapshot and mood index for ${date} (${mood.composite}/100 · ${mood.regime}).`);
+    return snapshot;
   } catch (err) {
     console.warn(`Could not refresh closing snapshot for ${date}:`, err);
+    return null;
   }
 }
 
 export async function runRetro(now: Date = new Date(), options: { sendEmail?: boolean } = {}): Promise<void> {
   const date = istDateString(now);
+  const nowIso = now.toISOString();
   const period1 = new Date(now.getTime() - 120 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
   // Refresh the day's official closing snapshot so website and analytics reflect today's close
-  await refreshMarketClosingSlices(date, now.toISOString());
+  const closingSnapshot = await refreshMarketClosingSlices(date, nowIso);
 
   const portfolio = await readPortfolio();
   const holdings = portfolio.holdings;
@@ -123,28 +156,67 @@ export async function runRetro(now: Date = new Date(), options: { sendEmail?: bo
     summary = object.summary;
   }
 
-  const content = RetroContentSchema.parse({ date, evaluated, alerts, summary });
+  const retroContent = RetroContentSchema.parse({ date, evaluated, alerts, summary });
+
+  // Read existing morning daily report to preserve outlook and morning cues
+  let existingDaily: ReportEnvelope | null = null;
+  try {
+    existingDaily = await findReportByRoute('daily', date);
+  } catch {
+    existingDaily = null;
+  }
+  if (!existingDaily) {
+    try {
+      existingDaily = await readReport(`daily-${date}`);
+    } catch {
+      existingDaily = null;
+    }
+  }
+
+  const existingContent = (existingDaily?.content as Partial<DailyContent>) ?? {};
+  let snapshot = closingSnapshot;
+  if (!snapshot) {
+    if (existingContent.snapshot) {
+      snapshot = existingContent.snapshot;
+    } else {
+      try {
+        snapshot = await buildSnapshot(date, '1d', nowIso);
+      } catch {
+        snapshot = fallbackSnapshot(nowIso);
+      }
+    }
+  }
+
+  const dailyContent = DailyContentSchema.parse({
+    snapshot,
+    outlook: existingContent.outlook ?? `Market session concluded on ${date}. Portfolio surveillance and risk screening complete.`,
+    keyTakeaways: existingContent.keyTakeaways ?? [],
+    retro: retroContent,
+  });
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `retro-${date}`,
+    id: `daily-${date}`,
     dateKey: date,
-    type: 'retro',
-    generatedAt: now.toISOString(),
+    type: 'daily',
+    generatedAt: nowIso,
     sourceData: {
-      tickers: holdings.map((s) => s.ticker),
-      priceSnapshot,
-      searchTimestamp: now.toISOString(),
+      tickers: Array.from(new Set([...(existingDaily?.sourceData?.tickers ?? []), ...holdings.map((s) => s.ticker)])),
+      priceSnapshot: {
+        ...(existingDaily?.sourceData?.priceSnapshot ?? {}),
+        ...priceSnapshot,
+      },
+      searchTimestamp: nowIso,
     },
-    content,
-    checksum: computeChecksum(content),
+    content: dailyContent,
+    checksum: computeChecksum(dailyContent),
   };
 
   const shouldSendEmail = options.sendEmail ?? true;
   await writeReport({ ...base, emailSent: false });
   if (shouldSendEmail) {
     try {
-      await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(content));
+      await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(retroContent));
       await writeReport({ ...base, emailSent: true });
     } catch (e) {
       console.warn('[retro] Could not send email:', e);
@@ -170,7 +242,7 @@ export async function runRetro(now: Date = new Date(), options: { sendEmail?: bo
     }
   }
 
-  console.log(`Market close retro ${base.id} written, closing snapshot updated (${alerts.length} alerts).`);
+  console.log(`Updated daily report ${base.id} with market close & retro surveillance (${alerts.length} alerts).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

@@ -87,5 +87,33 @@ describe('DailyView', () => {
     expect(html).toContain('Jefferies');
     expect(html).toContain('Corporate Actions &amp; Calendar');
     expect(html).toContain('TCS');
+    expect(html).toContain('Closing Surveillance Pending');
+  });
+
+  it('renders Session Close & Portfolio Surveillance when retro is present', () => {
+    const withRetro: DailyContent = {
+      ...sampleDailyContent,
+      retro: {
+        date: '2026-10-01',
+        evaluated: [
+          { ticker: 'TCS.NS', name: 'Tata Consultancy Services', price: 4200, changePct: 1.5, note: 'Strong support' },
+        ],
+        alerts: [
+          { ticker: 'INFY.NS', name: 'Infosys', reason: 'High volume selloff', severity: 'high', triggeredRules: ['drawdown>3%'] },
+        ],
+        summary: 'IT pulled back late in the session while domestic banks held firm.',
+      },
+    };
+
+    const html = renderToStaticMarkup(createElement(DailyView, { content: withRetro }));
+
+    expect(html).toContain('Market Close &amp; Portfolio Surveillance');
+    expect(html).toContain('16:15 IST');
+    expect(html).toContain('IT pulled back late in the session');
+    expect(html).toContain('INFY');
+    expect(html).toContain('High volume selloff');
+    expect(html).toContain('Portfolio Scan');
+    expect(html).toContain('Tata Consultancy Services');
+    expect(html).not.toContain('Closing Surveillance Pending');
   });
 });
