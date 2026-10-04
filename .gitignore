@@ -19,6 +19,7 @@ out/
 next-env.d.ts
 tsconfig.tsbuildinfo
 .DS_Store
+.wrangler/
 
 # IDE
 .vscode/
@@ -30,3 +31,4 @@ tsconfig.tsbuildinfo
 /dist
 /coverage
 docs
+preview/

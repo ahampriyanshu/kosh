@@ -1,0 +1,41 @@
+name: Evaluate Expiring Bets (Daily Late-Night)
+
+on:
+  schedule:
+    - cron: '58 22 * * *' # Targets 23:00 IST daily; avoids crowded quarter-hour scheduler slots.
+      timezone: "Asia/Kolkata"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  evaluate-bets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx tsx scripts/evaluate-bets.ts
+        env:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY }}
+          GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_1 }}
+          GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2: ${{ secrets.GOOGLE_GENERATIVE_AI_API_KEY_FALLBACK_2 }}
+          GOOGLE_MODEL: ${{ secrets.GOOGLE_MODEL }}
+          GOOGLE_MODEL_FALLBACK_1: ${{ secrets.GOOGLE_MODEL_FALLBACK_1 }}
+          GOOGLE_MODEL_FALLBACK_2: ${{ secrets.GOOGLE_MODEL_FALLBACK_2 }}
+
+      - name: Commit settled bets
+        run: |
+          git config user.name "kosh-bot"
+          git config user.email "kosh-bot@users.noreply.github.com"
+          git pull --rebase --autostash
+          git add -A data/
+          git diff --staged --quiet || git commit -m "chore(data): settle expiring bets $(date -u +%F)"
+          git push

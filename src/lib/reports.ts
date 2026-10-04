@@ -15,7 +15,8 @@ export async function getReportsByType(type: ReportType): Promise<ReportEnvelope
 }
 export async function getLatest(type: ReportType): Promise<ReportEnvelope | null> {
   const m = await readManifest();
-  const id = m.latest[type];
+  const newestInReports = m.reports.find((r) => r.type === type);
+  const id = newestInReports?.id || m.latest[type];
   return id ? readReport(id) : null;
 }
 export { readPortfolio, readAllLedgers };

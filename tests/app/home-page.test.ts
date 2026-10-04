@@ -1,0 +1,68 @@
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { describe, expect, it } from 'vitest';
+import TodayPage from '../../src/app/page';
+
+(globalThis as typeof globalThis & { React: typeof React }).React = React;
+
+describe('TodayPage (/)', () => {
+  it('renders Corporate Actions calendar with dates and event types', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    expect(html).toContain('Corporate Actions');
+    expect(html).toContain('Calendar');
+    // Ensure no old natural language corporate disclosures header
+    expect(html).not.toContain('Corporate Disclosures');
+    // Ensure portfolio link and positional ledger table were removed
+    expect(html).not.toContain('Turn to Page 5 · Audited Model Portfolio');
+    expect(html).not.toContain('Audited Positional Calls Ledger');
+    expect(html).not.toContain('Surveillance Alert:');
+    expect(html).not.toContain('Section IV · Portfolio Surveillance');
+  });
+
+  it('renders minimal Institutional Flows with neutral ink typography and no date in heading', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    expect(html).toContain('Institutional Flows');
+    expect(html).toContain('FII Net Cash');
+    expect(html).toContain('DII Net Cash');
+    // Ensure "Open Sentiment Index" link is removed
+    expect(html).not.toContain('Open Sentiment Index');
+  });
+
+  it('renders 6 major headlines with Category - Source header, title, and stock badges as a full clickable card', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    // Extract headlines from middle column
+    const headlineCount = (html.match(/<article class="homepage-story">/g) || []).length;
+    expect(headlineCount).toBe(6);
+
+    // Ensure story summary paragraph is not rendered in homepage stories
+    expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?<p class="text-sm text-\[var\(--color-muted\)\] leading-relaxed">/);
+
+    // Ensure Category - Source meta line is present
+    expect(html).toContain('Macro &amp; Policy - Economic Times');
+
+    // Ensure full card has link anchor to source
+    expect(html).toMatch(/<article class="homepage-story"><a href="https:\/\/[^"]*"[^>]*>[\s\S]*?Macro &amp; Policy - Economic Times[\s\S]*?<\/a><\/article>/);
+
+    // Ensure no background color change on hover in news cards
+    expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?hover:bg-/);
+
+    // Ensure tickers are rendered as simple text, not boxed pills
+    expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?<span[^>]*border border-\[var\(--color-hairline\)\]/);
+  });
+
+  it('renders Sector Rotation without ranking index numbers', async () => {
+    const pageComponent = await TodayPage();
+    const html = renderToStaticMarkup(pageComponent);
+
+    expect(html).toContain('Sector Rotation');
+    // Ensure no ranking index numbers like "1." in sector list
+    expect(html).not.toMatch(/text-\[10px\][^>]*w-3\.5[^>]*>1\.</);
+  });
+});
+

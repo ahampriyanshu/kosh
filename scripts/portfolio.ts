@@ -6,12 +6,14 @@ import { atomicWriteJson } from '../lib/storage';
 import { encryptedPortfolioPath } from '../lib/portfolio';
 import { encryptPortfolioEnvelope } from '../lib/portfolio-crypto';
 
-export async function runPortfolioSync(now: Date = new Date()): Promise<void> {
+export async function runPortfolioSync(
+  now: Date = new Date(),
+  outputPath: string = encryptedPortfolioPath()
+): Promise<void> {
   const portfolio = await fetchKiteHoldingsSnapshot(now);
   const key = process.env.PORTFOLIO_KEY;
   if (!key) throw new Error('Missing PORTFOLIO_KEY for encrypted portfolio sync.');
   const encrypted = await encryptPortfolioEnvelope(portfolio, key);
-  const outputPath = encryptedPortfolioPath();
   await mkdir(path.dirname(outputPath), { recursive: true });
   await atomicWriteJson(outputPath, encrypted);
   console.log(`Encrypted portfolio snapshot written (${portfolio.holdings.length} holdings).`);

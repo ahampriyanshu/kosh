@@ -1,13 +1,13 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdtemp, rm, readFile, readdir } from 'node:fs/promises';
+import { mkdtemp, rm, readFile, readdir, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { computeChecksum, writeReport, readReport, readManifest, findReportByRoute } from '../../lib/storage';
-import type { ReportEnvelope } from '../../lib/schemas';
+import type { ReportEnvelope, ReportType } from '../../lib/schemas';
 
 let dir: string;
 
-function makeEnvelope(id: string, dateKey: string, type: 'daily' | 'weekly' = 'daily'): ReportEnvelope {
+function makeEnvelope(id: string, dateKey: string, type: ReportType = 'daily'): ReportEnvelope {
   const content = { hello: 'world' };
   return {
     schemaVersion: 1,
@@ -102,5 +102,21 @@ describe('storage', () => {
     await writeReport(makeEnvelope('daily-2026-06-14', '2026-06-14'));
     const back = await readReport('daily-2026-06-14');
     expect(back.dateKey).toBe('2026-06-14');
+  });
+
+  it('falls back to archive directory when report is not in manifest', async () => {
+    const env = makeEnvelope('retro-2026-06-14', '2026-06-14', 'retro');
+    const archivePath = path.join(dir, 'archive', 'reports', '2026', '06', 'retro', 'retro-2026-06-14.json');
+    await mkdir(path.dirname(archivePath), { recursive: true });
+    await writeFile(archivePath, JSON.stringify(env), 'utf8');
+
+    // Manifest does not contain retro-2026-06-14
+    const manifest = await readManifest();
+    expect(manifest.reports.some((r) => r.id === 'retro-2026-06-14')).toBe(false);
+
+    // readReport resolves from archive fallback
+    const resolved = await readReport('retro-2026-06-14');
+    expect(resolved.id).toBe('retro-2026-06-14');
+    expect(resolved.type).toBe('retro');
   });
 });

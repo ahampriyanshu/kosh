@@ -1,4 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 const h = vi.hoisted(() => ({
   loadWindowSnapshots: vi.fn(), aggregateSnapshots: vi.fn(),
   buildWeeklyNarrative: vi.fn(), writeReport: vi.fn(), sendReportEmail: vi.fn(),
@@ -19,12 +22,22 @@ const snap = MarketSnapshotSchema.parse({
   news: [], streetRecommendations: [], corporateActions: [],
   giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
 });
-beforeEach(() => {
+
+let tempDir: string;
+
+beforeEach(async () => {
+  tempDir = await mkdtemp(path.join(tmpdir(), 'kosh-weekly-test-'));
+  process.env.KOSH_DATA_DIR = tempDir;
   Object.values(h).forEach((m) => m.mockReset());
   h.loadWindowSnapshots.mockResolvedValue([snap]);
   h.aggregateSnapshots.mockReturnValue(snap);
   h.buildWeeklyNarrative.mockResolvedValue({ themes: ['rotation'], positionalBets: [] });
   h.writeReport.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
+});
+
+afterEach(async () => {
+  delete process.env.KOSH_DATA_DIR;
+  await rm(tempDir, { recursive: true, force: true });
 });
 
 describe('runWeekly', () => {

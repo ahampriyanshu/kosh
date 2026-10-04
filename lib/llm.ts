@@ -169,7 +169,7 @@ export async function researchWithSearch(prompt: string): Promise<Grounded> {
   });
 }
 
-export async function structure<T>(prompt: string, schema: ZodType<T>): Promise<T> {
+export async function structure<T>(prompt: string, schema: ZodType<T, any, any>): Promise<T> {
   return runWithGoogleFallback(async (route) => {
     const provider = providerFor(route.apiKey);
     const { object } = await generateObject({
@@ -177,7 +177,7 @@ export async function structure<T>(prompt: string, schema: ZodType<T>): Promise<
       schema,
       prompt,
     });
-    return object;
+    return object as T;
   });
 }
 

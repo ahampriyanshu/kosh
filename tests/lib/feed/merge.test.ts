@@ -2,7 +2,7 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { writeSlice } from '../../../lib/feed/store';
+import { writeSlice, writeSnapshot } from '../../../lib/feed/store';
 import { buildSnapshot } from '../../../lib/feed/merge';
 import {
   IndicesSliceSchema, GlobalSliceSchema, InternalsSliceSchema, NewsSliceSchema, FlowsSliceSchema, MarketSnapshotSchema,
@@ -85,5 +85,38 @@ describe('buildSnapshot', () => {
     await writeSlice(date, 'indices', { indianIndices: [], vix: null }, IndicesSliceSchema);
     expect((await buildSnapshot(date, '1d', '2026-06-15T02:30:00.000Z')).asOf).toBe('2026-06-15T02:30:00.000Z');
     expect((await buildSnapshot(date, '1d')).asOf).toBe('2026-06-15T00:00:00.000Z');
+  });
+
+  it('preserves existing snapshot data when operational feed slices are missing (e.g. evening runs)', async () => {
+    const date = '2026-06-15';
+    const morningSnap = MarketSnapshotSchema.parse({
+      asOf: '2026-06-15T02:45:00.000Z',
+      window: '1d',
+      indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 23600, changePct: 0.5 }],
+      globalIndices: [{ name: 'Dow Jones', symbol: '^DJI', ltp: 40000, changePct: 0.2 }],
+      commodities: [{ name: 'Gold', value: 4000, changePct: 0.1 }],
+      currencies: [{ pair: 'USD/INR', value: 83.5, changePct: 0.05 }],
+      topGainers: [], topLosers: [], mostActive: [], near52wHigh: [], near52wLow: [],
+      volumeShockers: [], sectorRanking: [],
+      news: [{ category: 'macro_policy', items: [{ headline: 'Morning News', summary: '...', source: 'ET', sentiment: 'neutral' }] }],
+      streetRecommendations: [{ ticker: 'BEL.NS', name: 'BEL', brokerage: 'Jefferies', action: 'buy', target: 350, rationale: 'Order book' }],
+      corporateActions: [{ ticker: 'TCS.NS', name: 'TCS', type: 'dividend', date: '2026-06-20' }],
+      giftNifty: null, bondYield: null, vix: null, breadth: null,
+      fiiDii: { fiiNet: -500, diiNet: 600, unit: 'crore', asOf: '2026-06-14' },
+    });
+    await writeSnapshot(date, morningSnap);
+
+    // Evening run only writes indices slice with new closing prices
+    await writeSlice(date, 'indices', { indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 23700, changePct: 0.9 }], vix: null }, IndicesSliceSchema);
+
+    // Merging should update closing price while preserving morning qualitative and macro data
+    const eveningSnap = await buildSnapshot(date, '1d', '2026-06-15T10:15:00.000Z');
+    expect(eveningSnap.indianIndices[0].ltp).toBe(23700);
+    expect(eveningSnap.streetRecommendations.length).toBe(1);
+    expect(eveningSnap.streetRecommendations[0].ticker).toBe('BEL.NS');
+    expect(eveningSnap.corporateActions.length).toBe(1);
+    expect(eveningSnap.news.length).toBe(1);
+    expect(eveningSnap.commodities.length).toBe(1);
+    expect(eveningSnap.fiiDii?.fiiNet).toBe(-500);
   });
 });

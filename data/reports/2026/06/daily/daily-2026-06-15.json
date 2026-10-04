@@ -5,8 +5,20 @@
   "dateKey": "2026-06-15",
   "generatedAt": "2026-06-15T18:28:00.415Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1307,
+      "TCS.NS": 2162,
+      "INFY.NS": 1134.9,
+      "HDFCBANK.NS": 777.35,
+      "ICICIBANK.NS": 1327.6
+    },
     "searchTimestamp": "2026-06-15T18:28:00.415Z"
   },
   "content": {
@@ -979,8 +991,50 @@
       "DIIs were significant net buyers (5341.29cr), countering FII outflows (1082.18cr).",
       "Market breadth was positive with 39 advances against 19 declines.",
       "DLF (+4.7%) and HDFCLIFE (+4.7%) were among the top gainers."
-    ]
+    ],
+    "retro": {
+      "date": "2026-06-15",
+      "evaluated": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "price": 1307,
+          "changePct": 1.08,
+          "note": "+1.1% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "price": 2162,
+          "changePct": 0.03,
+          "note": "+0.0% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "price": 1134.9,
+          "changePct": 1.66,
+          "note": "+1.7% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "price": 777.35,
+          "changePct": 0.63,
+          "note": "+0.6% vs prev close, vol 1.1x avg"
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "price": 1327.6,
+          "changePct": -0.98,
+          "note": "-1.0% vs prev close, vol 0.9x avg"
+        }
+      ],
+      "alerts": [],
+      "summary": "No genuine sell signals were identified among the watchlist stocks today; alerts were primarily attributed to market noise, pre-existing trends, or technical adjustments like ex-dividend effects."
+    }
   },
   "emailSent": true,
-  "checksum": "sha256:bb0cd2e689836a95aba9eb7d333670b932fc445a5c0294995a427cac9d7a07ea"
+  "checksum": "sha256:2d42ddfe940882faefaf006b739520c84bfef7d0b1297065abb8d4504b43341b"
 }

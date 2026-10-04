@@ -21,7 +21,7 @@ export function Pct({ value, decimals = 2, className = '' }: PctProps) {
 
   return (
     <span
-      className={`font-mono tabular-nums text-sm font-medium inline-flex items-center gap-0.5 ${color} ${className}`}
+      className={`tabular-nums text-sm font-medium inline-flex items-center gap-0.5 ${color} ${className}`}
     >
       <span aria-hidden="true" className="text-xs">{glyph}</span>
       {sign}{value.toFixed(decimals)}%

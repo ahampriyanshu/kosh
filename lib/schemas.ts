@@ -16,10 +16,39 @@ export const BetSchema = z.object({
 });
 export type Bet = z.infer<typeof BetSchema>;
 
+export const AlertSeveritySchema = z.enum(['high', 'medium', 'low']);
+export type AlertSeverity = z.infer<typeof AlertSeveritySchema>;
+
+export const AlertSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  reason: z.string(),
+  severity: AlertSeveritySchema,
+  triggeredRules: z.array(z.string()),
+});
+export type Alert = z.infer<typeof AlertSchema>;
+
+export const RetroContentSchema = z.object({
+  date: z.string(),
+  evaluated: z.array(
+    z.object({
+      ticker: z.string(),
+      name: z.string(),
+      price: z.number(),
+      changePct: z.number(),
+      note: z.string(),
+    }),
+  ),
+  alerts: z.array(AlertSchema),
+  summary: z.string(),
+});
+export type RetroContent = z.infer<typeof RetroContentSchema>;
+
 export const DailyContentSchema = z.object({
   snapshot: z.lazy(() => MarketSnapshotSchema),
   outlook: z.string(),
   keyTakeaways: z.array(z.string()),
+  retro: RetroContentSchema.optional(),
 });
 export type DailyContent = z.infer<typeof DailyContentSchema>;
 
@@ -59,34 +88,6 @@ export const ManifestSchema = z.object({
   latest: z.record(z.string(), z.string()).default({}),
 });
 export type Manifest = z.infer<typeof ManifestSchema>;
-
-export const AlertSeveritySchema = z.enum(['high', 'medium', 'low']);
-export type AlertSeverity = z.infer<typeof AlertSeveritySchema>;
-
-export const AlertSchema = z.object({
-  ticker: z.string(),
-  name: z.string(),
-  reason: z.string(),
-  severity: AlertSeveritySchema,
-  triggeredRules: z.array(z.string()),
-});
-export type Alert = z.infer<typeof AlertSchema>;
-
-export const RetroContentSchema = z.object({
-  date: z.string(),
-  evaluated: z.array(
-    z.object({
-      ticker: z.string(),
-      name: z.string(),
-      price: z.number(),
-      changePct: z.number(),
-      note: z.string(),
-    }),
-  ),
-  alerts: z.array(AlertSchema),
-  summary: z.string(),
-});
-export type RetroContent = z.infer<typeof RetroContentSchema>;
 
 export const GradedBetSchema = z.object({
   ticker: z.string(),
@@ -372,6 +373,7 @@ export const FiiDiiSchema = z.object({ fiiNet: z.number(), diiNet: z.number(), u
 export const NewsCategorySchema = z.enum(['macro_policy', 'global_cues', 'earnings', 'sectoral', 'corporate_actions', 'stocks_in_focus']);
 export const NewsItemSchema = z.object({
   headline: z.string(), summary: z.string(), source: z.string(),
+  url: z.string().url().optional(),
   tickers: z.array(z.string()).optional(), sentiment: SignalSchema,
 });
 export const NewsGroupSchema = z.object({ category: NewsCategorySchema, items: z.array(NewsItemSchema) });
@@ -379,13 +381,51 @@ export const StreetRecSchema = z.object({
   ticker: z.string(), name: z.string(), brokerage: z.string(),
   action: z.enum(['buy', 'sell', 'hold', 'accumulate', 'reduce']), target: z.number().optional(), rationale: z.string(),
 });
+export type StreetRec = z.infer<typeof StreetRecSchema>;
 export const CorpActionSchema = z.object({
   ticker: z.string(), name: z.string(),
   type: z.enum(['results', 'dividend', 'split', 'agm', 'bonus']), date: z.string(),
 });
+export type CorpAction = z.infer<typeof CorpActionSchema>;
 export const GiftNiftySchema = z.object({ value: z.number(), changePct: z.number() });
 export const BondYieldSchema = z.object({ name: z.string(), value: z.number(), changeBps: z.number() });
 export const VixSchema = z.object({ value: z.number(), changePct: z.number() });
+export const DerivativesDataSchema = z.object({
+  pcrOi: z.number().nullable(),
+  pcrVolume: z.number().nullable(),
+  callVolumePct: z.number().nullable().optional(),
+  putVolumePct: z.number().nullable().optional(),
+  asOf: z.string().optional(),
+});
+export type DerivativesData = z.infer<typeof DerivativesDataSchema>;
+
+export const SentimentRegimeSchema = z.enum(['Extreme Fear', 'Fear', 'Neutral', 'Greed', 'Extreme Greed']);
+export type SentimentRegime = z.infer<typeof SentimentRegimeSchema>;
+
+export const CategoryMoodScoreSchema = z.object({
+  score: z.number().min(0).max(100),
+  regime: SentimentRegimeSchema,
+  label: z.string(),
+  weight: z.number(),
+  summary: z.string(),
+  metrics: z.record(z.string(), z.union([z.number(), z.string(), z.null()])),
+});
+export type CategoryMoodScore = z.infer<typeof CategoryMoodScoreSchema>;
+
+export const MoodSnapshotSchema = z.object({
+  composite: z.number().min(0).max(100),
+  regime: SentimentRegimeSchema,
+  session: z.enum(['morning', 'closing']),
+  asOf: z.string(),
+  summary: z.string(),
+  categories: z.object({
+    breadth: CategoryMoodScoreSchema,
+    flows: CategoryMoodScoreSchema,
+    volatility: CategoryMoodScoreSchema,
+    derivatives: CategoryMoodScoreSchema,
+  }),
+});
+export type MoodSnapshot = z.infer<typeof MoodSnapshotSchema>;
 
 export const MarketSnapshotSchema = z.object({
   asOf: z.string(),
@@ -409,14 +449,69 @@ export const MarketSnapshotSchema = z.object({
   news: z.array(NewsGroupSchema),
   streetRecommendations: z.array(StreetRecSchema),
   corporateActions: z.array(CorpActionSchema),
+  derivatives: DerivativesDataSchema.nullable().optional().default(null),
+  sentiment: MoodSnapshotSchema.nullable().optional(),
 });
 export type MarketSnapshot = z.infer<typeof MarketSnapshotSchema>;
 
 // ---- Phase 3 content schemas ----
+export const MultiAssetItemSchema = z.object({
+  asset: z.string(),
+  symbol: z.string(),
+  close: z.number(),
+  returnPct: z.number(),
+  context: z.string().optional(),
+});
+export type MultiAssetItem = z.infer<typeof MultiAssetItemSchema>;
+
+export const SectorGrowthItemSchema = z.object({
+  sector: z.string(),
+  weeklyReturnPct: z.number(),
+  rank: z.number(),
+  stance: z.enum(['leading', 'lagging', 'neutral']).optional(),
+});
+export type SectorGrowthItem = z.infer<typeof SectorGrowthItemSchema>;
+
+export const FiiDiiWeeklySchema = z.object({
+  fiiNetCrore: z.number(),
+  diiNetCrore: z.number(),
+  netInstitutionalCrore: z.number(),
+  summary: z.string().optional(),
+});
+export type FiiDiiWeekly = z.infer<typeof FiiDiiWeeklySchema>;
+
+export const PortfolioFocusItemSchema = z.object({
+  ticker: z.string(),
+  name: z.string(),
+  recentEvents: z.string(),
+  upcomingCatalysts: z.string(),
+  riskNote: z.string().optional(),
+});
+export type PortfolioFocusItem = z.infer<typeof PortfolioFocusItemSchema>;
+
+export const IpoFocusItemSchema = z.object({
+  company: z.string(),
+  priceBand: z.string(),
+  issueSize: z.string(),
+  gmp: z.string(),
+  gmpPct: z.string(),
+  subscription: z.string(),
+  status: z.string(),
+  listingDate: z.string().optional(),
+});
+export type IpoFocusItem = z.infer<typeof IpoFocusItemSchema>;
+
 export const WeeklyContentSchema = z.object({
   snapshot: MarketSnapshotSchema,
-  themes: z.array(z.string()),
-  positionalBets: z.array(BetSchema),
+  period: z.string().optional(),
+  themes: z.array(z.string()).default([]),
+  positionalBets: z.array(BetSchema).optional(), // Optional backward compatibility for legacy archives
+  multiAssetScorecard: z.array(MultiAssetItemSchema).optional(),
+  sectorGrowth: z.array(SectorGrowthItemSchema).optional(),
+  fiiDiiWeekly: FiiDiiWeeklySchema.nullable().optional(),
+  portfolioFocus: z.array(PortfolioFocusItemSchema).optional(),
+  iposInFocus: z.array(IpoFocusItemSchema).optional(),
+  macroThemes: z.array(z.string()).optional(),
 });
 export type WeeklyContent = z.infer<typeof WeeklyContentSchema>;
 
@@ -429,10 +524,21 @@ export const LedgerRollupSchema = z.object({
 
 export const MonthlyContentSchema = z.object({
   snapshot: MarketSnapshotSchema,
-  sectorInsights: z.array(z.string()),
-  macroThemes: z.array(z.string()),
-  midTermBets: z.array(BetSchema),
-  ledgerRollup: LedgerRollupSchema.nullable(),
+  period: z.string().optional(),
+  sectorInsights: z.array(z.string()).default([]),
+  macroThemes: z.array(z.string()).default([]),
+  midTermBets: z.array(BetSchema).optional(), // Optional backward compatibility for legacy archives
+  ledgerRollup: LedgerRollupSchema.nullable().optional(),
+  multiAssetScorecard: z.array(MultiAssetItemSchema).optional(),
+  sectorLeadership: z.array(SectorGrowthItemSchema).optional(),
+  fiiDiiMonthly: FiiDiiWeeklySchema.nullable().optional(),
+  portfolioReview: z.object({
+    monthlyReturnPct: z.number(),
+    benchmarkReturnPct: z.number().optional().default(0),
+    topContributors: z.array(z.string()).default([]),
+    drags: z.array(z.string()).default([]),
+    keyLearnings: z.array(z.string()).default([]),
+  }).optional(),
 });
 export type MonthlyContent = z.infer<typeof MonthlyContentSchema>;
 
@@ -458,6 +564,7 @@ export const NewsSliceSchema = z.object({ news: z.array(NewsGroupSchema), street
 export const FlowsSliceSchema = z.object({
   fiiDii: FiiDiiSchema.nullable(), corporateActions: z.array(CorpActionSchema),
   giftNifty: GiftNiftySchema.nullable(), bondYield: BondYieldSchema.nullable(),
+  derivatives: DerivativesDataSchema.nullable().default(null),
 });
 export type IndicesSlice = z.infer<typeof IndicesSliceSchema>;
 export type GlobalSlice = z.infer<typeof GlobalSliceSchema>;
@@ -465,3 +572,44 @@ export type UniverseSlice = z.infer<typeof UniverseSliceSchema>;
 export type InternalsSlice = z.infer<typeof InternalsSliceSchema>;
 export type NewsSlice = z.infer<typeof NewsSliceSchema>;
 export type FlowsSlice = z.infer<typeof FlowsSliceSchema>;
+
+// ---- Systematic Bets (Short-Term & Long-Term) ----
+export const BetHorizonSchema = z.enum(['short_term', 'long_term']);
+export type BetHorizon = z.infer<typeof BetHorizonSchema>;
+
+export const BetOutcomeSchema = z.enum(['hit', 'miss']);
+export type BetOutcome = z.infer<typeof BetOutcomeSchema>;
+
+export const BetStatusSchema = z.enum(['active', 'closed']);
+export type BetStatus = z.infer<typeof BetStatusSchema>;
+
+export const PostMortemSchema = z.object({
+  whatWentWrong: z.string(),
+  howToAvoid: z.string(),
+  analyzedAt: z.string().optional(),
+});
+export type PostMortem = z.infer<typeof PostMortemSchema>;
+
+export const SystematicBetSchema = z.object({
+  id: z.string(),
+  ticker: z.string(),
+  name: z.string(),
+  horizon: BetHorizonSchema,
+  category: z.string(),
+  action: z.enum(['buy', 'sell']).default('buy'),
+  callDate: z.string(),
+  expiryDate: z.string(),
+  entryPrice: z.number(),
+  targetPrice: z.number(),
+  stopLossPrice: z.number(),
+  quantScore: z.number(),
+  triggers: z.string(),
+  thesis: z.string(),
+  status: BetStatusSchema.default('active'),
+  closedOn: z.string().optional(),
+  closePrice: z.number().optional(),
+  returnPct: z.number().optional(),
+  outcome: BetOutcomeSchema.optional(),
+  postMortem: PostMortemSchema.optional(),
+});
+export type SystematicBet = z.infer<typeof SystematicBetSchema>;

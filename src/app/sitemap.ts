@@ -13,9 +13,11 @@ const staticRoutes: Array<{
   priority: number;
 }> = [
   { path: '/', changeFrequency: 'daily', priority: 1 },
+  { path: '/sentiment-index/', changeFrequency: 'daily', priority: 0.9 },
   { path: '/reports/', changeFrequency: 'daily', priority: 0.9 },
   { path: '/outlook/', changeFrequency: 'weekly', priority: 0.8 },
-  { path: '/scorecard/', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/bets/short-term/', changeFrequency: 'daily', priority: 0.8 },
+  { path: '/bets/long-term/', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/research/', changeFrequency: 'weekly', priority: 0.7 },
   { path: '/portfolio/', changeFrequency: 'daily', priority: 0.7 },
 ];

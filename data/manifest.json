@@ -1,20 +1,28 @@
 {
   "reports": [
     {
-      "id": "recap-2026-10-03",
-      "type": "recap",
-      "dateKey": "2026-10-03",
-      "date": "2026-10-03",
-      "path": "reports/2026/10/recap/recap-2026-10-03.json",
-      "checksum": "sha256:b6ec654aa2940973b156fa0bbb5d6c37a1dcfac8bb904dcf7ef166e6f1aa3c48"
+      "id": "weekly-2026-W40",
+      "type": "weekly",
+      "dateKey": "2026-W40",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/weekly/weekly-2026-W40.json",
+      "checksum": "sha256:002f7ee536f1265c4ca2e21b5f3fe9d22571ec56a0daff9d05a4a712f74e8b98"
     },
     {
-      "id": "retro-2026-10-02",
-      "type": "retro",
-      "dateKey": "2026-10-02",
-      "date": "2026-10-02",
-      "path": "reports/2026/10/retro/retro-2026-10-02.json",
-      "checksum": "sha256:2836c5b948ddb94f3b0f497f6d1f3404684006405d0c5e8b97a9b779baa3d4a7"
+      "id": "monthly-2026-09",
+      "type": "monthly",
+      "dateKey": "2026-09",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/monthly/monthly-2026-09.json",
+      "checksum": "sha256:af771a374b41058baeb69616756511a1eddd229b5830db3d22956f572cac9f00"
+    },
+    {
+      "id": "daily-2026-10-04",
+      "type": "daily",
+      "dateKey": "2026-10-04",
+      "date": "2026-10-04",
+      "path": "reports/2026/10/daily/daily-2026-10-04.json",
+      "checksum": "sha256:4126a14521b55c18dfd82566dc0d80c7d13c6187f8acd2741187299203cdbb18"
     },
     {
       "id": "daily-2026-10-02",
@@ -22,31 +30,15 @@
       "dateKey": "2026-10-02",
       "date": "2026-10-02",
       "path": "reports/2026/10/daily/daily-2026-10-02.json",
-      "checksum": "sha256:f227d1a9a082ef229a8040f2969ddc8fd043948a21daaaa62d0c2dde979d254f"
+      "checksum": "sha256:648ec824998b529c34b3075190ec3858e7f0e2bf0ef29086649490a20d38f5e1"
     },
     {
-      "id": "2",
-      "type": "research",
-      "dateKey": "2",
-      "date": "2026-10-02",
-      "path": "reports/2026/10/research/2.json",
-      "checksum": "sha256:033795aedb8f98645d11f18ffe3620ae13dde46f113294a1a6d693b10a620c68"
-    },
-    {
-      "id": "retro-2026-10-01",
-      "type": "retro",
+      "id": "daily-2026-10-01",
+      "type": "daily",
       "dateKey": "2026-10-01",
       "date": "2026-10-01",
-      "path": "reports/2026/10/retro/retro-2026-10-01.json",
-      "checksum": "sha256:f317bf4bd45f5b12d769cf58ef3391331b400d9a2d4438ec5fbacd00a298d4bc"
-    },
-    {
-      "id": "monthly-2026-09",
-      "type": "monthly",
-      "dateKey": "2026-09",
-      "date": "2026-09-30",
-      "path": "reports/2026/09/monthly/monthly-2026-09.json",
-      "checksum": "sha256:f3b34fa5da73325dd66f648c33c92cb2862ca5e5f6ab12b2740077714805541e"
+      "path": "reports/2026/10/daily/daily-2026-10-01.json",
+      "checksum": "sha256:503835f922883907634d72f83f27d6164bd47c30d3070e571176b9be044c8799"
     },
     {
       "id": "daily-2026-09-30",
@@ -57,28 +49,12 @@
       "checksum": "sha256:9bb7389f7859322bf5611b1e7c6283f58454f606a4bb585c0b7b32728200f275"
     },
     {
-      "id": "retro-2026-09-29",
-      "type": "retro",
-      "dateKey": "2026-09-29",
-      "date": "2026-09-29",
-      "path": "reports/2026/09/retro/retro-2026-09-29.json",
-      "checksum": "sha256:3926e181b55ecc58f275a74edf1de1fd469be4704f525b90b02c1615c48397be"
-    },
-    {
       "id": "daily-2026-09-29",
       "type": "daily",
       "dateKey": "2026-09-29",
       "date": "2026-09-29",
       "path": "reports/2026/09/daily/daily-2026-09-29.json",
-      "checksum": "sha256:4903ba8f330f46b817987030518e0619d52e35df6082e3a465f3f237c9020d9c"
-    },
-    {
-      "id": "retro-2026-09-28",
-      "type": "retro",
-      "dateKey": "2026-09-28",
-      "date": "2026-09-28",
-      "path": "reports/2026/09/retro/retro-2026-09-28.json",
-      "checksum": "sha256:a039b05d4fc16ad965cf3731ab5c3d9ac0a5213804a0f17abb0489c8b209ffd7"
+      "checksum": "sha256:d27d7b46bd51dc561b64e4404c75d964c53279b98aec2aa42df325e8fd241141"
     },
     {
       "id": "daily-2026-09-28",
@@ -86,15 +62,7 @@
       "dateKey": "2026-09-28",
       "date": "2026-09-28",
       "path": "reports/2026/09/daily/daily-2026-09-28.json",
-      "checksum": "sha256:600ac642e8ec1b38180aab1d17f211799d5f7110b250bcf1e8de2ba6561e4c32"
-    },
-    {
-      "id": "weekly-2026-W40",
-      "type": "weekly",
-      "dateKey": "2026-W40",
-      "date": "2026-09-27",
-      "path": "reports/2026/09/weekly/weekly-2026-W40.json",
-      "checksum": "sha256:2db9fa827c2c699ba3839fc1298b1c14ed96feff3a27600af0d71071927f7449"
+      "checksum": "sha256:93473f395f2f6e88a28993fdac73ca38ab8c563719212b8bbf9afa0ac4227969"
     },
     {
       "id": "recap-2026-09-26",
@@ -113,28 +81,12 @@
       "checksum": "sha256:334018ed4959a1c2ca8185e099dd15018bba5c4acfa0b88dc141aacd35dc2879"
     },
     {
-      "id": "retro-2026-09-24",
-      "type": "retro",
-      "dateKey": "2026-09-24",
-      "date": "2026-09-24",
-      "path": "reports/2026/09/retro/retro-2026-09-24.json",
-      "checksum": "sha256:504ddf4af8e72a58d00e0f223968325da23b1ea79fdc687ef881e4edab5eff93"
-    },
-    {
       "id": "daily-2026-09-24",
       "type": "daily",
       "dateKey": "2026-09-24",
       "date": "2026-09-24",
       "path": "reports/2026/09/daily/daily-2026-09-24.json",
-      "checksum": "sha256:4d17c07994fb0f24be904953829c4f037424a997d10c886cbe76734bb458c087"
-    },
-    {
-      "id": "retro-2026-09-23",
-      "type": "retro",
-      "dateKey": "2026-09-23",
-      "date": "2026-09-23",
-      "path": "reports/2026/09/retro/retro-2026-09-23.json",
-      "checksum": "sha256:de9ded97f12611b631b1d47554c290c011e6844e21ba8d770359f701a900415c"
+      "checksum": "sha256:bbeb03046da831ac68846c6dcc8619493bf96f17e2003825390ff08a65a8082b"
     },
     {
       "id": "daily-2026-09-23",
@@ -142,7 +94,7 @@
       "dateKey": "2026-09-23",
       "date": "2026-09-23",
       "path": "reports/2026/09/daily/daily-2026-09-23.json",
-      "checksum": "sha256:f66837d3c4d240dbc7012a5ab02861141c4751e0570d5d665fa2481a7c2ca3f4"
+      "checksum": "sha256:0ca577d12a6ca7c14fb637166d299debaa9e8297b1ac5c070e729409133b0912"
     },
     {
       "id": "daily-2026-09-22",
@@ -153,20 +105,12 @@
       "checksum": "sha256:4f7d5679ea7c068a0521831baf43703fdce70f7542804f4251709fc884d8035b"
     },
     {
-      "id": "retro-2026-09-21",
-      "type": "retro",
-      "dateKey": "2026-09-21",
-      "date": "2026-09-21",
-      "path": "reports/2026/09/retro/retro-2026-09-21.json",
-      "checksum": "sha256:179baa5c36f25af2de795419d1f47c78253b15e3346f53f483fed7b97fa64214"
-    },
-    {
       "id": "daily-2026-09-21",
       "type": "daily",
       "dateKey": "2026-09-21",
       "date": "2026-09-21",
       "path": "reports/2026/09/daily/daily-2026-09-21.json",
-      "checksum": "sha256:923f863627c2368bcf9fe79bc9e7677225308ee7c9281a604d9157d4ba141395"
+      "checksum": "sha256:ed50be3a9264782ec03c9194cd0d865409ae680063dc82a0277af33d58a86562"
     },
     {
       "id": "weekly-2026-W38",
@@ -185,28 +129,12 @@
       "checksum": "sha256:dff9bfc392396ff746ac0d734d7e5664be00483780e23fe72f5d58a952812790"
     },
     {
-      "id": "retro-2026-09-18",
-      "type": "retro",
-      "dateKey": "2026-09-18",
-      "date": "2026-09-18",
-      "path": "reports/2026/09/retro/retro-2026-09-18.json",
-      "checksum": "sha256:6f074cf69a06d68d66b80ae688e0e575d0a6f8fd249a26421887b1a1f02b9b33"
-    },
-    {
       "id": "daily-2026-09-18",
       "type": "daily",
       "dateKey": "2026-09-18",
       "date": "2026-09-18",
       "path": "reports/2026/09/daily/daily-2026-09-18.json",
-      "checksum": "sha256:32921711521f52ce080aaab39ef95731b56b3d44df6038886f216e294ee8e505"
-    },
-    {
-      "id": "retro-2026-09-17",
-      "type": "retro",
-      "dateKey": "2026-09-17",
-      "date": "2026-09-17",
-      "path": "reports/2026/09/retro/retro-2026-09-17.json",
-      "checksum": "sha256:ade06b7cac177cc678c0e92ea04675c912fba107cec0367dc7652569dcd479d2"
+      "checksum": "sha256:08b337625f3f870df2684d98b5f0883df853f274bdbf4f96fc153db04a9295ea"
     },
     {
       "id": "daily-2026-09-17",
@@ -214,15 +142,7 @@
       "dateKey": "2026-09-17",
       "date": "2026-09-17",
       "path": "reports/2026/09/daily/daily-2026-09-17.json",
-      "checksum": "sha256:3dcfbf4ecc1415683dd0879561980fe8e19c050e0e06d1eb0ebfc48ea907bfdf"
-    },
-    {
-      "id": "retro-2026-09-16",
-      "type": "retro",
-      "dateKey": "2026-09-16",
-      "date": "2026-09-16",
-      "path": "reports/2026/09/retro/retro-2026-09-16.json",
-      "checksum": "sha256:67ce6e34328b841479ec94549366f9e48713f56490b942b6260d02e9c90fc137"
+      "checksum": "sha256:5c32875ec5e11cf43e0ffe37e0c8bd4e951317d5a7148889c2e32e98288a09de"
     },
     {
       "id": "daily-2026-09-16",
@@ -230,15 +150,7 @@
       "dateKey": "2026-09-16",
       "date": "2026-09-16",
       "path": "reports/2026/09/daily/daily-2026-09-16.json",
-      "checksum": "sha256:e308cfc1d22501e0b4b0282fc6d7854e44a4ef32ae329b1c1eddad69d234345d"
-    },
-    {
-      "id": "retro-2026-09-15",
-      "type": "retro",
-      "dateKey": "2026-09-15",
-      "date": "2026-09-15",
-      "path": "reports/2026/09/retro/retro-2026-09-15.json",
-      "checksum": "sha256:5b27c834c445ff172b28530b6879ae3d6408535ca0f963efe0dd983f47283395"
+      "checksum": "sha256:cfd169426d1b743e4327a3db8404dd37a13bc5f5ef78b25d8c4b6dfbfe565918"
     },
     {
       "id": "daily-2026-09-15",
@@ -246,15 +158,7 @@
       "dateKey": "2026-09-15",
       "date": "2026-09-15",
       "path": "reports/2026/09/daily/daily-2026-09-15.json",
-      "checksum": "sha256:ce4d1d9167fe0d432a4889339ec402ba2d9ff75259885c5fc1086eb54e073e41"
-    },
-    {
-      "id": "retro-2026-09-14",
-      "type": "retro",
-      "dateKey": "2026-09-14",
-      "date": "2026-09-14",
-      "path": "reports/2026/09/retro/retro-2026-09-14.json",
-      "checksum": "sha256:51df155b29e9cd625cf659d259a8b144a5da2f16b947a3e8b2047d9421bb917c"
+      "checksum": "sha256:687ec154dfc078fe69fe92e53dbc56bb3bbb33781c06e0b0473c6bc581dd462f"
     },
     {
       "id": "weekly-2026-W37",
@@ -273,20 +177,12 @@
       "checksum": "sha256:f3f25d0b81429676faa1de9b45273457b3e8b58ea887586430d23e8860d03e0c"
     },
     {
-      "id": "retro-2026-09-11",
-      "type": "retro",
-      "dateKey": "2026-09-11",
-      "date": "2026-09-11",
-      "path": "reports/2026/09/retro/retro-2026-09-11.json",
-      "checksum": "sha256:470d2564c2106966c416e80c728cba011a1e0731ff86165742f379b2f0bae690"
-    },
-    {
       "id": "daily-2026-09-11",
       "type": "daily",
       "dateKey": "2026-09-11",
       "date": "2026-09-11",
       "path": "reports/2026/09/daily/daily-2026-09-11.json",
-      "checksum": "sha256:b2bee3024595a4081d35ba5a0772dfe29fd3e6e7df1b5cade96177e0059dc36d"
+      "checksum": "sha256:57b9a6b2bbab0ef3ece1ba9f86a572effa86b298a86381491794211ebc14d458"
     },
     {
       "id": "daily-2026-09-10",
@@ -297,28 +193,12 @@
       "checksum": "sha256:45f34a6a883e2e634b78275407a8752fdfd55b0c08bad46916ea6bebbe18e23c"
     },
     {
-      "id": "retro-2026-09-09",
-      "type": "retro",
-      "dateKey": "2026-09-09",
-      "date": "2026-09-09",
-      "path": "reports/2026/09/retro/retro-2026-09-09.json",
-      "checksum": "sha256:f6fa4a75d225b650d58f31577cbb416afa3fcff0472b324395a9341765072d1e"
-    },
-    {
       "id": "daily-2026-09-09",
       "type": "daily",
       "dateKey": "2026-09-09",
       "date": "2026-09-09",
       "path": "reports/2026/09/daily/daily-2026-09-09.json",
-      "checksum": "sha256:c941c7e0731f05ae73480e5e6bf5a7f69bc9eb89eb2cb4df692d27fcf7acf571"
-    },
-    {
-      "id": "retro-2026-09-08",
-      "type": "retro",
-      "dateKey": "2026-09-08",
-      "date": "2026-09-08",
-      "path": "reports/2026/09/retro/retro-2026-09-08.json",
-      "checksum": "sha256:380c07375dc589dc88861b148c3f076bf314e5be5088641de40f3b26953b2cd5"
+      "checksum": "sha256:2eb2f61975a9d0a46345ed982b55bdd2d513bac4edbc754bdfb4c0ce3b1db6cb"
     },
     {
       "id": "daily-2026-09-08",
@@ -326,15 +206,7 @@
       "dateKey": "2026-09-08",
       "date": "2026-09-08",
       "path": "reports/2026/09/daily/daily-2026-09-08.json",
-      "checksum": "sha256:f79776ae46514bb6f845e372bd692136750530a65c72e96ed37e7ff1cd0cc151"
-    },
-    {
-      "id": "retro-2026-09-07",
-      "type": "retro",
-      "dateKey": "2026-09-07",
-      "date": "2026-09-07",
-      "path": "reports/2026/09/retro/retro-2026-09-07.json",
-      "checksum": "sha256:8800d28718fa12390260f0690b03f99b56dfa75a79f7424fdbadaefde25368e5"
+      "checksum": "sha256:15505a217814a3a8867f1e07a121829ce7a82f4aada1987a67ed2b275987cabb"
     },
     {
       "id": "daily-2026-09-07",
@@ -342,7 +214,7 @@
       "dateKey": "2026-09-07",
       "date": "2026-09-07",
       "path": "reports/2026/09/daily/daily-2026-09-07.json",
-      "checksum": "sha256:703258389b66a61492c59ac9d4acd45eca7f710a6fe44f9c4f66d811d7fb69ce"
+      "checksum": "sha256:7733dcfb6386d2db110cca4b2fb071ec65929e7836a2e0dfba3e92f918351bab"
     },
     {
       "id": "weekly-2026-W36",
@@ -361,36 +233,12 @@
       "checksum": "sha256:331fb7acf1a8a17288e8e83b87a9225980bc127a7dedabb7487e228418c0cc1d"
     },
     {
-      "id": "retro-2026-09-04",
-      "type": "retro",
-      "dateKey": "2026-09-04",
-      "date": "2026-09-04",
-      "path": "reports/2026/09/retro/retro-2026-09-04.json",
-      "checksum": "sha256:0937354494eafed4e51dd6bdf0876211f2c05db2f28f3063e007e19824c644f5"
-    },
-    {
       "id": "daily-2026-09-04",
       "type": "daily",
       "dateKey": "2026-09-04",
       "date": "2026-09-04",
       "path": "reports/2026/09/daily/daily-2026-09-04.json",
-      "checksum": "sha256:db47eddfec89299ebea19435e88972c0b63b3983abbeaac389500d1836942820"
-    },
-    {
-      "id": "retro-2026-09-03",
-      "type": "retro",
-      "dateKey": "2026-09-03",
-      "date": "2026-09-03",
-      "path": "reports/2026/09/retro/retro-2026-09-03.json",
-      "checksum": "sha256:5538b90c3754177d6cc206dcdee282fdc0a853f79a36d631ad7087bf3942a91e"
-    },
-    {
-      "id": "retro-2026-09-02",
-      "type": "retro",
-      "dateKey": "2026-09-02",
-      "date": "2026-09-02",
-      "path": "reports/2026/09/retro/retro-2026-09-02.json",
-      "checksum": "sha256:537829b029d8cc3f036e74e6f632915d3dccda171a7a595cf3e31e3e428dc4e5"
+      "checksum": "sha256:a8b8b5953666ab23303161ac2f6082209a3948648426e6d743d3f2822888b485"
     },
     {
       "id": "daily-2026-09-02",
@@ -398,15 +246,7 @@
       "dateKey": "2026-09-02",
       "date": "2026-09-02",
       "path": "reports/2026/09/daily/daily-2026-09-02.json",
-      "checksum": "sha256:b6f555b16bfaa4697929c315ee1267cd6ce0bc5fdabc905fb361752b143af21e"
-    },
-    {
-      "id": "retro-2026-09-01",
-      "type": "retro",
-      "dateKey": "2026-09-01",
-      "date": "2026-09-01",
-      "path": "reports/2026/09/retro/retro-2026-09-01.json",
-      "checksum": "sha256:4fb6abbd6f16e0cd65198bd116dfcf70525225805635b506994bf5b3990113ed"
+      "checksum": "sha256:ca4589eac023ed478c624f4f81ef8a8878dedb2d4a7483fdb5258d6f6dacc8c1"
     },
     {
       "id": "daily-2026-09-01",
@@ -414,15 +254,7 @@
       "dateKey": "2026-09-01",
       "date": "2026-09-01",
       "path": "reports/2026/09/daily/daily-2026-09-01.json",
-      "checksum": "sha256:1d968393ac2dc2923cc7864ec6898868931a1964fa6a2e0c5369a6e5a80e1751"
-    },
-    {
-      "id": "retro-2026-08-31",
-      "type": "retro",
-      "dateKey": "2026-08-31",
-      "date": "2026-08-31",
-      "path": "reports/2026/08/retro/retro-2026-08-31.json",
-      "checksum": "sha256:3c6e449738bb46d16c813a47666c018090669d10a2bd0ba6d6a05973ddbd9fde"
+      "checksum": "sha256:5c12b6a61ed5f54956648fc08030701b6dd2147279e8e8e477d2bffc77197b1b"
     },
     {
       "id": "daily-2026-08-31",
@@ -430,7 +262,7 @@
       "dateKey": "2026-08-31",
       "date": "2026-08-31",
       "path": "reports/2026/08/daily/daily-2026-08-31.json",
-      "checksum": "sha256:8637c4dad8c45d5552f53450da5f1063212e453a0c27950befe7ee4c9dc733b9"
+      "checksum": "sha256:029927e335c5790460b0ba535eb48846fd30eeb95eceb782108db3d56a03e501"
     },
     {
       "id": "recap-2026-08-29",
@@ -441,28 +273,12 @@
       "checksum": "sha256:dc09249d58893adf917549705da705b504191e44190a2cee1a599bad5312c40a"
     },
     {
-      "id": "retro-2026-08-29",
-      "type": "retro",
-      "dateKey": "2026-08-29",
-      "date": "2026-08-28",
-      "path": "reports/2026/08/retro/retro-2026-08-29.json",
-      "checksum": "sha256:2b993d93d4084e0f8ec4821a9ac8f00312d9029f02132b0eae67bc3458901062"
-    },
-    {
       "id": "daily-2026-08-28",
       "type": "daily",
       "dateKey": "2026-08-28",
       "date": "2026-08-28",
       "path": "reports/2026/08/daily/daily-2026-08-28.json",
-      "checksum": "sha256:325e70be2907c4ae54ce925aeb08c058e154df8372b9f6ac995deef203187e96"
-    },
-    {
-      "id": "retro-2026-08-28",
-      "type": "retro",
-      "dateKey": "2026-08-28",
-      "date": "2026-08-27",
-      "path": "reports/2026/08/retro/retro-2026-08-28.json",
-      "checksum": "sha256:40f4ace5b8446185ab63fcec909dd3a2da0a0ff2bd7255fe52260e85c62633b8"
+      "checksum": "sha256:ddced619dc10ab4f46e41283832a2da1e3f2eea29ec5b658624832adff7c4c9a"
     },
     {
       "id": "daily-2026-08-27",
@@ -473,28 +289,12 @@
       "checksum": "sha256:375faaab03d3c563c6a09d8518cb44a9748f7993390e171137266b21f5f8edf7"
     },
     {
-      "id": "retro-2026-08-26",
-      "type": "retro",
-      "dateKey": "2026-08-26",
-      "date": "2026-08-26",
-      "path": "reports/2026/08/retro/retro-2026-08-26.json",
-      "checksum": "sha256:be5fb754f5c160d4f907833500940660542f887785b5e0b8b77d43b4dfb511c6"
-    },
-    {
       "id": "daily-2026-08-26",
       "type": "daily",
       "dateKey": "2026-08-26",
       "date": "2026-08-26",
       "path": "reports/2026/08/daily/daily-2026-08-26.json",
-      "checksum": "sha256:9fe7b3da5679f0e2bc6fecef073ca767637ee668fbac168a84ea4bc2562a471c"
-    },
-    {
-      "id": "retro-2026-08-25",
-      "type": "retro",
-      "dateKey": "2026-08-25",
-      "date": "2026-08-25",
-      "path": "reports/2026/08/retro/retro-2026-08-25.json",
-      "checksum": "sha256:91f6c3dd65d6d7088133b26faca2bb21e1394dc4ea76a134aa7ade54ae6d7f34"
+      "checksum": "sha256:e5cab5afd43c6507f0f450b083d5fbe1e89c7fed18dd60eeacf96f120fa831d8"
     },
     {
       "id": "daily-2026-08-25",
@@ -502,15 +302,7 @@
       "dateKey": "2026-08-25",
       "date": "2026-08-25",
       "path": "reports/2026/08/daily/daily-2026-08-25.json",
-      "checksum": "sha256:4651237b0443c1cba72f404e34134d7f43cb0b18b36b0b76636df0d4a19fe11b"
-    },
-    {
-      "id": "retro-2026-08-24",
-      "type": "retro",
-      "dateKey": "2026-08-24",
-      "date": "2026-08-24",
-      "path": "reports/2026/08/retro/retro-2026-08-24.json",
-      "checksum": "sha256:2fea60f75d2c202b8e3748f6f5be4e6c4b0d2a1ff8b83a8d94f36e74e3beac2e"
+      "checksum": "sha256:955ce6308ef371f6ba1f46148597c274e14fac98494cebd8c6370b7a81b26ca4"
     },
     {
       "id": "daily-2026-08-24",
@@ -518,7 +310,7 @@
       "dateKey": "2026-08-24",
       "date": "2026-08-24",
       "path": "reports/2026/08/daily/daily-2026-08-24.json",
-      "checksum": "sha256:d699a13e5e9460875d2f5b07fde15fca9ddb38d3cf6b06017909cede4aac8199"
+      "checksum": "sha256:372db3e6d14cf6d49db7d06d552b0271f958babce76a5148da17574f32579d14"
     },
     {
       "id": "weekly-2026-W34",
@@ -537,28 +329,12 @@
       "checksum": "sha256:a1947fdf7ce3bf56656d6bff78169354d7ab779e685eb8de03f0e352f85d2000"
     },
     {
-      "id": "retro-2026-08-21",
-      "type": "retro",
-      "dateKey": "2026-08-21",
-      "date": "2026-08-21",
-      "path": "reports/2026/08/retro/retro-2026-08-21.json",
-      "checksum": "sha256:4abeee6d7ce1d82bc5f8dc79e59fa0ac35a0fbbcf3b022a54d3b5ba1dcbfaaa3"
-    },
-    {
       "id": "daily-2026-08-21",
       "type": "daily",
       "dateKey": "2026-08-21",
       "date": "2026-08-21",
       "path": "reports/2026/08/daily/daily-2026-08-21.json",
-      "checksum": "sha256:7f5ce9a56de40fefe2adf36aa66a2fd8be12fbc2c46c80fdc9735fa0cd0876a8"
-    },
-    {
-      "id": "retro-2026-08-20",
-      "type": "retro",
-      "dateKey": "2026-08-20",
-      "date": "2026-08-20",
-      "path": "reports/2026/08/retro/retro-2026-08-20.json",
-      "checksum": "sha256:411a50e1130f19dd2ed7b1b080f34f9bd133190828ef25b59c38672fb7b3c1cd"
+      "checksum": "sha256:e13668f5bae81da27953129406c3e12093637b67c1ad4ba769602fe84082eee8"
     },
     {
       "id": "daily-2026-08-20",
@@ -566,15 +342,7 @@
       "dateKey": "2026-08-20",
       "date": "2026-08-20",
       "path": "reports/2026/08/daily/daily-2026-08-20.json",
-      "checksum": "sha256:55f645b4b08d5c80d3e41f99a5d47c67a8a60834665dde49ea7fbdb24ac210be"
-    },
-    {
-      "id": "retro-2026-08-19",
-      "type": "retro",
-      "dateKey": "2026-08-19",
-      "date": "2026-08-19",
-      "path": "reports/2026/08/retro/retro-2026-08-19.json",
-      "checksum": "sha256:560905ede2ba7af7e7af7c125f2d7a637a6733566ab941592dbdd314f95cc6ed"
+      "checksum": "sha256:de1eb526da2af6788f199fb29170ff04e206e226cad3e7b6d3c9e69319218c49"
     },
     {
       "id": "daily-2026-08-19",
@@ -582,7 +350,7 @@
       "dateKey": "2026-08-19",
       "date": "2026-08-19",
       "path": "reports/2026/08/daily/daily-2026-08-19.json",
-      "checksum": "sha256:17ae6a0bd0523f8d9c3c3a7c53e63d89f75c84d1900d9f7b79e361c5a0793b02"
+      "checksum": "sha256:9d2a933e6d0c3404f4e111fffc04b4734d549657560f4a15fff5dcdc248f1d39"
     },
     {
       "id": "daily-2026-08-18",
@@ -593,20 +361,12 @@
       "checksum": "sha256:cea54f78f35220788fd0eef8aa4215cee0614f3ec8b3f5cc5c5d161e30d122a6"
     },
     {
-      "id": "retro-2026-08-17",
-      "type": "retro",
-      "dateKey": "2026-08-17",
-      "date": "2026-08-17",
-      "path": "reports/2026/08/retro/retro-2026-08-17.json",
-      "checksum": "sha256:384864702454ca1d5b1845661ba57844290027eb60cc22adb3c6b243d154610d"
-    },
-    {
       "id": "daily-2026-08-17",
       "type": "daily",
       "dateKey": "2026-08-17",
       "date": "2026-08-17",
       "path": "reports/2026/08/daily/daily-2026-08-17.json",
-      "checksum": "sha256:c856f2232fdb205a9efb1e688dc443c80c8663083d50d0e4d8be88912fa1460b"
+      "checksum": "sha256:d75c88ec8c9da62281bb4b358b161e70cae685ddf7d7c61b8732ba391345f60f"
     },
     {
       "id": "weekly-2026-W33",
@@ -625,28 +385,12 @@
       "checksum": "sha256:9adc3ee5442993bc2f5c38d0bd24473dabc682e7249de406f7959de30f47405c"
     },
     {
-      "id": "retro-2026-08-14",
-      "type": "retro",
-      "dateKey": "2026-08-14",
-      "date": "2026-08-14",
-      "path": "reports/2026/08/retro/retro-2026-08-14.json",
-      "checksum": "sha256:11d6352bfebc661364df7dc1f96f270cd679e0cf80d3d92b731ce80997576199"
-    },
-    {
       "id": "daily-2026-08-14",
       "type": "daily",
       "dateKey": "2026-08-14",
       "date": "2026-08-14",
       "path": "reports/2026/08/daily/daily-2026-08-14.json",
-      "checksum": "sha256:d9eb2df40a486d682ecbabd4c25c531594cd4574b8b3316545101260fd0c67e7"
-    },
-    {
-      "id": "retro-2026-08-13",
-      "type": "retro",
-      "dateKey": "2026-08-13",
-      "date": "2026-08-13",
-      "path": "reports/2026/08/retro/retro-2026-08-13.json",
-      "checksum": "sha256:4f31468f0db9c14b2567a9ca61e7370cd410b45cd35169415ed5009e2d81c5ba"
+      "checksum": "sha256:aadb3d75b91a1798a6771b19a9a89b5b8628bfcee3665b5abb7f8b00abd1ac3e"
     },
     {
       "id": "daily-2026-08-13",
@@ -654,15 +398,7 @@
       "dateKey": "2026-08-13",
       "date": "2026-08-13",
       "path": "reports/2026/08/daily/daily-2026-08-13.json",
-      "checksum": "sha256:dc1d490f21ef3aee76a9c4a3b39cc65c6b709e1b17e650371677d8dd0e08f6a8"
-    },
-    {
-      "id": "retro-2026-08-12",
-      "type": "retro",
-      "dateKey": "2026-08-12",
-      "date": "2026-08-12",
-      "path": "reports/2026/08/retro/retro-2026-08-12.json",
-      "checksum": "sha256:50794721b2777cf29f536a41be4964f3e80d8f785aa3876f41b7ee0cb75907c2"
+      "checksum": "sha256:80d344c3b5801a5f9d9cf3b5c64c3b55fd375bd8ab0ada15d07a70f4ba660979"
     },
     {
       "id": "daily-2026-08-12",
@@ -670,15 +406,7 @@
       "dateKey": "2026-08-12",
       "date": "2026-08-12",
       "path": "reports/2026/08/daily/daily-2026-08-12.json",
-      "checksum": "sha256:802063a5f3a843e0670df10f90880bb060e1b916607034eff576728e2e4782ff"
-    },
-    {
-      "id": "retro-2026-08-11",
-      "type": "retro",
-      "dateKey": "2026-08-11",
-      "date": "2026-08-11",
-      "path": "reports/2026/08/retro/retro-2026-08-11.json",
-      "checksum": "sha256:899fc037d8d3e7fb8723014c295441eb6acb92b61b431585b1536f22e272fe28"
+      "checksum": "sha256:c08ef918e3d996f548144826d431aa1576459bc3ceb24bf3df386e2b89eee173"
     },
     {
       "id": "daily-2026-08-11",
@@ -686,15 +414,7 @@
       "dateKey": "2026-08-11",
       "date": "2026-08-11",
       "path": "reports/2026/08/daily/daily-2026-08-11.json",
-      "checksum": "sha256:21dea78efe86586b6d5de97be0f6db8babd4fe1aba062257e85fa4b18566badc"
-    },
-    {
-      "id": "retro-2026-08-10",
-      "type": "retro",
-      "dateKey": "2026-08-10",
-      "date": "2026-08-10",
-      "path": "reports/2026/08/retro/retro-2026-08-10.json",
-      "checksum": "sha256:9494889b8ce20f1fa3c4975ea84bdb5480917087b6425ae95c03d1ebff08d5e1"
+      "checksum": "sha256:dce7adcf9622636f1f07b6277339156bcb06dbb927743e72516a426a9e0d2a39"
     },
     {
       "id": "daily-2026-08-10",
@@ -702,7 +422,7 @@
       "dateKey": "2026-08-10",
       "date": "2026-08-10",
       "path": "reports/2026/08/daily/daily-2026-08-10.json",
-      "checksum": "sha256:5c189272f57bb6c18cbd4a6d2bb6e44862c41890dafa7ebf76224e7a58d29d5c"
+      "checksum": "sha256:49a1405265d800cc1325e52be5a8a47f22fe0af83370c05a3c3fb53e5ef4f9c0"
     },
     {
       "id": "weekly-2026-W32",
@@ -721,28 +441,12 @@
       "checksum": "sha256:54a0aa4ade900db02c44b5edc21cbd3331b21b06a8baed6bd56a54094fb149a1"
     },
     {
-      "id": "retro-2026-08-07",
-      "type": "retro",
-      "dateKey": "2026-08-07",
-      "date": "2026-08-07",
-      "path": "reports/2026/08/retro/retro-2026-08-07.json",
-      "checksum": "sha256:2c250c65a4333861f8956ed325596efab0af9caad6e38de9b93cf1b27b45834b"
-    },
-    {
       "id": "daily-2026-08-07",
       "type": "daily",
       "dateKey": "2026-08-07",
       "date": "2026-08-07",
       "path": "reports/2026/08/daily/daily-2026-08-07.json",
-      "checksum": "sha256:61cc1c504691e9f87d66221bc5ee3cb3dcc7047f5713a66b9b3e1692d8da2954"
-    },
-    {
-      "id": "retro-2026-08-06",
-      "type": "retro",
-      "dateKey": "2026-08-06",
-      "date": "2026-08-06",
-      "path": "reports/2026/08/retro/retro-2026-08-06.json",
-      "checksum": "sha256:5c0eb5540f59609a0ffe90cdb2884cd947e253d82f09e99cf8dff051a43143ab"
+      "checksum": "sha256:7abe654f7ba99f734668bbd349eb4da62c845d5ea0102ef1cac086bcf7a2c798"
     },
     {
       "id": "daily-2026-08-06",
@@ -750,15 +454,7 @@
       "dateKey": "2026-08-06",
       "date": "2026-08-06",
       "path": "reports/2026/08/daily/daily-2026-08-06.json",
-      "checksum": "sha256:f1991efb88eafe3b1d9ed4b87d7c235bedbec2e99a839667d3c64816108b25d3"
-    },
-    {
-      "id": "retro-2026-08-05",
-      "type": "retro",
-      "dateKey": "2026-08-05",
-      "date": "2026-08-05",
-      "path": "reports/2026/08/retro/retro-2026-08-05.json",
-      "checksum": "sha256:ba4abf011074302bf577818aac84b6723e5f2843d3a43fd250a60679f573eb28"
+      "checksum": "sha256:636f15d0a314e8178dc450d942d9177e11015a556662660efbeac6f2eca2b359"
     },
     {
       "id": "daily-2026-08-05",
@@ -766,15 +462,7 @@
       "dateKey": "2026-08-05",
       "date": "2026-08-05",
       "path": "reports/2026/08/daily/daily-2026-08-05.json",
-      "checksum": "sha256:80e13ac12816354a8933a9f789c5c2a4036c21ab59ecddee163aa1bc55d058d9"
-    },
-    {
-      "id": "retro-2026-08-04",
-      "type": "retro",
-      "dateKey": "2026-08-04",
-      "date": "2026-08-04",
-      "path": "reports/2026/08/retro/retro-2026-08-04.json",
-      "checksum": "sha256:5d260b561048d08fc1bc5699c6f712f9c0dd91cec3e3f805c596a8a3ae2e68c3"
+      "checksum": "sha256:d4d30708dacf84ced4a006d8cd9702a3a2442beff97490d573050343e4d5c128"
     },
     {
       "id": "daily-2026-08-04",
@@ -782,15 +470,7 @@
       "dateKey": "2026-08-04",
       "date": "2026-08-04",
       "path": "reports/2026/08/daily/daily-2026-08-04.json",
-      "checksum": "sha256:cf536d2b67509c6a07db2026b633068f7f1e52e695bd1597e2f2049a090917a8"
-    },
-    {
-      "id": "retro-2026-08-03",
-      "type": "retro",
-      "dateKey": "2026-08-03",
-      "date": "2026-08-03",
-      "path": "reports/2026/08/retro/retro-2026-08-03.json",
-      "checksum": "sha256:93f9b527be61bc644e4eb05cef15433bec5666b48e1bc7b372f9560120b71e81"
+      "checksum": "sha256:91fc8f636c221def1646971e2ccb5f92735f08319d9712d1527fd9a0c5d0e8a7"
     },
     {
       "id": "daily-2026-08-03",
@@ -798,7 +478,7 @@
       "dateKey": "2026-08-03",
       "date": "2026-08-03",
       "path": "reports/2026/08/daily/daily-2026-08-03.json",
-      "checksum": "sha256:aadea4c826d193ac74db902fe0c1001e5a1cefd6e48a98c2b5cef0de730c2e12"
+      "checksum": "sha256:332156cd0cdfee2d70999a5f262514d3a991ac013faccb9e0a0c398aaebe70be"
     },
     {
       "id": "weekly-2026-W31",
@@ -817,14 +497,6 @@
       "checksum": "sha256:3ed291d8b800604bf7917c85f3b3268d185d7ecf0e80a12d39c547a39fec8ec3"
     },
     {
-      "id": "retro-2026-07-31",
-      "type": "retro",
-      "dateKey": "2026-07-31",
-      "date": "2026-07-31",
-      "path": "reports/2026/07/retro/retro-2026-07-31.json",
-      "checksum": "sha256:4baed9966d2ac6a07ebe910d56da5e00ab61f061db04af28c3ef0ace58f8b0b0"
-    },
-    {
       "id": "monthly-2026-07",
       "type": "monthly",
       "dateKey": "2026-07",
@@ -838,15 +510,7 @@
       "dateKey": "2026-07-31",
       "date": "2026-07-31",
       "path": "reports/2026/07/daily/daily-2026-07-31.json",
-      "checksum": "sha256:64a8dd781a8f8af22d20d885f614a1e836c4ad16f2ede1e3f2fa8603e2cf391f"
-    },
-    {
-      "id": "retro-2026-07-30",
-      "type": "retro",
-      "dateKey": "2026-07-30",
-      "date": "2026-07-30",
-      "path": "reports/2026/07/retro/retro-2026-07-30.json",
-      "checksum": "sha256:dbddcd1d45ca0f493a0fbfcd8c3d922c38ea8b50b8b3bc409299b7993731c52f"
+      "checksum": "sha256:36390392b4a1ff68a199302df1c6f2ad507599cb821fa62df4de1090fcfd4c44"
     },
     {
       "id": "daily-2026-07-30",
@@ -854,7 +518,7 @@
       "dateKey": "2026-07-30",
       "date": "2026-07-30",
       "path": "reports/2026/07/daily/daily-2026-07-30.json",
-      "checksum": "sha256:e9ed42f7f89f06b25e3a353937066f9aee29048931686654e80cbdf6d0dd3d5b"
+      "checksum": "sha256:0e46887dc241fea2ec9c306fa53e666439ecdccb491415f29046f47c51cb074c"
     },
     {
       "id": "daily-2026-07-29",
@@ -865,28 +529,12 @@
       "checksum": "sha256:ab24128b4d00103912db0fc41904b1b20b5f248f0687f05c5dce05ee9b9a3ce0"
     },
     {
-      "id": "retro-2026-07-28",
-      "type": "retro",
-      "dateKey": "2026-07-28",
-      "date": "2026-07-28",
-      "path": "reports/2026/07/retro/retro-2026-07-28.json",
-      "checksum": "sha256:217fdefe7d39ecf1521cbc2558bdca6f0ea713051fb170a8909ef5466e407b0b"
-    },
-    {
       "id": "daily-2026-07-28",
       "type": "daily",
       "dateKey": "2026-07-28",
       "date": "2026-07-28",
       "path": "reports/2026/07/daily/daily-2026-07-28.json",
-      "checksum": "sha256:bb6660b5e2a3fe6fb48b79b4f9bb0080aa44e1558694543d2ce5d9ce6b47164e"
-    },
-    {
-      "id": "retro-2026-07-27",
-      "type": "retro",
-      "dateKey": "2026-07-27",
-      "date": "2026-07-27",
-      "path": "reports/2026/07/retro/retro-2026-07-27.json",
-      "checksum": "sha256:b9996b9f83b01031e2ff1150a6ab76a278497e278eda4a7348798295131931cb"
+      "checksum": "sha256:791726cfe14fc671cfaa0915f8a50d40fc32270b3177d46bb7514170ee501228"
     },
     {
       "id": "daily-2026-07-27",
@@ -894,7 +542,7 @@
       "dateKey": "2026-07-27",
       "date": "2026-07-27",
       "path": "reports/2026/07/daily/daily-2026-07-27.json",
-      "checksum": "sha256:2e887668d5187b107d078ebf3fd707141ac61234bbdc0492f45a6cc47f82f397"
+      "checksum": "sha256:bc84842a047d690dd711e8d2d78aae456b62610fcc4be1d980de18c57145c55c"
     },
     {
       "id": "weekly-2026-W30",
@@ -913,28 +561,12 @@
       "checksum": "sha256:80ea29f4830cd44e82f9c3e2fbf4739300adee009dc33559f9d15f56b5c6b53c"
     },
     {
-      "id": "retro-2026-07-24",
-      "type": "retro",
-      "dateKey": "2026-07-24",
-      "date": "2026-07-24",
-      "path": "reports/2026/07/retro/retro-2026-07-24.json",
-      "checksum": "sha256:764f61eb33cf48c9c7266b7010de4ce7e51b17cef6b711047e005153bc742880"
-    },
-    {
       "id": "daily-2026-07-24",
       "type": "daily",
       "dateKey": "2026-07-24",
       "date": "2026-07-24",
       "path": "reports/2026/07/daily/daily-2026-07-24.json",
-      "checksum": "sha256:b16199be152b206c9f42a0dcf1e52b814f47328050e83340a018a34a75badb32"
-    },
-    {
-      "id": "retro-2026-07-23",
-      "type": "retro",
-      "dateKey": "2026-07-23",
-      "date": "2026-07-23",
-      "path": "reports/2026/07/retro/retro-2026-07-23.json",
-      "checksum": "sha256:bbc6f41e6f062826abac867053bb9fda639f85a0295815273fa28a4ed56f6ad5"
+      "checksum": "sha256:8b44bce3049d28dfc4acaf51f5012c351045a7da319453b0c6b5f108e39352d8"
     },
     {
       "id": "daily-2026-07-23",
@@ -942,15 +574,7 @@
       "dateKey": "2026-07-23",
       "date": "2026-07-23",
       "path": "reports/2026/07/daily/daily-2026-07-23.json",
-      "checksum": "sha256:c9c9b02d6b9b48bb542d0d0f27067d9d2dd48cc4f8ce1a8b533b2cee5cb8f593"
-    },
-    {
-      "id": "retro-2026-07-22",
-      "type": "retro",
-      "dateKey": "2026-07-22",
-      "date": "2026-07-22",
-      "path": "reports/2026/07/retro/retro-2026-07-22.json",
-      "checksum": "sha256:2779eeb3d1a5b9f0014287ce31c4afac9461a8cfd1be50c24739511ea07d79c5"
+      "checksum": "sha256:8a7c8d7e764bb0455e9b46548d511c00ed25d8433b88e60db46301b2462cb602"
     },
     {
       "id": "daily-2026-07-22",
@@ -958,15 +582,7 @@
       "dateKey": "2026-07-22",
       "date": "2026-07-22",
       "path": "reports/2026/07/daily/daily-2026-07-22.json",
-      "checksum": "sha256:323656d53601172be99235b1ac56eaa783dfc425ec9d4701f1a4ae205a99d975"
-    },
-    {
-      "id": "retro-2026-07-21",
-      "type": "retro",
-      "dateKey": "2026-07-21",
-      "date": "2026-07-21",
-      "path": "reports/2026/07/retro/retro-2026-07-21.json",
-      "checksum": "sha256:4f13d1ae8320defa3244470bac16859e16444f76dc0ce8d95a8c19fefbf3df33"
+      "checksum": "sha256:350179912d71bda341f8481f61649d31c305aeabd126239ead72f39f7dc3cfca"
     },
     {
       "id": "daily-2026-07-21",
@@ -974,7 +590,7 @@
       "dateKey": "2026-07-21",
       "date": "2026-07-21",
       "path": "reports/2026/07/daily/daily-2026-07-21.json",
-      "checksum": "sha256:dbe3424decf2e8711b4afafd3454650311e2eda9818660b432d92ec52867a72f"
+      "checksum": "sha256:33a0aef31ba5da2a919f6051a1424e936563592c19145524297d9eac4ecdb66a"
     },
     {
       "id": "daily-2026-07-20",
@@ -1009,28 +625,12 @@
       "checksum": "sha256:861acf8e5fe73cd8bdf17229e87d808ab26c55cd031fcea435a16d462c2342e9"
     },
     {
-      "id": "retro-2026-07-16",
-      "type": "retro",
-      "dateKey": "2026-07-16",
-      "date": "2026-07-16",
-      "path": "reports/2026/07/retro/retro-2026-07-16.json",
-      "checksum": "sha256:7f761c9a4d1ac628d18206c1536b36319ff1cb075f16c0035889e2542d7a7d75"
-    },
-    {
       "id": "daily-2026-07-16",
       "type": "daily",
       "dateKey": "2026-07-16",
       "date": "2026-07-16",
       "path": "reports/2026/07/daily/daily-2026-07-16.json",
-      "checksum": "sha256:918da391a0d1dfc9dd617806cce4419afa5bbf6d21760a7efe0cdd912cfd7c50"
-    },
-    {
-      "id": "retro-2026-07-15",
-      "type": "retro",
-      "dateKey": "2026-07-15",
-      "date": "2026-07-15",
-      "path": "reports/2026/07/retro/retro-2026-07-15.json",
-      "checksum": "sha256:1ce9237b729d20716ae01d1a60fecd101f83aa6177b3c8e170ef57aab2dc7b5c"
+      "checksum": "sha256:0fb9359835e786bca2a37904f4dfa26c197f2bbd0702db641c24c3ce11bc7ccd"
     },
     {
       "id": "daily-2026-07-15",
@@ -1038,15 +638,7 @@
       "dateKey": "2026-07-15",
       "date": "2026-07-15",
       "path": "reports/2026/07/daily/daily-2026-07-15.json",
-      "checksum": "sha256:f70731c39f96169a9ea6b539b61bbfe7dcab40942372e69cb5463d901668fcb6"
-    },
-    {
-      "id": "retro-2026-07-14",
-      "type": "retro",
-      "dateKey": "2026-07-14",
-      "date": "2026-07-14",
-      "path": "reports/2026/07/retro/retro-2026-07-14.json",
-      "checksum": "sha256:defa7152c15c1cf2cc8e0d9aea9c836a9dc2c1aab7e9da03ca930c4fcca3f32d"
+      "checksum": "sha256:0c24f19966b29c48c8ab418f53ddf509d84c8414b7572b2fbe34e1fda36c7e65"
     },
     {
       "id": "daily-2026-07-14",
@@ -1054,15 +646,7 @@
       "dateKey": "2026-07-14",
       "date": "2026-07-14",
       "path": "reports/2026/07/daily/daily-2026-07-14.json",
-      "checksum": "sha256:acf0cbbdae2a1f51882e62a6b8a3256d61ddacf84fa455d8c75e597da9eedf5e"
-    },
-    {
-      "id": "retro-2026-07-13",
-      "type": "retro",
-      "dateKey": "2026-07-13",
-      "date": "2026-07-13",
-      "path": "reports/2026/07/retro/retro-2026-07-13.json",
-      "checksum": "sha256:1e95e857a6d90e5170ba72d7764433aeed23c48f50636b29b8429de954500e75"
+      "checksum": "sha256:71c21435ec4e193a5737e7632a31a51e8f6b13bad80c5a719426a8aabf9ec45f"
     },
     {
       "id": "daily-2026-07-13",
@@ -1070,7 +654,7 @@
       "dateKey": "2026-07-13",
       "date": "2026-07-13",
       "path": "reports/2026/07/daily/daily-2026-07-13.json",
-      "checksum": "sha256:3689359cc9c7adaab62989943e1e9073acad60f5e34ce19f164363a887f7e0ad"
+      "checksum": "sha256:48f2085e7e8bc919360162d2beaae67494c922910fcead471ef9dc0753ca17a0"
     },
     {
       "id": "weekly-2026-W28",
@@ -1089,28 +673,12 @@
       "checksum": "sha256:dd590ce8e2bc36fb539fade6d8bae91e54613f84d5743fcd924c47fd5a9a9307"
     },
     {
-      "id": "retro-2026-07-10",
-      "type": "retro",
-      "dateKey": "2026-07-10",
-      "date": "2026-07-10",
-      "path": "reports/2026/07/retro/retro-2026-07-10.json",
-      "checksum": "sha256:11e619aa193cd3bd5276cb56205e2ac157fd223184299a02b312a7401fec1a18"
-    },
-    {
       "id": "daily-2026-07-10",
       "type": "daily",
       "dateKey": "2026-07-10",
       "date": "2026-07-10",
       "path": "reports/2026/07/daily/daily-2026-07-10.json",
-      "checksum": "sha256:d2f07d168bac86f1f8eb46f567af0730694914e3ccae6a9a5c7934ff765d9f4c"
-    },
-    {
-      "id": "retro-2026-07-09",
-      "type": "retro",
-      "dateKey": "2026-07-09",
-      "date": "2026-07-09",
-      "path": "reports/2026/07/retro/retro-2026-07-09.json",
-      "checksum": "sha256:9cdc1ae6f60a6329d1333b7ed2ef17bbf05202ed5e34d5e3b67225a7c7e5c745"
+      "checksum": "sha256:22e929e2bc579eb0010801ae3aa400dac18b6370f294684fc888e6a6fb37afe3"
     },
     {
       "id": "daily-2026-07-09",
@@ -1118,15 +686,7 @@
       "dateKey": "2026-07-09",
       "date": "2026-07-09",
       "path": "reports/2026/07/daily/daily-2026-07-09.json",
-      "checksum": "sha256:c706070eb6a720f950776988e7d231d12989fd1ed598cce525d2a6be62d512c0"
-    },
-    {
-      "id": "retro-2026-07-08",
-      "type": "retro",
-      "dateKey": "2026-07-08",
-      "date": "2026-07-08",
-      "path": "reports/2026/07/retro/retro-2026-07-08.json",
-      "checksum": "sha256:4f83a1ff52acd532a2c453ace928b64ee15f0ee46e0f6cda762eed7a00aab546"
+      "checksum": "sha256:c4c61b9d50faf5cfb30e92f191d7f01dfad6cbe8e826bd76cf14da457869bd32"
     },
     {
       "id": "daily-2026-07-08",
@@ -1134,15 +694,7 @@
       "dateKey": "2026-07-08",
       "date": "2026-07-08",
       "path": "reports/2026/07/daily/daily-2026-07-08.json",
-      "checksum": "sha256:6d6ba65042db6ec65065dade01f2f825c7b548e9ebfe01425d71d212ab169337"
-    },
-    {
-      "id": "retro-2026-07-07",
-      "type": "retro",
-      "dateKey": "2026-07-07",
-      "date": "2026-07-07",
-      "path": "reports/2026/07/retro/retro-2026-07-07.json",
-      "checksum": "sha256:ebadb48c3b2fd38ee539ef583f8720c600527970fdf4d8fa94a2ecc5378fec18"
+      "checksum": "sha256:9e4093a1b7dd6e809e95d47e259cd14cf557d5bc98e5bc5a5be817eabcc5adee"
     },
     {
       "id": "daily-2026-07-07",
@@ -1150,15 +702,7 @@
       "dateKey": "2026-07-07",
       "date": "2026-07-07",
       "path": "reports/2026/07/daily/daily-2026-07-07.json",
-      "checksum": "sha256:4ef99cbd90613fc30f0da46763e2ce1338e2dd6f9aea6ce4faee72c38ae442fc"
-    },
-    {
-      "id": "retro-2026-07-06",
-      "type": "retro",
-      "dateKey": "2026-07-06",
-      "date": "2026-07-06",
-      "path": "reports/2026/07/retro/retro-2026-07-06.json",
-      "checksum": "sha256:b17698280f55d101aa305d3db42d9312913ba2d125e9a222a34dac05e73f1c54"
+      "checksum": "sha256:d5182bcba27ab82cffd768a4cf197e49c3499ecc73d3aec690e0dd24a2248054"
     },
     {
       "id": "daily-2026-07-06",
@@ -1166,7 +710,7 @@
       "dateKey": "2026-07-06",
       "date": "2026-07-06",
       "path": "reports/2026/07/daily/daily-2026-07-06.json",
-      "checksum": "sha256:2565382d89f44807dbecfd4a6035851fed17ab7eb598d245722d9051ba98fa73"
+      "checksum": "sha256:3bfed0c0c152b06121641b7cff7ac549ac0f4dfccf210748f1ee0153d30b95ef"
     },
     {
       "id": "weekly-2026-W27",
@@ -1193,28 +737,12 @@
       "checksum": "sha256:87c6c2356006ae7d016efe712dc7f4921695480cf70a8436516401cc30cc2a81"
     },
     {
-      "id": "retro-2026-07-03",
-      "type": "retro",
-      "dateKey": "2026-07-03",
-      "date": "2026-07-03",
-      "path": "reports/2026/07/retro/retro-2026-07-03.json",
-      "checksum": "sha256:11c18dc7786f5d22f16a0d108982387856ae6a1aebcade843a351fa505f9a358"
-    },
-    {
       "id": "daily-2026-07-03",
       "type": "daily",
       "dateKey": "2026-07-03",
       "date": "2026-07-03",
       "path": "reports/2026/07/daily/daily-2026-07-03.json",
-      "checksum": "sha256:04d87c662c3385a02f88f72e7a83aac4ed40dbe42daeb1bfc8d14c806848291d"
-    },
-    {
-      "id": "retro-2026-07-02",
-      "type": "retro",
-      "dateKey": "2026-07-02",
-      "date": "2026-07-02",
-      "path": "reports/2026/07/retro/retro-2026-07-02.json",
-      "checksum": "sha256:3d8efb56d357356777bd4c8ba26c4b4a7263c9374eb905e6cb99b70bd3dc2bd2"
+      "checksum": "sha256:d014b25d63088f05fdd32289810f3ee425ebe337613e5599684f9d9e42754986"
     },
     {
       "id": "daily-2026-07-02",
@@ -1222,15 +750,7 @@
       "dateKey": "2026-07-02",
       "date": "2026-07-02",
       "path": "reports/2026/07/daily/daily-2026-07-02.json",
-      "checksum": "sha256:477a134cce706e80041297235fdb757b438dd534cdb26559730307462d56b627"
-    },
-    {
-      "id": "retro-2026-07-01",
-      "type": "retro",
-      "dateKey": "2026-07-01",
-      "date": "2026-07-01",
-      "path": "reports/2026/07/retro/retro-2026-07-01.json",
-      "checksum": "sha256:739546871111bd19e52d6a57c850388aae10f9896191447191fcbdf349d398d3"
+      "checksum": "sha256:d8d8437919ac3adcb34665b89bd603ffbb2c4ba85af79e8e7df6dd839188e9e5"
     },
     {
       "id": "daily-2026-07-01",
@@ -1238,15 +758,7 @@
       "dateKey": "2026-07-01",
       "date": "2026-07-01",
       "path": "reports/2026/07/daily/daily-2026-07-01.json",
-      "checksum": "sha256:68686ce31673055b3fcb314767c73aa23a1d9bd66e37b90272903118ec5af6e3"
-    },
-    {
-      "id": "retro-2026-06-30",
-      "type": "retro",
-      "dateKey": "2026-06-30",
-      "date": "2026-06-30",
-      "path": "reports/2026/06/retro/retro-2026-06-30.json",
-      "checksum": "sha256:e8bdfe29d0685a378ad2612b92be00796c7402aaa6ac37cdf67ac944ef67ffde"
+      "checksum": "sha256:a5413d444c9f106a46cd7c7e88ccc31132b8d34b348a7d2d62ec7e18538d6915"
     },
     {
       "id": "monthly-2026-06",
@@ -1262,15 +774,7 @@
       "dateKey": "2026-06-30",
       "date": "2026-06-30",
       "path": "reports/2026/06/daily/daily-2026-06-30.json",
-      "checksum": "sha256:2d67c3338764e9cf19d1e392597f22596d20015a31e63d2c84d0a44ee731fb72"
-    },
-    {
-      "id": "retro-2026-06-29",
-      "type": "retro",
-      "dateKey": "2026-06-29",
-      "date": "2026-06-29",
-      "path": "reports/2026/06/retro/retro-2026-06-29.json",
-      "checksum": "sha256:32f7ba46466504da8ff51896647d34fc14afcc9d9953d0204ca11b13fae1ed18"
+      "checksum": "sha256:8c9cf6a0a0e08d2da8d723d628ddb58e420115f8f9f0a8b2f725a5dcabdb869c"
     },
     {
       "id": "daily-2026-06-29",
@@ -1278,7 +782,7 @@
       "dateKey": "2026-06-29",
       "date": "2026-06-29",
       "path": "reports/2026/06/daily/daily-2026-06-29.json",
-      "checksum": "sha256:6eb2136d4af980ce906b833d510aa21d49302e66c58bd75b680443216b70fad3"
+      "checksum": "sha256:6db3e2bf9016d5197bd3cf99c3486cc72038fbda202e5b4513283f72cc745811"
     },
     {
       "id": "weekly-2026-W26",
@@ -1297,28 +801,12 @@
       "checksum": "sha256:9ef7bfc40f117c00115de45f1a9f310a2a3efdef74e6d68bd085fa54176ae58b"
     },
     {
-      "id": "retro-2026-06-26",
-      "type": "retro",
-      "dateKey": "2026-06-26",
-      "date": "2026-06-26",
-      "path": "reports/2026/06/retro/retro-2026-06-26.json",
-      "checksum": "sha256:034637aa0bd7a851ee0da061031accbdfe960f58fde214e8eb2b5e79ccf14b1e"
-    },
-    {
       "id": "daily-2026-06-26",
       "type": "daily",
       "dateKey": "2026-06-26",
       "date": "2026-06-26",
       "path": "reports/2026/06/daily/daily-2026-06-26.json",
-      "checksum": "sha256:3c8d6f06d34392cd7b3c25ec328175d292b5b08ff1d88f8aa9440d7eab68d876"
-    },
-    {
-      "id": "retro-2026-06-25",
-      "type": "retro",
-      "dateKey": "2026-06-25",
-      "date": "2026-06-25",
-      "path": "reports/2026/06/retro/retro-2026-06-25.json",
-      "checksum": "sha256:c536c958e352aeba39a5b8923248e958c548efad31096b9d7568979ba5f8e588"
+      "checksum": "sha256:10a050e5d5373cd2ab7f6b2eb433e1d943fc27ed185551e5bd2ccf0deb428ec5"
     },
     {
       "id": "daily-2026-06-25",
@@ -1326,7 +814,7 @@
       "dateKey": "2026-06-25",
       "date": "2026-06-25",
       "path": "reports/2026/06/daily/daily-2026-06-25.json",
-      "checksum": "sha256:150ee80b2f7159a9fe032ab42ff38e64ab26b04e3ee9db499c516c11873d59af"
+      "checksum": "sha256:b11ad4b5be530cdb236d4b8b9ae7ae78941d700e9063883c75473e0867168c9f"
     },
     {
       "id": "daily-2026-06-24",
@@ -1337,20 +825,12 @@
       "checksum": "sha256:4c58318e93f92ee7e9e5d770e7d97ebee18849b88a6a5ef9e790ac1a8ead91ba"
     },
     {
-      "id": "retro-2026-06-22",
-      "type": "retro",
-      "dateKey": "2026-06-22",
-      "date": "2026-06-22",
-      "path": "reports/2026/06/retro/retro-2026-06-22.json",
-      "checksum": "sha256:5d0d5f4f107d299178e57295b10eed059644a915665f7303336d4bb1de3ee61a"
-    },
-    {
       "id": "daily-2026-06-22",
       "type": "daily",
       "dateKey": "2026-06-22",
       "date": "2026-06-22",
       "path": "reports/2026/06/daily/daily-2026-06-22.json",
-      "checksum": "sha256:17ed1fda4416604637b0eb367a25486df426e3eab42dd8d0ba9a4eb56487e774"
+      "checksum": "sha256:df41ef5d594358d9b8743300c1cea002eaf71977722e5830c835b5455c024708"
     },
     {
       "id": "weekly-2026-W25",
@@ -1369,28 +849,12 @@
       "checksum": "sha256:9162954501b09e0d3068a5c49d175bf990219bfa77908a048af7bde45fcc7178"
     },
     {
-      "id": "retro-2026-06-19",
-      "type": "retro",
-      "dateKey": "2026-06-19",
-      "date": "2026-06-19",
-      "path": "reports/2026/06/retro/retro-2026-06-19.json",
-      "checksum": "sha256:b8243f244659fb69c84f131e3354c5afccd635d72426b2767bd7a584974135ac"
-    },
-    {
       "id": "daily-2026-06-19",
       "type": "daily",
       "dateKey": "2026-06-19",
       "date": "2026-06-19",
       "path": "reports/2026/06/daily/daily-2026-06-19.json",
-      "checksum": "sha256:208e7ad1cbf5db18b3ae6cfa7add965a097c1917e99d0976931fee5adace0c69"
-    },
-    {
-      "id": "retro-2026-06-18",
-      "type": "retro",
-      "dateKey": "2026-06-18",
-      "date": "2026-06-18",
-      "path": "reports/2026/06/retro/retro-2026-06-18.json",
-      "checksum": "sha256:fe27efdf6b7ff45053064ae0db2ce8482333fac4d90a31b5a74c0fadcfaa685e"
+      "checksum": "sha256:a4883ebae4179f6f3d27cb8af3413aa1aba925df3a9e3fcdedc67036da38e921"
     },
     {
       "id": "daily-2026-06-18",
@@ -1398,15 +862,7 @@
       "dateKey": "2026-06-18",
       "date": "2026-06-18",
       "path": "reports/2026/06/daily/daily-2026-06-18.json",
-      "checksum": "sha256:0eddb7a10d69015b9a3ccfe02310e5968cf951c86052ad226e945df792be0691"
-    },
-    {
-      "id": "retro-2026-06-17",
-      "type": "retro",
-      "dateKey": "2026-06-17",
-      "date": "2026-06-17",
-      "path": "reports/2026/06/retro/retro-2026-06-17.json",
-      "checksum": "sha256:34f53b2d49514575bcacb53a0c743cf661a87467cc35f7f016bdba910754ccf4"
+      "checksum": "sha256:0cba409c2d265434c8a5b967b11b82527a1d3bea556a02d7ceded4093e1f96c5"
     },
     {
       "id": "daily-2026-06-17",
@@ -1414,15 +870,7 @@
       "dateKey": "2026-06-17",
       "date": "2026-06-17",
       "path": "reports/2026/06/daily/daily-2026-06-17.json",
-      "checksum": "sha256:ee4f3bc1dcf3ae88e2b2bc1317a6473a7e0f7f038649209d6bba38703325a568"
-    },
-    {
-      "id": "retro-2026-06-16",
-      "type": "retro",
-      "dateKey": "2026-06-16",
-      "date": "2026-06-16",
-      "path": "reports/2026/06/retro/retro-2026-06-16.json",
-      "checksum": "sha256:3983462589f21660b282f678e2fb66eaf247b9ec15e3c693738f33d73b80069f"
+      "checksum": "sha256:6f3d8b97a33d4b1fe221a9f8fab0ceb067d4633a01087c5a9f0c7e40608ff8b9"
     },
     {
       "id": "daily-2026-06-16",
@@ -1430,15 +878,7 @@
       "dateKey": "2026-06-16",
       "date": "2026-06-16",
       "path": "reports/2026/06/daily/daily-2026-06-16.json",
-      "checksum": "sha256:540b483f3e2c7936d109cbac360e4b50960c59da5af0562d00606739b4391276"
-    },
-    {
-      "id": "retro-2026-06-15",
-      "type": "retro",
-      "dateKey": "2026-06-15",
-      "date": "2026-06-15",
-      "path": "reports/2026/06/retro/retro-2026-06-15.json",
-      "checksum": "sha256:586b517b93bb92a9fd42f658e671cf39657e11e8a26fa54f711990d36fd74bf5"
+      "checksum": "sha256:27b6ba3f83106f4efe1d6261dedc1437c8fa080325cf2bd30daf5ff0b63f1401"
     },
     {
       "id": "recap-2026-06-15",
@@ -1454,20 +894,11 @@
       "dateKey": "2026-06-15",
       "date": "2026-06-15",
       "path": "reports/2026/06/daily/daily-2026-06-15.json",
-      "checksum": "sha256:bb0cd2e689836a95aba9eb7d333670b932fc445a5c0294995a427cac9d7a07ea"
-    },
-    {
-      "id": "retro-2026-06-14",
-      "type": "retro",
-      "dateKey": "2026-06-14",
-      "date": "2026-06-14",
-      "path": "reports/2026/06/retro/retro-2026-06-14.json",
-      "checksum": "sha256:e43eb92f40d39572f987ef352ea22e7968a03fb4f1f7040e32ab75aff6a4f57f"
+      "checksum": "sha256:2d42ddfe940882faefaf006b739520c84bfef7d0b1297065abb8d4504b43341b"
     }
   ],
   "latest": {
-    "retro": "retro-2026-10-02",
-    "daily": "daily-2026-10-02",
+    "daily": "daily-2026-10-04",
     "weekly": "weekly-2026-W40",
     "recap": "recap-2026-10-03",
     "monthly": "monthly-2026-09",

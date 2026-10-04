@@ -46,7 +46,7 @@ export default function MoversTable({ rows }: MoversTableProps) {
           {rows.map((row) => (
             <tr key={row.ticker} className="group border-b border-[var(--color-hairline)] transition-colors last:border-0 hover:bg-[var(--color-raised)]">
               <td className="py-3 pr-4">
-                <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
+                <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                   {ticker(row.ticker)}
                 </span>
               </td>
@@ -56,7 +56,7 @@ export default function MoversTable({ rows }: MoversTableProps) {
                 </span>
               </td>
               <td className="py-3 pr-4 text-right">
-                <span className="font-mono text-sm text-[var(--color-ink)]">
+                <span className="tabular-nums text-sm text-[var(--color-ink)]">
                   {row.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
               </td>
@@ -65,7 +65,7 @@ export default function MoversTable({ rows }: MoversTableProps) {
               </td>
               {hasVolume && (
                 <td className="py-3 text-right">
-                  <span className="font-mono text-sm text-[var(--color-ink)]">
+                  <span className="tabular-nums text-sm text-[var(--color-ink)]">
                     {row.volume !== undefined
                       ? row.volume >= 1_000_000
                         ? `${(row.volume / 1_000_000).toFixed(2)}M`

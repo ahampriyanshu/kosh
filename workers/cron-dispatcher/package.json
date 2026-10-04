@@ -1,0 +1,18 @@
+{
+  "name": "kosh-cron-dispatcher",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker precision cron dispatcher for Kosh time-sensitive market reports",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "keywords": ["cloudflare", "workers", "cron", "github-actions"],
+  "author": "ahampriyanshu",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250224.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^3.114.0"
+  }
+}

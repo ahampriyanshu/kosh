@@ -12,32 +12,54 @@ export function ledgerRelPath(month: string): string {
 }
 
 export async function readLedger(month: string): Promise<Ledger> {
+  const [yyyy, mm] = month.split('-');
+  const livePath = path.join(dataDir(), 'ledger', yyyy, `${mm}.json`);
+  const archivePath = path.join(dataDir(), 'archive', 'ledger', yyyy, `${mm}.json`);
+
   try {
-    const raw = await readFile(path.join(dataDir(), ledgerRelPath(month)), 'utf8');
+    const raw = await readFile(livePath, 'utf8');
     return LedgerSchema.parse(JSON.parse(raw));
-  } catch (e) {
-    if ((e as NodeJS.ErrnoException)?.code === 'ENOENT') return { month, entries: [], summary: null };
-    throw e;
+  } catch (liveErr) {
+    try {
+      const raw = await readFile(archivePath, 'utf8');
+      return LedgerSchema.parse(JSON.parse(raw));
+    } catch {
+      if ((liveErr as NodeJS.ErrnoException)?.code === 'ENOENT') return { month, entries: [], summary: null };
+      throw liveErr;
+    }
   }
 }
 
 export async function readAllLedgers(): Promise<Ledger[]> {
-  const root = path.join(dataDir(), 'ledger');
-  let years: string[];
-  try {
-    years = await readdir(root);
-  } catch (e) {
-    if ((e as NodeJS.ErrnoException)?.code === 'ENOENT') return [];
-    throw e;
+  const roots = [
+    path.join(dataDir(), 'ledger'),
+    path.join(dataDir(), 'archive', 'ledger'),
+  ];
+  const months = new Set<string>();
+
+  for (const root of roots) {
+    let years: string[] = [];
+    try {
+      years = await readdir(root);
+    } catch {
+      continue;
+    }
+    for (const y of years) {
+      if (!/^\d{4}$/.test(y)) continue;
+      let files: string[] = [];
+      try {
+        files = await readdir(path.join(root, y));
+      } catch {
+        continue;
+      }
+      for (const f of files) {
+        if (f.endsWith('.json')) months.add(`${y}-${f.replace('.json', '')}`);
+      }
+    }
   }
-  const months: string[] = [];
-  for (const y of years) {
-    let files: string[] = [];
-    try { files = await readdir(path.join(root, y)); } catch { continue; }
-    for (const f of files) if (f.endsWith('.json')) months.push(`${y}-${f.replace('.json', '')}`);
-  }
-  months.sort((a, b) => b.localeCompare(a)); // newest first
-  return Promise.all(months.map((m) => readLedger(m)));
+
+  const sortedMonths = Array.from(months).sort((a, b) => b.localeCompare(a)); // newest first
+  return Promise.all(sortedMonths.map((m) => readLedger(m)));
 }
 
 export async function appendLedgerEntry(month: string, entry: LedgerEntry): Promise<void> {

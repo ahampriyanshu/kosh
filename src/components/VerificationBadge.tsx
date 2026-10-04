@@ -15,7 +15,7 @@ export function VerificationBadge({ hits, total }: VerificationBadgeProps) {
 
   return (
     <span
-      className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-xs font-mono"
+      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs tabular-nums"
       style={{
         backgroundColor: color.bg,
         color: color.fg,

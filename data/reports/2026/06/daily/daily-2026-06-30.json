@@ -5,8 +5,20 @@
   "dateKey": "2026-06-30",
   "generatedAt": "2026-06-30T06:35:41.829Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
+    "tickers": [
+      "RELIANCE.NS",
+      "TCS.NS",
+      "INFY.NS",
+      "HDFCBANK.NS",
+      "ICICIBANK.NS"
+    ],
+    "priceSnapshot": {
+      "RELIANCE.NS": 1293.9,
+      "TCS.NS": 2031.5,
+      "INFY.NS": 1000.4,
+      "HDFCBANK.NS": 797.95,
+      "ICICIBANK.NS": 1375.2
+    },
     "searchTimestamp": "2026-06-30T06:35:41.829Z"
   },
   "content": {
@@ -898,8 +910,80 @@
       "Domestic Institutional Investors (DIIs) showed strong buying interest (Rs 5747.75cr).",
       "Maruti and Titan were prominent gainers, while Eicher Motors saw significant losses.",
       "Market breadth was negative with more declines than advances (28/30)."
-    ]
+    ],
+    "retro": {
+      "date": "2026-06-30",
+      "evaluated": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "price": 1293.9,
+          "changePct": -0.55,
+          "note": "-0.5% vs prev close, vol 1.0x avg — flags: below 50DMA support"
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "price": 2031.5,
+          "changePct": -3.17,
+          "note": "-3.2% vs prev close, vol 1.4x avg — flags: drawdown>3%, below 50DMA support"
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "price": 1000.4,
+          "changePct": -3.5,
+          "note": "-3.5% vs prev close, vol 1.8x avg — flags: drawdown>3%, below 50DMA support"
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "price": 797.95,
+          "changePct": -0.12,
+          "note": "-0.1% vs prev close, vol 1.4x avg"
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "price": 1375.2,
+          "changePct": -0.89,
+          "note": "-0.9% vs prev close, vol 1.2x avg"
+        }
+      ],
+      "alerts": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "reason": "Modest decline within an existing bearish trend, trading below 50DMA and underperforming relative to its sector.",
+          "severity": "low",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "TCS.NS",
+          "name": "Tata Consultancy Services",
+          "reason": "Significant drop to a fresh 52-week low, negative price breakout, and part of a broader IT sector sell-off due to AI fears, geopolitical tensions, and weak guidance.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "reason": "Significant decline to a fresh 52-week low, trading below all key moving averages, driven by broader IT sector struggles, soft revenue forecasts, and lower deal wins.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        }
+      ],
+      "summary": "Genuine sell signals emerged primarily from the IT sector, with TCS and Infosys experiencing significant drops to new lows, while Reliance Industries showed a weaker sell signal within its ongoing bearish trend."
+    }
   },
   "emailSent": true,
-  "checksum": "sha256:2d67c3338764e9cf19d1e392597f22596d20015a31e63d2c84d0a44ee731fb72"
+  "checksum": "sha256:8c9cf6a0a0e08d2da8d723d628ddb58e420115f8f9f0a8b2f725a5dcabdb869c"
 }

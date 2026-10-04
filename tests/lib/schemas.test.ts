@@ -40,6 +40,21 @@ describe('schemas', () => {
     expect(DailyContentSchema.parse(validDaily)).toBeTruthy();
   });
 
+  it('accepts valid daily content with evening retro surveillance', () => {
+    const withRetro = {
+      ...validDaily,
+      retro: {
+        date: '2026-06-15',
+        evaluated: [
+          { ticker: 'TCS.NS', name: 'TCS', price: 4000, changePct: 1.2, note: 'Holding support' },
+        ],
+        alerts: [],
+        summary: 'Calm closing session.',
+      },
+    };
+    expect(DailyContentSchema.parse(withRetro).retro?.summary).toBe('Calm closing session.');
+  });
+
   it('rejects daily content missing snapshot', () => {
     expect(() => DailyContentSchema.parse({ outlook: 'steady', keyTakeaways: ['a'] })).toThrow();
   });

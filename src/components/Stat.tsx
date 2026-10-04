@@ -14,7 +14,7 @@ export function Stat({ label, value, suffix, className = '' }: StatProps) {
       <span className="text-xs font-sans text-[var(--color-faint)] uppercase tracking-wider">
         {label}
       </span>
-      <span className="font-mono text-base font-medium text-[var(--color-ink)] tabular-nums">
+      <span className="text-base font-medium text-[var(--color-ink)] tabular-nums">
         {value}
         {suffix && (
           <span className="text-sm text-[var(--color-muted)] ml-0.5">{suffix}</span>

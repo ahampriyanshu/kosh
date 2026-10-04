@@ -6,7 +6,6 @@ import type { Portfolio } from '../../lib/schemas';
 import { sortPortfolioHoldings, type PortfolioSort, type PortfolioSortKey } from '../../lib/portfolio-sort';
 import { Pct } from './Pct';
 import { ticker } from './market/Figure';
-import { PageHeader } from './ui/PageHeader';
 
 const STORAGE_KEY = 'kosh_portfolio_key';
 const ENCRYPTED_PORTFOLIO_URL = '/data/portfolio.enc.json';
@@ -59,7 +58,7 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
       <p className="font-sans text-xs text-[var(--color-faint)] mb-1">
         {label}
       </p>
-      <p className={`font-mono text-lg font-bold tabular-nums ${color}`}>{value}</p>
+      <p className={`font-serif text-xl font-bold tabular-nums ${color}`}>{value}</p>
     </div>
   );
 }
@@ -67,11 +66,9 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
 function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
   return (
     <div>
-      <PageHeader title="Portfolio" description="Holdings view for a broker-synced portfolio." />
-
       <section>
         <div className="max-w-3xl">
-          <h2 className="font-display text-2xl font-bold text-[var(--color-ink)] leading-tight mb-4">
+          <h2 className="font-serif text-2xl font-bold text-[var(--color-ink)] leading-tight mb-4">
             Bring your own portfolio feed.
           </h2>
           <p className="text-sm leading-6 text-[var(--color-muted)] max-w-xl">
@@ -104,9 +101,9 @@ function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
           ].map((step, index) => (
             <li
               key={step}
-              className="rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5"
+              className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5"
             >
-              <span className="font-mono text-xs text-[var(--color-faint)]">0{index + 1}</span>
+              <span className="tabular-nums text-xs text-[var(--color-faint)]">0{index + 1}</span>
               <p className="mt-3 text-sm leading-6 text-[var(--color-ink)]">{step}</p>
             </li>
           ))}
@@ -179,7 +176,7 @@ function KeyModal({
             value={value}
             onChange={(event) => setValue(event.target.value)}
             autoFocus
-            className="mt-2 w-full rounded-lg border border-[var(--color-hairline)] bg-[var(--color-bg)] px-3 py-2 font-mono text-sm text-[var(--color-ink)] outline-none focus:border-[var(--color-brand)]"
+            className="mt-2 w-full border border-[var(--color-hairline)] bg-[var(--color-bg)] px-3 py-2 text-sm text-[var(--color-ink)] outline-none focus:border-[var(--color-brand)]"
           />
         </label>
         {error && <p className="mt-3 text-sm text-[var(--color-bearish)]">{error}</p>}
@@ -187,7 +184,7 @@ function KeyModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-[var(--color-hairline)] px-4 py-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)]"
+            className="border border-[var(--color-hairline)] px-4 py-2 text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)]"
           >
             Cancel
           </button>
@@ -195,7 +192,7 @@ function KeyModal({
             type="button"
             disabled={loading || !value.trim()}
             onClick={() => onSave(value.trim())}
-            className="rounded-lg bg-[var(--color-brand)] px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
+            className="bg-[var(--color-brand)] px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading ? 'Unlocking' : 'Save phrase'}
           </button>
@@ -231,22 +228,20 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
 
   return (
     <div>
-      <PageHeader title="Portfolio" description="Holdings, allocation, and current portfolio movement." />
-
       <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
-        <p className="font-mono text-xs text-[var(--color-faint)]">
+        <p className="tabular-nums text-xs text-[var(--color-faint)]">
           <button
             type="button"
             onClick={onReplaceKey}
             aria-label="Open portfolio phrase"
             className="cursor-pointer text-inherit outline-none hover:text-[var(--color-ink)] focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4"
           >
-            {portfolio.source === 'kite' ? 'Kite snapshot' : 'Manual snapshot'}
+            {portfolio.holdings.length} holdings
           </button>{' '}
           - {formatAsOf(portfolio.asOf)}
         </p>
         {stale && (
-          <span className="font-mono text-xs text-[var(--color-bearish)] bg-[var(--color-bearish-bg)] border border-[var(--color-bearish-bg)] rounded px-2 py-1">
+          <span className="text-xs text-[var(--color-bearish)] border border-[var(--color-bearish)] px-2 py-0.5 uppercase tracking-wider">
             stale
           </span>
         )}
@@ -260,83 +255,161 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
       </div>
 
       {holdings.length === 0 ? (
-        <div className="py-16 text-center border border-dashed border-[var(--color-hairline)] rounded-xl">
-          <p className="font-display text-xl text-[var(--color-faint)]">
+        <div className="py-16 text-center border border-dashed border-[var(--color-hairline)]">
+          <p className="font-serif text-xl text-[var(--color-faint)]">
             No holdings synced.
           </p>
         </div>
       ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[920px]">
-            <thead>
-              <tr>
-                {columns.map((column) => (
-                  <th
-                    key={column.key}
-                    aria-sort={
-                      sort.key === column.key
-                        ? sort.direction === 'asc'
-                          ? 'ascending'
-                          : 'descending'
-                        : 'none'
-                    }
-                    className={`py-3 ${column.align === 'left' ? 'text-left' : 'text-right'} ${column.pad}`}
-                  >
-                    <button
-                      type="button"
-                      onClick={() => updateSort(column.key)}
-                      className={`inline-flex items-center gap-1 font-sans text-xs font-medium text-[var(--color-faint)] hover:text-[var(--color-ink)] focus:outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4 ${column.align === 'right' ? 'justify-end' : ''}`}
+        <div>
+          <div className="hidden overflow-x-auto lg:block">
+            <table className="portfolio-table min-w-[920px]">
+              <caption className="sr-only">Portfolio holdings</caption>
+              <thead>
+                <tr>
+                  {columns.map((column) => (
+                    <th
+                      key={column.key}
+                      scope="col"
+                      aria-sort={
+                        sort.key === column.key
+                          ? sort.direction === 'asc'
+                            ? 'ascending'
+                            : 'descending'
+                          : 'none'
+                      }
+                      className={`py-3 ${column.align === 'left' ? 'text-left' : 'text-right'} ${column.pad}`}
                     >
-                      <span>{column.label}</span>
-                      <span className="font-mono text-[10px] text-[var(--color-brand)]">
-                        {sort.key === column.key ? (sort.direction === 'asc' ? '^' : 'v') : ''}
-                      </span>
-                    </button>
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-[var(--color-hairline)]">
-              {sortedHoldings.map((holding) => (
-                <tr key={holding.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
-                  <td className="py-3.5 pr-6">
-                    <div>
-                      <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
-                        {ticker(holding.ticker)}
-                      </span>
-                      <p className="font-sans text-xs text-[var(--color-faint)] mt-0.5">{holding.name}</p>
-                    </div>
-                  </td>
-                  <td className="py-3.5 pr-6 text-right font-mono text-sm text-[var(--color-ink)] tabular-nums">
-                    {holding.quantity.toLocaleString('en-IN')}
-                  </td>
-                  <td className="py-3.5 pr-6 text-right font-mono text-sm text-[var(--color-muted)] tabular-nums">
-                    {price(holding.averagePrice)}
-                  </td>
-                  <td className="py-3.5 pr-6 text-right font-mono text-sm text-[var(--color-ink)] tabular-nums">
-                    {price(holding.lastPrice)}
-                  </td>
-                  <td className="py-3.5 pr-6 text-right font-mono text-sm text-[var(--color-ink)] tabular-nums">
-                    {money(holding.currentValue)}
-                  </td>
-                  <td className="py-3.5 pr-6 text-right">
-                    <div className="font-mono text-sm text-[var(--color-ink)] tabular-nums">{money(holding.pnl)}</div>
-                    <Pct value={holding.pnlPct} className="justify-end" />
-                  </td>
-                  <td className="py-3.5 pr-6 text-right">
-                    <div className="font-mono text-sm text-[var(--color-ink)] tabular-nums">{money(holding.dayChange * holding.quantity)}</div>
-                    <Pct value={holding.dayChangePct} className="justify-end" />
-                  </td>
-                  <td className="py-3.5 text-right font-mono text-sm text-[var(--color-muted)] tabular-nums">
-                    {holding.allocationPct.toFixed(1)}%
-                  </td>
+                      <button
+                        type="button"
+                        onClick={() => updateSort(column.key)}
+                        className={`inline-flex items-center gap-1 font-sans text-xs font-medium text-[var(--color-faint)] hover:text-[var(--color-ink)] focus:outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4 ${column.align === 'right' ? 'justify-end' : ''}`}
+                      >
+                        <span>{column.label}</span>
+                        <span className="text-[10px] text-[var(--color-brand)]" aria-hidden="true">
+                          {sort.key === column.key ? (sort.direction === 'asc' ? '↑' : '↓') : ''}
+                        </span>
+                      </button>
+                    </th>
+                  ))}
                 </tr>
+              </thead>
+              <tbody>
+                {sortedHoldings.map((holding) => (
+                  <tr key={holding.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
+                    <td className="py-3.5 pr-6">
+                      <div>
+                        <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
+                          {ticker(holding.ticker)}
+                        </span>
+                        <p className="font-sans text-xs text-[var(--color-faint)] mt-0.5">{holding.name}</p>
+                      </div>
+                    </td>
+                    <td className="py-3.5 pr-6 text-right tabular-nums text-sm text-[var(--color-ink)]">
+                      {holding.quantity.toLocaleString('en-IN')}
+                    </td>
+                    <td className="py-3.5 pr-6 text-right tabular-nums text-sm text-[var(--color-muted)]">
+                      {price(holding.averagePrice)}
+                    </td>
+                    <td className="py-3.5 pr-6 text-right tabular-nums text-sm text-[var(--color-ink)]">
+                      {price(holding.lastPrice)}
+                    </td>
+                    <td className="py-3.5 pr-6 text-right tabular-nums text-sm text-[var(--color-ink)]">
+                      {money(holding.currentValue)}
+                    </td>
+                    <td className="py-3.5 pr-6 text-right">
+                      <div className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.pnl)}</div>
+                      <Pct value={holding.pnlPct} className="justify-end" />
+                    </td>
+                    <td className="py-3.5 pr-6 text-right">
+                      <div className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.dayChange * holding.quantity)}</div>
+                      <Pct value={holding.dayChangePct} className="justify-end" />
+                    </td>
+                    <td className="py-3.5 text-right tabular-nums text-sm text-[var(--color-muted)]">
+                      {holding.allocationPct.toFixed(1)}%
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="lg:hidden">
+            <div className="flex items-center justify-end gap-3 border-y border-[var(--color-hairline)] py-2">
+              <label htmlFor="portfolio-sort-mobile" className="text-xs text-[var(--color-muted)]">
+                Sort by
+              </label>
+              <select
+                id="portfolio-sort-mobile"
+                value={sort.key}
+                onChange={(event) => setSort({ key: event.target.value as PortfolioSortKey, direction: 'desc' })}
+                className="max-w-[11rem] border-0 border-b border-[var(--color-hairline)] bg-transparent py-1 text-sm text-[var(--color-ink)] outline-none focus-visible:border-[var(--color-ink)]"
+              >
+                {columns.map((column) => (
+                  <option key={column.key} value={column.key}>{column.label}</option>
+                ))}
+              </select>
+              <button
+                type="button"
+                onClick={() => setSort((current) => ({ ...current, direction: current.direction === 'asc' ? 'desc' : 'asc' }))}
+                aria-label={`Change sort order to ${sort.direction === 'asc' ? 'descending' : 'ascending'}`}
+                className="px-1 text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[var(--color-ink)]"
+              >
+                {sort.direction === 'asc' ? '↑' : '↓'}
+              </button>
+            </div>
+
+            <ul className="m-0 list-none divide-y divide-[var(--color-hairline)] p-0">
+              {sortedHoldings.map((holding) => (
+                <li key={holding.ticker} className="py-4">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0">
+                      <p className="font-serif text-base font-bold leading-tight text-[var(--color-ink)]">
+                        {ticker(holding.ticker)}
+                      </p>
+                      <p className="mt-0.5 truncate text-xs text-[var(--color-muted)]">{holding.name}</p>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <p className="font-serif text-base font-semibold tabular-nums text-[var(--color-ink)]">
+                        {money(holding.currentValue)}
+                      </p>
+                      <p className="text-xs tabular-nums text-[var(--color-muted)]">
+                        {holding.allocationPct.toFixed(1)}% of portfolio
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 grid grid-cols-3 gap-3">
+                    <div>
+                      <p className="text-[10px] text-[var(--color-faint)]">Qty</p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{holding.quantity.toLocaleString('en-IN')}</p>
+                    </div>
+                    <div>
+                      <p className="text-[10px] text-[var(--color-faint)]">Avg</p>
+                      <p className="tabular-nums text-sm text-[var(--color-muted)]">{price(holding.averagePrice)}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[10px] text-[var(--color-faint)]">LTP</p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{price(holding.lastPrice)}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 grid grid-cols-2 gap-4 border-t border-[var(--color-hairline)] pt-2.5">
+                    <div>
+                      <p className="text-[10px] text-[var(--color-faint)]">P&amp;L</p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.pnl)}</p>
+                      <Pct value={holding.pnlPct} />
+                    </div>
+                    <div className="text-right">
+                      <p className="text-[10px] text-[var(--color-faint)]">Day</p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.dayChange * holding.quantity)}</p>
+                      <Pct value={holding.dayChangePct} className="justify-end" />
+                    </div>
+                  </div>
+                </li>
               ))}
-            </tbody>
-          </table>
-          <p className="mt-4 font-mono text-xs text-[var(--color-faint)]">
-            {holdings.length} holding{holdings.length !== 1 ? 's' : ''}
-          </p>
+            </ul>
+          </div>
         </div>
       )}
     </div>
@@ -390,7 +463,6 @@ export function PortfolioUnlock() {
   if (checking) {
     return (
       <div>
-        <PageHeader title="Portfolio" />
         <p className="mt-8 text-sm text-[var(--color-faint)]">Preparing portfolio.</p>
       </div>
     );

@@ -4,14 +4,26 @@ import { readPortfolio } from '../lib/portfolio';
 import { getQuoteDetail, getHistorical } from '../lib/market-data';
 import { sma } from '../lib/indicators';
 import { generateGroundedObject } from '../lib/llm';
-import { writeReport, computeChecksum } from '../lib/storage';
+import { writeReport, computeChecksum, findReportByRoute, readReport } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderRetroEmail } from '../lib/email-templates';
 import { istDateString } from '../lib/time';
+import { fetchIndices } from '../lib/feed/indices';
+import { fetchUniverse } from '../lib/feed/universe';
+import { computeInternals } from '../lib/feed/internals';
+import { buildSnapshot } from '../lib/feed/merge';
+import { writeSnapshot, writeSlice } from '../lib/feed/store';
+import { computeMoodSnapshot } from '../lib/sentiment';
 import {
   AlertSchema,
   RetroContentSchema,
+  DailyContentSchema,
+  IndicesSliceSchema,
+  UniverseSliceSchema,
+  InternalsSliceSchema,
   type RetroContent,
+  type DailyContent,
+  type MarketSnapshot,
   type ReportEnvelope,
 } from '../lib/schemas';
 
@@ -33,9 +45,60 @@ function avg(nums: number[]): number {
   return nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : 0;
 }
 
-export async function runRetro(now: Date = new Date()): Promise<void> {
+function fallbackSnapshot(asOf: string): MarketSnapshot {
+  return {
+    asOf,
+    window: '1d',
+    indianIndices: [],
+    giftNifty: null,
+    globalIndices: [],
+    commodities: [],
+    currencies: [],
+    bondYield: null,
+    vix: null,
+    breadth: null,
+    topGainers: [],
+    topLosers: [],
+    mostActive: [],
+    near52wHigh: [],
+    near52wLow: [],
+    volumeShockers: [],
+    sectorRanking: [],
+    fiiDii: null,
+    news: [],
+    streetRecommendations: [],
+    corporateActions: [],
+    derivatives: null,
+  };
+}
+
+async function refreshMarketClosingSlices(date: string, nowIso: string): Promise<MarketSnapshot | null> {
+  try {
+    const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
+    const internals = computeInternals(universe.quotes);
+    await writeSlice(date, 'indices', indices, IndicesSliceSchema);
+    await writeSlice(date, 'universe', universe, UniverseSliceSchema);
+    await writeSlice(date, 'internals', internals, InternalsSliceSchema);
+    const snapshot = await buildSnapshot(date, '1d', nowIso);
+    const mood = computeMoodSnapshot(snapshot, 'closing');
+    snapshot.sentiment = mood;
+    await writeSnapshot(date, snapshot);
+    console.log(`Updated official closing snapshot and mood index for ${date} (${mood.composite}/100 · ${mood.regime}).`);
+    return snapshot;
+  } catch (err) {
+    console.warn(`Could not refresh closing snapshot for ${date}:`, err);
+    return null;
+  }
+}
+
+export async function runRetro(now: Date = new Date(), options: { sendEmail?: boolean } = {}): Promise<void> {
   const date = istDateString(now);
+  const nowIso = now.toISOString();
   const period1 = new Date(now.getTime() - 120 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+
+  // Refresh the day's official closing snapshot so website and analytics reflect today's close
+  const closingSnapshot = await refreshMarketClosingSlices(date, nowIso);
+
   const portfolio = await readPortfolio();
   const holdings = portfolio.holdings;
 
@@ -74,15 +137,16 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
   }
 
   let alerts: RetroContent['alerts'] = [];
-  let summary = 'No unusual intraday activity across portfolio holdings.';
+  let summary = 'No unusual closing session activity across portfolio holdings.';
 
   if (flags.length) {
     const flagBlock = flags
       .map((f) => `${f.ticker} (${f.name}): ${f.changePct.toFixed(1)}% vs prev close, vol ${f.volRatio.toFixed(1)}x avg, rules: ${f.rules.join(', ')}`)
       .join('\n');
     const researchPrompt =
-      `Indian market mid-session today (${date}). These portfolio holdings tripped deterministic alert rules. ` +
-      `Using current news, judge which are genuine SELL signals vs. noise (index-wide move, ex-dividend, known event).\n\n${flagBlock}`;
+      `Indian equity market closing session today (${date}). The market has closed for the day. ` +
+      `These portfolio holdings tripped end-of-day alert rules:\n\n${flagBlock}\n\n` +
+      `Using current market news, evaluate why these stocks moved, judge which represent genuine SELL/RISK signals vs. noise (market-wide pullback, ex-dividend, known event), and assess carry-over risk for tomorrow.`;
     const buildStructurePrompt = (research: string) =>
       `Return "alerts": only tickers that are genuine sell signals, each with ticker, name, reason, severity (high/medium/low), and triggeredRules (chosen from the rules listed for that ticker). ` +
       `Also a one-line "summary".\n\nResearch:\n${research}`;
@@ -92,31 +156,100 @@ export async function runRetro(now: Date = new Date()): Promise<void> {
     summary = object.summary;
   }
 
-  const content = RetroContentSchema.parse({ date, evaluated, alerts, summary });
+  const retroContent = RetroContentSchema.parse({ date, evaluated, alerts, summary });
+
+  // Read existing morning daily report to preserve outlook and morning cues
+  let existingDaily: ReportEnvelope | null = null;
+  try {
+    existingDaily = await findReportByRoute('daily', date);
+  } catch {
+    existingDaily = null;
+  }
+  if (!existingDaily) {
+    try {
+      existingDaily = await readReport(`daily-${date}`);
+    } catch {
+      existingDaily = null;
+    }
+  }
+
+  const existingContent = (existingDaily?.content as Partial<DailyContent>) ?? {};
+  let snapshot = closingSnapshot;
+  if (!snapshot) {
+    if (existingContent.snapshot) {
+      snapshot = existingContent.snapshot;
+    } else {
+      try {
+        snapshot = await buildSnapshot(date, '1d', nowIso);
+      } catch {
+        snapshot = fallbackSnapshot(nowIso);
+      }
+    }
+  }
+
+  const dailyContent = DailyContentSchema.parse({
+    snapshot,
+    outlook: existingContent.outlook ?? `Market session concluded on ${date}. Portfolio surveillance and risk screening complete.`,
+    keyTakeaways: existingContent.keyTakeaways ?? [],
+    retro: retroContent,
+  });
 
   const base: Omit<ReportEnvelope, 'emailSent'> = {
     schemaVersion: 1,
-    id: `retro-${date}`,
+    id: `daily-${date}`,
     dateKey: date,
-    type: 'retro',
-    generatedAt: now.toISOString(),
+    type: 'daily',
+    generatedAt: nowIso,
     sourceData: {
-      tickers: holdings.map((s) => s.ticker),
-      priceSnapshot,
-      searchTimestamp: now.toISOString(),
+      tickers: Array.from(new Set([...(existingDaily?.sourceData?.tickers ?? []), ...holdings.map((s) => s.ticker)])),
+      priceSnapshot: {
+        ...(existingDaily?.sourceData?.priceSnapshot ?? {}),
+        ...priceSnapshot,
+      },
+      searchTimestamp: nowIso,
     },
-    content,
-    checksum: computeChecksum(content),
+    content: dailyContent,
+    checksum: computeChecksum(dailyContent),
   };
 
+  const shouldSendEmail = options.sendEmail ?? true;
   await writeReport({ ...base, emailSent: false });
-  await sendReportEmail('Kosh Daily Retro', renderRetroEmail(content));
-  await writeReport({ ...base, emailSent: true });
-  console.log(`Mid-session ${base.id} written and emailed (${alerts.length} alerts).`);
+  if (shouldSendEmail) {
+    try {
+      await sendReportEmail('Kosh Market Close & Daily Retro', renderRetroEmail(retroContent));
+      await writeReport({ ...base, emailSent: true });
+    } catch (e) {
+      console.warn('[retro] Could not send email:', e);
+    }
+  } else {
+    await writeReport({ ...base, emailSent: true });
+  }
+
+  // Append alerts to analytical ledger
+  if (alerts.length > 0) {
+    try {
+      const fs = await import('node:fs/promises');
+      const p = await import('node:path');
+      const dataDir = process.env.KOSH_DATA_DIR || p.join(process.cwd(), 'data');
+      const qualDir = p.join(dataDir, 'ledger', 'qualitative');
+      await fs.mkdir(qualDir, { recursive: true });
+      for (const alert of alerts) {
+        const line = JSON.stringify({ date, ...alert, timestamp: now.toISOString() }) + '\n';
+        await fs.appendFile(p.join(qualDir, 'portfolio_alerts.jsonl'), line, 'utf-8');
+      }
+    } catch (err) {
+      console.warn('[retro] Could not append to portfolio_alerts.jsonl:', err);
+    }
+  }
+
+  console.log(`Updated daily report ${base.id} with market close & retro surveillance (${alerts.length} alerts).`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  runRetro()
+  const dateArg = process.argv.slice(2).find((arg) => /^\d{4}-\d{2}-\d{2}$/.test(arg)) || process.env.DATE;
+  const targetNow = dateArg ? new Date(`${dateArg}T16:15:00+05:30`) : new Date();
+  const skipEmail = process.argv.includes('--no-email') || process.env.NO_EMAIL === 'true';
+  runRetro(targetNow, { sendEmail: !skipEmail })
     .then(() => process.exit(0))
     .catch((e) => {
       console.error(e);

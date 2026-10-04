@@ -1,7 +1,11 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 const h = vi.hoisted(() => ({
   buildSnapshot: vi.fn(), writeSnapshot: vi.fn(), deleteFeed: vi.fn(), writeSlice: vi.fn(),
   fetchIndices: vi.fn(), fetchUniverse: vi.fn(), computeInternals: vi.fn(),
+  fetchGlobal: vi.fn(), fetchNews: vi.fn(), fetchFlows: vi.fn(),
   buildDailyNarrative: vi.fn(), writeReport: vi.fn(), sendReportEmail: vi.fn(),
 }));
 vi.mock('../../lib/feed/merge', () => ({ buildSnapshot: h.buildSnapshot }));
@@ -9,6 +13,9 @@ vi.mock('../../lib/feed/store', () => ({ writeSnapshot: h.writeSnapshot, deleteF
 vi.mock('../../lib/feed/indices', () => ({ fetchIndices: h.fetchIndices }));
 vi.mock('../../lib/feed/universe', () => ({ fetchUniverse: h.fetchUniverse }));
 vi.mock('../../lib/feed/internals', () => ({ computeInternals: h.computeInternals }));
+vi.mock('../../lib/feed/global', () => ({ fetchGlobal: h.fetchGlobal }));
+vi.mock('../../lib/feed/news', () => ({ fetchNews: h.fetchNews }));
+vi.mock('../../lib/feed/flows', () => ({ fetchFlows: h.fetchFlows }));
 vi.mock('../../lib/reports-narrative', () => ({ buildDailyNarrative: h.buildDailyNarrative }));
 vi.mock('../../lib/storage', () => ({ writeReport: h.writeReport, computeChecksum: () => 'sha256:test' }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));
@@ -24,15 +31,26 @@ const snap = MarketSnapshotSchema.parse({
   news: [], streetRecommendations: [], corporateActions: [],
   giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null,
 });
-beforeEach(() => {
+let dir: string;
+beforeEach(async () => {
+  dir = await mkdtemp(path.join(tmpdir(), 'kosh-daily-'));
+  process.env.KOSH_DATA_DIR = dir;
   Object.values(h).forEach((m) => m.mockReset());
   h.buildSnapshot.mockResolvedValue(snap);
   h.fetchIndices.mockResolvedValue({ indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 100, changePct: 1 }], vix: null });
   h.fetchUniverse.mockResolvedValue({ quotes: [{ ticker: 'TCS.NS', name: 'TCS', sector: 'IT', ltp: 100, changePct: 1, volume: 1, avgVolume: 1, high52w: 110, low52w: 90 }] });
   h.computeInternals.mockReturnValue({ topGainers: [], topLosers: [], mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [], breadth: null });
+  h.fetchGlobal.mockResolvedValue({ globalIndices: [], commodities: [], currencies: [] });
+  h.fetchNews.mockResolvedValue({ news: [], streetRecommendations: [] });
+  h.fetchFlows.mockResolvedValue({ fiiDii: null, corporateActions: [], giftNifty: null, bondYield: null, derivatives: null });
   h.buildDailyNarrative.mockResolvedValue({ outlook: 'steady', keyTakeaways: ['a'] });
   h.writeReport.mockResolvedValue(undefined); h.writeSnapshot.mockResolvedValue(undefined);
   h.writeSlice.mockResolvedValue(undefined); h.deleteFeed.mockResolvedValue(undefined); h.sendReportEmail.mockResolvedValue(undefined);
+});
+
+afterEach(async () => {
+  delete process.env.KOSH_DATA_DIR;
+  await rm(dir, { recursive: true, force: true });
 });
 
 describe('runDaily', () => {
@@ -41,7 +59,10 @@ describe('runDaily', () => {
     expect(h.fetchIndices).toHaveBeenCalledTimes(1);
     expect(h.fetchUniverse).toHaveBeenCalledTimes(1);
     expect(h.computeInternals).toHaveBeenCalledWith([{ ticker: 'TCS.NS', name: 'TCS', sector: 'IT', ltp: 100, changePct: 1, volume: 1, avgVolume: 1, high52w: 110, low52w: 90 }]);
-    expect(h.writeSlice).toHaveBeenCalledTimes(3);
+    expect(h.fetchGlobal).toHaveBeenCalledTimes(1);
+    expect(h.fetchNews).toHaveBeenCalledWith(NOW);
+    expect(h.fetchFlows).toHaveBeenCalledWith(NOW);
+    expect(h.writeSlice).toHaveBeenCalledTimes(6);
     expect(h.writeSlice.mock.invocationCallOrder.at(-1)).toBeLessThan(h.buildSnapshot.mock.invocationCallOrder[0]);
     expect(h.writeSnapshot).toHaveBeenCalledTimes(1);
     expect(h.writeReport).toHaveBeenCalledTimes(2);          // emailSent:false then true

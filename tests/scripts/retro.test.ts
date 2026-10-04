@@ -1,4 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { mkdtemp, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 const h = vi.hoisted(() => ({
   readPortfolio: vi.fn(),
@@ -14,11 +17,13 @@ vi.mock('../../lib/portfolio', () => ({ readPortfolio: h.readPortfolio }));
 vi.mock('../../lib/market-data', () => ({
   getQuoteDetail: h.getQuoteDetail,
   getHistorical: h.getHistorical,
+  getUniverseQuotes: vi.fn().mockResolvedValue([]),
 }));
 vi.mock('../../lib/indicators', () => ({ sma: h.sma }));
 vi.mock('../../lib/llm', () => ({ generateGroundedObject: h.generateGroundedObject }));
 vi.mock('../../lib/storage', () => ({
   writeReport: h.writeReport,
+  atomicWriteJson: vi.fn().mockResolvedValue(undefined),
   computeChecksum: () => 'sha256:test',
 }));
 vi.mock('../../lib/email', () => ({ sendReportEmail: h.sendReportEmail }));
@@ -39,7 +44,10 @@ function makeCandles(close: number, volume: number, count = 25) {
   }));
 }
 
-beforeEach(() => {
+let dir: string;
+beforeEach(async () => {
+  dir = await mkdtemp(path.join(tmpdir(), 'kosh-retro-'));
+  process.env.KOSH_DATA_DIR = dir;
   Object.values(h).forEach((m) => m.mockReset());
   h.readPortfolio.mockResolvedValue({
     asOf: '2026-06-15T08:00:00.000Z',
@@ -65,6 +73,11 @@ beforeEach(() => {
   h.sendReportEmail.mockResolvedValue(undefined);
 });
 
+afterEach(async () => {
+  delete process.env.KOSH_DATA_DIR;
+  await rm(dir, { recursive: true, force: true });
+});
+
 describe('runRetro', () => {
   it('no flags → no LLM call, writes twice, emails once', async () => {
     // 0% change, normal volume (1000), price == sma → no rules triggered
@@ -87,15 +100,15 @@ describe('runRetro', () => {
     const first = h.writeReport.mock.calls[0][0];
     const second = h.writeReport.mock.calls[1][0];
 
-    expect(first.content.alerts).toEqual([]);
+    expect(first.content.retro.alerts).toEqual([]);
     expect(first.emailSent).toBe(false);
-    expect(first.id).toMatch(/^retro-/);
+    expect(first.id).toMatch(/^daily-/);
     expect(first.dateKey).toBeTruthy();
-    expect(first.type).toBe('retro');
+    expect(first.type).toBe('daily');
     expect(first.sourceData.tickers).toEqual(['X.NS']);
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
-    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Daily Retro', expect.any(String));
+    expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Market Close & Daily Retro', expect.any(String));
     expect(second.emailSent).toBe(true);
   });
 
@@ -134,8 +147,10 @@ describe('runRetro', () => {
 
     expect(h.writeReport).toHaveBeenCalledTimes(2);
     const first = h.writeReport.mock.calls[0][0];
-    expect(first.content.alerts).toHaveLength(1);
-    expect(first.content.alerts[0].ticker).toBe('X.NS');
+    expect(first.content.retro.alerts).toHaveLength(1);
+    expect(first.content.retro.alerts[0].ticker).toBe('X.NS');
+    expect(first.id).toMatch(/^daily-/);
+    expect(first.type).toBe('daily');
 
     expect(h.sendReportEmail).toHaveBeenCalledTimes(1);
   });
@@ -180,7 +195,7 @@ describe('runRetro', () => {
 
     const first = h.writeReport.mock.calls[0][0];
     // Only X.NS should remain — Y.NS was not in the flagged set
-    expect(first.content.alerts).toHaveLength(1);
-    expect(first.content.alerts[0].ticker).toBe('X.NS');
+    expect(first.content.retro.alerts).toHaveLength(1);
+    expect(first.content.retro.alerts[0].ticker).toBe('X.NS');
   });
 });

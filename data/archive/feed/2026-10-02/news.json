@@ -1,0 +1,220 @@
+{
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI expected to hike repo rate by 25 bps next week",
+          "summary": "Economists widely anticipate a 25 bps hike to 5.50% by the RBI's Monetary Policy Committee (Oct 5-7), driven by inflation exceeding 4% for three months and resilient economic growth. Nomura projects two 25 bps hikes.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "India's fiscal deficit reaches 41.9% of full-year target by August",
+          "summary": "India's fiscal deficit hit ₹7.10 trillion by August 2026, representing 41.9% of the full-year target, posing a challenge for the government to meet the 4.3% of GDP target for FY27.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Cabinet approves ₹1.86 trillion green energy corridor scheme",
+          "summary": "The Indian Cabinet has announced a significant ₹1.86 trillion scheme to develop a green energy corridor, aiming to boost renewable energy infrastructure.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "US Treasury yields surge to multi-decade highs; Brent crude above $100",
+          "summary": "US 10-year Treasury yields reached 5.34%, making dollar assets more attractive. Brent crude oil prices remain elevated above $100/barrel, raising concerns about India's import bill and inflationary pressures.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Indian Rupee weakens against dollar; FII selling continues",
+          "summary": "The Indian rupee weakened to ₹96.3150 against the dollar. Persistent foreign institutional investor (FII) selling has contributed to Sensex and Nifty extending their losing streak to an eighth consecutive week.",
+          "source": "Moneycontrol",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "TCS, Can Fin Homes, Poonawalla Fincorp to announce Q2 FY27 results",
+          "summary": "TCS, Can Fin Homes, and Poonawalla Fincorp are scheduled to declare their quarterly financial results on October 8 and 9 respectively, marking the start of the earnings season.",
+          "source": "Business Standard",
+          "tickers": [
+            "TCS.NS",
+            "CANFINHOME.NS",
+            "POONAWALLA.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "HCL Tech, ICICI Pru Life, Tech Mahindra results scheduled mid-October",
+          "summary": "HCL Technologies, ICICI Prudential Life Insurance, and Tech Mahindra are among other major companies slated to announce their Q2 FY27 results in mid-October.",
+          "source": "Economic Times",
+          "tickers": [
+            "HCLTECH.NS",
+            "ICICIPRULI.NS",
+            "TECHM.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Rate- and commodity-sensitive sectors weaken; IT sector gains from rupee depreciation",
+          "summary": "Consumer durables, PSU banks, realty, and metals experienced weakness in recent trading, while the IT sector saw gains, benefiting from the rupee's depreciation. Auto stocks also faced selling pressure.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "IT sector shifts to productivity-led growth, with selective hiring for specialized skills",
+          "summary": "The IT sector is transitioning from headcount-led to productivity-led growth, with the five largest IT companies reducing combined headcount in FY26. Hiring is selective for specialized skills in AI, cloud, data, and cybersecurity.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Anarock Property Consultants files DRHP for ₹1,000 crore IPO",
+          "summary": "Anarock Property Consultants has filed draft papers with SEBI for an Initial Public Offering (IPO) aiming to raise ₹1,000 crore.",
+          "source": "Livemint",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Kataline Limited and Inox Green Energy Services file for IPOs",
+          "summary": "Kataline Limited has submitted its DRHP for an IPO. Inox Green Energy Services also filed for a ₹10,000 crore IPO, which includes a fresh issue of ₹8,000 crore.",
+          "source": "Business Standard",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "HDFC Bank stabilizing near support zone",
+          "summary": "HDFC Bank is trading near a support zone around ₹700 after a recent decline, showing signs of stabilization.",
+          "source": "Economic Times",
+          "tickers": [
+            "HDFCBANK.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Tech Mahindra sees buying interest near support",
+          "summary": "Tech Mahindra is holding near the lower end of its rising channel, with buying interest observed around the ₹1,500–1,520 support zone.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TECHM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Varun Beverages identified as largecap for potential gains",
+          "summary": "Varun Beverages is recommended as a largecap stock offering potential gains for investors.",
+          "source": "Livemint",
+          "tickers": [
+            "VARUNBEV.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "DLF shows signs of upside breakout",
+          "summary": "DLF is currently consolidating and displaying technical indications of an impending upside breakout.",
+          "source": "Business Standard",
+          "tickers": [
+            "DLF.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani Green Energy expected to find buyers at support",
+          "summary": "Adani Green Energy is anticipated to find buyers at its current support zone, suggesting potential price stability.",
+          "source": "Economic Times",
+          "tickers": [
+            "ADANIGREEN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "PVR INOX breaks out of four-year trendline",
+          "summary": "PVR INOX has shown a significant four-year sloping trendline breakout on its weekly charts, indicating a bullish technical pattern.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "PVRINOX.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "SMIFS",
+      "action": "buy",
+      "rationale": "Expects stabilization around ₹700."
+    },
+    {
+      "ticker": "TECHM.NS",
+      "name": "Tech Mahindra",
+      "brokerage": "SMIFS",
+      "action": "buy",
+      "target": 1660,
+      "rationale": "Holding near the lower end of its rising channel, with buying interest around ₹1,500–1,520 support zone."
+    },
+    {
+      "ticker": "VARUNBEV.NS",
+      "name": "Varun Beverages",
+      "brokerage": "SMIFS",
+      "action": "buy",
+      "rationale": "Recommended as a buy for decent gains in the next one to two months."
+    },
+    {
+      "ticker": "DLF.NS",
+      "name": "DLF",
+      "brokerage": "Nuvama Wealth",
+      "action": "buy",
+      "target": 724,
+      "rationale": "Consolidating and showing signs of an upside breakout."
+    },
+    {
+      "ticker": "ADANIGREEN.NS",
+      "name": "Adani Green Energy",
+      "brokerage": "Nuvama Wealth",
+      "action": "buy",
+      "target": 1400,
+      "rationale": "Expected to find buyers at its current support zone."
+    },
+    {
+      "ticker": "PVRINOX.NS",
+      "name": "PVR INOX",
+      "brokerage": "Nuvama Wealth",
+      "action": "buy",
+      "target": 1360,
+      "rationale": "Showing a four-year sloping trendline breakout on weekly charts."
+    },
+    {
+      "ticker": "MAYURUNIQ.NS",
+      "name": "Mayur Uniquoters",
+      "brokerage": "Joindre Capital Services",
+      "action": "buy",
+      "target": 899,
+      "rationale": "Implied for gains based on LCP and target."
+    }
+  ]
+}

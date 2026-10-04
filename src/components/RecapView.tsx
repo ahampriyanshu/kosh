@@ -35,7 +35,7 @@ export function RecapView({ content }: RecapViewProps) {
   return (
     <div className="space-y-8">
       {/* Period eyebrow */}
-      <p className="font-mono text-xs text-[var(--color-faint)]">{formatPeriodLabel(content.period)}</p>
+      <p className="tabular-nums text-xs text-[var(--color-faint)]">{formatPeriodLabel(content.period)}</p>
 
       {/* Hit-rate badge + summary */}
       <ReportSection title="Grading Results">
@@ -46,7 +46,7 @@ export function RecapView({ content }: RecapViewProps) {
       </ReportSection>
 
       {(learnings.worked.length > 0 || learnings.missed.length > 0) && (
-        <ReportSection title="Learning Loop">
+        <ReportSection title="Review & Insights">
           <div className="grid gap-6 md:grid-cols-2">
             <LearningColumn title="What worked" items={learnings.worked} empty="No confirmed drivers yet." />
             <LearningColumn title="What missed" items={learnings.missed} empty="No failed drivers yet." />
@@ -95,9 +95,9 @@ export function RecapView({ content }: RecapViewProps) {
                       : 'var(--color-muted)';
 
                   return (
-                    <tr key={`${bet.ticker}-${i}`} className="border-b border-[var(--color-hairline)] last:border-0">
+                    <tr key={`${bet.ticker}-${i}`}>
                       <td className="py-3 pr-4">
-                        <span className="font-mono text-sm font-bold text-[var(--color-ink)]">
+                        <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                           {tickerFn(bet.ticker)}
                         </span>
                         {bet.name && bet.name !== tickerFn(bet.ticker) && (
@@ -106,7 +106,7 @@ export function RecapView({ content }: RecapViewProps) {
                       </td>
                       <td className="py-3 pr-4">
                         <span
-                          className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
+                          className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5"
                           style={{
                             backgroundColor:
                               bet.action === 'buy'
@@ -126,7 +126,7 @@ export function RecapView({ content }: RecapViewProps) {
                           {bet.action.toUpperCase()}
                         </span>
                       </td>
-                      <td className="py-3 pr-4 text-right font-mono text-xs text-[var(--color-muted)] whitespace-nowrap">
+                      <td className="py-3 pr-4 text-right tabular-nums text-xs text-[var(--color-muted)] whitespace-nowrap">
                         {bet.entryRef.toLocaleString('en-IN', { maximumFractionDigits: 2 })}
                         {' → '}
                         {bet.exitRef.toLocaleString('en-IN', { maximumFractionDigits: 2 })}

@@ -37,7 +37,7 @@ export function ResearchView({ content }: ResearchViewProps) {
     <article className="rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5">
       {/* Header bar */}
       <div>
-        <p className="font-mono text-3xl font-bold text-[var(--color-ink)]">
+        <p className="font-serif text-3xl font-bold tracking-tight text-[var(--color-ink)]">
           {tickerFn(content.ticker)}
         </p>
         <p className="text-[var(--color-muted)] text-sm">{content.name}</p>
@@ -48,7 +48,7 @@ export function ResearchView({ content }: ResearchViewProps) {
             <p className="font-sans text-xs text-[var(--color-faint)]">
               {metric.label}
             </p>
-            <p className="font-mono text-sm font-semibold text-[var(--color-ink)] mt-1">{metric.value}</p>
+            <p className="tabular-nums text-sm font-semibold text-[var(--color-ink)] mt-1">{metric.value}</p>
           </div>
         ))}
       </div>
@@ -91,7 +91,7 @@ export function ResearchView({ content }: ResearchViewProps) {
                   {target.source}
                 </dt>
                 <dd className="text-sm text-[var(--color-muted)] leading-relaxed">
-                  <span className="font-mono text-[var(--color-ink)]">{target.target}</span>
+                  <span className="tabular-nums font-semibold text-[var(--color-ink)]">{target.target}</span>
                   {' · '}
                   {target.duration}
                   {' · '}
@@ -110,7 +110,7 @@ export function ResearchView({ content }: ResearchViewProps) {
       >
         <div className="flex items-center gap-3 mb-2 flex-wrap">
           <span
-            className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5 rounded"
+            className="font-sans text-xs font-semibold uppercase tracking-widest px-2 py-0.5"
             style={{ color: actionColor.fg, border: `1px solid ${actionColor.border}`, backgroundColor: actionColor.bg }}
           >
             {content.recommendation.action.toUpperCase()}

@@ -175,8 +175,8 @@ export function OutlookMonthArchive({ entries }: { entries: ManifestEntry[] }) {
 
   if (!selectedMonth || rows.length === 0) {
     return (
-      <div className="py-16 text-center border border-dashed border-[var(--color-hairline)] rounded-xl">
-        <p className="font-display text-xl text-[var(--color-faint)]">No outlooks yet.</p>
+      <div className="py-16 text-center border border-dashed border-[var(--color-hairline)]">
+        <p className="font-serif text-xl text-[var(--color-faint)]">No outlooks yet.</p>
       </div>
     );
   }
@@ -184,11 +184,11 @@ export function OutlookMonthArchive({ entries }: { entries: ManifestEntry[] }) {
   return (
     <div className="flex min-h-[52vh] flex-col">
       <section>
-        <h2 className="mb-3 font-display text-xl font-bold text-[var(--color-heading)]">{monthLabel(selectedMonth)}</h2>
+        <h2 className="mb-3 font-serif text-xl font-bold text-[var(--color-heading)]">{monthLabel(selectedMonth)}</h2>
         <ul className="m-0 list-none p-0">
           {rows.map((row) => (
             <li key={row.key} className="flex flex-wrap items-center gap-3 py-3">
-              <span className="font-mono text-sm text-[var(--color-muted)]">{row.entry.date}</span>
+              <span className="tabular-nums text-sm text-[var(--color-muted)]">{row.entry.date}</span>
               <ArchiveArrow />
               <Link
                 href={outlookPath(row.entry)}

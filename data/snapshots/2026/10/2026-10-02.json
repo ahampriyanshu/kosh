@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-02T08:41:02.195Z",
+  "asOf": "2026-10-02T15:30:00.000Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -158,7 +158,7 @@
       "ticker": "HDFCLIFE.NS",
       "name": "HDFC Life Insurance",
       "ltp": 534.2,
-      "changePct": 2.494244
+      "changePct": 2.4942439
     },
     {
       "ticker": "HAVELLS.NS",
@@ -182,7 +182,7 @@
       "ticker": "TCS.NS",
       "name": "Tata Consultancy Services",
       "ltp": 2075,
-      "changePct": 1.1898909
+      "changePct": 1.1898907
     },
     {
       "ticker": "HCLTECH.NS",
@@ -262,7 +262,7 @@
       "ticker": "VEDL.NS",
       "name": "Vedanta",
       "ltp": 252.05,
-      "changePct": -2.6833966
+      "changePct": -2.6833963
     },
     {
       "ticker": "IOC.NS",
@@ -297,7 +297,7 @@
       "ticker": "ICICIBANK.NS",
       "name": "ICICI Bank",
       "ltp": 1310.6,
-      "changePct": -0.8398257,
+      "changePct": -0.83982575,
       "volume": 12979589
     },
     {
@@ -411,64 +411,64 @@
       "ticker": "KOTAKBANK.NS",
       "name": "Kotak Mahindra Bank",
       "volume": 76628600,
-      "avgVolume": 14940082,
-      "ratio": 5.13
+      "avgVolume": 13945452,
+      "ratio": 5.49
     },
     {
       "ticker": "BAJAJ-AUTO.NS",
       "name": "Bajaj Auto",
       "volume": 1491210,
-      "avgVolume": 332708,
-      "ratio": 4.48
+      "avgVolume": 316024,
+      "ratio": 4.72
     },
     {
       "ticker": "SBILIFE.NS",
       "name": "SBI Life Insurance",
       "volume": 3329762,
-      "avgVolume": 963926,
-      "ratio": 3.45
+      "avgVolume": 958968,
+      "ratio": 3.47
     },
     {
       "ticker": "APOLLOHOSP.NS",
       "name": "Apollo Hospitals",
       "volume": 939059,
-      "avgVolume": 368608,
-      "ratio": 2.55
+      "avgVolume": 356321,
+      "ratio": 2.64
     },
     {
       "ticker": "M&M.NS",
       "name": "Mahindra & Mahindra",
       "volume": 5450936,
-      "avgVolume": 2216903,
-      "ratio": 2.46
+      "avgVolume": 2172700,
+      "ratio": 2.51
     },
     {
       "ticker": "MARUTI.NS",
       "name": "Maruti Suzuki",
       "volume": 885527,
-      "avgVolume": 390042,
-      "ratio": 2.27
+      "avgVolume": 381311,
+      "ratio": 2.32
     },
     {
       "ticker": "BAJAJFINSV.NS",
       "name": "Bajaj Finserv",
       "volume": 2291308,
-      "avgVolume": 1067814,
-      "ratio": 2.15
+      "avgVolume": 1059918,
+      "ratio": 2.16
     },
     {
       "ticker": "ULTRACEMCO.NS",
       "name": "UltraTech Cement",
       "volume": 570605,
-      "avgVolume": 270460,
-      "ratio": 2.11
+      "avgVolume": 263694,
+      "ratio": 2.16
     },
     {
       "ticker": "SHREECEM.NS",
       "name": "Shree Cement",
       "volume": 59305,
-      "avgVolume": 28624,
-      "ratio": 2.07
+      "avgVolume": 28337,
+      "ratio": 2.09
     }
   ],
   "sectorRanking": [
@@ -956,5 +956,68 @@
       "type": "bonus",
       "date": "2026-10-09"
     }
-  ]
+  ],
+  "derivatives": null,
+  "sentiment": {
+    "composite": 14,
+    "regime": "Extreme Fear",
+    "session": "closing",
+    "asOf": "2026-10-02T15:30:00.000Z",
+    "summary": "Capitulation levels: severe institutional selling and heavy hedging signal an oversold contrarian setup.",
+    "categories": {
+      "breadth": {
+        "score": 7,
+        "regime": "Extreme Fear",
+        "label": "Breadth & Price Action",
+        "weight": 0.34,
+        "summary": "Pervasive market distribution (42 Declines vs 16 Advances, A/D 0.38)",
+        "metrics": {
+          "adRatio": 0.38,
+          "advances": 16,
+          "declines": 42,
+          "pctAdvancing": 27.6,
+          "near52wHighs": 0,
+          "near52wLows": 10
+        }
+      },
+      "flows": {
+        "score": 10,
+        "regime": "Extreme Fear",
+        "label": "Institutional Flows",
+        "weight": 0.33,
+        "summary": "Heavy institutional offloading (FII: -₹9,484.22 Cr)",
+        "metrics": {
+          "fiiNet": -9484.22,
+          "diiNet": 10041.84,
+          "totalNet": 557.6200000000008,
+          "asOf": "2026-10-01"
+        }
+      },
+      "volatility": {
+        "score": 25,
+        "regime": "Extreme Fear",
+        "label": "Volatility & Risk Appetite",
+        "weight": 0.33,
+        "summary": "Elevated volatility & systemic risk (India VIX at 14.46, +7.2%)",
+        "metrics": {
+          "vix": 14.455,
+          "vixChangePct": 7.153448,
+          "goldChangePct": 0.12136444,
+          "usdinrChangePct": 0
+        }
+      },
+      "derivatives": {
+        "score": 50,
+        "regime": "Neutral",
+        "label": "Derivatives & Options Skew",
+        "weight": 0,
+        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "metrics": {
+          "pcrOi": null,
+          "pcrVolume": null,
+          "available": "pending"
+        }
+      }
+    }
+  }
 }
