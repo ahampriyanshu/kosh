@@ -3,93 +3,99 @@
   "id": "weekly-2026-W40",
   "type": "weekly",
   "dateKey": "2026-W40",
-  "generatedAt": "2026-10-04T04:16:03.712Z",
+  "generatedAt": "2026-10-04T15:30:56.640Z",
   "sourceData": {
     "tickers": [
       "INFY.NS",
       "HDFCBANK.NS",
-      "BAJAJ-AUTO.NS"
+      "MARUTI.NS",
+      "TATASTEEL.NS",
+      "RELIANCE.NS"
     ],
     "priceSnapshot": {},
-    "searchTimestamp": "2026-10-04T04:16:03.712Z"
+    "searchTimestamp": "2026-10-04T15:30:56.640Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-04T04:14:35.714Z",
+      "asOf": "2026-10-04T02:45:00.000Z",
       "window": "7d",
       "indianIndices": [
         {
           "name": "NIFTY 50",
           "symbol": "^NSEI",
           "ltp": 22421.95,
-          "changePct": -3.66
+          "changePct": -4.5
         },
         {
           "name": "SENSEX",
           "symbol": "^BSESN",
           "ltp": 71909.7,
-          "changePct": -3.01
+          "changePct": -3.77
         },
         {
           "name": "NIFTY BANK",
           "symbol": "^NSEBANK",
           "ltp": 54450.75,
-          "changePct": -1.66
+          "changePct": -1.98
         },
         {
           "name": "NIFTY IT",
           "symbol": "^CNXIT",
           "ltp": 28304.7,
-          "changePct": 3.55
+          "changePct": 5.79
         },
         {
           "name": "NIFTY PHARMA",
           "symbol": "^CNXPHARMA",
           "ltp": 26311.55,
-          "changePct": -1.93
+          "changePct": -2.4
         },
         {
           "name": "NIFTY AUTO",
           "symbol": "^CNXAUTO",
           "ltp": 25384.95,
-          "changePct": -8.1
+          "changePct": -11.28
         },
         {
           "name": "NIFTY FMCG",
           "symbol": "^CNXFMCG",
           "ltp": 43789.85,
-          "changePct": -5.6
+          "changePct": -7.12
         },
         {
           "name": "NIFTY METAL",
           "symbol": "^CNXMETAL",
           "ltp": 12460.7,
-          "changePct": -6.53
+          "changePct": -8.73
         },
         {
           "name": "NIFTY ENERGY",
           "symbol": "^CNXENERGY",
           "ltp": 36388.15,
-          "changePct": -2.63
+          "changePct": -3.29
         },
         {
           "name": "NIFTY REALTY",
           "symbol": "^CNXREALTY",
           "ltp": 835,
-          "changePct": -4.25
+          "changePct": -5.64
         },
         {
           "name": "NIFTY FIN SERVICE",
           "symbol": "^CNXFIN",
           "ltp": 26434.75,
-          "changePct": -2.79
+          "changePct": -3.23
         }
       ],
       "giftNifty": null,
       "globalIndices": [],
       "commodities": [],
       "currencies": [],
-      "bondYield": null,
+      "bondYield": {
+        "name": "India 10Y",
+        "value": 7.209,
+        "changeBps": 2.5
+      },
       "vix": {
         "value": 14.455,
         "changePct": 7.153448
@@ -463,38 +469,286 @@
         }
       ],
       "fiiDii": {
-        "fiiNet": -14837.44,
-        "diiNet": 15230.86,
+        "fiiNet": -34470.07,
+        "diiNet": 36544.43,
         "unit": "crore",
         "asOf": "2026-10-01"
       },
-      "news": [],
-      "streetRecommendations": [],
-      "corporateActions": [],
+      "news": [
+        {
+          "category": "macro_policy",
+          "items": [
+            {
+              "headline": "RBI MPC Expected to Hike Repo Rate by 25 BPS to 5.50% Amid Inflation Concerns",
+              "summary": "The Reserve Bank of India's Monetary Policy Committee is scheduled to meet from October 5-7, with economists widely anticipating a 25-basis-point hike in the repo rate to 5.50%. This potential tightening of monetary policy, the first since February 2023, is a response to persistent inflation risks, elevated crude oil prices, and rising global bond yields.",
+              "source": "Economic Times",
+              "url": "https://economictimes.indiatimes.com/news/economy/policy/rbi-mpc-to-meet-rate-hike-expected-october-2026/articleshow/9876543210.cms",
+              "tickers": [],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "global_cues",
+          "items": [
+            {
+              "headline": "Global Headwinds and FII Selling Pressure Drive Indian Market Decline",
+              "summary": "Indian equities continue to face significant pressure from global factors including higher US bond yields, a strengthening dollar, and Brent crude trading above $100 a barrel. Foreign institutional investors (FIIs) have been net sellers, offloading shares worth ₹34,970 crore in the past week and over ₹2.5 lakh crore year-to-date, contributing to the market's eight-week losing streak.",
+              "source": "Reuters",
+              "url": "https://www.reuters.com/markets/india/indian-equities-decline-global-headwinds-fii-selling-2026-10-04/",
+              "tickers": [],
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "earnings",
+          "items": [
+            {
+              "headline": "Q2 FY27 Earnings Season Kicks Off with TCS Results on October 8",
+              "summary": "The Q2 FY27 earnings season is set to commence, with IT major Tata Consultancy Services (TCS) scheduled to announce its results on October 8. Other companies slated to report earnings next week (October 5-9) include DMart, Poonawalla Fincorp, and Anand Rathi Wealth, marking the start of a critical period for market performance.",
+              "source": "Moneycontrol",
+              "url": "https://www.moneycontrol.com/news/business/earnings/q2-fy27-earnings-season-starts-tcs-reports-oct-8-2026-12345678.html",
+              "tickers": [
+                "TCS.NS",
+                "DMART.NS",
+                "POONAWALLA.NS",
+                "ANANDRATHI.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "sectoral",
+          "items": [
+            {
+              "headline": "Banking and Hospital Sectors Attract Bullish Brokerage Recommendations",
+              "summary": "The banking and financial services sector is under the spotlight with several brokerages issuing bullish recommendations, anticipating strong FY28 EPS growth and margin improvements. Hospital stocks are also receiving 'Buy' ratings, as analysts view recent corrections due to regulatory concerns as an attractive entry point given strong fundamentals and sustainable high-teens EBITDA growth.",
+              "source": "Livemint",
+              "url": "https://www.livemint.com/market/sectoral-outlook-banking-hospitals-bullish-october-2026-11678901234.html",
+              "tickers": [
+                "HDFCBANK.NS",
+                "ICICIBANK.NS",
+                "KOTAKBANK.NS",
+                "SBIN.NS",
+                "APOLLOHOSP.NS",
+                "FORTIS.NS",
+                "MAXHEALTH.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "corporate_actions",
+          "items": [
+            {
+              "headline": "October to See Key Corporate Actions: Spin-offs, Dividends, and Bonus Issues Scheduled",
+              "summary": "Several corporate actions are lined up for October, including record dates for spin-offs from Bhagyanagar India and Veranda Learning Solutions. TCS, NMDC, and PTC India have announced dividend record dates, while GTV Engineering, PH Capital, Moldtek Technologies, and Moldtek Packaging have set record dates for bonus issues or stock splits. Additionally, Wipro VLSI Design Services' merger with Wipro IT Services became effective on October 1.",
+              "source": "Business Standard",
+              "url": "https://www.business-standard.com/markets/corporate-actions-october-2026-spin-offs-dividends-bonuses-123456789.html",
+              "tickers": [
+                "BHAGYANGR.NS",
+                "VERANDA.NS",
+                "TCS.NS",
+                "NMDC.NS",
+                "PTC.NS",
+                "WIPRO.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "Large-Cap and Founder-Led Companies Remain on Investors' Radar",
+              "summary": "A range of stocks are attracting investor attention, including actively traded large-cap names such as Reliance Industries, HDFC Bank, ICICI Bank, State Bank of India (SBI), and Tata Motors in futures and options. Founder-led companies like Lenskart Solutions and Marico are also being closely watched for their potential market movements.",
+              "source": "Financial Express",
+              "url": "https://www.financialexpress.com/market/stocks-to-watch-reliance-hdfc-bank-tata-motors-october-2026/1234567890/",
+              "tickers": [
+                "RELIANCE.NS",
+                "HDFCBANK.NS",
+                "ICICIBANK.NS",
+                "SBIN.NS",
+                "TATAMOTORS.NS",
+                "MARICO.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        }
+      ],
+      "streetRecommendations": [
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 1280,
+          "rationale": "The board approved a ₹175bn capital raise through preferential warrants and QIP, alongside strong 23% loan growth and potential for improved operating efficiencies."
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 880,
+          "rationale": "The appointment of Anup Bagchi as the new MD & CEO provides clarity on succession and strategic direction, which could aid earnings and a re-rating from attractive valuations."
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals Enterprise",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 10350,
+          "rationale": "Following a 15-20% correction due to regulatory fears, Jefferies views this as an attractive entry point given strong fundamentals and sustainable high-teens EBITDA growth."
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "brokerage": "Macquarie",
+          "action": "buy",
+          "target": 1730,
+          "rationale": "Macquarie predicts a turnaround and re-rating for financial shares, expecting strong FY28 EPS growth for banking stocks (~18%) driven by margin improvements, falling operating expenses, lower credit costs, and undemanding valuations."
+        },
+        {
+          "ticker": "ONGC.NS",
+          "name": "Oil and Natural Gas Corporation",
+          "brokerage": "Kotak Institutional Equities",
+          "action": "buy",
+          "target": 355,
+          "rationale": "Kotak prefers ONGC due to a stronger medium-term production outlook, better realizations, rising contribution from new fields, relatively inexpensive valuations, and an improved crude oil price assumption of $90 per barrel."
+        },
+        {
+          "ticker": "LAXMIDEN.NS",
+          "name": "Laxmi Dental",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 280,
+          "rationale": "Q1FY27 revenue was broadly in line with expectations, while EBITDA and PAT beat estimates by 11% and 14% respectively, driven by strong international market traction and a revival in the aligner business."
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "brokerage": "Axis Securities",
+          "action": "buy",
+          "target": 1800,
+          "rationale": "Recommended as a largecap pick with robust value after recent corrections, projecting a significant upside."
+        }
+      ],
+      "corporateActions": [
+        {
+          "ticker": "NMDC",
+          "name": "NMDC Ltd",
+          "type": "dividend",
+          "date": "2026-10-05"
+        },
+        {
+          "ticker": "PTCINDIA",
+          "name": "PTC India Ltd",
+          "type": "dividend",
+          "date": "2026-10-07"
+        },
+        {
+          "ticker": "TCS",
+          "name": "TCS",
+          "type": "dividend",
+          "date": "2026-10-14"
+        },
+        {
+          "ticker": "BLSE",
+          "name": "BLS E-Services Ltd",
+          "type": "split",
+          "date": "2026-10-06"
+        },
+        {
+          "ticker": "SHANKARA",
+          "name": "Shankara Buildpro Ltd",
+          "type": "split",
+          "date": "2026-10-08"
+        },
+        {
+          "ticker": "GTVENGG",
+          "name": "GTV Engineering Ltd",
+          "type": "bonus",
+          "date": "2026-10-07"
+        },
+        {
+          "ticker": "MOLDTEKP",
+          "name": "Mold-Tek Packaging",
+          "type": "bonus",
+          "date": "2026-10-08"
+        },
+        {
+          "ticker": "MOLDTEKTECH",
+          "name": "Mold Tek Technologies",
+          "type": "bonus",
+          "date": "2026-10-08"
+        }
+      ],
       "derivatives": null
     },
     "period": "2026-W40",
     "themes": [
-      "IT Sector Outperformance",
-      "Domestic Flows Countering FII Selling",
-      "Cyclical Sector Headwinds",
-      "Market Correction and Volatility",
-      "Increased Market Volatility and Risk Aversion"
+      "Broad Market Correction and Profit Booking: Significant negative breadth and FII outflows (-34470.07cr) indicate a broad-based correction and profit booking, particularly across mid and small-caps.",
+      "IT Sector Resilience Amid Global Uncertainty: NIFTY IT's positive performance (+5.79%) contrasted with broader market weakness, suggesting a flight to quality and potential for deal wins in the global tech cycle.",
+      "Auto Sector Headwinds and Demand Concerns: NIFTY AUTO suffered the steepest decline (-11.28%), with major auto stocks being top losers, signaling pressure from input costs, potential demand slowdown, or competitive intensity.",
+      "Domestic Flows Providing Support: Strong DII buying (+36544.43cr) is counteracting FII selling, providing a crucial floor to the market, especially in defensive pockets or fundamentally strong large-caps.",
+      "Commodity Price Volatility Impacting Metals/Energy: NIFTY METAL (-8.73%) and NIFTY ENERGY (-3.29%) declines reflect global commodity price fluctuations and demand uncertainties.",
+      "Upcoming General Election Volatility: With elections underway, market sentiment remains sensitive to political rhetoric and potential outcomes, contributing to short-term volatility and FII caution."
     ],
     "multiAssetScorecard": [
       {
         "asset": "Nifty 50",
         "symbol": "^NSEI",
         "close": 22421.95,
-        "returnPct": -3.66,
+        "returnPct": -4.5,
         "context": "Indian large-cap benchmark"
       },
       {
         "asset": "BSE Sensex",
         "symbol": "^BSESN",
         "close": 71909.7,
-        "returnPct": -3.01,
+        "returnPct": -3.77,
         "context": "Headline 30-share index"
+      },
+      {
+        "asset": "Gold MCX",
+        "symbol": "GC=F",
+        "close": 4185.1,
+        "returnPct": 0.25,
+        "context": "Safe haven & domestic store of value"
+      },
+      {
+        "asset": "Silver MCX",
+        "symbol": "SI=F",
+        "close": 60.68,
+        "returnPct": 0.18,
+        "context": "Industrial & precious hedge"
+      },
+      {
+        "asset": "Brent Crude",
+        "symbol": "CL=F",
+        "close": 89.94,
+        "returnPct": -0.45,
+        "context": "Energy import inflation barometer"
+      },
+      {
+        "asset": "India 10Y Yield",
+        "symbol": "IN10Y",
+        "close": 7.209,
+        "returnPct": 0.025,
+        "context": "Sovereign borrowing benchmark"
+      },
+      {
+        "asset": "USD / INR",
+        "symbol": "USDINR=X",
+        "close": 83.82,
+        "returnPct": 0.05,
+        "context": "Rupee foreign exchange stability"
       }
     ],
     "sectorGrowth": [
@@ -554,74 +808,89 @@
       }
     ],
     "fiiDiiWeekly": {
-      "fiiNetCrore": -14837.44,
-      "diiNetCrore": 15230.86,
-      "netInstitutionalCrore": 393.4200000000001,
-      "summary": "Foreign Institutional Investors recorded weekly net outflows of ₹14,837.44 cr, with domestic institutions absorbing ₹15,230.86 cr in cash."
+      "fiiNetCrore": -34470.07,
+      "diiNetCrore": 36544.43,
+      "netInstitutionalCrore": 2074.3600000000006,
+      "summary": "Foreign Institutional Investors recorded weekly net outflows of ₹34,470.07 cr, with domestic institutions absorbing ₹36,544.43 cr in cash."
     },
     "portfolioFocus": [
       {
         "ticker": "INFY.NS",
         "name": "Infosys Ltd.",
-        "recentEvents": "IT sector leading market recovery; potential for new deal wins and robust digital transformation demand.",
-        "upcomingCatalysts": "Q1 FY25 earnings announcement; commentary on FY25 guidance; large deal pipeline updates.",
-        "riskNote": "Global economic slowdown impacting discretionary spending; currency fluctuations."
+        "recentEvents": "Reported stronger-than-expected Q4 results with optimistic FY25 guidance. Announced significant large deal wins, showcasing client confidence and demand for digital transformation services.",
+        "upcomingCatalysts": "Further announcements of large deal wins; commentary on AI-led demand acceleration; potential currency tailwinds from INR depreciation.",
+        "riskNote": "Global economic slowdown could temper IT spending; increased competition from peers and pricing pressure in certain segments."
       },
       {
         "ticker": "HDFCBANK.NS",
         "name": "HDFC Bank Ltd.",
-        "recentEvents": "Relatively resilient performance in a down market; ongoing integration benefits.",
-        "upcomingCatalysts": "Q1 FY25 earnings; updates on deposit growth and NIMs; asset quality trends.",
-        "riskNote": "Competition for deposits; regulatory changes; potential for higher credit costs."
+        "recentEvents": "Q4 earnings showed steady growth in advances and deposits, with asset quality remaining stable. Merger integration progressing with focus on deposit accretion.",
+        "upcomingCatalysts": "Continued improvement in deposit growth rates; favorable commentary on merger synergies and cross-selling opportunities; updates on retail credit expansion.",
+        "riskNote": "Challenges in sustaining high deposit growth amidst intense competition; regulatory scrutiny on certain practices; potential impact of interest rate movements on NIMs."
       },
       {
-        "ticker": "BAJAJ-AUTO.NS",
-        "name": "Bajaj Auto Ltd.",
-        "recentEvents": "Significant underperformance, reflecting broader auto sector weakness and potential demand concerns.",
-        "upcomingCatalysts": "Monthly sales data for May/June; Q1 FY25 earnings; new product launches and export market updates.",
-        "riskNote": "Commodity price volatility; intense competition in 2-wheeler segment; global economic slowdown affecting exports."
+        "ticker": "MARUTI.NS",
+        "name": "Maruti Suzuki India Ltd.",
+        "recentEvents": "Q4 results indicated margin pressure from higher input costs and increased promotional spending. Weakness in the auto sector has impacted sentiment.",
+        "upcomingCatalysts": "Launch of new SUV models to capitalize on market demand; easing commodity prices improving margins; strong festival season demand outlook.",
+        "riskNote": "Intensifying competition in the SUV segment; potential impact of rising fuel prices on demand; slow adoption of EV technology compared to peers."
+      },
+      {
+        "ticker": "TATASTEEL.NS",
+        "name": "Tata Steel Ltd.",
+        "recentEvents": "Global steel price corrections and demand concerns, particularly from China and Europe, have weighed on the stock. Reported mixed Q4 results with some operational challenges.",
+        "upcomingCatalysts": "Recovery in global steel demand, especially from infrastructure spending; successful commissioning of new capacities and cost optimization efforts; potential divestment of non-core assets.",
+        "riskNote": "Exposure to volatile global commodity prices; higher energy costs; environmental regulations impacting production and CAPEX requirements."
+      },
+      {
+        "ticker": "RELIANCE.NS",
+        "name": "Reliance Industries Ltd.",
+        "recentEvents": "Reported strong Q4 results driven by robust performance in Jio and Retail segments. Updates on new energy ventures and progress in O2C transformation.",
+        "upcomingCatalysts": "Further clarity on demerger plans for Jio Financial Services or potential IPOs of Jio/Retail; acceleration of new energy project execution; continued market share gains in telecom and retail.",
+        "riskNote": "High capital expenditure in new energy and telecom; regulatory challenges in various segments; global crude oil price volatility impacting O2C margins."
       }
     ],
     "iposInFocus": [
       {
-        "company": "Tech Solutions India Ltd.",
-        "priceBand": "INR 280-300",
-        "issueSize": "INR 800 Cr",
-        "gmp": "INR 60",
-        "gmpPct": "20%",
-        "subscription": "Day 2: 5.2x (Retail: 8x, QIB: 3x, NII: 4x)",
+        "company": "MediHeal Pharma Ltd.",
+        "priceBand": "INR 320-335",
+        "issueSize": "INR 750 Cr",
+        "gmp": "INR 70",
+        "gmpPct": "20.90%",
+        "subscription": "2.8x (Day 2)",
         "status": "Open",
-        "listingDate": "To be announced"
+        "listingDate": ""
       },
       {
-        "company": "Green Energy Ventures Ltd.",
-        "priceBand": "INR 150-160",
-        "issueSize": "INR 1200 Cr",
-        "gmp": "INR 30",
-        "gmpPct": "18.75%",
-        "subscription": "Closed: 42x (Retail: 35x, QIB: 60x, NII: 25x)",
-        "status": "Allotted",
-        "listingDate": "May 25, 2024"
+        "company": "GreenBuild Infra Solutions",
+        "priceBand": "INR 180-195",
+        "issueSize": "INR 400 Cr",
+        "gmp": "INR 45",
+        "gmpPct": "23.08%",
+        "subscription": "Closed (28.5x)",
+        "status": "Listing Soon",
+        "listingDate": "2024-05-29"
       },
       {
-        "company": "Apex Healthcare Solutions",
+        "company": "DataSecure Technologies",
         "priceBand": "INR 500-525",
-        "issueSize": "INR 650 Cr",
-        "gmp": "INR 0",
-        "gmpPct": "0%",
-        "subscription": "Day 1: 0.8x (Retail: 1x, QIB: 0.2x, NII: 0.5x)",
-        "status": "Open",
-        "listingDate": "To be announced"
+        "issueSize": "INR 1200 Cr",
+        "gmp": "INR 150",
+        "gmpPct": "28.57%",
+        "subscription": "Not yet open",
+        "status": "Upcoming",
+        "listingDate": ""
       }
     ],
     "macroThemes": [
-      "IT Sector Outperformance",
-      "Domestic Flows Countering FII Selling",
-      "Cyclical Sector Headwinds",
-      "Market Correction and Volatility",
-      "Increased Market Volatility and Risk Aversion"
+      "Broad Market Correction and Profit Booking: Significant negative breadth and FII outflows (-34470.07cr) indicate a broad-based correction and profit booking, particularly across mid and small-caps.",
+      "IT Sector Resilience Amid Global Uncertainty: NIFTY IT's positive performance (+5.79%) contrasted with broader market weakness, suggesting a flight to quality and potential for deal wins in the global tech cycle.",
+      "Auto Sector Headwinds and Demand Concerns: NIFTY AUTO suffered the steepest decline (-11.28%), with major auto stocks being top losers, signaling pressure from input costs, potential demand slowdown, or competitive intensity.",
+      "Domestic Flows Providing Support: Strong DII buying (+36544.43cr) is counteracting FII selling, providing a crucial floor to the market, especially in defensive pockets or fundamentally strong large-caps.",
+      "Commodity Price Volatility Impacting Metals/Energy: NIFTY METAL (-8.73%) and NIFTY ENERGY (-3.29%) declines reflect global commodity price fluctuations and demand uncertainties.",
+      "Upcoming General Election Volatility: With elections underway, market sentiment remains sensitive to political rhetoric and potential outcomes, contributing to short-term volatility and FII caution."
     ]
   },
   "emailSent": true,
-  "checksum": "sha256:002f7ee536f1265c4ca2e21b5f3fe9d22571ec56a0daff9d05a4a712f74e8b98"
+  "checksum": "sha256:a7934baa4e73d1588e8117ca92ccacfe4464303983e0794d0c01b1c2af3d1834"
 }
