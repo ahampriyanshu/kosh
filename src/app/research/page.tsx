@@ -1,6 +1,5 @@
 import { getReportsByType } from '../../lib/reports';
 import { ResearchArchive } from '../../components/ResearchArchive';
-import { PageHeader } from '../../components/ui/PageHeader';
 
 export default async function ResearchPage() {
   const reports = await getReportsByType('research');
@@ -8,19 +7,16 @@ export default async function ResearchPage() {
 
   return (
     <div>
-      <PageHeader
-        title="Stock Research"
-        action={(
-          <a
-            href="https://github.com/ahampriyanshu/kosh/edit/main/data/research-requests.ts"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-mono font-semibold text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors border border-[var(--color-hairline)] px-2.5 py-1"
-          >
-            + Add New
-          </a>
-        )}
-      />
+      <div className="mb-5 flex justify-end">
+        <a
+          href="https://github.com/ahampriyanshu/kosh/edit/main/data/research-requests.ts"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-serif italic text-sm text-[var(--color-ink)] hover:underline underline-offset-4 transition-colors"
+        >
+          + Add New
+        </a>
+      </div>
 
       {sorted.length === 0 ? (
         <div className="py-16 text-center border border-dashed border-[var(--color-hairline)]">

@@ -6,7 +6,6 @@ import type { Portfolio } from '../../lib/schemas';
 import { sortPortfolioHoldings, type PortfolioSort, type PortfolioSortKey } from '../../lib/portfolio-sort';
 import { Pct } from './Pct';
 import { ticker } from './market/Figure';
-import { PageHeader } from './ui/PageHeader';
 
 const STORAGE_KEY = 'kosh_portfolio_key';
 const ENCRYPTED_PORTFOLIO_URL = '/data/portfolio.enc.json';
@@ -67,8 +66,6 @@ function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: s
 function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
   return (
     <div>
-      <PageHeader title="Portfolio" />
-
       <section>
         <div className="max-w-3xl">
           <h2 className="font-serif text-2xl font-bold text-[var(--color-ink)] leading-tight mb-4">
@@ -231,8 +228,6 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
 
   return (
     <div>
-      <PageHeader title="Portfolio" />
-
       <div className="mb-5 flex items-center justify-between gap-3 flex-wrap">
         <p className="tabular-nums text-xs text-[var(--color-faint)]">
           <button
@@ -390,7 +385,6 @@ export function PortfolioUnlock() {
   if (checking) {
     return (
       <div>
-        <PageHeader title="Portfolio" />
         <p className="mt-8 text-sm text-[var(--color-faint)]">Preparing portfolio.</p>
       </div>
     );

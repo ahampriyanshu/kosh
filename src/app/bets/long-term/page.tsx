@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { BetsNav } from '../../../components/bets/BetsNav';
 import { getActiveBets, getClosedBets } from '../../../../lib/bets-store';
 
 export const metadata: Metadata = {
@@ -16,8 +15,6 @@ export default async function LongTermBetsPage() {
 
   return (
     <article className="max-w-4xl mx-auto space-y-12 pb-20 font-serif text-[var(--color-ink)] leading-relaxed">
-      <BetsNav />
-
       {/* Title & Metadata Header */}
       <header className="space-y-3">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-ink)] leading-tight">
