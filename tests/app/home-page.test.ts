@@ -32,13 +32,16 @@ describe('TodayPage (/)', () => {
     expect(html).not.toContain('Open Sentiment Index');
   });
 
-  it('renders 6 major headlines per edition on the homepage', async () => {
+  it('renders 6 major headlines with title and affected stocks but no summary', async () => {
     const pageComponent = await TodayPage();
     const html = renderToStaticMarkup(pageComponent);
 
     // Extract headlines from middle column
     const headlineCount = (html.match(/<article class="homepage-story">/g) || []).length;
     expect(headlineCount).toBe(6);
+
+    // Ensure story summary paragraph is not rendered in homepage stories
+    expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?<p class="text-sm text-\[var\(--color-muted\)\] leading-relaxed">/);
   });
 
   it('renders Sector Rotation without ranking index numbers', async () => {

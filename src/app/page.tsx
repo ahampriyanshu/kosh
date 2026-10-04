@@ -260,6 +260,23 @@ const DEFAULT_PRICE_LOOKUP: Record<string, number> = {
   'UJJIVANSFB': 62.0,
 };
 
+const DEFAULT_GLOBAL_INDICES = [
+  { name: 'Dow Jones', symbol: '^DJI', ltp: 42350.0, changePct: 0.35 },
+  { name: 'NASDAQ', symbol: '^IXIC', ltp: 18137.0, changePct: 0.82 },
+  { name: 'S&P 500', symbol: '^GSPC', ltp: 5751.0, changePct: 0.41 },
+  { name: 'Nikkei 225', symbol: '^N225', ltp: 38650.0, changePct: 1.15 },
+];
+
+const DEFAULT_COMMODITIES = [
+  { name: 'Gold', value: 4185.1, changePct: 0.25 },
+  { name: 'Brent Crude', value: 89.94, changePct: -0.45 },
+  { name: 'Silver', value: 60.68, changePct: 0.18 },
+];
+
+const DEFAULT_CURRENCIES = [
+  { pair: 'USD/INR', value: 83.82, changePct: 0.05 },
+];
+
 const DEFAULT_STREET_RECS: Record<string, StreetRec[]> = {
   'Capital Goods & Defense': [
     {
@@ -443,11 +460,28 @@ export default async function TodayPage() {
     ? [...snapshot.sectorRanking].sort((a, b) => b.changePct - a.changePct)
     : [];
 
+  // Global benchmarks helper
+  const globalIndicesList =
+    snapshot?.globalIndices && snapshot.globalIndices.length > 0
+      ? snapshot.globalIndices
+      : DEFAULT_GLOBAL_INDICES;
+
   // Commodities & FX helpers
-  const gold = snapshot?.commodities?.find((c) => c.name.toLowerCase().includes('gold'));
-  const brent = snapshot?.commodities?.find((c) => c.name.toLowerCase().includes('brent') || c.name.toLowerCase().includes('crude'));
-  const silver = snapshot?.commodities?.find((c) => c.name.toLowerCase().includes('silver'));
-  const usdinr = snapshot?.currencies?.find((c) => c.pair.toUpperCase().includes('USD'));
+  const commoditiesList =
+    snapshot?.commodities && snapshot.commodities.length > 0
+      ? snapshot.commodities
+      : DEFAULT_COMMODITIES;
+
+  const currenciesList =
+    snapshot?.currencies && snapshot.currencies.length > 0
+      ? snapshot.currencies
+      : DEFAULT_CURRENCIES;
+
+  const gold = commoditiesList.find((c) => c.name.toLowerCase().includes('gold'));
+  const brent = commoditiesList.find((c) => c.name.toLowerCase().includes('brent') || c.name.toLowerCase().includes('crude'));
+  const silver = commoditiesList.find((c) => c.name.toLowerCase().includes('silver'));
+  const usdinr = currenciesList.find((c) => c.pair.toUpperCase().includes('USD'));
+  const bondYield = snapshot?.bondYield ?? { name: 'India 10Y', value: 6.78, changeBps: 2 };
 
   // Institutional Flows helper
   const fiiDii =
@@ -583,7 +617,7 @@ export default async function TodayPage() {
                   </div>
                 </div>
               )}
-              {snapshot?.globalIndices && snapshot.globalIndices.slice(0, 4).map((idx) => (
+              {globalIndicesList.slice(0, 4).map((idx) => (
                 <div key={idx.symbol || idx.name} className="py-1 flex items-center justify-between">
                   <span className="text-[var(--color-ink)]">{idx.name}</span>
                   <div className="flex items-center gap-2">
@@ -644,11 +678,11 @@ export default async function TodayPage() {
                   </span>
                 </div>
               )}
-              {snapshot?.bondYield && (
+              {bondYield && (
                 <div className="py-1 flex items-center justify-between">
                   <span className="text-[var(--color-ink)]">India 10Y Yield</span>
                   <span className="font-semibold text-[var(--color-ink)] tabular-nums">
-                    {snapshot.bondYield.value.toFixed(2)}% ({snapshot.bondYield.changeBps >= 0 ? '+' : ''}{snapshot.bondYield.changeBps} bps)
+                    {bondYield.value.toFixed(2)}% ({bondYield.changeBps >= 0 ? '+' : ''}{bondYield.changeBps} bps)
                   </span>
                 </div>
               )}
@@ -703,9 +737,6 @@ export default async function TodayPage() {
                     </a>
                   ) : story.headline}
                 </h2>
-                <p className="text-sm text-[var(--color-muted)] leading-relaxed">
-                  {story.summary}
-                </p>
                 {story.tickers && story.tickers.length > 0 && (
                   <div className="text-xs font-mono text-[var(--color-muted)] pt-1">
                     <span>{story.tickers.join(', ').replaceAll('.NS', '')}</span>
