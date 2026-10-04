@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { Lato, Newsreader, Playfair_Display } from 'next/font/google';
+import { Lato, Newsreader } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
@@ -18,15 +18,7 @@ const lato = Lato({
 const newsreader = Newsreader({
   subsets: ['latin'],
   variable: '--font-newsreader',
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-masthead',
-  weight: ['600', '700', '800', '900'],
+  weight: ['400', '500', '600', '700', '800'],
   style: ['normal', 'italic'],
   display: 'swap',
 });
@@ -148,7 +140,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${newsreader.variable} ${playfair.variable}`}
+      className={`${lato.variable} ${newsreader.variable}`}
       data-mode="light"
       suppressHydrationWarning
     >

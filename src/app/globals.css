@@ -280,6 +280,16 @@ select {
   flex: 1;
 }
 
+.main-content:not(:has(.homepage-dashboard)) {
+  padding-top: var(--spacing-7);
+}
+
+@media (max-width: 640px) {
+  .main-content:not(:has(.homepage-dashboard)) {
+    padding-top: var(--spacing-5);
+  }
+}
+
 .card {
   background-color: var(--color-surface-primary);
   border-radius: var(--radius-lg);
@@ -778,15 +788,15 @@ select {
 
 .broadsheet-title {
   display: inline-block;
-  font-family: var(--font-masthead), "Playfair Display", Georgia, "Times New Roman", serif;
-  font-size: clamp(2.35rem, 5.5vw, 3.75rem);
+  font-family: var(--font-newsreader), Georgia, Cambria, "Times New Roman", Times, serif;
+  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
   font-weight: 800;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
   text-transform: none;
-  line-height: 1.15;
+  line-height: 1.1;
   color: var(--color-ink);
   margin: 0;
-  padding: 0.2rem 0 0.1rem;
+  padding: 0.15rem 0 0.1rem;
 }
 
 .broadsheet-motto {
