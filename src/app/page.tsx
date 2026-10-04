@@ -814,7 +814,6 @@ export default async function TodayPage() {
           <div className="pt-2 border-t border-[var(--color-hairline)]">
             <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
               <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Corporate Actions</span>
-              <span className="text-[10px] text-[var(--color-muted)] font-mono">Calendar</span>
             </div>
 
             <div className="text-xs font-mono">
@@ -856,6 +855,33 @@ export default async function TodayPage() {
                   No upcoming corporate actions scheduled.
                 </span>
               )}
+            </div>
+          </div>
+
+          <div className="pt-2 border-t border-[var(--color-hairline)]">
+            <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+              <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Stock Screeners</span>
+            </div>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-xs font-serif">
+              {[
+                ['Coffee Can Portfolio', 'https://www.screener.in/screens/57601/coffee-can-portfolio/'],
+                ['FII Buying', 'https://www.screener.in/screens/343087/fii-buying/'],
+                ['Bearish Crossovers', 'https://www.screener.in/screens/338555/bearish-crossovers/'],
+                ['RSI Oversold Stocks', 'https://www.screener.in/screens/985942/rsi-oversold-stocks/'],
+                ['Golden Crossover', 'https://www.screener.in/screens/336509/golden-crossover/'],
+                ['Price & Volume Action', 'https://www.screener.in/screens/440753/price-volume-action/'],
+                ['The Bull Cartel', 'https://www.screener.in/screens/1/the-bull-cartel/'],
+              ].map(([label, href]) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="min-w-0 text-[var(--color-ink)] hover:underline underline-offset-2"
+                >
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
@@ -1095,9 +1121,6 @@ export default async function TodayPage() {
         <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
             <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Short-Term Tactical Bets</span>
-            <Link href="/bets/short-term" className="text-[10px] text-[var(--color-muted)] hover:text-[var(--color-ink)] font-mono">
-              Model &rarr;
-            </Link>
           </div>
 
           <div className="text-xs">
@@ -1141,15 +1164,18 @@ export default async function TodayPage() {
               );
             })}
           </div>
+
+          <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
+            <Link href="/bets/short-term" className="text-[var(--color-ink)] hover:underline transition-colors">
+              Continued in the Short-Term Model
+            </Link>
+          </div>
         </div>
 
         {/* 3C. Col 3 (4 cols): Long-Term Structural Bets */}
         <div className="md:col-span-4 p-5 xl:p-6 space-y-4">
           <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono flex items-center justify-between">
             <span className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider">Long-Term Structural Bets</span>
-            <Link href="/bets/long-term" className="text-[10px] text-[var(--color-muted)] hover:text-[var(--color-ink)] font-mono">
-              Model &rarr;
-            </Link>
           </div>
 
           <div className="text-xs">
@@ -1186,6 +1212,12 @@ export default async function TodayPage() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="pt-2 border-t border-[var(--color-hairline)] text-right text-xs font-serif italic">
+            <Link href="/bets/long-term" className="text-[var(--color-ink)] hover:underline transition-colors">
+              Continued in the Long-Term Model
+            </Link>
           </div>
         </div>
       </div>

@@ -71,9 +71,9 @@ function marketSession(now: Date) {
 }
 
 const STATUS_CLASS: Record<string, string> = {
-  open: 'bg-emerald-50 text-emerald-800',
-  auction: 'bg-amber-50 text-amber-800',
-  closed: 'bg-rose-50 text-rose-800',
+  open: 'text-[var(--color-bullish-soft)]',
+  auction: 'text-[var(--color-auction-soft)]',
+  closed: 'text-[var(--color-bearish-soft)]',
 };
 
 export function MarketSessionStatus() {
@@ -88,7 +88,7 @@ export function MarketSessionStatus() {
 
   return (
     <span
-      className={`inline-flex items-center whitespace-nowrap rounded-sm px-2 py-0.5 ${session ? STATUS_CLASS[session.state] : 'text-[var(--color-muted)]'}`}
+      className={`inline-flex items-center whitespace-nowrap ${session ? STATUS_CLASS[session.state] : 'text-[var(--color-muted)]'}`}
       title="NSE equity schedule, calculated from the device clock in IST. CAS applies to eligible F&O stocks; AMO availability and hours depend on your broker."
       aria-live="polite"
     >
