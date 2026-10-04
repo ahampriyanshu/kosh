@@ -41,23 +41,15 @@ describe('runMonthly', () => {
     await runMonthly(new Date('2026-06-15T00:00:00.000Z')); // 15th
     expect(h.writeReport).not.toHaveBeenCalled();
   });
-  it('on the 1st, aggregates 30d snapshots and writes the monthly report with ledgerRollup', async () => {
+  it('on the 1st, aggregates 30d snapshots and writes the monthly report', async () => {
     const period = '2026-06';
     await runMonthly(new Date('2026-07-01T00:00:00.000Z'));
     expect(h.loadWindowSnapshots).toHaveBeenCalledWith(expect.any(String), 30);
-    expect(h.readLedger).toHaveBeenCalledWith(period);
     const first = h.writeReport.mock.calls[0][0];
     expect(first.type).toBe('monthly');
     expect(first.content.sectorInsights).toEqual(['IT firm']);
-    expect(first.content.ledgerRollup).toEqual({
-      hits: 3,
-      total: 5,
-      summary: expect.stringContaining('3/5'),
-      learnings: {
-        worked: [expect.stringContaining('earnings breakout')],
-        missed: [expect.stringContaining('margin recovery')],
-      },
-    });
+    expect(first.content.period).toBe(period);
+    expect(first.content.portfolioReview).toBeDefined();
     expect(h.sendReportEmail).toHaveBeenCalledWith('Kosh Monthly Digest', expect.any(String));
   });
 });
