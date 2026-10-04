@@ -1,17 +1,8 @@
 import type { MarketSnapshot } from '../../../lib/schemas';
+import { formatNewsMeta, safeArticleUrl, cleanTicker } from '../../lib/news-format';
 
 type NewsCategory = MarketSnapshot['news'][number]['category'];
 type NewsItem = MarketSnapshot['news'][number]['items'][number];
-
-function safeArticleUrl(value?: string): string | undefined {
-  if (!value) return undefined;
-  try {
-    const url = new URL(value);
-    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : undefined;
-  } catch {
-    return undefined;
-  }
-}
 
 // Fixed theme order — stable across reruns.
 const THEME_ORDER: NewsCategory[] = [
@@ -22,21 +13,6 @@ const THEME_ORDER: NewsCategory[] = [
   'corporate_actions',
   'stocks_in_focus',
 ];
-
-const THEME_LABELS: Record<NewsCategory, string> = {
-  macro_policy: 'Macro & Policy',
-  global_cues: 'Global Cues',
-  earnings: 'Earnings',
-  sectoral: 'Sectoral',
-  corporate_actions: 'Corporate Actions',
-  stocks_in_focus: 'Stocks in Focus',
-};
-
-// Some grounded runs emit a placeholder instead of a real outlet name; hide those.
-const PLACEHOLDER_SOURCES = new Set(['research text', 'research', 'source', 'n/a', 'na', 'unknown', '']);
-function isRealSource(source: string): boolean {
-  return !PLACEHOLDER_SOURCES.has(source.trim().toLowerCase());
-}
 
 interface NewsDigestProps {
   groups: MarketSnapshot['news'];
@@ -66,24 +42,55 @@ export function NewsDigest({ groups, limit = 6 }: NewsDigestProps) {
   if (picks.length === 0) return null;
 
   return (
-    <ul>
-      {picks.map(({ category, item }, i) => (
-        <li key={i} className="py-3">
-          <span className="font-serif text-[10px] font-semibold uppercase tracking-widest text-[var(--color-brand)]">
-            {THEME_LABELS[category]}
-          </span>
-          <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug mt-0.5">
-            {safeArticleUrl(item.url) ? (
-              <a href={safeArticleUrl(item.url)} target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline underline-offset-4">
-                {item.headline}
+    <ul className="divide-y divide-[var(--color-hairline)]">
+      {picks.map(({ category, item }, i) => {
+        const metaLine = formatNewsMeta(category, item.source);
+        const url = safeArticleUrl(item.url);
+
+        const cardContent = (
+          <>
+            {metaLine && (
+              <div className="text-xs font-mono text-[var(--color-muted)] font-medium">
+                {metaLine}
+              </div>
+            )}
+            <h3 className="font-serif text-base font-bold text-[var(--color-ink)] leading-snug group-hover:underline underline-offset-4">
+              {item.headline}
+            </h3>
+            {item.tickers && item.tickers.length > 0 && (
+              <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                {item.tickers.map((t) => (
+                  <span
+                    key={t}
+                    className="font-mono text-[11px] font-medium px-1.5 py-0.5 border border-[var(--color-hairline)] bg-[var(--color-paper)] text-[var(--color-ink)] rounded-sm"
+                  >
+                    {cleanTicker(t)}
+                  </span>
+                ))}
+              </div>
+            )}
+          </>
+        );
+
+        return (
+          <li key={i} className="py-3">
+            {url ? (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block p-2 -mx-2 rounded transition-colors hover:bg-[var(--color-hairline)]/30 space-y-1.5 no-underline text-inherit"
+              >
+                {cardContent}
               </a>
-            ) : item.headline}
-          </p>
-          {isRealSource(item.source) && (
-            <span className="text-xs text-[var(--color-faint)]">{item.source}</span>
-          )}
-        </li>
-      ))}
+            ) : (
+              <div className="p-2 -mx-2 space-y-1.5">
+                {cardContent}
+              </div>
+            )}
+          </li>
+        );
+      })}
     </ul>
   );
 }

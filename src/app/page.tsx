@@ -5,6 +5,7 @@ import { SentimentGauge } from '../components/SentimentGauge';
 import { MarketMarquee } from '../components/market/MarketMarquee';
 import { computeMoodSnapshot } from '../../lib/sentiment';
 import { getActiveBets } from '../../lib/bets-store';
+import { formatCategory, formatNewsMeta, safeArticleUrl, cleanTicker } from '../lib/news-format';
 
 type NewsGroup = MarketSnapshot['news'][number];
 
@@ -81,22 +82,13 @@ interface MarketStory {
   tickers?: string[];
 }
 
-function safeArticleUrl(value?: string): string | undefined {
-  if (!value) return undefined;
-  try {
-    const url = new URL(value);
-    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : undefined;
-  } catch {
-    return undefined;
-  }
-}
-
 const DEFAULT_SIX_HEADLINES: MarketStory[] = [
   {
     category: 'Macro & Policy',
     headline: 'RBI Maintains Calibrated Liquidity Posture as Credit Growth Expands',
     summary: 'Central bank liquidity management remains neutral, ensuring adequate funding for corporate credit without feeding short-term bond yield volatility.',
     source: 'Economic Times',
+    url: 'https://economictimes.indiatimes.com/news/economy/policy',
     tickers: ['HDFCBANK.NS', 'ICICIBANK.NS'],
   },
   {
@@ -104,6 +96,7 @@ const DEFAULT_SIX_HEADLINES: MarketStory[] = [
     headline: 'Wall Street Consolidates Gains as Semiconductor and Megacap Tech Rally',
     summary: 'US indices closed firm overnight supported by corporate earnings guidance and benign 10-year Treasury yield moves, providing positive opening cues for Asian bourses.',
     source: 'Bloomberg',
+    url: 'https://www.bloomberg.com/markets',
     tickers: ['TCS.NS', 'INFY.NS'],
   },
   {
@@ -111,6 +104,7 @@ const DEFAULT_SIX_HEADLINES: MarketStory[] = [
     headline: 'Domestic Mutual Funds Absorb Foreign Selling With Robust SIP Inflows',
     summary: 'Institutional settlement figures show systematic domestic accumulation offsetting selective FII profit booking across frontline banking and auto counters.',
     source: 'Reuters',
+    url: 'https://www.reuters.com/markets',
     tickers: ['M&M.NS', 'MARUTI.NS'],
   },
   {
@@ -118,6 +112,7 @@ const DEFAULT_SIX_HEADLINES: MarketStory[] = [
     headline: 'Defense & Aerospace Order Books Surge on Government Indigenization Mandate',
     summary: 'Domestic manufacturers see multi-year revenue visibility expand following cabinet clearance for indigenous procurement contracts and export deliveries.',
     source: 'Mint',
+    url: 'https://www.livemint.com/market',
     tickers: ['HAL.NS', 'BEL.NS'],
   },
   {
@@ -125,12 +120,14 @@ const DEFAULT_SIX_HEADLINES: MarketStory[] = [
     headline: 'Mainboard IPO Bidding Stays Resilient Amid Record Retail Participation',
     summary: 'Primary market issues witnessed robust subscription multiples across institutional and high-net-worth investor categories, reinforcing cash market depth.',
     source: 'Business Standard',
+    url: 'https://www.business-standard.com/markets',
   },
   {
     category: 'Energy & Infrastructure',
     headline: 'Power Transmission & Green Corridor Capex Accelerates Across Key States',
     summary: 'Grid integration projects witness heightened capital outlay as state utilities award renewable evacuation tenders to support long-term load expansion.',
     source: 'Financial Express',
+    url: 'https://www.financialexpress.com/market',
     tickers: ['POWERGRID.NS', 'NTPC.NS'],
   },
 ];
@@ -381,9 +378,9 @@ export default async function TodayPage() {
       if (grp?.items) {
         for (const it of grp.items) {
           if (sixMajorHeadlines.length >= 6) break;
-          if (it.headline && it.summary && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
+          if (it.headline && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
             sixMajorHeadlines.push({
-              category: cat.replace('_', ' ').toUpperCase(),
+              category: formatCategory(cat),
               headline: it.headline,
               summary: it.summary,
               source: it.source,
@@ -400,9 +397,9 @@ export default async function TodayPage() {
         if (sixMajorHeadlines.length >= 6) break;
         for (const it of grp.items || []) {
           if (sixMajorHeadlines.length >= 6) break;
-          if (it.headline && it.summary && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
+          if (it.headline && !sixMajorHeadlines.some((s) => s.headline === it.headline)) {
             sixMajorHeadlines.push({
-              category: grp.category.replace('_', ' ').toUpperCase(),
+              category: formatCategory(grp.category),
               headline: it.headline,
               summary: it.summary,
               source: it.source,
@@ -728,22 +725,54 @@ export default async function TodayPage() {
         {/* 1B. Middle Column (6 cols): 6 Major Headlines */}
         <div className="md:col-span-6 p-5 xl:p-6 space-y-4">
           <div className="homepage-stories text-sm">
-            {sixMajorHeadlines.map((story, i) => (
-              <article key={i} className="homepage-story">
-                <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] leading-snug">
-                  {safeArticleUrl(story.url) ? (
-                    <a href={safeArticleUrl(story.url)} target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline underline-offset-4">
-                      {story.headline}
+            {sixMajorHeadlines.map((story, i) => {
+              const metaLine = formatNewsMeta(story.category, story.source);
+              const url = safeArticleUrl(story.url);
+
+              const cardContent = (
+                <>
+                  {metaLine && (
+                    <div className="text-xs font-mono text-[var(--color-muted)] font-medium">
+                      {metaLine}
+                    </div>
+                  )}
+                  <h2 className="font-serif text-lg font-bold text-[var(--color-ink)] leading-snug group-hover:underline underline-offset-4">
+                    {story.headline}
+                  </h2>
+                  {story.tickers && story.tickers.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                      {story.tickers.map((t) => (
+                        <span
+                          key={t}
+                          className="font-mono text-[11px] font-medium px-1.5 py-0.5 border border-[var(--color-hairline)] bg-[var(--color-paper)] text-[var(--color-ink)] rounded-sm"
+                        >
+                          {cleanTicker(t)}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </>
+              );
+
+              return (
+                <article key={i} className="homepage-story">
+                  {url ? (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block p-2.5 -mx-2.5 rounded transition-colors hover:bg-[var(--color-hairline)]/30 space-y-1.5 no-underline text-inherit"
+                    >
+                      {cardContent}
                     </a>
-                  ) : story.headline}
-                </h2>
-                {story.tickers && story.tickers.length > 0 && (
-                  <div className="text-xs font-mono text-[var(--color-muted)] pt-1">
-                    <span>{story.tickers.join(', ').replaceAll('.NS', '')}</span>
-                  </div>
-                )}
-              </article>
-            ))}
+                  ) : (
+                    <div className="p-2.5 -mx-2.5 space-y-1.5">
+                      {cardContent}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
           </div>
 
           {daily && (

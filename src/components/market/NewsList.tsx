@@ -1,26 +1,5 @@
 import type { MarketSnapshot } from '../../../lib/schemas';
-import { ticker } from './Figure';
-
-type NewsCategory = MarketSnapshot['news'][number]['category'];
-
-function safeArticleUrl(value?: string): string | undefined {
-  if (!value) return undefined;
-  try {
-    const url = new URL(value);
-    return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : undefined;
-  } catch {
-    return undefined;
-  }
-}
-
-const CATEGORY_LABELS: Record<NewsCategory, string> = {
-  macro_policy: 'Macro & Policy',
-  global_cues: 'Global Cues',
-  earnings: 'Earnings',
-  sectoral: 'Sectoral',
-  corporate_actions: 'Corporate Actions',
-  stocks_in_focus: 'Stocks in Focus',
-};
+import { formatNewsMeta, safeArticleUrl, cleanTicker, CATEGORY_LABELS, formatCategory } from '../../lib/news-format';
 
 interface NewsListProps {
   groups: MarketSnapshot['news'];
@@ -37,55 +16,58 @@ export default function NewsList({ groups, showCategoryLabels = true }: NewsList
         <div key={group.category}>
           {showCategoryLabels && (
             <h3 className="text-xs font-semibold uppercase tracking-widest text-[var(--color-brand)] mb-3">
-              {CATEGORY_LABELS[group.category]}
+              {CATEGORY_LABELS[group.category] || formatCategory(group.category)}
             </h3>
           )}
-          <ul className="space-y-4">
-            {group.items.map((item, idx) => (
-              <li
-                key={idx}
-              >
-                <p className="font-serif font-semibold text-[var(--color-ink)] leading-snug">
-                  {safeArticleUrl(item.url) ? (
-                    <a href={safeArticleUrl(item.url)} target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline underline-offset-4">
-                      {item.headline}
-                    </a>
-                  ) : item.headline}
-                </p>
-                <p className="text-sm text-[var(--color-muted)] mt-0.5">
-                  {item.summary}
-                </p>
-                <div className="mt-1.5 flex flex-wrap items-center gap-2">
-                  <span className="text-xs text-[var(--color-faint)]">
-                    {item.source}
-                  </span>
+          <ul className="space-y-2">
+            {group.items.map((item, idx) => {
+              const metaLine = formatNewsMeta(group.category, item.source);
+              const url = safeArticleUrl(item.url);
+
+              const cardContent = (
+                <>
+                  {metaLine && (
+                    <div className="text-xs font-mono text-[var(--color-muted)] font-medium">
+                      {metaLine}
+                    </div>
+                  )}
+                  <h4 className="font-serif font-bold text-[var(--color-ink)] leading-snug group-hover:underline underline-offset-4">
+                    {item.headline}
+                  </h4>
                   {item.tickers && item.tickers.length > 0 && (
-                    <span className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
                       {item.tickers.map((t) => (
                         <span
                           key={t}
-                          className="font-serif text-xs border border-[var(--color-hairline)] text-[var(--color-ink)] px-1.5 py-0.5"
+                          className="font-mono text-[11px] font-medium px-1.5 py-0.5 border border-[var(--color-hairline)] bg-[var(--color-paper)] text-[var(--color-ink)] rounded-sm"
                         >
-                          {ticker(t)}
+                          {cleanTicker(t)}
                         </span>
                       ))}
-                    </span>
+                    </div>
                   )}
-                  <span
-                    className="inline-block h-2 w-2 rounded-full"
-                    style={{
-                      backgroundColor:
-                        item.sentiment === 'bullish'
-                          ? 'var(--color-bullish)'
-                          : item.sentiment === 'bearish'
-                            ? 'var(--color-bearish)'
-                            : 'var(--color-neutral)',
-                    }}
-                    title={item.sentiment}
-                  />
-                </div>
-              </li>
-            ))}
+                </>
+              );
+
+              return (
+                <li key={idx} className="py-1">
+                  {url ? (
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block p-2.5 -mx-2.5 rounded transition-colors hover:bg-[var(--color-hairline)]/30 space-y-1.5 no-underline text-inherit"
+                    >
+                      {cardContent}
+                    </a>
+                  ) : (
+                    <div className="p-2.5 -mx-2.5 space-y-1.5">
+                      {cardContent}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       ))}

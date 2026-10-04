@@ -34,6 +34,8 @@ const sampleDailyContent: DailyContent = {
             headline: 'RBI Maintains Accommodative Stance',
             summary: 'Policy rates kept steady to support growth.',
             source: 'Economic Times',
+            url: 'https://economictimes.indiatimes.com/rbi-policy',
+            tickers: ['HDFCBANK.NS', 'ICICIBANK.NS'],
             sentiment: 'bullish',
           },
         ],
@@ -75,7 +77,11 @@ describe('DailyView', () => {
     expect(html).toContain('Key Takeaways');
     expect(html).toContain('Nifty targets 24,000');
     expect(html).toContain('Top Stories &amp; Market Intelligence');
+    expect(html).toContain('Macro &amp; Policy - Economic Times');
     expect(html).toContain('RBI Maintains Accommodative Stance');
+    expect(html).toContain('HDFCBANK');
+    expect(html).toContain('ICICIBANK');
+    expect(html).toMatch(/<a href="https:\/\/economictimes\.indiatimes\.com\/rbi-policy"[^>]*>[\s\S]*?Macro &amp; Policy - Economic Times[\s\S]*?RBI Maintains Accommodative Stance[\s\S]*?HDFCBANK[\s\S]*?<\/a>/);
     expect(html).toContain('Street Consensus &amp; Brokerage Radar');
     expect(html).toContain('BEL');
     expect(html).toContain('Jefferies');

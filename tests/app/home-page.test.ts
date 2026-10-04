@@ -32,7 +32,7 @@ describe('TodayPage (/)', () => {
     expect(html).not.toContain('Open Sentiment Index');
   });
 
-  it('renders 6 major headlines with title and affected stocks but no summary', async () => {
+  it('renders 6 major headlines with Category - Source header, title, and stock badges as a full clickable card', async () => {
     const pageComponent = await TodayPage();
     const html = renderToStaticMarkup(pageComponent);
 
@@ -42,6 +42,12 @@ describe('TodayPage (/)', () => {
 
     // Ensure story summary paragraph is not rendered in homepage stories
     expect(html).not.toMatch(/<article class="homepage-story">[\s\S]*?<p class="text-sm text-\[var\(--color-muted\)\] leading-relaxed">/);
+
+    // Ensure Category - Source meta line is present
+    expect(html).toContain('Macro &amp; Policy - Economic Times');
+
+    // Ensure full card has link anchor to source
+    expect(html).toMatch(/<article class="homepage-story"><a href="https:\/\/[^"]*"[^>]*>[\s\S]*?Macro &amp; Policy - Economic Times[\s\S]*?<\/a><\/article>/);
   });
 
   it('renders Sector Rotation without ranking index numbers', async () => {
