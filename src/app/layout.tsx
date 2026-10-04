@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
-import { Lato, Newsreader, Old_Standard_TT } from 'next/font/google';
+import { Lato, Newsreader, UnifrakturMaguntia } from 'next/font/google';
 import './globals.css';
 import { NavBar } from '../components/NavBar';
 import { Footer } from '../components/Footer';
@@ -23,10 +23,10 @@ const newsreader = Newsreader({
   display: 'swap',
 });
 
-const oldStandard = Old_Standard_TT({
+const unifraktur = UnifrakturMaguntia({
   subsets: ['latin'],
   variable: '--font-masthead',
-  weight: ['400', '700'],
+  weight: '400',
   display: 'swap',
 });
 
@@ -112,7 +112,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#f7f4ec',
+  themeColor: '#ffffff',
   colorScheme: 'light',
 };
 
@@ -147,7 +147,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lato.variable} ${newsreader.variable} ${oldStandard.variable}`}
+      className={`${lato.variable} ${newsreader.variable} ${unifraktur.variable}`}
       data-mode="light"
       suppressHydrationWarning
     >

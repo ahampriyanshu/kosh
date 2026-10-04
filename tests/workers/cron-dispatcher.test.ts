@@ -28,7 +28,8 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
       expect(jobNames).toContain('recap');
       expect(jobNames).toContain('weekly');
       expect(jobNames).toContain('monthly');
-      expect(PIPELINE_SCHEDULE.length).toBe(11);
+      expect(jobNames).toContain('evaluate-bets');
+      expect(PIPELINE_SCHEDULE.length).toBe(12);
     });
 
     it('maps every job to a valid .yml workflow file', () => {
@@ -177,7 +178,7 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
 
       const body = (await res.json()) as { status: string; activeJobsCount: number };
       expect(body.status).toBe('ok');
-      expect(body.activeJobsCount).toBe(11);
+      expect(body.activeJobsCount).toBe(12);
     });
 
     it('returns 200 OK on /schedule', async () => {
@@ -189,7 +190,7 @@ describe('Cloudflare Worker Master Tick Pipeline Dispatcher', () => {
       expect(res.status).toBe(200);
 
       const body = (await res.json()) as Array<{ job: string }>;
-      expect(body.length).toBe(11);
+      expect(body.length).toBe(12);
     });
 
     it('allows manual dispatch of any feed with auth', async () => {
