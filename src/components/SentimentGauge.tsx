@@ -44,11 +44,12 @@ export function SentimentGauge({ score, regime, compact = false }: SentimentGaug
   const marker = pointAt(boundedScore);
 
   return (
-    <figure className={`mx-auto w-full ${compact ? 'max-w-[300px]' : 'max-w-[440px]'}`} aria-label={`Sentiment Index: ${boundedScore} out of 100, ${regime}`}>
+    <figure className={`mx-auto w-full not-italic ${compact ? 'max-w-[300px]' : 'max-w-[440px]'}`} style={{ fontStyle: 'normal' }} aria-label={`Sentiment Index: ${boundedScore} out of 100, ${regime}`}>
       <svg
         className="block h-auto w-full overflow-visible"
         viewBox="0 0 360 210"
         role="img"
+        style={{ fontStyle: 'normal' }}
         aria-labelledby="sentiment-gauge-title sentiment-gauge-description"
       >
         <title id="sentiment-gauge-title">{`Sentiment Index score: ${boundedScore} out of 100`}</title>
@@ -82,14 +83,14 @@ export function SentimentGauge({ score, regime, compact = false }: SentimentGaug
 
         <circle cx={marker.x} cy={marker.y} r="6.5" fill="#202622" />
 
-        <text x="180" y="137" textAnchor="middle" fill="#202622" fontSize="48" fontWeight="600" fontFamily="var(--font-newsreader)">
+        <text x="180" y="137" textAnchor="middle" fill="#202622" fontSize="48" fontWeight="600" fontStyle="normal" fontFamily="var(--font-newsreader)">
           {boundedScore}
         </text>
-        <text x="180" y="160" textAnchor="middle" fill="#737870" fontSize="12" fontWeight="600" letterSpacing="0.4" fontFamily="var(--font-newsreader)">
+        <text x="180" y="160" textAnchor="middle" fill="#737870" fontSize="12" fontWeight="600" letterSpacing="0.4" fontStyle="normal" fontFamily="var(--font-newsreader)">
           {regime}
         </text>
-        <text x="43" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontFamily="var(--font-newsreader)">Oversold</text>
-        <text x="317" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontFamily="var(--font-newsreader)">Overbought</text>
+        <text x="43" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontStyle="normal" fontFamily="var(--font-newsreader)">Oversold</text>
+        <text x="317" y="202" textAnchor="middle" fill="#71776f" fontSize="11" fontStyle="normal" fontFamily="var(--font-newsreader)">Overbought</text>
       </svg>
     </figure>
   );
