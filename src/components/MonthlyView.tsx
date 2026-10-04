@@ -257,6 +257,74 @@ export function MonthlyView({ content }: MonthlyViewProps) {
         </ReportSection>
       )}
 
+      {/* Portfolio Performance Review */}
+      {content.portfolioReview && (
+        <ReportSection title="Portfolio Performance Review">
+          <div className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-4 space-y-4">
+            <div className="grid grid-cols-2 gap-4 pb-3 border-b border-[var(--color-hairline)] text-xs font-mono">
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] uppercase block">Monthly Portfolio Return</span>
+                <span className={`text-base font-bold tabular-nums ${content.portfolioReview.monthlyReturnPct >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                  {content.portfolioReview.monthlyReturnPct >= 0 ? '+' : ''}{content.portfolioReview.monthlyReturnPct.toFixed(2)}%
+                </span>
+              </div>
+              <div>
+                <span className="text-[10px] text-[var(--color-muted)] uppercase block">Benchmark Return</span>
+                <span className={`text-base font-bold tabular-nums ${content.portfolioReview.benchmarkReturnPct >= 0 ? 'text-[var(--color-bullish)]' : 'text-[var(--color-bearish)]'}`}>
+                  {content.portfolioReview.benchmarkReturnPct >= 0 ? '+' : ''}{content.portfolioReview.benchmarkReturnPct.toFixed(2)}%
+                </span>
+              </div>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2 pt-1">
+              {content.portfolioReview.topContributors.length > 0 && (
+                <div>
+                  <span className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-bullish)] block mb-1.5">
+                    Top Contributors
+                  </span>
+                  <ul className="space-y-1">
+                    {content.portfolioReview.topContributors.map((c, i) => (
+                      <li key={i} className="text-xs text-[var(--color-ink)] font-mono">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {content.portfolioReview.drags.length > 0 && (
+                <div>
+                  <span className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-bearish)] block mb-1.5">
+                    Top Drags
+                  </span>
+                  <ul className="space-y-1">
+                    {content.portfolioReview.drags.map((d, i) => (
+                      <li key={i} className="text-xs text-[var(--color-ink)] font-mono">
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {content.portfolioReview.keyLearnings.length > 0 && (
+              <div className="pt-3 border-t border-[var(--color-hairline)]/60">
+                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)] block mb-1.5">
+                  Key Learnings &amp; Risk Notes
+                </span>
+                <ul className="space-y-1.5">
+                  {content.portfolioReview.keyLearnings.map((l, i) => (
+                    <li key={i} className="text-xs text-[var(--color-muted)] leading-relaxed font-serif">
+                      • {l}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </ReportSection>
+      )}
+
       {/* Market Dashboard */}
       <MarketDashboard snapshot={content.snapshot} />
     </div>

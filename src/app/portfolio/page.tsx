@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PortfolioUnlock } from '../../components/PortfolioUnlock';
 import { getLatest } from '../../lib/reports';
+import { dateReportPath } from '../../../lib/report-routes';
 import type { RetroContent } from '../../../lib/schemas';
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ export default async function PortfolioPage() {
               </span>
               {retro && (
                 <Link
-                  href={`/reports/${retro.id}`}
+                  href={dateReportPath(retro.dateKey)}
                   className="text-[var(--color-ink)] hover:underline font-serif italic text-xs"
                 >
                   Full Retrospective &rarr;

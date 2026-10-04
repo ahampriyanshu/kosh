@@ -7,6 +7,7 @@ import { writeSnapshot, deleteFeed, writeSlice } from '../lib/feed/store';
 import { fetchIndices } from '../lib/feed/indices';
 import { fetchUniverse } from '../lib/feed/universe';
 import { computeInternals } from '../lib/feed/internals';
+import { fetchGlobal } from '../lib/feed/global';
 import { fetchNews } from '../lib/feed/news';
 import { fetchFlows } from '../lib/feed/flows';
 import { buildDailyNarrative } from '../lib/reports-narrative';
@@ -15,7 +16,7 @@ import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
 import {
   DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema,
-  NewsSliceSchema, FlowsSliceSchema, type ReportEnvelope
+  GlobalSliceSchema, NewsSliceSchema, FlowsSliceSchema, type ReportEnvelope
 } from '../lib/schemas';
 import { computeMoodSnapshot } from '../lib/sentiment';
 
@@ -24,9 +25,13 @@ function dataDir(): string {
 }
 
 async function refreshMarketSlices(date: string, now: Date): Promise<void> {
-  const [indices, universe, news, flows] = await Promise.all([
+  const [indices, universe, global, news, flows] = await Promise.all([
     fetchIndices(),
     fetchUniverse(),
+    fetchGlobal().catch((err) => {
+      console.warn('[daily] Could not fetch global slice:', err);
+      return null;
+    }),
     fetchNews(now).catch((err) => {
       console.warn('[daily] Could not fetch news slice:', err);
       return null;
@@ -40,6 +45,9 @@ async function refreshMarketSlices(date: string, now: Date): Promise<void> {
   await writeSlice(date, 'indices', indices, IndicesSliceSchema);
   await writeSlice(date, 'universe', universe, UniverseSliceSchema);
   await writeSlice(date, 'internals', internals, InternalsSliceSchema);
+  if (global) {
+    await writeSlice(date, 'global', global, GlobalSliceSchema);
+  }
   if (news) {
     await writeSlice(date, 'news', news, NewsSliceSchema);
   }
