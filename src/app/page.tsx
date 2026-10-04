@@ -426,14 +426,14 @@ export default async function TodayPage() {
         <div className="md:col-span-3 p-5 xl:p-6 space-y-6">
           {mood && (
             <section aria-label="Sentiment Index" className="pt-2 border-t border-[var(--color-hairline)]">
-              <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
-                <Link href="/sentiment-index" className="hover:underline not-italic">
-                  <h2 className="font-serif font-bold text-[var(--color-ink)] uppercase tracking-wider not-italic inline">
+              <Link href="/sentiment-index" className="block group not-italic">
+                <div className="pb-1 mb-2 border-b border-[var(--color-hairline)] text-xs font-mono">
+                  <h2 className="font-serif font-bold text-[var(--color-ink)] group-hover:underline uppercase tracking-wider not-italic inline">
                     Sentiment Index
                   </h2>
-                </Link>
-              </div>
-              <SentimentGauge score={mood.composite} regime={mood.regime} compact />
+                </div>
+                <SentimentGauge score={mood.composite} regime={mood.regime} compact />
+              </Link>
             </section>
           )}
 
