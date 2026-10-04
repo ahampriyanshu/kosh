@@ -7,23 +7,45 @@ import { writeSnapshot, deleteFeed, writeSlice } from '../lib/feed/store';
 import { fetchIndices } from '../lib/feed/indices';
 import { fetchUniverse } from '../lib/feed/universe';
 import { computeInternals } from '../lib/feed/internals';
+import { fetchNews } from '../lib/feed/news';
+import { fetchFlows } from '../lib/feed/flows';
 import { buildDailyNarrative } from '../lib/reports-narrative';
 import { writeReport, computeChecksum } from '../lib/storage';
 import { sendReportEmail } from '../lib/email';
 import { renderDailyEmail } from '../lib/email-templates';
-import { DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema, type ReportEnvelope } from '../lib/schemas';
+import {
+  DailyContentSchema, IndicesSliceSchema, UniverseSliceSchema, InternalsSliceSchema,
+  NewsSliceSchema, FlowsSliceSchema, type ReportEnvelope
+} from '../lib/schemas';
 import { computeMoodSnapshot } from '../lib/sentiment';
 
 function dataDir(): string {
   return process.env.KOSH_DATA_DIR || path.join(process.cwd(), 'data');
 }
 
-async function refreshMarketSlices(date: string): Promise<void> {
-  const [indices, universe] = await Promise.all([fetchIndices(), fetchUniverse()]);
+async function refreshMarketSlices(date: string, now: Date): Promise<void> {
+  const [indices, universe, news, flows] = await Promise.all([
+    fetchIndices(),
+    fetchUniverse(),
+    fetchNews(now).catch((err) => {
+      console.warn('[daily] Could not fetch news slice:', err);
+      return null;
+    }),
+    fetchFlows(now).catch((err) => {
+      console.warn('[daily] Could not fetch flows slice:', err);
+      return null;
+    }),
+  ]);
   const internals = computeInternals(universe.quotes);
   await writeSlice(date, 'indices', indices, IndicesSliceSchema);
   await writeSlice(date, 'universe', universe, UniverseSliceSchema);
   await writeSlice(date, 'internals', internals, InternalsSliceSchema);
+  if (news) {
+    await writeSlice(date, 'news', news, NewsSliceSchema);
+  }
+  if (flows) {
+    await writeSlice(date, 'flows', flows, FlowsSliceSchema);
+  }
 }
 
 export interface RunDailyOptions {
@@ -39,7 +61,7 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
   const nowIso = now.toISOString();
 
   if (!options.skipRefresh) {
-    await refreshMarketSlices(date);
+    await refreshMarketSlices(date, now);
   }
   const snapshot = await buildSnapshot(date, '1d', nowIso);
   const session = options.session ?? 'morning';
@@ -99,6 +121,58 @@ export async function runDaily(now: Date = new Date(), options: RunDailyOptions 
       timestamp: nowIso,
     }) + '\n';
     await appendFile(path.join(qualLedger, 'daily_narratives.jsonl'), narrativeLine, 'utf-8');
+
+    if (snapshot.streetRecommendations && snapshot.streetRecommendations.length > 0) {
+      const streetLines = snapshot.streetRecommendations.map((rec) =>
+        JSON.stringify({
+          date,
+          ticker: rec.ticker,
+          name: rec.name,
+          brokerage: rec.brokerage,
+          action: rec.action,
+          target: rec.target ?? null,
+          rationale: rec.rationale ?? null,
+          timestamp: nowIso,
+        })
+      ).join('\n') + '\n';
+      await appendFile(path.join(qualLedger, 'street_recs.jsonl'), streetLines, 'utf-8');
+    }
+
+    if (snapshot.corporateActions && snapshot.corporateActions.length > 0) {
+      const corpLines = snapshot.corporateActions.map((ca) =>
+        JSON.stringify({
+          date,
+          ticker: ca.ticker,
+          name: ca.name,
+          type: ca.type,
+          actionDate: ca.date,
+          timestamp: nowIso,
+        })
+      ).join('\n') + '\n';
+      await appendFile(path.join(quantLedger, 'corporate_actions.jsonl'), corpLines, 'utf-8');
+    }
+
+    if (snapshot.news && snapshot.news.length > 0) {
+      const newsLines: string[] = [];
+      for (const grp of snapshot.news) {
+        for (const item of grp.items) {
+          newsLines.push(JSON.stringify({
+            date,
+            category: grp.category,
+            headline: item.headline,
+            summary: item.summary,
+            source: item.source,
+            url: item.url ?? null,
+            tickers: item.tickers ?? [],
+            sentiment: item.sentiment,
+            timestamp: nowIso,
+          }));
+        }
+      }
+      if (newsLines.length > 0) {
+        await appendFile(path.join(qualLedger, 'market_news.jsonl'), newsLines.join('\n') + '\n', 'utf-8');
+      }
+    }
   } catch (err) {
     console.warn('[daily] Could not append to analytical ledgers:', err);
   }

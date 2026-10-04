@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-01T10:45:00.000Z",
+  "asOf": "2026-10-01T02:45:00.000Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,9 +70,68 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 50906.05,
+      "changePct": -0.8644046
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 26861.064,
+      "changePct": 0.2370495
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7651.54,
+      "changePct": -0.25159964
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 66753.72,
+      "changePct": 0
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 24613.27,
+      "changePct": 0.36576736
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10606,
+      "changePct": -0.28871673
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4185.1,
+      "changePct": -0.038218588
+    },
+    {
+      "name": "Silver",
+      "value": 60.675,
+      "changePct": 0.17996457
+    },
+    {
+      "name": "Crude Oil",
+      "value": 89.94,
+      "changePct": -0.5308513
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 95.82,
+      "changePct": 0
+    }
+  ],
   "bondYield": null,
   "vix": {
     "value": 14.455,
@@ -446,17 +505,229 @@
       "changePct": -3.46
     }
   ],
-  "fiiDii": null,
-  "news": [],
-  "streetRecommendations": [],
-  "corporateActions": [],
+  "fiiDii": {
+    "fiiNet": -10148.41,
+    "diiNet": 11271.73,
+    "unit": "crore",
+    "asOf": "2026-09-30"
+  },
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI MPC Meeting Scheduled; Rate Hike Anticipated Amid Rising Inflation",
+          "summary": "The RBI's Monetary Policy Committee will meet from Oct 5-7, with economists widely expecting a 25 bps interest rate hike due to increasing retail inflation (4.82% in Aug), strong economic growth, credit expansion, and global energy prices. Nomura and SBI Research both predict a hike.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Government Reduces Windfall Tax on Diesel, ATF Exports",
+          "summary": "Effective October 1, 2026, the government has lowered the windfall gains tax on exports of diesel and aviation turbine fuel (ATF), while keeping the levy on petrol exports unchanged.",
+          "source": "Reuters",
+          "tickers": [
+            "RELIANCE.NS",
+            "IOC.NS",
+            "BPCL.NS",
+            "HPCL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global Markets Mixed; US Inflation Eases but FPIs Remain Net Sellers in India",
+          "summary": "Global markets showed mixed signals; US stocks ended mixed as softer-than-expected inflation data eased Fed hike fears, but elevated Treasury yields capped gains. FPIs continued selling Indian equities, offloading ₹10,148.41 crore on Sept 30, and ₹45,536.89 crore in September.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Tech Mahindra Board to Consider Q2 FY27 Results, Bonus Issue on October 15-16",
+          "summary": "Tech Mahindra's board of directors is scheduled to convene on October 15-16, 2026, to review and approve its financial results for the second quarter of FY27 and to consider a potential bonus issue.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TECHM.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Nifty Auto Index Slips 3.5% as Disappointing September Sales Data Weighs",
+          "summary": "Automobile stocks were among the top losers, with the Nifty Auto index falling 3.5% after disappointing September sales data, extending a losing streak for the broader market.",
+          "source": "Financial Express",
+          "tickers": [
+            "BAJAJ-AUTO.NS",
+            "MARUTI.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "IT Stocks Rebound, Nifty IT Posts Weekly Gain on Easing US Rate Hike Fears",
+          "summary": "The Nifty IT index gained 2.2% and emerged as the only major sectoral index to post a weekly gain, driven by softer-than-expected US inflation data which reduced concerns about further Federal Reserve interest rate hikes.",
+          "source": "Business Today",
+          "tickers": [
+            "INFY.NS",
+            "TCS.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Sterlite Technologies Secures $1.2 Billion Optical Networking Deal for AI Data Centers",
+          "summary": "Sterlite Technologies (STLTECH) has clinched a significant multi-year optical networking contract valued at approximately $1.2 billion (₹10,000 crore) for AI data centers.",
+          "source": "Livemint",
+          "tickers": [
+            "STLTECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Ganesh Benzoplast Approves Slump Sale of Businesses for ₹1,154 Crore",
+          "summary": "Ganesh Benzoplast's board has given its nod for the slump sale of its liquid storage tanks and container rail businesses to KKR-backed Cisternina Logistics for a consideration of ₹1,154 crore.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "GANESHBE.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Infosys Rises 4.11% as IT Stocks Rally on Eased US Rate Hike Worries",
+          "summary": "Infosys shares ended 4.11% higher on October 1, benefiting from a broader rally in the IT sector, which was spurred by softer US inflation data and reduced expectations of further Federal Reserve rate hikes.",
+          "source": "NDTV Profit",
+          "tickers": [
+            "INFY.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bajaj Auto Plunges 9% Intraday Amid Weak September Sales Data",
+          "summary": "Bajaj Auto shares experienced a sharp decline of up to 9% during intraday trading on October 1, reacting negatively to disappointing sales figures reported for September.",
+          "source": "Business Today",
+          "tickers": [
+            "BAJAJ-AUTO.NS"
+          ],
+          "sentiment": "bearish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 880,
+      "rationale": "Citing the appointment of Anup Bagchi as the new CEO and MD, which is seen as a positive leadership transition."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "rationale": "Board approved a ₹17,500 crore capital raise (preferential warrants to Bajaj Finserv and QIP) which can lift FY28e BVPS by 8%, despite EPS remaining flat."
+    },
+    {
+      "ticker": "HDFCAMC.NS",
+      "name": "HDFC Asset Management Company",
+      "brokerage": "Kotak Institutional Equities",
+      "action": "buy",
+      "target": 2800,
+      "rationale": "Expects ~15% core earnings CAGR over FY2027-28E, driven by ~18% AUM CAGR."
+    },
+    {
+      "ticker": "ONGC.NS",
+      "name": "Oil and Natural Gas Corporation",
+      "brokerage": "Kotak Institutional Equities",
+      "action": "buy",
+      "target": 355,
+      "rationale": "Expects production outlook to improve and the Western Offshore partnership with BP to stabilize production."
+    },
+    {
+      "ticker": "UJJIVANSFB.NS",
+      "name": "Ujjivan Small Finance Bank",
+      "brokerage": "Kotak Institutional Equities",
+      "action": "buy",
+      "target": 85,
+      "rationale": "Transforming into a diversified retail and MSE bank, healthy loan growth, improving asset quality, and expected RoE recovery."
+    },
+    {
+      "ticker": "MCX.NS",
+      "name": "Multi Commodity Exchange of India",
+      "brokerage": "Macquarie",
+      "action": "accumulate",
+      "target": 3820,
+      "rationale": "Market undervalues platform optionality and cash-return potential."
+    },
+    {
+      "ticker": "CIPLA.NS",
+      "name": "Cipla Limited",
+      "brokerage": "Citi",
+      "action": "buy",
+      "target": 1530,
+      "rationale": "Focusing on competitive generic US FDA approvals."
+    }
+  ],
+  "corporateActions": [
+    {
+      "ticker": "NMDC",
+      "name": "NMDC Limited",
+      "type": "dividend",
+      "date": "2026-10-05"
+    },
+    {
+      "ticker": "BLSE",
+      "name": "BLS E-Services Limited",
+      "type": "split",
+      "date": "2026-10-06"
+    },
+    {
+      "ticker": "PTC",
+      "name": "PTC India Limited",
+      "type": "dividend",
+      "date": "2026-10-07"
+    },
+    {
+      "ticker": "SHANKARA",
+      "name": "Shankara Buildpro Limited",
+      "type": "split",
+      "date": "2026-10-08"
+    },
+    {
+      "ticker": "MOLDTEK",
+      "name": "Mold-Tek Packaging Limited",
+      "type": "bonus",
+      "date": "2026-10-09"
+    }
+  ],
   "derivatives": null,
   "sentiment": {
-    "composite": 28,
-    "regime": "Fear",
-    "session": "closing",
-    "asOf": "2026-10-01T10:45:00.000Z",
-    "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
+    "composite": 15,
+    "regime": "Extreme Fear",
+    "session": "morning",
+    "asOf": "2026-10-01T02:45:00.000Z",
+    "summary": "Capitulation levels: severe institutional selling and heavy hedging signal an oversold contrarian setup.",
     "categories": {
       "breadth": {
         "score": 7,
@@ -474,16 +745,16 @@
         }
       },
       "flows": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 10,
+        "regime": "Extreme Fear",
         "label": "Institutional Flows",
         "weight": 0.33,
-        "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+        "summary": "Heavy institutional offloading (FII: -₹10,148.41 Cr)",
         "metrics": {
-          "fiiNet": 0,
-          "diiNet": 0,
-          "totalNet": 0,
-          "asOf": null
+          "fiiNet": -10148.41,
+          "diiNet": 11271.73,
+          "totalNet": 1123.3199999999997,
+          "asOf": "2026-09-30"
         }
       },
       "volatility": {
@@ -495,7 +766,7 @@
         "metrics": {
           "vix": 14.455,
           "vixChangePct": 7.153448,
-          "goldChangePct": 0,
+          "goldChangePct": -0.038218588,
           "usdinrChangePct": 0
         }
       },

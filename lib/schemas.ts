@@ -380,10 +380,12 @@ export const StreetRecSchema = z.object({
   ticker: z.string(), name: z.string(), brokerage: z.string(),
   action: z.enum(['buy', 'sell', 'hold', 'accumulate', 'reduce']), target: z.number().optional(), rationale: z.string(),
 });
+export type StreetRec = z.infer<typeof StreetRecSchema>;
 export const CorpActionSchema = z.object({
   ticker: z.string(), name: z.string(),
   type: z.enum(['results', 'dividend', 'split', 'agm', 'bonus']), date: z.string(),
 });
+export type CorpAction = z.infer<typeof CorpActionSchema>;
 export const GiftNiftySchema = z.object({ value: z.number(), changePct: z.number() });
 export const BondYieldSchema = z.object({ name: z.string(), value: z.number(), changeBps: z.number() });
 export const VixSchema = z.object({ value: z.number(), changePct: z.number() });
