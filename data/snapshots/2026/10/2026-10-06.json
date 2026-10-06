@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-05T19:23:20.049Z",
+  "asOf": "2026-10-06T03:01:03.471Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,9 +70,68 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 51267.9,
+      "changePct": 0.17769226
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 27477.31,
+      "changePct": 1.0534688
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7773.95,
+      "changePct": 0.66336703
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 70081.53,
+      "changePct": 0.19253455
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 24218.45,
+      "changePct": 0.7408771
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10497.94,
+      "changePct": 0.34401077
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4157.1,
+      "changePct": 0.0072241384
+    },
+    {
+      "name": "Silver",
+      "value": 61.06,
+      "changePct": -0.39151365
+    },
+    {
+      "name": "Crude Oil",
+      "value": 89.74,
+      "changePct": 0.3466371
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 96.3,
+      "changePct": 0
+    }
+  ],
   "bondYield": null,
   "vix": {
     "value": 14.775,
@@ -324,29 +383,29 @@
       "ticker": "ITC.NS",
       "name": "ITC",
       "volume": 49015972,
-      "avgVolume": 14205159,
-      "ratio": 3.45
+      "avgVolume": 14552692,
+      "ratio": 3.37
     },
     {
       "ticker": "APOLLOHOSP.NS",
       "name": "Apollo Hospitals",
       "volume": 895065,
-      "avgVolume": 368466,
-      "ratio": 2.43
+      "avgVolume": 379189,
+      "ratio": 2.36
     },
     {
       "ticker": "HDFCBANK.NS",
       "name": "HDFC Bank",
       "volume": 66035588,
-      "avgVolume": 30322022,
-      "ratio": 2.18
+      "avgVolume": 30880377,
+      "ratio": 2.14
     },
     {
       "ticker": "WIPRO.NS",
       "name": "Wipro",
       "volume": 30830384,
-      "avgVolume": 14488518,
-      "ratio": 2.13
+      "avgVolume": 14846213,
+      "ratio": 2.08
     }
   ],
   "sectorRanking": [
@@ -395,8 +454,8 @@
   "sentiment": {
     "composite": 50,
     "regime": "Neutral",
-    "session": "closing",
-    "asOf": "2026-10-05T19:23:20.049Z",
+    "session": "morning",
+    "asOf": "2026-10-06T03:01:03.471Z",
     "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
     "categories": {
       "breadth": {
@@ -436,7 +495,7 @@
         "metrics": {
           "vix": 14.775,
           "vixChangePct": 2.2137647,
-          "goldChangePct": 0,
+          "goldChangePct": 0.0072241384,
           "usdinrChangePct": 0
         }
       },
