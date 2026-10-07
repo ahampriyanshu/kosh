@@ -3,7 +3,7 @@
   "id": "daily-2026-10-07",
   "type": "daily",
   "dateKey": "2026-10-07",
-  "generatedAt": "2026-10-07T10:16:01.269Z",
+  "generatedAt": "2026-10-07T17:33:12.200Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1041.05,
+      "ABREL.BO": 1049.9,
       "AMBUJACEM.BO": 356.5,
       "BANDHANBNK.NS": 162.99,
       "BDL.BO": 1086,
@@ -61,13 +61,13 @@
       "BRITANNIA.BO": 4783.8,
       "BSOFT.NS": 278.05,
       "CASTROLIND.NS": 197.15,
-      "CENTRALBK.BO": 30.4,
+      "CENTRALBK.BO": 30.43,
       "DIXON.NS": 13024,
       "EXIDEIND.NS": 402.95,
-      "FIRSTCRY.BO": 170.7,
+      "FIRSTCRY.BO": 172.2,
       "GMRAIRPORT.BO": 91.5,
       "GODREJCP.BO": 867,
-      "HAVELLS.BO": 1059,
+      "HAVELLS.BO": 1059.5,
       "HCLTECH.BO": 1183.8,
       "HDFCBANK.NS": 702.75,
       "HINDUNILVR.BO": 1868,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 453.65,
       "IREDA.NS": 107.33,
       "ITC.BO": 265.3,
-      "ITCHOTELS.BO": 159.05,
+      "ITCHOTELS.BO": 159.3,
       "JWL.NS": 223.56,
       "KAMATHOTEL.NS": 262.89,
       "LICI.BO": 386.1,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 562.3,
       "MANKIND.NS": 2500,
       "MAXHEALTH.BO": 906.1,
-      "NEWGEN.BO": 449,
+      "NEWGEN.BO": 446.85,
       "NHPC.BO": 72.48,
       "ONGC.BO": 221.65,
       "PRESTIGE.BO": 1434.4,
-      "PSB.BO": 21.02,
+      "PSB.BO": 21.04,
       "RELIANCE.NS": 1207.7,
       "SBIN.NS": 954,
       "TATASTEEL.BO": 175.5,
@@ -99,11 +99,11 @@
       "VMM.BO": 100.15,
       "WIPRO.BO": 159.4
     },
-    "searchTimestamp": "2026-10-07T10:16:01.269Z"
+    "searchTimestamp": "2026-10-07T17:33:12.200Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-07T10:16:01.269Z",
+      "asOf": "2026-10-07T17:33:12.200Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 13.885,
-        "changePct": 2.0329683
+        "changePct": 2.0393176
       },
       "breadth": {
         "advances": 9,
@@ -522,8 +522,8 @@
           "ticker": "TITAN.NS",
           "name": "Titan Company",
           "volume": 2951029,
-          "avgVolume": 795881,
-          "ratio": 3.71
+          "avgVolume": 754769,
+          "ratio": 3.91
         },
         {
           "ticker": "ITC.NS",
@@ -897,7 +897,7 @@
         "composite": 34,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-07T10:16:01.269Z",
+        "asOf": "2026-10-07T17:33:12.200Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -936,7 +936,7 @@
             "summary": "Normal market volatility (India VIX at 13.88)",
             "metrics": {
               "vix": 13.885,
-              "vixChangePct": 2.0329683,
+              "vixChangePct": 2.0393176,
               "goldChangePct": -0.90515876,
               "usdinrChangePct": 0.46698347
             }
@@ -971,9 +971,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1041.05,
-          "changePct": -3.57,
-          "note": "-3.6% vs prev close, vol 0.7x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 1049.9,
+          "changePct": -2.75,
+          "note": "-2.7% vs prev close, vol 0.7x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -1027,9 +1027,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.4,
-          "changePct": 0.6,
-          "note": "+0.6% vs prev close, vol 0.9x avg"
+          "price": 30.43,
+          "changePct": 0.69,
+          "note": "+0.7% vs prev close, vol 0.9x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -1048,9 +1048,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 170.7,
-          "changePct": -3.86,
-          "note": "-3.9% vs prev close, vol 0.1x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 172.2,
+          "changePct": -3.01,
+          "note": "-3.0% vs prev close, vol 0.1x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1069,8 +1069,8 @@
         {
           "ticker": "HAVELLS.BO",
           "name": "HAVELLS",
-          "price": 1059,
-          "changePct": 0.28,
+          "price": 1059.5,
+          "changePct": 0.33,
           "note": "+0.3% vs prev close, vol 1.0x avg"
         },
         {
@@ -1125,9 +1125,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 159.05,
-          "changePct": -0.72,
-          "note": "-0.7% vs prev close, vol 0.6x avg"
+          "price": 159.3,
+          "changePct": -0.56,
+          "note": "-0.6% vs prev close, vol 0.6x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -1188,9 +1188,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 449,
-          "changePct": -1.76,
-          "note": "-1.8% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+          "price": 446.85,
+          "changePct": -2.23,
+          "note": "-2.2% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1216,9 +1216,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 21.02,
-          "changePct": -0.1,
-          "note": "-0.1% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 21.04,
+          "changePct": 0,
+          "note": "+0.0% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1286,50 +1286,63 @@
       ],
       "alerts": [
         {
-          "ticker": "MAXHEALTH.BO",
-          "name": "MAXHEALTH",
-          "reason": "Fell to a fresh 52-week low for the second consecutive session with exceptionally high volume, indicating strong bearish momentum.",
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "reason": "Pending securities fraud class action lawsuit introduces elevated fundamental risk amidst broader market and rate hike pressures.",
           "severity": "high",
           "triggeredRules": [
-            "Fell to fresh 52-week low",
-            "Exceptionally high volume"
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "LODHA.NS",
+          "name": "LODHA",
+          "reason": "Significant decline in a weak Realty sector, exacerbated by the RBI rate hike making home loans more expensive.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "PRESTIGE.BO",
+          "name": "PRESTIGE",
+          "reason": "Moderate drop in a weak realty sector, amplified by market and sector weakness due to RBI rate hike.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "M&M.NS",
           "name": "M&M",
-          "reason": "Experienced a notable decline with above-average volume and reached a 'Significant 52-Week Low', suggesting profound, company-specific concerns.",
-          "severity": "high",
+          "reason": "Significant decline with higher-than-average volume in a weak Auto sector, influenced by profit booking and potential impact of higher interest rates.",
+          "severity": "medium",
           "triggeredRules": [
-            "Reached Significant 52-Week Low",
-            "Above-average volume"
+            "below 50DMA support"
           ]
         },
         {
-          "ticker": "HDFCBANK.NS",
-          "name": "HDFCBANK",
-          "reason": "Declined despite banking sector recovery, facing leadership transition, governance concerns, and post-merger integration challenges, with potential NIM compression from MCLR cut.",
-          "severity": "high",
+          "ticker": "RELIANCE.NS",
+          "name": "RELIANCE",
+          "reason": "Jump in crude oil prices negatively impacts its refining margins, presenting a genuine risk despite other positive outlooks.",
+          "severity": "medium",
           "triggeredRules": [
-            "Leadership transition",
-            "Governance and market pressure",
-            "MCLR rate cut potentially compressing NIMs"
+            "below 50DMA support"
           ]
         },
         {
-          "ticker": "FIRSTCRY.BO",
-          "name": "FIRSTCRY",
-          "reason": "Experienced a significant drawdown of nearly 4% on very low volume, warranting close monitoring for undisclosed negative developments.",
-          "severity": "high",
+          "ticker": "ULTRACEMCO.BO",
+          "name": "ULTRACEMCO",
+          "reason": "Modest decline on higher-than-average volume, likely due to the rate hike impacting construction demand.",
+          "severity": "medium",
           "triggeredRules": [
-            "Significant drawdown (nearly 4%)",
-            "Very low volume"
+            "below 50DMA support"
           ]
         }
       ],
-      "summary": "Several portfolio holdings, including MAXHEALTH, M&M, HDFCBANK, and FIRSTCRY, exhibited genuine sell signals characterized by 52-week lows, leadership issues, and significant price declines."
+      "summary": "The Indian equity market is expected to remain cautious following the RBI's repo rate hike and broad-based selling, with interest rate-sensitive sectors and stocks with specific legal issues likely to face continued pressure."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:79fbdc6df9a401ef4cb6e3566eaa26cf0d171087f5f59520efd15f4ac6e59b94"
+  "checksum": "sha256:e9bcdb12365e6853ad7da76ba0416d31c931b04f5c3bb0e85b723def235d2458"
 }
