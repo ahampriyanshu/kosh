@@ -1,7 +1,5 @@
 {
-  "date": "2026-10-07",
-  "timestamp": "2026-10-07T09:02:27.428Z",
-  "indianOpeningRef": [
+  "indianIndices": [
     {
       "name": "NIFTY 50",
       "symbol": "^NSEI",
@@ -72,67 +70,5 @@
   "vix": {
     "value": 13.7175,
     "changePct": 0.8083752
-  },
-  "globalIndices": [
-    {
-      "name": "Dow Jones",
-      "symbol": "^DJI",
-      "ltp": 51521.28,
-      "changePct": 0.4942329
-    },
-    {
-      "name": "NASDAQ",
-      "symbol": "^IXIC",
-      "ltp": 27599.887,
-      "changePct": 0.4460996
-    },
-    {
-      "name": "S&P 500",
-      "symbol": "^GSPC",
-      "ltp": 7818.93,
-      "changePct": 0.5785988
-    },
-    {
-      "name": "Nikkei 225",
-      "symbol": "^N225",
-      "ltp": 70035.71,
-      "changePct": -0.9171324
-    },
-    {
-      "name": "Hang Seng",
-      "symbol": "^HSI",
-      "ltp": 24130.5,
-      "changePct": -0.6180275
-    },
-    {
-      "name": "FTSE 100",
-      "symbol": "^FTSE",
-      "ltp": 10524.12,
-      "changePct": -0.16667452
-    }
-  ],
-  "commodities": [
-    {
-      "name": "Gold",
-      "value": 4151.6,
-      "changePct": -0.84784216
-    },
-    {
-      "name": "Silver",
-      "value": 60.64,
-      "changePct": -1.5408617
-    },
-    {
-      "name": "Crude Oil",
-      "value": 89.54,
-      "changePct": 0.11180509
-    }
-  ],
-  "currencies": [
-    {
-      "pair": "USD/INR",
-      "value": 96.77,
-      "changePct": 0.42549247
-    }
-  ]
+  }
 }
