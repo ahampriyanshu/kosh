@@ -3,7 +3,7 @@
   "id": "daily-2026-10-08",
   "type": "daily",
   "dateKey": "2026-10-08",
-  "generatedAt": "2026-10-08T10:16:01.444Z",
+  "generatedAt": "2026-10-08T17:36:32.911Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1017.9,
+      "ABREL.BO": 1015.3,
       "AMBUJACEM.BO": 342,
       "BANDHANBNK.NS": 155.54,
       "BDL.BO": 1054,
@@ -64,7 +64,7 @@
       "CENTRALBK.BO": 30,
       "DIXON.NS": 12650,
       "EXIDEIND.NS": 394.9,
-      "FIRSTCRY.BO": 169.8,
+      "FIRSTCRY.BO": 168.55,
       "GMRAIRPORT.BO": 88,
       "GODREJCP.BO": 864.9,
       "HAVELLS.BO": 1040,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 449.85,
       "IREDA.NS": 103.8,
       "ITC.BO": 254.05,
-      "ITCHOTELS.BO": 154.5,
+      "ITCHOTELS.BO": 154.75,
       "JWL.NS": 216.43,
       "KAMATHOTEL.NS": 251.72,
       "LICI.BO": 379.5,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 544.65,
       "MANKIND.NS": 2380,
       "MAXHEALTH.BO": 876.3,
-      "NEWGEN.BO": 440,
+      "NEWGEN.BO": 442.3,
       "NHPC.BO": 71.45,
       "ONGC.BO": 218.5,
       "PRESTIGE.BO": 1408.7,
-      "PSB.BO": 20.86,
+      "PSB.BO": 20.82,
       "RELIANCE.NS": 1178,
       "SBIN.NS": 940,
       "TATASTEEL.BO": 171.5,
@@ -99,11 +99,11 @@
       "VMM.BO": 97.2,
       "WIPRO.BO": 158.6
     },
-    "searchTimestamp": "2026-10-08T10:16:01.444Z"
+    "searchTimestamp": "2026-10-08T17:36:32.911Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-08T10:16:01.444Z",
+      "asOf": "2026-10-08T17:36:32.911Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -115,8 +115,8 @@
         {
           "name": "SENSEX",
           "symbol": "^BSESN",
-          "ltp": 71566.4,
-          "changePct": -1.4762167
+          "ltp": 71593.24,
+          "changePct": -1.4392616
         },
         {
           "name": "NIFTY BANK",
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 15.275,
-        "changePct": 9.985627
+        "changePct": 10.010798
       },
       "breadth": {
         "advances": 4,
@@ -543,8 +543,8 @@
           "ticker": "APOLLOHOSP.NS",
           "name": "Apollo Hospitals",
           "volume": 928844,
-          "avgVolume": 395593,
-          "ratio": 2.35
+          "avgVolume": 397494,
+          "ratio": 2.34
         }
       ],
       "sectorRanking": [
@@ -880,7 +880,7 @@
         "composite": 21,
         "regime": "Extreme Fear",
         "session": "closing",
-        "asOf": "2026-10-08T10:16:01.444Z",
+        "asOf": "2026-10-08T17:36:32.911Z",
         "summary": "Capitulation levels: severe institutional selling and heavy hedging signal an oversold contrarian setup.",
         "categories": {
           "breadth": {
@@ -919,7 +919,7 @@
             "summary": "Elevated volatility & systemic risk (India VIX at 15.28, +10.0%)",
             "metrics": {
               "vix": 15.275,
-              "vixChangePct": 9.985627,
+              "vixChangePct": 10.010798,
               "goldChangePct": 0.2076849,
               "usdinrChangePct": 0.023251263
             }
@@ -955,9 +955,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1017.9,
-          "changePct": -3.05,
-          "note": "-3.0% vs prev close, vol 0.6x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 1015.3,
+          "changePct": -3.3,
+          "note": "-3.3% vs prev close, vol 0.6x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -1032,9 +1032,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 169.8,
-          "changePct": -1.39,
-          "note": "-1.4% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 168.55,
+          "changePct": -2.12,
+          "note": "-2.1% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1109,9 +1109,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 154.5,
-          "changePct": -3.01,
-          "note": "-3.0% vs prev close, vol 1.0x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 154.75,
+          "changePct": -2.86,
+          "note": "-2.9% vs prev close, vol 1.0x avg — flags: below 50DMA support"
         },
         {
           "ticker": "JWL.NS",
@@ -1172,9 +1172,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 440,
-          "changePct": -1.53,
-          "note": "-1.5% vs prev close, vol 1.3x avg — flags: below 50DMA support"
+          "price": 442.3,
+          "changePct": -1.02,
+          "note": "-1.0% vs prev close, vol 1.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1200,9 +1200,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 20.86,
-          "changePct": -0.86,
-          "note": "-0.9% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+          "price": 20.82,
+          "changePct": -1.05,
+          "note": "-1.0% vs prev close, vol 0.7x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1270,174 +1270,109 @@
       ],
       "alerts": [
         {
-          "ticker": "AMBUJACEM.BO",
-          "name": "Ambuja Cements",
-          "reason": "Cement sector is highly susceptible to interest rate hikes and a slowdown in real estate/infrastructure. The stock experienced a significant drop of over 4%, indicating genuine risk.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop (>4%)",
-            "Sector Vulnerability (Cement)",
-            "Interest Rate Sensitivity"
-          ]
-        },
-        {
-          "ticker": "BANDHANBNK.NS",
-          "name": "Bandhan Bank",
-          "reason": "The banking sector is directly impacted by the RBI's rate hike, potentially increasing funding costs and raising asset quality concerns. Its significant drop is a strong risk signal.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "Sector Vulnerability (Banking)",
-            "RBI Rate Hike Impact"
-          ]
-        },
-        {
-          "ticker": "BEL.BO",
-          "name": "Bharat Electronics",
-          "reason": "Despite a general market fall, BEL was specifically mentioned as a laggard in the Sensex, suggesting it underperformed even within the broader weakness, making it a stronger risk signal.",
-          "severity": "medium",
-          "triggeredRules": [
-            "Underperformance During Market Downturn",
-            "Sensex Laggard",
-            "Moderate Price Drop"
-          ]
-        },
-        {
-          "ticker": "GMRAIRPORT.BO",
-          "name": "GMR Airports Infrastructure",
-          "reason": "Infrastructure stocks are sensitive to interest rates and the overall economic outlook. The significant drawdown suggests specific investor concern, despite lower volume.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "Sector Vulnerability (Infrastructure)",
-            "Interest Rate Sensitivity"
-          ]
-        },
-        {
-          "ticker": "IREDA.NS",
-          "name": "Indian Renewable Energy Development Agency",
-          "reason": "As a public sector entity financing renewable energy, it is sensitive to policy shifts or government spending, compounded by general market stress. Higher volume suggests stronger selling interest.",
-          "severity": "medium",
-          "triggeredRules": [
-            "Moderate Price Drop",
-            "Elevated Volume",
-            "Policy/Government Spending Sensitivity"
-          ]
-        },
-        {
-          "ticker": "ITC.BO",
-          "name": "ITC Ltd.",
-          "reason": "ITC was explicitly mentioned as one of the biggest drags on the Sensex, falling as much as 4%. This, combined with the general market downturn, makes it a genuine risk signal.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop (>4%)",
-            "Major Sensex Laggard",
-            "Consumer Sentiment Impact"
-          ]
-        },
-        {
-          "ticker": "ITCHOTELS.BO",
-          "name": "ITC Hotels",
-          "reason": "As part of the ITC group and in the hospitality sector, it is susceptible to economic tightening affecting discretionary travel and spending.",
-          "severity": "medium",
-          "triggeredRules": [
-            "Moderate Price Drop",
-            "Sector Vulnerability (Hospitality)",
-            "Economic Tightening Impact"
-          ]
-        },
-        {
-          "ticker": "KAMATHOTEL.NS",
-          "name": "Kamat Hotels (India)",
-          "reason": "The hospitality sector is highly sensitive to economic slowdowns and interest rates. A drop of over 4% indicates significant investor concern.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop (>4%)",
-            "Sector Vulnerability (Hospitality)",
-            "Economic Slowdown Sensitivity"
-          ]
-        },
-        {
-          "ticker": "LODHA.NS",
-          "name": "Macrotech Developers (Lodha)",
-          "reason": "The realty sector was among the worst performers, directly reflecting sector-wide concern exacerbated by the RBI rate hike, with Lodha's decline a direct consequence.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "Worst Performing Sector (Realty)",
-            "Interest Rate Hike Impact"
-          ]
-        },
-        {
-          "ticker": "MANKIND.NS",
-          "name": "Mankind Pharma",
-          "reason": "A significant drawdown of nearly 5% with above-average volume suggests strong selling pressure, potentially beyond the general market slump and warrants further investigation.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop (~5%)",
-            "Above-Average Volume",
-            "Strong Selling Pressure"
-          ]
-        },
-        {
           "ticker": "MAXHEALTH.BO",
-          "name": "Max Healthcare Institute",
-          "reason": "Identified as a top loser in the Nifty50, with a significant drop (3.3%) and more than double its average volume (2.2x avg), indicating strong conviction in selling.",
+          "name": "MAXHEALTH",
+          "reason": "Significant drawdown, very high volume confirming selling conviction, and breaking 50DMA support.",
           "severity": "high",
           "triggeredRules": [
-            "Top Loser Designation",
-            "Significant Price Drop",
-            "Very High Volume (2.2x avg)"
-          ]
-        },
-        {
-          "ticker": "RELIANCE.NS",
-          "name": "Reliance Industries",
-          "reason": "As a major laggard on the Sensex, its decline contributes significantly to overall market sentiment due to its heavyweight status, despite a smaller percentage drop.",
-          "severity": "medium",
-          "triggeredRules": [
-            "Major Sensex Laggard",
-            "Heavyweight Market Impact",
-            "Moderate Price Drop"
-          ]
-        },
-        {
-          "ticker": "TCS.BO",
-          "name": "Tata Consultancy Services",
-          "reason": "Closed slightly down despite the IT sector's resilience, but with very high volume (2.7x avg), suggesting significant institutional activity or profit-taking that warrants caution.",
-          "severity": "low",
-          "triggeredRules": [
-            "Very High Volume (2.7x avg)",
-            "Slight Price Drop in Strong Sector",
-            "Institutional Activity/Profit-Taking Indication"
-          ]
-        },
-        {
-          "ticker": "TMPV.BO",
-          "name": "TMPV.BO",
-          "reason": "Significant drawdown, but lower volume suggests fewer participants in the selling, potentially a weaker stock reacting sharply to broader market weakness.",
-          "severity": "medium",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "Lower-than-Average Volume",
-            "Weakness Amplified by Market"
+            "drawdown>3%",
+            "volume>2x avg",
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "VMM.BO",
-          "name": "VMM.BO",
-          "reason": "Extremely high volume (9.6x average) indicates a massive surge in selling activity, almost certainly pointing to specific negative news, a large institutional exit, or a major company event.",
+          "name": "VMM",
+          "reason": "Extremely high volume accompanying a price drop and breaking 50DMA, indicating major selling interest.",
           "severity": "high",
           "triggeredRules": [
-            "Extremely High Volume (9.6x avg)",
-            "Significant Selling Activity",
-            "Implied Specific Negative Event"
+            "volume>2x avg",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "TCS.BO",
+          "name": "TCS",
+          "reason": "Extremely high volume and breaking 50DMA despite minimal price drop, indicating institutional reallocation or a major news event.",
+          "severity": "high",
+          "triggeredRules": [
+            "volume>2x avg",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "BANDHANBNK",
+          "reason": "Large drawdown, above-average volume, and breaking key 50DMA support.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "RELIANCE",
+          "reason": "Significant drop and breaking 50DMA with above-average volume, indicating a major concern for this heavy-weight stock.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "ABREL.BO",
+          "name": "ABREL",
+          "reason": "Significant drawdown and breaking 50DMA support, suggesting weakening technicals.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "GMRAIRPORT.BO",
+          "name": "GMRAIRPORT",
+          "reason": "Significant price drop and breaking 50DMA support, indicating weakening technicals.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "IREDA.NS",
+          "name": "IREDA",
+          "reason": "Increased volume, significant drawdown, and breaking 50DMA support, suggesting stronger selling pressure.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "LODHA.NS",
+          "name": "LODHA",
+          "reason": "Strong bearish technicals with significant drawdown and breaking 50DMA support.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "TMPV.BO",
+          "name": "TMPV",
+          "reason": "Significant drawdown and breaking 50DMA support, suggesting technical weakness.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
           ]
         }
       ],
-      "summary": "Indian equities faced a sharp sell-off due to an RBI rate hike, surging crude prices, and weak global cues, leading to genuine sell signals in rate-sensitive sectors and stocks with high-volume declines, particularly in banking, realty, cement, and specific major laggards."
+      "summary": "A number of portfolio holdings triggered end-of-day alert rules, with specific stocks like Max Healthcare, VMM, and TCS showing strong sell signals due to significant technical breakdowns and high volume, while others like Bandhan Bank and Reliance also present major concerns."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:c169156e2217bb50d052ca787b49234b3aaf4ee0f32cd4e79362732316054b49"
+  "checksum": "sha256:5b3c4a2a7e24347f176fae77a257a036da9f79293a76af38ad392a8884cbebc0"
 }
