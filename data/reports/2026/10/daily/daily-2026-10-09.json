@@ -3,7 +3,7 @@
   "id": "daily-2026-10-09",
   "type": "daily",
   "dateKey": "2026-10-09",
-  "generatedAt": "2026-10-09T10:16:01.081Z",
+  "generatedAt": "2026-10-09T17:11:19.310Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1020.5,
+      "ABREL.BO": 1020.85,
       "AMBUJACEM.BO": 350,
       "BANDHANBNK.NS": 157,
       "BDL.BO": 1074.1,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4821,
       "BSOFT.NS": 285.3,
       "CASTROLIND.NS": 194.67,
-      "CENTRALBK.BO": 30.14,
+      "CENTRALBK.BO": 30.09,
       "DIXON.NS": 12774,
       "EXIDEIND.NS": 394.4,
-      "FIRSTCRY.BO": 171,
+      "FIRSTCRY.BO": 169.25,
       "GMRAIRPORT.BO": 92.17,
       "GODREJCP.BO": 860.05,
       "HAVELLS.BO": 1038.6,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 458.8,
       "IREDA.NS": 104.4,
       "ITC.BO": 266.2,
-      "ITCHOTELS.BO": 154.65,
+      "ITCHOTELS.BO": 154.55,
       "JWL.NS": 214.4,
       "KAMATHOTEL.NS": 251.05,
       "LICI.BO": 393.1,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 538.9,
       "MANKIND.NS": 2368.5,
       "MAXHEALTH.BO": 884,
-      "NEWGEN.BO": 449.4,
+      "NEWGEN.BO": 449.25,
       "NHPC.BO": 72.67,
       "ONGC.BO": 221.1,
-      "PRESTIGE.BO": 1414.9,
-      "PSB.BO": 20.93,
+      "PRESTIGE.BO": 1412.65,
+      "PSB.BO": 20.99,
       "RELIANCE.NS": 1170.3,
       "SBIN.NS": 959.1,
       "TATASTEEL.BO": 173.6,
@@ -99,11 +99,11 @@
       "VMM.BO": 97.5,
       "WIPRO.BO": 162.7
     },
-    "searchTimestamp": "2026-10-09T10:16:01.081Z"
+    "searchTimestamp": "2026-10-09T17:11:19.310Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-09T10:16:01.081Z",
+      "asOf": "2026-10-09T17:11:19.310Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 14.375,
-        "changePct": -5.898736
+        "changePct": -5.891978
       },
       "breadth": {
         "advances": 51,
@@ -801,7 +801,7 @@
         "composite": 49,
         "regime": "Neutral",
         "session": "closing",
-        "asOf": "2026-10-09T10:16:01.081Z",
+        "asOf": "2026-10-09T17:11:19.310Z",
         "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
         "categories": {
           "breadth": {
@@ -840,7 +840,7 @@
             "summary": "Normal market volatility (India VIX at 14.38)",
             "metrics": {
               "vix": 14.375,
-              "vixChangePct": -5.898736,
+              "vixChangePct": -5.891978,
               "goldChangePct": 1.3350974,
               "usdinrChangePct": -0.06716863
             }
@@ -875,8 +875,8 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1020.5,
-          "changePct": 0.51,
+          "price": 1020.85,
+          "changePct": 0.55,
           "note": "+0.5% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
@@ -931,9 +931,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.14,
-          "changePct": 0.47,
-          "note": "+0.5% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+          "price": 30.09,
+          "changePct": 0.3,
+          "note": "+0.3% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
           "ticker": "DIXON.NS",
@@ -952,9 +952,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 171,
-          "changePct": 1.45,
-          "note": "+1.5% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 169.25,
+          "changePct": 0.42,
+          "note": "+0.4% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1029,8 +1029,8 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 154.65,
-          "changePct": -0.06,
+          "price": 154.55,
+          "changePct": -0.13,
           "note": "-0.1% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
@@ -1092,8 +1092,8 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 449.4,
-          "changePct": 1.61,
+          "price": 449.25,
+          "changePct": 1.57,
           "note": "+1.6% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
@@ -1113,16 +1113,16 @@
         {
           "ticker": "PRESTIGE.BO",
           "name": "PRESTIGE",
-          "price": 1414.9,
-          "changePct": 0.44,
-          "note": "+0.4% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 1412.65,
+          "changePct": 0.28,
+          "note": "+0.3% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 20.93,
-          "changePct": 0.53,
-          "note": "+0.5% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 20.99,
+          "changePct": 0.82,
+          "note": "+0.8% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1190,79 +1190,63 @@
       ],
       "alerts": [
         {
-          "ticker": "DIXON.NS",
-          "name": "DIXON",
-          "reason": "Closed 1.0% higher but on low volume (0.5x avg) and below 50DMA support. A technical analyst issued a sell call citing potential trend reversal.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support",
-            "technical analyst sell call",
-            "prices slipping below key exponential moving averages",
-            "bearish crossover of 20 EMA below 50 EMA"
-          ]
-        },
-        {
           "ticker": "RELIANCE.NS",
           "name": "RELIANCE",
-          "reason": "Closed -0.7% lower on average volume (0.9x avg) and below 50DMA support, indicating underperformance in a broadly rallying market.",
-          "severity": "medium",
+          "reason": "Underperformance of a blue-chip stock in a strong market, with easing crude oil prices potentially impacting its core business.",
+          "severity": "high",
           "triggeredRules": [
-            "below 50DMA support",
-            "underperformance in rallying market",
-            "persistent selling pressure"
+            "below 50DMA support"
           ]
         },
         {
-          "ticker": "EXIDEIND.NS",
-          "name": "EXIDEIND",
-          "reason": "Closed -0.1% lower on very low volume (0.4x avg) and below 50DMA support, significantly underperforming with a lack of buyer interest.",
-          "severity": "high",
+          "ticker": "DIXON.NS",
+          "name": "DIXON",
+          "reason": "Slight positive movement overshadowed by an analyst's sell recommendation and low volume, indicating a lack of strong buying conviction.",
+          "severity": "medium",
           "triggeredRules": [
-            "below 50DMA support",
-            "significant market underperformance",
-            "very low volume",
-            "lack of buyer interest"
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "JWL.NS",
           "name": "JWL",
-          "reason": "Closed -0.9% lower on very low volume (0.3x avg) and below 50DMA support, showing significant underperformance with minimal buyer engagement.",
-          "severity": "high",
+          "reason": "Slight decline on very low volume, underperforming a rallying market.",
+          "severity": "medium",
           "triggeredRules": [
-            "below 50DMA support",
-            "significant market underperformance",
-            "very low volume",
-            "minimal buyer engagement"
+            "below 50DMA support"
           ]
         },
         {
-          "ticker": "LODHA.NS",
-          "name": "LODHA",
-          "reason": "Closed -0.1% lower on low volume (0.5x avg) and below 50DMA support, indicating underperformance and a lack of positive momentum.",
-          "severity": "medium",
+          "ticker": "EXIDEIND.NS",
+          "name": "EXIDEIND",
+          "reason": "Marginal decline on very low volume, contrasting with the overall market rally, indicating underlying weakness/indifference.",
+          "severity": "low",
           "triggeredRules": [
-            "below 50DMA support",
-            "market underperformance",
-            "low volume",
-            "lack of positive momentum"
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "reason": "Closed -0.1% lower on slightly above-average volume (1.1x avg) and below 50DMA support, a notable underperformance despite FMCG sector recovery.",
-          "severity": "medium",
+          "reason": "Marginal decline on average volume, underperforming its parent company ITC which was a top gainer, hinting at relative weakness.",
+          "severity": "low",
           "triggeredRules": [
-            "below 50DMA support",
-            "underperformance despite sector recovery",
-            "slightly above-average volume"
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "LODHA.NS",
+          "name": "LODHA",
+          "reason": "Marginal decline on low volume, underperforming the broader realty sector, suggesting specific weakness.",
+          "severity": "low",
+          "triggeredRules": [
+            "below 50DMA support"
           ]
         }
       ],
-      "summary": "Despite a strong market rebound, several portfolio holdings are showing genuine sell signals due to persistent technical weakness, underperformance, and low buyer conviction, remaining below 50DMA support."
+      "summary": "Despite a strong market rebound, several holdings like Reliance, Dixon, and JWL exhibited genuine sell or risk signals due to underperformance or specific negative factors, with others showing minor weakness."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:7a011d768fa6051f1d3859c19e15d0ad96425a022047749b83417a3e65dc1cf6"
+  "checksum": "sha256:dd108b26d407ee6775dfc6029d44c890562937ccd4e14f8831fa2f5387ddc3c9"
 }
