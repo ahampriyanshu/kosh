@@ -5,7 +5,7 @@ import { SentimentGauge } from '../components/SentimentGauge';
 import { MarketMarquee } from '../components/market/MarketMarquee';
 import { computeMoodSnapshot } from '../../lib/sentiment';
 import { getActiveBets } from '../../lib/bets-store';
-import { formatCategory, formatNewsMeta, safeArticleUrl, cleanTicker } from '../lib/news-format';
+import { formatCategory, formatNewsMeta, safeArticleUrl, resolveArticleUrl, cleanTicker } from '../lib/news-format';
 
 type NewsGroup = MarketSnapshot['news'][number];
 
@@ -751,7 +751,7 @@ export default async function TodayPage() {
           <div className="homepage-stories text-sm">
             {eightMajorHeadlines.map((story, i) => {
               const metaLine = formatNewsMeta(story.category, story.source);
-              const url = safeArticleUrl(story.url);
+              const url = resolveArticleUrl(story.url, story.source);
 
               const cardContent = (
                 <>
