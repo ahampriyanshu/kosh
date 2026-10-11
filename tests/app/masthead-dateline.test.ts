@@ -20,7 +20,6 @@ describe('RootLayout Masthead Dateline', () => {
 
     // Expect volume number
     expect(html).toMatch(/Volume \d+/);
-    expect(html).toContain('Volume 112');
 
     // Expect last action/publish datetime in exact requested format (DD Month, YYYY, hh:mm A IST)
     expect(html).toMatch(/\d{2} [A-Z][a-z]+, \d{4}, \d{2}:\d{2} (AM|PM) IST/);

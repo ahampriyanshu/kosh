@@ -72,7 +72,7 @@ describe('DailyView', () => {
   it('renders all key sections including news, street recommendations, and corporate actions', () => {
     const html = renderToStaticMarkup(createElement(DailyView, { content: sampleDailyContent }));
 
-    expect(html).toContain('Market Outlook');
+    expect(html).toContain('Market Summary');
     expect(html).toContain('Bullish market bias');
     expect(html).toContain('Key Takeaways');
     expect(html).toContain('Nifty targets 24,000');
