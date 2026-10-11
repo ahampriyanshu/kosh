@@ -381,5 +381,39 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-10-12-apollohosp",
+    "ticker": "APOLLOHOSP",
+    "name": "Apollo Hospitals",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-10-12",
+    "expiryDate": "2026-10-26",
+    "entryPrice": 8027.5,
+    "targetPrice": 8670,
+    "stopLossPrice": 7706,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.7%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-10-12-itc",
+    "ticker": "ITC",
+    "name": "ITC",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-10-12",
+    "expiryDate": "2026-10-29",
+    "entryPrice": 266,
+    "targetPrice": 287,
+    "stopLossPrice": 255,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
