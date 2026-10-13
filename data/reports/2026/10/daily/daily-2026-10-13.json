@@ -3,82 +3,174 @@
   "id": "daily-2026-10-13",
   "type": "daily",
   "dateKey": "2026-10-13",
-  "generatedAt": "2026-10-13T09:44:36.195Z",
+  "generatedAt": "2026-10-13T10:15:58.549Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
-    "searchTimestamp": "2026-10-13T09:44:36.195Z"
+    "tickers": [
+      "ABREL.BO",
+      "AMBUJACEM.BO",
+      "BANDHANBNK.NS",
+      "BDL.BO",
+      "BEL.BO",
+      "BRITANNIA.BO",
+      "BSOFT.NS",
+      "CASTROLIND.NS",
+      "CENTRALBK.BO",
+      "DIXON.NS",
+      "EXIDEIND.NS",
+      "FIRSTCRY.BO",
+      "GMRAIRPORT.BO",
+      "GODREJCP.BO",
+      "HAVELLS.BO",
+      "HCLTECH.BO",
+      "HDFCBANK.NS",
+      "HINDUNILVR.BO",
+      "INFY.BO",
+      "IRCTC.NS",
+      "IREDA.NS",
+      "ITC.BO",
+      "ITCHOTELS.BO",
+      "JWL.NS",
+      "KAMATHOTEL.NS",
+      "LICI.BO",
+      "LODHA.NS",
+      "M&M.NS",
+      "MAGADSUGAR.NS",
+      "MANKIND.NS",
+      "MAXHEALTH.BO",
+      "NEWGEN.BO",
+      "NHPC.BO",
+      "ONGC.BO",
+      "PRESTIGE.BO",
+      "PSB.BO",
+      "RELIANCE.NS",
+      "SBIN.NS",
+      "TATASTEEL.BO",
+      "TCS.BO",
+      "TMPV.BO",
+      "ULTRACEMCO.BO",
+      "VBL.NS",
+      "VMM.BO",
+      "WIPRO.BO"
+    ],
+    "priceSnapshot": {
+      "ABREL.BO": 1060.3,
+      "AMBUJACEM.BO": 350.15,
+      "BANDHANBNK.NS": 172,
+      "BDL.BO": 1125,
+      "BEL.BO": 379.9,
+      "BRITANNIA.BO": 4802,
+      "BSOFT.NS": 296.75,
+      "CASTROLIND.NS": 193.98,
+      "CENTRALBK.BO": 30.45,
+      "DIXON.NS": 12740,
+      "EXIDEIND.NS": 395,
+      "FIRSTCRY.BO": 178.1,
+      "GMRAIRPORT.BO": 90.23,
+      "GODREJCP.BO": 856.45,
+      "HAVELLS.BO": 1080.25,
+      "HCLTECH.BO": 1321,
+      "HDFCBANK.NS": 714,
+      "HINDUNILVR.BO": 1875.5,
+      "INFY.BO": 1062.2,
+      "IRCTC.NS": 468.9,
+      "IREDA.NS": 108.39,
+      "ITC.BO": 261.05,
+      "ITCHOTELS.BO": 156.25,
+      "JWL.NS": 216.22,
+      "KAMATHOTEL.NS": 246.2,
+      "LICI.BO": 394.5,
+      "LODHA.NS": 1091.5,
+      "M&M.NS": 2864.4,
+      "MAGADSUGAR.NS": 608.4,
+      "MANKIND.NS": 2372,
+      "MAXHEALTH.BO": 863.4,
+      "NEWGEN.BO": 472.6,
+      "NHPC.BO": 73.5,
+      "ONGC.BO": 222.5,
+      "PRESTIGE.BO": 1481.3,
+      "PSB.BO": 21.33,
+      "RELIANCE.NS": 1166.7,
+      "SBIN.NS": 957,
+      "TATASTEEL.BO": 174.7,
+      "TCS.BO": 2267,
+      "TMPV.BO": 286,
+      "ULTRACEMCO.BO": 10711,
+      "VBL.NS": 442,
+      "VMM.BO": 97,
+      "WIPRO.BO": 168.9
+    },
+    "searchTimestamp": "2026-10-13T10:15:58.549Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-13T09:44:36.195Z",
+      "asOf": "2026-10-13T10:15:58.549Z",
       "window": "1d",
       "indianIndices": [
         {
           "name": "NIFTY 50",
           "symbol": "^NSEI",
-          "ltp": 22709,
-          "changePct": 1.5456041
+          "ltp": 22721.95,
+          "changePct": 1.6035148
         },
         {
           "name": "SENSEX",
           "symbol": "^BSESN",
-          "ltp": 72937.01,
-          "changePct": 1.4074739
+          "ltp": 73033.78,
+          "changePct": 1.542032
         },
         {
           "name": "NIFTY BANK",
           "symbol": "^NSEBANK",
-          "ltp": 55461.45,
-          "changePct": 0.98957026
+          "ltp": 55481.05,
+          "changePct": 1.0252572
         },
         {
           "name": "NIFTY IT",
           "symbol": "^CNXIT",
-          "ltp": 29771.4,
-          "changePct": 5.015312
+          "ltp": 29830.1,
+          "changePct": 5.2222958
         },
         {
           "name": "NIFTY PHARMA",
           "symbol": "^CNXPHARMA",
-          "ltp": 26063.5,
-          "changePct": -0.058851242
+          "ltp": 26075,
+          "changePct": -0.014761424
         },
         {
           "name": "NIFTY AUTO",
           "symbol": "^CNXAUTO",
-          "ltp": 25384.7,
-          "changePct": 1.1971847
+          "ltp": 25391.85,
+          "changePct": 1.225659
         },
         {
           "name": "NIFTY FMCG",
           "symbol": "^CNXFMCG",
-          "ltp": 44725.75,
-          "changePct": 1.3884658
+          "ltp": 44731.15,
+          "changePct": 1.4003682
         },
         {
           "name": "NIFTY METAL",
           "symbol": "^CNXMETAL",
-          "ltp": 12065.2,
-          "changePct": 0.9543478
+          "ltp": 12088.25,
+          "changePct": 1.1471666
         },
         {
           "name": "NIFTY ENERGY",
           "symbol": "^CNXENERGY",
-          "ltp": 35940.9,
-          "changePct": 0.23355624
+          "ltp": 35975.9,
+          "changePct": 0.33117524
         },
         {
           "name": "NIFTY REALTY",
           "symbol": "^CNXREALTY",
-          "ltp": 827.7,
-          "changePct": 2.178881
+          "ltp": 829.95,
+          "changePct": 2.4566414
         },
         {
           "name": "NIFTY FIN SERVICE",
           "symbol": "^CNXFIN",
-          "ltp": 27129.25,
-          "changePct": 1.5531372
+          "ltp": 27124.9,
+          "changePct": 1.5368174
         }
       ],
       "giftNifty": null,
@@ -150,209 +242,209 @@
         "changeBps": 10
       },
       "vix": {
-        "value": 14.1925,
-        "changePct": -6.949677
+        "value": 14.12,
+        "changePct": -7.4641604
       },
       "breadth": {
-        "advances": 51,
-        "declines": 7,
+        "advances": 53,
+        "declines": 5,
         "unchanged": 0,
-        "adRatio": 7.29
+        "adRatio": 10.6
       },
       "topGainers": [
         {
           "ticker": "HCLTECH.NS",
           "name": "HCL Technologies",
-          "ltp": 1320.8,
-          "changePct": 7.9980416
+          "ltp": 1326,
+          "changePct": 8.421913
         },
         {
           "ticker": "TCS.NS",
           "name": "Tata Consultancy Services",
-          "ltp": 2260.3,
-          "changePct": 6.367061
+          "ltp": 2269.3,
+          "changePct": 6.7905903
         },
         {
           "ticker": "TECHM.NS",
           "name": "Tech Mahindra",
-          "ltp": 1538.9,
-          "changePct": 4.616223
+          "ltp": 1543.5,
+          "changePct": 4.9286203
         },
         {
           "ticker": "WIPRO.NS",
           "name": "Wipro",
-          "ltp": 168.55,
-          "changePct": 4.174655
+          "ltp": 169,
+          "changePct": 4.4499364
         },
         {
           "ticker": "INFY.NS",
           "name": "Infosys",
-          "ltp": 1062,
-          "changePct": 4.117647
+          "ltp": 1062.1,
+          "changePct": 4.1274486
         },
         {
           "ticker": "HINDUNILVR.NS",
           "name": "Hindustan Unilever",
-          "ltp": 1880.5,
-          "changePct": 3.2844539
-        },
-        {
-          "ticker": "BAJAJ-AUTO.NS",
-          "name": "Bajaj Auto",
-          "ltp": 10337,
-          "changePct": 3.0209372
-        },
-        {
-          "ticker": "BAJFINANCE.NS",
-          "name": "Bajaj Finance",
-          "ltp": 983.6,
-          "changePct": 2.7526743
-        },
-        {
-          "ticker": "HAVELLS.NS",
-          "name": "Havells India",
-          "ltp": 1080.9,
-          "changePct": 2.7481956
+          "ltp": 1875.5,
+          "changePct": 3.009834
         },
         {
           "ticker": "INDUSINDBK.NS",
           "name": "IndusInd Bank",
-          "ltp": 875.7,
-          "changePct": 2.6616654
+          "ltp": 877.35,
+          "changePct": 2.8546278
+        },
+        {
+          "ticker": "HAVELLS.NS",
+          "name": "Havells India",
+          "ltp": 1082,
+          "changePct": 2.851711
+        },
+        {
+          "ticker": "BAJAJ-AUTO.NS",
+          "name": "Bajaj Auto",
+          "ltp": 10318,
+          "changePct": 2.8303766
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 982.75,
+          "changePct": 2.663881
         }
       ],
       "topLosers": [
         {
           "ticker": "VEDL.NS",
           "name": "Vedanta",
-          "ltp": 256.25,
-          "changePct": -3.2653809
+          "ltp": 256.3,
+          "changePct": -3.2465105
         },
         {
           "ticker": "DIVISLAB.NS",
           "name": "Divi's Laboratories",
-          "ltp": 9268.5,
-          "changePct": -1.671531
+          "ltp": 9285,
+          "changePct": -1.4958625
         },
         {
           "ticker": "JSWENERGY.NS",
           "name": "JSW Energy",
-          "ltp": 462,
-          "changePct": -1.1447536
+          "ltp": 460.5,
+          "changePct": -1.4657122
         },
         {
           "ticker": "KOTAKBANK.NS",
           "name": "Kotak Mahindra Bank",
-          "ltp": 439.85,
-          "changePct": -0.8010804
+          "ltp": 439,
+          "changePct": -0.9923306
         },
         {
           "ticker": "MARUTI.NS",
           "name": "Maruti Suzuki",
-          "ltp": 11269,
-          "changePct": -0.4067197
+          "ltp": 11245,
+          "changePct": -0.6186478
+        },
+        {
+          "ticker": "TATACONSUM.NS",
+          "name": "Tata Consumer Products",
+          "ltp": 960,
+          "changePct": 0.12515771
         },
         {
           "ticker": "HDFCLIFE.NS",
           "name": "HDFC Life Insurance",
-          "ltp": 557.9,
-          "changePct": -0.24136879
-        },
-        {
-          "ticker": "POWERGRID.NS",
-          "name": "Power Grid Corp",
-          "ltp": 248.45,
-          "changePct": -0.22097349
-        },
-        {
-          "ticker": "NESTLEIND.NS",
-          "name": "Nestle India",
-          "ltp": 1324.9,
-          "changePct": 0.015116982
+          "ltp": 560,
+          "changePct": 0.13410819
         },
         {
           "ticker": "SRF.NS",
           "name": "SRF",
-          "ltp": 2490.5,
-          "changePct": 0.084582455
+          "ltp": 2492,
+          "changePct": 0.1446752
         },
         {
-          "ticker": "SBILIFE.NS",
-          "name": "SBI Life Insurance",
-          "ltp": 1684.5,
-          "changePct": 0.22014345
+          "ticker": "JSWSTEEL.NS",
+          "name": "JSW Steel",
+          "ltp": 1176.6,
+          "changePct": 0.3069033
+        },
+        {
+          "ticker": "NTPC.NS",
+          "name": "NTPC",
+          "ltp": 311,
+          "changePct": 0.32258064
         }
       ],
       "mostActive": [
         {
           "ticker": "HCLTECH.NS",
           "name": "HCL Technologies",
-          "ltp": 1320.8,
-          "changePct": 7.9980416,
-          "volume": 21487671
+          "ltp": 1326,
+          "changePct": 8.421913,
+          "volume": 21742593
         },
         {
           "ticker": "TCS.NS",
           "name": "Tata Consultancy Services",
-          "ltp": 2260.3,
-          "changePct": 6.367061,
-          "volume": 10598727
+          "ltp": 2269.3,
+          "changePct": 6.7905903,
+          "volume": 11045318
         },
         {
           "ticker": "INFY.NS",
           "name": "Infosys",
-          "ltp": 1062,
-          "changePct": 4.117647,
-          "volume": 21255035
+          "ltp": 1062.1,
+          "changePct": 4.1274486,
+          "volume": 21777859
         },
         {
           "ticker": "HDFCBANK.NS",
           "name": "HDFC Bank",
-          "ltp": 714.65,
-          "changePct": 1.3826845,
-          "volume": 17204888
+          "ltp": 714,
+          "changePct": 1.2909597,
+          "volume": 18835445
         },
         {
           "ticker": "RELIANCE.NS",
           "name": "Reliance Industries",
-          "ltp": 1168,
-          "changePct": 0.7850898,
-          "volume": 10511881
+          "ltp": 1166.7,
+          "changePct": 0.6730457,
+          "volume": 10983647
         },
         {
           "ticker": "BHARTIARTL.NS",
           "name": "Bharti Airtel",
-          "ltp": 1799.5,
-          "changePct": 1.1695276,
-          "volume": 5368925
+          "ltp": 1806.5,
+          "changePct": 1.562942,
+          "volume": 5942724
         },
         {
           "ticker": "KOTAKBANK.NS",
           "name": "Kotak Mahindra Bank",
-          "ltp": 439.85,
-          "changePct": -0.8010804,
-          "volume": 20113834
+          "ltp": 439,
+          "changePct": -0.9923306,
+          "volume": 20891400
         },
         {
           "ticker": "MARUTI.NS",
           "name": "Maruti Suzuki",
-          "ltp": 11269,
-          "changePct": -0.4067197,
-          "volume": 742481
+          "ltp": 11245,
+          "changePct": -0.6186478,
+          "volume": 761480
         },
         {
           "ticker": "LT.NS",
           "name": "Larsen & Toubro",
-          "ltp": 3670.4,
-          "changePct": 1.18263,
-          "volume": 2116992
+          "ltp": 3675,
+          "changePct": 1.3094418,
+          "volume": 2254502
         },
         {
-          "ticker": "M&M.NS",
-          "name": "Mahindra & Mahindra",
-          "ltp": 2857.2,
-          "changePct": 1.5713303,
-          "volume": 2555632
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1360.2,
+          "changePct": 1.507459,
+          "volume": 5764199
         }
       ],
       "near52wHigh": [],
@@ -360,117 +452,112 @@
         {
           "ticker": "IOC.NS",
           "name": "Indian Oil",
-          "ltp": 126.04,
-          "pctFromLow": 0.83
+          "ltp": 126.14,
+          "pctFromLow": 0.91
         },
         {
           "ticker": "MARUTI.NS",
           "name": "Maruti Suzuki",
-          "ltp": 11269,
-          "pctFromLow": 1.29
+          "ltp": 11245,
+          "pctFromLow": 1.08
         },
         {
           "ticker": "RELIANCE.NS",
           "name": "Reliance Industries",
-          "ltp": 1168,
-          "pctFromLow": 1.37
-        },
-        {
-          "ticker": "POWERGRID.NS",
-          "name": "Power Grid Corp",
-          "ltp": 248.45,
-          "pctFromLow": 1.55
+          "ltp": 1166.7,
+          "pctFromLow": 1.26
         },
         {
           "ticker": "BRITANNIA.NS",
           "name": "Britannia Industries",
-          "ltp": 4815,
-          "pctFromLow": 1.71
+          "ltp": 4801.3,
+          "pctFromLow": 1.42
         },
         {
           "ticker": "NTPC.NS",
           "name": "NTPC",
-          "ltp": 311.45,
-          "pctFromLow": 1.73
-        },
-        {
-          "ticker": "ONGC.NS",
-          "name": "Oil & Natural Gas Corp",
-          "ltp": 222.36,
-          "pctFromLow": 1.75
-        },
-        {
-          "ticker": "SBILIFE.NS",
-          "name": "SBI Life Insurance",
-          "ltp": 1684.5,
-          "pctFromLow": 1.91
+          "ltp": 311,
+          "pctFromLow": 1.58
         },
         {
           "ticker": "TATACONSUM.NS",
           "name": "Tata Consumer Products",
-          "ltp": 963.9,
-          "pctFromLow": 2
+          "ltp": 960,
+          "pctFromLow": 1.59
+        },
+        {
+          "ticker": "ONGC.NS",
+          "name": "Oil & Natural Gas Corp",
+          "ltp": 222.65,
+          "pctFromLow": 1.89
         }
       ],
       "volumeShockers": [
         {
           "ticker": "HCLTECH.NS",
           "name": "HCL Technologies",
-          "volume": 21487671,
-          "avgVolume": 2870514,
-          "ratio": 7.49
+          "volume": 21742593,
+          "avgVolume": 2771198,
+          "ratio": 7.85
         },
         {
           "ticker": "TCS.NS",
           "name": "Tata Consultancy Services",
-          "volume": 10598727,
+          "volume": 11045318,
           "avgVolume": 3505507,
-          "ratio": 3.02
+          "ratio": 3.15
         },
         {
           "ticker": "INDUSINDBK.NS",
           "name": "IndusInd Bank",
-          "volume": 5234443,
+          "volume": 5256083,
           "avgVolume": 1873780,
-          "ratio": 2.79
+          "ratio": 2.81
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "volume": 21777859,
+          "avgVolume": 10725792,
+          "ratio": 2.03
         }
       ],
       "sectorRanking": [
         {
           "sector": "IT",
-          "changePct": 5.02
+          "changePct": 5.22
         },
         {
           "sector": "Realty",
-          "changePct": 2.18
+          "changePct": 2.46
         },
         {
           "sector": "Financial Services",
-          "changePct": 1.55
+          "changePct": 1.54
         },
         {
           "sector": "FMCG",
-          "changePct": 1.39
+          "changePct": 1.4
         },
         {
           "sector": "Auto",
-          "changePct": 1.2
-        },
-        {
-          "sector": "Bank",
-          "changePct": 0.99
+          "changePct": 1.23
         },
         {
           "sector": "Metal",
-          "changePct": 0.95
+          "changePct": 1.15
+        },
+        {
+          "sector": "Bank",
+          "changePct": 1.03
         },
         {
           "sector": "Energy",
-          "changePct": 0.23
+          "changePct": 0.33
         },
         {
           "sector": "Pharma",
-          "changePct": -0.06
+          "changePct": -0.01
         }
       ],
       "fiiDii": {
@@ -827,10 +914,10 @@
         "asOf": "2026-10-12"
       },
       "sentiment": {
-        "composite": 61,
+        "composite": 62,
         "regime": "Greed",
-        "session": "morning",
-        "asOf": "2026-10-13T09:44:36.195Z",
+        "session": "closing",
+        "asOf": "2026-10-13T10:15:58.549Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -838,14 +925,14 @@
             "regime": "Extreme Greed",
             "label": "Breadth & Price Action",
             "weight": 0.25,
-            "summary": "Bullish breadth expansion (51 Adv / 7 Dec, A/D 7.29, 0 near 52W highs)",
+            "summary": "Bullish breadth expansion (53 Adv / 5 Dec, A/D 10.60, 0 near 52W highs)",
             "metrics": {
-              "adRatio": 7.29,
-              "advances": 51,
-              "declines": 7,
-              "pctAdvancing": 87.9,
+              "adRatio": 10.6,
+              "advances": 53,
+              "declines": 5,
+              "pctAdvancing": 91.4,
               "near52wHighs": 0,
-              "near52wLows": 9
+              "near52wLows": 7
             }
           },
           "flows": {
@@ -862,14 +949,14 @@
             }
           },
           "volatility": {
-            "score": 50,
+            "score": 51,
             "regime": "Neutral",
             "label": "Volatility & Risk Appetite",
             "weight": 0.25,
-            "summary": "Normal market volatility (India VIX at 14.19)",
+            "summary": "Normal market volatility (India VIX at 14.12)",
             "metrics": {
-              "vix": 14.1925,
-              "vixChangePct": -6.949677,
+              "vix": 14.12,
+              "vixChangePct": -7.4641604,
               "goldChangePct": 0.4176013,
               "usdinrChangePct": -0.5011519
             }
@@ -905,388 +992,407 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1015.05,
-          "changePct": -0.57,
-          "note": "-0.6% vs prev close, vol 1.0x avg — flags: below 50DMA support"
+          "price": 1060.3,
+          "changePct": 4.46,
+          "note": "+4.5% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
           "name": "AMBUJACEM",
-          "price": 348.85,
-          "changePct": -0.33,
-          "note": "-0.3% vs prev close, vol 1.0x avg"
+          "price": 350.15,
+          "changePct": 0.37,
+          "note": "+0.4% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "BANDHANBNK.NS",
           "name": "BANDHANBNK",
-          "price": 157.5,
-          "changePct": 0.32,
-          "note": "+0.3% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 172,
+          "changePct": 9.21,
+          "note": "+9.2% vs prev close, vol 3.1x avg — flags: volume>2x avg"
         },
         {
           "ticker": "BDL.BO",
           "name": "BDL",
-          "price": 1092,
-          "changePct": 1.67,
-          "note": "+1.7% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 1125,
+          "changePct": 3.02,
+          "note": "+3.0% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "BEL.BO",
           "name": "BEL",
-          "price": 373.6,
-          "changePct": 1.38,
-          "note": "+1.4% vs prev close, vol 1.0x avg"
+          "price": 379.9,
+          "changePct": 1.69,
+          "note": "+1.7% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "BRITANNIA.BO",
           "name": "BRITANNIA",
-          "price": 4780,
-          "changePct": -0.85,
-          "note": "-0.9% vs prev close, vol 1.0x avg"
+          "price": 4802,
+          "changePct": 0.46,
+          "note": "+0.5% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "BSOFT.NS",
           "name": "BSOFT",
-          "price": 272.85,
-          "changePct": -4.36,
-          "note": "-4.4% vs prev close, vol 0.9x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 296.75,
+          "changePct": 8.76,
+          "note": "+8.8% vs prev close, vol 6.3x avg — flags: volume>2x avg"
         },
         {
           "ticker": "CASTROLIND.NS",
           "name": "CASTROLIND",
-          "price": 193.87,
-          "changePct": -0.41,
-          "note": "-0.4% vs prev close, vol 0.3x avg"
+          "price": 193.98,
+          "changePct": 0.06,
+          "note": "+0.1% vs prev close, vol 0.5x avg"
         },
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.07,
-          "changePct": -0.07,
-          "note": "-0.1% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 30.45,
+          "changePct": 1.26,
+          "note": "+1.3% vs prev close, vol 0.6x avg"
         },
         {
           "ticker": "DIXON.NS",
           "name": "DIXON",
-          "price": 12660,
-          "changePct": -0.89,
-          "note": "-0.9% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 12740,
+          "changePct": 0.63,
+          "note": "+0.6% vs prev close, vol 0.4x avg — flags: below 50DMA support"
         },
         {
           "ticker": "EXIDEIND.NS",
           "name": "EXIDEIND",
-          "price": 394.15,
-          "changePct": -0.06,
-          "note": "-0.1% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+          "price": 395,
+          "changePct": 0.22,
+          "note": "+0.2% vs prev close, vol 0.7x avg — flags: below 50DMA support"
         },
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 168.9,
-          "changePct": -0.21,
-          "note": "-0.2% vs prev close, vol 0.1x avg — flags: below 50DMA support"
+          "price": 178.1,
+          "changePct": 5.45,
+          "note": "+5.4% vs prev close, vol 0.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
           "name": "GMRAIRPORT",
-          "price": 89.58,
-          "changePct": -2.81,
-          "note": "-2.8% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 90.23,
+          "changePct": 0.73,
+          "note": "+0.7% vs prev close, vol 0.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GODREJCP.BO",
           "name": "GODREJCP",
-          "price": 848,
-          "changePct": -1.4,
-          "note": "-1.4% vs prev close, vol 1.0x avg"
+          "price": 856.45,
+          "changePct": 1,
+          "note": "+1.0% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "HAVELLS.BO",
           "name": "HAVELLS",
-          "price": 1052.1,
-          "changePct": 1.3,
-          "note": "+1.3% vs prev close, vol 1.0x avg"
+          "price": 1080.25,
+          "changePct": 2.68,
+          "note": "+2.7% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "HCLTECH.BO",
           "name": "HCLTECH",
-          "price": 1220,
-          "changePct": 0.47,
-          "note": "+0.5% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 1321,
+          "changePct": 8.28,
+          "note": "+8.3% vs prev close, vol 8.3x avg — flags: volume>2x avg"
         },
         {
           "ticker": "HDFCBANK.NS",
           "name": "HDFCBANK",
-          "price": 704.9,
-          "changePct": -0.33,
-          "note": "-0.3% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 714,
+          "changePct": 1.29,
+          "note": "+1.3% vs prev close, vol 0.6x avg"
         },
         {
           "ticker": "HINDUNILVR.BO",
           "name": "HINDUNILVR",
-          "price": 1822,
-          "changePct": -2.1,
-          "note": "-2.1% vs prev close, vol 1.0x avg"
+          "price": 1875.5,
+          "changePct": 2.94,
+          "note": "+2.9% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "INFY.BO",
           "name": "INFY",
-          "price": 1017,
-          "changePct": -0.69,
-          "note": "-0.7% vs prev close, vol 1.0x avg"
+          "price": 1062.2,
+          "changePct": 4.44,
+          "note": "+4.4% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "IRCTC.NS",
           "name": "IRCTC",
-          "price": 462.7,
-          "changePct": 0.85,
-          "note": "+0.9% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 468.9,
+          "changePct": 1.34,
+          "note": "+1.3% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "IREDA.NS",
           "name": "IREDA",
-          "price": 104.6,
-          "changePct": 0.19,
-          "note": "+0.2% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+          "price": 108.39,
+          "changePct": 3.62,
+          "note": "+3.6% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "ITC.BO",
           "name": "ITC",
-          "price": 257.6,
-          "changePct": -3.23,
-          "note": "-3.2% vs prev close, vol 1.0x avg — flags: drawdown>3%"
+          "price": 261.05,
+          "changePct": 1.34,
+          "note": "+1.3% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 154.05,
-          "changePct": -0.32,
-          "note": "-0.3% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+          "price": 156.25,
+          "changePct": 1.43,
+          "note": "+1.4% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "JWL.NS",
           "name": "JWL",
-          "price": 212.4,
-          "changePct": -0.93,
-          "note": "-0.9% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 216.22,
+          "changePct": 1.8,
+          "note": "+1.8% vs prev close, vol 0.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "KAMATHOTEL.NS",
           "name": "KAMATHOTEL",
-          "price": 247.39,
-          "changePct": -1.46,
-          "note": "-1.5% vs prev close, vol 0.4x avg"
+          "price": 246.2,
+          "changePct": -0.48,
+          "note": "-0.5% vs prev close, vol 0.5x avg"
         },
         {
           "ticker": "LICI.BO",
           "name": "LICI",
-          "price": 390.5,
-          "changePct": -0.66,
-          "note": "-0.7% vs prev close, vol 1.0x avg"
+          "price": 394.5,
+          "changePct": 1.02,
+          "note": "+1.0% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "LODHA.NS",
           "name": "LODHA",
-          "price": 1069.7,
-          "changePct": 0.46,
-          "note": "+0.5% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 1091.5,
+          "changePct": 2.04,
+          "note": "+2.0% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
           "ticker": "M&M.NS",
           "name": "M&M",
-          "price": 2813,
-          "changePct": 0.6,
-          "note": "+0.6% vs prev close, vol 0.8x avg — flags: below 50DMA support"
+          "price": 2864.4,
+          "changePct": 1.83,
+          "note": "+1.8% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "MAGADSUGAR.NS",
           "name": "MAGADSUGAR",
-          "price": 579.3,
-          "changePct": 7.5,
-          "note": "+7.5% vs prev close, vol 2.4x avg — flags: volume>2x avg"
+          "price": 608.4,
+          "changePct": 5.02,
+          "note": "+5.0% vs prev close, vol 2.9x avg — flags: volume>2x avg"
         },
         {
           "ticker": "MANKIND.NS",
           "name": "MANKIND",
-          "price": 2400,
-          "changePct": 1.33,
-          "note": "+1.3% vs prev close, vol 0.3x avg"
+          "price": 2372,
+          "changePct": -1.17,
+          "note": "-1.2% vs prev close, vol 0.5x avg"
         },
         {
           "ticker": "MAXHEALTH.BO",
           "name": "MAXHEALTH",
-          "price": 869,
-          "changePct": -1.7,
-          "note": "-1.7% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+          "price": 863.4,
+          "changePct": -0.64,
+          "note": "-0.6% vs prev close, vol 4.8x avg — flags: volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 446.35,
-          "changePct": -0.65,
-          "note": "-0.6% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 472.6,
+          "changePct": 5.88,
+          "note": "+5.9% vs prev close, vol 3.0x avg — flags: volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
           "name": "NHPC",
-          "price": 72.52,
-          "changePct": -0.21,
-          "note": "-0.2% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 73.5,
+          "changePct": 1.35,
+          "note": "+1.4% vs prev close, vol 0.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "ONGC.BO",
           "name": "ONGC",
-          "price": 220,
-          "changePct": -0.5,
-          "note": "-0.5% vs prev close, vol 1.0x avg"
+          "price": 222.5,
+          "changePct": 1.14,
+          "note": "+1.1% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "PRESTIGE.BO",
           "name": "PRESTIGE",
-          "price": 1419.1,
-          "changePct": 0.46,
-          "note": "+0.5% vs prev close, vol 0.1x avg — flags: below 50DMA support"
+          "price": 1481.3,
+          "changePct": 4.38,
+          "note": "+4.4% vs prev close, vol 3.1x avg — flags: volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 20.99,
-          "changePct": 0,
-          "note": "+0.0% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+          "price": 21.33,
+          "changePct": 1.62,
+          "note": "+1.6% vs prev close, vol 1.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
           "name": "RELIANCE",
-          "price": 1158.9,
-          "changePct": -0.97,
-          "note": "-1.0% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 1166.7,
+          "changePct": 0.67,
+          "note": "+0.7% vs prev close, vol 0.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "SBIN.NS",
           "name": "SBIN",
-          "price": 941,
-          "changePct": -1.89,
-          "note": "-1.9% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+          "price": 957,
+          "changePct": 1.7,
+          "note": "+1.7% vs prev close, vol 0.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "TATASTEEL.BO",
           "name": "TATASTEEL",
-          "price": 172.3,
-          "changePct": -0.75,
-          "note": "-0.7% vs prev close, vol 1.0x avg"
+          "price": 174.7,
+          "changePct": 1.39,
+          "note": "+1.4% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "TCS.BO",
           "name": "TCS",
-          "price": 2126.9,
-          "changePct": -1.67,
-          "note": "-1.7% vs prev close, vol 1.3x avg — flags: below 50DMA support"
+          "price": 2267,
+          "changePct": 6.59,
+          "note": "+6.6% vs prev close, vol 3.3x avg — flags: volume>2x avg"
         },
         {
           "ticker": "TMPV.BO",
           "name": "TMPV",
-          "price": 284.1,
-          "changePct": 1.79,
-          "note": "+1.8% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 286,
+          "changePct": 0.67,
+          "note": "+0.7% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "ULTRACEMCO.BO",
           "name": "ULTRACEMCO",
-          "price": 10554,
-          "changePct": -1.18,
-          "note": "-1.2% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+          "price": 10711,
+          "changePct": 1.49,
+          "note": "+1.5% vs prev close, vol 0.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "VBL.NS",
           "name": "VBL",
-          "price": 433.3,
-          "changePct": -1.75,
-          "note": "-1.7% vs prev close, vol 0.7x avg"
+          "price": 442,
+          "changePct": 2.01,
+          "note": "+2.0% vs prev close, vol 0.5x avg"
         },
         {
           "ticker": "VMM.BO",
           "name": "VMM",
-          "price": 96.2,
-          "changePct": -1.33,
-          "note": "-1.3% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 97,
+          "changePct": 0.83,
+          "note": "+0.8% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "WIPRO.BO",
           "name": "WIPRO",
-          "price": 161.6,
-          "changePct": -0.68,
-          "note": "-0.7% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 168.9,
+          "changePct": 4.52,
+          "note": "+4.5% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         }
       ],
       "alerts": [
         {
+          "ticker": "BANDHANBNK.NS",
+          "name": "BANDHANBNK",
+          "reason": "Significant price drop with unusually high volume, indicating strong selling pressure.",
+          "severity": "high",
+          "triggeredRules": [
+            "Significant Price Drop",
+            "High Volume (>2x Avg)"
+          ]
+        },
+        {
           "ticker": "BSOFT.NS",
           "name": "BSOFT",
-          "reason": "A significant drawdown on near-average volume, combined with breaking 50DMA support, is a strong bearish signal.",
+          "reason": "Very high volume accompanying a significant price drop, suggesting major concern among investors.",
           "severity": "high",
           "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
+            "Significant Price Drop",
+            "High Volume (>2x Avg)"
           ]
         },
         {
-          "ticker": "GMRAIRPORT.BO",
-          "name": "GMRAIRPORT",
-          "reason": "The combination of price drop, low volume, and existing negative news (technical weakness, valuation concerns, sector headwinds) is concerning.",
+          "ticker": "HCLTECH.BO",
+          "name": "HCLTECH",
+          "reason": "Extremely high volume on a significant price decline, indicating severe selling pressure.",
           "severity": "high",
           "triggeredRules": [
-            "below 50DMA support"
+            "Significant Price Drop",
+            "High Volume (>2x Avg)"
           ]
         },
         {
-          "ticker": "HDFCBANK.NS",
-          "name": "HDFCBANK",
-          "reason": "HDFC Bank is facing a deadline for a US securities class action lawsuit, a legal issue weighing on the stock.",
+          "ticker": "MAGADSUGAR.NS",
+          "name": "MAGADSUGAR",
+          "reason": "Notable price drop with higher-than-average volume suggests increased selling interest.",
           "severity": "high",
           "triggeredRules": [
-            "below 50DMA support"
+            "Significant Price Drop",
+            "High Volume (>2x Avg)"
           ]
         },
         {
-          "ticker": "IREDA.NS",
-          "name": "IREDA",
-          "reason": "A prolonged downtrend, corporate governance concerns (fines), and lack of strong positive catalysts make this a risky holding.",
+          "ticker": "TCS.BO",
+          "name": "TCS",
+          "reason": "High volume on a significant decline, indicating substantial selling pressure for a large-cap stock.",
           "severity": "high",
           "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "ITC.BO",
-          "name": "ITC",
-          "reason": "A significant drawdown on average volume, combined with FMCG sector weakness and potential institutional selling.",
-          "severity": "high",
-          "triggeredRules": [
-            "drawdown>3%"
+            "Significant Price Drop",
+            "High Volume (>2x Avg)"
           ]
         },
         {
           "ticker": "MAXHEALTH.BO",
           "name": "MAXHEALTH",
-          "reason": "A regulatory overhang on drug pricing and its potential impact on earnings are significant concerns.",
+          "reason": "Very high volume indicates significant distribution or a major shift in investor sentiment, coupled with a breach of 50DMA support.",
           "severity": "high",
           "triggeredRules": [
-            "below 50DMA support"
+            "Price Drop",
+            "Breached 50DMA Support",
+            "High Volume (>2x Avg)"
           ]
         },
         {
-          "ticker": "SBIN.NS",
-          "name": "SBIN",
-          "reason": "A significant dip on slightly above-average volume, breaking 50DMA, combined with PSU bank sector weakness.",
+          "ticker": "NEWGEN.BO",
+          "name": "NEWGEN",
+          "reason": "Significant price drop, high volume, and a breach of 50DMA support combine for a strong bearish outlook.",
           "severity": "high",
           "triggeredRules": [
-            "below 50DMA support"
+            "Significant Price Drop",
+            "Breached 50DMA Support",
+            "High Volume (>2x Avg)"
+          ]
+        },
+        {
+          "ticker": "PRESTIGE.BO",
+          "name": "PRESTIGE",
+          "reason": "Concerning combination of price weakness, increased selling, and technical breakdown below 50DMA support.",
+          "severity": "high",
+          "triggeredRules": [
+            "Significant Price Drop",
+            "Breached 50DMA Support",
+            "High Volume (>2x Avg)"
           ]
         }
       ],
-      "summary": "Several stocks, including BSOFT, GMRAIRPORT, HDFCBANK, IREDA, ITC, MAXHEALTH, and SBIN, present genuine sell signals due to significant drawdowns, technical breaks, regulatory issues, and institutional selling, suggesting continued volatility."
+      "summary": "Multiple stocks exhibit strong sell/risk signals characterized by significant price drops, unusually high trading volumes, and/or breaches of key technical support levels, indicating potential fundamental changes or negative market sentiment."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:3cb9cbeb3e61eaee4c44f003c143b6d88d142e26a615863cacacbb4ee007a6ca"
+  "checksum": "sha256:82859195fe9f737b81bf14f7b509387754aa09c79aed4975c7b1f4696ae2374f"
 }
