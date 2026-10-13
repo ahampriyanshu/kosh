@@ -3,7 +3,7 @@
   "id": "daily-2026-10-13",
   "type": "daily",
   "dateKey": "2026-10-13",
-  "generatedAt": "2026-10-13T10:15:58.549Z",
+  "generatedAt": "2026-10-13T17:48:04.045Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1060.3,
+      "ABREL.BO": 1068.05,
       "AMBUJACEM.BO": 350.15,
       "BANDHANBNK.NS": 172,
       "BDL.BO": 1125,
@@ -61,12 +61,12 @@
       "BRITANNIA.BO": 4802,
       "BSOFT.NS": 296.75,
       "CASTROLIND.NS": 193.98,
-      "CENTRALBK.BO": 30.45,
+      "CENTRALBK.BO": 30.39,
       "DIXON.NS": 12740,
       "EXIDEIND.NS": 395,
-      "FIRSTCRY.BO": 178.1,
+      "FIRSTCRY.BO": 177.9,
       "GMRAIRPORT.BO": 90.23,
-      "GODREJCP.BO": 856.45,
+      "GODREJCP.BO": 854,
       "HAVELLS.BO": 1080.25,
       "HCLTECH.BO": 1321,
       "HDFCBANK.NS": 714,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 468.9,
       "IREDA.NS": 108.39,
       "ITC.BO": 261.05,
-      "ITCHOTELS.BO": 156.25,
+      "ITCHOTELS.BO": 155.9,
       "JWL.NS": 216.22,
       "KAMATHOTEL.NS": 246.2,
       "LICI.BO": 394.5,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 608.4,
       "MANKIND.NS": 2372,
       "MAXHEALTH.BO": 863.4,
-      "NEWGEN.BO": 472.6,
+      "NEWGEN.BO": 473.95,
       "NHPC.BO": 73.5,
       "ONGC.BO": 222.5,
       "PRESTIGE.BO": 1481.3,
-      "PSB.BO": 21.33,
+      "PSB.BO": 21.26,
       "RELIANCE.NS": 1166.7,
       "SBIN.NS": 957,
       "TATASTEEL.BO": 174.7,
@@ -99,11 +99,11 @@
       "VMM.BO": 97,
       "WIPRO.BO": 168.9
     },
-    "searchTimestamp": "2026-10-13T10:15:58.549Z"
+    "searchTimestamp": "2026-10-13T17:48:04.045Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-13T10:15:58.549Z",
+      "asOf": "2026-10-13T17:48:04.045Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 14.12,
-        "changePct": -7.4641604
+        "changePct": -7.4250107
       },
       "breadth": {
         "advances": 53,
@@ -917,7 +917,7 @@
         "composite": 62,
         "regime": "Greed",
         "session": "closing",
-        "asOf": "2026-10-13T10:15:58.549Z",
+        "asOf": "2026-10-13T17:48:04.045Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -956,7 +956,7 @@
             "summary": "Normal market volatility (India VIX at 14.12)",
             "metrics": {
               "vix": 14.12,
-              "vixChangePct": -7.4641604,
+              "vixChangePct": -7.4250107,
               "goldChangePct": 0.4176013,
               "usdinrChangePct": -0.5011519
             }
@@ -992,9 +992,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1060.3,
-          "changePct": 4.46,
-          "note": "+4.5% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 1068.05,
+          "changePct": 5.22,
+          "note": "+5.2% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -1048,9 +1048,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.45,
-          "changePct": 1.26,
-          "note": "+1.3% vs prev close, vol 0.6x avg"
+          "price": 30.39,
+          "changePct": 1.06,
+          "note": "+1.1% vs prev close, vol 0.6x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -1069,9 +1069,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 178.1,
-          "changePct": 5.45,
-          "note": "+5.4% vs prev close, vol 0.8x avg — flags: below 50DMA support"
+          "price": 177.9,
+          "changePct": 5.33,
+          "note": "+5.3% vs prev close, vol 0.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1083,9 +1083,9 @@
         {
           "ticker": "GODREJCP.BO",
           "name": "GODREJCP",
-          "price": 856.45,
-          "changePct": 1,
-          "note": "+1.0% vs prev close, vol 1.0x avg"
+          "price": 854,
+          "changePct": 0.71,
+          "note": "+0.7% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "HAVELLS.BO",
@@ -1146,9 +1146,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 156.25,
-          "changePct": 1.43,
-          "note": "+1.4% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 155.9,
+          "changePct": 1.2,
+          "note": "+1.2% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "JWL.NS",
@@ -1209,9 +1209,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 472.6,
-          "changePct": 5.88,
-          "note": "+5.9% vs prev close, vol 3.0x avg — flags: volume>2x avg, below 50DMA support"
+          "price": 473.95,
+          "changePct": 6.18,
+          "note": "+6.2% vs prev close, vol 3.0x avg — flags: volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1237,9 +1237,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 21.33,
-          "changePct": 1.62,
-          "note": "+1.6% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+          "price": 21.26,
+          "changePct": 1.29,
+          "note": "+1.3% vs prev close, vol 1.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1307,92 +1307,138 @@
       ],
       "alerts": [
         {
-          "ticker": "BANDHANBNK.NS",
-          "name": "BANDHANBNK",
-          "reason": "Significant price drop with unusually high volume, indicating strong selling pressure.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "High Volume (>2x Avg)"
-          ]
-        },
-        {
-          "ticker": "BSOFT.NS",
-          "name": "BSOFT",
-          "reason": "Very high volume accompanying a significant price drop, suggesting major concern among investors.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "High Volume (>2x Avg)"
-          ]
-        },
-        {
-          "ticker": "HCLTECH.BO",
-          "name": "HCLTECH",
-          "reason": "Extremely high volume on a significant price decline, indicating severe selling pressure.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "High Volume (>2x Avg)"
-          ]
-        },
-        {
-          "ticker": "MAGADSUGAR.NS",
-          "name": "MAGADSUGAR",
-          "reason": "Notable price drop with higher-than-average volume suggests increased selling interest.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "High Volume (>2x Avg)"
-          ]
-        },
-        {
-          "ticker": "TCS.BO",
-          "name": "TCS",
-          "reason": "High volume on a significant decline, indicating substantial selling pressure for a large-cap stock.",
-          "severity": "high",
-          "triggeredRules": [
-            "Significant Price Drop",
-            "High Volume (>2x Avg)"
-          ]
-        },
-        {
           "ticker": "MAXHEALTH.BO",
           "name": "MAXHEALTH",
-          "reason": "Very high volume indicates significant distribution or a major shift in investor sentiment, coupled with a breach of 50DMA support.",
+          "reason": "Significant institutional selling indicated by very high volume (4.8x avg) on a down day, falling below 50DMA in a strong market.",
           "severity": "high",
           "triggeredRules": [
-            "Price Drop",
-            "Breached 50DMA Support",
-            "High Volume (>2x Avg)"
+            "volume>2x avg",
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "reason": "Significant price drop, high volume, and a breach of 50DMA support combine for a strong bearish outlook.",
+          "reason": "Significant 6.2% drop on high volume (3.0x avg) and closing below 50DMA, defying the strong broader IT sector performance.",
           "severity": "high",
           "triggeredRules": [
-            "Significant Price Drop",
-            "Breached 50DMA Support",
-            "High Volume (>2x Avg)"
+            "volume>2x avg",
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "PRESTIGE.BO",
           "name": "PRESTIGE",
-          "reason": "Concerning combination of price weakness, increased selling, and technical breakdown below 50DMA support.",
+          "reason": "Notable 4.4% drop on high volume (3.1x avg) and falling below 50DMA, despite the Nifty Realty sector generally gaining, signaling company-specific selling.",
           "severity": "high",
           "triggeredRules": [
-            "Significant Price Drop",
-            "Breached 50DMA Support",
-            "High Volume (>2x Avg)"
+            "volume>2x avg",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "WIPRO.BO",
+          "name": "WIPRO",
+          "reason": "Significant 4.5% drop below 50DMA, severely underperforming the booming IT sector, indicating a disconnect in investor sentiment.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "IREDA.NS",
+          "name": "IREDA",
+          "reason": "3.6% drop below 50DMA on near-average volume, aligning with an ongoing downtrend and company-specific regulatory concerns.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "ABREL.BO",
+          "name": "ABREL",
+          "reason": "5.2% drop on below-average volume in a strong market, suggesting specific selling pressure or lack of buying interest.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BDL.BO",
+          "name": "BDL",
+          "reason": "3.0% drop below 50DMA on slightly above-average volume within a rallying market, indicative of company-specific weakness.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "FIRSTCRY.BO",
+          "name": "FIRSTCRY",
+          "reason": "Significant 5.3% drop on below-average volume in a strong market, indicating lack of buyers and potential risk.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "IRCTC.NS",
+          "name": "IRCTC",
+          "reason": "Modest drop below 50DMA on near-average volume in a positive market, suggesting technical weakness.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "LODHA.NS",
+          "name": "LODHA",
+          "reason": "2% drop on low volume below 50DMA, indicating company-specific underperformance or technical weakness despite broader sector gains.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "M&M",
+          "reason": "1.8% drop below 50DMA on near-average volume in a positive market, suggesting technical weakness or lingering auto sector headwinds.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "PSB.BO",
+          "name": "PSB",
+          "reason": "Small drop below 50DMA on slightly above-average volume in a positive market, suggesting technical weakness for this banking stock.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "SBIN",
+          "reason": "1.7% drop below 50DMA on low volume in a strong market, suggesting technical weakness or lingering pressure on banking stocks.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "ULTRACEMCO.BO",
+          "name": "ULTRACEMCO",
+          "reason": "Modest drop below 50DMA on low volume in a strong market, suggesting technical weakness or lack of fresh buying interest.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
           ]
         }
       ],
-      "summary": "Multiple stocks exhibit strong sell/risk signals characterized by significant price drops, unusually high trading volumes, and/or breaches of key technical support levels, indicating potential fundamental changes or negative market sentiment."
+      "summary": "Despite a strong positive market, several stocks exhibited genuine sell signals due to company-specific weakness, underperformance against sector trends, high-volume drops, or falling below key technical supports."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:82859195fe9f737b81bf14f7b509387754aa09c79aed4975c7b1f4696ae2374f"
+  "checksum": "sha256:4ee3677df95cbe27124b94dad98af34f7ebb81047305c9b1c4eb533bbee47ae9"
 }
