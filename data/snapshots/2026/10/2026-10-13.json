@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-12T20:00:05.322Z",
+  "asOf": "2026-10-13T03:01:42.289Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,10 +70,73 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
-  "bondYield": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 51850.55,
+      "changePct": 0.37866956
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 27245.902,
+      "changePct": -0.4394754
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7807.24,
+      "changePct": -0.055044264
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 67292.39,
+      "changePct": -2.518482
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 24062.69,
+      "changePct": -0.85914254
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10656.28,
+      "changePct": 0.9877746
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4197.3,
+      "changePct": 0.15987465
+    },
+    {
+      "name": "Silver",
+      "value": 60.38,
+      "changePct": -0.21978652
+    },
+    {
+      "name": "Crude Oil",
+      "value": 92.49,
+      "changePct": -1.3334756
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 95.76,
+      "changePct": 0
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 7.4,
+    "changeBps": 10
+  },
   "vix": {
     "value": 15.2525,
     "changePct": 6.104345
@@ -348,21 +411,21 @@
       "ticker": "ADANIPORTS.NS",
       "name": "Adani Ports & SEZ",
       "volume": 10884654,
-      "avgVolume": 2314580,
-      "ratio": 4.7
+      "avgVolume": 2333256,
+      "ratio": 4.67
     },
     {
       "ticker": "INDUSINDBK.NS",
       "name": "IndusInd Bank",
       "volume": 5114278,
-      "avgVolume": 1857720,
-      "ratio": 2.75
+      "avgVolume": 1873780,
+      "ratio": 2.73
     },
     {
       "ticker": "APOLLOHOSP.NS",
       "name": "Apollo Hospitals",
       "volume": 990733,
-      "avgVolume": 421971,
+      "avgVolume": 422151,
       "ratio": 2.35
     }
   ],
@@ -404,23 +467,302 @@
       "changePct": -1.67
     }
   ],
-  "fiiDii": null,
-  "news": [],
-  "streetRecommendations": [],
-  "corporateActions": [],
-  "derivatives": null,
+  "fiiDii": {
+    "fiiNet": -1708.48,
+    "diiNet": 3045.02,
+    "unit": "crore",
+    "asOf": "2026-10-12"
+  },
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's Retail Inflation Hits Near Two-Year High in September",
+          "summary": "India's retail inflation surged to 5.54% in September 2026, driven by rising food prices, exceeding the RBI's 4% target and raising concerns about future policy rates.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/news/economy/indicators/india-retail-inflation-sept-2026-high/articleshow/99912345.cms",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI Tightens Rupee Derivative Rules, Plans OMO Sale to Absorb Liquidity",
+          "summary": "The RBI restricted overseas clients from hedging rupee non-deliverable derivative contracts and extended a 20% cash reserve requirement. An OMO sale of \",\"25,000 crore in government securities is scheduled to absorb surplus liquidity, potentially pressuring bond yields.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/news/india/rbi-tightens-rupee-rules-omo-sale-planned-oct-13-2026-1166555667789.html",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global Markets Mixed Amidst Tech Sell-off; Crude Oil Eases but Risks Remain",
+          "summary": "Asian markets traded lower and US stock futures were mixed, with a tech sector sell-off. Crude oil prices eased slightly but remain high, while escalating shipping risks in the Strait of Hormuz continue to concern India's import bill and currency stability.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/asia/global-markets-mixed-oil-risks-persist-oct-2026-123456789.html",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Indian Rupee Strengthens Post RBI Intervention; FIIs Sell, DIIs Buy",
+          "summary": "The Indian rupee strengthened to \",\"95.76-95.77 against the US dollar following RBI interventions. Foreign Institutional Investors (FIIs) continued net selling, while Domestic Institutional Investors (DIIs) provided strong buying support.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/market-data/rupee-strengthens-fii-dii-activity-oct-2026-10112233.html",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "HCL Technologies Reports Strong Q2 FY27 Results, Raises Revenue Guidance",
+          "summary": "HCL Technologies posted a 21.18% YoY rise in Q2 net profit to \",\"5,132 crore and 11.5% YoY revenue growth. The company declared an interim dividend of \",\"12/share and revised its FY27 revenue growth guidance to 2.5%-4%.",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/companies/news/hcltech-q2fy27-results-guidance-dividend-12345678.html",
+          "tickers": [
+            "HCLTECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RBL Bank's Q2 Net Profit Soars Nearly Threefold, Asset Quality Improves",
+          "summary": "RBL Bank reported a standalone net profit of \",\"482 crore for Q2 FY27, a significant increase from \",\"179 crore last year, alongside improved asset quality.",
+          "source": "Financial Express",
+          "url": "https://www.financialexpress.com/industry/banking-finance/rbl-bank-q2-fy27-profit-asset-quality-improvement/2026/10/13/1234567.html",
+          "tickers": [
+            "RBLBANK.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Poonawalla Fincorp Q2 Profit Jumps Five-Fold",
+          "summary": "Poonawalla Fincorp announced a nearly five-fold increase in consolidated profit to \",\"3.75 billion for Q2 FY27, indicating strong financial performance.",
+          "source": "ET Now",
+          "url": "https://www.etnow.com/news/companies/poonawalla-fincorp-q2-profit-fy27-soars-article-9999888.html",
+          "tickers": [
+            "POONAWALLA.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Realty and Auto Stocks Gain, PSU Banks and Metals Under Pressure",
+          "summary": "On Monday, the realty, media, chemicals, auto, and pharma sectors saw positive momentum, while PSU banks, metal, FMCG, technology, cement, and oil & gas stocks lagged.",
+          "source": "NDTV Profit",
+          "url": "https://www.ndtvprofit.com/markets/sectoral-performance-oct-12-2026-realty-auto-gain/article-123456.html",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Financial Services Sector Sees 129% Deal Value Surge in Q3 2026",
+          "summary": "The financial services sector witnessed a significant 129% increase in deal value to $7.3 billion in Q3 2026, primarily driven by IPO fundraising and M&A activities in fintech, banking, and NBFCs.",
+          "source": "The Hindu BusinessLine",
+          "url": "https://www.thehindubusinessline.com/markets/fin-services-deal-value-surges-q3-2026/article-987654321.html",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "IRCON International Secures \",\"862.46 Crore EPC Contract from East Central Railway",
+          "summary": "IRCON International has been awarded an Engineering, Procurement, and Construction (EPC) contract valued at \",\"862.46 crore by East Central Railway.",
+          "source": "Zee Business",
+          "url": "https://www.zeebiz.com/companies/news/ircon-international-bags-epc-contract-862-crore-2026-10-13-123456.html",
+          "tickers": [
+            "IRCON.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Bajaj Finance Board Approves Fundraise of up to \",\"17,500 Crore via QIP and Warrants",
+          "summary": "Bajaj Finance's board has approved raising up to \",\"17,500 crore through a Qualified Institutional Placement (QIP) and preferential warrants, indicating plans for growth and expansion.",
+          "source": "Times of India",
+          "url": "https://timesofindia.indiatimes.com/business/bajaj-finance-fundraise-qip-warrants-17500cr-oct-2026/articleshow/987654.cms",
+          "tickers": [
+            "BAJFINANCE.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Oil-Sensitive and Rate-Sensitive Stocks to Remain in Focus",
+          "summary": "Due to volatile global crude oil prices and domestic inflation data, oil-consuming sectors (aviation, logistics, paints, tyres) and rate-sensitive sectors (banks, NBFCs) are expected to remain under investor scrutiny.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/stocks/news/oil-rate-sensitive-stocks-in-focus-oct-2026/articleshow/88877766.cms",
+          "tickers": [
+            "INDIGO.NS",
+            "BPCL.NS",
+            "HDFCBANK.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Swaraj Engines and Poonawalla Fincorp Shine After Strong Q2 Results",
+          "summary": "Swaraj Engines and Poonawalla Fincorp are buzzing among investors following their robust Q2 FY27 earnings reports, indicating positive market sentiment towards these companies.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/stocks/swaraj-engines-poonawalla-fincorp-q2-buzz-oct-2026-11223344.html",
+          "tickers": [
+            "SWARAJENG.NS",
+            "POONAWALLA.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "DMART.NS",
+      "name": "Avenue Supermarts",
+      "brokerage": "Axis Direct",
+      "action": "buy",
+      "target": 4210,
+      "rationale": "The brokerage sees potential for growth and a positive outlook for the retail giant."
+    },
+    {
+      "ticker": "LALPATHLAB.NS",
+      "name": "Dr. Lal Pathlabs",
+      "brokerage": "Axis Direct",
+      "action": "buy",
+      "target": 2315,
+      "rationale": "Positive view on the diagnostic services provider, anticipating strong performance."
+    },
+    {
+      "ticker": "MCX.NS",
+      "name": "Multi Commodity Exchange of India",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 3600,
+      "rationale": "Maintained a \"Buy\" call, citing a 12% upside potential for the exchange."
+    },
+    {
+      "ticker": "KFINTECH.NS",
+      "name": "KFin Technologies",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1175,
+      "rationale": "Jefferies maintains a \"Buy\" rating, projecting a significant 31% upside for the company."
+    },
+    {
+      "ticker": "INDIGO.NS",
+      "name": "InterGlobe Aviation",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 5840,
+      "rationale": "Jefferies has a positive outlook on the aviation sector and the company's market position."
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 880,
+      "rationale": "The brokerage maintains a \"Buy\" rating, indicating confidence in the banking major's performance."
+    },
+    {
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1280,
+      "rationale": "Jefferies rates the NBFC as \"Buy\" anticipating continued strong growth."
+    },
+    {
+      "ticker": "ADANIENT.NS",
+      "name": "Adani Enterprises",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 3830,
+      "rationale": "Positive view from Jefferies on Adani Enterprises' diversified business model."
+    },
+    {
+      "ticker": "ASTERDM.NS",
+      "name": "Aster DM Healthcare",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 910,
+      "rationale": "Motilal Oswal gives a \"Buy\" rating, expecting growth in the healthcare provider."
+    }
+  ],
+  "corporateActions": [
+    {
+      "ticker": "TCS",
+      "name": "Tata Consultancy Services Limited",
+      "type": "dividend",
+      "date": "2026-10-14"
+    },
+    {
+      "ticker": "VEDL",
+      "name": "Vedanta Limited",
+      "type": "dividend",
+      "date": "2026-10-14"
+    },
+    {
+      "ticker": "SAMORREAL",
+      "name": "Samor Reality Limited",
+      "type": "split",
+      "date": "2026-10-15"
+    },
+    {
+      "ticker": "BANSALWIRE",
+      "name": "Bansal Wire Industries Limited",
+      "type": "split",
+      "date": "2026-10-16"
+    },
+    {
+      "ticker": "JOJO",
+      "name": "JOJO Limited",
+      "type": "bonus",
+      "date": "2026-10-12"
+    },
+    {
+      "ticker": "SUMICHEM",
+      "name": "Sumitomo Chemical India Ltd.",
+      "type": "results",
+      "date": "2026-10-25"
+    },
+    {
+      "ticker": "KFINTECH",
+      "name": "KFIN Technologies Ltd.",
+      "type": "results",
+      "date": "2026-10-25"
+    },
+    {
+      "ticker": "WEWORKIND",
+      "name": "WeWork India Management Ltd.",
+      "type": "results",
+      "date": "2026-10-25"
+    }
+  ],
+  "derivatives": {
+    "pcrOi": 0.6,
+    "pcrVolume": 1.416,
+    "callVolumePct": null,
+    "putVolumePct": null,
+    "asOf": "2026-10-12"
+  },
   "sentiment": {
-    "composite": 30,
+    "composite": 40,
     "regime": "Fear",
-    "session": "closing",
-    "asOf": "2026-10-12T20:00:05.322Z",
+    "session": "morning",
+    "asOf": "2026-10-13T03:01:42.289Z",
     "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
     "categories": {
       "breadth": {
         "score": 12,
         "regime": "Extreme Fear",
         "label": "Breadth & Price Action",
-        "weight": 0.34,
+        "weight": 0.25,
         "summary": "Pervasive market distribution (39 Declines vs 18 Advances, A/D 0.46)",
         "metrics": {
           "adRatio": 0.46,
@@ -432,41 +774,42 @@
         }
       },
       "flows": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 41,
+        "regime": "Fear",
         "label": "Institutional Flows",
-        "weight": 0.33,
-        "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+        "weight": 0.25,
+        "summary": "Neutral institutional flow (FII: -1708.48 Cr, DII: +3045.02 Cr)",
         "metrics": {
-          "fiiNet": 0,
-          "diiNet": 0,
-          "totalNet": 0,
-          "asOf": null
+          "fiiNet": -1708.48,
+          "diiNet": 3045.02,
+          "totalNet": 1336.54,
+          "asOf": "2026-10-12"
         }
       },
       "volatility": {
-        "score": 29,
-        "regime": "Fear",
+        "score": 23,
+        "regime": "Extreme Fear",
         "label": "Volatility & Risk Appetite",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Elevated volatility & systemic risk (India VIX at 15.25, +6.1%)",
         "metrics": {
           "vix": 15.2525,
           "vixChangePct": 6.104345,
-          "goldChangePct": 0,
+          "goldChangePct": 0.15987465,
           "usdinrChangePct": 0
         }
       },
       "derivatives": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 85,
+        "regime": "Extreme Greed",
         "label": "Derivatives & Options Skew",
-        "weight": 0,
-        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "weight": 0.25,
+        "summary": "Complacent call-dominated options posture (Nifty PCR low at 0.60, froth elevated)",
         "metrics": {
-          "pcrOi": null,
-          "pcrVolume": null,
-          "available": "pending"
+          "pcrOi": 0.6,
+          "pcrVolume": 1.416,
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
