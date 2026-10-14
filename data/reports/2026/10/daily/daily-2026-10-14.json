@@ -3,7 +3,7 @@
   "id": "daily-2026-10-14",
   "type": "daily",
   "dateKey": "2026-10-14",
-  "generatedAt": "2026-10-14T10:15:56.348Z",
+  "generatedAt": "2026-10-14T15:30:04.191Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1081.4,
+      "ABREL.BO": 1079.55,
       "AMBUJACEM.BO": 349,
       "BANDHANBNK.NS": 168.58,
       "BDL.BO": 1128.05,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4910.1,
       "BSOFT.NS": 298.75,
       "CASTROLIND.NS": 196.96,
-      "CENTRALBK.BO": 31.2,
+      "CENTRALBK.BO": 31.19,
       "DIXON.NS": 12820,
       "EXIDEIND.NS": 383.05,
-      "FIRSTCRY.BO": 182,
+      "FIRSTCRY.BO": 181.55,
       "GMRAIRPORT.BO": 90.42,
       "GODREJCP.BO": 868,
       "HAVELLS.BO": 1117,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 477.1,
       "IREDA.NS": 108.47,
       "ITC.BO": 261.25,
-      "ITCHOTELS.BO": 156.8,
+      "ITCHOTELS.BO": 156.85,
       "JWL.NS": 209.41,
       "KAMATHOTEL.NS": 247.53,
       "LICI.BO": 393.1,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 599.8,
       "MANKIND.NS": 2335,
       "MAXHEALTH.BO": 853,
-      "NEWGEN.BO": 477,
+      "NEWGEN.BO": 476.15,
       "NHPC.BO": 73.6,
       "ONGC.BO": 225.15,
-      "PRESTIGE.BO": 1470.5,
-      "PSB.BO": 21.61,
+      "PRESTIGE.BO": 1469.8,
+      "PSB.BO": 21.58,
       "RELIANCE.NS": 1174.6,
       "SBIN.NS": 954.9,
       "TATASTEEL.BO": 174.3,
@@ -99,11 +99,11 @@
       "VMM.BO": 95.9,
       "WIPRO.BO": 171
     },
-    "searchTimestamp": "2026-10-14T10:15:56.348Z"
+    "searchTimestamp": "2026-10-14T15:30:04.191Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-14T10:15:56.348Z",
+      "asOf": "2026-10-14T15:30:04.191Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 14.625,
-        "changePct": 3.5828316
+        "changePct": 3.576488
       },
       "breadth": {
         "advances": 26,
@@ -491,8 +491,8 @@
           "ticker": "JSWENERGY.NS",
           "name": "JSW Energy",
           "volume": 8045649,
-          "avgVolume": 1908583,
-          "ratio": 4.22
+          "avgVolume": 1921181,
+          "ratio": 4.19
         },
         {
           "ticker": "TCS.NS",
@@ -602,7 +602,7 @@
         "composite": 48,
         "regime": "Neutral",
         "session": "closing",
-        "asOf": "2026-10-14T10:15:56.348Z",
+        "asOf": "2026-10-14T15:30:04.191Z",
         "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
         "categories": {
           "breadth": {
@@ -641,7 +641,7 @@
             "summary": "Normal market volatility (India VIX at 14.63)",
             "metrics": {
               "vix": 14.625,
-              "vixChangePct": 3.5828316,
+              "vixChangePct": 3.576488,
               "goldChangePct": -0.2010845,
               "usdinrChangePct": -0.27285352
             }
@@ -677,9 +677,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1081.4,
-          "changePct": 1.25,
-          "note": "+1.2% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+          "price": 1079.55,
+          "changePct": 1.08,
+          "note": "+1.1% vs prev close, vol 1.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -733,9 +733,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 31.2,
-          "changePct": 2.67,
-          "note": "+2.7% vs prev close, vol 3.4x avg — flags: volume>2x avg"
+          "price": 31.19,
+          "changePct": 2.63,
+          "note": "+2.6% vs prev close, vol 3.4x avg — flags: volume>2x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -754,9 +754,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 182,
-          "changePct": 2.3,
-          "note": "+2.3% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 181.55,
+          "changePct": 2.05,
+          "note": "+2.1% vs prev close, vol 0.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -831,8 +831,8 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 156.8,
-          "changePct": 0.58,
+          "price": 156.85,
+          "changePct": 0.61,
           "note": "+0.6% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
@@ -894,9 +894,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 477,
-          "changePct": 0.64,
-          "note": "+0.6% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+          "price": 476.15,
+          "changePct": 0.46,
+          "note": "+0.5% vs prev close, vol 1.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -915,16 +915,16 @@
         {
           "ticker": "PRESTIGE.BO",
           "name": "PRESTIGE",
-          "price": 1470.5,
-          "changePct": -0.73,
-          "note": "-0.7% vs prev close, vol 3.1x avg — flags: volume>2x avg, below 50DMA support"
+          "price": 1469.8,
+          "changePct": -0.78,
+          "note": "-0.8% vs prev close, vol 3.1x avg — flags: volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 21.61,
-          "changePct": 1.65,
-          "note": "+1.6% vs prev close, vol 1.3x avg — flags: below 50DMA support"
+          "price": 21.58,
+          "changePct": 1.51,
+          "note": "+1.5% vs prev close, vol 1.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -993,88 +993,84 @@
       "alerts": [
         {
           "ticker": "EXIDEIND.NS",
-          "name": "Exide Industries",
-          "reason": "Continued downtrend with significant drawdown, negative technical indicators, and persistent market concerns.",
+          "name": "EXIDEIND",
+          "reason": "Significant drawdown of ~3% and breach of 50-day moving average, indicating strong bearish technical signal.",
           "severity": "high",
           "triggeredRules": [
-            "-3.0% vs prev close",
-            "vol 1.1x avg",
-            "below 50DMA support",
-            "drawdown>3%"
-          ]
-        },
-        {
-          "ticker": "JWL.NS",
-          "name": "Jindal Worldwide",
-          "reason": "Significant drawdown coupled with weak fundamentals (poor quality/management, high debt, expensive P/E) and strong technical sell signals.",
-          "severity": "high",
-          "triggeredRules": [
-            "-3.1% vs prev close",
-            "vol 0.9x avg",
-            "below 50DMA support",
-            "drawdown>3%"
-          ]
-        },
-        {
-          "ticker": "MAXHEALTH.BO",
-          "name": "Max Healthcare Institute",
-          "reason": "Continued decline with very high volume due to regulatory uncertainty regarding drug pricing, impacting profitability and the healthcare sector.",
-          "severity": "high",
-          "triggeredRules": [
-            "-1.2% vs prev close",
-            "vol 3.4x avg",
-            "below 50DMA support",
-            "volume>2x avg"
-          ]
-        },
-        {
-          "ticker": "BANDHANBNK.NS",
-          "name": "BANDHANBNK",
-          "reason": "Modest drawdown aligning with general financial services sector weakness and falling below 50DMA support.",
-          "severity": "medium",
-          "triggeredRules": [
-            "-2.0% vs prev close",
-            "vol 1.0x avg",
+            "drawdown>3%",
             "below 50DMA support"
           ]
         },
         {
-          "ticker": "LODHA.NS",
-          "name": "LODHA",
-          "reason": "Significant drawdown (-2.9%) consistent with the broader realty sector weakness and falling below 50DMA support.",
-          "severity": "medium",
+          "ticker": "JWL.NS",
+          "name": "JWL",
+          "reason": "Significant 3.1% drawdown and breach of 50-day moving average support.",
+          "severity": "high",
           "triggeredRules": [
-            "-2.9% vs prev close",
-            "vol 0.7x avg",
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "MAXHEALTH.BO",
+          "name": "MAXHEALTH",
+          "reason": "Moderate decline with very high volume, closing below 50-day moving average support amidst a weak healthcare sector.",
+          "severity": "high",
+          "triggeredRules": [
+            "volume>2x avg",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "PRESTIGE.BO",
+          "name": "PRESTIGE",
+          "reason": "Decline of 0.8% with very high volume, closing below 50-day moving average support in a lagging realty sector.",
+          "severity": "high",
+          "triggeredRules": [
+            "volume>2x avg",
             "below 50DMA support"
           ]
         },
         {
           "ticker": "M&M.NS",
           "name": "M&M",
-          "reason": "2.5% drop on slightly above-average volume and breaking 50DMA support, primarily due to broader auto sector weakness.",
+          "reason": "Significant decline of ~2.5% as a market laggard, closing below 50-day moving average support in a weak automobile sector.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "BANDHANBNK",
+          "reason": "2.0% decline and breach of 50-day moving average support within a weak financial sector.",
           "severity": "medium",
           "triggeredRules": [
-            "-2.5% vs prev close",
-            "vol 1.2x avg",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "LODHA.NS",
+          "name": "LODHA",
+          "reason": "Significant 2.9% decline and breach of 50-day moving average support in a weak realty sector.",
+          "severity": "high",
+          "triggeredRules": [
             "below 50DMA support"
           ]
         },
         {
           "ticker": "MANKIND.NS",
           "name": "MANKIND",
-          "reason": "Drawdown (-1.6%) consistent with the Pharma and Healthcare sectors being among the biggest losers of the day.",
+          "reason": "Moderate 1.6% decline, closing below 50-day moving average support within a weak pharma/healthcare sector.",
           "severity": "medium",
           "triggeredRules": [
-            "-1.6% vs prev close",
-            "vol 0.8x avg",
             "below 50DMA support"
           ]
         }
       ],
-      "summary": "The Indian equity market experienced a pullback on October 14, 2026, leading to several genuine sell/risk signals across auto, healthcare, financial, and realty sectors due to sector weakness, negative technicals, or regulatory concerns, with high carry-over risk for key stocks like Exide, Jindal Worldwide, and Max Healthcare."
+      "summary": "The Indian equity market saw a broad decline due to profit-taking and macroeconomic headwinds, with several stocks showing genuine sell signals marked by significant drawdowns, high-volume selling, and breaches of key technical support levels."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:e4d7e8e02f6df73dcbf9c601587a936dd46a5b9fbf151b83a8d482d60dfa9111"
+  "checksum": "sha256:faaef3675ed7342a48c603ce0886d27980e74d361ce4a73f3a8475de86f115fa"
 }
