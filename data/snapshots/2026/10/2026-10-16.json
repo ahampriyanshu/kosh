@@ -1,72 +1,72 @@
 {
-  "asOf": "2026-10-16T07:31:33.619Z",
+  "asOf": "2026-10-16T10:15:27.399Z",
   "window": "1d",
   "indianIndices": [
     {
       "name": "NIFTY 50",
       "symbol": "^NSEI",
-      "ltp": 23099.75,
-      "changePct": 0.4452704
+      "ltp": 23146.15,
+      "changePct": 0.64703447
     },
     {
       "name": "SENSEX",
       "symbol": "^BSESN",
-      "ltp": 74711.5,
-      "changePct": 0.53272396
+      "ltp": 74729.27,
+      "changePct": 0.55663145
     },
     {
       "name": "NIFTY BANK",
       "symbol": "^NSEBANK",
-      "ltp": 55677.85,
-      "changePct": -0.2376782
+      "ltp": 55844,
+      "changePct": 0.06002455
     },
     {
       "name": "NIFTY IT",
       "symbol": "^CNXIT",
-      "ltp": 31670.05,
-      "changePct": 3.0932465
+      "ltp": 31924.1,
+      "changePct": 3.920269
     },
     {
       "name": "NIFTY PHARMA",
       "symbol": "^CNXPHARMA",
-      "ltp": 25754.85,
-      "changePct": -0.24383092
+      "ltp": 25781.65,
+      "changePct": -0.14002119
     },
     {
       "name": "NIFTY AUTO",
       "symbol": "^CNXAUTO",
-      "ltp": 25745.4,
-      "changePct": 0.66075635
+      "ltp": 25768.5,
+      "changePct": 0.75108147
     },
     {
       "name": "NIFTY FMCG",
       "symbol": "^CNXFMCG",
-      "ltp": 44515.3,
-      "changePct": -0.6170038
+      "ltp": 44616.15,
+      "changePct": -0.3918141
     },
     {
       "name": "NIFTY METAL",
       "symbol": "^CNXMETAL",
-      "ltp": 12172.55,
-      "changePct": 1.2816763
+      "ltp": 12133.2,
+      "changePct": 0.95436364
     },
     {
       "name": "NIFTY ENERGY",
       "symbol": "^CNXENERGY",
-      "ltp": 36244.55,
-      "changePct": 0.08519343
+      "ltp": 36190.85,
+      "changePct": -0.063091196
     },
     {
       "name": "NIFTY REALTY",
       "symbol": "^CNXREALTY",
-      "ltp": 827.55,
-      "changePct": -0.13877451
+      "ltp": 825.95,
+      "changePct": -0.33184505
     },
     {
       "name": "NIFTY FIN SERVICE",
       "symbol": "^CNXFIN",
-      "ltp": 27168.85,
-      "changePct": -0.20202874
+      "ltp": 27211,
+      "changePct": -0.047199827
     }
   ],
   "giftNifty": null,
@@ -138,292 +138,332 @@
     "changeBps": -1
   },
   "vix": {
-    "value": 13.9525,
-    "changePct": -0.5172055
+    "value": 14.025,
+    "changePct": 0
   },
   "breadth": {
-    "advances": 33,
-    "declines": 25,
+    "advances": 35,
+    "declines": 23,
     "unchanged": 0,
-    "adRatio": 1.32
+    "adRatio": 1.52
   },
   "topGainers": [
     {
       "ticker": "TECHM.NS",
       "name": "Tech Mahindra",
-      "ltp": 1783,
-      "changePct": 8.060606
+      "ltp": 1790,
+      "changePct": 8.484849
     },
     {
       "ticker": "WIPRO.NS",
       "name": "Wipro",
-      "ltp": 184.35,
-      "changePct": 5.9158015
+      "ltp": 184.4,
+      "changePct": 5.946562
     },
     {
       "ticker": "TCS.NS",
       "name": "Tata Consultancy Services",
-      "ltp": 2447.9,
-      "changePct": 4.165953
+      "ltp": 2465,
+      "changePct": 4.893617
     },
     {
       "ticker": "INFY.NS",
       "name": "Infosys",
-      "ltp": 1151.05,
-      "changePct": 3.6982026
+      "ltp": 1161.2,
+      "changePct": 4.6126084
     },
     {
       "ticker": "BHARTIARTL.NS",
       "name": "Bharti Airtel",
-      "ltp": 1901,
-      "changePct": 2.535196
+      "ltp": 1905,
+      "changePct": 2.7508092
     },
     {
       "ticker": "M&M.NS",
       "name": "Mahindra & Mahindra",
-      "ltp": 2921.3,
-      "changePct": 2.0823178
+      "ltp": 2920.9,
+      "changePct": 2.068699
     },
     {
-      "ticker": "JSWSTEEL.NS",
-      "name": "JSW Steel",
-      "ltp": 1224.4,
-      "changePct": 1.9993335
+      "ticker": "BAJFINANCE.NS",
+      "name": "Bajaj Finance",
+      "ltp": 982.1,
+      "changePct": 1.7456594
     },
     {
       "ticker": "HINDALCO.NS",
       "name": "Hindalco Industries",
-      "ltp": 910,
-      "changePct": 1.8066926
-    },
-    {
-      "ticker": "JSWENERGY.NS",
-      "name": "JSW Energy",
-      "ltp": 486.8,
-      "changePct": 1.6389968
-    },
-    {
-      "ticker": "DIVISLAB.NS",
-      "name": "Divi's Laboratories",
-      "ltp": 9151.5,
-      "changePct": 1.3455149
-    }
-  ],
-  "topLosers": [
-    {
-      "ticker": "TATACONSUM.NS",
-      "name": "Tata Consumer Products",
-      "ltp": 978.9,
-      "changePct": -1.2658216
-    },
-    {
-      "ticker": "BRITANNIA.NS",
-      "name": "Britannia Industries",
-      "ltp": 4797,
-      "changePct": -1.0926483
-    },
-    {
-      "ticker": "INDUSINDBK.NS",
-      "name": "IndusInd Bank",
-      "ltp": 876.05,
-      "changePct": -1.0559644
-    },
-    {
-      "ticker": "SUNPHARMA.NS",
-      "name": "Sun Pharmaceutical",
-      "ltp": 1748.5,
-      "changePct": -0.8787346
-    },
-    {
-      "ticker": "HINDUNILVR.NS",
-      "name": "Hindustan Unilever",
-      "ltp": 1880.7,
-      "changePct": -0.86447865
-    },
-    {
-      "ticker": "ASIANPAINT.NS",
-      "name": "Asian Paints",
-      "ltp": 2329.8,
-      "changePct": -0.8595724
-    },
-    {
-      "ticker": "NESTLEIND.NS",
-      "name": "Nestle India",
-      "ltp": 1266.3,
-      "changePct": -0.7445141
-    },
-    {
-      "ticker": "PIDILITIND.NS",
-      "name": "Pidilite Industries",
-      "ltp": 1493.9,
-      "changePct": -0.7375399
-    },
-    {
-      "ticker": "SRF.NS",
-      "name": "SRF",
-      "ltp": 2475.2,
-      "changePct": -0.70634896
-    },
-    {
-      "ticker": "KOTAKBANK.NS",
-      "name": "Kotak Mahindra Bank",
-      "ltp": 444.9,
-      "changePct": -0.68095964
-    }
-  ],
-  "mostActive": [
-    {
-      "ticker": "TECHM.NS",
-      "name": "Tech Mahindra",
-      "ltp": 1783,
-      "changePct": 8.060606,
-      "volume": 16941489
-    },
-    {
-      "ticker": "BHARTIARTL.NS",
-      "name": "Bharti Airtel",
-      "ltp": 1901,
-      "changePct": 2.535196,
-      "volume": 12496589
-    },
-    {
-      "ticker": "INFY.NS",
-      "name": "Infosys",
-      "ltp": 1151.05,
-      "changePct": 3.6982026,
-      "volume": 17281837
-    },
-    {
-      "ticker": "TCS.NS",
-      "name": "Tata Consultancy Services",
-      "ltp": 2447.9,
-      "changePct": 4.165953,
-      "volume": 7476778
-    },
-    {
-      "ticker": "HDFCBANK.NS",
-      "name": "HDFC Bank",
-      "ltp": 726.95,
-      "changePct": 0.013763036,
-      "volume": 21614536
-    },
-    {
-      "ticker": "RELIANCE.NS",
-      "name": "Reliance Industries",
-      "ltp": 1208,
-      "changePct": -0.5758473,
-      "volume": 11547575
-    },
-    {
-      "ticker": "ICICIBANK.NS",
-      "name": "ICICI Bank",
-      "ltp": 1393.1,
-      "changePct": 0.26626015,
-      "volume": 9926024
-    },
-    {
-      "ticker": "WIPRO.NS",
-      "name": "Wipro",
-      "ltp": 184.35,
-      "changePct": 5.9158015,
-      "volume": 58008361
-    },
-    {
-      "ticker": "AXISBANK.NS",
-      "name": "Axis Bank",
-      "ltp": 1285.2,
-      "changePct": -0.21744573,
-      "volume": 5825083
+      "ltp": 908,
+      "changePct": 1.5830424
     },
     {
       "ticker": "HCLTECH.NS",
       "name": "HCL Technologies",
-      "ltp": 1373.6,
-      "changePct": 1.0000718,
-      "volume": 4823996
+      "ltp": 1380,
+      "changePct": 1.4705882
+    },
+    {
+      "ticker": "JSWSTEEL.NS",
+      "name": "JSW Steel",
+      "ltp": 1216.3,
+      "changePct": 1.3245605
+    }
+  ],
+  "topLosers": [
+    {
+      "ticker": "BRITANNIA.NS",
+      "name": "Britannia Industries",
+      "ltp": 4764,
+      "changePct": -1.7731959
+    },
+    {
+      "ticker": "TATACONSUM.NS",
+      "name": "Tata Consumer Products",
+      "ltp": 978.9,
+      "changePct": -1.2658215
+    },
+    {
+      "ticker": "ONGC.NS",
+      "name": "Oil & Natural Gas Corp",
+      "ltp": 222,
+      "changePct": -1.1752135
+    },
+    {
+      "ticker": "INDUSINDBK.NS",
+      "name": "IndusInd Bank",
+      "ltp": 877,
+      "changePct": -0.9487265
+    },
+    {
+      "ticker": "SRF.NS",
+      "name": "SRF",
+      "ltp": 2472.1,
+      "changePct": -0.83038956
+    },
+    {
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "ltp": 1265.5,
+      "changePct": -0.8073403
+    },
+    {
+      "ticker": "ASIANPAINT.NS",
+      "name": "Asian Paints",
+      "ltp": 2331.9,
+      "changePct": -0.7702169
+    },
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL India",
+      "ltp": 168.1,
+      "changePct": -0.7381163
+    },
+    {
+      "ticker": "TATASTEEL.NS",
+      "name": "Tata Steel",
+      "ltp": 175.5,
+      "changePct": -0.5102006
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "ltp": 1211.2,
+      "changePct": -0.31276122
+    }
+  ],
+  "mostActive": [
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "ltp": 1905,
+      "changePct": 2.7508092,
+      "volume": 25481655
+    },
+    {
+      "ticker": "TECHM.NS",
+      "name": "Tech Mahindra",
+      "ltp": 1790,
+      "changePct": 8.484849,
+      "volume": 20827864
+    },
+    {
+      "ticker": "TCS.NS",
+      "name": "Tata Consultancy Services",
+      "ltp": 2465,
+      "changePct": 4.893617,
+      "volume": 12163965
+    },
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "ltp": 1161.2,
+      "changePct": 4.6126084,
+      "volume": 25562321
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "ltp": 728.85,
+      "changePct": 0.27515996,
+      "volume": 28926422
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "ltp": 1211.2,
+      "changePct": -0.31276122,
+      "volume": 17221171
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1397,
+      "changePct": 0.54699695,
+      "volume": 14924095
+    },
+    {
+      "ticker": "WIPRO.NS",
+      "name": "Wipro",
+      "ltp": 184.4,
+      "changePct": 5.946562,
+      "volume": 74256832
+    },
+    {
+      "ticker": "AXISBANK.NS",
+      "name": "Axis Bank",
+      "ltp": 1290,
+      "changePct": 0.1552795,
+      "volume": 8766817
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "ltp": 447.4,
+      "changePct": -0.12278565,
+      "volume": 25164919
     }
   ],
   "near52wHigh": [
     {
       "ticker": "KOTAKBANK.NS",
       "name": "Kotak Mahindra Bank",
-      "ltp": 444.9,
-      "pctFromHigh": 1.83
+      "ltp": 447.4,
+      "pctFromHigh": 1.28
     }
   ],
   "near52wLow": [
     {
       "ticker": "BRITANNIA.NS",
       "name": "Britannia Industries",
-      "ltp": 4797,
-      "pctFromLow": 1.33
+      "ltp": 4764,
+      "pctFromLow": 0.63
+    },
+    {
+      "ticker": "VEDL.NS",
+      "name": "Vedanta",
+      "ltp": 246.1,
+      "pctFromLow": 1.15
     },
     {
       "ticker": "SBILIFE.NS",
       "name": "SBI Life Insurance",
-      "ltp": 1664.6,
-      "pctFromLow": 1.84
+      "ltp": 1656.8,
+      "pctFromLow": 1.36
+    },
+    {
+      "ticker": "ONGC.NS",
+      "name": "Oil & Natural Gas Corp",
+      "ltp": 222,
+      "pctFromLow": 1.59
     }
   ],
   "volumeShockers": [
     {
       "ticker": "TECHM.NS",
       "name": "Tech Mahindra",
-      "volume": 16941489,
+      "volume": 20827864,
       "avgVolume": 2584006,
-      "ratio": 6.56
+      "ratio": 8.06
     },
     {
       "ticker": "WIPRO.NS",
       "name": "Wipro",
-      "volume": 58008361,
+      "volume": 74256832,
       "avgVolume": 14889792,
-      "ratio": 3.9
+      "ratio": 4.99
+    },
+    {
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "volume": 25481655,
+      "avgVolume": 6344472,
+      "ratio": 4.02
     },
     {
       "ticker": "TCS.NS",
       "name": "Tata Consultancy Services",
-      "volume": 7476778,
+      "volume": 12163965,
       "avgVolume": 3699302,
-      "ratio": 2.02
+      "ratio": 3.29
+    },
+    {
+      "ticker": "SBILIFE.NS",
+      "name": "SBI Life Insurance",
+      "volume": 2681993,
+      "avgVolume": 1049690,
+      "ratio": 2.56
+    },
+    {
+      "ticker": "INFY.NS",
+      "name": "Infosys",
+      "volume": 25562321,
+      "avgVolume": 11133686,
+      "ratio": 2.3
+    },
+    {
+      "ticker": "HCLTECH.NS",
+      "name": "HCL Technologies",
+      "volume": 6571041,
+      "avgVolume": 3097730,
+      "ratio": 2.12
     }
   ],
   "sectorRanking": [
     {
       "sector": "IT",
-      "changePct": 3.09
+      "changePct": 3.92
     },
     {
       "sector": "Metal",
-      "changePct": 1.28
+      "changePct": 0.95
     },
     {
       "sector": "Auto",
-      "changePct": 0.66
-    },
-    {
-      "sector": "Energy",
-      "changePct": 0.09
-    },
-    {
-      "sector": "Realty",
-      "changePct": -0.14
-    },
-    {
-      "sector": "Financial Services",
-      "changePct": -0.2
+      "changePct": 0.75
     },
     {
       "sector": "Bank",
-      "changePct": -0.24
+      "changePct": 0.06
+    },
+    {
+      "sector": "Financial Services",
+      "changePct": -0.05
+    },
+    {
+      "sector": "Energy",
+      "changePct": -0.06
     },
     {
       "sector": "Pharma",
-      "changePct": -0.24
+      "changePct": -0.14
+    },
+    {
+      "sector": "Realty",
+      "changePct": -0.33
     },
     {
       "sector": "FMCG",
-      "changePct": -0.62
+      "changePct": -0.39
     }
   ],
   "fiiDii": {
@@ -732,23 +772,23 @@
   "sentiment": {
     "composite": 34,
     "regime": "Fear",
-    "session": "morning",
-    "asOf": "2026-10-16T07:31:33.619Z",
+    "session": "closing",
+    "asOf": "2026-10-16T10:15:27.399Z",
     "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
     "categories": {
       "breadth": {
-        "score": 55,
-        "regime": "Neutral",
+        "score": 57,
+        "regime": "Greed",
         "label": "Breadth & Price Action",
         "weight": 0.25,
-        "summary": "Balanced breadth (33 Adv / 25 Dec, A/D 1.32)",
+        "summary": "Balanced breadth (35 Adv / 23 Dec, A/D 1.52)",
         "metrics": {
-          "adRatio": 1.32,
-          "advances": 33,
-          "declines": 25,
-          "pctAdvancing": 56.9,
+          "adRatio": 1.52,
+          "advances": 35,
+          "declines": 23,
+          "pctAdvancing": 60.3,
           "near52wHighs": 1,
-          "near52wLows": 2
+          "near52wLows": 4
         }
       },
       "flows": {
@@ -765,14 +805,14 @@
         }
       },
       "volatility": {
-        "score": 56,
-        "regime": "Greed",
+        "score": 55,
+        "regime": "Neutral",
         "label": "Volatility & Risk Appetite",
         "weight": 0.25,
-        "summary": "Normal market volatility (India VIX at 13.95)",
+        "summary": "Normal market volatility (India VIX at 14.03)",
         "metrics": {
-          "vix": 13.9525,
-          "vixChangePct": -0.5172055,
+          "vix": 14.025,
+          "vixChangePct": 0,
           "goldChangePct": 0.88246816,
           "usdinrChangePct": -0.026308533
         }
