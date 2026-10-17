@@ -48,7 +48,16 @@
     "quantScore": 84,
     "triggers": "Lower Bollinger Band touch (20, 2); RSI 30.5; Delivery 62.1%",
     "thesis": "Temporary panic selling into multi-month support channel with heavy delivery absorption signaling exhaustion of selling pressure.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-18",
+    "closePrice": 728.8499755859375,
+    "returnPct": -55.56,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The primary failure was an unforeseen major corporate action, likely a stock split or a specific scheme of arrangement, which caused a structural price reset of HDFCBANK shares by 55.56%. This event rendered all pre-existing technical support levels and the mean-reversion investment thesis entirely irrelevant.",
+      "howToAvoid": "To prevent similar catastrophic outcomes, a mandatory pre-entry screening filter must be implemented to identify any scheduled corporate actions within the trade horizon. Furthermore, all active positions should be subject to immediate review and potential closure upon the announcement of any unanticipated corporate action during the holding period.",
+      "analyzedAt": "2026-10-17T19:36:28.570Z"
+    }
   },
   {
     "id": "st-2026-09-11-tatamotors",
@@ -278,7 +287,11 @@
     "quantScore": 85,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.1%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-18",
+    "closePrice": 1161.199951171875,
+    "returnPct": 12.19,
+    "outcome": "hit"
   },
   {
     "id": "st-2026-10-04-hdfclife",
