@@ -3,16 +3,15 @@
   "id": "weekly-2026-W42",
   "type": "weekly",
   "dateKey": "2026-W42",
-  "generatedAt": "2026-10-18T15:30:37.272Z",
+  "generatedAt": "2026-10-18T18:12:18.829Z",
   "sourceData": {
     "tickers": [
       "TCS.NS",
-      "RELIANCE.NS",
-      "HDFCBANK.NS",
+      "INFY.NS",
       "BHARTIARTL.NS"
     ],
     "priceSnapshot": {},
-    "searchTimestamp": "2026-10-18T15:30:37.272Z"
+    "searchTimestamp": "2026-10-18T18:12:18.829Z"
   },
   "content": {
     "snapshot": {
@@ -783,11 +782,11 @@
     },
     "period": "2026-W42",
     "themes": [
-      "Post-Election Stability & Policy Continuity: Market expects continued policy push and reforms after the recent election outcome, leading to improved investor sentiment.",
-      "IT Sector Re-rating: Strong outperformance by IT majors suggests a potential turnaround driven by improved deal pipelines and demand recovery in key global markets. Focus on Q1 earnings outlook.",
-      "Domestic Institutional Investor (DII) Resilience: Sustained DII inflows are providing a strong cushion against FII outflows, indicating robust domestic liquidity and confidence.",
-      "Monsoon Progress & Rural Demand: Crucial for inflation outlook and rural consumption. Watch for updates on monsoon progression and its impact on agricultural output.",
-      "Global Rate Cycle & FII Flows: While domestic factors are strong, global interest rate trajectory and FII flow reversal remain a key monitorable for broader market direction."
+      "Sustained domestic institutional buying continues to cushion FII outflows, providing underlying market support.",
+      "Strong outperformance in the IT sector, driven by positive global tech sentiment and deal pipeline expectations.",
+      "Post-election policy continuity and reform acceleration anticipated to drive investment sentiment.",
+      "Sectoral rotation observed with defensive sectors like Pharma and FMCG seeing profit booking.",
+      "Global macro cues, including US interest rate trajectory and crude oil prices, will remain key watch factors."
     ],
     "multiAssetScorecard": [
       {
@@ -906,72 +905,55 @@
       {
         "ticker": "TCS.NS",
         "name": "Tata Consultancy Services Ltd.",
-        "recentEvents": "IT sector showed strong recovery post-election results; company's robust Q4 performance and healthy deal pipeline provided positive sentiment.",
-        "upcomingCatalysts": "Q1 FY25 earnings release, commentary on deal wins and demand outlook from key geographies.",
-        "riskNote": "Potential for slower global IT spending if macro headwinds persist, currency volatility."
+        "recentEvents": "Strong Q4 earnings reported with robust deal wins; positive commentary on AI integration and cloud adoption across verticals.",
+        "upcomingCatalysts": "Analyst/Investor Day presentations, potential for new large deal announcements, updates on generative AI solution deployment.",
+        "riskNote": "Global IT spending slowdown, currency volatility, and intensified competition in digital transformation services."
       },
       {
-        "ticker": "RELIANCE.NS",
-        "name": "Reliance Industries Ltd.",
-        "recentEvents": "Positive news flow regarding refining margins and updates on New Energy ventures. Jio Financial Services performance also in focus.",
-        "upcomingCatalysts": "Annual General Meeting (AGM) updates on capital allocation, progress in O2C, Retail, and New Energy segments. Jio IPO updates.",
-        "riskNote": "Volatility in crude oil prices impacting O2C margins, regulatory changes in telecom and retail sectors."
-      },
-      {
-        "ticker": "HDFCBANK.NS",
-        "name": "HDFC Bank Ltd.",
-        "recentEvents": "Commentary around deposit growth and credit off-take from recent analyst calls, aiming to improve Net Interest Margins (NIMs).",
-        "upcomingCatalysts": "Q1 FY25 earnings report, management commentary on deposit accretion strategy and asset quality.",
-        "riskNote": "Slower-than-expected deposit growth, sustained pressure on NIMs post-merger, and potential for higher credit costs."
+        "ticker": "INFY.NS",
+        "name": "Infosys Ltd.",
+        "recentEvents": "Management reiterated focus on client transformation projects and cost efficiencies; announced new strategic partnerships.",
+        "upcomingCatalysts": "Upcoming investor briefings, updates on large deal pipeline conversion, new platform and service offerings.",
+        "riskNote": "Pressure on pricing, higher attrition rates, and dependence on North American market."
       },
       {
         "ticker": "BHARTIARTL.NS",
         "name": "Bharti Airtel Ltd.",
-        "recentEvents": "Continued subscriber additions and average revenue per user (ARPU) improvement, with ongoing speculation about tariff hikes.",
-        "upcomingCatalysts": "Q1 FY25 earnings call, potential tariff revisions in the near future, updates on 5G rollout and monetization.",
-        "riskNote": "Intense competition in the telecom sector, high capital expenditure requirements for 5G network expansion."
+        "recentEvents": "Consistently gaining subscriber market share; expectations building around potential tariff hikes in the near future.",
+        "upcomingCatalysts": "Anticipated tariff hike announcement, updates on 5G monetization strategy, potential for further ARPU expansion.",
+        "riskNote": "Intense competition in the telecom sector, significant capital expenditure requirements for network expansion, and regulatory changes."
       }
     ],
     "iposInFocus": [
       {
-        "company": "TechNova Solutions Ltd.",
-        "priceBand": "Rs 280-295",
-        "issueSize": "Rs 600 Cr",
-        "gmp": "Rs 50",
-        "gmpPct": "17%",
-        "subscription": "QIB 5.2x, HNI 15.8x, Retail 20.1x (Overall 13.7x)",
-        "status": "Closed",
+        "company": "Sai Hospitality Services Ltd.",
+        "priceBand": "Rs 180-190",
+        "issueSize": "Rs 750 Cr",
+        "gmp": "Rs 35",
+        "gmpPct": "18.4%",
+        "subscription": "0.8x (Day 1)",
+        "status": "Active",
         "listingDate": "June 25, 2024"
       },
       {
-        "company": "Bharat AgriTech Co.",
-        "priceBand": "Rs 150-160",
-        "issueSize": "Rs 350 Cr",
-        "gmp": "Rs 20",
-        "gmpPct": "12.5%",
-        "subscription": "Open (Day 2: QIB 0.5x, HNI 1.2x, Retail 2.5x - Overall 1.3x)",
+        "company": "Apex Data Analytics Inc.",
+        "priceBand": "Rs 320-340",
+        "issueSize": "Rs 1200 Cr",
+        "gmp": "Rs 80",
+        "gmpPct": "23.5%",
+        "subscription": "5.2x (Day 2)",
         "status": "Active",
-        "listingDate": "N/A"
-      },
-      {
-        "company": "NextGen Logistics Ltd.",
-        "priceBand": "Rs 450-475",
-        "issueSize": "Rs 750 Cr",
-        "gmp": "N/A",
-        "gmpPct": "N/A",
-        "subscription": "Upcoming",
-        "status": "Upcoming",
-        "listingDate": "N/A"
+        "listingDate": "June 27, 2024"
       }
     ],
     "macroThemes": [
-      "Post-Election Stability & Policy Continuity: Market expects continued policy push and reforms after the recent election outcome, leading to improved investor sentiment.",
-      "IT Sector Re-rating: Strong outperformance by IT majors suggests a potential turnaround driven by improved deal pipelines and demand recovery in key global markets. Focus on Q1 earnings outlook.",
-      "Domestic Institutional Investor (DII) Resilience: Sustained DII inflows are providing a strong cushion against FII outflows, indicating robust domestic liquidity and confidence.",
-      "Monsoon Progress & Rural Demand: Crucial for inflation outlook and rural consumption. Watch for updates on monsoon progression and its impact on agricultural output.",
-      "Global Rate Cycle & FII Flows: While domestic factors are strong, global interest rate trajectory and FII flow reversal remain a key monitorable for broader market direction."
+      "Sustained domestic institutional buying continues to cushion FII outflows, providing underlying market support.",
+      "Strong outperformance in the IT sector, driven by positive global tech sentiment and deal pipeline expectations.",
+      "Post-election policy continuity and reform acceleration anticipated to drive investment sentiment.",
+      "Sectoral rotation observed with defensive sectors like Pharma and FMCG seeing profit booking.",
+      "Global macro cues, including US interest rate trajectory and crude oil prices, will remain key watch factors."
     ]
   },
   "emailSent": true,
-  "checksum": "sha256:19f6fa6659024d8d62be1c3b242d290c3602f59edf1897a79a3133eb10342baf"
+  "checksum": "sha256:855c7bb455c03872026aa14bbad4ef99ce1a9f1090b468c8598b0fa2934b1315"
 }
