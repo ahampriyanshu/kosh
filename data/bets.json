@@ -428,5 +428,39 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-10-18-techm",
+    "ticker": "TECHM",
+    "name": "Tech Mahindra",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-10-18",
+    "expiryDate": "2026-11-01",
+    "entryPrice": 1790,
+    "targetPrice": 1933,
+    "stopLossPrice": 1718,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +8.5%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-10-18-wipro",
+    "ticker": "WIPRO",
+    "name": "Wipro",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-10-18",
+    "expiryDate": "2026-11-04",
+    "entryPrice": 184.4,
+    "targetPrice": 199,
+    "stopLossPrice": 177,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +5.9%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
