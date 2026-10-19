@@ -3,7 +3,7 @@
   "id": "daily-2026-10-19",
   "type": "daily",
   "dateKey": "2026-10-19",
-  "generatedAt": "2026-10-19T10:15:48.144Z",
+  "generatedAt": "2026-10-19T17:10:23.568Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1094.85,
+      "ABREL.BO": 1098.9,
       "AMBUJACEM.BO": 358.65,
       "BANDHANBNK.NS": 163.8,
       "BDL.BO": 1088,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4705,
       "BSOFT.NS": 312.6,
       "CASTROLIND.NS": 196.79,
-      "CENTRALBK.BO": 30.9,
+      "CENTRALBK.BO": 30.97,
       "DIXON.NS": 12100,
       "EXIDEIND.NS": 360.15,
-      "FIRSTCRY.BO": 174,
+      "FIRSTCRY.BO": 174.4,
       "GMRAIRPORT.BO": 90.15,
       "GODREJCP.BO": 845.05,
       "HAVELLS.BO": 1098.35,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 565.05,
       "MANKIND.NS": 2253.2,
       "MAXHEALTH.BO": 829.3,
-      "NEWGEN.BO": 478.65,
+      "NEWGEN.BO": 479.6,
       "NHPC.BO": 70.71,
       "ONGC.BO": 224.7,
-      "PRESTIGE.BO": 1470,
-      "PSB.BO": 21.49,
+      "PRESTIGE.BO": 1469.1,
+      "PSB.BO": 21.27,
       "RELIANCE.NS": 1202,
       "SBIN.NS": 973.7,
       "TATASTEEL.BO": 173.9,
@@ -99,11 +99,11 @@
       "VMM.BO": 94.25,
       "WIPRO.BO": 182
     },
-    "searchTimestamp": "2026-10-19T10:15:48.144Z"
+    "searchTimestamp": "2026-10-19T17:10:23.568Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-19T10:15:48.144Z",
+      "asOf": "2026-10-19T17:10:23.568Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 14.7725,
-        "changePct": 5.3603477
+        "changePct": 5.3297715
       },
       "breadth": {
         "advances": 9,
@@ -955,7 +955,7 @@
         "composite": 40,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-19T10:15:48.144Z",
+        "asOf": "2026-10-19T17:10:23.568Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -991,10 +991,10 @@
             "regime": "Fear",
             "label": "Volatility & Risk Appetite",
             "weight": 0.25,
-            "summary": "Elevated volatility & systemic risk (India VIX at 14.77, +5.4%)",
+            "summary": "Elevated volatility & systemic risk (India VIX at 14.77, +5.3%)",
             "metrics": {
               "vix": 14.7725,
-              "vixChangePct": 5.3603477,
+              "vixChangePct": 5.3297715,
               "goldChangePct": 0.38506845,
               "usdinrChangePct": -0.018424163
             }
@@ -1030,9 +1030,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1094.85,
-          "changePct": -2.3,
-          "note": "-2.3% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 1098.9,
+          "changePct": -1.94,
+          "note": "-1.9% vs prev close, vol 0.4x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -1086,9 +1086,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.9,
-          "changePct": 0,
-          "note": "+0.0% vs prev close, vol 2.5x avg — flags: volume>2x avg"
+          "price": 30.97,
+          "changePct": 0.23,
+          "note": "+0.2% vs prev close, vol 2.5x avg — flags: volume>2x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -1107,9 +1107,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 174,
-          "changePct": -2.55,
-          "note": "-2.5% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 174.4,
+          "changePct": -2.32,
+          "note": "-2.3% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1247,9 +1247,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 478.65,
-          "changePct": -3.27,
-          "note": "-3.3% vs prev close, vol 0.6x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 479.6,
+          "changePct": -3.08,
+          "note": "-3.1% vs prev close, vol 0.6x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1268,16 +1268,16 @@
         {
           "ticker": "PRESTIGE.BO",
           "name": "PRESTIGE",
-          "price": 1470,
-          "changePct": -1.09,
-          "note": "-1.1% vs prev close, vol 0.1x avg — flags: below 50DMA support"
+          "price": 1469.1,
+          "changePct": -1.15,
+          "note": "-1.2% vs prev close, vol 0.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 21.49,
-          "changePct": 0.89,
-          "note": "+0.9% vs prev close, vol 7.2x avg — flags: volume>2x avg, below 50DMA support"
+          "price": 21.27,
+          "changePct": -0.14,
+          "note": "-0.1% vs prev close, vol 7.2x avg — flags: volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1345,56 +1345,38 @@
       ],
       "alerts": [
         {
+          "ticker": "JWL.NS",
+          "name": "JWL",
+          "reason": "Significant drawdown (-4.3%) combined with breaking 50DMA support, indicating a strong technical sell signal.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
           "ticker": "MAGADSUGAR.NS",
           "name": "MAGADSUGAR",
-          "reason": "Significant 6.2% drawdown with moderate volume, suggesting company-specific weakness or strong negative sentiment.",
+          "reason": "Largest percentage drop (-6.2%) among listed stocks, indicating strong negative sentiment or a significant event.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%"
           ]
         },
         {
-          "ticker": "JWL.NS",
-          "name": "JWL",
-          "reason": "Substantial 4.3% drawdown, breach of 50DMA support, and relatively low volume, pointing to specific stock weakness.",
-          "severity": "high",
-          "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "reason": "Significant 3.3% drawdown with relatively low volume and a breach of 50DMA support, suggesting potential specific fundamental issues or overreaction.",
+          "reason": "Significant drawdown (-3.1%) coupled with breaking 50DMA support, indicating strong bearish pressure.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "ULTRACEMCO.BO",
-          "name": "ULTRACEMCO",
-          "reason": "Share price fell by 2.9% following Q2FY27 results, despite profit increase, indicating results fell short of market expectations and is a fundamentally driven sell signal.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "EXIDEIND.NS",
-          "name": "EXIDEIND",
-          "reason": "Pre-existing 'Strong Sell Candidate' rating due to negative technical signals and a falling trend, exacerbated by today's market drop.",
-          "severity": "high",
-          "triggeredRules": [
             "below 50DMA support"
           ]
         }
       ],
-      "summary": "Several stocks showed genuine sell signals due to significant drawdowns, technical breaches, or disappointing earnings, suggesting company-specific weaknesses amidst a broader market sell-off."
+      "summary": "A bearish sentiment dominated the market on October 19, 2026, with several stocks showing significant drawdowns and breaching 50DMA support, suggesting potential continued selling pressure."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:c02666dafaccddae1406300c9154ec838e292a56a3d535b16ec0e6616701bf93"
+  "checksum": "sha256:7af8b833b153c3f3ca25b8f0a3b1bbe69438803a2f29de1403cb765cf185e836"
 }
