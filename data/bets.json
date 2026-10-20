@@ -312,7 +312,16 @@
     "quantScore": 82,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +2.5%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-21",
+    "closePrice": 545.5,
+    "returnPct": 2.12,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The short-term momentum in HDFCLIFE failed to sustain past \"565.85, leading to insufficient follow-through buying required to overcome minor overhead resistance and reach the \">577 target. This indicates a lack of continued institutional accumulation or strong retail participation, resulting in early profit-booking just shy of the objective.",
+      "howToAvoid": "Implement a pre-entry screening filter to identify and avoid setups where the target price falls within 2% of a significant prior resistance level or an area of high volume-by-price accumulation, which can absorb momentum just shy of the objective.",
+      "analyzedAt": "2026-10-20T20:46:43.596Z"
+    }
   },
   {
     "id": "lt-2026-10-04-infy",
