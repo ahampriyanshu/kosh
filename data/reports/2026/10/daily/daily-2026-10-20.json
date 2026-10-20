@@ -3,7 +3,7 @@
   "id": "daily-2026-10-20",
   "type": "daily",
   "dateKey": "2026-10-20",
-  "generatedAt": "2026-10-20T10:16:17.877Z",
+  "generatedAt": "2026-10-20T15:22:44.299Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -99,11 +99,11 @@
       "VMM.BO": 94.25,
       "WIPRO.BO": 182
     },
-    "searchTimestamp": "2026-10-20T10:16:17.877Z"
+    "searchTimestamp": "2026-10-20T15:22:44.299Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-20T10:16:17.877Z",
+      "asOf": "2026-10-20T15:22:44.299Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -475,29 +475,29 @@
           "ticker": "ICICIBANK.NS",
           "name": "ICICI Bank",
           "volume": 25149120,
-          "avgVolume": 10217807,
-          "ratio": 2.46
+          "avgVolume": 10454817,
+          "ratio": 2.41
         },
         {
           "ticker": "TCS.NS",
           "name": "Tata Consultancy Services",
           "volume": 8674856,
-          "avgVolume": 3829110,
-          "ratio": 2.27
+          "avgVolume": 3906051,
+          "ratio": 2.22
         },
         {
           "ticker": "ULTRACEMCO.NS",
           "name": "UltraTech Cement",
           "volume": 609123,
-          "avgVolume": 273652,
-          "ratio": 2.23
+          "avgVolume": 278977,
+          "ratio": 2.18
         },
         {
           "ticker": "AXISBANK.NS",
           "name": "Axis Bank",
           "volume": 12761304,
-          "avgVolume": 5945242,
-          "ratio": 2.15
+          "avgVolume": 6053446,
+          "ratio": 2.11
         }
       ],
       "sectorRanking": [
@@ -547,7 +547,7 @@
         "composite": 26,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-20T10:16:17.877Z",
+        "asOf": "2026-10-20T15:22:44.299Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -929,9 +929,81 @@
       ],
       "alerts": [
         {
+          "ticker": "ABREL.BO",
+          "name": "ABREL",
+          "reason": "Stock succumbed to broader market sell-off, with lack of buying interest and weak technical setup after breaking 50DMA.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "BANDHANBNK",
+          "reason": "Private bank sector weakness due to Q2 earnings concerns, stock declined and broke 50DMA on low volume.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BDL.BO",
+          "name": "BDL",
+          "reason": "Likely suffered from general market downturn, dropped and broke 50DMA on below-average volume.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "DIXON.NS",
+          "name": "DIXON",
+          "reason": "Persistent selling pressure and technical breakdown, continued decline coupled with breaking 50DMA on slightly above-average volume.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "EXIDEIND.NS",
+          "name": "EXIDEIND",
+          "reason": "Prolonged selling pressure, significant fall and breaking 50DMA.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "FIRSTCRY.BO",
+          "name": "FIRSTCRY",
+          "reason": "Substantial drop on extremely low volume while breaking 50DMA, signifying very weak buying support and lack of liquidity.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "IRCTC.NS",
+          "name": "IRCTC",
+          "reason": "Likely impacted by overall market downturn, dropped and broke 50DMA on below-average volume.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "IREDA.NS",
+          "name": "IREDA",
+          "reason": "Persistent downtrend and failure to sustain recovery despite recent positive news, with current decline and break of 50DMA.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
           "ticker": "JWL.NS",
           "name": "JWL",
-          "reason": "Significant drawdown of 4.3% and break of 50DMA support, indicating underlying weakness.",
+          "reason": "Significant drawdown with below-average volume and breaking 50DMA, emphasizing the severity of decline.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
@@ -939,39 +1011,10 @@
           ]
         },
         {
-          "ticker": "MAGADSUGAR.NS",
-          "name": "MAGADSUGAR",
-          "reason": "Substantial 6.2% drop, indicating significant selling pressure.",
+          "ticker": "LODHA.NS",
+          "name": "LODHA",
+          "reason": "Substantial drop on low volume and breaking 50DMA, amplified by lack of buying interest.",
           "severity": "high",
-          "triggeredRules": [
-            "drawdown>3%"
-          ]
-        },
-        {
-          "ticker": "NEWGEN.BO",
-          "name": "NEWGEN",
-          "reason": "Drawdown over 3% with a break of 50DMA, indicating bearish price action.",
-          "severity": "high",
-          "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "PSB.BO",
-          "name": "PSB",
-          "reason": "Extremely high volume (7.2x avg) on a slightly down day while breaking 50DMA, suggesting institutional selling or significant reallocation.",
-          "severity": "high",
-          "triggeredRules": [
-            "volume>2x avg",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "ULTRACEMCO.BO",
-          "name": "ULTRACEMCO",
-          "reason": "Near 3% drop with above-average volume (1.8x) and a break below 50DMA, indicating strong selling pressure.",
-          "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
           ]
@@ -979,16 +1022,98 @@
         {
           "ticker": "MANKIND.NS",
           "name": "MANKIND",
-          "reason": "Small drop but with significantly above-average volume (1.9x avg) and a break below 50DMA, indicating potential underlying selling.",
+          "reason": "Significant selling pressure, decline despite positive strategic news, high volume, and breaking 50DMA.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "MAXHEALTH.BO",
+          "name": "MAXHEALTH",
+          "reason": "General market-driven decline, breaking 50DMA on average volume.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "NEWGEN.BO",
+          "name": "NEWGEN",
+          "reason": "Significant drawdown on low volume and breaking 50DMA, indicating weak support.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "NHPC.BO",
+          "name": "NHPC",
+          "reason": "General market-driven decline, breaking 50DMA on below-average volume.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "PRESTIGE.BO",
+          "name": "PRESTIGE",
+          "reason": "Extremely low volume on a down day and breaking 50DMA, indicating very low liquidity and weak support.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "RELIANCE",
+          "reason": "Small decline coupled with breaking 50DMA, market reacting cautiously to broader economic climate or upcoming IPO.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "TMPV.BO",
+          "name": "TMPV",
+          "reason": "Significant decline on below-average volume while breaking 50DMA.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "ULTRACEMCO.BO",
+          "name": "ULTRACEMCO",
+          "reason": "Substantial drop and breaking of 50DMA with higher than average volume, indicating strong selling pressure.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "VMM.BO",
+          "name": "VMM",
+          "reason": "Very low volume on a down day and breaking 50DMA, indicating poor liquidity and weak support.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "M&M",
+          "reason": "Small decline combined with breaking 50DMA, underlying risk from fundamental concerns regarding weak tractor sales.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
           ]
         }
       ],
-      "summary": "Despite the Indian market holiday, analysis of October 19, 2026, trading data indicates genuine sell/risk signals for JWL, MAGADSUGAR, NEWGEN, PSB, ULTRACEMCO, and MANKIND, driven by significant drawdowns, critical technical breaches, or unusual selling volume."
+      "summary": "The Indian equity market shows high carry-over risk for October 21, 2026, following a broad-based sell-off on October 19 driven by weak global cues, high crude prices, and FII selling, leading to numerous technical breakdowns."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:f8439f76b096a15547c8ed97a778894cfe89f70178eeef19f394e777a4561ae1"
+  "checksum": "sha256:2ff38c8130debc2b77c7d01c7bb1a29276767677e1b2b4fbbdb293027f2e90fa"
 }
