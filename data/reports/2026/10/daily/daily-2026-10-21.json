@@ -3,7 +3,7 @@
   "id": "daily-2026-10-21",
   "type": "daily",
   "dateKey": "2026-10-21",
-  "generatedAt": "2026-10-21T10:16:22.252Z",
+  "generatedAt": "2026-10-21T15:37:29.334Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1088.6,
+      "ABREL.BO": 1083.65,
       "AMBUJACEM.BO": 358.55,
       "BANDHANBNK.NS": 159.1,
       "BDL.BO": 1070,
@@ -61,12 +61,12 @@
       "BRITANNIA.BO": 4677,
       "BSOFT.NS": 315.7,
       "CASTROLIND.NS": 196.19,
-      "CENTRALBK.BO": 30.52,
+      "CENTRALBK.BO": 30.44,
       "DIXON.NS": 11689,
       "EXIDEIND.NS": 358.2,
-      "FIRSTCRY.BO": 171,
+      "FIRSTCRY.BO": 170.85,
       "GMRAIRPORT.BO": 87.4,
-      "GODREJCP.BO": 859,
+      "GODREJCP.BO": 857.25,
       "HAVELLS.BO": 1071.1,
       "HCLTECH.BO": 1423.85,
       "HDFCBANK.NS": 706.95,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 450.65,
       "IREDA.NS": 103.6,
       "ITC.BO": 261.75,
-      "ITCHOTELS.BO": 156.65,
+      "ITCHOTELS.BO": 156.1,
       "JWL.NS": 190.31,
       "KAMATHOTEL.NS": 232.81,
       "LICI.BO": 391.3,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 564.8,
       "MANKIND.NS": 2285.5,
       "MAXHEALTH.BO": 820,
-      "NEWGEN.BO": 480,
+      "NEWGEN.BO": 478.9,
       "NHPC.BO": 72.53,
       "ONGC.BO": 225.35,
       "PRESTIGE.BO": 1455,
-      "PSB.BO": 20.81,
+      "PSB.BO": 20.85,
       "RELIANCE.NS": 1209,
       "SBIN.NS": 963,
       "TATASTEEL.BO": 172.3,
@@ -99,11 +99,11 @@
       "VMM.BO": 89.9,
       "WIPRO.BO": 188.6
     },
-    "searchTimestamp": "2026-10-21T10:16:22.252Z"
+    "searchTimestamp": "2026-10-21T15:37:29.334Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-21T10:16:22.252Z",
+      "asOf": "2026-10-21T15:37:29.334Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 15.675,
-        "changePct": 6.097974
+        "changePct": 6.109326
       },
       "breadth": {
         "advances": 21,
@@ -498,7 +498,7 @@
           "ticker": "BAJFINANCE.NS",
           "name": "Bajaj Finance",
           "volume": 18554465,
-          "avgVolume": 7340900,
+          "avgVolume": 7346872,
           "ratio": 2.53
         },
         {
@@ -617,7 +617,7 @@
         "composite": 38,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-21T10:16:22.252Z",
+        "asOf": "2026-10-21T15:37:29.334Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -656,7 +656,7 @@
             "summary": "Elevated volatility & systemic risk (India VIX at 15.68, +6.1%)",
             "metrics": {
               "vix": 15.675,
-              "vixChangePct": 6.097974,
+              "vixChangePct": 6.109326,
               "goldChangePct": -0.033794478,
               "usdinrChangePct": -0.11343358
             }
@@ -692,9 +692,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1088.6,
-          "changePct": -0.94,
-          "note": "-0.9% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 1083.65,
+          "changePct": -1.39,
+          "note": "-1.4% vs prev close, vol 0.4x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -748,9 +748,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.52,
-          "changePct": -1.45,
-          "note": "-1.5% vs prev close, vol 1.1x avg"
+          "price": 30.44,
+          "changePct": -1.71,
+          "note": "-1.7% vs prev close, vol 1.1x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -769,9 +769,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 171,
-          "changePct": -1.95,
-          "note": "-1.9% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 170.85,
+          "changePct": -2.04,
+          "note": "-2.0% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -783,9 +783,9 @@
         {
           "ticker": "GODREJCP.BO",
           "name": "GODREJCP",
-          "price": 859,
-          "changePct": 1.65,
-          "note": "+1.7% vs prev close, vol 1.0x avg"
+          "price": 857.25,
+          "changePct": 1.44,
+          "note": "+1.4% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "HAVELLS.BO",
@@ -846,9 +846,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 156.65,
-          "changePct": -1.17,
-          "note": "-1.2% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+          "price": 156.1,
+          "changePct": -1.51,
+          "note": "-1.5% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
           "ticker": "JWL.NS",
@@ -909,9 +909,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 480,
-          "changePct": 0.08,
-          "note": "+0.1% vs prev close, vol 1.8x avg — flags: below 50DMA support"
+          "price": 478.9,
+          "changePct": -0.15,
+          "note": "-0.1% vs prev close, vol 1.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -937,9 +937,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 20.81,
-          "changePct": -2.16,
-          "note": "-2.2% vs prev close, vol 1.9x avg — flags: below 50DMA support"
+          "price": 20.85,
+          "changePct": -1.97,
+          "note": "-2.0% vs prev close, vol 1.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1007,28 +1007,28 @@
       ],
       "alerts": [
         {
-          "ticker": "IREDA.NS",
-          "name": "IREDA",
-          "reason": "Fell 4% to a 52-week low after Q2 earnings, is in a persistent bearish trend, and trading below its declining 50-day EMA with higher-than-average volume.",
+          "ticker": "VMM.BO",
+          "name": "VMM",
+          "reason": "Significant 4.6% drop with higher-than-average volume following disappointing Q2FY27 earnings, which showed narrowed EBITDA margin and low net profit growth, along with breaching 50DMA support.",
           "severity": "high",
           "triggeredRules": [
+            "drawdown>3%",
             "below 50DMA support"
           ]
         },
         {
-          "ticker": "VMM.BO",
-          "name": "VMM",
-          "reason": "Experienced a sharp fall after Q2 earnings due to margin pressure and impact on Same Store Sales Growth, combined with significant drawdown and high volume.",
+          "ticker": "IREDA.NS",
+          "name": "IREDA",
+          "reason": "Fell 4% and hit a 52-week low following Q2 earnings, trading significantly below its declining 50-day Exponential Moving Average.",
           "severity": "high",
           "triggeredRules": [
-            "drawdown>3%",
             "below 50DMA support"
           ]
         },
         {
           "ticker": "DIXON.NS",
           "name": "DIXON",
-          "reason": "Showed a significant drawdown and considerably higher volume, suggesting a stronger sell-off potentially due to specific business headwinds or profit-booking.",
+          "reason": "Experienced a 3.4% drawdown with higher-than-average volume within the worst-performing consumer durables sector, likely impacted by broader inflation concerns and breaking 50DMA support.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
@@ -1036,19 +1036,55 @@
           ]
         },
         {
+          "ticker": "KAMATHOTEL.NS",
+          "name": "KAMATHOTEL",
+          "reason": "Substantial 5.7% drop, suggesting strong selling interest or accelerated profit-taking in a weak mid/small-cap market, without specific news.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%"
+          ]
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "BANDHANBNK",
+          "reason": "Declined 2.9% amid broader weakness in the financial services sector, possibly due to pre-earnings anxiety ahead of its Q2 results board meeting.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "NEWGEN.BO",
+          "name": "NEWGEN",
+          "reason": "Despite a strong IT sector, the stock traded with significantly higher-than-average volume and remained below its 50DMA, suggesting potential institutional selling or profit-taking against the sector trend.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "VBL.NS",
+          "name": "VBL",
+          "reason": "Notable 2.9% drop, aligning with overall weakness in the consumer durables/goods sector.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
           "ticker": "MAXHEALTH.BO",
           "name": "MAXHEALTH",
-          "reason": "Experienced a drop on very high volume while technically below 50DMA, indicating stronger selling pressure potentially from a brewing concern not yet public.",
-          "severity": "high",
+          "reason": "Extremely high volume (4.2x average) despite a modest 1.1% price drop, indicating significant institutional activity like block sales or profit-taking, particularly when breaking 50DMA.",
+          "severity": "medium",
           "triggeredRules": [
             "volume>2x avg",
             "below 50DMA support"
           ]
         }
       ],
-      "summary": "The Indian market closed lower with IREDA and VMM showing strong sell signals due to weak Q2 earnings, alongside Dixon and Maxhealth exhibiting concerning high-volume selling and technical breakdowns."
+      "summary": "Amidst a broadly negative Indian market driven by inflation fears and rising yields, VMM and IREDA present strong sell signals due to poor earnings and technical breaches, while other stocks like Dixon and Kamathotel show significant risk from sectoral weakness or sharp declines."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:3b967f4baec06a5a8add1387b4a14471b69d5e79bba984d8cfe6686ccee79270"
+  "checksum": "sha256:bf312182b67d1fea4a9ae819d28a4b95206d5f60f63298a496d8a5b981397c27"
 }
