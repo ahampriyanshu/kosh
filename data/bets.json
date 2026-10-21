@@ -376,7 +376,16 @@
     "quantScore": 82,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +2.5%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-22",
+    "closePrice": 545.5,
+    "returnPct": 2.12,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The setup failed due to a dissipation of buying pressure and momentum just shy of the target price, encountering resistance likely from profit-taking or overhead supply near the ₹565-₹570 level. While initial algorithmic triggers validated the breakout, sustained follow-through conviction was absent to overcome this final hurdle and achieve the full quantitative objective.",
+      "howToAvoid": "Implement a tactical profit-taking rule: if the price reaches 95% of the target but fails to breach it within two trading sessions on declining volume, liquidate 50% of the position to capture partial gains. Alternatively, require the target price to be at least 3% above the nearest significant historical resistance level to ensure clear upside potential.",
+      "analyzedAt": "2026-10-21T20:47:00.372Z"
+    }
   },
   {
     "id": "st-2026-10-11-apollohosp",
