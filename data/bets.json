@@ -14,7 +14,16 @@
     "quantScore": 92,
     "triggers": "20 EMA > 50 SMA; RS vs Nifty 1.42; Vol 2.1x SMA20; RSI 62.4",
     "thesis": "Sustained retail network expansion driving operating margin leverage; relative volume outperformance confirms institutional accumulation.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-23",
+    "closePrice": 2822,
+    "returnPct": -60.37,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The dual momentum breakout signal generated a severe false breakout, immediately preceding an unprecedented and catastrophic price collapse. This suggests an unforeseen fundamental re-rating or corporate event caused the stock to gap down significantly, rendering the original investment thesis and technical invalidation stop ineffective.",
+      "howToAvoid": "Implement a mandatory pre-entry due diligence scan for recent corporate actions, earnings announcements, or significant news releases that could drastically alter fundamental valuation. Additionally, introduce an explicit gap-down invalidation rule, automatically exiting positions if the opening price falls beyond a defined threshold below the entry or stop.",
+      "analyzedAt": "2026-10-22T20:41:37.934Z"
+    }
   },
   {
     "id": "st-2026-10-02-bharatforg",
