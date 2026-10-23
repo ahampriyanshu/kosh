@@ -3,7 +3,7 @@
   "id": "daily-2026-10-23",
   "type": "daily",
   "dateKey": "2026-10-23",
-  "generatedAt": "2026-10-23T10:15:35.190Z",
+  "generatedAt": "2026-10-23T15:28:46.538Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1040,
+      "ABREL.BO": 1043.35,
       "AMBUJACEM.BO": 358,
       "BANDHANBNK.NS": 149.89,
       "BDL.BO": 1017,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4547.8,
       "BSOFT.NS": 303.75,
       "CASTROLIND.NS": 194.64,
-      "CENTRALBK.BO": 28.89,
+      "CENTRALBK.BO": 28.84,
       "DIXON.NS": 11191,
       "EXIDEIND.NS": 331.95,
-      "FIRSTCRY.BO": 164.1,
+      "FIRSTCRY.BO": 162.55,
       "GMRAIRPORT.BO": 87,
       "GODREJCP.BO": 851.5,
       "HAVELLS.BO": 1032,
@@ -75,20 +75,20 @@
       "IRCTC.NS": 441.4,
       "IREDA.NS": 100.27,
       "ITC.BO": 257.2,
-      "ITCHOTELS.BO": 156.05,
+      "ITCHOTELS.BO": 156.2,
       "JWL.NS": 173.39,
-      "KAMATHOTEL.NS": 219,
+      "KAMATHOTEL.NS": 218.28,
       "LICI.BO": 380.35,
       "LODHA.NS": 963,
       "M&M.NS": 2861.2,
       "MAGADSUGAR.NS": 513.15,
       "MANKIND.NS": 2212.6,
       "MAXHEALTH.BO": 817,
-      "NEWGEN.BO": 459,
+      "NEWGEN.BO": 453.55,
       "NHPC.BO": 70,
       "ONGC.BO": 226,
       "PRESTIGE.BO": 1400,
-      "PSB.BO": 18.64,
+      "PSB.BO": 18.25,
       "RELIANCE.NS": 1190,
       "SBIN.NS": 958.6,
       "TATASTEEL.BO": 167.25,
@@ -99,11 +99,11 @@
       "VMM.BO": 87,
       "WIPRO.BO": 189.75
     },
-    "searchTimestamp": "2026-10-23T10:15:35.190Z"
+    "searchTimestamp": "2026-10-23T15:28:46.538Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-23T10:15:35.190Z",
+      "asOf": "2026-10-23T15:28:46.538Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 16.86,
-        "changePct": 7.007188
+        "changePct": 6.962733
       },
       "breadth": {
         "advances": 15,
@@ -510,15 +510,15 @@
           "ticker": "HAVELLS.NS",
           "name": "Havells India",
           "volume": 2847918,
-          "avgVolume": 846352,
-          "ratio": 3.36
+          "avgVolume": 864467,
+          "ratio": 3.29
         },
         {
           "ticker": "INFY.NS",
           "name": "Infosys",
           "volume": 33042008,
-          "avgVolume": 11744910,
-          "ratio": 2.81
+          "avgVolume": 11711851,
+          "ratio": 2.82
         }
       ],
       "sectorRanking": [
@@ -787,7 +787,7 @@
         "composite": 31,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-23T10:15:35.190Z",
+        "asOf": "2026-10-23T15:28:46.538Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -826,7 +826,7 @@
             "summary": "Elevated volatility & systemic risk (India VIX at 16.86, +7.0%)",
             "metrics": {
               "vix": 16.86,
-              "vixChangePct": 7.007188,
+              "vixChangePct": 6.962733,
               "goldChangePct": -0.66495913,
               "usdinrChangePct": 0.13132581
             }
@@ -862,9 +862,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1040,
-          "changePct": -4.13,
-          "note": "-4.1% vs prev close, vol 0.3x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 1043.35,
+          "changePct": -3.82,
+          "note": "-3.8% vs prev close, vol 0.3x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -918,9 +918,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 28.89,
-          "changePct": -3.73,
-          "note": "-3.7% vs prev close, vol 2.4x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
+          "price": 28.84,
+          "changePct": -3.9,
+          "note": "-3.9% vs prev close, vol 2.4x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "DIXON.NS",
@@ -939,9 +939,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 164.1,
-          "changePct": -1.65,
-          "note": "-1.6% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+          "price": 162.55,
+          "changePct": -2.58,
+          "note": "-2.6% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1016,9 +1016,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 156.05,
-          "changePct": -3.43,
-          "note": "-3.4% vs prev close, vol 0.6x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 156.2,
+          "changePct": -3.34,
+          "note": "-3.3% vs prev close, vol 0.6x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "JWL.NS",
@@ -1030,9 +1030,9 @@
         {
           "ticker": "KAMATHOTEL.NS",
           "name": "KAMATHOTEL",
-          "price": 219,
-          "changePct": -4.77,
-          "note": "-4.8% vs prev close, vol 0.7x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 218.28,
+          "changePct": -5.09,
+          "note": "-5.1% vs prev close, vol 0.7x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "LICI.BO",
@@ -1079,9 +1079,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 459,
-          "changePct": -3.46,
-          "note": "-3.5% vs prev close, vol 2.4x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
+          "price": 453.55,
+          "changePct": -4.61,
+          "note": "-4.6% vs prev close, vol 2.4x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1107,9 +1107,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 18.64,
-          "changePct": -8.45,
-          "note": "-8.4% vs prev close, vol 4.0x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
+          "price": 18.25,
+          "changePct": -10.36,
+          "note": "-10.4% vs prev close, vol 4.0x avg — flags: drawdown>3%, volume>2x avg, below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1177,124 +1177,52 @@
       ],
       "alerts": [
         {
-          "ticker": "CENTRALBK.BO",
-          "name": "CENTRALBK",
-          "reason": "Plummeted -3.7% on 2.4 times average volume, falling below its 50DMA in an already underperforming PSU Bank sector, indicating strong selling pressure.",
-          "severity": "high",
-          "triggeredRules": [
-            "-3.7% drop",
-            "2.4x average volume",
-            "below 50DMA",
-            "underperforming PSU Bank sector"
-          ]
-        },
-        {
-          "ticker": "EXIDEIND.NS",
-          "name": "EXIDEIND",
-          "reason": "Declined -3.4% on 1.4 times average volume and below its 50DMA, continuing a multi-day losing streak; rated a 'Strong Sell Candidate' by StockInvest.us with increasing volume on falling prices.",
-          "severity": "high",
-          "triggeredRules": [
-            "-3.4% drop",
-            "1.4x average volume",
-            "below 50DMA",
-            "multi-day losing streak",
-            "StockInvest.us Strong Sell Candidate",
-            "volume increasing on falling prices",
-            "upcoming Q2 FY27 results uncertainty"
-          ]
-        },
-        {
-          "ticker": "HAVELLS.BO",
-          "name": "HAVELLS",
-          "reason": "Fell -4.1%, hitting a new 52-week low due to broad market selling and company-specific issues with its Lloyd appliances brand, which reported significant revenue decline and loss, leading to brokerage target price cuts.",
-          "severity": "high",
-          "triggeredRules": [
-            "-4.1% drop",
-            "new 52-week low",
-            "Lloyd appliances poor performance",
-            "brokerage target price cuts",
-            "margin pressures"
-          ]
-        },
-        {
-          "ticker": "HDFCBANK.NS",
-          "name": "HDFCBANK",
-          "reason": "Down nearly 30% year-to-date and hovering near its 52-week low, compounded by an internal probe into executive information disclosure and persistent FII outflows.",
-          "severity": "high",
-          "triggeredRules": [
-            "down nearly 30% YTD",
-            "hovering near 52-week low",
-            "internal probe on confidential information disclosure",
-            "persistent FII outflows"
-          ]
-        },
-        {
-          "ticker": "IREDA.NS",
-          "name": "IREDA",
-          "reason": "Dropped -2.3% on 1.2 times average volume and below its 50DMA, continuing a two-year downtrend with over 60% fall from its peak and rated a 'Sell Candidate' by StockInvest.us.",
-          "severity": "high",
-          "triggeredRules": [
-            "-2.3% drop",
-            "1.2x average volume",
-            "below 50DMA",
-            "two-year downtrend",
-            "60% fall from peak",
-            "52-week low (Sep 2026)",
-            "StockInvest.us Sell Candidate"
-          ]
-        },
-        {
-          "ticker": "LODHA.NS",
-          "name": "LODHA",
-          "reason": "Declined -4.3% on 1.1 times average volume and closed below its 50DMA, indicating clear negative sentiment in the underperforming Realty sector.",
-          "severity": "high",
-          "triggeredRules": [
-            "-4.3% drop",
-            "1.1x average volume",
-            "closed below 50DMA",
-            "underperforming Realty sector"
-          ]
-        },
-        {
           "ticker": "NEWGEN.BO",
-          "name": "NEWGEN",
-          "reason": "Experienced a significant -3.5% drawdown with very high volume (2.4 times average) and closed below its 50DMA, suggesting strong, specific selling pressure despite sector resilience.",
+          "name": "Newgen Software",
+          "reason": "Market reacted cautiously to Q2 FY27 results due to slower top-line growth and a significant decline in license revenue, coupled with elevated receivables, leading to a strong negative market reaction on high volume.",
           "severity": "high",
           "triggeredRules": [
-            "-3.5% drop",
-            "2.4x average volume",
-            "closed below 50DMA",
-            "strong specific selling pressure"
+            "drawdown>3%",
+            "volume>2x avg",
+            "below 50DMA support"
           ]
         },
         {
           "ticker": "PSB.BO",
-          "name": "PSB",
-          "reason": "Plummeted -8.4% on a massive 4.0 times its average volume and below its 50DMA, indicating severe, high-conviction selling in the underperforming PSU Bank sector.",
+          "name": "Punjab & Sind Bank",
+          "reason": "Extreme 10.4% drop on four times average volume, suggesting strong localized selling pressure or delayed reaction to older news in the underperforming PSU Bank sector.",
           "severity": "high",
           "triggeredRules": [
-            "-8.4% drop",
-            "4.0x average volume",
-            "below 50DMA",
-            "underperforming PSU Bank sector"
+            "drawdown>3%",
+            "volume>2x avg",
+            "below 50DMA support"
           ]
         },
         {
-          "ticker": "TATASTEEL.BO",
-          "name": "TATASTEEL",
-          "reason": "Fell -3.2% on average volume, being among the top losers in the Nifty Metal index, which recorded the steepest declines today.",
-          "severity": "high",
+          "ticker": "CENTRALBK.BO",
+          "name": "Central Bank of India",
+          "reason": "3.9% drop on 2.4 times average volume, indicating elevated, concentrated selling pressure within the broadly weak PSU banking sector.",
+          "severity": "medium",
           "triggeredRules": [
-            "-3.2% drop",
-            "average volume",
-            "top loser in Nifty Metal",
-            "steepest sector declines"
+            "drawdown>3%",
+            "volume>2x avg",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "Bandhan Bank",
+          "reason": "Significant 5.4% decline in the weak financial services sector, breaching 50-day moving average, suggesting growing weakness.",
+          "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
           ]
         }
       ],
-      "summary": "The Indian equity market closed lower for the fourth consecutive day, driven by negative global cues, high oil prices, FII outflows, and broad sectoral weakness, resulting in several high-conviction sell signals for individual stocks."
+      "summary": "Indian equities extended losses for a fourth day amidst broad market sell-off, geopolitical tensions, rising crude oil, and weak global cues, with VIX surging to a 3-month high, indicating persistent volatility and a moderate to high carry-over risk for the market."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:5daff7799528c8264b14141f357ddbf93250e4a447fe4fd33ec75f30eef9cd9c"
+  "checksum": "sha256:5f6d359aa77def321747b2bc7459d2526a88fca9a018a30b445c8b50ef0744ae"
 }
