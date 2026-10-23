@@ -1,0 +1,64 @@
+{
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 52867.98,
+      "changePct": 0.022496225
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 26008.86,
+      "changePct": -2.5989654
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7663.43,
+      "changePct": -1.2084272
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 62693.16,
+      "changePct": -0.3412606
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 23121.02,
+      "changePct": 0.8124807
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10699.36,
+      "changePct": -0.2393466
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4032.9,
+      "changePct": -0.6772732
+    },
+    {
+      "name": "Silver",
+      "value": 54.035,
+      "changePct": -1.767048
+    },
+    {
+      "name": "Crude Oil",
+      "value": 100.35,
+      "changePct": 0.88468605
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 94.925,
+      "changePct": 0.12341846
+    }
+  ]
+}
