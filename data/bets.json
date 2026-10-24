@@ -411,7 +411,16 @@
     "quantScore": 85,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.7%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-25",
+    "closePrice": 7730,
+    "returnPct": -3.71,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The high-momentum 52W breakout setup for APOLLOHOSP experienced an immediate reversal, indicating a failure to sustain initial buying pressure following the breakout signal. Instead of follow-through, the stock encountered significant selling pressure, quickly dropping below its invalidation stop, suggesting the initial momentum was exhaustive rather than indicative of a new, sustained uptrend.",
+      "howToAvoid": "Implement a secondary filter requiring the stock to sustain price action above the entry point for at least two consecutive daily closes following the breakout, thereby confirming momentum continuation before full position entry.",
+      "analyzedAt": "2026-10-24T19:38:32.094Z"
+    }
   },
   {
     "id": "st-2026-10-11-itc",
