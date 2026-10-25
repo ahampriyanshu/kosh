@@ -454,7 +454,16 @@
     "quantScore": 85,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.7%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-26",
+    "closePrice": 7730,
+    "returnPct": -3.71,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The high-momentum 52-week breakout proved to be a bull trap, as the initial surge lacked sustained institutional follow-through. The price quickly reversed below the entry point and the original resistance level, indicating insufficient buying conviction and overwhelming profit-taking pressure.",
+      "howToAvoid": "To mitigate false breakouts, implement a confirmation rule requiring the stock to achieve at least two consecutive daily closes above the breakout resistance level before initiating a position.",
+      "analyzedAt": "2026-10-25T19:50:16.879Z"
+    }
   },
   {
     "id": "st-2026-10-12-itc",
