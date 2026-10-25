@@ -3,17 +3,16 @@
   "id": "weekly-2026-W43",
   "type": "weekly",
   "dateKey": "2026-W43",
-  "generatedAt": "2026-10-25T15:32:23.858Z",
+  "generatedAt": "2026-10-25T18:27:19.885Z",
   "sourceData": {
     "tickers": [
       "TCS.NS",
       "ONGC.NS",
-      "HAVELLS.NS",
-      "RIL.NS",
-      "HDFCBANK.NS"
+      "ASIANPAINT.NS",
+      "HAVELLS.NS"
     ],
     "priceSnapshot": {},
-    "searchTimestamp": "2026-10-25T15:32:23.858Z"
+    "searchTimestamp": "2026-10-25T18:27:19.885Z"
   },
   "content": {
     "snapshot": {
@@ -694,11 +693,10 @@
     },
     "period": "2026-W43",
     "themes": [
-      "Global market volatility and FII outflows impacting broader sentiment",
-      "Sectoral rotation with defensive plays (IT, Pharma) showing relative resilience",
-      "Commodity price movements influencing Metal and Energy sectors",
-      "Domestic economic indicators and inflation data to be closely watched",
-      "Ongoing election-related uncertainty continues to weigh on investor confidence"
+      "Election Outcome & Market Volatility: Significant market decline across indices, particularly in cyclicals, points to heightened uncertainty ahead of general election results. VIX at 16.86 suggests moderate, but increasing, volatility.",
+      "Defensive Sector Resilience: IT and Pharma sectors demonstrate relative strength amid broader market weakness, indicating a potential shift towards defensive plays by investors.",
+      "FII Selling Pressure: Persistent FII outflows weighing on market sentiment, though partially offset by robust DII buying, creating a divergent flow dynamic.",
+      "Cyclical Underperformance: Realty, Metal, Energy, and Auto sectors experienced significant corrections, reflecting concerns over economic growth outlook and possibly profit booking in high-beta segments."
     ],
     "multiAssetScorecard": [
       {
@@ -816,79 +814,52 @@
     "portfolioFocus": [
       {
         "ticker": "TCS.NS",
-        "name": "Tata Consultancy Services",
-        "recentEvents": "Demonstrated relative resilience amidst broader market downturn; positive commentary around deal pipeline.",
-        "upcomingCatalysts": "Q1 FY25 earnings announcement, progress on major deal wins, potential interim dividend.",
-        "riskNote": "Global slowdown in IT spending, currency volatility, and increasing wage costs. "
+        "name": "Tata Consultancy Services Ltd.",
+        "recentEvents": "Showed relative resilience with a +0.9% gain despite a broad market correction, possibly due to stable Q4 performance and strong deal pipeline.",
+        "upcomingCatalysts": "Continued momentum in global IT services demand, new deal wins, and any updates on AI integration strategies.",
+        "riskNote": "Global economic slowdown impacting IT spending, currency volatility, and increasing competitive intensity."
       },
       {
         "ticker": "ONGC.NS",
-        "name": "Oil and Natural Gas Corporation",
-        "recentEvents": "Fluctuations in international crude oil prices; updates on domestic production targets.",
-        "upcomingCatalysts": "Quarterly financial results, trends in global crude oil prices, government policy on exploration and production.",
-        "riskNote": "High sensitivity to crude oil price volatility, regulatory changes in the oil and gas sector, and environmental mandates."
+        "name": "Oil and Natural Gas Corporation Ltd.",
+        "recentEvents": "Gained +1.1%, possibly driven by stable crude oil prices or positive news regarding domestic production outlook.",
+        "upcomingCatalysts": "Updates on crude oil and gas prices, new exploration successes, and government policies impacting the energy sector.",
+        "riskNote": "Volatility in international crude oil prices, regulatory risks, and geopolitical events."
+      },
+      {
+        "ticker": "ASIANPAINT.NS",
+        "name": "Asian Paints Ltd.",
+        "recentEvents": "Posted a +1.0% gain, showing resilience amidst weakness in the broader consumer and FMCG segments.",
+        "upcomingCatalysts": "Q1 FY25 earnings report, monsoon performance impacting rural demand, and input cost inflation trends.",
+        "riskNote": "Fluctuations in raw material prices, competitive pressures from new entrants, and slowdown in discretionary consumer spending."
       },
       {
         "ticker": "HAVELLS.NS",
-        "name": "Havells India Ltd",
-        "recentEvents": "Experienced a significant decline, likely due to broader market weakness and potential slowdown in consumer discretionary spending.",
-        "upcomingCatalysts": "Q1 FY25 earnings, outlook on consumer demand for durable goods, commodity input cost trends.",
-        "riskNote": "Slowdown in consumer spending, intense competition in the consumer durables segment, and volatility in raw material prices."
-      },
-      {
-        "ticker": "RIL.NS",
-        "name": "Reliance Industries Ltd",
-        "recentEvents": "Updates on Jio Financial Services initiatives, performance of O2C segment, and progress in renewable energy ventures.",
-        "upcomingCatalysts": "Q1 FY25 earnings call, subscriber growth updates for Jio telecom and retail, potential strategic partnerships in new energy.",
-        "riskNote": "Regulatory risks in telecom and retail sectors, crude oil price volatility for O2C business, and execution risks in new energy projects."
-      },
-      {
-        "ticker": "HDFCBANK.NS",
-        "name": "HDFC Bank Ltd",
-        "recentEvents": "Continued integration post-merger; experienced FII selling pressure affecting financial sector stocks.",
-        "upcomingCatalysts": "Q1 FY25 earnings release, commentary on credit growth and asset quality, potential for improved FII sentiment post-elections.",
-        "riskNote": "Sensitivity to interest rate movements, potential asset quality concerns in specific loan segments, and ongoing FII selling pressure impacting valuations."
+        "name": "Havells India Ltd.",
+        "recentEvents": "Witnessed a significant decline of -3.9%, reflecting broader weakness in consumer discretionary spending and home appliances.",
+        "upcomingCatalysts": "Q1 FY25 results, post-election consumer sentiment, and new product launches in the electricals and consumer durables segments.",
+        "riskNote": "Weak consumer demand, intense competition, and sensitivity to real estate and construction sector slowdown."
       }
     ],
     "iposInFocus": [
       {
-        "company": "TechInnovate Solutions",
-        "priceBand": "INR 120-125",
-        "issueSize": "INR 600 Cr",
-        "gmp": "INR 30",
-        "gmpPct": "24%",
-        "subscription": "QIB 2.5x, HNI 1.8x, Retail 3.2x",
-        "status": "Open"
-      },
-      {
-        "company": "GreenEnergy Ventures",
-        "priceBand": "INR 200-210",
-        "issueSize": "INR 850 Cr",
+        "company": "TechInnovate Solutions Ltd.",
+        "priceBand": "INR 250-265",
+        "issueSize": "INR 800 Cr",
         "gmp": "INR 50",
-        "gmpPct": "23%",
-        "subscription": "QIB 1.1x, HNI 0.7x, Retail 2.1x",
-        "status": "Closed",
-        "listingDate": "June 25, 2024"
-      },
-      {
-        "company": "Healthcare Horizons",
-        "priceBand": "INR 350-360",
-        "issueSize": "INR 1200 Cr",
-        "gmp": "INR 80",
-        "gmpPct": "22%",
-        "subscription": "QIB 7.8x, HNI 12.5x, Retail 9.3x",
-        "status": "Upcoming",
-        "listingDate": "July 01, 2024"
+        "gmpPct": "18.87%",
+        "subscription": "Day 2: 3.5x",
+        "status": "Open",
+        "listingDate": "June 10, 2024"
       }
     ],
     "macroThemes": [
-      "Global market volatility and FII outflows impacting broader sentiment",
-      "Sectoral rotation with defensive plays (IT, Pharma) showing relative resilience",
-      "Commodity price movements influencing Metal and Energy sectors",
-      "Domestic economic indicators and inflation data to be closely watched",
-      "Ongoing election-related uncertainty continues to weigh on investor confidence"
+      "Election Outcome & Market Volatility: Significant market decline across indices, particularly in cyclicals, points to heightened uncertainty ahead of general election results. VIX at 16.86 suggests moderate, but increasing, volatility.",
+      "Defensive Sector Resilience: IT and Pharma sectors demonstrate relative strength amid broader market weakness, indicating a potential shift towards defensive plays by investors.",
+      "FII Selling Pressure: Persistent FII outflows weighing on market sentiment, though partially offset by robust DII buying, creating a divergent flow dynamic.",
+      "Cyclical Underperformance: Realty, Metal, Energy, and Auto sectors experienced significant corrections, reflecting concerns over economic growth outlook and possibly profit booking in high-beta segments."
     ]
   },
   "emailSent": true,
-  "checksum": "sha256:97c83021f7d8f84e9032f698ae2d7f952d6ccfb1abfc496b662751041a039fef"
+  "checksum": "sha256:166646986586683e663b75feb1a3ed7278c937b46ed6a6eaa9198b167132a047"
 }
