@@ -437,7 +437,16 @@
     "quantScore": 82,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-28",
+    "closePrice": 260.5,
+    "returnPct": -2.07,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The short-term, high-momentum breakout setup failed due to an immediate lack of sustained buying pressure following the entry trigger. The stock barely moved above its entry price before rapidly reversing below the invalidation stop, indicating a false breakout without robust follow-through.",
+      "howToAvoid": "To mitigate similar failures, implement a confirmation rule requiring the stock to close at least 1.5% above the entry price on the first day post-entry, confirming strong immediate conviction and filtering out weak breakout attempts.",
+      "analyzedAt": "2026-10-27T21:25:46.320Z"
+    }
   },
   {
     "id": "st-2026-10-12-apollohosp",
