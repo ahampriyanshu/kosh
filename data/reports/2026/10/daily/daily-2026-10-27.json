@@ -3,7 +3,7 @@
   "id": "daily-2026-10-27",
   "type": "daily",
   "dateKey": "2026-10-27",
-  "generatedAt": "2026-10-27T10:15:44.263Z",
+  "generatedAt": "2026-10-27T16:01:37.535Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1083.5,
+      "ABREL.BO": 1079.25,
       "AMBUJACEM.BO": 349.8,
       "BANDHANBNK.NS": 151.91,
       "BDL.BO": 1005,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4560,
       "BSOFT.NS": 311.7,
       "CASTROLIND.NS": 188.86,
-      "CENTRALBK.BO": 28.96,
+      "CENTRALBK.BO": 28.94,
       "DIXON.NS": 11233,
       "EXIDEIND.NS": 338.25,
-      "FIRSTCRY.BO": 165.2,
+      "FIRSTCRY.BO": 164.55,
       "GMRAIRPORT.BO": 89.2,
       "GODREJCP.BO": 829.6,
       "HAVELLS.BO": 1005.15,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 449.2,
       "IREDA.NS": 99.7,
       "ITC.BO": 260,
-      "ITCHOTELS.BO": 166,
+      "ITCHOTELS.BO": 166.25,
       "JWL.NS": 176.68,
       "KAMATHOTEL.NS": 225.42,
       "LICI.BO": 386.3,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 506.4,
       "MANKIND.NS": 2502.5,
       "MAXHEALTH.BO": 848,
-      "NEWGEN.BO": 475,
+      "NEWGEN.BO": 468.7,
       "NHPC.BO": 73.2,
       "ONGC.BO": 229,
       "PRESTIGE.BO": 1433,
-      "PSB.BO": 19.69,
+      "PSB.BO": 19.66,
       "RELIANCE.NS": 1196.2,
       "SBIN.NS": 945.1,
       "TATASTEEL.BO": 171.5,
@@ -99,11 +99,11 @@
       "VMM.BO": 88,
       "WIPRO.BO": 187
     },
-    "searchTimestamp": "2026-10-27T10:15:44.263Z"
+    "searchTimestamp": "2026-10-27T16:01:37.535Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-27T10:15:44.263Z",
+      "asOf": "2026-10-27T16:01:37.535Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 16.4025,
-        "changePct": -4.3811436
+        "changePct": -4.414334
       },
       "breadth": {
         "advances": 26,
@@ -477,13 +477,7 @@
           "ticker": "BRITANNIA.NS",
           "name": "Britannia Industries",
           "ltp": 4560,
-          "pctFromLow": 1
-        },
-        {
-          "ticker": "VEDL.NS",
-          "name": "Vedanta",
-          "ltp": 225.6,
-          "pctFromLow": 1.01
+          "pctFromLow": 1.16
         },
         {
           "ticker": "SBILIFE.NS",
@@ -495,7 +489,13 @@
           "ticker": "TATAPOWER.NS",
           "name": "Tata Power",
           "ltp": 339.1,
-          "pctFromLow": 1.68
+          "pctFromLow": 1.77
+        },
+        {
+          "ticker": "VEDL.NS",
+          "name": "Vedanta",
+          "ltp": 225.6,
+          "pctFromLow": 1.81
         }
       ],
       "volumeShockers": [
@@ -503,36 +503,36 @@
           "ticker": "TATACONSUM.NS",
           "name": "Tata Consumer Products",
           "volume": 7576093,
-          "avgVolume": 1302097,
+          "avgVolume": 1301535,
           "ratio": 5.82
         },
         {
           "ticker": "CIPLA.NS",
           "name": "Cipla",
           "volume": 4078402,
-          "avgVolume": 923719,
-          "ratio": 4.42
+          "avgVolume": 929951,
+          "ratio": 4.39
         },
         {
           "ticker": "HINDUNILVR.NS",
           "name": "Hindustan Unilever",
           "volume": 3795428,
-          "avgVolume": 1508815,
+          "avgVolume": 1508386,
           "ratio": 2.52
         },
         {
           "ticker": "BAJAJFINSV.NS",
           "name": "Bajaj Finserv",
           "volume": 2480795,
-          "avgVolume": 995321,
-          "ratio": 2.49
+          "avgVolume": 994183,
+          "ratio": 2.5
         },
         {
           "ticker": "IOC.NS",
           "name": "Indian Oil",
           "volume": 19528020,
-          "avgVolume": 8229157,
-          "ratio": 2.37
+          "avgVolume": 8167129,
+          "ratio": 2.39
         }
       ],
       "sectorRanking": [
@@ -946,7 +946,7 @@
         "composite": 37,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-27T10:15:44.263Z",
+        "asOf": "2026-10-27T16:01:37.535Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -985,7 +985,7 @@
             "summary": "Normal market volatility (India VIX at 16.40)",
             "metrics": {
               "vix": 16.4025,
-              "vixChangePct": -4.3811436,
+              "vixChangePct": -4.414334,
               "goldChangePct": -0.65372187,
               "usdinrChangePct": -0.036782075
             }
@@ -1021,9 +1021,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1083.5,
-          "changePct": 0.65,
-          "note": "+0.6% vs prev close, vol 1.3x avg — flags: below 50DMA support"
+          "price": 1079.25,
+          "changePct": 0.25,
+          "note": "+0.3% vs prev close, vol 1.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -1077,9 +1077,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 28.96,
-          "changePct": -0.45,
-          "note": "-0.4% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 28.94,
+          "changePct": -0.52,
+          "note": "-0.5% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "DIXON.NS",
@@ -1098,9 +1098,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 165.2,
-          "changePct": 0.79,
-          "note": "+0.8% vs prev close, vol 0.1x avg — flags: below 50DMA support"
+          "price": 164.55,
+          "changePct": 0.4,
+          "note": "+0.4% vs prev close, vol 0.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1175,9 +1175,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 166,
-          "changePct": 0.97,
-          "note": "+1.0% vs prev close, vol 3.3x avg — flags: volume>2x avg"
+          "price": 166.25,
+          "changePct": 1.13,
+          "note": "+1.1% vs prev close, vol 3.3x avg — flags: volume>2x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -1238,9 +1238,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 475,
-          "changePct": -0.23,
-          "note": "-0.2% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 468.7,
+          "changePct": -1.55,
+          "note": "-1.6% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1266,9 +1266,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 19.69,
-          "changePct": 3.41,
-          "note": "+3.4% vs prev close, vol 1.6x avg — flags: below 50DMA support"
+          "price": 19.66,
+          "changePct": 3.26,
+          "note": "+3.3% vs prev close, vol 1.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1337,44 +1337,62 @@
       "alerts": [
         {
           "ticker": "AMBUJACEM.BO",
-          "name": "AMBUJACEM",
-          "reason": "Significant 3.3% drawdown on average volume, suggesting a genuine correction or profit-booking and potential underlying weakness.",
-          "severity": "medium",
+          "name": "Ambuja Cements",
+          "reason": "Notable drawdown ahead of financial results suggests investor apprehension, with potential for continued selling pressure until results are announced.",
+          "severity": "high",
           "triggeredRules": [
             "drawdown>3%"
           ]
         },
         {
-          "ticker": "BDL.BO",
-          "name": "BDL",
-          "reason": "Notable 2.3% drop on above-average volume, combined with a breach of the 50-day moving average, indicating a bearish technical picture.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
           "ticker": "CASTROLIND.NS",
-          "name": "CASTROLIND",
-          "reason": "1.0% decline on more than double its average volume due to negative Q3 FY27 results, including a 19% decline in EBITDA and management caution on future outlook.",
-          "severity": "high",
+          "name": "Castrol India",
+          "reason": "High volume on negative price movement, coupled with reported profitability concerns due to higher raw material costs, indicates investor apprehension.",
+          "severity": "medium",
           "triggeredRules": [
             "volume>2x avg"
           ]
         },
         {
           "ticker": "HDFCBANK.NS",
-          "name": "HDFCBANK",
-          "reason": "1.1% drop on above-average volume and falling below its 50DMA, signaling persistent weakness due to leadership transitions and past governance concerns.",
+          "name": "HDFC Bank",
+          "reason": "Sustained decline on significant volume, leadership uncertainties, ongoing governance concerns, and broad sector weakness indicate fundamental and technical challenges.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "NEWGEN.BO",
+          "name": "Newgen Software",
+          "reason": "Market caution over slowing top-line growth and license revenue decline, combined with technical weakness below 50DMA support, outweighs positive news.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
           ]
         },
         {
-          "ticker": "IREDA.NS",
-          "name": "IREDA",
-          "reason": "2.1% decrease on elevated volume and a breach of the 50DMA, indicating a clear bearish technical signal, possibly profit-booking.",
+          "ticker": "BDL.BO",
+          "name": "Bharat Dynamics",
+          "reason": "Negative close on higher volume despite positive sector news indicates selling pressure or profit-taking, suggesting underlying weakness.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "EXIDEIND.NS",
+          "name": "Exide Industries",
+          "reason": "Persistent technical weakness and negative analyst sentiment, with the stock remaining below its 50DMA support.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "reason": "Decline reflecting macro factors like elevated crude oil prices impacting downstream margins, and technical vulnerability due to 50DMA breach.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
@@ -1382,8 +1400,8 @@
         },
         {
           "ticker": "SBIN.NS",
-          "name": "SBIN",
-          "reason": "1.6% decline on slightly above-average volume, breaking below its 50DMA, indicating technical weakness potentially reflecting broader banking sector caution.",
+          "name": "State Bank of India",
+          "reason": "Decline signifying sector-wide selling pressure in banking, making the 50DMA breach a significant technical concern.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
@@ -1391,18 +1409,27 @@
         },
         {
           "ticker": "VMM.BO",
-          "name": "VMM",
-          "reason": "Small price drop of 0.3% but with extremely high volume (2.8x average) and breaking below the 50DMA, suggesting strong distribution or panic selling.",
+          "name": "Visaka Industries",
+          "reason": "Very high volume on a negative price change while below 50DMA suggests significant selling interest or liquidation.",
           "severity": "medium",
           "triggeredRules": [
             "volume>2x avg",
             "below 50DMA support"
           ]
+        },
+        {
+          "ticker": "IREDA.NS",
+          "name": "Indian Renewable Energy Development Agency",
+          "reason": "Moderate negative move on higher volume, remaining below its 50DMA, suggests underlying selling pressure.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
         }
       ],
-      "summary": "Multiple stocks exhibit genuine sell signals due to technical breakdowns, high volume on negative price action, and adverse fundamental news, warranting immediate attention."
+      "summary": "Several stocks triggered genuine sell signals due to a combination of pre-earnings apprehension, profitability concerns, leadership uncertainties, sustained technical weakness, and significant selling interest."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:efda6a98c5a61919c4c88857c67a23d4ee7c9e45241d8fe31a8c50de5cde9efc"
+  "checksum": "sha256:cfae576a35c9682cda607dd8a1671f3c913e857c2c5580c5e30b366d0a408dfd"
 }
