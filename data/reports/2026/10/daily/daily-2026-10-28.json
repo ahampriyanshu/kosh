@@ -3,7 +3,7 @@
   "id": "daily-2026-10-28",
   "type": "daily",
   "dateKey": "2026-10-28",
-  "generatedAt": "2026-10-28T10:15:32.955Z",
+  "generatedAt": "2026-10-28T16:49:59.646Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1051.35,
+      "ABREL.BO": 1053.75,
       "AMBUJACEM.BO": 350.8,
       "BANDHANBNK.NS": 155.36,
       "BDL.BO": 994,
@@ -61,7 +61,7 @@
       "BRITANNIA.BO": 4570,
       "BSOFT.NS": 306.1,
       "CASTROLIND.NS": 188.9,
-      "CENTRALBK.BO": 28.97,
+      "CENTRALBK.BO": 28.93,
       "DIXON.NS": 11400,
       "EXIDEIND.NS": 353.85,
       "FIRSTCRY.BO": 165.7,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 442.7,
       "IREDA.NS": 100.59,
       "ITC.BO": 259,
-      "ITCHOTELS.BO": 164.5,
+      "ITCHOTELS.BO": 165.2,
       "JWL.NS": 181.05,
       "KAMATHOTEL.NS": 227.57,
       "LICI.BO": 391,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 504.4,
       "MANKIND.NS": 2490,
       "MAXHEALTH.BO": 850,
-      "NEWGEN.BO": 459.25,
+      "NEWGEN.BO": 457.9,
       "NHPC.BO": 74.25,
       "ONGC.BO": 224.4,
       "PRESTIGE.BO": 1398.35,
-      "PSB.BO": 18.62,
+      "PSB.BO": 18.86,
       "RELIANCE.NS": 1158,
       "SBIN.NS": 956.8,
       "TATASTEEL.BO": 169.15,
@@ -99,11 +99,11 @@
       "VMM.BO": 87.8,
       "WIPRO.BO": 184.15
     },
-    "searchTimestamp": "2026-10-28T10:15:32.955Z"
+    "searchTimestamp": "2026-10-28T16:49:59.646Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-28T10:15:32.955Z",
+      "asOf": "2026-10-28T16:49:59.646Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -239,7 +239,7 @@
       "bondYield": null,
       "vix": {
         "value": 16.245,
-        "changePct": -0.9538188
+        "changePct": -0.9602153
       },
       "breadth": {
         "advances": 29,
@@ -471,16 +471,16 @@
           "pctFromLow": 1.19
         },
         {
-          "ticker": "DABUR.NS",
-          "name": "Dabur India",
-          "ltp": 360,
-          "pctFromLow": 1.35
-        },
-        {
           "ticker": "BRITANNIA.NS",
           "name": "Britannia Industries",
           "ltp": 4567.3,
           "pctFromLow": 1.5
+        },
+        {
+          "ticker": "DABUR.NS",
+          "name": "Dabur India",
+          "ltp": 360,
+          "pctFromLow": 1.61
         },
         {
           "ticker": "NESTLEIND.NS",
@@ -494,42 +494,42 @@
           "ticker": "LT.NS",
           "name": "Larsen & Toubro",
           "volume": 6173500,
-          "avgVolume": 1621939,
+          "avgVolume": 1620640,
           "ratio": 3.81
         },
         {
           "ticker": "BAJAJ-AUTO.NS",
           "name": "Bajaj Auto",
           "volume": 967659,
-          "avgVolume": 260625,
-          "ratio": 3.71
+          "avgVolume": 259063,
+          "ratio": 3.74
+        },
+        {
+          "ticker": "HINDUNILVR.NS",
+          "name": "Hindustan Unilever",
+          "volume": 3364379,
+          "avgVolume": 1409175,
+          "ratio": 2.39
         },
         {
           "ticker": "MARUTI.NS",
           "name": "Maruti Suzuki",
           "volume": 938013,
-          "avgVolume": 410174,
+          "avgVolume": 409031,
           "ratio": 2.29
         },
         {
           "ticker": "TATACONSUM.NS",
           "name": "Tata Consumer Products",
           "volume": 3141574,
-          "avgVolume": 1401174,
+          "avgVolume": 1399580,
           "ratio": 2.24
-        },
-        {
-          "ticker": "HINDUNILVR.NS",
-          "name": "Hindustan Unilever",
-          "volume": 3364379,
-          "avgVolume": 1544701,
-          "ratio": 2.18
         },
         {
           "ticker": "BHARTIARTL.NS",
           "name": "Bharti Airtel",
           "volume": 14501247,
-          "avgVolume": 7034653,
+          "avgVolume": 7046355,
           "ratio": 2.06
         }
       ],
@@ -580,7 +580,7 @@
         "composite": 45,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-28T10:15:32.955Z",
+        "asOf": "2026-10-28T16:49:59.646Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -619,7 +619,7 @@
             "summary": "Normal market volatility (India VIX at 16.25)",
             "metrics": {
               "vix": 16.245,
-              "vixChangePct": -0.9538188,
+              "vixChangePct": -0.9602153,
               "goldChangePct": -0.28960016,
               "usdinrChangePct": 0.06834149
             }
@@ -654,9 +654,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1051.35,
-          "changePct": -2.59,
-          "note": "-2.6% vs prev close, vol 1.0x avg — flags: below 50DMA support"
+          "price": 1053.75,
+          "changePct": -2.36,
+          "note": "-2.4% vs prev close, vol 1.0x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -710,9 +710,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 28.97,
-          "changePct": 0.1,
-          "note": "+0.1% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 28.93,
+          "changePct": -0.03,
+          "note": "-0.0% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "DIXON.NS",
@@ -808,9 +808,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 164.5,
-          "changePct": -1.05,
-          "note": "-1.1% vs prev close, vol 0.7x avg"
+          "price": 165.2,
+          "changePct": -0.63,
+          "note": "-0.6% vs prev close, vol 0.7x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -871,9 +871,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 459.25,
-          "changePct": -2.02,
-          "note": "-2.0% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 457.9,
+          "changePct": -2.3,
+          "note": "-2.3% vs prev close, vol 0.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -899,9 +899,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 18.62,
-          "changePct": -5.29,
-          "note": "-5.3% vs prev close, vol 1.8x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 18.86,
+          "changePct": -4.07,
+          "note": "-4.1% vs prev close, vol 1.8x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -971,7 +971,7 @@
         {
           "ticker": "INFY.BO",
           "name": "Infosys",
-          "reason": "Plummeted significantly due to steeper than anticipated FY27 revenue growth guidance cut, missed Q2 FY27 estimates, and negative analyst downgrades.",
+          "reason": "IT sector weakness, company-specific guidance cut and brokerage downgrades.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%"
@@ -980,7 +980,7 @@
         {
           "ticker": "PSB.BO",
           "name": "Punjab & Sind Bank",
-          "reason": "Substantial drop with high trading volume without specific company-specific catalyst, suggesting strong negative selling pressure.",
+          "reason": "Significant single-day drop, underperforming its sector despite positive peer performance.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
@@ -990,7 +990,7 @@
         {
           "ticker": "RELIANCE.NS",
           "name": "Reliance Industries",
-          "reason": "Notable decline due to 'sell the news' profit-taking post-Jio listing, broader market weakness from rising crude oil, and uncertainty before Q2 results.",
+          "reason": "Impacted by rising crude oil prices, geopolitical tensions, and upcoming Q2 results.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
@@ -998,9 +998,9 @@
           ]
         }
       ],
-      "summary": "The Indian market is likely to remain cautious and potentially volatile, with large-cap indices weighed down by Infosys's weak guidance, Reliance's profit-taking, high crude oil prices, and upcoming US Fed decision, while midcap/smallcap segments might see selective interest."
+      "summary": "Infosys, Reliance Industries, and Punjab & Sind Bank show genuine sell signals due to sector weakness, company-specific issues, and significant drops, while other alerts are mostly noise."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:8a0bcb3ef1af5c4cebaaf8bff6fef11f351a2adc2ea5c7bcff99977bd86783d9"
+  "checksum": "sha256:50fd859ef9d8d9c37ac8b104515bc974dba2c043b042286b4523e778b4df9752"
 }
