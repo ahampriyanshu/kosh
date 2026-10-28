@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-28T10:15:32.955Z",
+  "asOf": "2026-10-28T16:37:47.633Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -135,7 +135,7 @@
   "bondYield": null,
   "vix": {
     "value": 16.245,
-    "changePct": -0.9538188
+    "changePct": -0.9602153
   },
   "breadth": {
     "advances": 29,
@@ -367,16 +367,16 @@
       "pctFromLow": 1.19
     },
     {
-      "ticker": "DABUR.NS",
-      "name": "Dabur India",
-      "ltp": 360,
-      "pctFromLow": 1.35
-    },
-    {
       "ticker": "BRITANNIA.NS",
       "name": "Britannia Industries",
       "ltp": 4567.3,
       "pctFromLow": 1.5
+    },
+    {
+      "ticker": "DABUR.NS",
+      "name": "Dabur India",
+      "ltp": 360,
+      "pctFromLow": 1.61
     },
     {
       "ticker": "NESTLEIND.NS",
@@ -390,42 +390,42 @@
       "ticker": "LT.NS",
       "name": "Larsen & Toubro",
       "volume": 6173500,
-      "avgVolume": 1621939,
+      "avgVolume": 1620640,
       "ratio": 3.81
     },
     {
       "ticker": "BAJAJ-AUTO.NS",
       "name": "Bajaj Auto",
       "volume": 967659,
-      "avgVolume": 260625,
-      "ratio": 3.71
+      "avgVolume": 259063,
+      "ratio": 3.74
+    },
+    {
+      "ticker": "HINDUNILVR.NS",
+      "name": "Hindustan Unilever",
+      "volume": 3364379,
+      "avgVolume": 1409175,
+      "ratio": 2.39
     },
     {
       "ticker": "MARUTI.NS",
       "name": "Maruti Suzuki",
       "volume": 938013,
-      "avgVolume": 410174,
+      "avgVolume": 409031,
       "ratio": 2.29
     },
     {
       "ticker": "TATACONSUM.NS",
       "name": "Tata Consumer Products",
       "volume": 3141574,
-      "avgVolume": 1401174,
+      "avgVolume": 1399580,
       "ratio": 2.24
-    },
-    {
-      "ticker": "HINDUNILVR.NS",
-      "name": "Hindustan Unilever",
-      "volume": 3364379,
-      "avgVolume": 1544701,
-      "ratio": 2.18
     },
     {
       "ticker": "BHARTIARTL.NS",
       "name": "Bharti Airtel",
       "volume": 14501247,
-      "avgVolume": 7034653,
+      "avgVolume": 7046355,
       "ratio": 2.06
     }
   ],
@@ -476,7 +476,7 @@
     "composite": 45,
     "regime": "Fear",
     "session": "closing",
-    "asOf": "2026-10-28T10:15:32.955Z",
+    "asOf": "2026-10-28T16:37:47.633Z",
     "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
     "categories": {
       "breadth": {
@@ -515,7 +515,7 @@
         "summary": "Normal market volatility (India VIX at 16.25)",
         "metrics": {
           "vix": 16.245,
-          "vixChangePct": -0.9538188,
+          "vixChangePct": -0.9602153,
           "goldChangePct": -0.28960016,
           "usdinrChangePct": 0.06834149
         }
