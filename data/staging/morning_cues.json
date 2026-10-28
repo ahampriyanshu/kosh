@@ -1,126 +1,138 @@
 {
-  "date": "2026-10-27",
-  "timestamp": "2026-10-27T08:10:35.291Z",
+  "date": "2026-10-28",
+  "timestamp": "2026-10-28T08:50:25.964Z",
   "indianOpeningRef": [
+    {
+      "name": "NIFTY 50",
+      "symbol": "^NSEI",
+      "ltp": 22700.5,
+      "changePct": -0.21648638
+    },
     {
       "name": "SENSEX",
       "symbol": "^BSESN",
-      "ltp": 73389.02,
-      "changePct": -0.29581386
+      "ltp": 73253.69,
+      "changePct": -0.46874052
     },
     {
       "name": "NIFTY BANK",
       "symbol": "^NSEBANK",
-      "ltp": 54062.65,
-      "changePct": -0.5592654
+      "ltp": 54292,
+      "changePct": 0.5874922
     },
     {
       "name": "NIFTY IT",
       "symbol": "^CNXIT",
-      "ltp": 32061.75,
-      "changePct": -0.65472823
+      "ltp": 31427.2,
+      "changePct": -2.3679492
     },
     {
       "name": "NIFTY PHARMA",
       "symbol": "^CNXPHARMA",
-      "ltp": 26213.25,
-      "changePct": 1.70328
+      "ltp": 26550.25,
+      "changePct": 1.0773832
     },
     {
       "name": "NIFTY AUTO",
       "symbol": "^CNXAUTO",
-      "ltp": 25259.1,
-      "changePct": 1.1547287
+      "ltp": 25637.5,
+      "changePct": 1.1708384
     },
     {
       "name": "NIFTY FMCG",
       "symbol": "^CNXFMCG",
-      "ltp": 42717.05,
-      "changePct": -0.19558612
+      "ltp": 42721.35,
+      "changePct": -0.9203716
     },
     {
       "name": "NIFTY METAL",
       "symbol": "^CNXMETAL",
-      "ltp": 11752.2,
-      "changePct": 0.17604166
+      "ltp": 11785.45,
+      "changePct": -0.1799635
     },
     {
       "name": "NIFTY ENERGY",
       "symbol": "^CNXENERGY",
-      "ltp": 35166,
-      "changePct": 0.410161
+      "ltp": 34985.55,
+      "changePct": -0.7835463
     },
     {
       "name": "NIFTY REALTY",
       "symbol": "^CNXREALTY",
-      "ltp": 805.85,
-      "changePct": 2.0449462
+      "ltp": 799.75,
+      "changePct": -0.6583427
     },
     {
       "name": "NIFTY FIN SERVICE",
       "symbol": "^CNXFIN",
-      "ltp": 26074.5,
-      "changePct": -0.6403752
+      "ltp": 26205.65,
+      "changePct": 0.45097512
     }
   ],
   "vix": {
-    "value": 16.7575,
-    "changePct": -2.345572
+    "value": 16.275,
+    "changePct": -0.77696854
   },
   "globalIndices": [
     {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 52377.57,
+      "changePct": 0.030541837
+    },
+    {
       "name": "NASDAQ",
       "symbol": "^IXIC",
-      "ltp": 26169.38,
-      "changePct": 0.8246436
+      "ltp": 26477.81,
+      "changePct": 1.1785899
     },
     {
       "name": "S&P 500",
       "symbol": "^GSPC",
-      "ltp": 7676.77,
-      "changePct": 0.6963808
+      "ltp": 7722.6,
+      "changePct": 0.5969969
     },
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
-      "ltp": 63268.37,
-      "changePct": 1.7345694
+      "ltp": 63954.19,
+      "changePct": 1.083986
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
-      "ltp": 22993.8,
-      "changePct": -0.9392191
+      "ltp": 23094.83,
+      "changePct": 0.23223394
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10767.33,
-      "changePct": 0
+      "ltp": 10655.44,
+      "changePct": -0.29101664
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 4010.3,
-      "changePct": -0.6958682
+      "value": 4062.8,
+      "changePct": -0.28960016
     },
     {
       "name": "Silver",
-      "value": 52.815,
-      "changePct": -2.8081946
+      "value": 54.025,
+      "changePct": -0.8951974
     },
     {
       "name": "Crude Oil",
-      "value": 102.43,
-      "changePct": 0.65841013
+      "value": 101.47,
+      "changePct": 1.5715712
     }
   ],
   "currencies": [
     {
       "pair": "USD/INR",
-      "value": 95.162,
-      "changePct": -0.013659849
+      "value": 95.17,
+      "changePct": 0.06834149
     }
   ]
 }
