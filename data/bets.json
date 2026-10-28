@@ -489,7 +489,16 @@
     "quantScore": 82,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-10-29",
+    "closePrice": 260,
+    "returnPct": -2.26,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The breakout attempt failed due to a lack of sustained buying conviction beyond the initial algorithmic triggers, leading to a swift reversal that breached the critical ₹255 invalidation stop. This suggests the original 'breakout past resistance' thesis lacked fundamental or broader market support to convert short-term momentum into a durable upward trend.",
+      "howToAvoid": "To prevent similar entries, a confirmation filter requiring the stock to close at least 1% above its entry price within two trading days post-activation could be implemented, thereby rejecting setups lacking immediate follow-through. Alternatively, incorporating a daily minimum average traded value filter post-breakout could ensure genuine institutional interest.",
+      "analyzedAt": "2026-10-28T21:48:35.459Z"
+    }
   },
   {
     "id": "st-2026-10-18-techm",
