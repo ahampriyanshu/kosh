@@ -1,9 +1,13 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { decryptPortfolioEnvelope } from '../../lib/portfolio-crypto';
 import type { Portfolio } from '../../lib/schemas';
-import { sortPortfolioHoldings, type PortfolioSort, type PortfolioSortKey } from '../../lib/portfolio-sort';
+import {
+  sortPortfolioHoldings,
+  type PortfolioSort,
+  type PortfolioSortKey,
+} from '../../lib/portfolio-sort';
 import { Pct } from './Pct';
 import { ticker } from './market/Figure';
 
@@ -45,81 +49,81 @@ function isStale(value: string): boolean {
   return Date.now() - then > 36 * 60 * 60 * 1000;
 }
 
-function StatBlock({ label, value, tone = 'neutral' }: { label: string; value: string; tone?: 'neutral' | 'gain' | 'loss' }) {
+function StatBlock({
+  label,
+  value,
+  tone = 'neutral',
+}: {
+  label: string;
+  value: string;
+  tone?: 'neutral' | 'gain' | 'loss';
+}) {
   const color =
     tone === 'gain'
       ? 'text-[var(--color-bullish)]'
       : tone === 'loss'
-      ? 'text-[var(--color-bearish)]'
-      : 'text-[var(--color-ink)]';
+        ? 'text-[var(--color-bearish)]'
+        : 'text-[var(--color-ink)]';
 
   return (
     <div className="py-2">
       <p className="font-sans text-xs text-[var(--color-faint)] mb-1">
         {label}
       </p>
-      <p className={`font-serif text-xl font-bold tabular-nums ${color}`}>{value}</p>
+      <p className={`font-serif text-xl font-bold tabular-nums ${color}`}>
+        {value}
+      </p>
     </div>
   );
 }
 
 function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
   return (
-    <div>
-      <section>
-        <div className="max-w-3xl">
-          <h2 className="font-serif text-2xl font-bold text-[var(--color-ink)] leading-tight mb-4">
-            Bring your own portfolio feed.
-          </h2>
-          <p className="text-sm leading-6 text-[var(--color-muted)] max-w-xl">
-            To make this page work for your repo, create a Kite Connect v3 app, paste the required API{' '}
-            <button
-              type="button"
-              onClick={onOpenKeyModal}
-              aria-label="Open portfolio unlock"
-              className="cursor-text text-inherit outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4"
-            >
-              values
-            </button>{' '}
-            into the required environment secrets, run the portfolio sync workflow, and read{' '}
-            <a
-              href="https://github.com/ahampriyanshu/kosh#portfolio-encryption"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-link)] underline underline-offset-4 hover:text-[var(--color-link-hover)]"
-            >
-              README.md
-            </a>
-            .
-          </p>
-        </div>
-        <ol className="mt-8 grid gap-6 md:grid-cols-3">
-          {[
-            'Create the Kite app and keep the API values ready.',
-            'Add the required secrets in your fork.',
-            'Run the portfolio sync, then return here.',
-          ].map((step, index) => (
-            <li
-              key={step}
-              className="border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5"
-            >
-              <span className="tabular-nums text-xs text-[var(--color-faint)]">0{index + 1}</span>
-              <p className="mt-3 text-sm leading-6 text-[var(--color-ink)]">{step}</p>
-            </li>
-          ))}
-        </ol>
-        <div className="mt-7 flex flex-wrap gap-3">
-          <a
-            href={INTEGRATION_REQUEST_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-b border-current pb-0.5 text-sm font-semibold text-[var(--color-brand)] hover:text-[var(--color-link-hover)] focus:outline-none focus:ring-2 focus:ring-[var(--color-brand)] focus:ring-offset-2 focus:ring-offset-[var(--color-bg)]"
-          >
-            Request New Integration
-          </a>
-        </div>
-      </section>
-    </div>
+    <section className="portfolio-welcome">
+      <div className="portfolio-welcome-mark" aria-hidden="true">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.25"
+        >
+          <rect x="5" y="10" width="14" height="11" rx="1" />
+          <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+          <path d="M12 14v3" />
+        </svg>
+      </div>
+      <h2>Your portfolio, in context.</h2>
+      <p>
+        Unlock your synced holdings to review performance, allocation and the
+        latest market-close checks. Your portfolio is decrypted in this browser.
+      </p>
+      <div className="portfolio-welcome-actions">
+        <button
+          type="button"
+          className="primary-button"
+          onClick={onOpenKeyModal}
+        >
+          Unlock portfolio
+        </button>
+        <a
+          href="https://github.com/ahampriyanshu/kosh#portfolio-encryption"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Set up a portfolio feed <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <a
+        className="portfolio-integration-link"
+        href={INTEGRATION_REQUEST_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Request another integration
+      </a>
+    </section>
   );
 }
 
@@ -135,16 +139,46 @@ function KeyModal({
   onSave: (key: string) => void;
 }) {
   const [value, setValue] = useState('');
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const phraseRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    const opener =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    dialog?.showModal();
+    phraseRef.current?.focus();
+    return () => {
+      dialog?.close();
+      if (opener?.isConnected) opener.focus();
+    };
+  }, []);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--color-overlay-primary)] px-4">
-      <div className="w-full max-w-md rounded-lg border border-[var(--color-hairline)] bg-[var(--color-surface)] p-5 shadow-lg">
+    <dialog
+      ref={dialogRef}
+      onCancel={onClose}
+      aria-labelledby="portfolio-dialog-title"
+      className="portfolio-dialog"
+    >
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          if (!loading && value.trim()) onSave(value.trim());
+        }}
+      >
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="font-sans text-xs text-[var(--color-faint)] mb-1">
               Unlock
             </p>
-            <h2 className="font-display text-xl font-bold text-[var(--color-ink)]">Portfolio phrase</h2>
+            <h2
+              id="portfolio-dialog-title"
+              className="font-serif text-2xl font-medium text-[var(--color-ink)]"
+            >
+              Unlock your portfolio
+            </h2>
           </div>
           <button
             type="button"
@@ -169,17 +203,28 @@ function KeyModal({
         </div>
         <label className="mt-5 block">
           <span className="font-sans text-xs text-[var(--color-faint)]">
-            Phrase
+            Portfolio phrase
           </span>
           <input
             type="password"
+            ref={phraseRef}
+            autoComplete="current-password"
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? 'portfolio-unlock-error' : undefined}
             value={value}
             onChange={(event) => setValue(event.target.value)}
-            autoFocus
             className="mt-2 w-full border border-[var(--color-hairline)] bg-[var(--color-bg)] px-3 py-2 text-sm text-[var(--color-ink)] outline-none focus:border-[var(--color-brand)]"
           />
         </label>
-        {error && <p className="mt-3 text-sm text-[var(--color-bearish)]">{error}</p>}
+        {error && (
+          <p
+            id="portfolio-unlock-error"
+            role="alert"
+            className="mt-3 text-sm text-[var(--color-bearish)]"
+          >
+            {error}
+          </p>
+        )}
         <div className="mt-5 flex justify-end gap-3">
           <button
             type="button"
@@ -189,26 +234,52 @@ function KeyModal({
             Cancel
           </button>
           <button
-            type="button"
+            type="submit"
             disabled={loading || !value.trim()}
-            onClick={() => onSave(value.trim())}
             className="bg-[var(--color-brand)] px-4 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {loading ? 'Unlocking' : 'Save phrase'}
+            {loading ? 'Unlocking…' : 'Unlock portfolio'}
           </button>
         </div>
-      </div>
-    </div>
+      </form>
+    </dialog>
   );
 }
-function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onReplaceKey: () => void }) {
+function PortfolioTable({
+  portfolio,
+  onReplaceKey,
+}: {
+  portfolio: Portfolio;
+  onReplaceKey: () => void;
+}) {
   const holdings = portfolio.holdings;
-  const [sort, setSort] = useState<PortfolioSort>({ key: 'currentValue', direction: 'desc' });
-  const sortedHoldings = useMemo(() => sortPortfolioHoldings(holdings, sort), [holdings, sort]);
+  const [sort, setSort] = useState<PortfolioSort>({
+    key: 'currentValue',
+    direction: 'desc',
+  });
+  const sortedHoldings = useMemo(
+    () => sortPortfolioHoldings(holdings, sort),
+    [holdings, sort],
+  );
   const stale = isStale(portfolio.asOf);
-  const pnlTone = portfolio.summary.pnl > 0 ? 'gain' : portfolio.summary.pnl < 0 ? 'loss' : 'neutral';
-  const dayTone = portfolio.summary.dayChange > 0 ? 'gain' : portfolio.summary.dayChange < 0 ? 'loss' : 'neutral';
-  const columns: Array<{ label: string; key: PortfolioSortKey; align: 'left' | 'right'; pad: string }> = [
+  const pnlTone =
+    portfolio.summary.pnl > 0
+      ? 'gain'
+      : portfolio.summary.pnl < 0
+        ? 'loss'
+        : 'neutral';
+  const dayTone =
+    portfolio.summary.dayChange > 0
+      ? 'gain'
+      : portfolio.summary.dayChange < 0
+        ? 'loss'
+        : 'neutral';
+  const columns: Array<{
+    label: string;
+    key: PortfolioSortKey;
+    align: 'left' | 'right';
+    pad: string;
+  }> = [
     { label: 'Ticker', key: 'ticker', align: 'left', pad: 'pr-6' },
     { label: 'Qty', key: 'quantity', align: 'right', pad: 'pr-6' },
     { label: 'Avg', key: 'averagePrice', align: 'right', pad: 'pr-6' },
@@ -222,7 +293,8 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
   function updateSort(key: PortfolioSortKey) {
     setSort((current) => ({
       key,
-      direction: current.key === key && current.direction === 'desc' ? 'asc' : 'desc',
+      direction:
+        current.key === key && current.direction === 'desc' ? 'asc' : 'desc',
     }));
   }
 
@@ -248,10 +320,24 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <StatBlock label="Current value" value={money(portfolio.summary.currentValue)} />
-        <StatBlock label="Invested" value={money(portfolio.summary.investedValue)} />
-        <StatBlock label="Total P&L" value={`${money(portfolio.summary.pnl)} (${portfolio.summary.pnlPct.toFixed(2)}%)`} tone={pnlTone} />
-        <StatBlock label="Day P&L" value={`${money(portfolio.summary.dayChange)} (${portfolio.summary.dayChangePct.toFixed(2)}%)`} tone={dayTone} />
+        <StatBlock
+          label="Current value"
+          value={money(portfolio.summary.currentValue)}
+        />
+        <StatBlock
+          label="Invested"
+          value={money(portfolio.summary.investedValue)}
+        />
+        <StatBlock
+          label="Total P&L"
+          value={`${money(portfolio.summary.pnl)} (${portfolio.summary.pnlPct.toFixed(2)}%)`}
+          tone={pnlTone}
+        />
+        <StatBlock
+          label="Day P&L"
+          value={`${money(portfolio.summary.dayChange)} (${portfolio.summary.dayChangePct.toFixed(2)}%)`}
+          tone={dayTone}
+        />
       </div>
 
       {holdings.length === 0 ? (
@@ -286,8 +372,15 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
                         className={`inline-flex items-center gap-1 font-sans text-xs font-medium text-[var(--color-faint)] hover:text-[var(--color-ink)] focus:outline-none focus-visible:text-[var(--color-ink)] focus-visible:underline focus-visible:decoration-[var(--color-brand)] focus-visible:underline-offset-4 ${column.align === 'right' ? 'justify-end' : ''}`}
                       >
                         <span>{column.label}</span>
-                        <span className="text-[10px] text-[var(--color-brand)]" aria-hidden="true">
-                          {sort.key === column.key ? (sort.direction === 'asc' ? '↑' : '↓') : ''}
+                        <span
+                          className="text-[10px] text-[var(--color-brand)]"
+                          aria-hidden="true"
+                        >
+                          {sort.key === column.key
+                            ? sort.direction === 'asc'
+                              ? '↑'
+                              : '↓'
+                            : ''}
                         </span>
                       </button>
                     </th>
@@ -296,13 +389,18 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
               </thead>
               <tbody>
                 {sortedHoldings.map((holding) => (
-                  <tr key={holding.ticker} className="group hover:bg-[var(--color-raised)] transition-colors">
+                  <tr
+                    key={holding.ticker}
+                    className="group hover:bg-[var(--color-raised)] transition-colors"
+                  >
                     <td className="py-3.5 pr-6">
                       <div>
                         <span className="font-serif text-sm font-bold text-[var(--color-ink)]">
                           {ticker(holding.ticker)}
                         </span>
-                        <p className="font-sans text-xs text-[var(--color-faint)] mt-0.5">{holding.name}</p>
+                        <p className="font-sans text-xs text-[var(--color-faint)] mt-0.5">
+                          {holding.name}
+                        </p>
                       </div>
                     </td>
                     <td className="py-3.5 pr-6 text-right tabular-nums text-sm text-[var(--color-ink)]">
@@ -318,12 +416,19 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
                       {money(holding.currentValue)}
                     </td>
                     <td className="py-3.5 pr-6 text-right">
-                      <div className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.pnl)}</div>
+                      <div className="tabular-nums text-sm text-[var(--color-ink)]">
+                        {money(holding.pnl)}
+                      </div>
                       <Pct value={holding.pnlPct} className="justify-end" />
                     </td>
                     <td className="py-3.5 pr-6 text-right">
-                      <div className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.dayChange * holding.quantity)}</div>
-                      <Pct value={holding.dayChangePct} className="justify-end" />
+                      <div className="tabular-nums text-sm text-[var(--color-ink)]">
+                        {money(holding.dayChange * holding.quantity)}
+                      </div>
+                      <Pct
+                        value={holding.dayChangePct}
+                        className="justify-end"
+                      />
                     </td>
                     <td className="py-3.5 text-right tabular-nums text-sm text-[var(--color-muted)]">
                       {holding.allocationPct.toFixed(1)}%
@@ -336,22 +441,37 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
 
           <div className="lg:hidden">
             <div className="flex items-center justify-end gap-3 border-y border-[var(--color-hairline)] py-2">
-              <label htmlFor="portfolio-sort-mobile" className="text-xs text-[var(--color-muted)]">
+              <label
+                htmlFor="portfolio-sort-mobile"
+                className="text-xs text-[var(--color-muted)]"
+              >
                 Sort by
               </label>
               <select
                 id="portfolio-sort-mobile"
                 value={sort.key}
-                onChange={(event) => setSort({ key: event.target.value as PortfolioSortKey, direction: 'desc' })}
+                onChange={(event) =>
+                  setSort({
+                    key: event.target.value as PortfolioSortKey,
+                    direction: 'desc',
+                  })
+                }
                 className="max-w-[11rem] border-0 border-b border-[var(--color-hairline)] bg-transparent py-1 text-sm text-[var(--color-ink)] outline-none focus-visible:border-[var(--color-ink)]"
               >
                 {columns.map((column) => (
-                  <option key={column.key} value={column.key}>{column.label}</option>
+                  <option key={column.key} value={column.key}>
+                    {column.label}
+                  </option>
                 ))}
               </select>
               <button
                 type="button"
-                onClick={() => setSort((current) => ({ ...current, direction: current.direction === 'asc' ? 'desc' : 'asc' }))}
+                onClick={() =>
+                  setSort((current) => ({
+                    ...current,
+                    direction: current.direction === 'asc' ? 'desc' : 'asc',
+                  }))
+                }
                 aria-label={`Change sort order to ${sort.direction === 'asc' ? 'descending' : 'ascending'}`}
                 className="px-1 text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)] focus-visible:outline focus-visible:outline-1 focus-visible:outline-[var(--color-ink)]"
               >
@@ -367,7 +487,9 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
                       <p className="font-serif text-base font-bold leading-tight text-[var(--color-ink)]">
                         {ticker(holding.ticker)}
                       </p>
-                      <p className="mt-0.5 truncate text-xs text-[var(--color-muted)]">{holding.name}</p>
+                      <p className="mt-0.5 truncate text-xs text-[var(--color-muted)]">
+                        {holding.name}
+                      </p>
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="font-serif text-base font-semibold tabular-nums text-[var(--color-ink)]">
@@ -381,29 +503,52 @@ function PortfolioTable({ portfolio, onReplaceKey }: { portfolio: Portfolio; onR
 
                   <div className="mt-3 grid grid-cols-3 gap-3">
                     <div>
-                      <p className="text-[10px] text-[var(--color-faint)]">Qty</p>
-                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{holding.quantity.toLocaleString('en-IN')}</p>
+                      <p className="text-[10px] text-[var(--color-faint)]">
+                        Qty
+                      </p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">
+                        {holding.quantity.toLocaleString('en-IN')}
+                      </p>
                     </div>
                     <div>
-                      <p className="text-[10px] text-[var(--color-faint)]">Avg</p>
-                      <p className="tabular-nums text-sm text-[var(--color-muted)]">{price(holding.averagePrice)}</p>
+                      <p className="text-[10px] text-[var(--color-faint)]">
+                        Avg
+                      </p>
+                      <p className="tabular-nums text-sm text-[var(--color-muted)]">
+                        {price(holding.averagePrice)}
+                      </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-[10px] text-[var(--color-faint)]">LTP</p>
-                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{price(holding.lastPrice)}</p>
+                      <p className="text-[10px] text-[var(--color-faint)]">
+                        LTP
+                      </p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">
+                        {price(holding.lastPrice)}
+                      </p>
                     </div>
                   </div>
 
                   <div className="mt-3 grid grid-cols-2 gap-4 border-t border-[var(--color-hairline)] pt-2.5">
                     <div>
-                      <p className="text-[10px] text-[var(--color-faint)]">P&amp;L</p>
-                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.pnl)}</p>
+                      <p className="text-[10px] text-[var(--color-faint)]">
+                        P&amp;L
+                      </p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">
+                        {money(holding.pnl)}
+                      </p>
                       <Pct value={holding.pnlPct} />
                     </div>
                     <div className="text-right">
-                      <p className="text-[10px] text-[var(--color-faint)]">Day</p>
-                      <p className="tabular-nums text-sm text-[var(--color-ink)]">{money(holding.dayChange * holding.quantity)}</p>
-                      <Pct value={holding.dayChangePct} className="justify-end" />
+                      <p className="text-[10px] text-[var(--color-faint)]">
+                        Day
+                      </p>
+                      <p className="tabular-nums text-sm text-[var(--color-ink)]">
+                        {money(holding.dayChange * holding.quantity)}
+                      </p>
+                      <Pct
+                        value={holding.dayChangePct}
+                        className="justify-end"
+                      />
                     </div>
                   </div>
                 </li>
@@ -427,9 +572,12 @@ export function PortfolioUnlock() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(ENCRYPTED_PORTFOLIO_URL, { cache: 'no-store' });
+      const response = await fetch(ENCRYPTED_PORTFOLIO_URL, {
+        cache: 'no-store',
+      });
       if (response.status === 404) throw new Error(MISSING_SNAPSHOT_ERROR);
-      if (!response.ok) throw new Error('Could not fetch encrypted portfolio snapshot.');
+      if (!response.ok)
+        throw new Error('Could not fetch encrypted portfolio snapshot.');
       const encrypted = await response.json();
       const decrypted = await decryptPortfolioEnvelope(encrypted, passphrase);
       localStorage.setItem(STORAGE_KEY, passphrase);
@@ -437,7 +585,8 @@ export function PortfolioUnlock() {
       setModalOpen(false);
     } catch (unlockError) {
       const missingSnapshot =
-        unlockError instanceof Error && unlockError.message === MISSING_SNAPSHOT_ERROR;
+        unlockError instanceof Error &&
+        unlockError.message === MISSING_SNAPSHOT_ERROR;
       setPortfolio(null);
       setError(
         missingSnapshot
@@ -463,7 +612,9 @@ export function PortfolioUnlock() {
   if (checking) {
     return (
       <div>
-        <p className="mt-8 text-sm text-[var(--color-faint)]">Preparing portfolio.</p>
+        <p className="mt-8 text-sm text-[var(--color-faint)]">
+          Preparing portfolio.
+        </p>
       </div>
     );
   }
@@ -471,7 +622,10 @@ export function PortfolioUnlock() {
   return (
     <>
       {portfolio ? (
-        <PortfolioTable portfolio={portfolio} onReplaceKey={() => setModalOpen(true)} />
+        <PortfolioTable
+          portfolio={portfolio}
+          onReplaceKey={() => setModalOpen(true)}
+        />
       ) : (
         <SetupPage onOpenKeyModal={() => setModalOpen(true)} />
       )}

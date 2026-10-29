@@ -5,7 +5,7 @@ import type { MoodSnapshot } from '../../../lib/schemas';
 import { SentimentGauge, getSentimentBand } from '../../components/SentimentGauge';
 
 export const metadata: Metadata = {
-  title: 'Sentiment Index | Kosh Daily',
+  title: 'Sentiment Index',
   description: 'A daily view of Indian equity market sentiment, positioning, and historical readings.',
   alternates: { canonical: '/sentiment-index' },
 };
