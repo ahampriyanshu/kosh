@@ -7,9 +7,14 @@ interface ReportSectionProps {
   className?: string;
 }
 
-export function ReportSection({ title, children, count, className = 'mt-8' }: ReportSectionProps) {
+export function ReportSection({
+  title,
+  children,
+  count,
+  className = 'mt-8',
+}: ReportSectionProps) {
   return (
-    <section className={className}>
+    <section className={`report-section ${className}`}>
       <h2 className="mb-3 font-serif text-xl font-bold text-[var(--color-heading)]">
         {title}
         {count !== undefined && (

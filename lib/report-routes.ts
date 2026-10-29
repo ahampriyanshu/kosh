@@ -28,7 +28,9 @@ export function dateReportPath(date: string): string {
   return `/reports/${match[1]}/${match[2]}/${match[3]}`;
 }
 
-export function reportPath(entry: ManifestEntry): string {
+export function reportPath(
+  entry: Pick<ManifestEntry, 'type' | 'dateKey' | 'date'>,
+): string {
   if (entry.type === 'monthly') {
     const match = MONTH_RE.exec(entry.dateKey);
     if (!match) return '/reports';
@@ -41,9 +43,12 @@ export function reportPath(entry: ManifestEntry): string {
 
     const year = String(weekStart.getUTCFullYear());
     const month = String(weekStart.getUTCMonth() + 1).padStart(2, '0');
-    const monthStart = new Date(Date.UTC(weekStart.getUTCFullYear(), weekStart.getUTCMonth(), 1));
+    const monthStart = new Date(
+      Date.UTC(weekStart.getUTCFullYear(), weekStart.getUTCMonth(), 1),
+    );
     const firstMonthDayNum = (monthStart.getUTCDay() + 6) % 7;
-    const weekOfMonth = Math.floor((weekStart.getUTCDate() + firstMonthDayNum - 1) / 7) + 1;
+    const weekOfMonth =
+      Math.floor((weekStart.getUTCDate() + firstMonthDayNum - 1) / 7) + 1;
     return `/reports/${year}/${month}/week-${weekOfMonth}`;
   }
 
@@ -62,7 +67,8 @@ export function entryPath(entry: ManifestEntry): string {
 export function parseDateReportSlug(slug: string[]): string | null {
   if (slug.length !== 3) return null;
   const [year, month, day] = slug;
-  if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month) || !/^\d{2}$/.test(day)) return null;
+  if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month) || !/^\d{2}$/.test(day))
+    return null;
   return `${year}-${month}-${day}`;
 }
 
@@ -77,7 +83,13 @@ export function parseReportSlug(slug: string[]): ParsedReportSlug | null {
   if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month)) return null;
 
   if (/^\d{2}$/.test(third)) {
-    return { type: 'daily', date: `${year}-${month}-${third}`, year, month, day: third };
+    return {
+      type: 'daily',
+      date: `${year}-${month}-${third}`,
+      year,
+      month,
+      day: third,
+    };
   }
   if (/^week-[1-6]$/.test(third)) {
     return { type: 'weekly', year, month, period: third };

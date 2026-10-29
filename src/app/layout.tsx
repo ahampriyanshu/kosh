@@ -1,4 +1,7 @@
 import type { Metadata, Viewport } from 'next';
+import type { CSSProperties } from 'react';
+import { publication, publicationTheme } from '../../lib/publication';
+import { dateReportPath } from '../../lib/report-routes';
 import Link from 'next/link';
 import { Lato, Newsreader } from 'next/font/google';
 import './globals.css';
@@ -78,7 +81,9 @@ export const metadata: Metadata = {
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
     shortcut: ['/favicon.ico'],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   manifest: '/site.webmanifest',
   appleWebApp: {
@@ -160,11 +165,12 @@ export default async function RootLayout({
     retro?.generatedAt,
   ].filter((d): d is string => Boolean(d));
 
-  const lastActionIso = candidateDates.length > 0
-    ? candidateDates.reduce((latest, curr) =>
-        new Date(curr).getTime() > new Date(latest).getTime() ? curr : latest
-      )
-    : new Date().toISOString();
+  const lastActionIso =
+    candidateDates.length > 0
+      ? candidateDates.reduce((latest, curr) =>
+          new Date(curr).getTime() > new Date(latest).getTime() ? curr : latest,
+        )
+      : new Date().toISOString();
 
   const formattedDateTime = formatPublishDateTime(lastActionIso);
   const issueNumber = manifest.reports.length;
@@ -173,6 +179,7 @@ export default async function RootLayout({
     <html
       lang="en"
       className={`${lato.variable} ${newsreader.variable}`}
+      style={publicationTheme as CSSProperties}
       data-mode="light"
       suppressHydrationWarning
     >
@@ -180,38 +187,43 @@ export default async function RootLayout({
         <div className="app-container">
           <div className="main-wrapper">
             <div className="content-area">
+              <a className="skip-link" href="#main-content">
+                Skip to content
+              </a>
               <header className="site-header broadsheet-masthead">
-                {/* Newspaper volume and issue dateline */}
-                <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[var(--color-muted)] py-1.5 border-b border-[var(--color-hairline)] uppercase tracking-wider font-serif">
-                  <div className="flex flex-wrap items-center gap-2">
+                <div className="masthead-dateline">
+                  <div>
                     <span>Volume {issueNumber}</span>
-                    <span aria-hidden="true">|</span>
-                    <span>{formattedDateTime}</span>
+                    <span className="dateline-divider" aria-hidden="true">
+                      /
+                    </span>
+                    <time dateTime={lastActionIso}>{formattedDateTime}</time>
                   </div>
                   <MarketSessionStatus />
                 </div>
-
-                {/* Newspaper Title */}
-                <div className="broadsheet-container pt-2">
+                <div className="broadsheet-container">
+                  <Link href="/" aria-label="Kosh Daily home">
+                    <span className="broadsheet-title">{publication.name}</span>
+                  </Link>
+                  <p className="broadsheet-motto">{publication.tagline}</p>
+                </div>
+                <div className="header-container">
+                  <span className="brand-lockup">NSE &amp; BSE</span>
+                  <NavBar />
                   <Link
-                    href="/"
-                    className="inline-block hover:opacity-90 transition-opacity"
+                    className="header-actions"
+                    href={daily ? dateReportPath(daily.dateKey) : '/reports'}
                   >
-                    <span className="broadsheet-title">Kosh Daily</span>
+                    Latest edition <span aria-hidden="true">↗</span>
                   </Link>
                 </div>
-
-                {/* Line between title and navbar */}
-                <div className="border-t border-[var(--color-hairline)]" />
-
-                {/* Navigation and Actions */}
-                <div className="header-container py-1 border-b border-[var(--color-hairline)]">
-                  <div className="brand-lockup" />
-                  <NavBar />
-                </div>
               </header>
-
-              <main aria-label="Main Content" className="main-content">
+              <main
+                id="main-content"
+                tabIndex={-1}
+                aria-label="Main Content"
+                className="main-content"
+              >
                 {children}
               </main>
 

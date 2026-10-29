@@ -10,32 +10,41 @@ import type {
   MarketSnapshot,
 } from './schemas';
 import { formatPeriodLabel, formatPeriodText } from './time';
+import {
+  safeArticleUrl,
+  formatCategory,
+  cleanSource,
+  cleanTicker,
+} from '../src/lib/news-format';
+import { computeMoodSnapshot } from './sentiment';
+import { publication } from './publication';
+import { dateReportPath, reportPath } from './report-routes';
 
 const font = `font-family:'Lato',Arial,Helvetica,sans-serif`;
 const display = `font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif`;
 const mono = `font-family:'Lato',Arial,Helvetica,sans-serif;font-variant-numeric:tabular-nums`;
-const KOSH_URL = 'https://kosh.ahampriyanshu.com';
-const AUTHOR_URL = 'https://ahampriyanshu.com';
+const KOSH_URL = publication.url;
+const AUTHOR_URL = publication.authorUrl;
 
 const colors = {
-  bg: '#f7f4ec',
-  surface: '#f7f4ec',
-  raised: '#f1ede2',
-  border: '#e2dbcd',
-  hairline: '#e2dbcd',
-  text: '#1f2937',
-  muted: '#6b7280',
-  faint: '#9ca3af',
-  link: '#000000',
-  bullish: '#16803c',
-  bullishBg: '#ecfdf3',
+  bg: publication.colors.paper,
+  surface: publication.colors.paper,
+  raised: publication.colors.inset,
+  border: publication.colors.rule,
+  hairline: publication.colors.rule,
+  text: publication.colors.ink,
+  muted: publication.colors.secondary,
+  faint: publication.colors.tertiary,
+  link: publication.colors.link,
+  bullish: publication.colors.positive,
+  bullishBg: '#eaf0e8',
   bullishBorder: '#c9dfcf',
-  bearish: '#c2412f',
-  bearishBg: '#fef2f2',
+  bearish: publication.colors.negative,
+  bearishBg: '#f7eae5',
   bearishBorder: '#ead0cc',
-  neutral: '#6b7280',
-  neutralBg: '#f1ede2',
-  neutralBorder: '#e2dbcd',
+  neutral: publication.colors.secondary,
+  neutralBg: publication.colors.inset,
+  neutralBorder: publication.colors.rule,
   medium: '#b7791f',
   mediumBg: '#fffbeb',
   mediumBorder: '#e8d9b6',
@@ -55,7 +64,7 @@ function text(value: unknown): string {
 }
 
 function shortTicker(ticker: string): string {
-  return ticker.replace('.NS', '');
+  return cleanTicker(ticker);
 }
 
 function confidencePct(value: number): string {
@@ -96,7 +105,15 @@ export function formatDisplayDate(value: string): string {
   if (!months[monthIndex] || day < 1 || day > 31) return value;
 
   const teen = day % 100 >= 11 && day % 100 <= 13;
-  const suffix = teen ? 'th' : day % 10 === 1 ? 'st' : day % 10 === 2 ? 'nd' : day % 10 === 3 ? 'rd' : 'th';
+  const suffix = teen
+    ? 'th'
+    : day % 10 === 1
+      ? 'st'
+      : day % 10 === 2
+        ? 'nd'
+        : day % 10 === 3
+          ? 'rd'
+          : 'th';
   return `${day}${suffix} ${months[monthIndex]}, ${year}`;
 }
 
@@ -105,46 +122,67 @@ function badge(label: string, fg: string, bg: string, border: string): string {
 }
 
 function signalBadge(signal: Signal): string {
-  if (signal === 'bullish') return badge('Bullish', colors.bullish, colors.bullishBg, colors.bullishBorder);
-  if (signal === 'bearish') return badge('Bearish', colors.bearish, colors.bearishBg, colors.bearishBorder);
-  return badge('Neutral', colors.neutral, colors.neutralBg, colors.neutralBorder);
+  if (signal === 'bullish')
+    return badge(
+      'Bullish',
+      colors.bullish,
+      colors.bullishBg,
+      colors.bullishBorder,
+    );
+  if (signal === 'bearish')
+    return badge(
+      'Bearish',
+      colors.bearish,
+      colors.bearishBg,
+      colors.bearishBorder,
+    );
+  return badge(
+    'Neutral',
+    colors.neutral,
+    colors.neutralBg,
+    colors.neutralBorder,
+  );
 }
 
 function severityBadge(severity: AlertSeverity): string {
-  if (severity === 'high') return badge('High', colors.bearish, colors.bearishBg, colors.bearishBorder);
-  if (severity === 'medium') return badge('Medium', colors.medium, colors.mediumBg, colors.mediumBorder);
+  if (severity === 'high')
+    return badge(
+      'High',
+      colors.bearish,
+      colors.bearishBg,
+      colors.bearishBorder,
+    );
+  if (severity === 'medium')
+    return badge('Medium', colors.medium, colors.mediumBg, colors.mediumBorder);
   return badge('Low', colors.neutral, colors.neutralBg, colors.neutralBorder);
 }
 
 function actionBadge(action: string): string {
-  if (action === 'buy') return badge('BUY', colors.bullish, colors.bullishBg, colors.bullishBorder);
-  if (action === 'sell') return badge('SELL', colors.bearish, colors.bearishBg, colors.bearishBorder);
+  if (action === 'buy')
+    return badge('BUY', colors.bullish, colors.bullishBg, colors.bullishBorder);
+  if (action === 'sell')
+    return badge(
+      'SELL',
+      colors.bearish,
+      colors.bearishBg,
+      colors.bearishBorder,
+    );
   return badge('HOLD', colors.neutral, colors.neutralBg, colors.neutralBorder);
 }
 
-function paragraph(content: unknown, color = colors.muted): string {
+function paragraph(content: unknown, color: string = colors.muted): string {
   return `<p style="${font};margin:0;color:${color};font-size:15px;line-height:24px">${text(content)}</p>`;
 }
 
 function section(title: string, body: string): string {
-  return `
-    <tr>
-      <td class="email-pad" style="padding:26px 32px 0 32px">
-        <div style="border-bottom:1px solid ${colors.hairline};padding-bottom:5px;margin-bottom:12px">
-          <h2 style="${display};margin:0;color:${colors.text};font-size:19px;line-height:25px;font-weight:700;letter-spacing:-0.01em">${escapeHtml(title)}</h2>
-        </div>
-        <div>${body}</div>
-      </td>
-    </tr>
-  `;
+  return `<tr><td class="email-pad email-section" style="padding:28px 40px 0">
+    <h2 style="${display};font-size:23px;line-height:28px;font-weight:500;letter-spacing:-0.02em;color:${colors.text};margin:0 0 16px;border-top:1px solid ${colors.border};padding-top:12px">${escapeHtml(title)}</h2>
+    ${body}
+  </td></tr>`;
 }
 
-function card(body: string, borderColor = colors.border): string {
-  return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:${colors.raised};border-left:2px solid ${borderColor}">
-      <tr><td style="padding:12px 14px">${body}</td></tr>
-    </table>
-  `;
+function card(body: string, borderColor: string = colors.border): string {
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-left:2px solid ${borderColor};background:${colors.raised}"><tr><td style="padding:16px 18px">${body}</td></tr></table>`;
 }
 
 function cardStack(cards: string[]): string {
@@ -175,131 +213,77 @@ function renderShell(options: {
   preheader: string;
   children: string;
   issueNumber?: number | string;
-  mastheadSuffix?: string;
+  webPath?: string;
 }): string {
-  const mastheadSuffix = options.mastheadSuffix ?? ' Daily';
+  const webUrl = `${KOSH_URL}${options.webPath ?? '/reports'}`;
   return `<!doctype html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="x-apple-disable-message-reformatting">
-    <title>${escapeHtml(options.title)}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet" type="text/css">
-    <style type="text/css">
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;0,6..72,800;1,6..72,400;1,6..72,600&display=swap');
-
-      @font-face {
-        font-family: 'Newsreader';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438weI_ADA.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: 'Newsreader';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url('https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438wn4jADA.ttf') format('truetype');
-      }
-      @font-face {
-        font-family: 'Newsreader';
-        font-style: italic;
-        font-weight: 400;
-        font-display: swap;
-        src: url('https://fonts.gstatic.com/s/newsreader/v26/cY9kfjOCX1hbuyalUrK439vogqC9yFZCYg7oRZaLP4obnf7fTXglsMwoT-ZA.ttf') format('truetype');
-      }
-
-      * {
-        font-family: 'Lato', Arial, Helvetica, sans-serif;
-      }
-      body, table, td, p, a, div, span, th {
-        font-family: 'Lato', Arial, Helvetica, sans-serif !important;
-      }
-      h1, h2, h3, .broadsheet-name {
-        font-family: 'Newsreader', Georgia, Cambria, 'Times New Roman', Times, serif !important;
-      }
-      @media only screen and (max-width: 600px) {
-        .email-outer { padding: 0 !important; }
-        .email-container { border-left: 0 !important; border-right: 0 !important; border-top: 0 !important; border-bottom: 0 !important; }
-        .email-pad { padding-left: 18px !important; padding-right: 18px !important; }
-        .email-title { font-size: 13px !important; }
-        .broadsheet-name { font-size: 30px !important; line-height: 34px !important; }
-      }
-    </style>
-  </head>
-  <body style="margin:0;padding:0;background:${colors.bg};${font};color:${colors.text};-webkit-font-smoothing:antialiased">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">${escapeHtml(options.preheader)}</div>
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;background:${colors.bg}">
-      <tr>
-        <td class="email-outer" align="center" style="padding:20px 12px">
-          <table class="email-container" role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:100%;max-width:640px;border-collapse:collapse;background:${colors.surface}">
-            
-            <!-- Newspaper Dateline -->
-            <tr>
-              <td class="email-pad" style="padding:7px 32px;border-bottom:1px solid ${colors.hairline};color:${colors.muted};font-size:11px;line-height:16px;letter-spacing:0.06em;text-transform:uppercase">
-                ${options.issueNumber !== undefined ? `Volume ${escapeHtml(options.issueNumber)} &nbsp;|&nbsp; ` : ''}${escapeHtml(options.eyebrow)}
-              </td>
-            </tr>
-
-            <!-- Newspaper Masthead -->
-            <tr>
-              <td class="email-pad" align="center" style="padding:14px 32px 12px 32px;text-align:center">
-                <a href="${KOSH_URL}" target="_blank" rel="noopener noreferrer" class="broadsheet-name" style="${display};font-size:36px;line-height:42px;font-weight:600;letter-spacing:-0.02em;color:${colors.text};text-decoration:none;display:inline-block">Kosh</a>
-                <span class="broadsheet-name" style="${display};font-size:36px;line-height:42px;font-weight:600;letter-spacing:-0.02em;color:${colors.text}">${escapeHtml(mastheadSuffix)}</span>
-              </td>
-            </tr>
-
-            <!-- Hairline dividing title and edition subtitle -->
-            <tr>
-              <td style="padding:0 32px">
-                <div style="border-top:1px solid ${colors.hairline}"></div>
-              </td>
-            </tr>
-
-            <!-- Edition Subtitle Bar -->
-            <tr>
-              <td class="email-pad" align="center" style="padding:8px 32px;text-align:center;border-bottom:1px solid ${colors.hairline}">
-                <h1 class="email-title" style="${display};margin:0;color:${colors.text};font-size:13px;line-height:18px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;text-align:center">
-                  ${escapeHtml(options.title)}
-                </h1>
-              </td>
-            </tr>
-
-            <!-- Main Content Area -->
-            ${options.children}
-
-            <!-- Disclaimer -->
-            <tr>
-              <td class="email-pad" align="center" style="padding:22px 32px 22px 32px;border-top:1px solid ${colors.border}">
-                <p style="${font};margin:0;color:${colors.muted};font-size:12px;line-height:18px;text-align:center">
-                  <strong style="color:${colors.text};font-weight:700">Disclaimer:</strong>
-                  Kosh is an experimental, learning-focused project. It is not investment advice or a recommendation to buy or sell securities.
-                </p>
-              </td>
-            </tr>
-
-            <!-- Newspaper Colophon -->
-            <tr>
-              <td class="email-pad" align="center" style="padding:0 32px 26px 32px;color:${colors.faint};font-size:12px;line-height:18px">
-                <p style="${font};margin:0;color:${colors.faint};font-size:12px;line-height:18px;text-align:center">
-                  made by <a href="${AUTHOR_URL}" target="_blank" rel="noopener noreferrer" style="color:${colors.text};text-decoration:underline;font-weight:700">ahampriyanshu</a>
-                </p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>`;
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>${escapeHtml(options.title)} | ${publication.name}</title>
+  <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
+  <!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Newsreader:wght@400;500;600&display=swap" rel="stylesheet"><!--<![endif]-->
+  <style>
+    :root { color-scheme:light; supported-color-schemes:light; }
+    body { margin:0; padding:0; width:100%; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table { border-spacing:0; mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    td { overflow-wrap:break-word; }
+    a { text-underline-offset:3px; }
+    a:focus-visible { outline:2px solid ${colors.link}; outline-offset:3px; }
+    @media only screen and (max-width: 600px) {
+      .email-outer { padding:0 !important; }
+      .email-pad { padding-left:20px !important; padding-right:20px !important; }
+      .email-title { font-size:30px !important; line-height:34px !important; }
+      .broadsheet-name { font-size:46px !important; line-height:50px !important; }
+      .email-column, .email-label, .email-value { display:block !important; width:100% !important; }
+      .email-column { padding:0 0 20px !important; }
+      .email-label { border-bottom:0 !important; padding-bottom:4px !important; white-space:normal !important; }
+      .email-value { padding-top:0 !important; }
+      .email-data { font-size:12px !important; }
+      .email-data td, .email-data th { padding-left:0 !important; padding-right:8px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background:${colors.bg};${font};color:${colors.text}">
+  <div aria-hidden="true" style="display:none!important;max-height:0;max-width:0;overflow:hidden;opacity:0;mso-hide:all">${escapeHtml(options.preheader.slice(0, 180))}</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${colors.bg}"><tr>
+    <td class="email-outer" align="center" style="padding:28px 12px">
+      <!--[if mso]><table role="presentation" width="680" align="center"><tr><td><![endif]-->
+      <table role="presentation" class="email-container" width="100%" cellpadding="0" cellspacing="0" bgcolor="${colors.surface}" style="width:100%;max-width:680px;background:${colors.surface};table-layout:fixed">
+        <tr><td class="email-pad" style="padding:12px 40px;border-bottom:1px solid ${colors.border}">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="${font};font-size:11px;line-height:16px;color:${colors.muted}">${options.issueNumber !== undefined ? `Volume ${escapeHtml(options.issueNumber)} / ` : ''}${escapeHtml(options.eyebrow)}</td><td align="right" style="${font};font-size:11px;line-height:16px"><a href="${escapeHtml(webUrl)}" style="color:${colors.link};text-decoration:none">Read online &#8599;</a></td></tr></table>
+        </td></tr>
+        <tr><td class="email-pad" align="center" style="padding:26px 40px 24px;text-align:center">
+          <a href="${KOSH_URL}" class="broadsheet-name" target="_blank" rel="noopener noreferrer" style="${display};font-size:60px;line-height:64px;font-weight:600;letter-spacing:-3px;color:${colors.text};text-decoration:none">${publication.name}</a>
+          <p style="${display};font-size:15px;line-height:21px;color:${colors.muted};margin:7px 0 0">${publication.tagline}</p>
+        </td></tr>
+        <tr><td class="email-pad" style="padding:22px 40px 6px;border-top:3px double ${publication.colors.strongRule}">
+          <h1 class="email-title" style="${display};margin:0;font-size:36px;line-height:40px;font-weight:500;letter-spacing:-0.8px;color:${colors.text}">${escapeHtml(options.title)}</h1>
+        </td></tr>
+        ${options.children}
+        <tr><td class="email-pad" style="padding:32px 40px">
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr><td bgcolor="${colors.link}" style="background:${colors.link}"><a href="${escapeHtml(webUrl)}" style="${font};display:inline-block;padding:13px 20px;border:1px solid ${colors.link};color:#ffffff;font-size:14px;line-height:20px;font-weight:700;text-decoration:none">Read this edition online &#8599;</a></td></tr></table>
+        </td></tr>
+        <tr><td class="email-pad" style="padding:22px 40px;border-top:3px double ${publication.colors.strongRule}">
+          <p style="${display};font-size:22px;line-height:26px;letter-spacing:-0.5px;color:${colors.text};margin:0 0 12px">${publication.name}</p>
+          <p style="${font};font-size:12px;line-height:20px;margin:0 0 14px"><a href="${KOSH_URL}/reports" style="color:${colors.link}">Reports</a> &nbsp; / &nbsp; <a href="${KOSH_URL}/research" style="color:${colors.link}">Research</a> &nbsp; / &nbsp; <a href="${KOSH_URL}/sentiment-index" style="color:${colors.link}">Market mood</a></p>
+          <p style="${font};font-size:11px;line-height:18px;color:${colors.muted};margin:0 0 14px">Kosh is an experimental, learning-focused project. It is not investment advice or a recommendation to buy or sell securities. Market data reflects the published edition.</p>
+          <p style="${font};font-size:11px;line-height:18px;color:${colors.muted};margin:0">made by <a href="${AUTHOR_URL}" target="_blank" rel="noopener noreferrer" style="color:${colors.link};text-decoration:underline">ahampriyanshu</a></p>
+        </td></tr>
+      </table>
+      <!--[if mso]></td></tr></table><![endif]-->
+    </td>
+  </tr></table>
+</body></html>`;
 }
 
 function indexTable(snapshot: MarketSnapshot): string {
-  if (!snapshot.indianIndices.length) return paragraph('No index data available.');
+  if (!snapshot.indianIndices.length)
+    return paragraph('No index data available.');
   const rows = snapshot.indianIndices
     .map(
       (i) => `
@@ -311,12 +295,12 @@ function indexTable(snapshot: MarketSnapshot): string {
       `,
     )
     .join('');
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="email-data" style="border-collapse:collapse">
     <thead>
       <tr style="border-bottom:1px solid ${colors.text}">
-        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Index</th>
-        <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">LTP</th>
-        <th align="right" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
+        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:12px;font-weight:700">Index</th>
+        <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:12px;font-weight:700">LTP</th>
+        <th align="right" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:12px;font-weight:700">Change</th>
       </tr>
     </thead>
     <tbody>
@@ -325,35 +309,28 @@ function indexTable(snapshot: MarketSnapshot): string {
   </table>`;
 }
 
-function betRows(bets: Array<{ ticker: string; name?: string; action: string; signal: string; confidence: number; thesis: string }>): string {
+function betRows(
+  bets: Array<{
+    ticker: string;
+    name?: string;
+    action: string;
+    signal: string;
+    confidence: number;
+    thesis: string;
+  }>,
+): string {
   if (!bets.length) return paragraph('No bets for this period.');
-  const rows = bets
+  return bets
     .map(
-      (b) => `
-        <tr>
-          <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:700;vertical-align:top;border-bottom:1px solid ${colors.border}">${escapeHtml(shortTicker(b.ticker))}</td>
-          <td style="${font};padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid ${colors.border}">${actionBadge(b.action)}</td>
-          <td style="${font};padding:8px 10px 8px 0;vertical-align:top;border-bottom:1px solid ${colors.border}">${signalBadge(b.signal as Signal)}</td>
-          <td align="right" style="${mono};padding:8px 10px 8px 0;color:${colors.muted};font-size:12px;vertical-align:top;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(confidencePct(b.confidence))}</td>
-          <td style="${font};padding:8px 0;color:${colors.muted};font-size:13px;line-height:19px;vertical-align:top;border-bottom:1px solid ${colors.border}">${text(b.thesis)}</td>
-        </tr>
-      `,
+      (
+        bet,
+      ) => `<div style="padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid ${colors.border}">
+    ${tickerLine(bet.ticker, bet.name)}
+    <div style="margin:8px 0 12px">${actionBadge(bet.action)} &nbsp; ${signalBadge(bet.signal as Signal)} <span style="${font};font-size:12px;color:${colors.muted}">&nbsp; ${confidencePct(bet.confidence)} confidence</span></div>
+    ${paragraph(bet.thesis)}
+  </div>`,
     )
     .join('');
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-    <thead>
-      <tr style="border-bottom:1px solid ${colors.text}">
-        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Ticker</th>
-        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Action</th>
-        <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Signal</th>
-        <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Conf.</th>
-        <th align="left" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Thesis</th>
-      </tr>
-    </thead>
-    <tbody>
-      ${rows}
-    </tbody>
-  </table>`;
 }
 
 function bulletList(items: string[]): string {
@@ -371,51 +348,58 @@ function bulletList(items: string[]): string {
 }
 
 function metricTable(metrics: Array<{ label: string; value: string }>): string {
-  if (!metrics?.length) return '';
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:10px">
-    <tr>
-      ${metrics.map((metric) => `
-        <td width="25%" style="padding:4px 8px 6px 0;vertical-align:top">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${escapeHtml(metric.label)}</div>
-          <div style="${mono};font-size:15px;line-height:21px;font-weight:700;color:${colors.text}">${escapeHtml(metric.value)}</div>
-        </td>
-      `).reduce((html, cell, index) => html + (index > 0 && index % 4 === 0 ? '</tr><tr>' : '') + cell, '')}
-    </tr>
-  </table>`;
+  return fixedRows(metrics ?? []);
 }
 
 function fixedRows(rows: Array<{ label: string; value: string }>): string {
   return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-    ${rows.map((row) => `
+    ${rows
+      .map(
+        (row) => `
       <tr>
-        <td style="${font};padding:6px 12px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;vertical-align:top;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(row.label)}</td>
-        <td style="${font};padding:6px 0 6px 0;color:${colors.text};font-size:14px;line-height:21px;vertical-align:top;border-bottom:1px solid ${colors.border}">${text(row.value)}</td>
+        <td class="email-label" width="28%" style="${font};padding:10px 16px 10px 0;color:${colors.muted};font-size:12px;font-weight:700;line-height:20px;vertical-align:top;border-bottom:1px solid ${colors.border}">${escapeHtml(row.label)}</td>
+        <td class="email-value" style="${font};padding:10px 0;color:${colors.text};font-size:14px;line-height:21px;vertical-align:top;border-bottom:1px solid ${colors.border}">${text(row.value)}</td>
       </tr>
-    `).join('')}
+    `,
+      )
+      .join('')}
   </table>`;
 }
 
-function targetRows(targets: Array<{ source: string; target: string; duration: string; view: string }>): string {
-  if (!targets.length) return paragraph('No sourced targets found.', colors.faint);
-  return fixedRows(targets.map((target) => ({
-    label: target.source,
-    value: `${target.target} · ${target.duration} · ${target.view}`,
-  })));
+function targetRows(
+  targets: Array<{
+    source: string;
+    target: string;
+    duration: string;
+    view: string;
+  }>,
+): string {
+  if (!targets.length)
+    return paragraph('No sourced targets found.', colors.faint);
+  return fixedRows(
+    targets.map((target) => ({
+      label: target.source,
+      value: `${target.target} · ${target.duration} · ${target.view}`,
+    })),
+  );
 }
 
-function learningLoopBlock(learnings: { worked: string[]; missed: string[] } | undefined): string {
+function learningLoopBlock(
+  learnings: { worked: string[]; missed: string[] } | undefined,
+): string {
   const worked = learnings?.worked ?? [];
   const missed = learnings?.missed ?? [];
-  if (!worked.length && !missed.length) return paragraph('No learning notes for this period.');
+  if (!worked.length && !missed.length)
+    return paragraph('No learning notes for this period.');
 
   return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
       <tr>
-        <td width="50%" style="padding:0 12px 0 0;vertical-align:top">
+        <td class="email-column" width="50%" style="padding:0 12px 0 0;vertical-align:top">
           ${subLabel('What worked', colors.bullish)}
           ${bulletList(worked)}
         </td>
-        <td width="50%" style="padding:0 0 0 12px;vertical-align:top">
+        <td class="email-column" width="50%" style="padding:0 0 0 12px;vertical-align:top">
           ${subLabel('What missed', colors.bearish)}
           ${bulletList(missed)}
         </td>
@@ -426,81 +410,8 @@ function learningLoopBlock(learnings: { worked: string[]; missed: string[] } | u
 
 // ---- Daily Brief Components ----
 
-interface KeyMarketBarItem {
-  name: string;
-  value: string;
-  changePct: number;
-}
-
 function renderKeyMarketBar(s: MarketSnapshot): string {
-  const items: KeyMarketBarItem[] = [];
-
-  // Gift Nifty
-  if (s.giftNifty) {
-    items.push({
-      name: 'Gift Nifty',
-      value: s.giftNifty.value.toLocaleString('en-IN', { maximumFractionDigits: 1 }),
-      changePct: s.giftNifty.changePct,
-    });
-  } else {
-    items.push({ name: 'Gift Nifty', value: '24,350.0', changePct: 0.35 });
-  }
-
-  // Nifty 50
-  const nifty = s.indianIndices.find((i) => i.name === 'NIFTY 50' || i.symbol === '^NSEI');
-  if (nifty) {
-    items.push({
-      name: 'Nifty 50',
-      value: nifty.ltp.toLocaleString('en-IN', { maximumFractionDigits: 1 }),
-      changePct: nifty.changePct,
-    });
-  } else {
-    items.push({ name: 'Nifty 50', value: '24,285.5', changePct: 0.42 });
-  }
-
-  // Dow Jones
-  const dow = s.globalIndices?.find((i) => i.name.toLowerCase().includes('dow'));
-  if (dow) {
-    items.push({
-      name: 'Dow Jones',
-      value: dow.ltp.toLocaleString('en-IN', { maximumFractionDigits: 1 }),
-      changePct: dow.changePct,
-    });
-  } else {
-    items.push({ name: 'Dow Jones', value: '42,150.0', changePct: 0.28 });
-  }
-
-  // Nasdaq
-  const nasdaq = s.globalIndices?.find((i) => i.name.toLowerCase().includes('nasdaq'));
-  if (nasdaq) {
-    items.push({
-      name: 'Nasdaq',
-      value: nasdaq.ltp.toLocaleString('en-IN', { maximumFractionDigits: 1 }),
-      changePct: nasdaq.changePct,
-    });
-  } else {
-    items.push({ name: 'Nasdaq', value: '18,120.2', changePct: 0.65 });
-  }
-
-  const cells = items
-    .map(
-      (item, idx) => `
-        <td width="25%" align="center" style="padding:10px 4px;${idx < items.length - 1 ? `border-right:1px solid ${colors.border};` : ''}vertical-align:middle">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${escapeHtml(item.name)}</div>
-          <div style="${mono};font-size:14px;line-height:18px;font-weight:700;color:${colors.text}">${escapeHtml(item.value)}</div>
-          <div style="${mono};font-size:11px;line-height:16px;font-weight:600;color:${item.changePct >= 0 ? colors.bullish : colors.bearish}">
-            ${item.changePct >= 0 ? '▲ +' : '▼ '}${Math.abs(item.changePct).toFixed(2)}%
-          </div>
-        </td>
-      `,
-    )
-    .join('');
-
-  return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-top:1px solid ${colors.text};border-bottom:1px solid ${colors.text};margin:0 0 4px 0">
-      <tr>${cells}</tr>
-    </table>
-  `;
+  return indexTable({ ...s, indianIndices: s.indianIndices.slice(0, 4) });
 }
 
 function renderKeyTakeawaysBlock(keyTakeaways: string[] = []): string {
@@ -523,10 +434,13 @@ function renderKeyTakeawaysBlock(keyTakeaways: string[] = []): string {
   `;
 }
 
-function renderDeskNoteBlock(outlook: string, keyTakeaways: string[] = []): string {
+function renderDeskNoteBlock(
+  outlook: string,
+  keyTakeaways: string[] = [],
+): string {
   let out = `
     <div style="margin:0 0 16px 0">
-      <p style="${font};margin:0;color:${colors.text};font-size:16px;line-height:26px;font-style:italic">
+      <p style="${display};margin:0;color:${colors.text};font-size:19px;line-height:29px">
         ${text(outlook)}
       </p>
     </div>
@@ -535,7 +449,7 @@ function renderDeskNoteBlock(outlook: string, keyTakeaways: string[] = []): stri
   if (keyTakeaways && keyTakeaways.length > 0) {
     out += `
       <div style="border-top:1px dashed ${colors.border};padding-top:12px;margin-top:12px">
-        <div style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 8px 0">Key Takeaways</div>
+        <div style="${font};font-size:12px;font-weight:700;color:${colors.muted};margin:0 0 8px 0">Key Takeaways</div>
         ${renderKeyTakeawaysBlock(keyTakeaways)}
       </div>
     `;
@@ -544,146 +458,49 @@ function renderDeskNoteBlock(outlook: string, keyTakeaways: string[] = []): stri
   return out;
 }
 
-const NEWS_THEME_ORDER = [
-  'macro_policy',
-  'global_cues',
-  'earnings',
-  'sectoral',
-  'corporate_actions',
-  'stocks_in_focus',
-] as const;
-
-const NEWS_LABELS: Record<(typeof NEWS_THEME_ORDER)[number], string> = {
-  macro_policy: 'Macro & Policy',
-  global_cues: 'Global Cues',
-  earnings: 'Earnings',
-  sectoral: 'Sectoral',
-  corporate_actions: 'Corporate Actions',
-  stocks_in_focus: 'Stocks in Focus',
-};
-
-const PLACEHOLDER_SOURCES = new Set(['research text', 'research', 'source', 'n/a', 'na', 'unknown', '']);
-function isRealSource(source: string): boolean {
-  return !PLACEHOLDER_SOURCES.has(source.trim().toLowerCase());
-}
-
-interface CuratedNewsItem {
-  category: string;
-  headline: string;
-  summary?: string;
-  source?: string;
-}
-
-const DEFAULT_MORNING_HEADLINES: CuratedNewsItem[] = [
-  {
-    category: 'Macro & Policy',
-    headline: 'RBI Keeps Liquidity Stance Calibrated as Private Credit Expands',
-    summary: 'Central bank liquidity management remains neutral, offering adequate funding for credit demand without feeding short-term yield volatility.',
-    source: 'Economic Times',
-  },
-  {
-    category: 'Global Cues',
-    headline: 'US Equities Close Firmer as Semiconductor and Tech Giants Lead',
-    summary: 'Wall Street closed higher overnight with Nasdaq leading, bolstered by corporate earnings guidance and benign yield movement.',
-    source: 'Bloomberg',
-  },
-  {
-    category: 'Institutional Flows',
-    headline: 'Domestic Funds Absorb Foreign Selling; Auto & IT Order Inflows Steady',
-    summary: 'Institutional desks report robust SIP inflows offsetting cautious foreign outflows ahead of quarterly corporate updates.',
-    source: 'Reuters',
-  },
-  {
-    category: 'Capital Goods',
-    headline: 'Defense & Aerospace Order Books Swell on Indigenization Mandate',
-    summary: 'Public and private defense manufacturers see multi-year revenue visibility expand following cabinet clearance for domestic procurement contracts.',
-    source: 'Mint',
-  },
-  {
-    category: 'Banking & Credit',
-    headline: 'System Credit Growth Holds at 13.8% Driven by Retail & MSME Demand',
-    summary: 'Scheduled commercial banks report resilient loan growth with gross NPA ratios declining to multi-year lows across major lenders.',
-    source: 'Business Standard',
-  },
-  {
-    category: 'Primary Markets',
-    headline: 'Mainboard IPO Subscription Multiples Surge on Sustained Retail Bidding',
-    summary: 'Strong book-building interest continues across upcoming industrial and consumer issues, underscoring primary market depth.',
-    source: 'Financial Express',
-  },
-  {
-    category: 'Energy & Power',
-    headline: 'Transmission Utilities Fast-Track Inter-State Grid Capex Deployments',
-    summary: 'Substation and high-voltage transmission tender awards accelerate to evacuate new renewable generation capacity across western corridors.',
-    source: 'Moneycontrol',
-  },
-  {
-    category: 'Consumer & Retail',
-    headline: 'Festive Season Distribution Signals Resilient Urban Discretionary Demand',
-    summary: 'FMCG and retail footprints report steady inventory restocking ahead of peak seasonal footfall across tier-1 and tier-2 metros.',
-    source: 'Livemint',
-  },
-];
-
-function renderHeadlinesDigest(news: MarketSnapshot['news'], limit = 8): string {
-  const items: CuratedNewsItem[] = [];
-
-  if (news && news.length > 0) {
-    const byCategory = new Map(news.map((g) => [g.category, g.items]));
-    for (const category of NEWS_THEME_ORDER) {
-      const catItems = byCategory.get(category);
-      if (catItems && catItems.length > 0) {
-        for (const it of catItems) {
-          if (items.length >= limit) break;
-          if (it.headline && !items.some((item) => item.headline === it.headline)) {
-            items.push({
-              category: NEWS_LABELS[category] ?? category,
-              headline: it.headline,
-              summary: it.summary && it.summary !== it.headline ? it.summary : undefined,
-              source: isRealSource(it.source) ? it.source : undefined,
-            });
-          }
-        }
-      }
-    }
-  }
-
-  // Ensure exactly 8 headlines by padding from defaults
-  for (const fallback of DEFAULT_MORNING_HEADLINES) {
-    if (items.length >= limit) break;
-    if (!items.some((it) => it.headline === fallback.headline)) {
-      items.push(fallback);
-    }
-  }
-
-  return items
-    .map(
-      (item, idx) => `
-        <div style="padding:${idx === 0 ? '0 0 14px 0' : '14px 0'};${idx < items.length - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 4px 0">${idx + 1}. ${escapeHtml(item.category)}</div>
-          <div style="${display};font-size:17px;font-weight:700;line-height:23px;color:${colors.text}">${escapeHtml(item.headline)}</div>
-          ${item.summary ? `<div style="${font};font-size:13px;line-height:20px;color:${colors.muted};margin-top:4px">${escapeHtml(item.summary)}</div>` : ''}
-          ${item.source ? `<div style="${font};font-size:11px;font-style:italic;line-height:16px;color:${colors.faint};margin-top:4px">&#x2014; ${escapeHtml(item.source)}</div>` : ''}
-        </div>
-      `,
+function renderHeadlinesDigest(
+  news: MarketSnapshot['news'],
+  limit = 8,
+): string {
+  const seen = new Set<string>();
+  const items = news
+    .flatMap((group) =>
+      group.items.map((item) => ({ ...item, category: group.category })),
     )
+    .filter((item) => {
+      if (!item.headline.trim() || seen.has(item.headline)) return false;
+      seen.add(item.headline);
+      return true;
+    })
+    .slice(0, limit);
+  if (!items.length) return paragraph('No headlines in this edition.');
+  return items
+    .map((item, index) => {
+      const url = safeArticleUrl(item.url);
+      const source = cleanSource(item.source);
+      const headline = escapeHtml(item.headline);
+      return `<div style="padding:${index === 0 ? '0 0 20px' : '20px 0'};border-bottom:1px solid ${colors.border}">
+      <p style="${font};margin:0 0 6px;color:${colors.bearish};font-size:12px;line-height:18px;font-weight:700">${escapeHtml(formatCategory(item.category))}</p>
+      <h3 style="${display};font-size:${index === 0 ? '25' : '21'}px;font-weight:600;line-height:1.2;margin:0 0 8px;color:${colors.text}">${url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" style="color:${colors.text};text-decoration:none">${headline}</a>` : headline}</h3>
+      ${item.summary && item.summary !== item.headline ? paragraph(item.summary) : ''}
+      ${source ? `<p style="${font};font-size:12px;line-height:18px;color:${colors.muted};margin:8px 0 0">${escapeHtml(source)}</p>` : ''}
+    </div>`;
+    })
     .join('');
 }
 
 function subLabel(label: string, color: string): string {
-  return `<div style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${color};margin:0 0 6px 0">${escapeHtml(label)}</div>`;
+  return `<div style="${font};font-size:12px;font-weight:700;color:${color};margin:0 0 6px 0">${escapeHtml(label)}</div>`;
 }
 
-const DEFAULT_52W_HIGHS = [
-  { ticker: 'BHARTIARTL.NS', name: 'Bharti Airtel', ltp: 1642.5, pctFromHigh: 0.65 },
-  { ticker: 'BEL.NS', name: 'Bharat Electronics', ltp: 312.4, pctFromHigh: 1.15 },
-];
-const DEFAULT_52W_LOWS = [
-  { ticker: 'TATAMOTORS.NS', name: 'Tata Motors', ltp: 915.2, pctFromLow: 1.4 },
-];
-
 function near52List(
-  rows: Array<{ ticker: string; name: string; ltp: number; pctFromHigh?: number; pctFromLow?: number }>,
+  rows: Array<{
+    ticker: string;
+    name: string;
+    ltp: number;
+    pctFromHigh?: number;
+    pctFromLow?: number;
+  }>,
   kind: 'high' | 'low',
 ): string {
   if (!rows.length) {
@@ -693,11 +510,10 @@ function near52List(
   const sign = kind === 'high' ? '−' : '+';
   const body = rows
     .map((r) => {
-      const pct = kind === 'high' ? r.pctFromHigh ?? 0 : r.pctFromLow ?? 0;
+      const pct = kind === 'high' ? (r.pctFromHigh ?? 0) : (r.pctFromLow ?? 0);
       return `
         <tr>
-          <td style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;font-weight:700;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(shortTicker(r.ticker))}</td>
-          <td style="${font};padding:6px 10px 6px 0;color:${colors.muted};font-size:13px;line-height:18px;border-bottom:1px solid ${colors.border}">${escapeHtml(r.name)}</td>
+          <td style="${font};padding:10px 10px 10px 0;color:${colors.text};font-size:13px;font-weight:700;border-bottom:1px solid ${colors.border}">${escapeHtml(shortTicker(r.ticker))}<br><span style="font-size:12px;font-weight:400;color:${colors.muted}">${escapeHtml(r.name)}</span></td>
           <td align="right" style="${mono};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(r.ltp.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }))}</td>
           <td align="right" style="${mono};padding:6px 0;font-size:13px;white-space:nowrap;color:${color};border-bottom:1px solid ${colors.border}">${sign}${escapeHtml(pct.toFixed(2))}%</td>
         </tr>
@@ -708,29 +524,31 @@ function near52List(
 }
 
 function fiftyTwoBlock(s: MarketSnapshot): string {
-  const highs = s.near52wHigh?.length ? s.near52wHigh : DEFAULT_52W_HIGHS;
-  const lows = s.near52wLow?.length ? s.near52wLow : DEFAULT_52W_LOWS;
+  const highs = s.near52wHigh ?? [];
+  const lows = s.near52wLow ?? [];
 
   return (
     subLabel('Near 52-Week High (Within 2%)', colors.bullish) +
-    near52List(highs, 'high') +
+    near52List(highs.slice(0, 5), 'high') +
     '<div style="height:16px;line-height:16px">&nbsp;</div>' +
     subLabel('Near 52-Week Low (Within 2%)', colors.bearish) +
-    near52List(lows, 'low')
+    near52List(lows.slice(0, 5), 'low')
   );
 }
 
 function renderMarketConsensus(s: MarketSnapshot): string {
-  const sentiment = s.sentiment;
-  const score = sentiment?.composite ?? 62;
-  const regime = sentiment?.regime ?? 'Greed';
-  const summary =
-    sentiment?.summary ??
-    'Institutional desks note steady underlying liquidity with GIFT Nifty pointing to a positive opening bias. Broader market breadth continues to favour accumulation in mid-tier defensives and capital goods, while derivatives rollover indicates steady call unwinding at 24,300.';
+  const sentiment = s.sentiment ?? computeMoodSnapshot(s, 'morning');
+  const score = sentiment.composite;
+  const regime = sentiment.regime;
+  const summary = sentiment.summary;
 
   const isBullish = score >= 55;
   const isBearish = score <= 45;
-  const scoreColor = isBullish ? colors.bullish : isBearish ? colors.bearish : colors.neutral;
+  const scoreColor = isBullish
+    ? colors.bullish
+    : isBearish
+      ? colors.bearish
+      : colors.neutral;
 
   return `
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid ${colors.border}">
@@ -739,7 +557,7 @@ function renderMarketConsensus(s: MarketSnapshot): string {
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
             <tr>
               <td align="left" style="vertical-align:middle">
-                <span style="${font};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted}">Pre-Market Consensus: </span>
+                <span style="${font};font-size:12px;font-weight:700;color:${colors.muted}">Pre-Market Consensus: </span>
                 <span style="${font};font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:${scoreColor}">${escapeHtml(regime)}</span>
               </td>
               <td align="right" style="vertical-align:middle">
@@ -756,76 +574,21 @@ function renderMarketConsensus(s: MarketSnapshot): string {
   `;
 }
 
-function renderCorporateActionsAndIpo(s: MarketSnapshot): string {
-  const rawActions = s.corporateActions ?? [];
-  const sampleActions = [
-    { ticker: 'INFY', name: 'Infosys Ltd', type: 'Dividend', date: 'Oct 15 (Rs 21.00 / sh)' },
-    { ticker: 'TCS', name: 'Tata Consultancy Services', type: 'Results', date: 'Oct 17 (Q2 FY27)' },
-    { ticker: 'RELIANCE', name: 'Reliance Industries', type: 'Board Meeting', date: 'Oct 19 (Bonus Issue)' },
-  ];
-
-  const actions =
-    rawActions.length > 0
-      ? rawActions.slice(0, 3).map((a) => ({
-          ticker: shortTicker(a.ticker),
-          name: a.name,
-          type: a.type.toUpperCase(),
-          date: a.date,
-        }))
-      : sampleActions;
-
-  const actionRows = actions
-    .map(
-      (a) => `
-        <tr>
-          <td style="${mono};padding:5px 8px 5px 0;color:${colors.text};font-size:12px;font-weight:700;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(a.ticker)}</td>
-          <td style="${font};padding:5px 8px 5px 0;color:${colors.muted};font-size:12px;border-bottom:1px solid ${colors.border}">${escapeHtml(a.type)}</td>
-          <td align="right" style="${font};padding:5px 0 5px 0;color:${colors.text};font-size:12px;white-space:nowrap;border-bottom:1px solid ${colors.border}">${escapeHtml(a.date)}</td>
-        </tr>
-      `,
-    )
-    .join('');
-
-  const ipoSpotlight = `
-    <div style="border-left:2px solid ${colors.border};padding:12px 14px;background:${colors.raised}">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-bottom:4px">
-        <tr>
-          <td align="left">
-            <span style="${font};font-size:13px;font-weight:700;color:${colors.text}">NTPC Green Energy Ltd</span>
-          </td>
-          <td align="right">
-            <span style="${font};font-size:10px;font-weight:700;text-transform:uppercase;color:${colors.bullish};border:1px solid ${colors.bullish};padding:1px 5px;letter-spacing:0.06em">Mainboard</span>
-          </td>
-        </tr>
-      </table>
-      <div style="${mono};font-size:12px;color:${colors.muted};line-height:18px;margin-bottom:6px">
-        Price Band: <strong>Rs 102 – Rs 108</strong> &middot; Size: <strong>Rs 10,000 Cr</strong>
-      </div>
-      <div style="${font};font-size:12px;line-height:18px;color:${colors.muted}">
-        Issue open for bidding. Anchor book oversubscribed 3.2x by domestic mutual funds and sovereign wealth entities.
-      </div>
-    </div>
-  `;
-
-  return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-      <tr>
-        <td width="50%" style="padding:0 10px 0 0;vertical-align:top">
-          ${subLabel('Corporate Actions', colors.text)}
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-            ${actionRows}
-          </table>
-        </td>
-        <td width="50%" style="padding:0 0 0 10px;vertical-align:top">
-          ${subLabel('IPO in Focus', colors.text)}
-          ${ipoSpotlight}
-        </td>
-      </tr>
-    </table>
-  `;
+function renderCorporateActions(s: MarketSnapshot): string {
+  if (!s.corporateActions.length)
+    return paragraph('No corporate actions in this edition.');
+  return fixedRows(
+    s.corporateActions.slice(0, 6).map((action) => ({
+      label: `${shortTicker(action.ticker)} · ${action.type}`,
+      value: formatDisplayDate(action.date),
+    })),
+  );
 }
 
-export function renderDailyEmail(content: DailyContent, issueNumber?: number): string {
+export function renderDailyEmail(
+  content: DailyContent,
+  issueNumber?: number,
+): string {
   const s = content.snapshot;
 
   return renderShell({
@@ -833,20 +596,27 @@ export function renderDailyEmail(content: DailyContent, issueNumber?: number): s
     eyebrow: formatDisplayDate(s.asOf.slice(0, 10)),
     preheader: content.outlook,
     children:
+      section('From the desk', renderDeskNoteBlock(content.outlook)) +
       section('Market Cues', renderKeyMarketBar(s)) +
-      section('8 Major Headlines', renderHeadlinesDigest(s.news, 8)) +
+      section('In the news', renderHeadlinesDigest(s.news, 8)) +
       (content.keyTakeaways && content.keyTakeaways.length > 0
-        ? section('Key Takeaways', renderKeyTakeawaysBlock(content.keyTakeaways))
+        ? section(
+            'Key Takeaways',
+            renderKeyTakeawaysBlock(content.keyTakeaways),
+          )
         : '') +
       section('52-Week Range Extremes', fiftyTwoBlock(s)) +
       section('Market Consensus & Mood', renderMarketConsensus(s)) +
-      section('Corporate Actions & IPO Spotlight', renderCorporateActionsAndIpo(s)),
+      section('Corporate Actions', renderCorporateActions(s)),
     issueNumber,
-    mastheadSuffix: ' Daily',
+    webPath: dateReportPath(s.asOf.slice(0, 10)),
   });
 }
 
-export function renderWeeklyEmail(content: WeeklyContent, period: string): string {
+export function renderWeeklyEmail(
+  content: WeeklyContent,
+  period: string,
+): string {
   const periodLabel = formatPeriodLabel(period);
   const parts: string[] = [];
 
@@ -865,7 +635,12 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
         </tr>`,
       )
       .join('');
-    parts.push(section('Multi-Asset Scorecard', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${assetRows}</table>`));
+    parts.push(
+      section(
+        'Multi-Asset Scorecard',
+        `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${assetRows}</table>`,
+      ),
+    );
   }
 
   if (content.sectorGrowth && content.sectorGrowth.length > 0) {
@@ -878,7 +653,12 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
         </tr>`,
       )
       .join('');
-    parts.push(section('Sector Growth & Relative Rotation', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${secRows}</table>`));
+    parts.push(
+      section(
+        'Sector Growth & Relative Rotation',
+        `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${secRows}</table>`,
+      ),
+    );
   }
 
   if (content.fiiDiiWeekly) {
@@ -916,7 +696,12 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
         </tr>`,
       )
       .join('');
-    parts.push(section('IPOs in Focus · Primary Market', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${ipoRows}</table>`));
+    parts.push(
+      section(
+        'IPOs in Focus · Primary Market',
+        `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${ipoRows}</table>`,
+      ),
+    );
   }
 
   if (content.positionalBets && content.positionalBets.length > 0) {
@@ -928,12 +713,17 @@ export function renderWeeklyEmail(content: WeeklyContent, period: string): strin
   return renderShell({
     title: 'Weekly Report',
     eyebrow: periodLabel,
-    preheader: content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${periodLabel}`,
+    preheader:
+      content.themes.slice(0, 3).join('; ') || `Kosh Weekly ${periodLabel}`,
+    webPath: reportPath({ type: 'weekly', dateKey: period, date: period }),
     children: parts.join(''),
   });
 }
 
-export function renderMonthlyEmail(content: MonthlyContent, period: string): string {
+export function renderMonthlyEmail(
+  content: MonthlyContent,
+  period: string,
+): string {
   const parts = [
     section('Sector Insights', bulletList(content.sectorInsights)),
     section('Macro Themes', bulletList(content.macroThemes)),
@@ -950,7 +740,12 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
         </tr>`,
       )
       .join('');
-    parts.push(section('Multi-Asset Scorecard', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${assetRows}</table>`));
+    parts.push(
+      section(
+        'Multi-Asset Scorecard',
+        `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${assetRows}</table>`,
+      ),
+    );
   }
 
   if (content.sectorLeadership && content.sectorLeadership.length > 0) {
@@ -963,7 +758,12 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
         </tr>`,
       )
       .join('');
-    parts.push(section('Sector Leadership', `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${secRows}</table>`));
+    parts.push(
+      section(
+        'Sector Leadership',
+        `<table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;margin:0 0 8px 0">${secRows}</table>`,
+      ),
+    );
   }
 
   if (content.fiiDiiMonthly) {
@@ -985,7 +785,9 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
     parts.push(
       section(
         'Ledger Rollup',
-        card(hitsSummary + paragraph(content.ledgerRollup.summary)) + '<div style="height:12px;line-height:12px">&nbsp;</div>' + learningLoopBlock(content.ledgerRollup.learnings),
+        card(hitsSummary + paragraph(content.ledgerRollup.summary)) +
+          '<div style="height:12px;line-height:12px">&nbsp;</div>' +
+          learningLoopBlock(content.ledgerRollup.learnings),
       ),
     );
   }
@@ -995,173 +797,22 @@ export function renderMonthlyEmail(content: MonthlyContent, period: string): str
   return renderShell({
     title: 'Monthly Report',
     eyebrow: `Month ${period}`,
-    preheader: content.macroThemes.slice(0, 3).join('; ') || `Kosh Monthly ${period}`,
+    preheader:
+      content.macroThemes.slice(0, 3).join('; ') || `Kosh Monthly ${period}`,
+    webPath: reportPath({ type: 'monthly', dateKey: period, date: period }),
     children: parts.join(''),
   });
-}
-
-interface RetroMover {
-  ticker: string;
-  name?: string;
-  price: number;
-  changePct: number;
-  volMultiple?: string;
-}
-
-const DEFAULT_RETRO_GAINERS: RetroMover[] = [
-  { ticker: 'TRENT', name: 'Trent Ltd', price: 7420.0, changePct: 4.85 },
-  { ticker: 'BHARTIARTL', name: 'Bharti Airtel', price: 1642.5, changePct: 2.75 },
-  { ticker: 'BEL', name: 'Bharat Electronics', price: 312.4, changePct: 2.15 },
-];
-
-const DEFAULT_RETRO_LOSERS: RetroMover[] = [
-  { ticker: 'INDUSINDBK', name: 'IndusInd Bank', price: 1320.0, changePct: -3.45 },
-  { ticker: 'TATAMOTORS', name: 'Tata Motors', price: 915.2, changePct: -2.3 },
-  { ticker: 'MARUTI', name: 'Maruti Suzuki', price: 11850.0, changePct: -1.85 },
-];
-
-const DEFAULT_RETRO_MOST_TRADED: RetroMover[] = [
-  { ticker: 'HDFCBANK', name: 'HDFC Bank', price: 1680.0, changePct: 0.45, volMultiple: '1.8x' },
-  { ticker: 'RELIANCE', name: 'Reliance Ind.', price: 2940.0, changePct: -0.25, volMultiple: '2.3x' },
-  { ticker: 'ICICIBANK', name: 'ICICI Bank', price: 1260.0, changePct: 0.9, volMultiple: '1.6x' },
-];
-
-const DEFAULT_CLOSING_HEADLINES = [
-  {
-    category: 'Market Wrap',
-    headline: 'Benchmarks Hold Steady in Late Surge as Financials Cushion Energy Drag',
-    summary: 'Nifty concluded near day highs as private banks rebounded into the closing bell, absorbing pressure in heavyweights.',
-  },
-  {
-    category: 'Market Breadth',
-    headline: 'Advance-Decline Ratio Closes Firm at 1.4:1 Led by Capital Goods',
-    summary: 'Broader markets maintained strength through the afternoon session with small and midcaps outpacing headline indices.',
-  },
-  {
-    category: 'Flow Dynamics',
-    headline: 'DIIs Absorb FII Outflows With Net Domestic Inflows of Rs 1,120 Cr',
-    summary: 'Institutional settlement figures show continued systematic domestic accumulation at critical moving-average support levels.',
-  },
-  {
-    category: 'Sector Rotation',
-    headline: 'IT & Auto Outperform While Oil & Gas Consolidates Near Multi-Week Lows',
-    summary: 'Export-oriented IT and domestic passenger vehicle leaders attracted rotation flows as crude prices remained volatile.',
-  },
-  {
-    category: 'Derivatives Expiry',
-    headline: 'Derivatives PCR Firms to 1.18 as Put Writing Thickens at 24,000 Strike',
-    summary: 'Options skew indicates aggressive call unwinding and heavy put addition across near-month strikes ahead of weekly settlement.',
-  },
-  {
-    category: 'Corporate Earnings',
-    headline: 'Frontline Tech & Banking Counters See Post-Bell Earnings Positioning',
-    summary: 'Option implied volatility ticks higher across bellwethers reporting initial quarterly numbers this week.',
-  },
-  {
-    category: 'Macro & Commodities',
-    headline: 'Brent Crude Tests $82 as Global Bond Yields Ease Into European Close',
-    summary: 'Softer crude contracts and steady sovereign yields provide room for local corporate margins heading into next session.',
-  },
-  {
-    category: 'Institutional Desk',
-    headline: 'Closing Block Windows Witness Strong Demand for Defence and PSU Proxies',
-    summary: 'Institutional trading desks execute strategic late-session cross deals in capital goods and defence leaders.',
-  },
-];
-
-function renderRetroHeadlinesBlock(content: RetroContent): string {
-  const ext = content as any;
-  const rawHeadlines = ext.closingHeadlines ?? [];
-  const headlines: any[] = [...rawHeadlines];
-
-  if (ext.snapshot?.news && Array.isArray(ext.snapshot.news)) {
-    for (const grp of ext.snapshot.news) {
-      if (headlines.length >= 8) break;
-      for (const it of grp.items || []) {
-        if (headlines.length >= 8) break;
-        if (it.headline && !headlines.some((h) => h.headline === it.headline)) {
-          headlines.push({
-            category: grp.category.replace(/_/g, ' ').toUpperCase(),
-            headline: it.headline,
-            summary: it.summary,
-          });
-        }
-      }
-    }
-  }
-
-  for (const fallback of DEFAULT_CLOSING_HEADLINES) {
-    if (headlines.length >= 8) break;
-    if (!headlines.some((h) => h.headline === fallback.headline)) {
-      headlines.push(fallback);
-    }
-  }
-
-  return headlines
-    .slice(0, 8)
-    .map(
-      (h: any, idx: number) => `
-        <div style="padding:${idx === 0 ? '0 0 12px 0' : '12px 0'};${idx < Math.min(8, headlines.length) - 1 ? `border-bottom:1px solid ${colors.border};` : ''}">
-          <div style="${font};font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:${colors.muted};margin:0 0 3px 0">${idx + 1}. ${escapeHtml(h.category)}</div>
-          <div style="${display};font-size:16px;font-weight:700;line-height:22px;color:${colors.text}">${escapeHtml(h.headline)}</div>
-          ${h.summary ? `<div style="${font};font-size:13px;line-height:19px;color:${colors.muted};margin-top:3px">${escapeHtml(h.summary)}</div>` : ''}
-        </div>
-      `,
-    )
-    .join('');
-}
-
-function renderRetroMoversBlock(content: RetroContent): string {
-  const ext = content as any;
-  const gainers: RetroMover[] = ext.snapshot?.topGainers?.length
-    ? ext.snapshot.topGainers.slice(0, 3).map((g: any) => ({ ticker: shortTicker(g.ticker), name: g.name, price: g.ltp, changePct: g.changePct }))
-    : ext.topGainers ?? DEFAULT_RETRO_GAINERS;
-
-  const losers: RetroMover[] = ext.snapshot?.topLosers?.length
-    ? ext.snapshot.topLosers.slice(0, 3).map((l: any) => ({ ticker: shortTicker(l.ticker), name: l.name, price: l.ltp, changePct: l.changePct }))
-    : ext.topLosers ?? DEFAULT_RETRO_LOSERS;
-
-  const mostTraded: RetroMover[] = ext.snapshot?.mostActive?.length
-    ? ext.snapshot.mostActive.slice(0, 3).map((a: any) => ({ ticker: shortTicker(a.ticker), name: a.name, price: a.ltp, changePct: a.changePct }))
-    : ext.mostTraded ?? DEFAULT_RETRO_MOST_TRADED;
-
-  const renderSimpleTable = (rows: RetroMover[]) => `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-      ${rows.map((r) => `
-        <tr>
-          <td style="${mono};padding:5px 4px 5px 0;font-size:12px;font-weight:700;color:${colors.text};border-bottom:1px solid ${colors.border}">${escapeHtml(r.ticker)}</td>
-          <td align="right" style="${mono};padding:5px 4px 5px 0;font-size:12px;color:${colors.text};border-bottom:1px solid ${colors.border}">${escapeHtml(formatPrice(r.price))}</td>
-          <td align="right" style="${mono};padding:5px 0 5px 0;font-size:12px;font-weight:600;white-space:nowrap;color:${r.changePct >= 0 ? colors.bullish : colors.bearish};border-bottom:1px solid ${colors.border}">${escapeHtml(formatPct(r.changePct))}</td>
-        </tr>
-      `).join('')}
-    </table>
-  `;
-
-  return `
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-      <tr>
-        <td width="33%" style="padding:0 6px 0 0;vertical-align:top">
-          ${subLabel('Top Gainers', colors.bullish)}
-          ${renderSimpleTable(gainers)}
-        </td>
-        <td width="33%" style="padding:0 6px 0 6px;vertical-align:top">
-          ${subLabel('Top Losers', colors.bearish)}
-          ${renderSimpleTable(losers)}
-        </td>
-        <td width="34%" style="padding:0 0 0 6px;vertical-align:top">
-          ${subLabel('Most Traded', colors.text)}
-          ${renderSimpleTable(mostTraded)}
-        </td>
-      </tr>
-    </table>
-  `;
 }
 
 export function renderRetroEmail(content: RetroContent): string {
   const alertCards = content.alerts.length
     ? content.alerts.map((alert) =>
         card(
-          tickerLine(alert.ticker, alert.name, ` <span style="margin-left:8px">${severityBadge(alert.severity)}</span>`) +
+          tickerLine(
+            alert.ticker,
+            alert.name,
+            ` <span style="margin-left:8px">${severityBadge(alert.severity)}</span>`,
+          ) +
             paragraph(alert.reason) +
             (alert.triggeredRules.length
               ? `<div style="${mono};margin-top:8px;color:${colors.faint};font-size:12px;line-height:18px">${escapeHtml(alert.triggeredRules.join(', '))}</div>`
@@ -1177,8 +828,8 @@ export function renderRetroEmail(content: RetroContent): string {
           <td style="${mono};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;font-weight:700;color:${colors.text}">${escapeHtml(shortTicker(item.ticker))}</td>
           <td align="right" style="${mono};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;color:${colors.text};white-space:nowrap">${escapeHtml(formatPrice(item.price))}</td>
           <td align="right" style="${mono};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;color:${item.changePct < 0 ? colors.bearish : item.changePct > 0 ? colors.bullish : colors.neutral};white-space:nowrap">${escapeHtml(formatPct(item.changePct))}</td>
-          <td style="${font};padding:8px 8px;border-bottom:1px solid ${colors.border};font-size:13px;line-height:19px;color:${colors.muted}">${text(item.note)}</td>
         </tr>
+        <tr><td colspan="3" style="${font};padding:0 8px 14px;font-size:14px;line-height:21px;color:${colors.muted};border-bottom:1px solid ${colors.border}">${text(item.note)}</td></tr>
       `,
     )
     .join('');
@@ -1187,25 +838,28 @@ export function renderRetroEmail(content: RetroContent): string {
     title: 'Daily Retro',
     eyebrow: formatDisplayDate(content.date),
     preheader: content.summary,
-    mastheadSuffix: ' Retro',
+    webPath: dateReportPath(content.date),
     children:
-      section('Session Summary', `<p style="${font};margin:0;color:${colors.text};font-size:16px;line-height:26px;font-style:italic">${text(content.summary)}</p>`) +
-      section('Closing Session Wire', renderRetroHeadlinesBlock(content)) +
-      section('Session Movers', renderRetroMoversBlock(content)) +
-      section('Sell Alerts', `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cardStack(alertCards)}</table>`) +
+      section(
+        'Session Summary',
+        `<p style="${display};margin:0;color:${colors.text};font-size:19px;line-height:29px">${text(content.summary)}</p>`,
+      ) +
+      section(
+        'Sell Alerts',
+        `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cardStack(alertCards)}</table>`,
+      ) +
       section(
         'Portfolio Scan',
         `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
           <thead>
             <tr style="border-bottom:1px solid ${colors.text}">
-              <th align="left" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Ticker</th>
-              <th align="right" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Price</th>
-              <th align="right" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
-              <th align="left" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Note</th>
+              <th align="left" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:12px;font-weight:700">Ticker</th>
+              <th align="right" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:12px;font-weight:700">Price</th>
+              <th align="right" style="${font};padding:0 8px 6px 8px;color:${colors.muted};font-size:12px;font-weight:700">Change</th>
             </tr>
           </thead>
           <tbody>
-            ${evaluatedRows}
+            ${evaluatedRows || `<tr><td colspan="3">${paragraph('No holdings were evaluated in this edition.')}</td></tr>`}
           </tbody>
         </table>`,
       ),
@@ -1220,18 +874,31 @@ export function renderRecapEmail(content: RecapContent, title: string): string {
     ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin-top:12px">
         <thead>
           <tr style="border-bottom:1px solid ${colors.text}">
-            <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Ticker</th>
-            <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Action</th>
-            <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Change</th>
-            <th align="left" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em">Outcome</th>
+            <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:12px;font-weight:700">Ticker</th>
+            <th align="left" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:12px;font-weight:700">Action</th>
+            <th align="right" style="${font};padding:0 10px 6px 0;color:${colors.muted};font-size:12px;font-weight:700">Change</th>
+            <th align="left" style="${font};padding:0 0 6px 0;color:${colors.muted};font-size:12px;font-weight:700">Outcome</th>
           </tr>
         </thead>
         <tbody>
           ${content.graded
             .map((bet) => {
-              const changePctStr = bet.changePct > 0 ? `+${bet.changePct.toFixed(2)}%` : `${bet.changePct.toFixed(2)}%`;
-              const changePctColor = bet.changePct > 0 ? colors.bullish : bet.changePct < 0 ? colors.bearish : colors.neutral;
-              const outcomeColor = bet.outcome === 'hit' ? colors.bullish : bet.outcome === 'miss' ? colors.bearish : colors.neutral;
+              const changePctStr =
+                bet.changePct > 0
+                  ? `+${bet.changePct.toFixed(2)}%`
+                  : `${bet.changePct.toFixed(2)}%`;
+              const changePctColor =
+                bet.changePct > 0
+                  ? colors.bullish
+                  : bet.changePct < 0
+                    ? colors.bearish
+                    : colors.neutral;
+              const outcomeColor =
+                bet.outcome === 'hit'
+                  ? colors.bullish
+                  : bet.outcome === 'miss'
+                    ? colors.bearish
+                    : colors.neutral;
               return `
                 <tr>
                   <td style="${mono};padding:8px 10px 8px 0;color:${colors.text};font-size:13px;font-weight:700;vertical-align:top;border-bottom:1px solid ${colors.border}">${escapeHtml(bet.ticker.replace('.NS', ''))}</td>
@@ -1264,6 +931,7 @@ export function renderResearchEmail(content: ResearchContent): string {
   const rec = content.recommendation;
   return renderShell({
     title: `Research - ${content.name}`,
+    webPath: '/research',
     eyebrow: 'Research',
     preheader: `${rec.action.toUpperCase()} ${content.ticker}: ${rec.reasoning}`,
     children:
@@ -1274,19 +942,28 @@ export function renderResearchEmail(content: ResearchContent): string {
             metricTable(content.metrics),
         ),
       ) +
-      section('Fundamentals', fixedRows([
-        { label: 'Growth', value: content.fundamentals.growth },
-        { label: 'Valuation', value: content.fundamentals.valuation },
-      ])) +
-      section('Technicals', fixedRows([
-        { label: 'Trend', value: content.technicals.trend },
-        { label: 'Momentum', value: content.technicals.momentum },
-        { label: 'Key levels', value: content.technicals.levels },
-      ])) +
-      section('Sentiment', fixedRows([
-        { label: 'News', value: content.sentiment.news },
-        { label: 'Brokerage', value: content.sentiment.brokerage },
-      ])) +
+      section(
+        'Fundamentals',
+        fixedRows([
+          { label: 'Growth', value: content.fundamentals.growth },
+          { label: 'Valuation', value: content.fundamentals.valuation },
+        ]),
+      ) +
+      section(
+        'Technicals',
+        fixedRows([
+          { label: 'Trend', value: content.technicals.trend },
+          { label: 'Momentum', value: content.technicals.momentum },
+          { label: 'Key levels', value: content.technicals.levels },
+        ]),
+      ) +
+      section(
+        'Sentiment',
+        fixedRows([
+          { label: 'News', value: content.sentiment.news },
+          { label: 'Brokerage', value: content.sentiment.brokerage },
+        ]),
+      ) +
       section(
         'Recommendation',
         card(
@@ -1295,10 +972,16 @@ export function renderResearchEmail(content: ResearchContent): string {
           rec.action === 'buy' ? colors.bullish : colors.border,
         ),
       ) +
-      section('Entry & Exit', fixedRows([
-        { label: 'Fundamental', value: content.entryExit.fundamental },
-        { label: 'Technical / Sentiment', value: content.entryExit.technicalSentiment },
-      ])) +
+      section(
+        'Entry & Exit',
+        fixedRows([
+          { label: 'Fundamental', value: content.entryExit.fundamental },
+          {
+            label: 'Technical / Sentiment',
+            value: content.entryExit.technicalSentiment,
+          },
+        ]),
+      ) +
       section('Target', targetRows(content.targets ?? [])),
   });
 }
