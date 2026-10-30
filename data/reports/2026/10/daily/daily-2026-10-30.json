@@ -3,7 +3,7 @@
   "id": "daily-2026-10-30",
   "type": "daily",
   "dateKey": "2026-10-30",
-  "generatedAt": "2026-10-30T10:15:56.200Z",
+  "generatedAt": "2026-10-30T16:50:02.114Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 996,
+      "ABREL.BO": 1003.7,
       "AMBUJACEM.BO": 348.5,
       "BANDHANBNK.NS": 154.33,
       "BDL.BO": 975,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4620,
       "BSOFT.NS": 323,
       "CASTROLIND.NS": 188,
-      "CENTRALBK.BO": 28.91,
+      "CENTRALBK.BO": 28.72,
       "DIXON.NS": 11000,
       "EXIDEIND.NS": 335.5,
-      "FIRSTCRY.BO": 158.1,
+      "FIRSTCRY.BO": 157.9,
       "GMRAIRPORT.BO": 86.96,
       "GODREJCP.BO": 815.1,
       "HAVELLS.BO": 1012.75,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 436.2,
       "IREDA.NS": 99.5,
       "ITC.BO": 265.6,
-      "ITCHOTELS.BO": 167.6,
+      "ITCHOTELS.BO": 167.25,
       "JWL.NS": 181.78,
       "KAMATHOTEL.NS": 219.41,
       "LICI.BO": 384,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 505,
       "MANKIND.NS": 2492.8,
       "MAXHEALTH.BO": 860,
-      "NEWGEN.BO": 443,
+      "NEWGEN.BO": 442.45,
       "NHPC.BO": 77.45,
       "ONGC.BO": 226,
       "PRESTIGE.BO": 1445,
-      "PSB.BO": 18.68,
+      "PSB.BO": 18.67,
       "RELIANCE.NS": 1164.9,
       "SBIN.NS": 961.85,
       "TATASTEEL.BO": 167.7,
@@ -99,11 +99,11 @@
       "VMM.BO": 84.5,
       "WIPRO.BO": 198
     },
-    "searchTimestamp": "2026-10-30T10:15:56.200Z"
+    "searchTimestamp": "2026-10-30T16:50:02.114Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-10-30T10:15:56.200Z",
+      "asOf": "2026-10-30T16:50:02.114Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 15.3025,
-        "changePct": 1.2117207
+        "changePct": 1.2237438
       },
       "breadth": {
         "advances": 31,
@@ -486,22 +486,22 @@
           "ticker": "SUNPHARMA.NS",
           "name": "Sun Pharmaceutical",
           "volume": 5125487,
-          "avgVolume": 1673539,
-          "ratio": 3.06
+          "avgVolume": 1655533,
+          "ratio": 3.1
         },
         {
           "ticker": "COALINDIA.NS",
           "name": "Coal India",
           "volume": 21067182,
-          "avgVolume": 7952149,
-          "ratio": 2.65
+          "avgVolume": 7720406,
+          "ratio": 2.73
         },
         {
           "ticker": "ADANIPORTS.NS",
           "name": "Adani Ports & SEZ",
           "volume": 6254917,
-          "avgVolume": 2510009,
-          "ratio": 2.49
+          "avgVolume": 2548680,
+          "ratio": 2.45
         }
       ],
       "sectorRanking": [
@@ -856,7 +856,7 @@
         "composite": 40,
         "regime": "Fear",
         "session": "closing",
-        "asOf": "2026-10-30T10:15:56.200Z",
+        "asOf": "2026-10-30T16:50:02.114Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -895,7 +895,7 @@
             "summary": "Normal market volatility (India VIX at 15.30)",
             "metrics": {
               "vix": 15.3025,
-              "vixChangePct": 1.2117207,
+              "vixChangePct": 1.2237438,
               "goldChangePct": -0.6796622,
               "usdinrChangePct": -0.16542941
             }
@@ -930,9 +930,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 996,
-          "changePct": -4.42,
-          "note": "-4.4% vs prev close, vol 1.8x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 1003.7,
+          "changePct": -3.68,
+          "note": "-3.7% vs prev close, vol 1.8x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -986,9 +986,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 28.91,
-          "changePct": -1.06,
-          "note": "-1.1% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+          "price": 28.72,
+          "changePct": -1.71,
+          "note": "-1.7% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
           "ticker": "DIXON.NS",
@@ -1007,9 +1007,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 158.1,
-          "changePct": -4.47,
-          "note": "-4.5% vs prev close, vol 0.3x avg — flags: drawdown>3%, below 50DMA support"
+          "price": 157.9,
+          "changePct": -4.59,
+          "note": "-4.6% vs prev close, vol 0.3x avg — flags: drawdown>3%, below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1084,9 +1084,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 167.6,
-          "changePct": -1.06,
-          "note": "-1.1% vs prev close, vol 1.3x avg"
+          "price": 167.25,
+          "changePct": -1.27,
+          "note": "-1.3% vs prev close, vol 1.3x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -1147,9 +1147,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 443,
-          "changePct": -2.78,
-          "note": "-2.8% vs prev close, vol 0.6x avg — flags: below 50DMA support"
+          "price": 442.45,
+          "changePct": -2.9,
+          "note": "-2.9% vs prev close, vol 0.6x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1175,9 +1175,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 18.68,
-          "changePct": -1.84,
-          "note": "-1.8% vs prev close, vol 1.2x avg — flags: below 50DMA support"
+          "price": 18.67,
+          "changePct": -1.89,
+          "note": "-1.9% vs prev close, vol 1.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1245,79 +1245,20 @@
       ],
       "alerts": [
         {
-          "ticker": "VBL.NS",
-          "name": "Varun Beverages Ltd.",
-          "reason": "Significant drop with high volume despite positive Q2 FY27 results, suggesting profit booking or other underlying concerns, within a sector under pressure.",
+          "ticker": "ABREL.BO",
+          "name": "ABREL",
+          "reason": "Significant drawdown and breach of 50DMA with elevated volume suggests genuine selling pressure and continued downward momentum.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
-            "volume>2x avg",
             "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "ULTRACEMCO.BO",
-          "name": "UltraTech Cement",
-          "reason": "Extremely high volume on a moderate down day, indicating significant institutional selling or a major shift in sentiment in a sector under pressure.",
-          "severity": "high",
-          "triggeredRules": [
-            "volume>2x avg"
-          ]
-        },
-        {
-          "ticker": "BSOFT.NS",
-          "name": "Birlasoft",
-          "reason": "Significant decline against a strong sectoral trend (IT was top-performing), suggesting company-specific negative news or institutional exit.",
-          "severity": "high",
-          "triggeredRules": [
-            "drawdown>3%"
           ]
         },
         {
           "ticker": "DIXON.NS",
-          "name": "Dixon Technologies",
-          "reason": "Significant drawdown on higher-than-average volume, coupled with breakdown below 50DMA, likely linked to broader market sentiment in mid/small-cap space and the worst-performing consumer durables sector.",
-          "severity": "medium",
-          "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "ABREL.BO",
-          "name": "Aditya Birla Capital Ltd.",
-          "reason": "Significant drawdown with high volume, consistent with broader mid/small-cap weakness and financial sector pressure, and breakdown below 50DMA.",
-          "severity": "medium",
-          "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "BANDHANBNK.NS",
-          "name": "Bandhan Bank",
-          "reason": "Significant drawdown aligning with banking sector weakness and broader mid/small-cap correction, with breakdown below 50DMA.",
-          "severity": "medium",
-          "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "BDL.BO",
-          "name": "Bharat Dynamics Ltd.",
-          "reason": "Significant drawdown consistent with the broader mid/small-cap correction and breakdown below 50DMA, suggesting profit-taking or overall market caution.",
-          "severity": "medium",
-          "triggeredRules": [
-            "drawdown>3%",
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "FIRSTCRY.BO",
-          "name": "FirstCry India Ltd.",
-          "reason": "Significant drawdown primarily due to the broader small-cap market decline, with breakdown below 50DMA.",
-          "severity": "medium",
+          "name": "DIXON",
+          "reason": "Strong drawdown, 50DMA breach, and very high volume indicating significant selling pressure and market conviction.",
+          "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
             "below 50DMA support"
@@ -1325,28 +1266,65 @@
         },
         {
           "ticker": "JWL.NS",
-          "name": "Jindal Worldwide Ltd.",
-          "reason": "Significant drawdown in line with broader small-cap market weakness and breakdown below 50DMA, signaling a risk.",
-          "severity": "medium",
+          "name": "JWL",
+          "reason": "Largest drawdown with a 50DMA breach, indicating a significant impact, likely company-specific.",
+          "severity": "high",
           "triggeredRules": [
             "drawdown>3%",
             "below 50DMA support"
           ]
         },
         {
-          "ticker": "PRESTIGE.BO",
-          "name": "Prestige Estates Projects Ltd.",
-          "reason": "Very high volume on a day it closed marginally higher but broke its 50DMA, suggesting large block trades or institutional repositioning indicating underlying weakness.",
-          "severity": "medium",
+          "ticker": "VBL.NS",
+          "name": "VBL",
+          "reason": "Comprehensive negative signal: significant drawdown, breach of 50DMA, and exceptionally high volume, despite positive top-line growth, suggesting negative market reaction to margins or outlook.",
+          "severity": "high",
           "triggeredRules": [
+            "drawdown>3%",
             "volume>2x avg",
             "below 50DMA support"
           ]
+        },
+        {
+          "ticker": "BSOFT.NS",
+          "name": "BSOFT",
+          "reason": "Very large drawdown with above-average volume, strongly diverging from a generally positive IT sector trend, suggesting company-specific negative news.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%"
+          ]
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "M&M",
+          "reason": "Moderate drop and 50DMA breach in a declining auto sector, identified as a top loser in Nifty 50.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "SBIN",
+          "reason": "Minor drop and 50DMA breach as a major laggard in the declining banking sector.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "ULTRACEMCO.BO",
+          "name": "ULTRACEMCO",
+          "reason": "Moderate drop with exceptionally high volume, indicating very strong selling pressure and bearish conviction.",
+          "severity": "high",
+          "triggeredRules": [
+            "volume>2x avg"
+          ]
         }
       ],
-      "summary": "The Indian equity market on October 30, 2026, showed benchmark gains but significant weakness in mid/small-caps and specific sectors, leading to genuine sell signals driven by profit booking, institutional selling, and technical breakdowns."
+      "summary": "Several portfolio holdings, particularly those with significant drawdowns, 50DMA breaches, and/or high selling volume (ABREL, DIXON, JWL, VBL, BSOFT, ULTRACEMCO), represent genuine sell signals with high carry-over risk, while M&M and SBIN also show medium-severity risks within declining sectors."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:08ac7306f36c9f9bacdf2490af0a74ef1f623196f57de1e5b59d9edbef318de6"
+  "checksum": "sha256:61ecca69d9c2e3c353dedc17b74d4446b81a7bd6cc6bff7338f376c680de2427"
 }
