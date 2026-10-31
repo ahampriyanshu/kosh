@@ -567,5 +567,22 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +1.7%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "lt-2026-11-01-wipro",
+    "ticker": "WIPRO",
+    "name": "Wipro",
+    "horizon": "long_term",
+    "category": "Free Cash Flow Compounding Machine",
+    "action": "buy",
+    "callDate": "2026-11-01",
+    "expiryDate": "2027-05-01",
+    "entryPrice": 198.31,
+    "targetPrice": 268,
+    "stopLossPrice": 175,
+    "quantScore": 91,
+    "triggers": "ROIC > 22%; FCF Yield 4.5%; 3-year revenue CAGR 18.2%; Net Debt/Equity < 0.15",
+    "thesis": "Market-leading operating moat with strong reinvestment rate and secular domestic demand tailwinds.",
+    "status": "active"
   }
 ]
