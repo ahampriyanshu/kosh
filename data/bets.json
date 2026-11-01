@@ -627,5 +627,39 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +3.4%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-11-02-wipro",
+    "ticker": "WIPRO",
+    "name": "Wipro",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-02",
+    "expiryDate": "2026-11-16",
+    "entryPrice": 198.31,
+    "targetPrice": 214,
+    "stopLossPrice": 190,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-11-02-infy",
+    "ticker": "INFY",
+    "name": "Infosys",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-02",
+    "expiryDate": "2026-11-19",
+    "entryPrice": 1185,
+    "targetPrice": 1280,
+    "stopLossPrice": 1138,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +3.4%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
