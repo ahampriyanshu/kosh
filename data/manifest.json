@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "weekly-2026-W44",
+      "type": "weekly",
+      "dateKey": "2026-W44",
+      "date": "2026-11-01",
+      "path": "reports/2026/11/weekly/weekly-2026-W44.json",
+      "checksum": "sha256:64b8da670ea269e5a03df154d30fb7feb8ca883b956603a43e7537d97f911e13"
+    },
+    {
       "id": "monthly-2026-10",
       "type": "monthly",
       "dateKey": "2026-10",
@@ -1091,7 +1099,7 @@
   ],
   "latest": {
     "daily": "daily-2026-10-30",
-    "weekly": "weekly-2026-W43",
+    "weekly": "weekly-2026-W44",
     "recap": "recap-2026-10-03",
     "monthly": "monthly-2026-10",
     "research": "2"
