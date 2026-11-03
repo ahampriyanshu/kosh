@@ -3,7 +3,7 @@
   "id": "daily-2026-11-03",
   "type": "daily",
   "dateKey": "2026-11-03",
-  "generatedAt": "2026-11-03T10:15:34.040Z",
+  "generatedAt": "2026-11-03T18:02:54.692Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1041,
+      "ABREL.BO": 1035.75,
       "AMBUJACEM.BO": 368,
       "BANDHANBNK.NS": 156.8,
       "BDL.BO": 1016,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4915.8,
       "BSOFT.NS": 322.2,
       "CASTROLIND.NS": 194.01,
-      "CENTRALBK.BO": 29.5,
+      "CENTRALBK.BO": 29.39,
       "DIXON.NS": 12270,
       "EXIDEIND.NS": 346.25,
-      "FIRSTCRY.BO": 162.8,
+      "FIRSTCRY.BO": 162.6,
       "GMRAIRPORT.BO": 91,
       "GODREJCP.BO": 829.5,
       "HAVELLS.BO": 1051.5,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 447.5,
       "IREDA.NS": 102.3,
       "ITC.BO": 273.35,
-      "ITCHOTELS.BO": 171.2,
+      "ITCHOTELS.BO": 171,
       "JWL.NS": 192.18,
       "KAMATHOTEL.NS": 229.65,
       "LICI.BO": 395.1,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 535.8,
       "MANKIND.NS": 2475,
       "MAXHEALTH.BO": 894,
-      "NEWGEN.BO": 449.7,
+      "NEWGEN.BO": 442.9,
       "NHPC.BO": 79.3,
       "ONGC.BO": 231.65,
       "PRESTIGE.BO": 1535,
-      "PSB.BO": 19,
+      "PSB.BO": 19.02,
       "RELIANCE.NS": 1307.9,
       "SBIN.NS": 970.25,
       "TATASTEEL.BO": 176.2,
@@ -99,11 +99,11 @@
       "VMM.BO": 90.2,
       "WIPRO.BO": 197.6
     },
-    "searchTimestamp": "2026-11-03T10:15:34.040Z"
+    "searchTimestamp": "2026-11-03T18:02:54.692Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-03T10:15:34.040Z",
+      "asOf": "2026-11-03T18:02:54.692Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 15.7225,
-        "changePct": 1.4403615
+        "changePct": 1.4354829
       },
       "breadth": {
         "advances": 46,
@@ -449,16 +449,16 @@
       ],
       "near52wHigh": [
         {
-          "ticker": "KOTAKBANK.NS",
-          "name": "Kotak Mahindra Bank",
-          "ltp": 464.65,
-          "pctFromHigh": 0
-        },
-        {
           "ticker": "DIVISLAB.NS",
           "name": "Divi's Laboratories",
           "ltp": 10064,
           "pctFromHigh": 0
+        },
+        {
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 464.65,
+          "pctFromHigh": 0.28
         },
         {
           "ticker": "ADANIPORTS.NS",
@@ -470,53 +470,53 @@
       "near52wLow": [],
       "volumeShockers": [
         {
-          "ticker": "RELIANCE.NS",
-          "name": "Reliance Industries",
-          "volume": 42318217,
-          "avgVolume": 12782622,
-          "ratio": 3.31
-        },
-        {
           "ticker": "SBIN.NS",
           "name": "State Bank of India",
           "volume": 27953749,
-          "avgVolume": 9095044,
-          "ratio": 3.07
+          "avgVolume": 9085723,
+          "ratio": 3.08
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "volume": 42318217,
+          "avgVolume": 14082834,
+          "ratio": 3
         },
         {
           "ticker": "ASIANPAINT.NS",
           "name": "Asian Paints",
           "volume": 2008937,
-          "avgVolume": 683718,
-          "ratio": 2.94
+          "avgVolume": 679677,
+          "ratio": 2.96
         },
         {
           "ticker": "BHARTIARTL.NS",
           "name": "Bharti Airtel",
           "volume": 18602031,
-          "avgVolume": 7213806,
-          "ratio": 2.58
+          "avgVolume": 7253787,
+          "ratio": 2.56
         },
         {
           "ticker": "BRITANNIA.NS",
           "name": "Britannia Industries",
           "volume": 591462,
-          "avgVolume": 276814,
-          "ratio": 2.14
+          "avgVolume": 277085,
+          "ratio": 2.13
         },
         {
           "ticker": "NESTLEIND.NS",
           "name": "Nestle India",
           "volume": 3510880,
-          "avgVolume": 1687986,
+          "avgVolume": 1688937,
           "ratio": 2.08
         },
         {
-          "ticker": "IOC.NS",
-          "name": "Indian Oil",
-          "volume": 16942486,
-          "avgVolume": 8392434,
-          "ratio": 2.02
+          "ticker": "GAIL.NS",
+          "name": "GAIL India",
+          "volume": 15445883,
+          "avgVolume": 7686153,
+          "ratio": 2.01
         }
       ],
       "sectorRanking": [
@@ -671,7 +671,7 @@
         "composite": 61,
         "regime": "Greed",
         "session": "closing",
-        "asOf": "2026-11-03T10:15:34.040Z",
+        "asOf": "2026-11-03T18:02:54.692Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -710,7 +710,7 @@
             "summary": "Normal market volatility (India VIX at 15.72)",
             "metrics": {
               "vix": 15.7225,
-              "vixChangePct": 1.4403615,
+              "vixChangePct": 1.4354829,
               "goldChangePct": -1.2898074,
               "usdinrChangePct": -0.15807104
             }
@@ -746,9 +746,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1041,
-          "changePct": 0.54,
-          "note": "+0.5% vs prev close, vol 0.5x avg — flags: below 50DMA support"
+          "price": 1035.75,
+          "changePct": 0.03,
+          "note": "+0.0% vs prev close, vol 0.5x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -802,9 +802,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 29.5,
-          "changePct": 0.07,
-          "note": "+0.1% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 29.39,
+          "changePct": -0.31,
+          "note": "-0.3% vs prev close, vol 0.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "DIXON.NS",
@@ -823,9 +823,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 162.8,
-          "changePct": 1.34,
-          "note": "+1.3% vs prev close, vol 0.7x avg — flags: below 50DMA support"
+          "price": 162.6,
+          "changePct": 1.21,
+          "note": "+1.2% vs prev close, vol 0.7x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -900,9 +900,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 171.2,
-          "changePct": 0.38,
-          "note": "+0.4% vs prev close, vol 0.6x avg"
+          "price": 171,
+          "changePct": 0.26,
+          "note": "+0.3% vs prev close, vol 0.6x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -963,9 +963,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 449.7,
-          "changePct": 0.78,
-          "note": "+0.8% vs prev close, vol 0.4x avg — flags: below 50DMA support"
+          "price": 442.9,
+          "changePct": -0.74,
+          "note": "-0.7% vs prev close, vol 0.4x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -991,9 +991,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 19,
-          "changePct": -0.16,
-          "note": "-0.2% vs prev close, vol 0.3x avg — flags: below 50DMA support"
+          "price": 19.02,
+          "changePct": -0.05,
+          "note": "-0.1% vs prev close, vol 0.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1061,19 +1061,19 @@
       ],
       "alerts": [
         {
-          "ticker": "BANDHANBNK.NS",
-          "name": "BANDHANBNK",
-          "reason": "Small positive move on low volume, weak response despite positive market day, sectoral headwinds for PSU banks, technical underperformance (below 50DMA).",
+          "ticker": "SBIN.NS",
+          "name": "SBIN",
+          "reason": "Significant decline on very high volume amidst sectoral weakness.",
           "severity": "high",
           "triggeredRules": [
-            "below 50DMA support"
+            "volume > 2x avg"
           ]
         },
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "reason": "Negligible positive change on very low volume, below 50DMA, significant weakness and lack of investor interest, PSU bank sector decline.",
-          "severity": "high",
+          "reason": "Decline on low volume, below 50DMA, with sectoral weakness.",
+          "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
           ]
@@ -1081,88 +1081,7 @@
         {
           "ticker": "DIXON.NS",
           "name": "DIXON",
-          "reason": "Negative move in a strongly rising market on higher than average volume, combined with being below 50DMA, indicates significant selling pressure.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "GMRAIRPORT.BO",
-          "name": "GMRAIRPORT",
-          "reason": "Relatively strong positive percentage change but on extremely low volume (unreliable move), still below 50DMA, low liquidity.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "MAXHEALTH.BO",
-          "name": "MAXHEALTH",
-          "reason": "Positive move on extremely low volume (suspect), below 50DMA, low liquidity.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "PSB.BO",
-          "name": "PSB",
-          "reason": "Negative close on very low volume, below 50DMA, while market surged and PSU banking sector lagged, bordering on a sell signal.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "VMM.BO",
-          "name": "VMM",
-          "reason": "Positive move on extremely low volume (unreliable), below 50DMA, low liquidity, and potential uncertainty from director resignation.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "SBIN.NS",
-          "name": "SBIN",
-          "reason": "Significant negative move on very high volume, despite strong earnings ('sell on news' event), and the PSU banking sector lagged.",
-          "severity": "high",
-          "triggeredRules": [
-            "volume>2x avg"
-          ]
-        },
-        {
-          "ticker": "ABREL.BO",
-          "name": "ABREL",
-          "reason": "Weak rebound on low volume, persistent technical weakness below 50DMA in a rising market.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "BDL.BO",
-          "name": "BDL",
-          "reason": "Decent positive move on higher volume, but failed to reclaim 50DMA; mixed signal, but still a risk for technical resistance.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "EXIDEIND.NS",
-          "name": "EXIDEIND",
-          "reason": "Positive move on slightly above-average volume but still below 50DMA; technical breach in a bullish market.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "FIRSTCRY.BO",
-          "name": "FIRSTCRY",
-          "reason": "Modest positive move on below-average volume, failure to reclaim 50DMA in a strong market, suggesting lingering weakness.",
+          "reason": "Decline on above-average volume, below 50DMA, against a strong market.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
@@ -1171,7 +1090,7 @@
         {
           "ticker": "IRCTC.NS",
           "name": "IRCTC",
-          "reason": "Effectively flat on low volume while market surged, still below 50DMA, indicating significant underperformance and lack of positive catalysts.",
+          "reason": "Flat close on below-average volume, below 50DMA, showing underperformance in a strong market.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
@@ -1180,16 +1099,7 @@
         {
           "ticker": "IREDA.NS",
           "name": "IREDA",
-          "reason": "Negligible positive change on low volume, below 50DMA, pointing to weakness and disinterest.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "JWL.NS",
-          "name": "JWL",
-          "reason": "Positive move on average volume, but still below 50DMA; technical level remains breached.",
+          "reason": "Flat close on below-average volume, below 50DMA, showing underperformance in a strong market.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
@@ -1198,34 +1108,16 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "reason": "Small positive move on low volume, below 50DMA, indicating technical weakness and lack of strong buying conviction.",
+          "reason": "Decline on low volume, below 50DMA, underperforming its sector and market.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
           ]
         },
         {
-          "ticker": "TMPV.BO",
-          "name": "TMPV",
-          "reason": "Positive move on slightly below-average volume, but still below 50DMA; mixed signal with underlying risk from technical breach.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "VBL.NS",
-          "name": "VBL",
-          "reason": "Strong positive move on slightly above-average volume, but still below 50DMA; strong buying interest couldn't push it past resistance.",
-          "severity": "medium",
-          "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "M&M.NS",
-          "name": "M&M",
-          "reason": "Positive move on above-average volume but still below 50DMA, mixed news on tractor sales, indicating a fight between buyers and sellers.",
+          "ticker": "PSB.BO",
+          "name": "PSB",
+          "reason": "Decline on low volume, below 50DMA, aligned with sectoral weakness.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
@@ -1234,16 +1126,34 @@
         {
           "ticker": "RELIANCE.NS",
           "name": "RELIANCE",
-          "reason": "Modest positive move on high volume, but declined intraday due to profit booking after a significant rally, indicating potential volatility.",
+          "reason": "Weak performance relative to the market on high volume, suggesting distribution.",
           "severity": "medium",
           "triggeredRules": [
-            "volume>2x avg"
+            "volume > 2x avg"
+          ]
+        },
+        {
+          "ticker": "BANDHANBNK.NS",
+          "name": "BANDHANBNK",
+          "reason": "Underperformed its strong sector on very low volume, remaining below 50DMA.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "M&M",
+          "reason": "Gained, but below 50DMA with above-average volume, struggling to break resistance.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
           ]
         }
       ],
-      "summary": "Despite a broadly positive market, several stocks exhibited genuine sell or high-risk signals due to significant underperformance, technical weakness below the 50DMA, negative price action on high volume (even despite positive news), or very low liquidity."
+      "summary": "A strong bullish market day saw several stocks trigger sell/risk alerts, primarily due to underperformance, declines, or struggles with the 50-day moving average, with PSU banks being a notable weak sector."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:5948ba05034434bb3daeb20aef45a317d0ea8f24e8206e2e616f1089d1f0bde5"
+  "checksum": "sha256:897f6d5be10575b99669ff02f0cfdcf8243cab934bab512990f703e56a8ee3f9"
 }
