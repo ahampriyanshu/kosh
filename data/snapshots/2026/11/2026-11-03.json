@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-03T10:04:18.470Z",
+  "asOf": "2026-11-03T10:15:34.040Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -11,8 +11,8 @@
     {
       "name": "SENSEX",
       "symbol": "^BSESN",
-      "ltp": 76613.69,
-      "changePct": 1.2166368
+      "ltp": 76917.85,
+      "changePct": 1.6184771
     },
     {
       "name": "NIFTY BANK",
@@ -138,8 +138,8 @@
     "changeBps": -7
   },
   "vix": {
-    "value": 15.675,
-    "changePct": 1.1290334
+    "value": 15.7225,
+    "changePct": 1.4403615
   },
   "breadth": {
     "advances": 46,
@@ -277,70 +277,70 @@
       "name": "Reliance Industries",
       "ltp": 1307.9,
       "changePct": 0.60769415,
-      "volume": 42482533
+      "volume": 42318217
     },
     {
       "ticker": "BHARTIARTL.NS",
       "name": "Bharti Airtel",
       "ltp": 2065,
       "changePct": 3.7740576,
-      "volume": 19956701
+      "volume": 18602031
     },
     {
       "ticker": "HDFCBANK.NS",
       "name": "HDFC Bank",
       "ltp": 725.5,
       "changePct": 3.642857,
-      "volume": 45903273
+      "volume": 42738372
     },
     {
       "ticker": "SBIN.NS",
       "name": "State Bank of India",
       "ltp": 970.25,
       "changePct": -1.6970618,
-      "volume": 28563378
+      "volume": 27953749
     },
     {
       "ticker": "ICICIBANK.NS",
       "name": "ICICI Bank",
       "ltp": 1424.5,
       "changePct": 2.6740649,
-      "volume": 18603372
+      "volume": 17496481
     },
     {
       "ticker": "INFY.NS",
       "name": "Infosys",
       "ltp": 1148.1,
       "changePct": -1.1111132,
-      "volume": 10628682
+      "volume": 10494010
     },
     {
       "ticker": "AXISBANK.NS",
       "name": "Axis Bank",
       "ltp": 1232.7,
       "changePct": 1.9602938,
-      "volume": 8302708
+      "volume": 7850281
     },
     {
       "ticker": "M&M.NS",
       "name": "Mahindra & Mahindra",
       "ltp": 2908,
       "changePct": 1.3664232,
-      "volume": 3319464
+      "volume": 3056309
     },
     {
       "ticker": "TCS.NS",
       "name": "Tata Consultancy Services",
       "ltp": 2499.1,
       "changePct": -0.10392348,
-      "volume": 3845866
+      "volume": 3485800
     },
     {
-      "ticker": "KOTAKBANK.NS",
-      "name": "Kotak Mahindra Bank",
-      "ltp": 464.65,
-      "changePct": 1.3744928,
-      "volume": 19876153
+      "ticker": "ITC.NS",
+      "name": "ITC",
+      "ltp": 273.9,
+      "changePct": 2.8153152,
+      "volume": 31520030
     }
   ],
   "near52wHigh": [
@@ -368,58 +368,51 @@
     {
       "ticker": "RELIANCE.NS",
       "name": "Reliance Industries",
-      "volume": 42482533,
+      "volume": 42318217,
       "avgVolume": 12782622,
-      "ratio": 3.32
+      "ratio": 3.31
     },
     {
       "ticker": "SBIN.NS",
       "name": "State Bank of India",
-      "volume": 28563378,
+      "volume": 27953749,
       "avgVolume": 9095044,
-      "ratio": 3.14
+      "ratio": 3.07
     },
     {
       "ticker": "ASIANPAINT.NS",
       "name": "Asian Paints",
-      "volume": 2116713,
+      "volume": 2008937,
       "avgVolume": 683718,
-      "ratio": 3.1
+      "ratio": 2.94
     },
     {
       "ticker": "BHARTIARTL.NS",
       "name": "Bharti Airtel",
-      "volume": 19956701,
+      "volume": 18602031,
       "avgVolume": 7213806,
-      "ratio": 2.77
-    },
-    {
-      "ticker": "IOC.NS",
-      "name": "Indian Oil",
-      "volume": 19523489,
-      "avgVolume": 8392434,
-      "ratio": 2.33
-    },
-    {
-      "ticker": "NESTLEIND.NS",
-      "name": "Nestle India",
-      "volume": 3738531,
-      "avgVolume": 1687986,
-      "ratio": 2.21
+      "ratio": 2.58
     },
     {
       "ticker": "BRITANNIA.NS",
       "name": "Britannia Industries",
-      "volume": 611959,
+      "volume": 591462,
       "avgVolume": 276814,
-      "ratio": 2.21
+      "ratio": 2.14
     },
     {
-      "ticker": "GAIL.NS",
-      "name": "GAIL India",
-      "volume": 16700038,
-      "avgVolume": 8076356,
-      "ratio": 2.07
+      "ticker": "NESTLEIND.NS",
+      "name": "Nestle India",
+      "volume": 3510880,
+      "avgVolume": 1687986,
+      "ratio": 2.08
+    },
+    {
+      "ticker": "IOC.NS",
+      "name": "Indian Oil",
+      "volume": 16942486,
+      "avgVolume": 8392434,
+      "ratio": 2.02
     }
   ],
   "sectorRanking": [
@@ -573,8 +566,8 @@
   "sentiment": {
     "composite": 61,
     "regime": "Greed",
-    "session": "morning",
-    "asOf": "2026-11-03T10:04:18.470Z",
+    "session": "closing",
+    "asOf": "2026-11-03T10:15:34.040Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -606,14 +599,14 @@
         }
       },
       "volatility": {
-        "score": 45,
+        "score": 44,
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
         "weight": 0.25,
-        "summary": "Normal market volatility (India VIX at 15.68)",
+        "summary": "Normal market volatility (India VIX at 15.72)",
         "metrics": {
-          "vix": 15.675,
-          "vixChangePct": 1.1290334,
+          "vix": 15.7225,
+          "vixChangePct": 1.4403615,
           "goldChangePct": -1.2898074,
           "usdinrChangePct": -0.15807104
         }
