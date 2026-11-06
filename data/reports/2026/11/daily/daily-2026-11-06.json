@@ -3,82 +3,82 @@
   "id": "daily-2026-11-06",
   "type": "daily",
   "dateKey": "2026-11-06",
-  "generatedAt": "2026-11-06T03:01:16.334Z",
+  "generatedAt": "2026-11-06T09:53:01.454Z",
   "sourceData": {
     "tickers": [],
     "priceSnapshot": {},
-    "searchTimestamp": "2026-11-06T03:01:16.334Z"
+    "searchTimestamp": "2026-11-06T09:53:01.454Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-06T03:01:16.334Z",
+      "asOf": "2026-11-06T09:53:01.454Z",
       "window": "1d",
       "indianIndices": [
         {
           "name": "NIFTY 50",
           "symbol": "^NSEI",
-          "ltp": 24536.6,
-          "changePct": 2.4039464
+          "ltp": 24938.9,
+          "changePct": 1.6395947
         },
         {
           "name": "SENSEX",
           "symbol": "^BSESN",
-          "ltp": 79310.01,
-          "changePct": 2.5984128
+          "ltp": 80819.72,
+          "changePct": 1.9035424
         },
         {
           "name": "NIFTY BANK",
           "symbol": "^NSEBANK",
-          "ltp": 57773.65,
-          "changePct": 3.3266447
+          "ltp": 58946,
+          "changePct": 2.029215
         },
         {
           "name": "NIFTY IT",
           "symbol": "^CNXIT",
-          "ltp": 32837.85,
-          "changePct": 2.4201658
+          "ltp": 32858.75,
+          "changePct": 0.0636413
         },
         {
           "name": "NIFTY PHARMA",
           "symbol": "^CNXPHARMA",
-          "ltp": 27607.6,
-          "changePct": 1.002985
+          "ltp": 27904,
+          "changePct": 1.0736189
         },
         {
           "name": "NIFTY AUTO",
           "symbol": "^CNXAUTO",
-          "ltp": 27601.75,
-          "changePct": 4.1386814
+          "ltp": 27733.2,
+          "changePct": 0.4762351
         },
         {
           "name": "NIFTY FMCG",
           "symbol": "^CNXFMCG",
-          "ltp": 46472.15,
-          "changePct": 0.44980422
+          "ltp": 46631,
+          "changePct": 0.34182099
         },
         {
           "name": "NIFTY METAL",
           "symbol": "^CNXMETAL",
-          "ltp": 12595.1,
-          "changePct": 0.87458026
+          "ltp": 12634.55,
+          "changePct": 0.31322607
         },
         {
           "name": "NIFTY ENERGY",
           "symbol": "^CNXENERGY",
-          "ltp": 36884.45,
-          "changePct": -0.5242944
+          "ltp": 36736.85,
+          "changePct": -0.40016067
         },
         {
           "name": "NIFTY REALTY",
           "symbol": "^CNXREALTY",
-          "ltp": 895.9,
-          "changePct": 3.5243816
+          "ltp": 893.95,
+          "changePct": -0.21765958
         },
         {
           "name": "NIFTY FIN SERVICE",
           "symbol": "^CNXFIN",
-          "ltp": 28544.05,
-          "changePct": 3.9681919
+          "ltp": 29159,
+          "changePct": 2.1543868
         }
       ],
       "giftNifty": null,
@@ -104,27 +104,27 @@
         {
           "name": "Nikkei 225",
           "symbol": "^N225",
-          "ltp": 57858.61,
-          "changePct": -5.270792
+          "ltp": 57434.77,
+          "changePct": -5.964725
         },
         {
           "name": "Hang Seng",
           "symbol": "^HSI",
-          "ltp": 24664.89,
-          "changePct": -0.5327011
+          "ltp": 24481.86,
+          "changePct": -1.2708043
         },
         {
           "name": "FTSE 100",
           "symbol": "^FTSE",
-          "ltp": 10782.66,
-          "changePct": -0.42985412
+          "ltp": 10644.7,
+          "changePct": -1.2794613
         }
       ],
       "commodities": [
         {
           "name": "Gold",
-          "value": 4075.3,
-          "changePct": -0.92864835
+          "value": 4081.6,
+          "changePct": -0.77549297
         },
         {
           "name": "Silver",
@@ -133,375 +133,381 @@
         },
         {
           "name": "Crude Oil",
-          "value": 91.53,
-          "changePct": 1.115778
+          "value": 89.38,
+          "changePct": -1.2595286
         }
       ],
       "currencies": [
         {
           "pair": "USD/INR",
-          "value": 94.465,
-          "changePct": 0
+          "value": 93.9675,
+          "changePct": -0.5267451
         }
       ],
       "bondYield": {
         "name": "India 10Y",
-        "value": 7.12,
-        "changeBps": -12
+        "value": 7.17,
+        "changeBps": -2
       },
       "vix": {
-        "value": 15.58,
-        "changePct": 2.5843616
+        "value": 17.2725,
+        "changePct": 10.86328
       },
       "breadth": {
-        "advances": 46,
-        "declines": 12,
+        "advances": 43,
+        "declines": 15,
         "unchanged": 0,
-        "adRatio": 3.83
+        "adRatio": 2.87
       },
       "topGainers": [
         {
-          "ticker": "BAJFINANCE.NS",
-          "name": "Bajaj Finance",
-          "ltp": 1070,
-          "changePct": 7.645875
-        },
-        {
-          "ticker": "M&M.NS",
-          "name": "Mahindra & Mahindra",
-          "ltp": 3127.5,
-          "changePct": 5.591009
-        },
-        {
-          "ticker": "MARUTI.NS",
-          "name": "Maruti Suzuki",
-          "ltp": 12652,
-          "changePct": 5.477282
-        },
-        {
-          "ticker": "INDUSINDBK.NS",
-          "name": "IndusInd Bank",
-          "ltp": 911.45,
-          "changePct": 5.3516717
+          "ticker": "HAVELLS.NS",
+          "name": "Havells India",
+          "ltp": 1125.4,
+          "changePct": 5.3646708
         },
         {
           "ticker": "ICICIBANK.NS",
           "name": "ICICI Bank",
-          "ltp": 1500,
-          "changePct": 5.329684
+          "ltp": 1564.9,
+          "changePct": 4.3266683
         },
         {
-          "ticker": "BAJAJFINSV.NS",
-          "name": "Bajaj Finserv",
-          "ltp": 1835,
-          "changePct": 4.4691143
+          "ticker": "M&M.NS",
+          "name": "Mahindra & Mahindra",
+          "ltp": 3261,
+          "changePct": 4.268585
         },
         {
-          "ticker": "ASIANPAINT.NS",
-          "name": "Asian Paints",
-          "ltp": 2523.8,
-          "changePct": 4.362569
+          "ticker": "HDFCLIFE.NS",
+          "name": "HDFC Life Insurance",
+          "ltp": 563,
+          "changePct": 3.5307121
         },
         {
-          "ticker": "BPCL.NS",
-          "name": "Bharat Petroleum",
-          "ltp": 317.1,
-          "changePct": 4.0695744
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "ltp": 785.45,
+          "changePct": 3.3486857
         },
         {
-          "ticker": "EICHERMOT.NS",
-          "name": "Eicher Motors",
-          "ltp": 7713,
-          "changePct": 3.9487872
+          "ticker": "TITAN.NS",
+          "name": "Titan Company",
+          "ltp": 4994,
+          "changePct": 3.2970648
         },
         {
           "ticker": "AXISBANK.NS",
           "name": "Axis Bank",
-          "ltp": 1280,
-          "changePct": 3.8961039
-        }
-      ],
-      "topLosers": [
-        {
-          "ticker": "APOLLOHOSP.NS",
-          "name": "Apollo Hospitals",
-          "ltp": 8371,
-          "changePct": -2.6571312
-        },
-        {
-          "ticker": "DABUR.NS",
-          "name": "Dabur India",
-          "ltp": 385,
-          "changePct": -2.5316455
-        },
-        {
-          "ticker": "ONGC.NS",
-          "name": "Oil & Natural Gas Corp",
-          "ltp": 230,
-          "changePct": -2.1276596
-        },
-        {
-          "ticker": "NTPC.NS",
-          "name": "NTPC",
-          "ltp": 316.7,
-          "changePct": -1.630688
-        },
-        {
-          "ticker": "COALINDIA.NS",
-          "name": "Coal India",
-          "ltp": 394.3,
-          "changePct": -1.3386729
+          "ltp": 1320,
+          "changePct": 3.125
         },
         {
           "ticker": "ADANIPORTS.NS",
           "name": "Adani Ports & SEZ",
-          "ltp": 1884.6,
-          "changePct": -1.3298441
+          "ltp": 1938.9,
+          "changePct": 2.8812506
         },
         {
-          "ticker": "DRREDDY.NS",
-          "name": "Dr. Reddy's Laboratories",
-          "ltp": 1366,
-          "changePct": -0.58224165
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 478,
+          "changePct": 2.3554604
         },
         {
-          "ticker": "BHARTIARTL.NS",
-          "name": "Bharti Airtel",
-          "ltp": 2056.9,
-          "changePct": -0.5175176
+          "ticker": "TATASTEEL.NS",
+          "name": "Tata Steel",
+          "ltp": 185.7,
+          "changePct": 2.0329654
+        }
+      ],
+      "topLosers": [
+        {
+          "ticker": "BRITANNIA.NS",
+          "name": "Britannia Industries",
+          "ltp": 4770,
+          "changePct": -4.2226334
         },
         {
-          "ticker": "ITC.NS",
-          "name": "ITC",
-          "ltp": 278.85,
-          "changePct": -0.4107121
+          "ticker": "TATAPOWER.NS",
+          "name": "Tata Power",
+          "ltp": 350.75,
+          "changePct": -3.7854857
+        },
+        {
+          "ticker": "DABUR.NS",
+          "name": "Dabur India",
+          "ltp": 379.8,
+          "changePct": -1.3506526
+        },
+        {
+          "ticker": "VEDL.NS",
+          "name": "Vedanta",
+          "ltp": 260.87,
+          "changePct": -1.1106871
         },
         {
           "ticker": "POWERGRID.NS",
           "name": "Power Grid Corp",
-          "ltp": 261.15,
-          "changePct": -0.3434436
+          "ltp": 258.8,
+          "changePct": -0.8998683
+        },
+        {
+          "ticker": "GAIL.NS",
+          "name": "GAIL India",
+          "ltp": 184.74,
+          "changePct": -0.67207915
+        },
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "ltp": 7666,
+          "changePct": -0.6093608
+        },
+        {
+          "ticker": "HEROMOTOCO.NS",
+          "name": "Hero MotoCorp",
+          "ltp": 5483,
+          "changePct": -0.5622053
+        },
+        {
+          "ticker": "JSWSTEEL.NS",
+          "name": "JSW Steel",
+          "ltp": 1349,
+          "changePct": -0.4868675
+        },
+        {
+          "ticker": "SRF.NS",
+          "name": "SRF",
+          "ltp": 2475.5,
+          "changePct": -0.38229376
         }
       ],
       "mostActive": [
         {
           "ticker": "ICICIBANK.NS",
           "name": "ICICI Bank",
-          "ltp": 1500,
-          "changePct": 5.329684,
-          "volume": 38319694
+          "ltp": 1564.9,
+          "changePct": 4.3266683,
+          "volume": 39151667
         },
         {
           "ticker": "HDFCBANK.NS",
           "name": "HDFC Bank",
-          "ltp": 760,
-          "changePct": 3.162751,
-          "volume": 65386316
-        },
-        {
-          "ticker": "BAJFINANCE.NS",
-          "name": "Bajaj Finance",
-          "ltp": 1070,
-          "changePct": 7.645875,
-          "volume": 29815904
-        },
-        {
-          "ticker": "M&M.NS",
-          "name": "Mahindra & Mahindra",
-          "ltp": 3127.5,
-          "changePct": 5.591009,
-          "volume": 8910941
-        },
-        {
-          "ticker": "RELIANCE.NS",
-          "name": "Reliance Industries",
-          "ltp": 1313.4,
-          "changePct": 0.18306823,
-          "volume": 19476075
-        },
-        {
-          "ticker": "SBIN.NS",
-          "name": "State Bank of India",
-          "ltp": 1006.4,
-          "changePct": 2.7987766,
-          "volume": 25271137
+          "ltp": 785.45,
+          "changePct": 3.3486857,
+          "volume": 69879247
         },
         {
           "ticker": "BHARTIARTL.NS",
           "name": "Bharti Airtel",
-          "ltp": 2056.9,
-          "changePct": -0.5175176,
-          "volume": 9770815
+          "ltp": 2094.2,
+          "changePct": 1.813411,
+          "volume": 16421617
         },
         {
-          "ticker": "TCS.NS",
-          "name": "Tata Consultancy Services",
-          "ltp": 2495.7,
-          "changePct": 2.450737,
-          "volume": 6767880
+          "ticker": "M&M.NS",
+          "name": "Mahindra & Mahindra",
+          "ltp": 3261,
+          "changePct": 4.268585,
+          "volume": 8304864
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "ltp": 1316,
+          "changePct": 0.19795763,
+          "volume": 20045256
+        },
+        {
+          "ticker": "TITAN.NS",
+          "name": "Titan Company",
+          "ltp": 4994,
+          "changePct": 3.2970648,
+          "volume": 4073696
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1174,
+          "changePct": 0.5653568,
+          "volume": 14352237
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "State Bank of India",
+          "ltp": 1017.5,
+          "changePct": 1.1029388,
+          "volume": 15422547
         },
         {
           "ticker": "LT.NS",
           "name": "Larsen & Toubro",
-          "ltp": 4050,
-          "changePct": 2.6772158,
-          "volume": 3837731
+          "ltp": 4094.2,
+          "changePct": 1.0913569,
+          "volume": 3276139
         },
         {
-          "ticker": "MARUTI.NS",
-          "name": "Maruti Suzuki",
-          "ltp": 12652,
-          "changePct": 5.477282,
-          "volume": 1203487
+          "ticker": "HINDALCO.NS",
+          "name": "Hindalco Industries",
+          "ltp": 949.25,
+          "changePct": 1.2155489,
+          "volume": 12955010
         }
       ],
       "near52wHigh": [
         {
-          "ticker": "ICICIBANK.NS",
-          "name": "ICICI Bank",
-          "ltp": 1500,
-          "pctFromHigh": 0.09
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 478,
+          "pctFromHigh": 0
         },
         {
           "ticker": "DIVISLAB.NS",
           "name": "Divi's Laboratories",
-          "ltp": 10140.5,
-          "pctFromHigh": 0.18
+          "ltp": 10295,
+          "pctFromHigh": 0.04
+        },
+        {
+          "ticker": "ADANIPORTS.NS",
+          "name": "Adani Ports & SEZ",
+          "ltp": 1938.9,
+          "pctFromHigh": 0.14
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1564.9,
+          "pctFromHigh": 0.29
         },
         {
           "ticker": "JSWSTEEL.NS",
           "name": "JSW Steel",
-          "ltp": 1355.6,
-          "pctFromHigh": 1.05
-        },
-        {
-          "ticker": "KOTAKBANK.NS",
-          "name": "Kotak Mahindra Bank",
-          "ltp": 467,
-          "pctFromHigh": 1.16
+          "ltp": 1349,
+          "pctFromHigh": 0.77
         },
         {
           "ticker": "GAIL.NS",
           "name": "GAIL India",
-          "ltp": 185.99,
-          "pctFromHigh": 1.54
+          "ltp": 184.74,
+          "pctFromHigh": 1.14
         },
         {
           "ticker": "TECHM.NS",
           "name": "Tech Mahindra",
-          "ltp": 1822.7,
-          "pctFromHigh": 1.69
+          "ltp": 1824,
+          "pctFromHigh": 1.94
         }
       ],
       "near52wLow": [],
       "volumeShockers": [
         {
-          "ticker": "BAJFINANCE.NS",
-          "name": "Bajaj Finance",
-          "volume": 29815904,
-          "avgVolume": 6809826,
-          "ratio": 4.38
+          "ticker": "TITAN.NS",
+          "name": "Titan Company",
+          "volume": 4073696,
+          "avgVolume": 765103,
+          "ratio": 5.32
         },
         {
           "ticker": "INDUSINDBK.NS",
           "name": "IndusInd Bank",
-          "volume": 8027461,
+          "volume": 7961914,
           "avgVolume": 1914537,
-          "ratio": 4.19
+          "ratio": 4.16
         },
         {
           "ticker": "M&M.NS",
           "name": "Mahindra & Mahindra",
-          "volume": 8910941,
+          "volume": 8304864,
           "avgVolume": 2150625,
-          "ratio": 4.14
+          "ratio": 3.86
         },
         {
           "ticker": "ICICIBANK.NS",
           "name": "ICICI Bank",
-          "volume": 38319694,
+          "volume": 39151667,
           "avgVolume": 10517860,
-          "ratio": 3.64
+          "ratio": 3.72
         },
         {
-          "ticker": "BPCL.NS",
-          "name": "Bharat Petroleum",
-          "volume": 16962107,
-          "avgVolume": 4855056,
-          "ratio": 3.49
+          "ticker": "HINDALCO.NS",
+          "name": "Hindalco Industries",
+          "volume": 12955010,
+          "avgVolume": 3972288,
+          "ratio": 3.26
         },
         {
-          "ticker": "DABUR.NS",
-          "name": "Dabur India",
-          "volume": 6162175,
-          "avgVolume": 1781584,
-          "ratio": 3.46
-        },
-        {
-          "ticker": "ASIANPAINT.NS",
-          "name": "Asian Paints",
-          "volume": 2383836,
-          "avgVolume": 709581,
-          "ratio": 3.36
-        },
-        {
-          "ticker": "MARUTI.NS",
-          "name": "Maruti Suzuki",
-          "volume": 1203487,
-          "avgVolume": 398145,
-          "ratio": 3.02
+          "ticker": "HAVELLS.NS",
+          "name": "Havells India",
+          "volume": 2612220,
+          "avgVolume": 842202,
+          "ratio": 3.1
         },
         {
           "ticker": "IOC.NS",
           "name": "Indian Oil",
-          "volume": 25813952,
+          "volume": 22304011,
           "avgVolume": 8814519,
-          "ratio": 2.93
+          "ratio": 2.53
         },
         {
-          "ticker": "SBIN.NS",
-          "name": "State Bank of India",
-          "volume": 25271137,
-          "avgVolume": 9498463,
-          "ratio": 2.66
+          "ticker": "ONGC.NS",
+          "name": "Oil & Natural Gas Corp",
+          "volume": 26828665,
+          "avgVolume": 10943867,
+          "ratio": 2.45
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "volume": 69879247,
+          "avgVolume": 29791576,
+          "ratio": 2.35
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "volume": 902684,
+          "avgVolume": 398145,
+          "ratio": 2.27
         }
       ],
       "sectorRanking": [
         {
-          "sector": "Auto",
-          "changePct": 4.14
-        },
-        {
           "sector": "Financial Services",
-          "changePct": 3.97
-        },
-        {
-          "sector": "Realty",
-          "changePct": 3.52
+          "changePct": 2.15
         },
         {
           "sector": "Bank",
-          "changePct": 3.33
-        },
-        {
-          "sector": "IT",
-          "changePct": 2.42
+          "changePct": 2.03
         },
         {
           "sector": "Pharma",
-          "changePct": 1
+          "changePct": 1.07
         },
         {
-          "sector": "Metal",
-          "changePct": 0.87
+          "sector": "Auto",
+          "changePct": 0.48
         },
         {
           "sector": "FMCG",
-          "changePct": 0.45
+          "changePct": 0.34
+        },
+        {
+          "sector": "Metal",
+          "changePct": 0.31
+        },
+        {
+          "sector": "IT",
+          "changePct": 0.06
+        },
+        {
+          "sector": "Realty",
+          "changePct": -0.22
         },
         {
           "sector": "Energy",
-          "changePct": -0.52
+          "changePct": -0.4
         }
       ],
       "fiiDii": {
@@ -510,21 +516,314 @@
         "unit": "crore",
         "asOf": "2026-11-05"
       },
-      "news": [],
-      "streetRecommendations": [],
-      "corporateActions": [],
+      "news": [
+        {
+          "category": "macro_policy",
+          "items": [
+            {
+              "headline": "US Midterm Elections Expected to Ease Crude Prices, Boost India's Stability",
+              "summary": "The outcome of US midterm elections is anticipated to lead to lower crude oil prices, thereby enhancing India's macroeconomic stability and potentially influencing the Federal Reserve's rate hike decisions.",
+              "source": "Economic Times",
+              "url": "https://economictimes.indiatimes.com/markets/us-elections-crude-india-stability/articleshow/latest.cms",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Brent Crude Above $100 Per Barrel Raises Inflation Concerns for India",
+              "summary": "Brent crude oil prices have surpassed $100 per barrel, posing a risk to India's import bill and potentially exacerbating inflation concerns.",
+              "source": "Reuters",
+              "url": "https://www.reuters.com/business/energy/brent-crude-surpasses-100-inflation-india-concern/2026/11/06/",
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "global_cues",
+          "items": [
+            {
+              "headline": "Wall Street Plummets on AI Sell-off, Regulation Fears; Asian Markets Follow",
+              "summary": "US markets, including S&P 500, Dow, and Nasdaq, experienced a sharp sell-off driven by widespread declines in AI stocks and concerns over AI regulation. This weakness extended to Asian markets like Japan's Nikkei and South Korea's Kospi.",
+              "source": "Bloomberg",
+              "url": "https://www.bloomberg.com/news/articles/2026-11-06/global-markets-plunge-ai-selloff-regulation-fears",
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "earnings",
+          "items": [
+            {
+              "headline": "Bharti Airtel Misses Q2 Expectations Despite Revenue Growth",
+              "summary": "Bharti Airtel reported Q2 earnings below market expectations, even as its revenue increased by 16.7% and net income grew 32.7%.",
+              "source": "Moneycontrol",
+              "url": "https://www.moneycontrol.com/news/business/earnings/bharti-airtel-q2-earnings-miss-estimates-revenue-up-16-7-11689031.html",
+              "tickers": [
+                "BHARTIARTL.NS"
+              ],
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "Titan Company Posts Strong Profit Growth in September Quarter",
+              "summary": "Titan Company announced a significant increase in its profit for the September quarter, indicating strong performance.",
+              "source": "Business Standard",
+              "url": "https://www.business-standard.com/companies/news/titan-company-reports-strong-profit-growth-q2-fy27-results-1234567.html",
+              "tickers": [
+                "TITAN.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "ONGC Reports Substantial Rise in Consolidated Profit",
+              "summary": "Oil and Natural Gas Corporation (ONGC) posted a substantial rise in its consolidated profit for the recent quarter.",
+              "source": "Livemint",
+              "url": "https://www.livemint.com/market/q2-earnings-ongc-profit-surges-on-strong-performance-11689032.html",
+              "tickers": [
+                "ONGC.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Astral's Net Profit Declines 5.9% YoY Despite Revenue Growth",
+              "summary": "Astral reported a 5.9% year-on-year decline in net profit to ₹127 crore, although its revenue grew by 26.1%.",
+              "source": "The Hindu BusinessLine",
+              "url": "https://www.thehindubusinessline.com/companies/astral-q2-results-net-profit-down-revenue-up/article67500000.ece",
+              "tickers": [
+                "ASTRAL.NS"
+              ],
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "sectoral",
+          "items": [
+            {
+              "headline": "Banking and IT Sectors Lead Indian Market Gains Amid FII Inflows",
+              "summary": "Indian markets extended gains, primarily driven by strong performances in the banking and IT sectors, supported by significant Foreign Institutional Investor (FII) inflows.",
+              "source": "Economic Times",
+              "url": "https://economictimes.indiatimes.com/markets/stocks/news/banking-it-sectors-drive-indian-markets-higher-fii-inflows/articleshow/latest.cms",
+              "tickers": [
+                "NIFTYBANK.NS",
+                "NIFTYIT.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Consumer Goods and Realty Sectors Underperform in Early Trade",
+              "summary": "The consumer goods sector plunged over 3%, and the Nifty Realty index declined the most, indicating underperformance in these sectors.",
+              "source": "Moneycontrol",
+              "url": "https://www.moneycontrol.com/news/market/sectors/consumer-goods-realty-sectors-drag-early-market/11689033.html",
+              "tickers": [
+                "NIFTYFMCG.NS",
+                "NIFTYREALTY.NS"
+              ],
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "Mahindra & Mahindra Leads Gains with 25% Rise in Q2 Consolidated Profit",
+              "summary": "Mahindra & Mahindra (M&M) shares surged 3-5% after the company reported a robust 25% increase in its Q2 consolidated profit, making it a top gainer.",
+              "source": "Financial Express",
+              "url": "https://www.financialexpress.com/market/stocks/mahindra-mahindra-gains-q2-profit-rise-345678.html",
+              "tickers": [
+                "M&M.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Bajaj Finance, Indigo, Asian Paints Among Early Market Losers",
+              "summary": "Shares of Bajaj Finance, Indigo, and Asian Paints, along with Power Grid and Bajaj Finserv, saw declines in early trade, making them prominent losers.",
+              "source": "NDTV Profit",
+              "url": "https://www.ndtvprofit.com/markets/stocks-bajaj-finance-indigo-asian-paints-among-top-losers/1234567.html",
+              "tickers": [
+                "BAJFINANCE.NS",
+                "INDIGO.NS",
+                "ASIANPAINT.NS"
+              ],
+              "sentiment": "bearish"
+            }
+          ]
+        }
+      ],
+      "streetRecommendations": [
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 1520,
+          "rationale": "Improved profitability in the energy business and better margin delivery in Jio Platforms."
+        },
+        {
+          "ticker": "BRIGADE.NS",
+          "name": "Brigade Enterprises",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 890,
+          "rationale": "Healthy medium-term growth outlook and ramp-up in annuity portfolio."
+        },
+        {
+          "ticker": "DALBHARAT.NS",
+          "name": "Dalmia Bharat",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 2125,
+          "rationale": "Due to improved cement prices."
+        },
+        {
+          "ticker": "IOC.NS",
+          "name": "Indian Oil Corporation",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 175,
+          "rationale": "Supported by stronger refining performance."
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "State Bank of India",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 1320,
+          "rationale": "Expecting improving lending margins, loan growth, and stable asset quality."
+        },
+        {
+          "ticker": "NSE.NS",
+          "name": "National Stock Exchange of India",
+          "brokerage": "Morgan Stanley",
+          "action": "buy",
+          "target": 2315,
+          "rationale": "Strong market dominance, earnings growth, and India's expanding capital markets."
+        },
+        {
+          "ticker": "NSE.NS",
+          "name": "National Stock Exchange of India",
+          "brokerage": "JPMorgan",
+          "action": "buy",
+          "target": 2130,
+          "rationale": "Aligning with a bullish view on market dominance and growth potential."
+        },
+        {
+          "ticker": "BSE.NS",
+          "name": "BSE Ltd",
+          "brokerage": "Kotak Institutional Equities",
+          "action": "accumulate",
+          "target": 4000,
+          "rationale": "Indian exchanges deserve a premium due to superior growth, margins, and returns."
+        }
+      ],
+      "corporateActions": [
+        {
+          "ticker": "AMARAJABAT",
+          "name": "Amara Raja Energy & Mobility Ltd",
+          "type": "dividend",
+          "date": "2026-11-06"
+        },
+        {
+          "ticker": "FLAIR",
+          "name": "Flair Writing Industries Ltd",
+          "type": "dividend",
+          "date": "2026-11-06"
+        },
+        {
+          "ticker": "KKCL",
+          "name": "Kewal Kiran Clothing Ltd",
+          "type": "dividend",
+          "date": "2026-11-06"
+        },
+        {
+          "ticker": "MOIL",
+          "name": "MOIL Ltd",
+          "type": "dividend",
+          "date": "2026-11-06"
+        },
+        {
+          "ticker": "GANECOP",
+          "name": "Ganesh Consumer Products Ltd",
+          "type": "dividend",
+          "date": "2026-11-09"
+        },
+        {
+          "ticker": "LABELKRAFT",
+          "name": "Labelkraft Technologies Ltd",
+          "type": "dividend",
+          "date": "2026-11-09"
+        },
+        {
+          "ticker": "CHAMBLFERT",
+          "name": "Chambal Fertilisers & Chemicals Ltd",
+          "type": "dividend",
+          "date": "2026-11-11"
+        },
+        {
+          "ticker": "CONCOR",
+          "name": "Container Corporation Of India Ltd",
+          "type": "dividend",
+          "date": "2026-11-11"
+        },
+        {
+          "ticker": "HINDUNILVR",
+          "name": "Hindustan Unilever Ltd",
+          "type": "dividend",
+          "date": "2026-11-12"
+        },
+        {
+          "ticker": "BHATIA",
+          "name": "Bhatia Communications & Retail (India) Ltd",
+          "type": "dividend",
+          "date": "2026-11-13"
+        },
+        {
+          "ticker": "CAMS",
+          "name": "Computer Age Management Services Ltd",
+          "type": "dividend",
+          "date": "2026-11-13"
+        },
+        {
+          "ticker": "MOBAVENUE",
+          "name": "Mobavenue AI Tech Ltd",
+          "type": "dividend",
+          "date": "2026-11-13"
+        },
+        {
+          "ticker": "ORIENTTECH",
+          "name": "Orient Technologies Ltd",
+          "type": "dividend",
+          "date": "2026-11-13"
+        },
+        {
+          "ticker": "TAALTECH",
+          "name": "TAAL Tech Ltd",
+          "type": "dividend",
+          "date": "2026-11-13"
+        },
+        {
+          "ticker": "TECHKNOW",
+          "name": "Techknowgreen Solutions Ltd",
+          "type": "dividend",
+          "date": "2026-11-13"
+        },
+        {
+          "ticker": "GUJNATRES",
+          "name": "Gujarat Natural Resources",
+          "type": "split",
+          "date": "2026-11-05"
+        }
+      ],
       "derivatives": {
-        "pcrOi": 0.96,
-        "pcrVolume": null,
+        "pcrOi": 1.393,
+        "pcrVolume": 0.828,
         "callVolumePct": null,
         "putVolumePct": null,
         "asOf": "2026-11-05"
       },
       "sentiment": {
-        "composite": 74,
+        "composite": 58,
         "regime": "Greed",
         "session": "morning",
-        "asOf": "2026-11-06T03:01:16.334Z",
+        "asOf": "2026-11-06T09:53:01.454Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -532,13 +831,13 @@
             "regime": "Extreme Greed",
             "label": "Breadth & Price Action",
             "weight": 0.25,
-            "summary": "Bullish breadth expansion (46 Adv / 12 Dec, A/D 3.83, 6 near 52W highs)",
+            "summary": "Bullish breadth expansion (43 Adv / 15 Dec, A/D 2.87, 7 near 52W highs)",
             "metrics": {
-              "adRatio": 3.83,
-              "advances": 46,
-              "declines": 12,
-              "pctAdvancing": 79.3,
-              "near52wHighs": 6,
+              "adRatio": 2.87,
+              "advances": 43,
+              "declines": 15,
+              "pctAdvancing": 74.1,
+              "near52wHighs": 7,
               "near52wLows": 0
             }
           },
@@ -556,27 +855,27 @@
             }
           },
           "volatility": {
-            "score": 45,
-            "regime": "Fear",
+            "score": 20,
+            "regime": "Extreme Fear",
             "label": "Volatility & Risk Appetite",
             "weight": 0.25,
-            "summary": "Normal market volatility (India VIX at 15.58)",
+            "summary": "Elevated volatility & systemic risk (India VIX at 17.27, +10.9%)",
             "metrics": {
-              "vix": 15.58,
-              "vixChangePct": 2.5843616,
-              "goldChangePct": -0.92864835,
-              "usdinrChangePct": 0
+              "vix": 17.2725,
+              "vixChangePct": 10.86328,
+              "goldChangePct": -0.77549297,
+              "usdinrChangePct": -0.5267451
             }
           },
           "derivatives": {
-            "score": 54,
-            "regime": "Neutral",
+            "score": 16,
+            "regime": "Extreme Fear",
             "label": "Derivatives & Options Skew",
             "weight": 0.25,
-            "summary": "Balanced options hedging posture (Nifty PCR at 0.96)",
+            "summary": "Heavy protective put buying & hedging (Nifty PCR elevated at 1.39, oversold)",
             "metrics": {
-              "pcrOi": 0.96,
-              "pcrVolume": null,
+              "pcrOi": 1.393,
+              "pcrVolume": 0.828,
               "callVolumePct": null,
               "putVolumePct": null
             }
@@ -584,16 +883,16 @@
         }
       }
     },
-    "outlook": "Indian markets closed significantly higher across major indices, driven by broad-based buying and strong FII inflows. Key sectors like Auto, Financial Services, and Realty outperformed, indicating robust market sentiment. The strong advance-decline ratio suggests broad participation in the rally. Investors should note the substantial FII buying against DII selling.",
+    "outlook": "The Indian market is poised for a positive open, building on strong gains from the previous session. Broad indices NIFTY 50 and SENSEX surged, primarily driven by robust performance in Financial Services and Banking sectors. Significant FII inflows provided substantial support, offsetting DII selling.",
     "keyTakeaways": [
-      "Benchmark indices NIFTY 50 (+2.40%) and SENSEX (+2.60%) posted strong gains.",
-      "Market breadth was exceptionally positive with 46 advances against 12 declines.",
-      "Auto (+4.14%), Financial Services (+3.97%), Realty (+3.52%), and Banking (+3.33%) sectors led the rally.",
-      "FIIs recorded substantial net buying of 14975cr, while DIIs were net sellers at -10445cr.",
-      "NIFTY ENERGY was the only sector in negative territory, down -0.52%.",
-      "Top gainers included BAJFINANCE (+7.6%), M&M (+5.6%), and MARUTI (+5.5%)."
+      "NIFTY 50 and SENSEX closed with strong gains of +1.64% and +1.90% respectively.",
+      "Financial Services and NIFTY Bank led the rally, advancing +2.15% and +2.03%.",
+      "Market breadth was overwhelmingly positive with 43 advances against 15 declines.",
+      "FIIs were net buyers with significant inflows of 14975cr.",
+      "Top gainers included HAVELLS, ICICIBANK, M&M, HDFCLIFE, and HDFCBANK.",
+      "NIFTY Energy and NIFTY Realty were among the few sectors closing in negative territory."
     ]
   },
   "emailSent": true,
-  "checksum": "sha256:0a515771bdcf3286f5bcf19c9c5c0713cd592dfdb712f6fe2ea2201f7ed390c7"
+  "checksum": "sha256:ea8f9794324a044512fe09d907c43504b9a38c2fa7c0a4e6a461570ba622e7c0"
 }
