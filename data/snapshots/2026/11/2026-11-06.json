@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-06T10:16:18.692Z",
+  "asOf": "2026-11-06T17:29:04.754Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -139,7 +139,7 @@
   },
   "vix": {
     "value": 17.465,
-    "changePct": 11.949289
+    "changePct": 12.098846
   },
   "breadth": {
     "advances": 46,
@@ -363,28 +363,28 @@
       "pctFromHigh": 0
     },
     {
-      "ticker": "JSWSTEEL.NS",
-      "name": "JSW Steel",
-      "ltp": 1357.1,
-      "pctFromHigh": 0.17
-    },
-    {
       "ticker": "ADANIPORTS.NS",
       "name": "Adani Ports & SEZ",
       "ltp": 1936.6,
-      "pctFromHigh": 0.26
+      "pctFromHigh": 0.63
     },
     {
-      "ticker": "GAIL.NS",
-      "name": "GAIL India",
-      "ltp": 185.79,
-      "pctFromHigh": 0.58
+      "ticker": "JSWSTEEL.NS",
+      "name": "JSW Steel",
+      "ltp": 1357.1,
+      "pctFromHigh": 0.94
     },
     {
       "ticker": "TECHM.NS",
       "name": "Tech Mahindra",
       "ltp": 1831,
       "pctFromHigh": 1.56
+    },
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL India",
+      "ltp": 185.79,
+      "pctFromHigh": 1.65
     }
   ],
   "near52wLow": [],
@@ -393,71 +393,71 @@
       "ticker": "TITAN.NS",
       "name": "Titan Company",
       "volume": 4132304,
-      "avgVolume": 765103,
-      "ratio": 5.4
+      "avgVolume": 764418,
+      "ratio": 5.41
     },
     {
       "ticker": "INDUSINDBK.NS",
       "name": "IndusInd Bank",
       "volume": 8037021,
-      "avgVolume": 1914537,
-      "ratio": 4.2
+      "avgVolume": 2031604,
+      "ratio": 3.96
     },
     {
       "ticker": "M&M.NS",
       "name": "Mahindra & Mahindra",
       "volume": 8514909,
-      "avgVolume": 2150625,
-      "ratio": 3.96
+      "avgVolume": 2267628,
+      "ratio": 3.75
     },
     {
       "ticker": "ICICIBANK.NS",
       "name": "ICICI Bank",
       "volume": 40377834,
-      "avgVolume": 10517860,
-      "ratio": 3.84
+      "avgVolume": 10894789,
+      "ratio": 3.71
     },
     {
       "ticker": "HINDALCO.NS",
       "name": "Hindalco Industries",
       "volume": 13369369,
-      "avgVolume": 3972288,
-      "ratio": 3.37
+      "avgVolume": 3958704,
+      "ratio": 3.38
     },
     {
       "ticker": "HAVELLS.NS",
       "name": "Havells India",
       "volume": 2638575,
-      "avgVolume": 842202,
-      "ratio": 3.13
+      "avgVolume": 836765,
+      "ratio": 3.15
     },
     {
       "ticker": "IOC.NS",
       "name": "Indian Oil",
       "volume": 23184619,
-      "avgVolume": 8814519,
-      "ratio": 2.63
+      "avgVolume": 9078331,
+      "ratio": 2.55
     },
     {
       "ticker": "ONGC.NS",
       "name": "Oil & Natural Gas Corp",
       "volume": 27491552,
-      "avgVolume": 10943867,
-      "ratio": 2.51
+      "avgVolume": 10996712,
+      "ratio": 2.5
     },
     {
       "ticker": "HDFCBANK.NS",
       "name": "HDFC Bank",
       "volume": 73457856,
-      "avgVolume": 29791576,
-      "ratio": 2.47
+      "avgVolume": 30124314,
+      "ratio": 2.44
     },
     {
-      "ticker": "MARUTI.NS",
-      "name": "Maruti Suzuki",
-      "volume": 923703,
-      "avgVolume": 398145,
-      "ratio": 2.32
+      "ticker": "BHARTIARTL.NS",
+      "name": "Bharti Airtel",
+      "volume": 17094431,
+      "avgVolume": 7495610,
+      "ratio": 2.28
     }
   ],
   "sectorRanking": [
@@ -811,7 +811,7 @@
     "composite": 58,
     "regime": "Greed",
     "session": "closing",
-    "asOf": "2026-11-06T10:16:18.692Z",
+    "asOf": "2026-11-06T17:29:04.754Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -847,10 +847,10 @@
         "regime": "Extreme Fear",
         "label": "Volatility & Risk Appetite",
         "weight": 0.25,
-        "summary": "Elevated volatility & systemic risk (India VIX at 17.46, +11.9%)",
+        "summary": "Elevated volatility & systemic risk (India VIX at 17.46, +12.1%)",
         "metrics": {
           "vix": 17.465,
-          "vixChangePct": 11.949289,
+          "vixChangePct": 12.098846,
           "goldChangePct": -0.77549297,
           "usdinrChangePct": -0.5267451
         }
