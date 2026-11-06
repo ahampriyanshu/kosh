@@ -3,7 +3,7 @@
   "id": "daily-2026-11-06",
   "type": "daily",
   "dateKey": "2026-11-06",
-  "generatedAt": "2026-11-06T10:16:18.692Z",
+  "generatedAt": "2026-11-06T17:41:01.264Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1071,
+      "ABREL.BO": 1072.1,
       "AMBUJACEM.BO": 390.4,
       "BANDHANBNK.NS": 165,
       "BDL.BO": 1059.9,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4790,
       "BSOFT.NS": 337.35,
       "CASTROLIND.NS": 191.3,
-      "CENTRALBK.BO": 30.67,
+      "CENTRALBK.BO": 30.63,
       "DIXON.NS": 12625,
       "EXIDEIND.NS": 357.35,
-      "FIRSTCRY.BO": 160.15,
+      "FIRSTCRY.BO": 159.55,
       "GMRAIRPORT.BO": 98.51,
       "GODREJCP.BO": 849.1,
       "HAVELLS.BO": 1122.95,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 457,
       "IREDA.NS": 111.46,
       "ITC.BO": 283,
-      "ITCHOTELS.BO": 174.1,
+      "ITCHOTELS.BO": 174.45,
       "JWL.NS": 197.94,
       "KAMATHOTEL.NS": 219.95,
       "LICI.BO": 394,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 545,
       "MANKIND.NS": 2540,
       "MAXHEALTH.BO": 934,
-      "NEWGEN.BO": 440.4,
+      "NEWGEN.BO": 441.05,
       "NHPC.BO": 82.07,
       "ONGC.BO": 232,
       "PRESTIGE.BO": 1628,
-      "PSB.BO": 20.25,
+      "PSB.BO": 20.22,
       "RELIANCE.NS": 1320,
       "SBIN.NS": 1018.5,
       "TATASTEEL.BO": 186,
@@ -99,11 +99,11 @@
       "VMM.BO": 94,
       "WIPRO.BO": 197.7
     },
-    "searchTimestamp": "2026-11-06T10:16:18.692Z"
+    "searchTimestamp": "2026-11-06T17:41:01.264Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-06T10:16:18.692Z",
+      "asOf": "2026-11-06T17:41:01.264Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 17.465,
-        "changePct": 11.949289
+        "changePct": 12.098846
       },
       "breadth": {
         "advances": 46,
@@ -467,28 +467,28 @@
           "pctFromHigh": 0
         },
         {
-          "ticker": "JSWSTEEL.NS",
-          "name": "JSW Steel",
-          "ltp": 1357.1,
-          "pctFromHigh": 0.17
-        },
-        {
           "ticker": "ADANIPORTS.NS",
           "name": "Adani Ports & SEZ",
           "ltp": 1936.6,
-          "pctFromHigh": 0.26
+          "pctFromHigh": 0.63
         },
         {
-          "ticker": "GAIL.NS",
-          "name": "GAIL India",
-          "ltp": 185.79,
-          "pctFromHigh": 0.58
+          "ticker": "JSWSTEEL.NS",
+          "name": "JSW Steel",
+          "ltp": 1357.1,
+          "pctFromHigh": 0.94
         },
         {
           "ticker": "TECHM.NS",
           "name": "Tech Mahindra",
           "ltp": 1831,
           "pctFromHigh": 1.56
+        },
+        {
+          "ticker": "GAIL.NS",
+          "name": "GAIL India",
+          "ltp": 185.79,
+          "pctFromHigh": 1.65
         }
       ],
       "near52wLow": [],
@@ -497,71 +497,71 @@
           "ticker": "TITAN.NS",
           "name": "Titan Company",
           "volume": 4132304,
-          "avgVolume": 765103,
-          "ratio": 5.4
+          "avgVolume": 764418,
+          "ratio": 5.41
         },
         {
           "ticker": "INDUSINDBK.NS",
           "name": "IndusInd Bank",
           "volume": 8037021,
-          "avgVolume": 1914537,
-          "ratio": 4.2
+          "avgVolume": 2031604,
+          "ratio": 3.96
         },
         {
           "ticker": "M&M.NS",
           "name": "Mahindra & Mahindra",
           "volume": 8514909,
-          "avgVolume": 2150625,
-          "ratio": 3.96
+          "avgVolume": 2267628,
+          "ratio": 3.75
         },
         {
           "ticker": "ICICIBANK.NS",
           "name": "ICICI Bank",
           "volume": 40377834,
-          "avgVolume": 10517860,
-          "ratio": 3.84
+          "avgVolume": 10894789,
+          "ratio": 3.71
         },
         {
           "ticker": "HINDALCO.NS",
           "name": "Hindalco Industries",
           "volume": 13369369,
-          "avgVolume": 3972288,
-          "ratio": 3.37
+          "avgVolume": 3958704,
+          "ratio": 3.38
         },
         {
           "ticker": "HAVELLS.NS",
           "name": "Havells India",
           "volume": 2638575,
-          "avgVolume": 842202,
-          "ratio": 3.13
+          "avgVolume": 836765,
+          "ratio": 3.15
         },
         {
           "ticker": "IOC.NS",
           "name": "Indian Oil",
           "volume": 23184619,
-          "avgVolume": 8814519,
-          "ratio": 2.63
+          "avgVolume": 9078331,
+          "ratio": 2.55
         },
         {
           "ticker": "ONGC.NS",
           "name": "Oil & Natural Gas Corp",
           "volume": 27491552,
-          "avgVolume": 10943867,
-          "ratio": 2.51
+          "avgVolume": 10996712,
+          "ratio": 2.5
         },
         {
           "ticker": "HDFCBANK.NS",
           "name": "HDFC Bank",
           "volume": 73457856,
-          "avgVolume": 29791576,
-          "ratio": 2.47
+          "avgVolume": 30124314,
+          "ratio": 2.44
         },
         {
-          "ticker": "MARUTI.NS",
-          "name": "Maruti Suzuki",
-          "volume": 923703,
-          "avgVolume": 398145,
-          "ratio": 2.32
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "volume": 17094431,
+          "avgVolume": 7495610,
+          "ratio": 2.28
         }
       ],
       "sectorRanking": [
@@ -915,7 +915,7 @@
         "composite": 58,
         "regime": "Greed",
         "session": "closing",
-        "asOf": "2026-11-06T10:16:18.692Z",
+        "asOf": "2026-11-06T17:41:01.264Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -951,10 +951,10 @@
             "regime": "Extreme Fear",
             "label": "Volatility & Risk Appetite",
             "weight": 0.25,
-            "summary": "Elevated volatility & systemic risk (India VIX at 17.46, +11.9%)",
+            "summary": "Elevated volatility & systemic risk (India VIX at 17.46, +12.1%)",
             "metrics": {
               "vix": 17.465,
-              "vixChangePct": 11.949289,
+              "vixChangePct": 12.098846,
               "goldChangePct": -0.77549297,
               "usdinrChangePct": -0.5267451
             }
@@ -990,9 +990,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1071,
-          "changePct": -1.79,
-          "note": "-1.8% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 1072.1,
+          "changePct": -1.69,
+          "note": "-1.7% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -1046,9 +1046,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 30.67,
-          "changePct": 0.23,
-          "note": "+0.2% vs prev close, vol 0.5x avg"
+          "price": 30.63,
+          "changePct": 0.1,
+          "note": "+0.1% vs prev close, vol 0.5x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -1067,9 +1067,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 160.15,
-          "changePct": -2.47,
-          "note": "-2.5% vs prev close, vol 1.0x avg — flags: below 50DMA support"
+          "price": 159.55,
+          "changePct": -2.83,
+          "note": "-2.8% vs prev close, vol 1.0x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1144,9 +1144,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 174.1,
-          "changePct": -1.36,
-          "note": "-1.4% vs prev close, vol 0.4x avg"
+          "price": 174.45,
+          "changePct": -1.16,
+          "note": "-1.2% vs prev close, vol 0.4x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -1207,9 +1207,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 440.4,
-          "changePct": -2.46,
-          "note": "-2.5% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+          "price": 441.05,
+          "changePct": -2.31,
+          "note": "-2.3% vs prev close, vol 1.1x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1235,9 +1235,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 20.25,
-          "changePct": 1.86,
-          "note": "+1.9% vs prev close, vol 0.8x avg — flags: below 50DMA support"
+          "price": 20.22,
+          "changePct": 1.71,
+          "note": "+1.7% vs prev close, vol 0.8x avg — flags: below 50DMA support"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1303,10 +1303,92 @@
           "note": "-0.3% vs prev close, vol 0.8x avg"
         }
       ],
-      "alerts": [],
-      "summary": "No genuine sell signals were identified as the research content was not provided."
+      "alerts": [
+        {
+          "ticker": "ABREL.BO",
+          "name": "ABREL",
+          "reason": "Declined in a strongly positive market, breaching 50DMA support, indicating technical weakness.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BDL.BO",
+          "name": "BDL",
+          "reason": "Technical breakdown accompanied by higher-than-average volume, suggesting strong selling pressure.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "BRITANNIA.BO",
+          "name": "BRITANNIA",
+          "reason": "Substantial drawdown pointing to company-specific concerns or profit-taking despite broader sector advances.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%"
+          ]
+        },
+        {
+          "ticker": "CASTROLIND.NS",
+          "name": "CASTROLIND",
+          "reason": "Dropped with significantly high volume, indicating strong selling interest in a generally positive market.",
+          "severity": "high",
+          "triggeredRules": [
+            "volume>2x avg"
+          ]
+        },
+        {
+          "ticker": "EXIDEIND.NS",
+          "name": "EXIDEIND",
+          "reason": "Price decline and technical breach despite a dividend announcement, suggesting market concerns about Q2 results or outlook.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "FIRSTCRY.BO",
+          "name": "FIRSTCRY",
+          "reason": "Declined without specific news, breaking below 50DMA support in a buoyant market.",
+          "severity": "high",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "LICI.BO",
+          "name": "LICI",
+          "reason": "Significant drawdown indicating stock-specific profit-taking or concerns while the broader financial sector performed well.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%"
+          ]
+        },
+        {
+          "ticker": "MAGADSUGAR.NS",
+          "name": "MAGADSUGAR",
+          "reason": "Large price drop combined with high volume, indicating significant selling pressure.",
+          "severity": "high",
+          "triggeredRules": [
+            "drawdown>3%"
+          ]
+        },
+        {
+          "ticker": "NEWGEN.BO",
+          "name": "NEWGEN",
+          "reason": "Technical breakdown with slightly elevated volume in a positive market, suggesting underlying weakness.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        }
+      ],
+      "summary": "Despite a strong bullish Indian market, several stocks (ABREL.BO, BDL.BO, BRITANNIA.BO, CASTROLIND.NS, EXIDEIND.NS, FIRSTCRY.BO, LICI.BO, MAGADSUGAR.NS, NEWGEN.BO) exhibited genuine sell/risk signals due to technical breakdowns, significant drawdowns, or high-volume selling."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:2613221f655d93a17303757312b78e9d954f507a3ebe8404514f8ca3bfe5c4bc"
+  "checksum": "sha256:b80b063c5eaa25d88fb1b668012f552c824682892d1496e1773186dc4d16a05f"
 }
