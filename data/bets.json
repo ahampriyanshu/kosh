@@ -703,5 +703,39 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +5.1%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-11-09-havells",
+    "ticker": "HAVELLS",
+    "name": "Havells India",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-09",
+    "expiryDate": "2026-11-23",
+    "entryPrice": 1128,
+    "targetPrice": 1218,
+    "stopLossPrice": 1083,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +5.6%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-11-09-m&m",
+    "ticker": "M&M",
+    "name": "Mahindra & Mahindra",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-09",
+    "expiryDate": "2026-11-26",
+    "entryPrice": 3287.2,
+    "targetPrice": 3550,
+    "stopLossPrice": 3156,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +5.1%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
