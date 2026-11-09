@@ -1,0 +1,944 @@
+{
+  "asOf": "2026-11-09T03:00:55.744Z",
+  "window": "1d",
+  "indianIndices": [
+    {
+      "name": "NIFTY 50",
+      "symbol": "^NSEI",
+      "ltp": 24986.4,
+      "changePct": 1.833183
+    },
+    {
+      "name": "SENSEX",
+      "symbol": "^BSESN",
+      "ltp": 80999.4,
+      "changePct": 2.1301203
+    },
+    {
+      "name": "NIFTY BANK",
+      "symbol": "^NSEBANK",
+      "ltp": 58850.65,
+      "changePct": 1.8642544
+    },
+    {
+      "name": "NIFTY IT",
+      "symbol": "^CNXIT",
+      "ltp": 32869.65,
+      "changePct": 0.09668706
+    },
+    {
+      "name": "NIFTY PHARMA",
+      "symbol": "^CNXPHARMA",
+      "ltp": 28427.75,
+      "changePct": 2.9707415
+    },
+    {
+      "name": "NIFTY AUTO",
+      "symbol": "^CNXAUTO",
+      "ltp": 27842.55,
+      "changePct": 0.8722257
+    },
+    {
+      "name": "NIFTY FMCG",
+      "symbol": "^CNXFMCG",
+      "ltp": 46729.95,
+      "changePct": 0.55484396
+    },
+    {
+      "name": "NIFTY METAL",
+      "symbol": "^CNXMETAL",
+      "ltp": 12723,
+      "changePct": 1.0154774
+    },
+    {
+      "name": "NIFTY ENERGY",
+      "symbol": "^CNXENERGY",
+      "ltp": 37024.75,
+      "changePct": 0.38051742
+    },
+    {
+      "name": "NIFTY REALTY",
+      "symbol": "^CNXREALTY",
+      "ltp": 890.85,
+      "changePct": -0.5636844
+    },
+    {
+      "name": "NIFTY FIN SERVICE",
+      "symbol": "^CNXFIN",
+      "ltp": 29151.95,
+      "changePct": 2.1295106
+    }
+  ],
+  "giftNifty": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 51285.73,
+      "changePct": -0.46070808
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 24579.424,
+      "changePct": 1.0874926
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7376.86,
+      "changePct": 0.31453267
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 59411.34,
+      "changePct": 3.4414177
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 24620.64,
+      "changePct": 0.5668606
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10673.94,
+      "changePct": -1.0086505
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4131.9,
+      "changePct": 1.3988074
+    },
+    {
+      "name": "Silver",
+      "value": 53.125,
+      "changePct": 2.2775376
+    },
+    {
+      "name": "Crude Oil",
+      "value": 91.12,
+      "changePct": 0.31927878
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 93.895,
+      "changePct": 0
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 7.19,
+    "changeBps": 4
+  },
+  "vix": {
+    "value": 18.43,
+    "changePct": 18.292685
+  },
+  "breadth": {
+    "advances": 45,
+    "declines": 13,
+    "unchanged": 0,
+    "adRatio": 3.46
+  },
+  "topGainers": [
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 11097,
+      "changePct": 9.432474
+    },
+    {
+      "ticker": "HAVELLS.NS",
+      "name": "Havells India",
+      "ltp": 1123,
+      "changePct": 5.1399703
+    },
+    {
+      "ticker": "SUNPHARMA.NS",
+      "name": "Sun Pharmaceutical",
+      "ltp": 1915,
+      "changePct": 4.702023
+    },
+    {
+      "ticker": "TATASTEEL.NS",
+      "name": "Tata Steel",
+      "ltp": 190.2,
+      "changePct": 4.5054927
+    },
+    {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "ltp": 3267.8,
+      "changePct": 4.486013
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1565,
+      "changePct": 4.3333335
+    },
+    {
+      "ticker": "ADANIPORTS.NS",
+      "name": "Adani Ports & SEZ",
+      "ltp": 1949.3,
+      "changePct": 3.433093
+    },
+    {
+      "ticker": "HDFCLIFE.NS",
+      "name": "HDFC Life Insurance",
+      "ltp": 562,
+      "changePct": 3.3468208
+    },
+    {
+      "ticker": "TITAN.NS",
+      "name": "Titan Company",
+      "ltp": 4990.5,
+      "changePct": 3.2246702
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "ltp": 784.1,
+      "changePct": 3.1710494
+    }
+  ],
+  "topLosers": [
+    {
+      "ticker": "BRITANNIA.NS",
+      "name": "Britannia Industries",
+      "ltp": 4781,
+      "changePct": -4.001763
+    },
+    {
+      "ticker": "TATAPOWER.NS",
+      "name": "Tata Power",
+      "ltp": 353.4,
+      "changePct": -3.0585637
+    },
+    {
+      "ticker": "VEDL.NS",
+      "name": "Vedanta",
+      "ltp": 261,
+      "changePct": -1.0614057
+    },
+    {
+      "ticker": "INDUSINDBK.NS",
+      "name": "IndusInd Bank",
+      "ltp": 903,
+      "changePct": -0.9270955
+    },
+    {
+      "ticker": "EICHERMOT.NS",
+      "name": "Eicher Motors",
+      "ltp": 7651,
+      "changePct": -0.80383766
+    },
+    {
+      "ticker": "GAIL.NS",
+      "name": "GAIL India",
+      "ltp": 184.72,
+      "changePct": -0.6828347
+    },
+    {
+      "ticker": "HEROMOTOCO.NS",
+      "name": "Hero MotoCorp",
+      "ltp": 5478,
+      "changePct": -0.6528836
+    },
+    {
+      "ticker": "GRASIM.NS",
+      "name": "Grasim Industries",
+      "ltp": 3207.2,
+      "changePct": -0.6320531
+    },
+    {
+      "ticker": "SRF.NS",
+      "name": "SRF",
+      "ltp": 2470,
+      "changePct": -0.6036217
+    },
+    {
+      "ticker": "DABUR.NS",
+      "name": "Dabur India",
+      "ltp": 382.8,
+      "changePct": -0.57143176
+    }
+  ],
+  "mostActive": [
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 11097,
+      "changePct": 9.432474,
+      "volume": 658720
+    },
+    {
+      "ticker": "HDFCBANK.NS",
+      "name": "HDFC Bank",
+      "ltp": 784.1,
+      "changePct": 3.1710494,
+      "volume": 7207078
+    },
+    {
+      "ticker": "RELIANCE.NS",
+      "name": "Reliance Industries",
+      "ltp": 1324,
+      "changePct": 0.80706376,
+      "volume": 4174389
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1565,
+      "changePct": 4.3333335,
+      "volume": 1999869
+    },
+    {
+      "ticker": "TATASTEEL.NS",
+      "name": "Tata Steel",
+      "ltp": 190.2,
+      "changePct": 4.5054927,
+      "volume": 16131705
+    },
+    {
+      "ticker": "SBIN.NS",
+      "name": "State Bank of India",
+      "ltp": 1016,
+      "changePct": 0.9538926,
+      "volume": 1950983
+    },
+    {
+      "ticker": "SUNPHARMA.NS",
+      "name": "Sun Pharmaceutical",
+      "ltp": 1915,
+      "changePct": 4.702023,
+      "volume": 971660
+    },
+    {
+      "ticker": "M&M.NS",
+      "name": "Mahindra & Mahindra",
+      "ltp": 3267.8,
+      "changePct": 4.486013,
+      "volume": 423511
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "ltp": 480.5,
+      "changePct": 2.8907924,
+      "volume": 2848111
+    },
+    {
+      "ticker": "LT.NS",
+      "name": "Larsen & Toubro",
+      "ltp": 4110,
+      "changePct": 1.4814814,
+      "volume": 311194
+    }
+  ],
+  "near52wHigh": [
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "ltp": 480.5,
+      "pctFromHigh": 0.3
+    },
+    {
+      "ticker": "ADANIPORTS.NS",
+      "name": "Adani Ports & SEZ",
+      "ltp": 1949.3,
+      "pctFromHigh": 0.65
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1565,
+      "pctFromHigh": 0.81
+    },
+    {
+      "ticker": "DIVISLAB.NS",
+      "name": "Divi's Laboratories",
+      "ltp": 11097,
+      "pctFromHigh": 0.87
+    },
+    {
+      "ticker": "JSWSTEEL.NS",
+      "name": "JSW Steel",
+      "ltp": 1351.1,
+      "pctFromHigh": 1.38
+    },
+    {
+      "ticker": "TECHM.NS",
+      "name": "Tech Mahindra",
+      "ltp": 1829.9,
+      "pctFromHigh": 1.62
+    }
+  ],
+  "near52wLow": [],
+  "volumeShockers": [],
+  "sectorRanking": [
+    {
+      "sector": "Pharma",
+      "changePct": 2.97
+    },
+    {
+      "sector": "Financial Services",
+      "changePct": 2.13
+    },
+    {
+      "sector": "Bank",
+      "changePct": 1.86
+    },
+    {
+      "sector": "Metal",
+      "changePct": 1.02
+    },
+    {
+      "sector": "Auto",
+      "changePct": 0.87
+    },
+    {
+      "sector": "FMCG",
+      "changePct": 0.55
+    },
+    {
+      "sector": "Energy",
+      "changePct": 0.38
+    },
+    {
+      "sector": "IT",
+      "changePct": 0.1
+    },
+    {
+      "sector": "Realty",
+      "changePct": -0.56
+    }
+  ],
+  "fiiDii": {
+    "fiiNet": 13750,
+    "diiNet": -5969,
+    "unit": "crore",
+    "asOf": "2026-11-06"
+  },
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's Retail Inflation Expected to Intensify, Peak at 6.7-6.8% in November 2026; RBI Hikes Repo Rate",
+          "summary": "SBI Research forecasts India's retail inflation to reach 6.7-6.8% in November 2026, driven by rising food prices and global commodity costs. The RBI's Monetary Policy Committee, having already increased the repo rate to 5.50% in October, is now conducting key surveys to inform its December policy decisions.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/news/economy/policy/india-inflation-rbi-repo-rate-november-2026/articleshow/105080000.cms",
+          "tickers": [],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Union Cabinet Approves Rs 4,371 Crore VISTAR Scheme for Statistical Transformation",
+          "summary": "The Union Cabinet has approved the 'Viksit Bharat Initiative for Statistical Transformation, Analytics & Research (VISTAR)' Scheme with an outlay of Rs. 4,371.10 crore for FY 2026-27 to FY 2030-31, aiming to modernize India's official statistical architecture.",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/government-schemes/cabinet-approves-vistar-scheme-4371-crore-126110900001_1.html",
+          "tickers": [],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Govt, RBI to Take Further Measures to Attract Foreign Capital; RBI Proposes PSL Rule Changes",
+          "summary": "Finance Minister Nirmala Sitharaman affirmed that the government and RBI would implement more measures to attract foreign capital, emphasizing continuous reforms. Simultaneously, the RBI has proposed changes to priority sector lending rules, including stricter verification for gold-backed agricultural loans.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/economy/fm-rbi-foreign-capital-psl-rules-changes-116789012345.html",
+          "tickers": [],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "India Doubles Rice Sale Target to Private Traders to 5 Million Tonnes to Manage Rising Prices",
+          "summary": "India has increased its rice sale target to private traders under the open market scheme to 5 million metric tonnes for FY 2026-27, aiming to curb rising domestic prices amid production concerns.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/commodities/india-doubles-rice-sale-target-5mt-2026-27-2026-11-09/",
+          "tickers": [],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "US Stock Futures Edge Higher Ahead of Key Inflation Data and AI Earnings",
+          "summary": "US stock futures saw slight gains as investors anticipate upcoming inflation reports (CPI, PPI) and earnings from major AI companies. Last week, the Nasdaq experienced its fourth consecutive weekly decline, while the S&P 500 rose. Middle East tensions continue to impact crude oil.",
+          "source": "CNBC",
+          "url": "https://www.cnbc.com/2026/11/09/us-stock-futures-mixed-inflation-ai-earnings.html",
+          "tickers": [],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Asian Markets Rebound, Nikkei 225 Sees Significant Rally",
+          "summary": "Most Asian markets opened positively, with Japan's Nikkei 225 showing a substantial gain and the Hang Seng Index also moving higher, signaling a rebound after mixed global cues.",
+          "source": "Bloomberg",
+          "url": "https://www.bloomberg.com/asia/markets/nikkei-hang-seng-rally-123456789.html",
+          "tickers": [],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Gold and Silver Prices Climb on Geopolitical Tensions; Crude Oil Flat",
+          "summary": "International gold and silver prices extended gains, with investors reacting to the US-Iran conflict, US dollar movements, and upcoming inflation data. Gold futures rose 1.45% to $4,134.10, and silver futures gained 2.63% to $53.31 per ounce, while Brent crude remained below $98.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/commodities/gold-silver-prices-rise-crude-flat-2026-11-09/",
+          "tickers": [],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Datverzo (Datopotamab Deruxtecan) Breast Cancer Drug to Launch in India in November 2026",
+          "summary": "Datverzo, a new drug approved for adult patients with unresectable or metastatic HR-positive, HER2-negative breast cancer, is set to launch in India in November 2026, having received DCGI approval in December 2025.",
+          "source": "PharmaBiz",
+          "url": "https://www.pharmabiz.com/news/datverzo-drug-launch-india-november-2026-345678.html",
+          "tickers": [],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Power Mech Projects Secures $52.19 Million International Order in Middle East",
+          "summary": "Power Mech Projects has been awarded an international order valued at $52.19 million for supplying steam generators, turbines, and other components in the Middle East, boosting its order book.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/business/power-mech-projects-secures-52m-middle-east-order-11600001.html",
+          "tickers": [
+            "POWERMECH.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Steel Increases Stake in Arm CPDPL to 57.5%",
+          "summary": "Tata Steel has increased its shareholding in its subsidiary, Corpus Data Processing Pvt Ltd (CPDPL), from 51% to 57.5%, consolidating its control over the arm.",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/companies/news/tata-steel-raises-stake-in-cpdpl-to-57-5-126110900002_1.html",
+          "tickers": [
+            "TATASTEEL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "V2 Retail Sees Major Bulk Deals; Aditya Kumar Halwasiya Buys Shares",
+          "summary": "In a significant bulk deal, Aditya Kumar Halwasiya acquired 83 lakh shares of V2 Retail at Rs. 160 per share, while Ram Chandra Agarwal and Ricon Commodities offloaded large stakes.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/market/bulk-deals/v2-retail-bulk-deal-aditya-halwasiya-buys-1167890123456.html",
+          "tickers": [
+            "V2RETAIL.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [],
+  "corporateActions": [
+    {
+      "ticker": "AVANTIFEED",
+      "name": "Avanti Feeds Ltd",
+      "type": "results",
+      "date": "2026-11-09"
+    },
+    {
+      "ticker": "HINDRECT",
+      "name": "HIND RECTIFIERS LTD",
+      "type": "results",
+      "date": "2026-11-09"
+    },
+    {
+      "ticker": "MANINDS",
+      "name": "MAN INDUSTRIES (INDIA) LTD",
+      "type": "results",
+      "date": "2026-11-09"
+    },
+    {
+      "ticker": "CUPID",
+      "name": "Cupid Ltd.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "FRONTIER",
+      "name": "FRONTIER SPRINGS LTD.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "MANINDS",
+      "name": "MAN INDUSTRIES (INDIA) LTD.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "MIDHANI",
+      "name": "Mishra Dhatu Nigam Ltd.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "NATFER",
+      "name": "National Fertilizers Ltd.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "POWERMECH",
+      "name": "Power Mech Projects Ltd.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "TSFINV",
+      "name": "TSF Investments Ltd.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "KALYANJEWL",
+      "name": "Kalyan Jewellers India Ltd.",
+      "type": "results",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "ASTRAMICRO",
+      "name": "Astra Microwave Products Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "AVALON",
+      "name": "Avalon Technologies Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "DBL",
+      "name": "Dilip Buildcon Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "ETHOS",
+      "name": "Ethos Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "KILBURNE",
+      "name": "KILBURN ENGINEERING LTD.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "MANINDS",
+      "name": "MAN INDUSTRIES (INDIA) LTD.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "MANORAMA",
+      "name": "Manorama Industries Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "MSTCLTD",
+      "name": "MSTC Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "OSWALPUMPS",
+      "name": "Oswal Pumps Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "PICCADILY",
+      "name": "Piccadily Agro Industries Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "PONDYPHOS",
+      "name": "PONDY OXIDES & CHEMICALS LTD.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "PREMEXPLOS",
+      "name": "PREMIER EXPLOSIVES LTD.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "RCF",
+      "name": "Rashtriya Chemicals & Fertilizers Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "RELIGARE",
+      "name": "Religare Enterprises Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "TARC",
+      "name": "TARC Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "TDPOWERSYS",
+      "name": "TD Power Systems Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "VIPIND",
+      "name": "V.I.P. Industries Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "WAKEFIT",
+      "name": "Wakefit Innovations Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "TATAPOWER",
+      "name": "Tata Power Co. Ltd.",
+      "type": "results",
+      "date": "2026-11-11"
+    },
+    {
+      "ticker": "BLACKBOX",
+      "name": "Black Box Ltd.",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "CMSINFO",
+      "name": "CMS Info Systems Ltd.",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "EDELWEISS",
+      "name": "Edelweiss Financial Services Ltd.",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "OIL",
+      "name": "Oil India Ltd.",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "ABB",
+      "name": "ABB India Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "ALPINEHOUS",
+      "name": "Alpine Housing Development Corporation Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "BALAJITELE",
+      "name": "Balaji Telefilms Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "BFINVEST",
+      "name": "BF Investment Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "BHARATRAS",
+      "name": "Bharat Rasayan Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "CANTABIL",
+      "name": "Cantabil Retail India Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "DCM",
+      "name": "DCM Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "EIDPARRY",
+      "name": "EID Parry (India) Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "GILLANDERS",
+      "name": "Gillanders Arbuthnot & Company Ltd",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "GILLETTE",
+      "name": "Gillette India Ltd.",
+      "type": "results",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "ABB",
+      "name": "ABB India Ltd",
+      "type": "results",
+      "date": "2026-11-13"
+    },
+    {
+      "ticker": "ASHOKLEY",
+      "name": "Ashok Leyland Ltd.",
+      "type": "results",
+      "date": "2026-11-13"
+    },
+    {
+      "ticker": "DABURINDIA",
+      "name": "Dabur India Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "BNAGRO",
+      "name": "BN Agrochem",
+      "type": "split",
+      "date": "2026-11-16"
+    },
+    {
+      "ticker": "SAHAJ",
+      "name": "Sahaj digital Ltd",
+      "type": "agm",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "SUPREMEINF",
+      "name": "Supreme Infrastructure India Ltd",
+      "type": "agm",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "VIPUL",
+      "name": "Vipul Ltd",
+      "type": "agm",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "KENNAMET",
+      "name": "Kennametal India Ltd",
+      "type": "agm",
+      "date": "2026-11-13"
+    },
+    {
+      "ticker": "UJJIVANSFB",
+      "name": "Ujjivan Small Finance Bank Ltd",
+      "type": "agm",
+      "date": "2026-11-13"
+    },
+    {
+      "ticker": "VXLIND",
+      "name": "VXL Instruments Ltd",
+      "type": "agm",
+      "date": "2026-11-13"
+    },
+    {
+      "ticker": "DHARTI",
+      "name": "Dharti Proteins Ltd.",
+      "type": "bonus",
+      "date": "2026-11-13"
+    }
+  ],
+  "derivatives": {
+    "pcrOi": 1.66,
+    "pcrVolume": 0.85,
+    "callVolumePct": null,
+    "putVolumePct": null,
+    "asOf": "2026-11-06"
+  },
+  "sentiment": {
+    "composite": 54,
+    "regime": "Neutral",
+    "session": "morning",
+    "asOf": "2026-11-09T03:00:55.744Z",
+    "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
+    "categories": {
+      "breadth": {
+        "score": 100,
+        "regime": "Extreme Greed",
+        "label": "Breadth & Price Action",
+        "weight": 0.25,
+        "summary": "Bullish breadth expansion (45 Adv / 13 Dec, A/D 3.46, 6 near 52W highs)",
+        "metrics": {
+          "adRatio": 3.46,
+          "advances": 45,
+          "declines": 13,
+          "pctAdvancing": 77.6,
+          "near52wHighs": 6,
+          "near52wLows": 0
+        }
+      },
+      "flows": {
+        "score": 95,
+        "regime": "Extreme Greed",
+        "label": "Institutional Flows",
+        "weight": 0.25,
+        "summary": "Strong institutional accumulation (FII: +₹13,750 Cr)",
+        "metrics": {
+          "fiiNet": 13750,
+          "diiNet": -5969,
+          "totalNet": 7781,
+          "asOf": "2026-11-06"
+        }
+      },
+      "volatility": {
+        "score": 10,
+        "regime": "Extreme Fear",
+        "label": "Volatility & Risk Appetite",
+        "weight": 0.25,
+        "summary": "Elevated volatility & systemic risk (India VIX at 18.43, +18.3%)",
+        "metrics": {
+          "vix": 18.43,
+          "vixChangePct": 18.292685,
+          "goldChangePct": 1.3988074,
+          "usdinrChangePct": 0
+        }
+      },
+      "derivatives": {
+        "score": 10,
+        "regime": "Extreme Fear",
+        "label": "Derivatives & Options Skew",
+        "weight": 0.25,
+        "summary": "Heavy protective put buying & hedging (Nifty PCR elevated at 1.66, oversold)",
+        "metrics": {
+          "pcrOi": 1.66,
+          "pcrVolume": 0.85,
+          "callVolumePct": null,
+          "putVolumePct": null
+        }
+      }
+    }
+  }
+}
