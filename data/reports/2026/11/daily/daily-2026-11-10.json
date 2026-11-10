@@ -3,15 +3,107 @@
   "id": "daily-2026-11-10",
   "type": "daily",
   "dateKey": "2026-11-10",
-  "generatedAt": "2026-11-10T10:25:32.112Z",
+  "generatedAt": "2026-11-10T18:16:43.140Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
-    "searchTimestamp": "2026-11-10T10:25:32.112Z"
+    "tickers": [
+      "ABREL.BO",
+      "AMBUJACEM.BO",
+      "BANDHANBNK.NS",
+      "BDL.BO",
+      "BEL.BO",
+      "BRITANNIA.BO",
+      "BSOFT.NS",
+      "CASTROLIND.NS",
+      "CENTRALBK.BO",
+      "DIXON.NS",
+      "EXIDEIND.NS",
+      "FIRSTCRY.BO",
+      "GMRAIRPORT.BO",
+      "GODREJCP.BO",
+      "HAVELLS.BO",
+      "HCLTECH.BO",
+      "HDFCBANK.NS",
+      "HINDUNILVR.BO",
+      "INFY.BO",
+      "IRCTC.NS",
+      "IREDA.NS",
+      "ITC.BO",
+      "ITCHOTELS.BO",
+      "JWL.NS",
+      "KAMATHOTEL.NS",
+      "LICI.BO",
+      "LODHA.NS",
+      "M&M.NS",
+      "MAGADSUGAR.NS",
+      "MANKIND.NS",
+      "MAXHEALTH.BO",
+      "NEWGEN.BO",
+      "NHPC.BO",
+      "ONGC.BO",
+      "PRESTIGE.BO",
+      "PSB.BO",
+      "RELIANCE.NS",
+      "SBIN.NS",
+      "TATASTEEL.BO",
+      "TCS.BO",
+      "TMPV.BO",
+      "ULTRACEMCO.BO",
+      "VBL.NS",
+      "VMM.BO",
+      "WIPRO.BO"
+    ],
+    "priceSnapshot": {
+      "ABREL.BO": 1078.9,
+      "AMBUJACEM.BO": 389,
+      "BANDHANBNK.NS": 168.6,
+      "BDL.BO": 1109.5,
+      "BEL.BO": 394.2,
+      "BRITANNIA.BO": 4796,
+      "BSOFT.NS": 332.3,
+      "CASTROLIND.NS": 190.3,
+      "CENTRALBK.BO": 31.22,
+      "DIXON.NS": 12603,
+      "EXIDEIND.NS": 385.05,
+      "FIRSTCRY.BO": 162.15,
+      "GMRAIRPORT.BO": 99,
+      "GODREJCP.BO": 850.9,
+      "HAVELLS.BO": 1158,
+      "HCLTECH.BO": 1407,
+      "HDFCBANK.NS": 798.15,
+      "HINDUNILVR.BO": 1992,
+      "INFY.BO": 1153.9,
+      "IRCTC.NS": 459.95,
+      "IREDA.NS": 119.65,
+      "ITC.BO": 278.5,
+      "ITCHOTELS.BO": 176.85,
+      "JWL.NS": 204.5,
+      "KAMATHOTEL.NS": 221.28,
+      "LICI.BO": 399.25,
+      "LODHA.NS": 1195,
+      "M&M.NS": 3290.6,
+      "MAGADSUGAR.NS": 543.15,
+      "MANKIND.NS": 2668.3,
+      "MAXHEALTH.BO": 915,
+      "NEWGEN.BO": 437.8,
+      "NHPC.BO": 80.4,
+      "ONGC.BO": 233.7,
+      "PRESTIGE.BO": 1595,
+      "PSB.BO": 20.81,
+      "RELIANCE.NS": 1324.4,
+      "SBIN.NS": 1042,
+      "TATASTEEL.BO": 184.9,
+      "TCS.BO": 2471.1,
+      "TMPV.BO": 295,
+      "ULTRACEMCO.BO": 12260,
+      "VBL.NS": 435,
+      "VMM.BO": 92.25,
+      "WIPRO.BO": 198.75
+    },
+    "searchTimestamp": "2026-11-10T18:16:43.140Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-10T10:25:32.112Z",
+      "asOf": "2026-11-10T18:16:43.140Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -393,50 +485,50 @@
           "ticker": "DIVISLAB.NS",
           "name": "Divi's Laboratories",
           "volume": 2585451,
-          "avgVolume": 541790,
-          "ratio": 4.77
+          "avgVolume": 576810,
+          "ratio": 4.48
         },
         {
           "ticker": "SBIN.NS",
           "name": "State Bank of India",
           "volume": 24062689,
-          "avgVolume": 9344401,
-          "ratio": 2.58
+          "avgVolume": 9462535,
+          "ratio": 2.54
         },
         {
           "ticker": "ICICIBANK.NS",
           "name": "ICICI Bank",
           "volume": 27470436,
-          "avgVolume": 11166100,
-          "ratio": 2.46
+          "avgVolume": 11400906,
+          "ratio": 2.41
         },
         {
           "ticker": "IOC.NS",
           "name": "Indian Oil",
           "volume": 22640944,
-          "avgVolume": 9255132,
-          "ratio": 2.45
-        },
-        {
-          "ticker": "HAVELLS.NS",
-          "name": "Havells India",
-          "volume": 1924142,
-          "avgVolume": 843616,
-          "ratio": 2.28
+          "avgVolume": 9548215,
+          "ratio": 2.37
         },
         {
           "ticker": "HINDALCO.NS",
           "name": "Hindalco Industries",
           "volume": 9026121,
-          "avgVolume": 3981940,
-          "ratio": 2.27
+          "avgVolume": 4013256,
+          "ratio": 2.25
+        },
+        {
+          "ticker": "HAVELLS.NS",
+          "name": "Havells India",
+          "volume": 1924142,
+          "avgVolume": 868970,
+          "ratio": 2.21
         },
         {
           "ticker": "HDFCBANK.NS",
           "name": "HDFC Bank",
           "volume": 64825158,
-          "avgVolume": 30619292,
-          "ratio": 2.12
+          "avgVolume": 31272724,
+          "ratio": 2.07
         }
       ],
       "sectorRanking": [
@@ -754,8 +846,8 @@
       "sentiment": {
         "composite": 56,
         "regime": "Greed",
-        "session": "morning",
-        "asOf": "2026-11-10T10:25:32.112Z",
+        "session": "closing",
+        "asOf": "2026-11-10T18:16:43.140Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -1144,27 +1236,18 @@
       ],
       "alerts": [
         {
-          "ticker": "MAXHEALTH.BO",
-          "name": "MAXHEALTH",
-          "reason": "Significant drop on extremely low volume combined with being below 50DMA indicates serious underlying weakness.",
-          "severity": "high",
+          "ticker": "NEWGEN.BO",
+          "name": "NEWGEN",
+          "reason": "Notable decline and breached 50-Day Moving Average support, indicating technical weakness.",
+          "severity": "medium",
           "triggeredRules": [
-            "below 50DMA support"
-          ]
-        },
-        {
-          "ticker": "VMM.BO",
-          "name": "VMM",
-          "reason": "Decline on very low volume and below 50DMA suggests a lack of demand and potential for further downside.",
-          "severity": "high",
-          "triggeredRules": [
-            "below 50DMA support"
+            "Below 50DMA Support"
           ]
         }
       ],
-      "summary": "Analysis of Monday's trading session (November 9, 2026) reveals two genuine sell signals, MAXHEALTH.BO and VMM.BO, driven by low volume declines and technical weakness, while other alerts are either noise or positive signals for the upcoming trading day."
+      "summary": "Only NEWGEN.BO presents a moderate sell signal due to a price drop and 50DMA breach on below-average volume, while other 'below 50DMA' alerts are weak or unreliable due to low volume or positive price movement."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:7462dc111d29104ed57d39cc951e97df73f8bc77446af775a11bb4c4457e666a"
+  "checksum": "sha256:9caa31a6eb977a2a8519327456af2b43857588f1baac22b6250082c73e54a9ac"
 }
