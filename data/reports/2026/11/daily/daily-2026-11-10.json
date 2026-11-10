@@ -3,15 +3,107 @@
   "id": "daily-2026-11-10",
   "type": "daily",
   "dateKey": "2026-11-10",
-  "generatedAt": "2026-11-10T03:00:57.518Z",
+  "generatedAt": "2026-11-10T10:15:23.364Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
-    "searchTimestamp": "2026-11-10T03:00:57.518Z"
+    "tickers": [
+      "ABREL.BO",
+      "AMBUJACEM.BO",
+      "BANDHANBNK.NS",
+      "BDL.BO",
+      "BEL.BO",
+      "BRITANNIA.BO",
+      "BSOFT.NS",
+      "CASTROLIND.NS",
+      "CENTRALBK.BO",
+      "DIXON.NS",
+      "EXIDEIND.NS",
+      "FIRSTCRY.BO",
+      "GMRAIRPORT.BO",
+      "GODREJCP.BO",
+      "HAVELLS.BO",
+      "HCLTECH.BO",
+      "HDFCBANK.NS",
+      "HINDUNILVR.BO",
+      "INFY.BO",
+      "IRCTC.NS",
+      "IREDA.NS",
+      "ITC.BO",
+      "ITCHOTELS.BO",
+      "JWL.NS",
+      "KAMATHOTEL.NS",
+      "LICI.BO",
+      "LODHA.NS",
+      "M&M.NS",
+      "MAGADSUGAR.NS",
+      "MANKIND.NS",
+      "MAXHEALTH.BO",
+      "NEWGEN.BO",
+      "NHPC.BO",
+      "ONGC.BO",
+      "PRESTIGE.BO",
+      "PSB.BO",
+      "RELIANCE.NS",
+      "SBIN.NS",
+      "TATASTEEL.BO",
+      "TCS.BO",
+      "TMPV.BO",
+      "ULTRACEMCO.BO",
+      "VBL.NS",
+      "VMM.BO",
+      "WIPRO.BO"
+    ],
+    "priceSnapshot": {
+      "ABREL.BO": 1078.9,
+      "AMBUJACEM.BO": 389,
+      "BANDHANBNK.NS": 168.6,
+      "BDL.BO": 1109.5,
+      "BEL.BO": 394.2,
+      "BRITANNIA.BO": 4796,
+      "BSOFT.NS": 332.3,
+      "CASTROLIND.NS": 190.3,
+      "CENTRALBK.BO": 31.22,
+      "DIXON.NS": 12603,
+      "EXIDEIND.NS": 385.05,
+      "FIRSTCRY.BO": 162.15,
+      "GMRAIRPORT.BO": 99,
+      "GODREJCP.BO": 850.9,
+      "HAVELLS.BO": 1158,
+      "HCLTECH.BO": 1407,
+      "HDFCBANK.NS": 798.15,
+      "HINDUNILVR.BO": 1992,
+      "INFY.BO": 1153.9,
+      "IRCTC.NS": 459.95,
+      "IREDA.NS": 119.65,
+      "ITC.BO": 278.5,
+      "ITCHOTELS.BO": 176.85,
+      "JWL.NS": 204.5,
+      "KAMATHOTEL.NS": 221.28,
+      "LICI.BO": 399.25,
+      "LODHA.NS": 1195,
+      "M&M.NS": 3290.6,
+      "MAGADSUGAR.NS": 543.15,
+      "MANKIND.NS": 2668.3,
+      "MAXHEALTH.BO": 915,
+      "NEWGEN.BO": 437.8,
+      "NHPC.BO": 80.4,
+      "ONGC.BO": 233.7,
+      "PRESTIGE.BO": 1595,
+      "PSB.BO": 20.81,
+      "RELIANCE.NS": 1324.4,
+      "SBIN.NS": 1042,
+      "TATASTEEL.BO": 184.9,
+      "TCS.BO": 2471.1,
+      "TMPV.BO": 295,
+      "ULTRACEMCO.BO": 12260,
+      "VBL.NS": 435,
+      "VMM.BO": 92.25,
+      "WIPRO.BO": 198.75
+    },
+    "searchTimestamp": "2026-11-10T10:15:23.364Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-10T03:00:57.518Z",
+      "asOf": "2026-11-10T10:15:23.364Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -104,44 +196,44 @@
         {
           "name": "Nikkei 225",
           "symbol": "^N225",
-          "ltp": 60475.78,
-          "changePct": 2.8928401
+          "ltp": 60459.58,
+          "changePct": 2.8652723
         },
         {
           "name": "Hang Seng",
           "symbol": "^HSI",
-          "ltp": 24556.87,
-          "changePct": 0.4414291
+          "ltp": 24557.04,
+          "changePct": 0.44210425
         },
         {
           "name": "FTSE 100",
           "symbol": "^FTSE",
-          "ltp": 10782.87,
-          "changePct": 1.0205199
+          "ltp": 10815.98,
+          "changePct": 0.30706325
         }
       ],
       "commodities": [
         {
           "name": "Gold",
-          "value": 4120.5,
-          "changePct": 0.14582574
+          "value": 4095,
+          "changePct": -0.47393364
         },
         {
           "name": "Silver",
-          "value": 52.965,
-          "changePct": 0.51619637
+          "value": 52.615,
+          "changePct": -0.14802557
         },
         {
           "name": "Crude Oil",
-          "value": 86.02,
-          "changePct": -0.9556728
+          "value": 84.38,
+          "changePct": -2.8439853
         }
       ],
       "currencies": [
         {
           "pair": "USD/INR",
-          "value": 93.92,
-          "changePct": 0
+          "value": 93.918,
+          "changePct": -0.0021283021
         }
       ],
       "bondYield": {
@@ -781,8 +873,8 @@
       "sentiment": {
         "composite": 56,
         "regime": "Greed",
-        "session": "morning",
-        "asOf": "2026-11-10T03:00:57.518Z",
+        "session": "closing",
+        "asOf": "2026-11-10T10:15:23.364Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -822,8 +914,8 @@
             "metrics": {
               "vix": 17.42,
               "vixChangePct": -5.4801965,
-              "goldChangePct": 0.14582574,
-              "usdinrChangePct": 0
+              "goldChangePct": -0.47393364,
+              "usdinrChangePct": -0.0021283021
             }
           },
           "derivatives": {
@@ -1172,9 +1264,9 @@
       ],
       "alerts": [
         {
-          "ticker": "NEWGEN.BO",
-          "name": "NEWGEN",
-          "reason": "Noticeable decline of 2.2% on slightly below-average volume, and below 50DMA, indicating weakening sentiment.",
+          "ticker": "MAXHEALTH.BO",
+          "name": "MAXHEALTH",
+          "reason": "Significant drop on extremely low volume combined with being below 50DMA indicates serious underlying weakness.",
           "severity": "high",
           "triggeredRules": [
             "below 50DMA support"
@@ -1183,16 +1275,16 @@
         {
           "ticker": "VMM.BO",
           "name": "VMM",
-          "reason": "Moderate decline of 1.7% on very low volume, and below 50DMA, indicating persistent bearish sentiment.",
-          "severity": "medium",
+          "reason": "Decline on very low volume and below 50DMA suggests a lack of demand and potential for further downside.",
+          "severity": "high",
           "triggeredRules": [
             "below 50DMA support"
           ]
         }
       ],
-      "summary": "NEWGEN.BO and VMM.BO present genuine sell signals, with other stocks showing minor technical weaknesses due to 50DMA breaches."
+      "summary": "Analysis of Monday's trading session (November 9, 2026) reveals two genuine sell signals, MAXHEALTH.BO and VMM.BO, driven by low volume declines and technical weakness, while other alerts are either noise or positive signals for the upcoming trading day."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:265c80962ce6c16924f64840df89ddbeccca63409c454c4b93c4b5685e753e03"
+  "checksum": "sha256:9b7aae045a79619e1092d9c6e337b09d858414aa0adba0b56da092c2d4f6dbc2"
 }

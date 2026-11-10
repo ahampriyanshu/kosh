@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-10T03:00:57.518Z",
+  "asOf": "2026-11-10T10:15:23.364Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -92,44 +92,44 @@
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
-      "ltp": 60475.78,
-      "changePct": 2.8928401
+      "ltp": 60459.58,
+      "changePct": 2.8652723
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
-      "ltp": 24556.87,
-      "changePct": 0.4414291
+      "ltp": 24557.04,
+      "changePct": 0.44210425
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10782.87,
-      "changePct": 1.0205199
+      "ltp": 10815.98,
+      "changePct": 0.30706325
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 4120.5,
-      "changePct": 0.14582574
+      "value": 4095,
+      "changePct": -0.47393364
     },
     {
       "name": "Silver",
-      "value": 52.965,
-      "changePct": 0.51619637
+      "value": 52.615,
+      "changePct": -0.14802557
     },
     {
       "name": "Crude Oil",
-      "value": 86.02,
-      "changePct": -0.9556728
+      "value": 84.38,
+      "changePct": -2.8439853
     }
   ],
   "currencies": [
     {
       "pair": "USD/INR",
-      "value": 93.92,
-      "changePct": 0
+      "value": 93.918,
+      "changePct": -0.0021283021
     }
   ],
   "bondYield": {
@@ -769,8 +769,8 @@
   "sentiment": {
     "composite": 56,
     "regime": "Greed",
-    "session": "morning",
-    "asOf": "2026-11-10T03:00:57.518Z",
+    "session": "closing",
+    "asOf": "2026-11-10T10:15:23.364Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -810,8 +810,8 @@
         "metrics": {
           "vix": 17.42,
           "vixChangePct": -5.4801965,
-          "goldChangePct": 0.14582574,
-          "usdinrChangePct": 0
+          "goldChangePct": -0.47393364,
+          "usdinrChangePct": -0.0021283021
         }
       },
       "derivatives": {
