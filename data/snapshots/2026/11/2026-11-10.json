@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-09T21:05:49.012Z",
+  "asOf": "2026-11-10T03:00:57.518Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,10 +70,73 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
-  "bondYield": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 52389.75,
+      "changePct": 2.1526837
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 25253.139,
+      "changePct": 2.7410688
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7549.94,
+      "changePct": 2.3462567
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 60475.78,
+      "changePct": 2.8928401
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 24556.87,
+      "changePct": 0.4414291
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10782.87,
+      "changePct": 1.0205199
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 4120.5,
+      "changePct": 0.14582574
+    },
+    {
+      "name": "Silver",
+      "value": 52.965,
+      "changePct": 0.51619637
+    },
+    {
+      "name": "Crude Oil",
+      "value": 86.02,
+      "changePct": -0.9556728
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 93.92,
+      "changePct": 0
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 7.156,
+    "changeBps": 1
+  },
   "vix": {
     "value": 17.42,
     "changePct": -5.4801965
@@ -402,23 +465,319 @@
       "changePct": -1.22
     }
   ],
-  "fiiDii": null,
-  "news": [],
-  "streetRecommendations": [],
-  "corporateActions": [],
-  "derivatives": null,
+  "fiiDii": {
+    "fiiNet": 7212,
+    "diiNet": -7173,
+    "unit": "crore",
+    "asOf": "2026-11-09"
+  },
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's CPI inflation likely breached RBI's 6% limit in October",
+          "summary": "Median economist estimate projects retail inflation at 6.05% due to rising food prices and an unfavorable base effect, potentially prompting another RBI rate hike in December. Official data is due Thursday.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/news/economy/indicators/india-cpi-inflation-october-forecast-rbi-rate-hike-2026-11-09/articleshow/105000000.cms",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI queries banks on bond derivative valuations, hints at accounting adjustments",
+          "summary": "The RBI is reviewing valuation practices for certain bond derivative trades, a move that could necessitate accounting adjustments impacting billions in assets across the banking sector.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/india-rbi-bond-derivatives-valuation-query-banks-2026-11-09/",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Indian government bonds rally on US-Iran peace hopes, lower oil prices",
+          "summary": "Government bonds extended gains on November 9, driven by optimism over a potential US-Iran peace deal leading to lower oil prices and improved market sentiment ahead of inflation data.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/market/bond-market-indian-govt-bonds-rally-oil-us-iran-peace-2026-11-09/articleshow-12345678.html",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Wall Street sees strong gains; chipmakers rebound after AI regulation fears",
+          "summary": "On November 9, the Dow Jones, Nasdaq, and S&P 500 recorded significant gains, with chipmakers recovering from a previous plunge linked to concerns about tighter AI regulation.",
+          "source": "Bloomberg",
+          "url": "https://www.bloomberg.com/news/articles/2026-11-09/us-markets-chip-stocks-rally-ai-regulation-ease",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Asian markets trade higher on November 9, tech stocks recover",
+          "summary": "Most Asian markets, including Japan's Nikkei (up 3.4%), Taiwan's Taiex (up 5.7%), and South Korea's KOSPI (up 1.7%), showed upward trends, recovering from a turbulent week for global technology stocks.",
+          "source": "Nikkei Asia",
+          "url": "https://asia.nikkei.com/Business/Markets/Asian-stocks-rebound-tech-recovery-2026-11-09",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Brent crude plunges $20, eases India's import cost concerns",
+          "summary": "Crude prices saw their biggest weekly drop in 6.5 years due to easing Middle East tensions and hopes for a US-Iran peace deal, providing significant relief for India's import costs.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/commodities/oil-brent-plunges-india-import-relief-2026-11-09/",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Whirlpool of India reports 14% revenue growth, announces price hike",
+          "summary": "Whirlpool of India reported a 14% revenue growth in Q2 FY27 and announced a 5% price hike effective November, which could drive stock-specific activity.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/business/earnings/whirlpool-india-q2-fy27-results-revenue-price-hike-11500000.html",
+          "tickers": [
+            "WHIRLPOOL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IREDA gains 20% on strong Q2 FY27 loan disbursements, improved NPAs",
+          "summary": "IREDA's share price increased by 20% over seven sessions after its Q2 FY27 loan disbursements rose 31% and net non-performing assets improved significantly.",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/companies/ireda-share-price-jumps-q2-fy27-loan-npas-12300000.html",
+          "tickers": [
+            "IREDA.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Pharma & Healthcare stocks attract buying interest, Nifty Pharma up",
+          "summary": "On November 9, pharmaceutical and healthcare stocks attracted buying interest, with the Nifty Pharma index closing 1.65% higher. These sectors are expected to remain relatively defensive.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/stocks/news/pharma-healthcare-stocks-in-focus-nifty-pharma-gains-nov-9-2026/articleshow/105000000.cms",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Banking and Realty stocks face pressure amidst RBI rate hike implications",
+          "summary": "Realty and banking stocks experienced selling pressure during Muhurat trading. Analysts suggest a 25 bps RBI rate hike could benefit lenders but negatively impact interest-sensitive sectors like automobiles and real estate.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/market/sectoral-outlook-rbi-rate-hike-impact-banking-realty-auto-2026-11-09/articleshow-12345678.html",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Saksoft, Insecticides (India), HUL among companies with upcoming dividend, bonus record dates",
+          "summary": "Several companies have announced upcoming interim dividend record dates, including Saksoft (Nov 10), Insecticides (India) (Nov 12), and HUL (₹19/share). Dharti Proteins has a 1:1 bonus issue with a record date of November 13, 2026.",
+          "source": "BSE India",
+          "url": "https://www.bseindia.com/markets/corporates/corporate_actions.html?type=DBC&dt=20261109",
+          "tickers": [
+            "SAKSOFT.NS",
+            "INSECTICID.NS",
+            "APTUS.NS",
+            "CAMS.NS",
+            "HINDUNILVR.NS",
+            "DHARTIPROT.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Dabur shares under pressure after SEBI warning for delayed USFDA letter disclosure",
+          "summary": "Dabur India's stock faced pressure after SEBI issued an administrative warning for delayed disclosure of a USFDA letter, impacting investor sentiment.",
+          "source": "ET Now",
+          "url": "https://www.etnownews.com/markets/stocks/dabur-india-sebi-warning-usfda-letter-disclosure-delay-2026-11-09/",
+          "tickers": [
+            "DABUR.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "BHEL bags Power Grid contract; Waaree Renewable Tech expands solar portfolio",
+          "summary": "BHEL has reportedly secured a major contract from Power Grid, while Waaree Renewable Tech is actively expanding its solar project portfolio. Both companies are in focus for their business developments.",
+          "source": "PTI",
+          "url": "https://www.ptinews.com/business/companies/bhel-power-grid-contract-waaree-solar-expansion-2026-11-09/",
+          "tickers": [
+            "BHEL.NS",
+            "WAREE.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Positive trends noted in Maruti Suzuki, Solar Industries, IndiaMart, DLF, Divi's Labs",
+          "summary": "Analysts observe strong positive trends for Maruti Suzuki, Solar Industries, IndiaMart InterMesh, DLF, and Divi's Laboratories, with potential for further upside on breakouts. Divi's Labs contributed to strong pharma sector performance.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/markets/stocks-in-focus-maruti-solar-indiamart-dlf-divislab-2026-11-09/",
+          "tickers": [
+            "MARUTI.NS",
+            "SOLARINDS.NS",
+            "INDIAMART.NS",
+            "DLF.NS",
+            "DIVISLAB.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "AXISBANK.NS",
+      "name": "Axis Bank",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1700,
+      "rationale": "Estimated ROE of 14% in FY27 and FY28, valued at 1.5 times FY28 adjusted book value, considering potential impact of IRDAI's proposed insurance distribution changes."
+    },
+    {
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1750,
+      "rationale": "Anticipated ROE of 17% in FY27 and FY28, with FY28 estimated adjusted price-to-book at 1.9 times, limited exposure to bancassurance income (around 1% of FY27 estimated profit), and robust asset quality."
+    },
+    {
+      "ticker": "INDIGO.NS",
+      "name": "InterGlobe Aviation",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 7025,
+      "rationale": "Attributed to its scale, domestic leadership, and cost competitiveness within the aviation sector."
+    },
+    {
+      "ticker": "ADANIENT.NS",
+      "name": "Adani Enterprises",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 3200,
+      "rationale": "Driven by strong growth prospects in new energy, airports, data centers, and infrastructure development."
+    },
+    {
+      "ticker": "KFINTECH.NS",
+      "name": "Kfin Technologies",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1440,
+      "rationale": "Citing strong traction in mutual funds, investor solutions, and emerging verticals like insurance."
+    },
+    {
+      "ticker": "IDFCFIRSTB.NS",
+      "name": "IDFC First Bank",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 105,
+      "rationale": "The bank is currently transitioning from an investment-heavy phase, indicating improved profitability ahead."
+    }
+  ],
+  "corporateActions": [
+    {
+      "ticker": "CONCOR",
+      "name": "Container Corporation of India Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "CHAMBLFERT",
+      "name": "Chambal Fertilisers & Chemicals Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "SNL",
+      "name": "SNL Bearings Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "INDIGRID",
+      "name": "IndiGrid Infrastructure Trust",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "BALRAMCHIN",
+      "name": "Balrampur Chini Mills Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "GPTINFRA",
+      "name": "GPT Infraprojects Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "GALAXYSURF",
+      "name": "Galaxy Surfactants Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "AUROPHARMA",
+      "name": "Aurobindo Pharma Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "HUDCO",
+      "name": "Housing and Urban Development Corporation Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "JMFINANCIL",
+      "name": "JM Financial Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "INSECTICID",
+      "name": "Insecticides (India) Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "APTUS",
+      "name": "Aptus Value Housing Finance India Ltd.",
+      "type": "dividend",
+      "date": "2026-11-13"
+    },
+    {
+      "ticker": "CAMS",
+      "name": "Computer Age Management Services Ltd.",
+      "type": "dividend",
+      "date": "2026-11-13"
+    }
+  ],
+  "derivatives": {
+    "pcrOi": 1.13,
+    "pcrVolume": 1.13,
+    "callVolumePct": 47,
+    "putVolumePct": 53,
+    "asOf": "2026-11-09"
+  },
   "sentiment": {
-    "composite": 47,
-    "regime": "Neutral",
-    "session": "closing",
-    "asOf": "2026-11-09T21:05:49.012Z",
-    "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
+    "composite": 56,
+    "regime": "Greed",
+    "session": "morning",
+    "asOf": "2026-11-10T03:00:57.518Z",
+    "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
         "score": 51,
         "regime": "Neutral",
         "label": "Breadth & Price Action",
-        "weight": 0.34,
+        "weight": 0.25,
         "summary": "Balanced breadth (27 Adv / 31 Dec, A/D 0.87)",
         "metrics": {
           "adRatio": 0.87,
@@ -430,41 +789,42 @@
         }
       },
       "flows": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 95,
+        "regime": "Extreme Greed",
         "label": "Institutional Flows",
-        "weight": 0.33,
-        "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+        "weight": 0.25,
+        "summary": "Strong institutional accumulation (FII: +₹7,212 Cr)",
         "metrics": {
-          "fiiNet": 0,
-          "diiNet": 0,
-          "totalNet": 0,
-          "asOf": null
+          "fiiNet": 7212,
+          "diiNet": -7173,
+          "totalNet": 39,
+          "asOf": "2026-11-09"
         }
       },
       "volatility": {
         "score": 39,
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Normal market volatility (India VIX at 17.42)",
         "metrics": {
           "vix": 17.42,
           "vixChangePct": -5.4801965,
-          "goldChangePct": 0,
+          "goldChangePct": 0.14582574,
           "usdinrChangePct": 0
         }
       },
       "derivatives": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 37,
+        "regime": "Fear",
         "label": "Derivatives & Options Skew",
-        "weight": 0,
-        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "weight": 0.25,
+        "summary": "Balanced options hedging posture (Nifty PCR at 1.13)",
         "metrics": {
-          "pcrOi": null,
-          "pcrVolume": null,
-          "available": "pending"
+          "pcrOi": 1.13,
+          "pcrVolume": 1.13,
+          "callVolumePct": 47,
+          "putVolumePct": 53
         }
       }
     }
