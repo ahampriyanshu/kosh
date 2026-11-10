@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-10T10:15:23.364Z",
+  "asOf": "2026-11-10T10:25:32.112Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -104,25 +104,25 @@
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10815.98,
-      "changePct": 0.30706325
+      "ltp": 10814.02,
+      "changePct": 0.2888835
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 4095,
-      "changePct": -0.47393364
+      "value": 4090.6,
+      "changePct": -0.58087015
     },
     {
       "name": "Silver",
-      "value": 52.615,
-      "changePct": -0.14802557
+      "value": 52.525,
+      "changePct": -0.31882653
     },
     {
       "name": "Crude Oil",
-      "value": 84.38,
-      "changePct": -2.8439853
+      "value": 84.63,
+      "changePct": -2.5561328
     }
   ],
   "currencies": [
@@ -135,7 +135,7 @@
   "bondYield": {
     "name": "India 10Y",
     "value": 7.156,
-    "changeBps": 1
+    "changeBps": -4
   },
   "vix": {
     "value": 17.42,
@@ -476,24 +476,15 @@
       "category": "macro_policy",
       "items": [
         {
-          "headline": "India's CPI inflation likely breached RBI's 6% limit in October",
-          "summary": "Median economist estimate projects retail inflation at 6.05% due to rising food prices and an unfavorable base effect, potentially prompting another RBI rate hike in December. Official data is due Thursday.",
-          "source": "Economic Times",
-          "url": "https://economictimes.indiatimes.com/news/economy/indicators/india-cpi-inflation-october-forecast-rbi-rate-hike-2026-11-09/articleshow/105000000.cms",
+          "headline": "India's Retail Inflation Expected to Rise to 5.93% in October, Nearing RBI's Upper Target Limit",
+          "summary": "India's retail inflation is projected to have increased to 5.93% in October from 5.54% in September, primarily driven by rising food prices. Economists polled by Business Standard even anticipate it breaching 6%, raising concerns for the RBI which has indicated potential for further interest rate hikes.",
+          "source": "Business Standard",
           "sentiment": "bearish"
         },
         {
-          "headline": "RBI queries banks on bond derivative valuations, hints at accounting adjustments",
-          "summary": "The RBI is reviewing valuation practices for certain bond derivative trades, a move that could necessitate accounting adjustments impacting billions in assets across the banking sector.",
+          "headline": "Crude Oil Price Decline Boosts Indian Equities, Eases Inflation Concerns",
+          "summary": "International Brent crude prices fell nearly 14% last week to around $99 per barrel. This decline is a significant positive catalyst for Indian equities, alleviating worries about India's import bill, inflation, and corporate input costs.",
           "source": "Reuters",
-          "url": "https://www.reuters.com/markets/india-rbi-bond-derivatives-valuation-query-banks-2026-11-09/",
-          "sentiment": "neutral"
-        },
-        {
-          "headline": "Indian government bonds rally on US-Iran peace hopes, lower oil prices",
-          "summary": "Government bonds extended gains on November 9, driven by optimism over a potential US-Iran peace deal leading to lower oil prices and improved market sentiment ahead of inflation data.",
-          "source": "Livemint",
-          "url": "https://www.livemint.com/market/bond-market-indian-govt-bonds-rally-oil-us-iran-peace-2026-11-09/articleshow-12345678.html",
           "sentiment": "bullish"
         }
       ]
@@ -502,25 +493,16 @@
       "category": "global_cues",
       "items": [
         {
-          "headline": "Wall Street sees strong gains; chipmakers rebound after AI regulation fears",
-          "summary": "On November 9, the Dow Jones, Nasdaq, and S&P 500 recorded significant gains, with chipmakers recovering from a previous plunge linked to concerns about tighter AI regulation.",
+          "headline": "Global Markets Show Resilience; US, European Indices Trade Higher",
+          "summary": "Global markets exhibited strength, with US and European indices closing higher on easing inflation concerns and positive economic data. Asian markets were generally stable, providing a supportive backdrop for Indian equities.",
           "source": "Bloomberg",
-          "url": "https://www.bloomberg.com/news/articles/2026-11-09/us-markets-chip-stocks-rally-ai-regulation-ease",
           "sentiment": "bullish"
         },
         {
-          "headline": "Asian markets trade higher on November 9, tech stocks recover",
-          "summary": "Most Asian markets, including Japan's Nikkei (up 3.4%), Taiwan's Taiex (up 5.7%), and South Korea's KOSPI (up 1.7%), showed upward trends, recovering from a turbulent week for global technology stocks.",
-          "source": "Nikkei Asia",
-          "url": "https://asia.nikkei.com/Business/Markets/Asian-stocks-rebound-tech-recovery-2026-11-09",
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "Brent crude plunges $20, eases India's import cost concerns",
-          "summary": "Crude prices saw their biggest weekly drop in 6.5 years due to easing Middle East tensions and hopes for a US-Iran peace deal, providing significant relief for India's import costs.",
-          "source": "Reuters",
-          "url": "https://www.reuters.com/markets/commodities/oil-brent-plunges-india-import-relief-2026-11-09/",
-          "sentiment": "bullish"
+          "headline": "US Inflation Data Awaited for Cues on Federal Reserve's Rate Outlook",
+          "summary": "Markets are keenly awaiting upcoming US inflation data for insights into the Federal Reserve's future interest rate decisions. Currently, there's an 80% probability priced in for a December rate hike.",
+          "source": "Wall Street Journal",
+          "sentiment": "neutral"
         }
       ]
     },
@@ -528,24 +510,13 @@
       "category": "earnings",
       "items": [
         {
-          "headline": "Whirlpool of India reports 14% revenue growth, announces price hike",
-          "summary": "Whirlpool of India reported a 14% revenue growth in Q2 FY27 and announced a 5% price hike effective November, which could drive stock-specific activity.",
+          "headline": "MRF Reports 27.8% YoY Decline in Q2 FY27 Net Profit Despite Revenue Surge",
+          "summary": "MRF Ltd. announced a 27.8% year-on-year drop in its Q2 FY27 consolidated net profit, reaching Rs 369 crore. This occurred despite a strong 17.6% annual increase in revenue from operations, which stood at Rs 8,524 crore.",
           "source": "Moneycontrol",
-          "url": "https://www.moneycontrol.com/news/business/earnings/whirlpool-india-q2-fy27-results-revenue-price-hike-11500000.html",
           "tickers": [
-            "WHIRLPOOL.NS"
+            "MRF.NS"
           ],
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "IREDA gains 20% on strong Q2 FY27 loan disbursements, improved NPAs",
-          "summary": "IREDA's share price increased by 20% over seven sessions after its Q2 FY27 loan disbursements rose 31% and net non-performing assets improved significantly.",
-          "source": "Business Standard",
-          "url": "https://www.business-standard.com/companies/ireda-share-price-jumps-q2-fy27-loan-npas-12300000.html",
-          "tickers": [
-            "IREDA.NS"
-          ],
-          "sentiment": "bullish"
+          "sentiment": "bearish"
         }
       ]
     },
@@ -553,18 +524,25 @@
       "category": "sectoral",
       "items": [
         {
-          "headline": "Pharma & Healthcare stocks attract buying interest, Nifty Pharma up",
-          "summary": "On November 9, pharmaceutical and healthcare stocks attracted buying interest, with the Nifty Pharma index closing 1.65% higher. These sectors are expected to remain relatively defensive.",
-          "source": "Economic Times",
-          "url": "https://economictimes.indiatimes.com/markets/stocks/news/pharma-healthcare-stocks-in-focus-nifty-pharma-gains-nov-9-2026/articleshow/105000000.cms",
+          "headline": "Nifty PSU Bank Index Surges 3.73%, Led by Strong Gains in Public Sector Lenders",
+          "summary": "The Nifty PSU Bank index emerged as the top-performing sector, advancing 3.73%. Public sector banks like Punjab National Bank (up 4.97%), Bank of India, Bank of Baroda, and Union Bank of India all registered significant gains.",
+          "source": "Livemint",
+          "tickers": [
+            "PNB.NS",
+            "BANKINDIA.NS",
+            "BANKBARODA.NS",
+            "UNIONBANK.NS"
+          ],
           "sentiment": "bullish"
         },
         {
-          "headline": "Banking and Realty stocks face pressure amidst RBI rate hike implications",
-          "summary": "Realty and banking stocks experienced selling pressure during Muhurat trading. Analysts suggest a 25 bps RBI rate hike could benefit lenders but negatively impact interest-sensitive sectors like automobiles and real estate.",
-          "source": "Livemint",
-          "url": "https://www.livemint.com/market/sectoral-outlook-rbi-rate-hike-impact-banking-realty-auto-2026-11-09/articleshow-12345678.html",
-          "sentiment": "neutral"
+          "headline": "Pharma Stocks Hit 52-Week Highs, GlaxoSmithKline Pharma Among Top Gainers",
+          "summary": "Pharmaceutical stocks attracted strong investor interest, pushing the Nifty Pharma and S&P BSE Healthcare indices to new 52-week highs. GlaxoSmithKline Pharma was a standout performer, rising 6.77%.",
+          "source": "Business Standard",
+          "tickers": [
+            "GSKPHARMA.NS"
+          ],
+          "sentiment": "bullish"
         }
       ]
     },
@@ -572,17 +550,20 @@
       "category": "corporate_actions",
       "items": [
         {
-          "headline": "Saksoft, Insecticides (India), HUL among companies with upcoming dividend, bonus record dates",
-          "summary": "Several companies have announced upcoming interim dividend record dates, including Saksoft (Nov 10), Insecticides (India) (Nov 12), and HUL (₹19/share). Dharti Proteins has a 1:1 bonus issue with a record date of November 13, 2026.",
-          "source": "BSE India",
-          "url": "https://www.bseindia.com/markets/corporates/corporate_actions.html?type=DBC&dt=20261109",
+          "headline": "Dharti Proteins Approves 1:1 Bonus Issue; Record Date November 13",
+          "summary": "Dharti Proteins has announced the approval of a 1:1 bonus issue, meaning shareholders will receive one additional share for every share held. November 13, 2026, has been set as the record date for this corporate action.",
+          "source": "NSEIndia",
           "tickers": [
-            "SAKSOFT.NS",
-            "INSECTICID.NS",
-            "APTUS.NS",
-            "CAMS.NS",
-            "HINDUNILVR.NS",
-            "DHARTIPROT.NS"
+            "DHARTI.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Jyothy Labs' Buyback Offer Sees Increased Price and Reduced Size",
+          "summary": "Jyothy Labs Ltd is conducting a buyback offer of equity shares via a tender offer. The company previously increased its buyback price to ₹240 and reduced the maximum buyback size to 61,25,000 shares, with November 11, 2026, as the record date.",
+          "source": "BSEIndia",
+          "tickers": [
+            "JYOTHYLAB.NS"
           ],
           "sentiment": "neutral"
         }
@@ -592,91 +573,77 @@
       "category": "stocks_in_focus",
       "items": [
         {
-          "headline": "Dabur shares under pressure after SEBI warning for delayed USFDA letter disclosure",
-          "summary": "Dabur India's stock faced pressure after SEBI issued an administrative warning for delayed disclosure of a USFDA letter, impacting investor sentiment.",
-          "source": "ET Now",
-          "url": "https://www.etnownews.com/markets/stocks/dabur-india-sebi-warning-usfda-letter-disclosure-delay-2026-11-09/",
+          "headline": "Punjab National Bank Leads Large-Cap Gainers with 4.97% Surge",
+          "summary": "Punjab National Bank (PNB) was the top large-cap performer, experiencing a significant 4.97% surge due to renewed buying interest, contributing to the Nifty PSU Bank index's strong performance.",
+          "source": "Economic Times",
           "tickers": [
-            "DABUR.NS"
+            "PNB.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "IREDA Tops Mid-Cap Gainers with a 7.38% Rally",
+          "summary": "Indian Renewable Energy Development Agency (IREDA) led the mid-cap segment with a robust 7.38% gain, indicating strong investor confidence in the renewable energy financing sector.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "IREDA.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Data Pattern Rallies 8.65% to Top Small-Cap Gainers",
+          "summary": "Data Pattern emerged as the top small-cap gainer, rallying an impressive 8.65%. This strong performance suggests significant investor interest in the company.",
+          "source": "Business Today",
+          "tickers": [
+            "DATAPATTNS.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "RR Kabel and TD Power Systems Among Worst Nifty Smallcap 250 Performers",
+          "summary": "RR Kabel and TD Power Systems were among the worst performers in the Nifty Smallcap 250 index, declining 7.4% and 6.2% respectively, signaling negative sentiment in these stocks.",
+          "source": "Financial Express",
+          "tickers": [
+            "RRKABEL.NS",
+            "TDPOWERSYS.NS"
           ],
           "sentiment": "bearish"
-        },
-        {
-          "headline": "BHEL bags Power Grid contract; Waaree Renewable Tech expands solar portfolio",
-          "summary": "BHEL has reportedly secured a major contract from Power Grid, while Waaree Renewable Tech is actively expanding its solar project portfolio. Both companies are in focus for their business developments.",
-          "source": "PTI",
-          "url": "https://www.ptinews.com/business/companies/bhel-power-grid-contract-waaree-solar-expansion-2026-11-09/",
-          "tickers": [
-            "BHEL.NS",
-            "WAREE.NS"
-          ],
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "Positive trends noted in Maruti Suzuki, Solar Industries, IndiaMart, DLF, Divi's Labs",
-          "summary": "Analysts observe strong positive trends for Maruti Suzuki, Solar Industries, IndiaMart InterMesh, DLF, and Divi's Laboratories, with potential for further upside on breakouts. Divi's Labs contributed to strong pharma sector performance.",
-          "source": "Moneycontrol",
-          "url": "https://www.moneycontrol.com/news/markets/stocks-in-focus-maruti-solar-indiamart-dlf-divislab-2026-11-09/",
-          "tickers": [
-            "MARUTI.NS",
-            "SOLARINDS.NS",
-            "INDIAMART.NS",
-            "DLF.NS",
-            "DIVISLAB.NS"
-          ],
-          "sentiment": "bullish"
         }
       ]
     }
   ],
   "streetRecommendations": [
     {
-      "ticker": "AXISBANK.NS",
-      "name": "Axis Bank",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 1700,
-      "rationale": "Estimated ROE of 14% in FY27 and FY28, valued at 1.5 times FY28 adjusted book value, considering potential impact of IRDAI's proposed insurance distribution changes."
+      "ticker": "NIFTY",
+      "name": "Nifty 50 Index",
+      "brokerage": "Citi",
+      "action": "accumulate",
+      "target": 28000,
+      "rationale": "Citi raised its end-2027 Nifty target to 28,000, implying approximately 12% upside from the index's November 9 closing level, reflecting a positive outlook."
     },
     {
-      "ticker": "ICICIBANK.NS",
-      "name": "ICICI Bank",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 1750,
-      "rationale": "Anticipated ROE of 17% in FY27 and FY28, with FY28 estimated adjusted price-to-book at 1.9 times, limited exposure to bancassurance income (around 1% of FY27 estimated profit), and robust asset quality."
+      "ticker": "INDIANEQ",
+      "name": "Indian Equities",
+      "brokerage": "HSBC",
+      "action": "accumulate",
+      "target": 0,
+      "rationale": "HSBC upgraded its rating on Indian equities to 'overweight' from 'neutral', reflecting a more positive view on the market's prospects."
     },
     {
-      "ticker": "INDIGO.NS",
-      "name": "InterGlobe Aviation",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 7025,
-      "rationale": "Attributed to its scale, domestic leadership, and cost competitiveness within the aviation sector."
+      "ticker": "HONASA.NS",
+      "name": "Honasa Consumer Ltd",
+      "brokerage": "CLSA",
+      "action": "hold",
+      "target": 0,
+      "rationale": "CLSA retained a 'Hold' call on Honasa Consumer following its Q2 earnings report."
     },
     {
-      "ticker": "ADANIENT.NS",
-      "name": "Adani Enterprises",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 3200,
-      "rationale": "Driven by strong growth prospects in new energy, airports, data centers, and infrastructure development."
-    },
-    {
-      "ticker": "KFINTECH.NS",
-      "name": "Kfin Technologies",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 1440,
-      "rationale": "Citing strong traction in mutual funds, investor solutions, and emerging verticals like insurance."
-    },
-    {
-      "ticker": "IDFCFIRSTB.NS",
-      "name": "IDFC First Bank",
-      "brokerage": "Nomura",
-      "action": "buy",
-      "target": 105,
-      "rationale": "The bank is currently transitioning from an investment-heavy phase, indicating improved profitability ahead."
+      "ticker": "JUBLFOOD.NS",
+      "name": "Jubilant FoodWorks Ltd",
+      "brokerage": "CLSA",
+      "action": "reduce",
+      "target": 0,
+      "rationale": "CLSA cut the target price for Jubilant FoodWorks after its Q2 results, indicating a less favorable outlook."
     }
   ],
   "corporateActions": [
@@ -741,16 +708,22 @@
       "date": "2026-11-10"
     },
     {
-      "ticker": "INSECTICID",
-      "name": "Insecticides (India) Ltd.",
+      "ticker": "ESABINDIA",
+      "name": "Esab India Limited",
       "type": "dividend",
-      "date": "2026-11-12"
+      "date": "2026-11-10"
+    },
+    {
+      "ticker": "LALPATHLAB",
+      "name": "Dr. Lal Path Labs Ltd.",
+      "type": "dividend",
+      "date": "2026-11-10"
     },
     {
       "ticker": "APTUS",
       "name": "Aptus Value Housing Finance India Ltd.",
       "type": "dividend",
-      "date": "2026-11-13"
+      "date": "2026-11-12"
     },
     {
       "ticker": "CAMS",
@@ -761,16 +734,16 @@
   ],
   "derivatives": {
     "pcrOi": 1.13,
-    "pcrVolume": 1.13,
-    "callVolumePct": 47,
-    "putVolumePct": 53,
+    "pcrVolume": null,
+    "callVolumePct": null,
+    "putVolumePct": null,
     "asOf": "2026-11-09"
   },
   "sentiment": {
     "composite": 56,
     "regime": "Greed",
-    "session": "closing",
-    "asOf": "2026-11-10T10:15:23.364Z",
+    "session": "morning",
+    "asOf": "2026-11-10T10:25:32.112Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -810,7 +783,7 @@
         "metrics": {
           "vix": 17.42,
           "vixChangePct": -5.4801965,
-          "goldChangePct": -0.47393364,
+          "goldChangePct": -0.58087015,
           "usdinrChangePct": -0.0021283021
         }
       },
@@ -822,9 +795,9 @@
         "summary": "Balanced options hedging posture (Nifty PCR at 1.13)",
         "metrics": {
           "pcrOi": 1.13,
-          "pcrVolume": 1.13,
-          "callVolumePct": 47,
-          "putVolumePct": 53
+          "pcrVolume": null,
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
