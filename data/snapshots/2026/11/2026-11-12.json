@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-12T10:19:26.438Z",
+  "asOf": "2026-11-12T18:19:05.872Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -139,7 +139,7 @@
   },
   "vix": {
     "value": 16.6175,
-    "changePct": -5.3426414
+    "changePct": -5.3403587
   },
   "breadth": {
     "advances": 20,
@@ -345,12 +345,6 @@
   ],
   "near52wHigh": [
     {
-      "ticker": "ICICIBANK.NS",
-      "name": "ICICI Bank",
-      "ltp": 1590,
-      "pctFromHigh": 0.16
-    },
-    {
       "ticker": "DLF.NS",
       "name": "DLF",
       "ltp": 769.3,
@@ -366,7 +360,7 @@
       "ticker": "GAIL.NS",
       "name": "GAIL India",
       "ltp": 187.91,
-      "pctFromHigh": 0.77
+      "pctFromHigh": 1.05
     },
     {
       "ticker": "JSWSTEEL.NS",
@@ -375,10 +369,10 @@
       "pctFromHigh": 1.31
     },
     {
-      "ticker": "ADANIPORTS.NS",
-      "name": "Adani Ports & SEZ",
-      "ltp": 1930,
-      "pctFromHigh": 1.63
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "ltp": 1590,
+      "pctFromHigh": 1.61
     }
   ],
   "near52wLow": [],
@@ -387,29 +381,29 @@
       "ticker": "TATAPOWER.NS",
       "name": "Tata Power",
       "volume": 18305741,
-      "avgVolume": 4638044,
-      "ratio": 3.95
+      "avgVolume": 4743583,
+      "ratio": 3.86
     },
     {
       "ticker": "HINDALCO.NS",
       "name": "Hindalco Industries",
       "volume": 12784685,
-      "avgVolume": 4000053,
-      "ratio": 3.2
+      "avgVolume": 4017065,
+      "ratio": 3.18
     },
     {
       "ticker": "SBIN.NS",
       "name": "State Bank of India",
       "volume": 26967091,
-      "avgVolume": 9462626,
-      "ratio": 2.85
+      "avgVolume": 9578231,
+      "ratio": 2.82
     },
     {
       "ticker": "ONGC.NS",
       "name": "Oil & Natural Gas Corp",
       "volume": 24488959,
-      "avgVolume": 11244466,
-      "ratio": 2.18
+      "avgVolume": 11497109,
+      "ratio": 2.13
     }
   ],
   "sectorRanking": [
@@ -741,8 +735,8 @@
   "sentiment": {
     "composite": 57,
     "regime": "Greed",
-    "session": "morning",
-    "asOf": "2026-11-12T10:19:26.438Z",
+    "session": "closing",
+    "asOf": "2026-11-12T18:19:05.872Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -756,7 +750,7 @@
           "advances": 20,
           "declines": 38,
           "pctAdvancing": 34.5,
-          "near52wHighs": 6,
+          "near52wHighs": 5,
           "near52wLows": 0
         }
       },
@@ -781,7 +775,7 @@
         "summary": "Normal market volatility (India VIX at 16.62)",
         "metrics": {
           "vix": 16.6175,
-          "vixChangePct": -5.3426414,
+          "vixChangePct": -5.3403587,
           "goldChangePct": -1.2973354,
           "usdinrChangePct": 0.3842876
         }
