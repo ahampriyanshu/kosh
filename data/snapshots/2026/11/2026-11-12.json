@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-12T10:15:48.220Z",
+  "asOf": "2026-11-12T10:19:26.438Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -104,38 +104,38 @@
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10874.95,
-      "changePct": 0.36436394
+      "ltp": 10871.47,
+      "changePct": 0.3322443
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 3948.9,
-      "changePct": -1.2897445
+      "value": 3948.6,
+      "changePct": -1.2973354
     },
     {
       "name": "Silver",
-      "value": 51.175,
-      "changePct": -1.5903229
+      "value": 51.115,
+      "changePct": -1.7056984
     },
     {
       "name": "Crude Oil",
-      "value": 86.05,
-      "changePct": -0.554716
+      "value": 85.77,
+      "changePct": -0.87831056
     }
   ],
   "currencies": [
     {
       "pair": "USD/INR",
-      "value": 94.03,
-      "changePct": 0.37357077
+      "value": 94.04,
+      "changePct": 0.3842876
     }
   ],
   "bondYield": {
     "name": "India 10Y",
-    "value": 7.21,
-    "changeBps": 3
+    "value": 7.217,
+    "changeBps": 6.1
   },
   "vix": {
     "value": 16.6175,
@@ -456,94 +456,293 @@
     "unit": "crore",
     "asOf": "2026-11-11"
   },
-  "news": [],
-  "streetRecommendations": [],
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "RBI consolidates domestic money transfer regulations, introduces new safeguards",
+          "summary": "The Reserve Bank of India (RBI) has streamlined existing domestic money transfer instructions into a single framework, the 'Reserve Bank of India (Domestic Money Transfer) Directions, 2026', effective November 11, 2026. This formalizes safeguards and retains transaction limits for cash-based remittances, allowing walk-in customers to transfer up to ₹50,000 via NEFT to a beneficiary's bank account. New safeguards include mandatory remitter registration with verified mobile numbers and Official Valid Documents (OVDs), along with an Additional Factor of Authentication (AFA) for each transaction.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Union Cabinet approves five-year extension for Stand-Up India Scheme",
+          "summary": "The Union Cabinet, chaired by Prime Minister Narendra Modi, approved the continuation of the Stand-Up India Scheme for another five years, until March 31, 2031. Aimed at promoting entrepreneurship among women, Scheduled Castes (SCs), and Scheduled Tribes (STs), the scheme has been allocated a Credit Guarantee Corpus of Rs. 4,111 crore and targets financial assistance for an additional 2.5 lakh entrepreneurs.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "India simplifies visa regime, reducing categories and application fields",
+          "summary": "India has simplified its visa regime by reducing the number of main visa categories from 13 to 9 and sub-categories from 49 to 23. This move also includes a significant 65-70% reduction in application form fields, aiming to enhance efficiency and ease for foreign nationals, with full implementation expected by the end of 2026.",
+          "source": "The Hindu Business Line",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Foreign Portfolio Investors return to Indian equities with significant inflows",
+          "summary": "After substantial outflows of nearly $61 billion since September 2024, Foreign Portfolio Investors (FPIs) have recorded net inflows of $8.2 billion since mid-October 2026, with $5.8 billion coming in during the first six trading sessions of November alone. This reversal is attributed to factors like reasonable large-cap valuations, light investor positioning, resilient domestic fundamentals, and a potential 'anti-AI play'.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Crude oil prices ease, Brent nears $90; Gold slips on stronger USD",
+          "summary": "Crude oil prices have eased, with Brent crude nearing $90 and WTI also falling, which is a positive development for India as a major oil importer, potentially improving its economic conditions and supporting the rupee. Gold prices, however, slipped due to a strengthening US dollar following stronger-than-expected US inflation data.",
+          "source": "Bloomberg",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Tata Power reports 48.6% jump in Q2 FY27 net profit, announces ₹11,871 cr investment",
+          "summary": "Tata Power reported a 48.6% year-on-year jump in consolidated net profit to ₹1,366.1 crore for Q2 FY27. The company also announced a significant investment of ₹11,871 crore in a pumped storage project in Maharashtra.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "TATAPOWER.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Triveni Turbine reports 41.6% decline in Q2 FY27 net profit",
+          "summary": "Triveni Turbine announced a 41.6% year-on-year decline in its net profit for the second quarter of FY27.",
+          "source": "CNBC-TV18",
+          "tickers": [
+            "TRITURBINE.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "HAL, Vodafone Idea, Oil India among 442 companies announcing Q2 FY27 results",
+          "summary": "Approximately 442 companies, including major players like Hindustan Aeronautics, Vodafone Idea, Oil India, Alkem Laboratories, NMDC, Rail Vikas Nigam, Bharat Dynamics, and Page Industries, were scheduled to release their Q2 FY27 earnings today.",
+          "source": "Economic Times",
+          "tickers": [
+            "HAL.NS",
+            "IDEA.NS",
+            "OIL.NS",
+            "ALKEM.NS",
+            "NMDC.NS",
+            "RVNL.NS",
+            "BDL.NS",
+            "PAGEIND.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Sensex, Nifty 50 trade higher; Realty and Financials sectors lead gains",
+          "summary": "Indian benchmark indices, Sensex and Nifty 50, traded in the green after an initial lower opening. The Sensex gained over 350 points, while the Nifty 50 traded above 25,350. Among sectoral indices, Nifty Realty was a strong performer, gaining between 3.03% and 4%, and Financials also showed strength.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Bajaj Finance launches Qualified Institutional Placement (QIP) issue",
+          "summary": "Bajaj Finance launched its Qualified Institutional Placement (QIP) issue to raise funds, with the committee approving the opening of the issue on November 11.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "BAJFINANCE.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "HFCL secures ₹834.36 crore export orders for optical fibre cables",
+          "summary": "HFCL secured export orders worth ₹834.36 crore for optical fibre cables from an international customer, with execution expected by June 2027.",
+          "source": "Business Standard",
+          "tickers": [
+            "HFCL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "LIC, Adani Green, Coforge to be added to MSCI India Standard Index",
+          "summary": "LIC, Adani Green Energy, and Coforge will be added to the MSCI India Standard Index, effective after market close on November 30, 2026. This move could attract passive fund inflows from ETFs and funds tracking MSCI indices. PI Industries will be excluded.",
+          "source": "NDTV Profit",
+          "tickers": [
+            "LIC.NS",
+            "ADANIGREEN.NS",
+            "COFORGE.NS",
+            "PIIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "ITC raises Gold Flake Premium cigarette prices by 8%",
+          "summary": "ITC is in the spotlight amid reports of an approximate 8% price hike (₹10) on a 10-stick pack of Gold Flake Premium cigarettes, raising the MRP to ₹135.",
+          "source": "Livemint",
+          "tickers": [
+            "ITC.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "TATASTEEL.NS",
+      "name": "Tata Steel",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 240,
+      "rationale": "Jefferies raised its FY27-29 earnings per share (EPS) view due to higher India prices and improved profitability in the Netherlands, expecting domestic steel price rises to support margins."
+    },
+    {
+      "ticker": "VOLTAS.NS",
+      "name": "Voltas",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 1445,
+      "rationale": "Favorable risk-reward, expecting revenue CAGR of 14% and EBITDA CAGR of 24% over FY27-FY29."
+    },
+    {
+      "ticker": "BHARTIHEXA.NS",
+      "name": "Bharti Hexacom",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 2080,
+      "rationale": "Faster growth outlook justifies a premium valuation compared to Bharti Airtel's India operations."
+    },
+    {
+      "ticker": "GUJGASL.NS",
+      "name": "Gujarat Energy (Gujarat Gas)",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 325,
+      "rationale": "Values its gas trading business, seeing a 43% upside despite recent stock declines."
+    },
+    {
+      "ticker": "HINDALCO.NS",
+      "name": "Hindalco Industries",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 1100,
+      "rationale": "Betting on capital expenditure and anticipating a recovery in the last quarter of FY27."
+    },
+    {
+      "ticker": "TATASTEEL.NS",
+      "name": "Tata Steel",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 210,
+      "rationale": "Revised target price due to lower EBITDA expectations for its European business in FY28 and FY29, and project delays."
+    },
+    {
+      "ticker": "EQUITASBNK.NS",
+      "name": "Equitas Small Finance Bank",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 75,
+      "rationale": "Gradually returning to growth trajectory with stable asset quality and expected lower credit costs."
+    },
+    {
+      "ticker": "NUVAMA.NS",
+      "name": "Nuvama Wealth",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 2160,
+      "rationale": "Robust investment pipeline in wealth management and recovery in asset services."
+    }
+  ],
   "corporateActions": [
-    {
-      "ticker": "AXISCADES",
-      "name": "AXISCADES Technologies Ltd.",
-      "type": "results",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "BLACKBOX",
-      "name": "Black Box Ltd.",
-      "type": "results",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "CMSINFO",
-      "name": "CMS Info Systems Ltd.",
-      "type": "results",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "DECCANGOLD",
-      "name": "DECCAN GOLD MINES LTD.",
-      "type": "results",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "EDELWEISS",
-      "name": "Edelweiss Financial Services Ltd.",
-      "type": "results",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "ELECTROSTEEL",
-      "name": "Electrosteel Castings Ltd.",
-      "type": "results",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "GRASIM",
-      "name": "GRASIM",
-      "type": "results",
-      "date": "2026-11-13"
-    },
-    {
-      "ticker": "TATAMTRDVR",
-      "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
-      "type": "results",
-      "date": "2026-11-13"
-    },
-    {
-      "ticker": "TATASTEEL",
-      "name": "TATA STEEL",
-      "type": "results",
-      "date": "2026-11-13"
-    },
-    {
-      "ticker": "INSECTICID",
-      "name": "Insecticides (India) Ltd.",
-      "type": "dividend",
-      "date": "2026-11-12"
-    },
-    {
-      "ticker": "APTUS",
-      "name": "Aptus Value Housing Finance India Ltd.",
-      "type": "dividend",
-      "date": "2026-11-13"
-    },
     {
       "ticker": "CAMS",
       "name": "Computer Age Management Services Ltd.",
       "type": "dividend",
-      "date": "2026-11-13"
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "BHATIACOM",
+      "name": "Bhatia Communications & Retail (India) Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "ORIENTTECH",
+      "name": "Orient Technologies Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "BMWVENT",
+      "name": "BMW Ventures Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "MOBAVENUE",
+      "name": "Mobavenue AI Tech Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "TECHKNOW",
+      "name": "Techknowgreen Solutions Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "TAALTECH",
+      "name": "TAAL Tech Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "SOMANYC",
+      "name": "Somany Ceramics Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "IGPL",
+      "name": "I G Petrochemicals Ltd.",
+      "type": "dividend",
+      "date": "2026-11-12"
+    },
+    {
+      "ticker": "CONCORDBIO",
+      "name": "Concord Biotech",
+      "type": "bonus",
+      "date": "2026-11-04"
+    },
+    {
+      "ticker": "GUJNATRES",
+      "name": "Gujarat Natural Resources",
+      "type": "split",
+      "date": "2026-11-05"
     }
   ],
   "derivatives": {
-    "pcrOi": 0.64,
-    "pcrVolume": 1.05,
-    "callVolumePct": 48.781,
-    "putVolumePct": 51.219,
+    "pcrOi": 0.79,
+    "pcrVolume": 1.02,
+    "callVolumePct": null,
+    "putVolumePct": null,
     "asOf": "2026-11-11"
   },
   "sentiment": {
-    "composite": 62,
+    "composite": 57,
     "regime": "Greed",
-    "session": "closing",
-    "asOf": "2026-11-12T10:15:48.220Z",
+    "session": "morning",
+    "asOf": "2026-11-12T10:19:26.438Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -575,7 +774,7 @@
         }
       },
       "volatility": {
-        "score": 39,
+        "score": 36,
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
         "weight": 0.25,
@@ -583,21 +782,21 @@
         "metrics": {
           "vix": 16.6175,
           "vixChangePct": -5.3426414,
-          "goldChangePct": -1.2897445,
-          "usdinrChangePct": 0.37357077
+          "goldChangePct": -1.2973354,
+          "usdinrChangePct": 0.3842876
         }
       },
       "derivatives": {
-        "score": 81,
-        "regime": "Extreme Greed",
+        "score": 66,
+        "regime": "Greed",
         "label": "Derivatives & Options Skew",
         "weight": 0.25,
-        "summary": "Complacent call-dominated options posture (Nifty PCR low at 0.64, froth elevated)",
+        "summary": "Balanced options hedging posture (Nifty PCR at 0.79)",
         "metrics": {
-          "pcrOi": 0.64,
-          "pcrVolume": 1.05,
-          "callVolumePct": 48.781,
-          "putVolumePct": 51.219
+          "pcrOi": 0.79,
+          "pcrVolume": 1.02,
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
