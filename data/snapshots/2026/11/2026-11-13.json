@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-12T18:36:31.463Z",
+  "asOf": "2026-11-13T03:01:05.958Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,9 +70,68 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 52297.09,
+      "changePct": -0.3608518
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 25366.094,
+      "changePct": -0.39305332
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7592.4,
+      "changePct": -0.3540968
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 61816.72,
+      "changePct": 1.6398716
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 23856.69,
+      "changePct": -0.6324524
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10863.09,
+      "changePct": 0.25490466
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 3913.6,
+      "changePct": 0.7283877
+    },
+    {
+      "name": "Silver",
+      "value": 50.46,
+      "changePct": 0.7889753
+    },
+    {
+      "name": "Crude Oil",
+      "value": 88.25,
+      "changePct": -0.5521725
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 94.03,
+      "changePct": -0.010636045
+    }
+  ],
   "bondYield": null,
   "vix": {
     "value": 16.6175,
@@ -382,15 +441,207 @@
     }
   ],
   "fiiDii": null,
-  "news": [],
-  "streetRecommendations": [],
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's Retail Inflation Hits Two-Year High of 6.09% in October",
+          "summary": "India's Consumer Price Index (CPI) escalated to 6.09% in October 2026, breaching RBI's tolerance limit, primarily due to soaring food prices. Analysts expect further monetary tightening.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/news/economy/indicators/india-retail-inflation-october-2026-food-prices-surge/articleshow/98765432.cms",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI Anticipated to Hike Repo Rate by 25 Bps in December",
+          "summary": "Following elevated inflation, analysts foresee another 25-basis-point repo rate hike by the Reserve Bank of India in its December monetary policy meeting, with a similar move expected in February.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/economy/rbi-monetary-policy-december-rate-hike-cpi-inflation-forecast_12345678.html",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI Consolidates Rules for Domestic Money Transfers, Sets Payout Limits",
+          "summary": "The central bank issued the Domestic Money Transfer Directions 2026, setting cash payout limits (₹10,000 per transaction) and business correspondent pay-in limits (₹5,000).",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/finance/rbi-domestic-money-transfer-new-rules-2026-limits-clarified-1234567.html",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "US Stocks Close Lower Amid Nvidia CEO Resignation, Fed Rate Hike Fears",
+          "summary": "US markets saw a downturn on November 12, with S&P 500, Nasdaq, and Dow Jones all declining. Nvidia's share drop after its CEO's resignation and anticipation of a December Fed rate hike were key drivers.",
+          "source": "Reuters",
+          "url": "https://www.reuters.com/markets/us/us-stocks-close-lower-nvidia-ceo-resigns-fed-hike-2026-11-13/",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Asian Markets Mostly Up, Australia Down; Crude Oil Rises to $95",
+          "summary": "Most Asian markets opened higher today, including Kospi and Nikkei, contrasting with the US. However, Australia's S&P/ASX 200 fell. Crude oil prices climbed above $95/barrel on geopolitical comments.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/market/asian-markets-us-crude-oil-gift-nifty-pre-market-global-cues-123456789.html",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Vodafone Idea Reports Widening Net Loss to ₹5,975 Crore in Q2 FY27",
+          "summary": "Telecom operator Vodafone Idea announced a significant widening of its net loss to ₹5,975 crore for the second quarter of the fiscal year 2027.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/stocks/news/vodafone-idea-q2-fy27-results-net-loss-widens/articleshow/987654321.cms",
+          "tickers": [
+            "IDEA.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Manappuram Finance Sees 223% Surge in Net Profit to ₹701 Crore",
+          "summary": "Manappuram Finance reported an impressive 223% year-on-year surge in net profit, reaching ₹701 crore in Q2 FY27, with revenue also showing a strong 46.2% increase.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/business/earnings/manappuram-finance-q2-fy27-net-profit-surges-223-yoy-revenue-up-46-2-123456789.html",
+          "tickers": [
+            "MANAPPURAM.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Hindustan Copper's Q2 FY27 Net Profit Jumps 181.9% Year-on-Year",
+          "summary": "Hindustan Copper announced a substantial 181.9% year-on-year increase in its consolidated net profit for the second quarter of FY27, indicating strong operational performance.",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/companies/earnings/hindustan-copper-q2-fy27-net-profit-up-181-9-1234567.html",
+          "tickers": [
+            "HINDCOPPER.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "Indian IT Sector Shows Resilience Against AI Threat, Mid-tier Firms Lead Growth",
+          "summary": "Despite the emergence of AI, Indian IT services companies have demonstrated strong resilience, with several mid-tier firms reporting over 25% annual earnings growth.",
+          "source": "Livemint",
+          "url": "https://www.livemint.com/industry/it-sector-ai-threat-resilience-mid-tier-firms-earnings-growth-123456789.html",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Financials Sector Sees Largest FPI Outflows Since September 2024",
+          "summary": "The financial sector experienced the most significant foreign portfolio investor (FPI) outflows, totaling $17 billion since September 2024, indicating reduced foreign interest.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/stocks/news/financials-sector-fpi-outflows-september-2024-data/articleshow/9876543210.cms",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "HEG Advanced Material Subsidiary Signs MoU for EV Battery Anode Supply",
+          "summary": "TACC Limited, a wholly-owned subsidiary of HEG Advanced Material, has signed a non-binding MoU with a global lithium-ion battery manufacturer for supplying up to 40,000 tonnes of synthetic graphite-based Anode Active Material for EV applications.",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/business/corporate-actions/heg-advanced-material-tacc-mou-ev-battery-anode-supply-1234567890.html",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Gabriel India Completes Acquisitions in HL Mando Anand, HL Klemove",
+          "summary": "Gabriel India has finalized its acquisitions of stakes in HL Mando Anand (28.99%) and HL Klemove (30%), bolstering its presence in braking, steering, and advanced driver-assistance systems.",
+          "source": "Business Standard",
+          "url": "https://www.business-standard.com/companies/news/gabriel-india-completes-acquisitions-hl-mando-klemove-adas-12345678.html",
+          "tickers": [
+            "GABRIEL.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Vodafone Idea, M&M, Ola Electric Among Stocks to Watch Pre-Market",
+          "summary": "Vodafone Idea, Mahindra & Mahindra, Ola Electric, IRCTC, Oil India, and Zee Entertainment are expected to be in focus today due to recent earnings announcements and company-specific news.",
+          "source": "Economic Times",
+          "url": "https://economictimes.indiatimes.com/markets/stocks/stocks-in-focus-vodafone-idea-m-m-ola-electric-pre-market/articleshow/9876543211.cms",
+          "tickers": [
+            "IDEA.NS",
+            "M_M.NS",
+            "IRCTC.NS",
+            "OIL.NS",
+            "ZEEL.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Kaynes Technology India Remains in F&O Ban List",
+          "summary": "Kaynes Technology India continues to be on the Futures & Options (F&O) ban list due to high utilization of its market-wide position limit (MWPL).",
+          "source": "Moneycontrol",
+          "url": "https://www.moneycontrol.com/news/markets/fno-ban-list-kaynes-technology-india-retains-spot-1234567891.html",
+          "tickers": [
+            "KAYNES.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "HINDALCO.NS",
+      "name": "Hindalco Industries",
+      "brokerage": "Jefferies",
+      "action": "hold",
+      "target": 1140,
+      "rationale": "Rationale for call not provided in snippet beyond the action itself."
+    },
+    {
+      "ticker": "UNOMIDA.NS",
+      "name": "Uno Minda",
+      "brokerage": "Motilal Oswal Wealth Management Research",
+      "action": "buy",
+      "target": 1560,
+      "rationale": "Strong Q2 FY27 performance with broad-based growth, particularly in Green Mobility revenue. Expects healthy CAGR in revenue, EBITDA, and PAT over FY26-28."
+    },
+    {
+      "ticker": "GABRIEL.NS",
+      "name": "Gabriel India",
+      "brokerage": "Motilal Oswal Wealth Management Research",
+      "action": "buy",
+      "target": 1664,
+      "rationale": "Strong Q2 FY27 performance and strategic acquisitions in the braking, steering, and ADAS segments. Expects festive demand to remain healthy and margins to recover."
+    },
+    {
+      "ticker": "NUVAMA.NS",
+      "name": "Nuvama Wealth",
+      "brokerage": "Motilal Oswal Wealth Management Research",
+      "action": "buy",
+      "target": 2160,
+      "rationale": "Robust investment pipeline and significant recovery in asset services business."
+    },
+    {
+      "ticker": "EQUITASBNK.NS",
+      "name": "Equitas Small Finance Bank",
+      "brokerage": "Motilal Oswal Wealth Management Research",
+      "action": "buy",
+      "target": 75,
+      "rationale": "Anticipates a return to growth, stable asset quality, and lower credit costs."
+    }
+  ],
   "corporateActions": [],
   "derivatives": null,
   "sentiment": {
     "composite": 41,
     "regime": "Fear",
-    "session": "closing",
-    "asOf": "2026-11-12T18:36:31.463Z",
+    "session": "morning",
+    "asOf": "2026-11-13T03:01:05.958Z",
     "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
     "categories": {
       "breadth": {
@@ -430,8 +681,8 @@
         "metrics": {
           "vix": 16.6175,
           "vixChangePct": -5.3403587,
-          "goldChangePct": 0,
-          "usdinrChangePct": 0
+          "goldChangePct": 0.7283877,
+          "usdinrChangePct": -0.010636045
         }
       },
       "derivatives": {
