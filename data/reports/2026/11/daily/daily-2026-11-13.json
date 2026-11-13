@@ -3,7 +3,7 @@
   "id": "daily-2026-11-13",
   "type": "daily",
   "dateKey": "2026-11-13",
-  "generatedAt": "2026-11-13T10:16:07.608Z",
+  "generatedAt": "2026-11-13T18:03:51.509Z",
   "sourceData": {
     "tickers": [
       "ABREL.BO",
@@ -53,7 +53,7 @@
       "WIPRO.BO"
     ],
     "priceSnapshot": {
-      "ABREL.BO": 1210,
+      "ABREL.BO": 1202.2,
       "AMBUJACEM.BO": 382.7,
       "BANDHANBNK.NS": 172.88,
       "BDL.BO": 1030.9,
@@ -61,10 +61,10 @@
       "BRITANNIA.BO": 4755,
       "BSOFT.NS": 324.65,
       "CASTROLIND.NS": 190.13,
-      "CENTRALBK.BO": 32.25,
+      "CENTRALBK.BO": 32.2,
       "DIXON.NS": 12798,
       "EXIDEIND.NS": 373,
-      "FIRSTCRY.BO": 160.7,
+      "FIRSTCRY.BO": 160.4,
       "GMRAIRPORT.BO": 99.11,
       "GODREJCP.BO": 869.5,
       "HAVELLS.BO": 1160,
@@ -75,7 +75,7 @@
       "IRCTC.NS": 457.7,
       "IREDA.NS": 118.3,
       "ITC.BO": 284.05,
-      "ITCHOTELS.BO": 173.95,
+      "ITCHOTELS.BO": 173.65,
       "JWL.NS": 206.96,
       "KAMATHOTEL.NS": 226.98,
       "LICI.BO": 399.8,
@@ -84,11 +84,11 @@
       "MAGADSUGAR.NS": 548.65,
       "MANKIND.NS": 2640,
       "MAXHEALTH.BO": 945,
-      "NEWGEN.BO": 439.85,
+      "NEWGEN.BO": 439.05,
       "NHPC.BO": 75.9,
       "ONGC.BO": 225.3,
       "PRESTIGE.BO": 1646.1,
-      "PSB.BO": 21.92,
+      "PSB.BO": 21.82,
       "RELIANCE.NS": 1339.7,
       "SBIN.NS": 1080,
       "TATASTEEL.BO": 187,
@@ -99,11 +99,11 @@
       "VMM.BO": 96,
       "WIPRO.BO": 194.5
     },
-    "searchTimestamp": "2026-11-13T10:16:07.608Z"
+    "searchTimestamp": "2026-11-13T18:03:51.509Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-13T10:16:07.608Z",
+      "asOf": "2026-11-13T18:03:51.509Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -243,7 +243,7 @@
       },
       "vix": {
         "value": 15.495,
-        "changePct": -6.6429977
+        "changePct": -6.7549295
       },
       "breadth": {
         "advances": 11,
@@ -449,16 +449,16 @@
       ],
       "near52wHigh": [
         {
-          "ticker": "KOTAKBANK.NS",
-          "name": "Kotak Mahindra Bank",
-          "ltp": 488.55,
-          "pctFromHigh": 0.51
-        },
-        {
           "ticker": "GAIL.NS",
           "name": "GAIL India",
           "ltp": 188,
           "pctFromHigh": 1
+        },
+        {
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 488.55,
+          "pctFromHigh": 1.11
         },
         {
           "ticker": "JSWSTEEL.NS",
@@ -470,7 +470,7 @@
           "ticker": "DLF.NS",
           "name": "DLF",
           "ltp": 758.75,
-          "pctFromHigh": 1.96
+          "pctFromHigh": 1.82
         }
       ],
       "near52wLow": [],
@@ -479,15 +479,15 @@
           "ticker": "TATAPOWER.NS",
           "name": "Tata Power",
           "volume": 10959493,
-          "avgVolume": 4743583,
-          "ratio": 2.31
+          "avgVolume": 4983980,
+          "ratio": 2.2
         },
         {
           "ticker": "HINDALCO.NS",
           "name": "Hindalco Industries",
           "volume": 8853366,
-          "avgVolume": 4017065,
-          "ratio": 2.2
+          "avgVolume": 4142898,
+          "ratio": 2.14
         }
       ],
       "sectorRanking": [
@@ -810,7 +810,7 @@
         "composite": 53,
         "regime": "Neutral",
         "session": "closing",
-        "asOf": "2026-11-13T10:16:07.608Z",
+        "asOf": "2026-11-13T18:03:51.509Z",
         "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
         "categories": {
           "breadth": {
@@ -849,7 +849,7 @@
             "summary": "Normal market volatility (India VIX at 15.49)",
             "metrics": {
               "vix": 15.495,
-              "vixChangePct": -6.6429977,
+              "vixChangePct": -6.7549295,
               "goldChangePct": 0.37062523,
               "usdinrChangePct": 0.21052536
             }
@@ -885,9 +885,9 @@
         {
           "ticker": "ABREL.BO",
           "name": "ABREL",
-          "price": 1210,
-          "changePct": 1.01,
-          "note": "+1.0% vs prev close, vol 1.9x avg"
+          "price": 1202.2,
+          "changePct": 0.36,
+          "note": "+0.4% vs prev close, vol 1.9x avg"
         },
         {
           "ticker": "AMBUJACEM.BO",
@@ -941,9 +941,9 @@
         {
           "ticker": "CENTRALBK.BO",
           "name": "CENTRALBK",
-          "price": 32.25,
-          "changePct": -0.19,
-          "note": "-0.2% vs prev close, vol 1.0x avg"
+          "price": 32.2,
+          "changePct": -0.34,
+          "note": "-0.3% vs prev close, vol 1.0x avg"
         },
         {
           "ticker": "DIXON.NS",
@@ -962,9 +962,9 @@
         {
           "ticker": "FIRSTCRY.BO",
           "name": "FIRSTCRY",
-          "price": 160.7,
-          "changePct": -1.65,
-          "note": "-1.7% vs prev close, vol 0.9x avg — flags: below 50DMA support"
+          "price": 160.4,
+          "changePct": -1.84,
+          "note": "-1.8% vs prev close, vol 0.9x avg — flags: below 50DMA support"
         },
         {
           "ticker": "GMRAIRPORT.BO",
@@ -1039,9 +1039,9 @@
         {
           "ticker": "ITCHOTELS.BO",
           "name": "ITCHOTELS",
-          "price": 173.95,
-          "changePct": -0.83,
-          "note": "-0.8% vs prev close, vol 1.1x avg"
+          "price": 173.65,
+          "changePct": -1,
+          "note": "-1.0% vs prev close, vol 1.1x avg"
         },
         {
           "ticker": "JWL.NS",
@@ -1102,9 +1102,9 @@
         {
           "ticker": "NEWGEN.BO",
           "name": "NEWGEN",
-          "price": 439.85,
-          "changePct": -0.43,
-          "note": "-0.4% vs prev close, vol 0.2x avg — flags: below 50DMA support"
+          "price": 439.05,
+          "changePct": -0.61,
+          "note": "-0.6% vs prev close, vol 0.2x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1130,9 +1130,9 @@
         {
           "ticker": "PSB.BO",
           "name": "PSB",
-          "price": 21.92,
-          "changePct": 0.27,
-          "note": "+0.3% vs prev close, vol 0.9x avg"
+          "price": 21.82,
+          "changePct": -0.18,
+          "note": "-0.2% vs prev close, vol 0.9x avg"
         },
         {
           "ticker": "RELIANCE.NS",
@@ -1201,8 +1201,8 @@
       "alerts": [
         {
           "ticker": "BDL.BO",
-          "name": "Bharat Dynamics Ltd.",
-          "reason": "Disappointing Q2 FY27 earnings due to margin contraction, analyst downgrade, and breaking 50DMA on high volume, indicating strong selling pressure.",
+          "name": "BDL",
+          "reason": "Q2 margin pressure weighs on earnings, resulting in a 3% fall confirmed by 1.4x average volume, and a break below 50DMA support.",
           "severity": "high",
           "triggeredRules": [
             "below 50DMA support"
@@ -1210,17 +1210,17 @@
         },
         {
           "ticker": "TMPV.BO",
-          "name": "Tata Motors Passenger Vehicles Ltd.",
-          "reason": "Significant pre-earnings drawdown (3.4%) on average volume, suggesting investor apprehension and a pre-emptive sell-off ahead of Q2 FY27 results.",
+          "name": "TMPV",
+          "reason": "Identified as a top Nifty loser, falling 3.31% after Q2 FY27 results revealed PV Ebitda margin contraction and Jaguar Land Rover (JLR) cut its FY27 guidance amidst weakness in China and increased investment costs.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%"
           ]
         }
       ],
-      "summary": "Two genuine sell signals emerged today for BDL.BO and TMPV.BO, driven by disappointing earnings, analyst downgrades, and pre-earnings apprehension, respectively, amidst a broad market decline."
+      "summary": "The Indian market experienced a downturn today due to profit booking and inflation concerns, with BDL and TMPV showing genuine sell signals driven by negative earnings news and guidance cuts, indicating high carry-over risk for both."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:7ecdfab1a295a242eb156ddf60875f5158ab955b6412ff23ee6f15fd538a5c23"
+  "checksum": "sha256:cbf89163b6619156a22271ad888c7c891bdeb58ce645896df64137ad35cd8667"
 }
