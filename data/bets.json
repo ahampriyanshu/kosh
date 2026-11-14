@@ -621,7 +621,16 @@
     "quantScore": 85,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-11-15",
+    "closePrice": 194.60000610351562,
+    "returnPct": -1.87,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The equity call missed its objective primarily due to a lack of sustained buying conviction following the initial algorithmic triggers, indicating a failure to confirm the breakout past resistance. Price action quickly reverted after a modest upside, suggesting the momentum was transient and new supply emerged swiftly.",
+      "howToAvoid": "Implement a confirmation filter requiring at least two consecutive daily closes above the identified breakout resistance level with above-average volume before initiating a position.",
+      "analyzedAt": "2026-11-14T21:38:37.746Z"
+    }
   },
   {
     "id": "st-2026-11-01-infy",
