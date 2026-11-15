@@ -664,7 +664,16 @@
     "quantScore": 85,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +4.3%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-11-16",
+    "closePrice": 194.60000610351562,
+    "returnPct": -1.87,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The breakout above resistance lacked sustained institutional follow-through, leading to immediate selling pressure and a quick dissipation of momentum shortly after entry. This suggests the initial relative volume surge and price action constituted a temporary exhaustive move rather than a robust continuation pattern.",
+      "howToAvoid": "Implement an early invalidation rule to close the position if the stock fails to achieve at least 30% of its target potential within the first three trading days following the breakout entry. This filter would prevent capital from being tied up in setups where initial momentum quickly stalls, indicating a false or weak breakout.",
+      "analyzedAt": "2026-11-15T21:57:20.779Z"
+    }
   },
   {
     "id": "st-2026-11-02-infy",
