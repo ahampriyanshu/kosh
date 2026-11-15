@@ -1,4 +1,5 @@
 import type { MarketSnapshot } from '../../../lib/schemas';
+import styles from './MarketMarquee.module.css';
 
 interface QuoteItem {
   key: string;
@@ -85,12 +86,13 @@ export function MarketMarquee({ snapshot }: MarketMarqueeProps) {
       aria-label="Market Marquee Ticker"
     >
       {/* Marquee Track Container with Edge Gradient Fades */}
-      <div className="overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_1.5rem,black_calc(100%-1.5rem),transparent)]">
-        <div className="animate-marquee flex items-center">
+      <div className={styles.viewport} tabIndex={0} role="group" aria-label="Market quotes; focus to pause scrolling">
+        <div className={`${styles.track} flex items-center`}>
           {marqueeItems.map((item, idx) => (
             <div
               key={`${item.key}-${idx}`}
-              className="flex items-center gap-1.5 px-4 shrink-0 text-xs border-r border-[var(--color-hairline)] last:border-r-0"
+              aria-hidden={idx >= items.length ? true : undefined}
+              className="flex items-center gap-1.5 px-4 shrink-0 text-xs border-r border-[var(--color-hairline)]"
             >
               <span className="text-[var(--color-muted)] font-medium">{item.name}:</span>
               <span className="tabular-nums font-semibold text-[var(--color-ink)]">

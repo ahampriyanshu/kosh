@@ -9,28 +9,68 @@ import {
   renderRecapEmail,
   renderResearchEmail,
 } from '../../lib/email-templates';
-import type { RetroContent, DailyContent, WeeklyContent, MonthlyContent, RecapContent, ResearchContent } from '../../lib/schemas';
+import type {
+  RetroContent,
+  DailyContent,
+  WeeklyContent,
+  MonthlyContent,
+  RecapContent,
+  ResearchContent,
+} from '../../lib/schemas';
 
 const sampleSnapshot = {
-  asOf: '2026-06-15T02:30:00.000Z', window: '1d' as const,
-  indianIndices: [{ name: 'NIFTY 50', symbol: '^NSEI', ltp: 23622.9, changePct: 1.99 }],
-  globalIndices: [], commodities: [], currencies: [], topGainers: [], topLosers: [],
-  mostActive: [], near52wHigh: [], near52wLow: [], volumeShockers: [], sectorRanking: [],
-  news: [], streetRecommendations: [], corporateActions: [],
-  giftNifty: null, bondYield: null, vix: null, breadth: null, fiiDii: null, derivatives: null,
+  asOf: '2026-06-15T02:30:00.000Z',
+  window: '1d' as const,
+  indianIndices: [
+    { name: 'NIFTY 50', symbol: '^NSEI', ltp: 23622.9, changePct: 1.99 },
+  ],
+  globalIndices: [],
+  commodities: [],
+  currencies: [],
+  topGainers: [],
+  topLosers: [],
+  mostActive: [],
+  near52wHigh: [],
+  near52wLow: [],
+  volumeShockers: [],
+  sectorRanking: [],
+  news: [],
+  streetRecommendations: [],
+  corporateActions: [],
+  giftNifty: null,
+  bondYield: null,
+  vix: null,
+  breadth: null,
+  fiiDii: null,
+  derivatives: null,
 };
 
 const dailyContent: DailyContent = {
   snapshot: sampleSnapshot,
   outlook: 'Markets look steady with IT leading. <script>alert("x")</script>',
-  keyTakeaways: ['NIFTY 50 up 1.99%', 'IT sector leading', 'FII flows positive'],
+  keyTakeaways: [
+    'NIFTY 50 up 1.99%',
+    'IT sector leading',
+    'FII flows positive',
+  ],
 };
 
 const weeklyContent: WeeklyContent = {
   snapshot: { ...sampleSnapshot, window: '7d' as const },
-  themes: ['Rotation into defensives', 'IT earnings season', 'Global rate cuts expected'],
+  themes: [
+    'Rotation into defensives',
+    'IT earnings season',
+    'Global rate cuts expected',
+  ],
   positionalBets: [
-    { ticker: 'TCS.NS', name: 'TCS', thesis: 'Breakout on earnings', action: 'buy', signal: 'bullish', confidence: 0.72 },
+    {
+      ticker: 'TCS.NS',
+      name: 'TCS',
+      thesis: 'Breakout on earnings',
+      action: 'buy',
+      signal: 'bullish',
+      confidence: 0.72,
+    },
   ],
 };
 
@@ -39,7 +79,14 @@ const monthlyContent: MonthlyContent = {
   sectorInsights: ['IT outperforming broader market', 'Banks consolidating'],
   macroThemes: ['Rate cut cycle beginning', 'INR stabilising'],
   midTermBets: [
-    { ticker: 'INFY.NS', name: 'Infosys', thesis: 'Re-rating on margin expansion', action: 'buy', signal: 'bullish', confidence: 0.65 },
+    {
+      ticker: 'INFY.NS',
+      name: 'Infosys',
+      thesis: 'Re-rating on margin expansion',
+      action: 'buy',
+      signal: 'bullish',
+      confidence: 0.65,
+    },
   ],
   ledgerRollup: null,
 };
@@ -119,7 +166,14 @@ const researchContent: ResearchContent = {
     fundamental: 'Entry is reasonable on fundamentals.',
     technicalSentiment: 'Wait for technical confirmation.',
   },
-  targets: [{ source: 'Consensus', target: 'Rs 1,650', duration: '12 months', view: '+10%' }],
+  targets: [
+    {
+      source: 'Consensus',
+      target: 'Rs 1,650',
+      duration: '12 months',
+      view: '+10%',
+    },
+  ],
   recommendation: {
     action: 'buy',
     reasoning: 'Setup is attractive.',
@@ -128,7 +182,9 @@ const researchContent: ResearchContent = {
 
 describe('escapeHtml', () => {
   it('escapes user-controlled HTML characters', () => {
-    expect(escapeHtml(`A&B <tag attr="x">'`)).toBe('A&amp;B &lt;tag attr=&quot;x&quot;&gt;&#39;');
+    expect(escapeHtml(`A&B <tag attr="x">'`)).toBe(
+      'A&amp;B &lt;tag attr=&quot;x&quot;&gt;&#39;',
+    );
   });
 });
 
@@ -145,6 +201,58 @@ describe('email shell', () => {
   it('renders without inline Kosh logo cid attachment', () => {
     expect(renderDailyEmail(dailyContent)).not.toContain('cid:');
   });
+
+  it('does not invent quotes, news, IPOs or sentiment when source data is absent', () => {
+    const html = renderDailyEmail(dailyContent);
+    expect(html).not.toContain('24,350.0');
+    expect(html).not.toContain('42,150.0');
+    expect(html).not.toContain('NTPC Green Energy');
+    expect(html).not.toContain('steady underlying liquidity');
+    expect(html).not.toContain('BHARTIARTL');
+    expect(html).toContain('No headlines in this edition.');
+    expect(html).toContain('Markets look steady with IT leading.');
+  });
+
+  it('links actual headlines safely and includes categories outside the preferred order', () => {
+    const content: DailyContent = {
+      ...dailyContent,
+      snapshot: {
+        ...sampleSnapshot,
+        news: [
+          {
+            category: 'corporate_actions',
+            items: [
+              {
+                headline: 'A real corporate update',
+                summary: 'Details from the filing.',
+                source: 'Exchange',
+                sentiment: 'neutral',
+                url: 'https://example.com/filing?a=1&b=2',
+              },
+              {
+                headline: 'Unsafe link',
+                summary: '',
+                source: 'Exchange',
+                sentiment: 'neutral',
+                url: 'javascript:alert(1)',
+              },
+            ],
+          },
+        ],
+      },
+    };
+    const html = renderDailyEmail(content);
+    expect(html).toContain('A real corporate update');
+    expect(html).toContain('href="https://example.com/filing?a=1&amp;b=2"');
+    expect(html).not.toContain('href="javascript:');
+  });
+
+  it('does not fill a portfolio review with fictional closing headlines or movers', () => {
+    const html = renderRetroEmail(retroSurveillanceContent);
+    expect(html).not.toContain('TRENT');
+    expect(html).not.toContain('Benchmarks Hold Steady');
+    expect(html).toContain('One portfolio holding breached rules.');
+  });
 });
 
 describe('email templates', () => {
@@ -159,18 +267,28 @@ describe('email templates', () => {
     ];
 
     for (const html of rendered) {
-      expect(html).toContain("font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif");
+      expect(html).toContain(
+        "font-family:'Newsreader',Georgia,Cambria,'Times New Roman',Times,serif",
+      );
       expect(html).toContain('href="https://kosh.ahampriyanshu.com"');
       expect(html).toContain('target="_blank"');
       expect(html).toContain('rel="noopener noreferrer"');
-      expect(html).toContain('>Kosh</a>');
-      expect(html).toContain('Kosh is an experimental, learning-focused project.');
-      expect(html).toContain('It is not investment advice or a recommendation to buy or sell securities.');
+      expect(html).toContain('>Kosh Daily</a>');
+      expect(html).toContain('A considered view of Indian markets');
+      expect(html).toContain('Read this edition online');
+      expect(html).toContain(
+        'Kosh is an experimental, learning-focused project.',
+      );
+      expect(html).toContain(
+        'It is not investment advice or a recommendation to buy or sell securities.',
+      );
       expect(html).toContain('align="center"');
-      expect(html).toContain('padding:22px 32px 22px 32px');
+      expect(html).toContain('max-width:680px');
       expect(html).toContain('made by');
       expect(html).toContain('>ahampriyanshu</a>');
-      expect(html.indexOf('Kosh is an experimental, learning-focused project.')).toBeLessThan(html.indexOf('made by'));
+      expect(
+        html.indexOf('Kosh is an experimental, learning-focused project.'),
+      ).toBeLessThan(html.indexOf('made by'));
     }
   });
 
@@ -186,11 +304,11 @@ describe('email templates', () => {
     expect(html).not.toContain('Summary');
     expect(html).toContain('Market Cues');
     expect(html).toContain('NIFTY 50');
-    expect(html).toContain('8 Major Headlines');
+    expect(html).toContain('In the news');
     expect(html).toContain('Key Takeaways');
     expect(html).toContain('52-Week Range Extremes');
     expect(html).toContain('Market Consensus &amp; Mood');
-    expect(html).toContain('Corporate Actions &amp; IPO Spotlight');
+    expect(html).toContain('Corporate Actions');
     expect(html).toContain('&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt;');
     expect(html).not.toContain('<script>alert');
   });
@@ -234,8 +352,8 @@ describe('email templates', () => {
     expect(html).toContain('Daily Retro');
     expect(html).toContain('14th June, 2026');
     expect(html).not.toContain('Mid-Session');
-    expect(html).toContain('Closing Session Wire');
-    expect(html).toContain('Session Movers');
+    expect(html).not.toContain('Closing Session Wire');
+    expect(html).not.toContain('Session Movers');
     expect(html).toContain('Sell Alerts');
     expect(html).toContain('Portfolio Scan');
     expect(html).toContain('High');

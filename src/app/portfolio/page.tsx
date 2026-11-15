@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PageHeader } from '../../components/ui/PageHeader';
 import { PortfolioUnlock } from '../../components/PortfolioUnlock';
 import { getLatest, getManifest, getReport } from '../../lib/reports';
 import { dateReportPath } from '../../../lib/report-routes';
 import type { DailyContent, RetroContent } from '../../../lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'Portfolio & Risk Surveillance | Kosh',
+  title: 'Portfolio',
   description:
     'Audited portfolio holdings, valuation tracking, and automated market-close technical risk screening.',
   alternates: { canonical: '/portfolio' },
@@ -44,6 +45,10 @@ export default async function PortfolioPage() {
 
   return (
     <div className="space-y-12">
+      <PageHeader
+        title="Portfolio"
+        description="Your holdings, performance and the latest closing-session review."
+      />
       <PortfolioUnlock />
 
       {/* Portfolio Surveillance & Risk Audit */}
@@ -87,7 +92,7 @@ export default async function PortfolioPage() {
               {retroContent.alerts.map((alert, idx) => {
                 const cleanTicker = alert.ticker.replace(/\.(NS|BO)$/, '');
                 const evalItem = retroContent.evaluated?.find(
-                  (e) => e.ticker.replace(/\.(NS|BO)$/, '') === cleanTicker
+                  (e) => e.ticker.replace(/\.(NS|BO)$/, '') === cleanTicker,
                 );
                 const change = evalItem ? evalItem.changePct : null;
                 const isHigh = alert.severity === 'high';
@@ -99,7 +104,9 @@ export default async function PortfolioPage() {
                   >
                     <div className="flex items-baseline justify-between font-mono">
                       <div>
-                        <span className="font-bold text-sm text-[var(--color-ink)]">{cleanTicker}</span>
+                        <span className="font-bold text-sm text-[var(--color-ink)]">
+                          {cleanTicker}
+                        </span>
                         <span className="text-[10px] text-[var(--color-muted)] block font-serif truncate max-w-[180px]">
                           {alert.name}
                         </span>
@@ -108,15 +115,20 @@ export default async function PortfolioPage() {
                         {change !== null && (
                           <span
                             className={`text-xs font-mono font-semibold tabular-nums block ${
-                              change < 0 ? 'text-[var(--color-bearish)]' : 'text-[var(--color-bullish)]'
+                              change < 0
+                                ? 'text-[var(--color-bearish)]'
+                                : 'text-[var(--color-bullish)]'
                             }`}
                           >
-                            {change > 0 ? '+' : ''}{change.toFixed(2)}%
+                            {change > 0 ? '+' : ''}
+                            {change.toFixed(2)}%
                           </span>
                         )}
                         <span
                           className={`text-[9px] font-mono uppercase tracking-wider ${
-                            isHigh ? 'text-[var(--color-bearish)] font-bold' : 'text-[var(--color-muted)]'
+                            isHigh
+                              ? 'text-[var(--color-bearish)] font-bold'
+                              : 'text-[var(--color-muted)]'
                           }`}
                         >
                           {alert.severity} alert
@@ -124,11 +136,12 @@ export default async function PortfolioPage() {
                       </div>
                     </div>
 
-                    {alert.triggeredRules && alert.triggeredRules.length > 0 && (
-                      <div className="text-[10px] font-mono text-[var(--color-muted)]">
-                        {alert.triggeredRules.join(' · ')}
-                      </div>
-                    )}
+                    {alert.triggeredRules &&
+                      alert.triggeredRules.length > 0 && (
+                        <div className="text-[10px] font-mono text-[var(--color-muted)]">
+                          {alert.triggeredRules.join(' · ')}
+                        </div>
+                      )}
 
                     <p className="text-xs font-serif text-[var(--color-ink)] leading-relaxed text-justify">
                       {alert.reason}
@@ -143,7 +156,8 @@ export default async function PortfolioPage() {
                 All Monitored Holdings Within Technical Bounds
               </p>
               <p className="font-serif text-xs text-[var(--color-muted)] mt-1">
-                Zero holdings breached drawdown, abnormal volume, or 50DMA moving average support during the latest closing session.
+                Zero holdings breached drawdown, abnormal volume, or 50DMA
+                moving average support during the latest closing session.
               </p>
             </div>
           )}

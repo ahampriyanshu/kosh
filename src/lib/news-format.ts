@@ -60,6 +60,31 @@ export function safeArticleUrl(value?: string): string | undefined {
   }
 }
 
+const PUBLICATION_URLS: Record<string, string> = {
+  'economic times': 'https://economictimes.indiatimes.com',
+  'et': 'https://economictimes.indiatimes.com',
+  'bloomberg': 'https://www.bloomberg.com/markets',
+  'reuters': 'https://www.reuters.com/markets',
+  'mint': 'https://www.livemint.com/market',
+  'livemint': 'https://www.livemint.com/market',
+  'business standard': 'https://www.business-standard.com/markets',
+  'moneycontrol': 'https://www.moneycontrol.com/news/business',
+  'financial express': 'https://www.financialexpress.com/market',
+  'cnbc-tv18': 'https://www.cnbctv18.com/market',
+  'ndtv profit': 'https://www.ndtvprofit.com',
+};
+
+export function resolveArticleUrl(value?: string, source?: string): string | undefined {
+  const safe = safeArticleUrl(value);
+  if (safe) return safe;
+  if (!source) return undefined;
+  const clean = source.toLowerCase().trim();
+  for (const [name, domain] of Object.entries(PUBLICATION_URLS)) {
+    if (clean.includes(name)) return domain;
+  }
+  return undefined;
+}
+
 export function cleanTicker(symbol: string): string {
   return symbol.replace(/\.(NS|BO)$/i, '');
 }

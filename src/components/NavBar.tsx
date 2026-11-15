@@ -18,11 +18,17 @@ export function NavBar() {
   return (
     <nav aria-label="Main navigation" className="main-nav">
       {NAV_ITEMS.map(({ href, label }) => {
-        const isActive = href === '/' ? pathname === '/' : (pathname ? pathname.startsWith(href) : false);
+        const isActive =
+          href === '/'
+            ? pathname === '/'
+            : pathname
+              ? pathname.startsWith(href)
+              : false;
         return (
           <Link
             key={href}
             href={href}
+            aria-current={isActive ? 'page' : undefined}
             className={`nav-link${isActive ? ' active' : ''}`}
           >
             {label}
