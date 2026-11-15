@@ -182,7 +182,7 @@ function ModelCalls({
         )}
       </div>
       <Link href={href} className="editorial-link">
-        View models and track record <span aria-hidden="true">↗</span>
+        View models and track record
       </Link>
     </DeskSection>
   );
@@ -294,22 +294,12 @@ export default async function TodayPage() {
             )}
           </div>
           <Link href={reportHref} className="editorial-link">
-            Read the full daily report <span aria-hidden="true">↗</span>
+            Read the full daily report
           </Link>
         </section>
 
         <aside className="front-page-markets" aria-label="Market indicators">
-          <DeskSection
-            title="Market mood"
-            aside={
-              <Link
-                href="/sentiment-index"
-                aria-label="Explore the sentiment index"
-              >
-                ↗
-              </Link>
-            }
-          >
+          <DeskSection title="Market mood">
             <Link href="/sentiment-index" className="gauge-link">
               <SentimentGauge
                 score={mood.composite}
@@ -385,7 +375,7 @@ export default async function TodayPage() {
           <DeskSection title="From the desk">
             <p className="desk-note">{content.outlook}</p>
             <Link href={reportHref} className="editorial-link">
-              Full report <span aria-hidden="true">↗</span>
+              Full report
             </Link>
           </DeskSection>
           {content.keyTakeaways.length > 0 && (
@@ -424,7 +414,7 @@ export default async function TodayPage() {
               call.
             </p>
             <Link href="/research" className="editorial-link">
-              Explore the research desk <span aria-hidden="true">↗</span>
+              Explore the research desk
             </Link>
           </div>
         </aside>
@@ -511,7 +501,7 @@ export default async function TodayPage() {
         <div className="section-heading">
           <h2>Ideas &amp; analysis</h2>
           <Link href="/research">
-            The research archive <span aria-hidden="true">↗</span>
+            The research archive
           </Link>
         </div>
         <div className="market-three-column">

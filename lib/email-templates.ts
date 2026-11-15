@@ -692,7 +692,7 @@ export function renderWeeklyEmail(
         <tr>
           <td style="${font};padding:6px 10px 6px 0;color:${colors.text};font-size:13px;border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(ipo.company)}</strong></td>
           <td style="${mono};padding:6px 10px 6px 0;color:${colors.muted};font-size:12px;border-bottom:1px solid ${colors.border}">${escapeHtml(ipo.priceBand)}</td>
-          <td align="right" style="${mono};padding:6px 0;font-size:12px;color:${colors.bullish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(ipo.gmp)}</strong></td>
+          <td align="right" style="${mono};padding:6px 0;font-size:12px;color:${colors.bullish};border-bottom:1px solid ${colors.border}"><strong>${escapeHtml(ipo.gmp)}${ipo.gmpPct && ipo.gmpPct.trim() !== '' && ipo.gmpPct !== 'N/A' ? ` (${escapeHtml(ipo.gmpPct)})` : ''}</strong></td>
         </tr>`,
       )
       .join('');

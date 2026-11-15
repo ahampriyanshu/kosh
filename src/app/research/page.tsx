@@ -21,7 +21,7 @@ export default async function ResearchPage() {
             rel="noopener noreferrer"
             className="editorial-link"
           >
-            Request a company <span aria-hidden="true">↗</span>
+            Request a company
           </a>
         }
       />

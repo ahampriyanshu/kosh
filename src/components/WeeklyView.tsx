@@ -242,27 +242,55 @@ export function WeeklyView({ content }: WeeklyViewProps) {
                 </tr>
               </thead>
               <tbody>
-                {ipos.map((ipo, idx) => (
-                  <tr key={idx} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
-                    <td className="py-2 px-3 font-bold text-[var(--color-ink)]">
-                      {ipo.company}
-                      {ipo.listingDate && (
-                        <span className="text-[10px] text-[var(--color-muted)] font-normal block">
-                          Listing: {ipo.listingDate}
-                        </span>
-                      )}
-                    </td>
-                    <td className="py-2 px-3 text-[var(--color-muted)]">{ipo.priceBand}</td>
-                    <td className="py-2 px-3 text-[var(--color-muted)]">{ipo.issueSize}</td>
-                    <td className="py-2 px-3 font-semibold text-[var(--color-bullish)]">
-                      {ipo.gmp} ({ipo.gmpPct})
-                    </td>
-                    <td className="py-2 px-3 font-bold text-[var(--color-ink)]">{ipo.subscription}</td>
-                    <td className="py-2 px-3 text-center uppercase text-[10px] font-bold text-[var(--color-muted)]">
-                      {ipo.status}
-                    </td>
-                  </tr>
-                ))}
+                {ipos.map((ipo, idx) => {
+                  const isPos =
+                    Boolean(ipo.gmp) &&
+                    !ipo.gmp.startsWith('-') &&
+                    !ipo.gmpPct?.startsWith('-') &&
+                    ipo.gmp !== '0' &&
+                    ipo.gmp !== '₹0' &&
+                    ipo.gmp !== 'INR 0' &&
+                    ipo.gmpPct !== '0%' &&
+                    ipo.gmpPct !== '0.00%';
+                  const isNeg =
+                    Boolean(ipo.gmp?.startsWith('-') || ipo.gmpPct?.startsWith('-'));
+                  const gmpClass = isPos
+                    ? 'text-[var(--color-bullish)]'
+                    : isNeg
+                      ? 'text-[var(--color-bearish)]'
+                      : 'text-[var(--color-muted)]';
+
+                  return (
+                    <tr key={idx} className="hover:bg-[var(--color-hairline)]/20 transition-colors">
+                      <td className="py-2 px-3 font-bold text-[var(--color-ink)]">
+                        {ipo.company}
+                        {ipo.listingDate &&
+                          ipo.listingDate !== 'N/A' &&
+                          ipo.listingDate.trim() !== '' && (
+                            <span className="text-[10px] text-[var(--color-muted)] font-normal block">
+                              Listing: {ipo.listingDate}
+                            </span>
+                          )}
+                      </td>
+                      <td className="py-2 px-3 text-[var(--color-muted)]">{ipo.priceBand || '—'}</td>
+                      <td className="py-2 px-3 text-[var(--color-muted)]">{ipo.issueSize || '—'}</td>
+                      <td className={`py-2 px-3 font-semibold ${gmpClass}`}>
+                        {ipo.gmp || '—'}
+                        {ipo.gmpPct &&
+                        ipo.gmpPct.trim() !== '' &&
+                        ipo.gmpPct !== 'N/A'
+                          ? ` (${ipo.gmpPct})`
+                          : ''}
+                      </td>
+                      <td className="py-2 px-3 font-bold text-[var(--color-ink)]">
+                        {ipo.subscription || '—'}
+                      </td>
+                      <td className="py-2 px-3 text-center uppercase text-[10px] font-bold text-[var(--color-muted)]">
+                        {ipo.status || '—'}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

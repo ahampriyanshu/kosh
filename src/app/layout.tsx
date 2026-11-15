@@ -214,7 +214,7 @@ export default async function RootLayout({
                     className="header-actions"
                     href={daily ? dateReportPath(daily.dateKey) : '/reports'}
                   >
-                    Latest edition <span aria-hidden="true">↗</span>
+                    Latest edition
                   </Link>
                 </div>
               </header>

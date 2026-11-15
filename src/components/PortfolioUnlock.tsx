@@ -112,7 +112,7 @@ function SetupPage({ onOpenKeyModal }: { onOpenKeyModal: () => void }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Set up a portfolio feed <span aria-hidden="true">↗</span>
+          Set up a portfolio feed
         </a>
       </div>
       <a
