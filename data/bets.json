@@ -784,5 +784,39 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +1.0%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-11-16-eichermot",
+    "ticker": "EICHERMOT",
+    "name": "Eicher Motors",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-16",
+    "expiryDate": "2026-11-30",
+    "entryPrice": 7650,
+    "targetPrice": 8262,
+    "stopLossPrice": 7344,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +1.3%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-11-16-hindunilvr",
+    "ticker": "HINDUNILVR",
+    "name": "Hindustan Unilever",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-16",
+    "expiryDate": "2026-12-03",
+    "entryPrice": 1992.9,
+    "targetPrice": 2152,
+    "stopLossPrice": 1913,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +1.0%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
