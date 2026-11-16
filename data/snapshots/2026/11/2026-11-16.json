@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-16T10:10:45.283Z",
+  "asOf": "2026-11-16T10:16:03.316Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -11,8 +11,8 @@
     {
       "name": "SENSEX",
       "symbol": "^BSESN",
-      "ltp": 82075.55,
-      "changePct": 0.5920814
+      "ltp": 82104.79,
+      "changePct": 0.62792075
     },
     {
       "name": "NIFTY BANK",
@@ -138,8 +138,8 @@
     "changeBps": 6.12
   },
   "vix": {
-    "value": 15.7,
-    "changePct": 1.323007
+    "value": 15.6775,
+    "changePct": 1.1760908
   },
   "breadth": {
     "advances": 34,
@@ -735,8 +735,8 @@
   "sentiment": {
     "composite": 62,
     "regime": "Greed",
-    "session": "morning",
-    "asOf": "2026-11-16T10:10:45.283Z",
+    "session": "closing",
+    "asOf": "2026-11-16T10:16:03.316Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -772,10 +772,10 @@
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
         "weight": 0.25,
-        "summary": "Normal market volatility (India VIX at 15.70)",
+        "summary": "Normal market volatility (India VIX at 15.68)",
         "metrics": {
-          "vix": 15.7,
-          "vixChangePct": 1.323007,
+          "vix": 15.6775,
+          "vixChangePct": 1.1760908,
           "goldChangePct": -0.6329953,
           "usdinrChangePct": -0.3263321
         }
