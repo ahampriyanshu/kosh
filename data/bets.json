@@ -647,7 +647,16 @@
     "quantScore": 82,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +3.4%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-11-18",
+    "closePrice": 1145.0999755859375,
+    "returnPct": -3.37,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The high-momentum 52-week breakout thesis failed as price momentum could not be sustained beyond the initial surge, leading to a breakdown below the original resistance level. Despite meeting algorithmic triggers, the stock experienced a swift reversal and subsequently breached the invalidation stop, indicating weak follow-through buying pressure post-breakout.",
+      "howToAvoid": "Implement a 'confirmation close' filter requiring the stock to close at least 1% above the initial breakout resistance level on the subsequent trading day before entry. This would ensure sustained buying pressure beyond the initial algorithmic triggers, preventing entry into setups with immediate momentum dissipation.",
+      "analyzedAt": "2026-11-17T23:54:29.394Z"
+    }
   },
   {
     "id": "st-2026-11-02-wipro",
