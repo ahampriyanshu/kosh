@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-17T10:15:37.504Z",
+  "asOf": "2026-11-17T11:08:48.040Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -92,54 +92,54 @@
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
-      "ltp": 58956.67,
-      "changePct": -1.1822389
+      "ltp": 58860.43,
+      "changePct": -1.3435513
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
-      "ltp": 23451.78,
-      "changePct": -1.2715008
+      "ltp": 23508.17,
+      "changePct": -1.0342325
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10881.55,
-      "changePct": -0.19270489
+      "ltp": 10803.91,
+      "changePct": -0.7134961
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 3865.1,
-      "changePct": 0.3140517
+      "value": 3856.4,
+      "changePct": 0.08824039
     },
     {
       "name": "Silver",
-      "value": 47.315,
-      "changePct": 0.9731267
+      "value": 47.37,
+      "changePct": 1.0905008
     },
     {
       "name": "Crude Oil",
-      "value": 85.03,
-      "changePct": -0.80494916
+      "value": 85.99,
+      "changePct": 0.31497508
     }
   ],
   "currencies": [
     {
       "pair": "USD/INR",
-      "value": 93.91,
-      "changePct": -0.0021284835
+      "value": 93.46,
+      "changePct": -0.48130533
     }
   ],
   "bondYield": {
     "name": "India 10Y",
-    "value": 7.32,
-    "changeBps": 1
+    "value": 7.318,
+    "changeBps": 1.5
   },
   "vix": {
     "value": 15.52,
-    "changePct": -1.0055822
+    "changePct": -1.0046201
   },
   "breadth": {
     "advances": 33,
@@ -435,8 +435,217 @@
     "unit": "crore",
     "asOf": "2026-11-16"
   },
-  "news": [],
-  "streetRecommendations": [],
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "India's Wholesale Inflation Hits 12.29% in October, Highest in Revised Series",
+          "summary": "India's wholesale price inflation (WPI) surged to 12.29% in October 2026, marking the second consecutive month of double-digit inflation, primarily driven by higher fuel and power prices.",
+          "source": "Economic Times",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Retail Inflation Exceeds RBI's Comfort Zone at 6.09% in October",
+          "summary": "India's retail inflation (CPI) rose to 6.09% year-on-year in October 2026, surpassing the RBI's upper comfort limit of 6%, with food inflation at 8.94%.",
+          "source": "Livemint",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "RBI Expected to Hike Interest Rates by 25-50 bps in December Amid Persistent Inflation",
+          "summary": "Economists anticipate the Reserve Bank of India (RBI) will raise key policy rates by 25-50 basis points in December, with a cumulative 50-75 bps hike expected in the current cycle to combat persistent inflation.",
+          "source": "Business Standard",
+          "sentiment": "bearish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Global Markets Weak on AI Trade Concerns, US-China Chip Restrictions",
+          "summary": "Global markets are trading lower, mirroring Wall Street losses, due to concerns surrounding the AI trade, new US restrictions on China's access to advanced chips, and caution ahead of Nvidia's earnings.",
+          "source": "Reuters",
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "US Dollar Nears April 2025 Highs on Fed Rate Hike Expectations",
+          "summary": "The US dollar is trading near its highest level since April 2025, supported by expectations of more aggressive Federal Reserve interest rate hikes to combat persistent inflation.",
+          "source": "Bloomberg",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Crude Oil Prices Ease, Offering Relief for Indian Economy",
+          "summary": "Crude oil prices have eased, which is seen as a positive development for India, potentially helping to alleviate inflation concerns and reduce the current account deficit due to its energy import reliance.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Indian Corporate Earnings for Q2 FY27 Exceed Expectations with Nifty PAT Up 27%",
+          "summary": "Indian corporate earnings for Q2 FY27 delivered a stronger-than-expected performance, with Nifty-50 companies recording 27% year-on-year Profit After Tax growth, its highest in 17 quarters.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "RELIANCE.NS",
+            "ONGC.NS",
+            "TATAMOTORS.NS",
+            "JSWSTEEL.NS",
+            "SBIN.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "BFSI, Metals, Oil & Gas Drive Q2 FY27 Earnings Growth",
+          "summary": "The BFSI, Metals, Oil & Gas, and Automobiles sectors were the primary contributors to the robust earnings growth seen in Indian corporates during Q2 FY27.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "EU Imposes Anti-Dumping Duty on Indian Cold-Rolled Flat Steel Products",
+          "summary": "The European Commission has imposed a definitive anti-dumping duty of 9.5% on certain cold-rolled flat steel products imported from India, which could negatively impact Indian steel exports to the EU.",
+          "source": "Livemint",
+          "tickers": [
+            "JSWSTEEL.NS",
+            "TATASTEEL.NS"
+          ],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Financial, FMCG, Oil & Gas Stocks See Buying Interest; Pharma, Metal, Auto Under Pressure",
+          "summary": "In the previous trading session, financial, FMCG, and oil and gas stocks attracted buying interest, while sectors like Pharma, Metal, Realty, and Auto experienced selling pressure.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "SML Mahindra Fixes Rights Issue Price at ₹3,506 Per Share for ₹1,450 Crore Fundraise",
+          "summary": "SML Mahindra has set the price for its ₹1,450-crore rights issue at ₹3,506 per share, moving forward with its capital raising plans.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "SMLISUZU.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Tata Sons IPO Back in Focus as RBI Insists on Mandatory Listing",
+          "summary": "The initial public offering (IPO) of Tata Sons is back in the spotlight, with the Reserve Bank of India (RBI) reportedly insisting on its mandatory listing ahead of its November 26 Board Meeting.",
+          "source": "Economic Times",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "BSE Receives US Regulatory Approval for BANKEX Futures",
+          "summary": "BSE has received US regulatory approval for its BANKEX futures, which will allow US investors to access the Indian banking index derivatives.",
+          "source": "Livemint",
+          "tickers": [
+            "BSE.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Senco Gold Records Highest-Ever Festive Sales Value of Over ₹2,426 Crore",
+          "summary": "Senco Gold reported its highest-ever retail net sales value exceeding ₹2,426 crore during the festive period (Oct 1 - Nov 11, 2026), marking a 26% year-on-year increase despite higher gold prices.",
+          "source": "Business Standard",
+          "tickers": [
+            "SENCO.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Adani Wind Commences Production of India's Longest Onshore Wind Turbine Blades",
+          "summary": "Adani Wind, the wind manufacturing division of Adani Enterprises, has started producing India's longest onshore wind turbine blades, marking a significant development for the company.",
+          "source": "Reuters",
+          "tickers": [
+            "ADANIENT.NS"
+          ],
+          "sentiment": "bullish"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "ULTRACEMCO.NS",
+      "name": "UltraTech Cement",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 14250,
+      "rationale": "Analyst expects an 18% upside potential from current levels."
+    },
+    {
+      "ticker": "ASTRAMICRO.NS",
+      "name": "Astra Microwave Products",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 2000,
+      "rationale": "Anticipating a 17% upside potential."
+    },
+    {
+      "ticker": "ABB.NS",
+      "name": "ABB India",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 8200,
+      "rationale": "Upgraded from Neutral, with 16% upside potential from previous closing."
+    },
+    {
+      "ticker": "EICHERMOT.NS",
+      "name": "Eicher Motors",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 9300,
+      "rationale": "Analysts project a 22% upside from the previous closing price."
+    },
+    {
+      "ticker": "MCX.NS",
+      "name": "MCX",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 4300,
+      "rationale": "Projecting a strong 25% 3-year revenue/PAT CAGR through FY29e."
+    },
+    {
+      "ticker": "TATASTEEL.NS",
+      "name": "Tata Steel",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 210,
+      "rationale": "Resilient domestic prices and recent hikes are expected to support H2 FY27 margins."
+    },
+    {
+      "ticker": "GUJGASLTD.NS",
+      "name": "Gujarat Gas Ltd",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 325,
+      "rationale": "Analysts see a significant 43% upside potential from the previous closing."
+    },
+    {
+      "ticker": "GRASIM.NS",
+      "name": "Grasim Industries",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 3910,
+      "rationale": "Anticipating robust performance with a 28% upside potential."
+    }
+  ],
   "corporateActions": [
     {
       "ticker": "SCI",
@@ -485,8 +694,8 @@
   "sentiment": {
     "composite": 66,
     "regime": "Greed",
-    "session": "closing",
-    "asOf": "2026-11-17T10:15:37.504Z",
+    "session": "morning",
+    "asOf": "2026-11-17T11:08:48.040Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
@@ -525,9 +734,9 @@
         "summary": "Normal market volatility (India VIX at 15.52)",
         "metrics": {
           "vix": 15.52,
-          "vixChangePct": -1.0055822,
-          "goldChangePct": 0.3140517,
-          "usdinrChangePct": -0.0021284835
+          "vixChangePct": -1.0046201,
+          "goldChangePct": 0.08824039,
+          "usdinrChangePct": -0.48130533
         }
       },
       "derivatives": {
