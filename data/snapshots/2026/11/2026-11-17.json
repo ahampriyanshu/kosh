@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-16T20:40:39.274Z",
+  "asOf": "2026-11-17T03:00:37.240Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,10 +70,73 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
-  "bondYield": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 51608.17,
+      "changePct": -1.4124422
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 24509.758,
+      "changePct": -2.4924762
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7416.59,
+      "changePct": -1.9186249
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 58956.67,
+      "changePct": -1.1822389
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 23451.78,
+      "changePct": -1.2715008
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10881.55,
+      "changePct": -0.19270489
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 3865.1,
+      "changePct": 0.3140517
+    },
+    {
+      "name": "Silver",
+      "value": 47.315,
+      "changePct": 0.9731267
+    },
+    {
+      "name": "Crude Oil",
+      "value": 85.03,
+      "changePct": -0.80494916
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 93.91,
+      "changePct": -0.0021284835
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 7.32,
+    "changeBps": 1
+  },
   "vix": {
     "value": 15.6775,
     "changePct": 1.1777985
@@ -375,23 +438,71 @@
       "changePct": -1.53
     }
   ],
-  "fiiDii": null,
+  "fiiDii": {
+    "fiiNet": 4865,
+    "diiNet": -3519,
+    "unit": "crore",
+    "asOf": "2026-11-16"
+  },
   "news": [],
   "streetRecommendations": [],
-  "corporateActions": [],
-  "derivatives": null,
+  "corporateActions": [
+    {
+      "ticker": "SCI",
+      "name": "Shipping Corporation Of India Limited",
+      "type": "dividend",
+      "date": "2026-11-16"
+    },
+    {
+      "ticker": "COCHINSHIP",
+      "name": "Cochin Shipyard Limited",
+      "type": "dividend",
+      "date": "2026-11-16"
+    },
+    {
+      "ticker": "PFC",
+      "name": "Power Finance Corporation Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "NILE",
+      "name": "Nile Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "MRF",
+      "name": "MRF Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "PAGEIND",
+      "name": "Page Industries Limited",
+      "type": "dividend",
+      "date": "2026-11-18"
+    }
+  ],
+  "derivatives": {
+    "pcrOi": 0.94,
+    "pcrVolume": 1.044,
+    "callVolumePct": null,
+    "putVolumePct": null,
+    "asOf": "2026-11-16"
+  },
   "sentiment": {
-    "composite": 54,
-    "regime": "Neutral",
-    "session": "closing",
-    "asOf": "2026-11-16T20:40:39.274Z",
-    "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
+    "composite": 66,
+    "regime": "Greed",
+    "session": "morning",
+    "asOf": "2026-11-17T03:00:37.240Z",
+    "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
         "score": 68,
         "regime": "Greed",
         "label": "Breadth & Price Action",
-        "weight": 0.34,
+        "weight": 0.25,
         "summary": "Balanced breadth (34 Adv / 24 Dec, A/D 1.42)",
         "metrics": {
           "adRatio": 1.42,
@@ -403,41 +514,42 @@
         }
       },
       "flows": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 95,
+        "regime": "Extreme Greed",
         "label": "Institutional Flows",
-        "weight": 0.33,
-        "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+        "weight": 0.25,
+        "summary": "Strong institutional accumulation (FII: +₹4,865 Cr)",
         "metrics": {
-          "fiiNet": 0,
-          "diiNet": 0,
-          "totalNet": 0,
-          "asOf": null
+          "fiiNet": 4865,
+          "diiNet": -3519,
+          "totalNet": 1346,
+          "asOf": "2026-11-16"
         }
       },
       "volatility": {
         "score": 45,
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Normal market volatility (India VIX at 15.68)",
         "metrics": {
           "vix": 15.6775,
           "vixChangePct": 1.1777985,
-          "goldChangePct": 0,
-          "usdinrChangePct": 0
+          "goldChangePct": 0.3140517,
+          "usdinrChangePct": -0.0021284835
         }
       },
       "derivatives": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 56,
+        "regime": "Greed",
         "label": "Derivatives & Options Skew",
-        "weight": 0,
-        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "weight": 0.25,
+        "summary": "Balanced options hedging posture (Nifty PCR at 0.94)",
         "metrics": {
-          "pcrOi": null,
-          "pcrVolume": null,
-          "available": "pending"
+          "pcrOi": 0.94,
+          "pcrVolume": 1.044,
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
