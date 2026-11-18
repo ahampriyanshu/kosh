@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-18T10:15:51.322Z",
+  "asOf": "2026-11-18T10:43:54.592Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -92,50 +92,50 @@
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
-      "ltp": 58696.54,
-      "changePct": -0.2784394
+      "ltp": 59024.28,
+      "changePct": 0.27837303
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
-      "ltp": 23314.69,
-      "changePct": -0.823035
+      "ltp": 23294.75,
+      "changePct": -0.90785426
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10689.87,
-      "changePct": -1.761511
+      "ltp": 10665.92,
+      "changePct": -0.22404571
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 3796.5,
-      "changePct": -1.7519785
+      "value": 3772.3,
+      "changePct": -2.3782387
     },
     {
       "name": "Silver",
-      "value": 45.975,
-      "changePct": -2.9182591
+      "value": 45.665,
+      "changePct": -3.5728564
     },
     {
       "name": "Crude Oil",
-      "value": 85.04,
-      "changePct": -1.1277772
+      "value": 83.4,
+      "changePct": -1.4766686
     }
   ],
   "currencies": [
     {
       "pair": "USD/INR",
-      "value": 93.46,
-      "changePct": -0.010700905
+      "value": 93.44,
+      "changePct": -0.032094553
     }
   ],
   "bondYield": {
     "name": "India 10Y",
-    "value": 7.25,
-    "changeBps": -8
+    "value": 7.253,
+    "changeBps": -6.5
   },
   "vix": {
     "value": 15.52,
@@ -454,28 +454,16 @@
       "category": "macro_policy",
       "items": [
         {
-          "headline": "RBI expected to hike repo rates by 25 bps in December and February amid elevated inflation",
-          "summary": "The Reserve Bank of India is anticipated to maintain its hawkish stance, with further 25 basis points repo rate hikes expected in December and February due to elevated inflation, which is tracking close to 6.3% in November, primarily driven by rising food prices.",
+          "headline": "RBI Tightens Cybersecurity, Addresses Inflation as CPI Exceeds Tolerance Limit",
+          "summary": "The Reserve Bank of India conducted an Overnight Variable Rate Reverse Repo auction, announced SGB redemption, and intensified cybersecurity reviews after data breaches. CPI inflation climbed to 6.09% in October 2026, with food inflation at 8.94%, leading analysts to anticipate prolonged restrictive monetary policy.",
           "source": "Economic Times",
-          "sentiment": "bearish"
-        },
-        {
-          "headline": "RBI proposes ₹50 lakh sub-limit within Liberalised Remittance Scheme (LRS)",
-          "summary": "The Reserve Bank of India has reportedly proposed a ₹50 lakh sub-limit for transactions under the Liberalised Remittance Scheme (LRS) to mitigate massive dollar outflows from the country.",
-          "source": "Moneycontrol",
           "sentiment": "neutral"
         },
         {
-          "headline": "RBI considering new regulations for PE firms acquiring controlling stakes in multiple NBFCs",
-          "summary": "To prevent financial stress contagion, the RBI is contemplating new regulations that would restrict private equity firms from acquiring controlling stakes in multiple non-banking financial companies (NBFCs).",
-          "source": "Business Standard",
-          "sentiment": "neutral"
-        },
-        {
-          "headline": "RBI Deputy Governor raises concerns on microfinance repayment limits and recovery practices",
-          "summary": "The RBI Deputy Governor expressed concerns regarding the increasing size of microfinance loans, the adequacy of repayment limits, and potentially aggressive recovery practices employed by lenders in the sector.",
-          "source": "Reuters",
-          "sentiment": "neutral"
+          "headline": "India-Italy Economic Ties Strengthen; SEBI Reduces Agri Derivatives Margins",
+          "summary": "Union Minister Piyush Goyal is visiting Italy to boost trade and cooperation in key sectors. Road Transport Minister Nitin Gadkari advocated for wider biofuel adoption. SEBI announced a reduction in agricultural derivatives margins effective December 1, 2026.",
+          "source": "Livemint",
+          "sentiment": "bullish"
         }
       ]
     },
@@ -483,16 +471,30 @@
       "category": "global_cues",
       "items": [
         {
-          "headline": "Indian markets to open lower amidst mixed global signals",
-          "summary": "Indian equity benchmarks are anticipated to open with a gap-down, influenced by a sharp downturn in US technology stocks overnight ahead of Nvidia's earnings, despite some mixed performance in Asian markets post Nvidia's better-than-expected results.",
-          "source": "Economic Times",
-          "sentiment": "bearish"
+          "headline": "Global Markets Mixed as US Tech Valuations Concern Investors, Crude Prices Moderate",
+          "summary": "US equities, including the S&P 500, Dow Jones, and Nasdaq, declined due to worries about technology valuations and AI investments, despite strong Nvidia results. European and other Asian markets also fell, but easing crude oil prices offer support for India.",
+          "source": "Reuters",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "NVIDIA's Q3 Revenue Surges 103% on Strong AI Data Centre Sales",
+          "summary": "NVIDIA reported a significant 103% year-on-year increase in Q3 FY27 revenue, reaching $115.8 billion, primarily driven by robust sales in its AI Data Centre segment.",
+          "source": "Business Standard",
+          "sentiment": "bullish"
         },
         {
-          "headline": "US tech stocks fall sharply ahead of Nvidia earnings, global AI trade concerns persist",
-          "summary": "US stock markets experienced a significant downturn, particularly in technology stocks, in anticipation of Nvidia's earnings. Broader investor caution is being driven by ongoing concerns over the global AI trade and rising US Treasury yields.",
-          "source": "Wall Street Journal",
-          "sentiment": "bearish"
+          "headline": "ACME Solar Holdings Reports 133.5% Profit Growth, Arvind SmartSpaces Raises Booking Guidance",
+          "summary": "ACME Solar Holdings experienced substantial profit growth of 133.5% due to new battery storage capacity. Arvind SmartSpaces raised its FY27 booking guidance to ₹2,600–₹2,700 crore following strong Q2 FY27 bookings.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "ARVINDSM.NS"
+          ],
+          "sentiment": "bullish"
         }
       ]
     },
@@ -500,23 +502,10 @@
       "category": "sectoral",
       "items": [
         {
-          "headline": "Nifty Bank index reaches record highs, driving Indian equity market resilience",
-          "summary": "Indian equity markets demonstrated resilience despite weak global cues, primarily driven by banking stocks, with the Nifty Bank index achieving new record highs. Automobile and infrastructure sectors also saw healthy buying interest.",
-          "source": "Livemint",
-          "tickers": [
-            "NIFTYBANK"
-          ],
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "Indian IT stocks underperform amid global technology demand concerns",
-          "summary": "The Indian IT sector experienced underperformance in the market, largely due to ongoing global concerns regarding demand for technology services and products.",
+          "headline": "Financials Outperform, IT Underperforms as Indian Equities Open Lower",
+          "summary": "On November 17, financials, auto, metal, pharma, and healthcare sectors saw gains, while IT, energy, FMCG, and consumer durables declined. Early trade on November 18 saw consumer durables, metal, and auto shares weighing down the market, with IT stocks continuing to underperform.",
           "source": "Economic Times",
-          "tickers": [
-            "INFY.NS",
-            "TCS.NS"
-          ],
-          "sentiment": "bearish"
+          "sentiment": "neutral"
         }
       ]
     },
@@ -524,31 +513,34 @@
       "category": "corporate_actions",
       "items": [
         {
-          "headline": "Ashoka Buildcon emerges as L-1 bidder for ₹1,465 crore NHAI expressway project",
-          "summary": "Ashoka Buildcon is in focus after emerging as the lowest bidder (L-1) for a significant National Highways Authority of India (NHAI) project, valued at ₹1,465 crore, involving an eight-lane section of the Vadodara-Mumbai Expressway in Gujarat.",
-          "source": "Moneycontrol",
+          "headline": "IIFL Finance Block Deal, Hindustan Zinc Plans ₹80,000 Crore Expansion",
+          "summary": "A significant block deal is expected in IIFL Finance, with FIH Mauritius Investments selling up to 13.25% equity. Hindustan Zinc announced an ambitious ₹80,000 crore expansion program over the next three to five years.",
+          "source": "Livemint",
           "tickers": [
-            "ASHOKABUIL.NS"
-          ],
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "Prestige Estates' subsidiary acquires 50% stake in Mumbai commercial project JV",
-          "summary": "Prestige Estates Projects will be watched following its wholly-owned subsidiary's acquisition of a 50% stake in Advent Convention and Hotels International Private Limited, a joint venture developing a commercial project in Mumbai with an estimated leasable area of 1.50 million square feet.",
-          "source": "Business Standard",
-          "tickers": [
-            "PRESTIGE.NS"
-          ],
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "Coal India subsidiary Mahanadi Coalfields Ltd to begin IPO bidding for anchor investors",
-          "summary": "Mahanadi Coalfields Ltd (MCL), a subsidiary of Coal India, is scheduled to commence bidding for anchor investors today for its ₹8,981-crore Initial Public Offering (IPO). The IPO's price band is fixed at ₹129 to ₹136 per equity share, with public subscription opening on November 19, 2026.",
-          "source": "The Hindu BusinessLine",
-          "tickers": [
-            "COALINDIA.NS"
+            "IIFL.NS",
+            "HINDZINC.NS"
           ],
           "sentiment": "neutral"
+        },
+        {
+          "headline": "Ashoka Buildcon Secures NHAI Project, Page Industries Declares Interim Dividend",
+          "summary": "Ashoka Buildcon emerged as the lowest bidder for a ₹1,465-crore National Highways Authority of India (NHAI) project. Page Industries Limited announced an interim dividend of ₹150 per share with a record date of November 18, 2026.",
+          "source": "Business Standard",
+          "tickers": [
+            "ASHOKA.NS",
+            "PAGEIND.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Axis Bank Sees BlackRock Holding Rise, IHCL Expands Presence in Rajasthan",
+          "summary": "BlackRock's holding in Axis Bank increased to 5%. Indian Hotels Company Limited (IHCL) expanded its presence in Rajasthan with the opening of the Taj Pushkar Resort & Spa.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "AXISBANK.NS",
+            "INDHOTEL.NS"
+          ],
+          "sentiment": "bullish"
         }
       ]
     },
@@ -556,129 +548,127 @@
       "category": "stocks_in_focus",
       "items": [
         {
-          "headline": "Tata Group stocks remain in spotlight over Tata Sons listing discussions",
-          "summary": "Tata Group stocks continue to be in focus due to ongoing discussions and a recent letter from a former trustee questioning the proposed listing of Tata Sons, creating market speculation.",
-          "source": "Reuters",
+          "headline": "HCLTech Partners with Cohere for Sovereign AI Opportunities",
+          "summary": "HCLTech is collaborating with AI company Cohere, aiming to tap into new business opportunities in the sovereign AI space.",
+          "source": "Economic Times",
           "tickers": [
-            "TATAMOTORS.NS",
-            "TCS.NS"
-          ],
-          "sentiment": "neutral"
-        },
-        {
-          "headline": "Welspun Living receives 'Go long' recommendation with target of ₹295",
-          "summary": "Raja Venkatraman of NeoTrader has issued a 'Go long' recommendation for Welspun Living (CMP ₹265.60), setting a target price of ₹295, supported by strong Q1 numbers and a revival in the sector.",
-          "source": "Moneycontrol",
-          "tickers": [
-            "WELSPUNLIV.NS"
+            "HCLTECH.NS"
           ],
           "sentiment": "bullish"
         },
         {
-          "headline": "Delhivery recommended as 'Go long' call after steep sell-off",
-          "summary": "Delhivery (CMP ₹457.95) has received a 'Go long' recommendation from Raja Venkatraman of NeoTrader, indicating signs of revival for the stock after experiencing a steep sell-off.",
-          "source": "Moneycontrol",
+          "headline": "Welspun Living, Delhivery Recommended 'Go Long' by NeoTrader Analyst",
+          "summary": "NeoTrader's Raja Venkatraman recommends going long on Welspun Living, targeting ₹295, citing strong Q1 and sector revival. Delhivery is also recommended for revival signs and new projects.",
+          "source": "NeoTrader",
           "tickers": [
+            "WELSPUNLIV.NS",
             "DELHIVERY.NS"
           ],
           "sentiment": "bullish"
+        },
+        {
+          "headline": "Top Gainers and Losers in Early Trade Include Cipla, SBI, TCS, Titan",
+          "summary": "Early trading on November 18 saw Cipla, State Bank of India, Dr Reddys, Trent, UltraTech Cement, and Sun Pharmaceutical Industries among the top gainers. Top losers included Tata Consultancy Services, Titan Company, Asian Paints, Bajaj Finserv, and Tata Steel.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "CIPLA.NS",
+            "SBIN.NS",
+            "DRREDDY.NS",
+            "TRENT.NS",
+            "ULTRACEMCO.NS",
+            "SUNPHARMA.NS",
+            "TCS.NS",
+            "TITAN.NS",
+            "ASIANPAINT.NS",
+            "BAJAJFINSV.NS",
+            "TATASTEEL.NS"
+          ],
+          "sentiment": "neutral"
         }
       ]
     }
   ],
   "streetRecommendations": [
     {
-      "ticker": "MCX",
-      "name": "Multi Commodity Exchange of India",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 4300,
-      "rationale": "Strong potential due to sector penetration and new product opportunities."
+      "ticker": "KNRCON.NS",
+      "name": "KNR Constructions",
+      "brokerage": "ICICI Securities",
+      "action": "hold",
+      "target": 112,
+      "rationale": "ICICI Securities maintained a 'Hold' rating on KNR Constructions due to current valuations, advising caution despite the company's healthy order book."
     },
     {
-      "ticker": "CMSINFO",
-      "name": "CMS Info Systems",
-      "brokerage": "Jefferies",
+      "ticker": "WELSPUNLIV.NS",
+      "name": "Welspun Living",
+      "brokerage": "NeoTrader (Raja Venkatraman)",
       "action": "buy",
-      "target": 315,
-      "rationale": "Positive outlook on valuation re-rating potential."
-    },
-    {
-      "ticker": "GRASIM",
-      "name": "Grasim Industries",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 3910,
-      "rationale": "The paint business is identified as a key factor for future growth."
-    },
-    {
-      "ticker": "NSE",
-      "name": "National Stock Exchange",
-      "brokerage": "Motilal Oswal",
-      "action": "buy",
-      "target": 2300,
-      "rationale": "Betting on significant margin and revenue growth."
-    },
-    {
-      "ticker": "IIFL Finance",
-      "name": "IIFL Finance",
-      "brokerage": "Motilal Oswal",
-      "action": "buy",
-      "target": 850,
-      "rationale": "Following a recent capital boost, showing improved financial strength."
-    },
-    {
-      "ticker": "EQUITASBNK",
-      "name": "Equitas Small Finance Bank",
-      "brokerage": "Motilal Oswal",
-      "action": "buy",
-      "target": 75,
-      "rationale": "Driven by stable asset quality, indicating robust operational performance."
-    },
-    {
-      "ticker": "NSE",
-      "name": "National Stock Exchange",
-      "brokerage": "Kotak Institutional Equities",
-      "action": "buy",
-      "target": 2200,
-      "rationale": "Positive outlook on exchange business and market positioning."
-    },
-    {
-      "ticker": "BSE",
-      "name": "BSE Ltd",
-      "brokerage": "Kotak Institutional Equities",
-      "action": "accumulate",
-      "target": 4000,
-      "rationale": "Positive outlook on exchange business and growth prospects."
+      "target": 295,
+      "rationale": "NeoTrader recommended going long on Welspun Living, citing strong Q1 numbers and signs of revival within the sector, indicating positive future prospects."
     }
   ],
   "corporateActions": [
     {
-      "ticker": "PAGEIND",
-      "name": "Page Industries",
+      "ticker": "Power Finance Corporation Limited",
+      "name": "Power Finance Corporation Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "EAAA India Alternatives Limited",
+      "name": "EAAA India Alternatives Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "Nile Limited",
+      "name": "Nile Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "MRF Limited",
+      "name": "MRF Limited",
+      "type": "dividend",
+      "date": "2026-11-17"
+    },
+    {
+      "ticker": "Page Industries Limited",
+      "name": "Page Industries Limited",
       "type": "dividend",
       "date": "2026-11-18"
     },
     {
-      "ticker": "OIL",
-      "name": "Oil India",
+      "ticker": "AK Capital Services Limited",
+      "name": "AK Capital Services Limited",
       "type": "dividend",
-      "date": "2026-11-20"
+      "date": "2026-11-18"
+    },
+    {
+      "ticker": "BN Agrochem Limited",
+      "name": "BN Agrochem Limited",
+      "type": "split",
+      "date": "2026-11-16"
     }
   ],
-  "derivatives": null,
+  "derivatives": {
+    "pcrOi": 1.09,
+    "pcrVolume": null,
+    "callVolumePct": null,
+    "putVolumePct": null,
+    "asOf": "2026-11-17"
+  },
   "sentiment": {
-    "composite": 50,
+    "composite": 48,
     "regime": "Neutral",
-    "session": "closing",
-    "asOf": "2026-11-18T10:15:51.322Z",
+    "session": "morning",
+    "asOf": "2026-11-18T10:43:54.592Z",
     "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
     "categories": {
       "breadth": {
         "score": 19,
         "regime": "Extreme Fear",
         "label": "Breadth & Price Action",
-        "weight": 0.34,
+        "weight": 0.25,
         "summary": "Pervasive market distribution (43 Declines vs 15 Advances, A/D 0.35)",
         "metrics": {
           "adRatio": 0.35,
@@ -693,7 +683,7 @@
         "score": 95,
         "regime": "Extreme Greed",
         "label": "Institutional Flows",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Strong institutional accumulation (FII: +₹4,195.38 Cr)",
         "metrics": {
           "fiiNet": 4195.38,
@@ -706,25 +696,26 @@
         "score": 38,
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Normal market volatility (India VIX at 15.52)",
         "metrics": {
           "vix": 15.52,
           "vixChangePct": 0,
-          "goldChangePct": -1.7519785,
-          "usdinrChangePct": -0.010700905
+          "goldChangePct": -2.3782387,
+          "usdinrChangePct": -0.032094553
         }
       },
       "derivatives": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 41,
+        "regime": "Fear",
         "label": "Derivatives & Options Skew",
-        "weight": 0,
-        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "weight": 0.25,
+        "summary": "Balanced options hedging posture (Nifty PCR at 1.09)",
         "metrics": {
-          "pcrOi": null,
+          "pcrOi": 1.09,
           "pcrVolume": null,
-          "available": "pending"
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
