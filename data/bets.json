@@ -699,7 +699,16 @@
     "quantScore": 82,
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +3.4%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
-    "status": "active"
+    "status": "closed",
+    "closedOn": "2026-11-19",
+    "closePrice": 1130,
+    "returnPct": -4.64,
+    "outcome": "miss",
+    "postMortem": {
+      "whatWentWrong": "The high-momentum breakout thesis failed to sustain, with selling pressure quickly overwhelming initial buying interest, leading to a breakdown below the invalidation stop. This indicates a false breakout where the initial momentum was not backed by enduring market conviction or broader sector strength.",
+      "howToAvoid": "To mitigate false breakouts, implement a confirmation filter requiring the daily close to remain above the breakout resistance for at least two consecutive sessions post-trigger before entry. Additionally, integrate a relative strength check for the Nifty IT sector to confirm a supportive macro environment.",
+      "analyzedAt": "2026-11-18T23:29:11.775Z"
+    }
   },
   {
     "id": "st-2026-11-08-havells",
