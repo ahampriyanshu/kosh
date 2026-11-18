@@ -3,107 +3,15 @@
   "id": "daily-2026-11-18",
   "type": "daily",
   "dateKey": "2026-11-18",
-  "generatedAt": "2026-11-17T19:24:36.294Z",
+  "generatedAt": "2026-11-18T03:00:47.919Z",
   "sourceData": {
-    "tickers": [
-      "ABREL.BO",
-      "AMBUJACEM.BO",
-      "BANDHANBNK.NS",
-      "BDL.BO",
-      "BEL.BO",
-      "BRITANNIA.BO",
-      "BSOFT.NS",
-      "CASTROLIND.NS",
-      "CENTRALBK.BO",
-      "DIXON.NS",
-      "EXIDEIND.NS",
-      "FIRSTCRY.BO",
-      "GMRAIRPORT.BO",
-      "GODREJCP.BO",
-      "HAVELLS.BO",
-      "HCLTECH.BO",
-      "HDFCBANK.NS",
-      "HINDUNILVR.BO",
-      "INFY.BO",
-      "IRCTC.NS",
-      "IREDA.NS",
-      "ITC.BO",
-      "ITCHOTELS.BO",
-      "JWL.NS",
-      "KAMATHOTEL.NS",
-      "LICI.BO",
-      "LODHA.NS",
-      "M&M.NS",
-      "MAGADSUGAR.NS",
-      "MANKIND.NS",
-      "MAXHEALTH.BO",
-      "NEWGEN.BO",
-      "NHPC.BO",
-      "ONGC.BO",
-      "PRESTIGE.BO",
-      "PSB.BO",
-      "RELIANCE.NS",
-      "SBIN.NS",
-      "TATASTEEL.BO",
-      "TCS.BO",
-      "TMPV.BO",
-      "ULTRACEMCO.BO",
-      "VBL.NS",
-      "VMM.BO",
-      "WIPRO.BO"
-    ],
-    "priceSnapshot": {
-      "ABREL.BO": 1259.45,
-      "AMBUJACEM.BO": 389.9,
-      "BANDHANBNK.NS": 174.62,
-      "BDL.BO": 1029.5,
-      "BEL.BO": 399.25,
-      "BRITANNIA.BO": 4706,
-      "BSOFT.NS": 304.3,
-      "CASTROLIND.NS": 191.09,
-      "CENTRALBK.BO": 32.59,
-      "DIXON.NS": 13081,
-      "EXIDEIND.NS": 380.15,
-      "FIRSTCRY.BO": 179.3,
-      "GMRAIRPORT.BO": 104.3,
-      "GODREJCP.BO": 888.2,
-      "HAVELLS.BO": 1179.55,
-      "HCLTECH.BO": 1355.5,
-      "HDFCBANK.NS": 814.95,
-      "HINDUNILVR.BO": 2006.7,
-      "INFY.BO": 1130,
-      "IRCTC.NS": 449.35,
-      "IREDA.NS": 117.4,
-      "ITC.BO": 293,
-      "ITCHOTELS.BO": 177.7,
-      "JWL.NS": 203.32,
-      "KAMATHOTEL.NS": 223.54,
-      "LICI.BO": 397.7,
-      "LODHA.NS": 1203.1,
-      "M&M.NS": 3399,
-      "MAGADSUGAR.NS": 547.45,
-      "MANKIND.NS": 2610,
-      "MAXHEALTH.BO": 1029.95,
-      "NEWGEN.BO": 427.6,
-      "NHPC.BO": 75,
-      "ONGC.BO": 223.6,
-      "PRESTIGE.BO": 1680,
-      "PSB.BO": 21.84,
-      "RELIANCE.NS": 1367,
-      "SBIN.NS": 1108.6,
-      "TATASTEEL.BO": 181.55,
-      "TCS.BO": 2441,
-      "TMPV.BO": 259.55,
-      "ULTRACEMCO.BO": 12261,
-      "VBL.NS": 430,
-      "VMM.BO": 93,
-      "WIPRO.BO": 190
-    },
-    "searchTimestamp": "2026-11-17T19:24:36.294Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-18T03:00:47.919Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-17T19:24:36.294Z",
+      "asOf": "2026-11-18T03:00:47.919Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -174,10 +82,73 @@
         }
       ],
       "giftNifty": null,
-      "globalIndices": [],
-      "commodities": [],
-      "currencies": [],
-      "bondYield": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 50759.42,
+          "changePct": -1.6446038
+        },
+        {
+          "name": "NASDAQ",
+          "symbol": "^IXIC",
+          "ltp": 24328.383,
+          "changePct": -0.7400114
+        },
+        {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "ltp": 7340.53,
+          "changePct": -1.0255395
+        },
+        {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "ltp": 58696.54,
+          "changePct": -0.2784394
+        },
+        {
+          "name": "Hang Seng",
+          "symbol": "^HSI",
+          "ltp": 23314.69,
+          "changePct": -0.823035
+        },
+        {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "ltp": 10689.87,
+          "changePct": -1.761511
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 3796.5,
+          "changePct": -1.7519785
+        },
+        {
+          "name": "Silver",
+          "value": 45.975,
+          "changePct": -2.9182591
+        },
+        {
+          "name": "Crude Oil",
+          "value": 85.04,
+          "changePct": -1.1277772
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 93.46,
+          "changePct": -0.010700905
+        }
+      ],
+      "bondYield": {
+        "name": "India 10Y",
+        "value": 7.25,
+        "changeBps": -8
+      },
       "vix": {
         "value": 15.52,
         "changePct": -1.0046201
@@ -470,17 +441,236 @@
           "changePct": -0.9
         }
       ],
-      "fiiDii": null,
-      "news": [],
-      "streetRecommendations": [],
-      "corporateActions": [],
+      "fiiDii": {
+        "fiiNet": 4195.38,
+        "diiNet": 196.93,
+        "unit": "crore",
+        "asOf": "2026-11-17"
+      },
+      "news": [
+        {
+          "category": "macro_policy",
+          "items": [
+            {
+              "headline": "RBI expected to hike repo rates by 25 bps in December and February amid elevated inflation",
+              "summary": "The Reserve Bank of India is anticipated to maintain its hawkish stance, with further 25 basis points repo rate hikes expected in December and February due to elevated inflation, which is tracking close to 6.3% in November, primarily driven by rising food prices.",
+              "source": "Economic Times",
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "RBI proposes ₹50 lakh sub-limit within Liberalised Remittance Scheme (LRS)",
+              "summary": "The Reserve Bank of India has reportedly proposed a ₹50 lakh sub-limit for transactions under the Liberalised Remittance Scheme (LRS) to mitigate massive dollar outflows from the country.",
+              "source": "Moneycontrol",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "RBI considering new regulations for PE firms acquiring controlling stakes in multiple NBFCs",
+              "summary": "To prevent financial stress contagion, the RBI is contemplating new regulations that would restrict private equity firms from acquiring controlling stakes in multiple non-banking financial companies (NBFCs).",
+              "source": "Business Standard",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "RBI Deputy Governor raises concerns on microfinance repayment limits and recovery practices",
+              "summary": "The RBI Deputy Governor expressed concerns regarding the increasing size of microfinance loans, the adequacy of repayment limits, and potentially aggressive recovery practices employed by lenders in the sector.",
+              "source": "Reuters",
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "global_cues",
+          "items": [
+            {
+              "headline": "Indian markets to open lower amidst mixed global signals",
+              "summary": "Indian equity benchmarks are anticipated to open with a gap-down, influenced by a sharp downturn in US technology stocks overnight ahead of Nvidia's earnings, despite some mixed performance in Asian markets post Nvidia's better-than-expected results.",
+              "source": "Economic Times",
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "US tech stocks fall sharply ahead of Nvidia earnings, global AI trade concerns persist",
+              "summary": "US stock markets experienced a significant downturn, particularly in technology stocks, in anticipation of Nvidia's earnings. Broader investor caution is being driven by ongoing concerns over the global AI trade and rising US Treasury yields.",
+              "source": "Wall Street Journal",
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "sectoral",
+          "items": [
+            {
+              "headline": "Nifty Bank index reaches record highs, driving Indian equity market resilience",
+              "summary": "Indian equity markets demonstrated resilience despite weak global cues, primarily driven by banking stocks, with the Nifty Bank index achieving new record highs. Automobile and infrastructure sectors also saw healthy buying interest.",
+              "source": "Livemint",
+              "tickers": [
+                "NIFTYBANK"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Indian IT stocks underperform amid global technology demand concerns",
+              "summary": "The Indian IT sector experienced underperformance in the market, largely due to ongoing global concerns regarding demand for technology services and products.",
+              "source": "Economic Times",
+              "tickers": [
+                "INFY.NS",
+                "TCS.NS"
+              ],
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "corporate_actions",
+          "items": [
+            {
+              "headline": "Ashoka Buildcon emerges as L-1 bidder for ₹1,465 crore NHAI expressway project",
+              "summary": "Ashoka Buildcon is in focus after emerging as the lowest bidder (L-1) for a significant National Highways Authority of India (NHAI) project, valued at ₹1,465 crore, involving an eight-lane section of the Vadodara-Mumbai Expressway in Gujarat.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "ASHOKABUIL.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Prestige Estates' subsidiary acquires 50% stake in Mumbai commercial project JV",
+              "summary": "Prestige Estates Projects will be watched following its wholly-owned subsidiary's acquisition of a 50% stake in Advent Convention and Hotels International Private Limited, a joint venture developing a commercial project in Mumbai with an estimated leasable area of 1.50 million square feet.",
+              "source": "Business Standard",
+              "tickers": [
+                "PRESTIGE.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Coal India subsidiary Mahanadi Coalfields Ltd to begin IPO bidding for anchor investors",
+              "summary": "Mahanadi Coalfields Ltd (MCL), a subsidiary of Coal India, is scheduled to commence bidding for anchor investors today for its ₹8,981-crore Initial Public Offering (IPO). The IPO's price band is fixed at ₹129 to ₹136 per equity share, with public subscription opening on November 19, 2026.",
+              "source": "The Hindu BusinessLine",
+              "tickers": [
+                "COALINDIA.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "Tata Group stocks remain in spotlight over Tata Sons listing discussions",
+              "summary": "Tata Group stocks continue to be in focus due to ongoing discussions and a recent letter from a former trustee questioning the proposed listing of Tata Sons, creating market speculation.",
+              "source": "Reuters",
+              "tickers": [
+                "TATAMOTORS.NS",
+                "TCS.NS"
+              ],
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Welspun Living receives 'Go long' recommendation with target of ₹295",
+              "summary": "Raja Venkatraman of NeoTrader has issued a 'Go long' recommendation for Welspun Living (CMP ₹265.60), setting a target price of ₹295, supported by strong Q1 numbers and a revival in the sector.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "WELSPUNLIV.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Delhivery recommended as 'Go long' call after steep sell-off",
+              "summary": "Delhivery (CMP ₹457.95) has received a 'Go long' recommendation from Raja Venkatraman of NeoTrader, indicating signs of revival for the stock after experiencing a steep sell-off.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "DELHIVERY.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        }
+      ],
+      "streetRecommendations": [
+        {
+          "ticker": "MCX",
+          "name": "Multi Commodity Exchange of India",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 4300,
+          "rationale": "Strong potential due to sector penetration and new product opportunities."
+        },
+        {
+          "ticker": "CMSINFO",
+          "name": "CMS Info Systems",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 315,
+          "rationale": "Positive outlook on valuation re-rating potential."
+        },
+        {
+          "ticker": "GRASIM",
+          "name": "Grasim Industries",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 3910,
+          "rationale": "The paint business is identified as a key factor for future growth."
+        },
+        {
+          "ticker": "NSE",
+          "name": "National Stock Exchange",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 2300,
+          "rationale": "Betting on significant margin and revenue growth."
+        },
+        {
+          "ticker": "IIFL Finance",
+          "name": "IIFL Finance",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 850,
+          "rationale": "Following a recent capital boost, showing improved financial strength."
+        },
+        {
+          "ticker": "EQUITASBNK",
+          "name": "Equitas Small Finance Bank",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 75,
+          "rationale": "Driven by stable asset quality, indicating robust operational performance."
+        },
+        {
+          "ticker": "NSE",
+          "name": "National Stock Exchange",
+          "brokerage": "Kotak Institutional Equities",
+          "action": "buy",
+          "target": 2200,
+          "rationale": "Positive outlook on exchange business and market positioning."
+        },
+        {
+          "ticker": "BSE",
+          "name": "BSE Ltd",
+          "brokerage": "Kotak Institutional Equities",
+          "action": "accumulate",
+          "target": 4000,
+          "rationale": "Positive outlook on exchange business and growth prospects."
+        }
+      ],
+      "corporateActions": [
+        {
+          "ticker": "PAGEIND",
+          "name": "Page Industries",
+          "type": "dividend",
+          "date": "2026-11-18"
+        },
+        {
+          "ticker": "OIL",
+          "name": "Oil India",
+          "type": "dividend",
+          "date": "2026-11-20"
+        }
+      ],
       "derivatives": null,
       "sentiment": {
-        "composite": 54,
-        "regime": "Neutral",
-        "session": "closing",
-        "asOf": "2026-11-17T19:24:36.294Z",
-        "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
+        "composite": 69,
+        "regime": "Greed",
+        "session": "morning",
+        "asOf": "2026-11-18T03:00:47.919Z",
+        "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
             "score": 67,
@@ -498,16 +688,16 @@
             }
           },
           "flows": {
-            "score": 50,
-            "regime": "Neutral",
+            "score": 95,
+            "regime": "Extreme Greed",
             "label": "Institutional Flows",
             "weight": 0.33,
-            "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+            "summary": "Strong institutional accumulation (FII: +₹4,195.38 Cr)",
             "metrics": {
-              "fiiNet": 0,
-              "diiNet": 0,
-              "totalNet": 0,
-              "asOf": null
+              "fiiNet": 4195.38,
+              "diiNet": 196.93,
+              "totalNet": 4392.31,
+              "asOf": "2026-11-17"
             }
           },
           "volatility": {
@@ -519,8 +709,8 @@
             "metrics": {
               "vix": 15.52,
               "vixChangePct": -1.0046201,
-              "goldChangePct": 0,
-              "usdinrChangePct": 0
+              "goldChangePct": -1.7519785,
+              "usdinrChangePct": -0.010700905
             }
           },
           "derivatives": {
@@ -538,8 +728,14 @@
         }
       }
     },
-    "outlook": "Market session concluded on 2026-11-18. Portfolio surveillance and risk screening complete.",
-    "keyTakeaways": [],
+    "outlook": "The Indian market wrapped up with a positive bias, seeing NIFTY and SENSEX close higher, largely propelled by strong gains in the Realty and Banking sectors. Despite a notable decline in the IT index, significant FII inflows suggest continued investor interest. Expect a focus on whether this sectoral strength broadens out today.",
+    "keyTakeaways": [
+      "NIFTY 50 (+0.38%) and SENSEX (+0.52%) posted gains, with positive market breadth (33 adv / 24 dec).",
+      "NIFTY REALTY (+1.94%) and NIFTY BANK (+1.13%) were the top performing sectors.",
+      "NIFTY IT was a key laggard, declining by -0.90%, with HCLTECH (-2.1%) among top losers.",
+      "FIIs were net buyers with 4195.38cr, supported by DII net buying of 196.93cr.",
+      "Top gainers included ADANIENT (+3.2%) and EICHERMOT (+3.0%)."
+    ],
     "retro": {
       "date": "2026-11-18",
       "evaluated": [
@@ -893,5 +1089,5 @@
     }
   },
   "emailSent": true,
-  "checksum": "sha256:08199ca854a7a6aa9e31011fa633ede3ed64b89f42ecde009b7fdc7cc369231a"
+  "checksum": "sha256:2032bbc8231fcfaebaf9cd67d315785a3e9aff776c958400bfeec5ea0a2ba71e"
 }
