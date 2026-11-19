@@ -3,107 +3,15 @@
   "id": "daily-2026-11-19",
   "type": "daily",
   "dateKey": "2026-11-19",
-  "generatedAt": "2026-11-19T10:15:44.059Z",
+  "generatedAt": "2026-11-19T10:44:57.834Z",
   "sourceData": {
-    "tickers": [
-      "ABREL.BO",
-      "AMBUJACEM.BO",
-      "BANDHANBNK.NS",
-      "BDL.BO",
-      "BEL.BO",
-      "BRITANNIA.BO",
-      "BSOFT.NS",
-      "CASTROLIND.NS",
-      "CENTRALBK.BO",
-      "DIXON.NS",
-      "EXIDEIND.NS",
-      "FIRSTCRY.BO",
-      "GMRAIRPORT.BO",
-      "GODREJCP.BO",
-      "HAVELLS.BO",
-      "HCLTECH.BO",
-      "HDFCBANK.NS",
-      "HINDUNILVR.BO",
-      "INFY.BO",
-      "IRCTC.NS",
-      "IREDA.NS",
-      "ITC.BO",
-      "ITCHOTELS.BO",
-      "JWL.NS",
-      "KAMATHOTEL.NS",
-      "LICI.BO",
-      "LODHA.NS",
-      "M&M.NS",
-      "MAGADSUGAR.NS",
-      "MANKIND.NS",
-      "MAXHEALTH.BO",
-      "NEWGEN.BO",
-      "NHPC.BO",
-      "ONGC.BO",
-      "PRESTIGE.BO",
-      "PSB.BO",
-      "RELIANCE.NS",
-      "SBIN.NS",
-      "TATASTEEL.BO",
-      "TCS.BO",
-      "TMPV.BO",
-      "ULTRACEMCO.BO",
-      "VBL.NS",
-      "VMM.BO",
-      "WIPRO.BO"
-    ],
-    "priceSnapshot": {
-      "ABREL.BO": 1225.05,
-      "AMBUJACEM.BO": 397,
-      "BANDHANBNK.NS": 175,
-      "BDL.BO": 1032,
-      "BEL.BO": 404,
-      "BRITANNIA.BO": 4869.75,
-      "BSOFT.NS": 298.85,
-      "CASTROLIND.NS": 190.29,
-      "CENTRALBK.BO": 33.5,
-      "DIXON.NS": 13054,
-      "EXIDEIND.NS": 400.25,
-      "FIRSTCRY.BO": 174.7,
-      "GMRAIRPORT.BO": 103.83,
-      "GODREJCP.BO": 928,
-      "HAVELLS.BO": 1200,
-      "HCLTECH.BO": 1331.6,
-      "HDFCBANK.NS": 821.8,
-      "HINDUNILVR.BO": 2073.9,
-      "INFY.BO": 1090.55,
-      "IRCTC.NS": 449.9,
-      "IREDA.NS": 129.8,
-      "ITC.BO": 301,
-      "ITCHOTELS.BO": 183.4,
-      "JWL.NS": 195.48,
-      "KAMATHOTEL.NS": 222.9,
-      "LICI.BO": 404.1,
-      "LODHA.NS": 1202.7,
-      "M&M.NS": 3509,
-      "MAGADSUGAR.NS": 537,
-      "MANKIND.NS": 2629,
-      "MAXHEALTH.BO": 1038.3,
-      "NEWGEN.BO": 415.75,
-      "NHPC.BO": 76.2,
-      "ONGC.BO": 224.5,
-      "PRESTIGE.BO": 1656.25,
-      "PSB.BO": 22.16,
-      "RELIANCE.NS": 1375.6,
-      "SBIN.NS": 1156,
-      "TATASTEEL.BO": 180.8,
-      "TCS.BO": 2346.6,
-      "TMPV.BO": 263.3,
-      "ULTRACEMCO.BO": 12580,
-      "VBL.NS": 420.5,
-      "VMM.BO": 91.87,
-      "WIPRO.BO": 184.4
-    },
-    "searchTimestamp": "2026-11-19T10:15:44.059Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-19T10:44:57.834Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-19T10:15:44.059Z",
+      "asOf": "2026-11-19T10:44:57.834Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -196,54 +104,54 @@
         {
           "name": "Nikkei 225",
           "symbol": "^N225",
-          "ltp": 59140.87,
-          "changePct": 0.19752862
+          "ltp": 59444.21,
+          "changePct": 0.7114524
         },
         {
           "name": "Hang Seng",
           "symbol": "^HSI",
-          "ltp": 22896.05,
-          "changePct": -1.7113795
+          "ltp": 22841.62,
+          "changePct": -1.9452059
         },
         {
           "name": "FTSE 100",
           "symbol": "^FTSE",
-          "ltp": 10551.17,
-          "changePct": -1.2974919
+          "ltp": 10525.23,
+          "changePct": -0.24584433
         }
       ],
       "commodities": [
         {
           "name": "Gold",
-          "value": 3726.5,
-          "changePct": -0.41155303
+          "value": 3731.3,
+          "changePct": -0.28327465
         },
         {
           "name": "Silver",
-          "value": 44.965,
-          "changePct": -0.20861085
+          "value": 45.09,
+          "changePct": 0.06880323
         },
         {
           "name": "Crude Oil",
-          "value": 82.13,
-          "changePct": -0.21868584
+          "value": 82.8,
+          "changePct": 0.5953171
         }
       ],
       "currencies": [
         {
           "pair": "USD/INR",
-          "value": 93.44,
-          "changePct": -0.021395938
+          "value": 93.29,
+          "changePct": -0.18189403
         }
       ],
       "bondYield": {
         "name": "India 10Y",
-        "value": 7.26,
-        "changeBps": -1
+        "value": 7.211,
+        "changeBps": -4.18
       },
       "vix": {
         "value": 16.11,
-        "changePct": 3.8783906
+        "changePct": 3.8015473
       },
       "breadth": {
         "advances": 49,
@@ -576,8 +484,8 @@
         }
       ],
       "fiiDii": {
-        "fiiNet": 5867,
-        "diiNet": -3160,
+        "fiiNet": 5866.78,
+        "diiNet": -3159.9,
         "unit": "crore",
         "asOf": "2026-11-18"
       },
@@ -586,35 +494,34 @@
           "category": "macro_policy",
           "items": [
             {
-              "headline": "Goldman Sachs Upgrades Indian Equities to 'Overweight', Sets Nifty 50 Target at 28,500 by End 2027",
-              "summary": "Goldman Sachs has upgraded its outlook on Indian equities to 'overweight', driven by strong domestic demand, robust earnings growth, and low foreign investor positioning. They project India's real GDP growth at 7.9% for 2026 and 7.2% for 2027, anticipating Nifty 50 to reach 28,500 by late 2027.",
-              "source": "Economic Times",
-              "tickers": [
-                "NIFTY.NS"
-              ],
-              "sentiment": "bullish"
+              "headline": "RBI conducts ₹50,000 crore VRRR auction to absorb liquidity",
+              "summary": "The Reserve Bank of India is conducting an overnight Variable Rate Reverse Repo (VRRR) auction of ₹50,000 crore on November 19, 2026, to absorb excess liquidity from the system.",
+              "source": "Reuters",
+              "sentiment": "neutral"
             },
             {
-              "headline": "RBI Expected to Hike Repo Rates as Inflation Forecasted to Rise to 5.7%",
-              "summary": "Goldman Sachs anticipates India's inflation could climb to 5.7%, potentially prompting the Reserve Bank of India (RBI) to implement further repo rate hikes.",
-              "source": "Livemint",
+              "headline": "RBI rejects all bids at government's T-bill auction due to rising borrowing costs",
+              "summary": "The Reserve Bank of India rejected all bids at the government's Treasury Bill (T-bill) auction, citing rising short-term borrowing costs.",
+              "source": "Economic Times",
               "sentiment": "bearish"
             },
             {
-              "headline": "Bank of Maharashtra and South Indian Bank Announce MCLR Rate Hikes",
-              "summary": "Bank of Maharashtra increased its overnight MCLR by 80 bps to 7.75% and its one-month MCLR by 50 bps to 8.30%. South Indian Bank also revised its MCLR rates, with the one-year MCLR set at 9.55%.",
-              "source": "Business Standard",
-              "tickers": [
-                "MAHABANK.NS",
-                "SOUTHBANK.NS"
-              ],
+              "headline": "RBI directs banks, NBFCs to tighten API security rules for fund transfers and transaction monitoring",
+              "summary": "The RBI has mandated banks and non-banking financial companies (NBFCs) to strengthen their API security protocols, particularly concerning fund transfers, third-party systems, and transaction monitoring, to bolster digital security.",
+              "source": "Livemint",
               "sentiment": "neutral"
             },
             {
-              "headline": "Indian Rupee Expected to Stabilize Around 96 Against US Dollar",
-              "summary": "Goldman Sachs projects that the Indian Rupee will stabilize around 96 against the US dollar over the next 12 months.",
+              "headline": "India's CPI inflation jumps to 6.09% in October, breaches RBI's tolerance limit",
+              "summary": "India's headline consumer price inflation surged to 6.09% in October, exceeding the RBI's upper tolerance limit of 6% for the first time in two years, mainly driven by a sharp rise in food prices.",
               "source": "Moneycontrol",
-              "sentiment": "neutral"
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "Goldman Sachs projects India's CPI inflation to rise to 5.7% in 2027; repo rate to hit 6.25%",
+              "summary": "Goldman Sachs forecasts India's consumer price inflation to increase to 5.7% in 2027 from 4.6% in 2026, anticipating further monetary tightening with the repo rate reaching 6.25% by end-2027 due to persistent inflationary pressures.",
+              "source": "Business Standard",
+              "sentiment": "bearish"
             }
           ]
         },
@@ -622,26 +529,10 @@
           "category": "global_cues",
           "items": [
             {
-              "headline": "Indian Markets Poised for Cautious Opening Amid Mixed Global Cues",
-              "summary": "Indian stock markets are expected to open lower, reflecting mixed global sentiment with Wall Street closing mixed and most Asian markets trading subdued, despite US stock futures showing gains.",
+              "headline": "Asian markets trade lower on Wall Street losses, Nvidia concerns; Anthropic IPO eyed",
+              "summary": "Asian markets mostly declined on Thursday, November 19, following overnight losses on Wall Street and anxieties around Nvidia's performance. South Korea's Kospi, Hong Kong's Hang Seng, and Australia's S&P/ASX 200 fell, while Japan's Nikkei edged up. The Nasdaq debut of AI firm Anthropic also drew attention.",
               "source": "Reuters",
-              "tickers": [
-                "SENSEX",
-                "NIFTY.NS"
-              ],
               "sentiment": "bearish"
-            },
-            {
-              "headline": "Crude Oil Prices Remain a Factor for India's Economy",
-              "summary": "Brent crude futures are trading around $92-$93 per barrel, and US crude oil futures at approximately $83 per barrel. A moderation in these prices would be beneficial for India, a major oil importer.",
-              "source": "Economic Times",
-              "sentiment": "neutral"
-            },
-            {
-              "headline": "FIIs Continue Buying Spree While DIIs Show Mixed Activity",
-              "summary": "Foreign Institutional Investors (FIIs) remained net buyers, purchasing ₹5,866.78 crore on November 18. Domestic Institutional Investors (DIIs) net sold ₹3,159.90 crore on the same day but were net buyers on November 17.",
-              "source": "Moneycontrol",
-              "sentiment": "bullish"
             }
           ]
         },
@@ -649,37 +540,27 @@
           "category": "earnings",
           "items": [
             {
-              "headline": "BLS Polymers Reports Strong Q2 Results with Revenue Up 30% YoY",
-              "summary": "BLS Polymers announced a 30% year-on-year increase in Q2 revenue, with EBITDA up 2.8x and Profit After Tax (PAT) rising 2.29x, indicating robust performance.",
-              "source": "Business Standard",
-              "sentiment": "bullish"
-            },
-            {
-              "headline": "Bharat Electronics Achieves 25.97% YoY Revenue Growth in H1 FY27",
-              "summary": "Bharat Electronics reported a significant 25.97% year-on-year growth in H1 FY27 revenue from operations and holds a strong order book of ₹68,717 crore as of October 1.",
-              "source": "Livemint",
-              "tickers": [
-                "BEL.NS"
-              ],
-              "sentiment": "bullish"
-            },
-            {
-              "headline": "Tata Steel Posts Solid Q2 FY27 Results Driven by India Deliveries",
-              "summary": "Tata Steel recorded consolidated Q2 FY27 revenue of ₹65,436 crore and EBITDA of ₹10,665 crore, supported by a 16% quarter-on-quarter rise in India deliveries.",
-              "source": "Economic Times",
-              "tickers": [
-                "TATASTEEL.NS"
-              ],
-              "sentiment": "bullish"
-            },
-            {
-              "headline": "Uno Minda and Gabriel India Deliver Robust Q2FY27 Performance",
-              "summary": "Uno Minda saw revenue, EBITDA, and adjusted PAT grow 38%, 53%, and 38% YoY respectively. Gabriel India also showcased strong Q2FY27, with revenue, EBITDA, and adjusted PAT growing 23%, 12%, and 15% YoY.",
+              "headline": "Om Infra reports 98.73% jump in H1 FY27 standalone EBITDA, improved margins",
+              "summary": "Om Infra announced a substantial 98.73% rise in its H1 FY27 standalone EBITDA to ₹27.98 Crore, coupled with improved operating margins.",
               "source": "Moneycontrol",
               "tickers": [
-                "UNOMINDA.NS",
-                "GABRIEL.NS"
+                "OMINFRA.NS"
               ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "BLS Polymers Q2 FY27 net profit surges 130.63% on 28.92% revenue growth",
+              "summary": "BLS Polymers recorded a 130.63% increase in net profit for Q2 FY27, with revenue growing by 28.92% to ₹125.56 Crore.",
+              "source": "Economic Times",
+              "tickers": [
+                "BLSPOLY.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Physicswallah targets ₹9,000-10,000 crore revenue by FY30 with 25% CAGR",
+              "summary": "Ed-tech company Physicswallah announced at its investor day plans for aggressive revenue growth, aiming for ₹9,000-10,000 crore by FY30 from ₹3,900 crore in FY26, driven by a 25% CAGR and two-thirds contribution from online business.",
+              "source": "Livemint",
               "sentiment": "bullish"
             }
           ]
@@ -688,24 +569,20 @@
           "category": "sectoral",
           "items": [
             {
-              "headline": "Morgan Stanley Projects Indian Equities to 'Regain Mojo' in 2026, Sensex Target 95,000-107,000",
-              "summary": "Morgan Stanley anticipates Indian equities will recover significantly in 2026, setting a base-case Sensex target of 95,000 by December 2027 and a bull-case of 107,000 by December 2026. They favor financials, consumer discretionary, and industrials.",
+              "headline": "Nifty Auto index gains 3.3% driven by resilient demand and reduced input costs",
+              "summary": "The Nifty Auto index led market gains, climbing 3.3% as strong vehicle demand and lower crude oil and metal prices (reducing input costs) boosted the sector.",
               "source": "Economic Times",
               "tickers": [
-                "SENSEX"
+                "NIFTYAUTO.NS"
               ],
               "sentiment": "bullish"
             },
             {
-              "headline": "Jefferies Expects Large-Cap Stocks to Benefit from Resurgent FPI Flows",
-              "summary": "Jefferies believes large-cap stocks, especially in financials (HDFC Bank, Axis Bank, Kotak Mahindra Bank) and major industrials like Reliance Industries and UltraTech Cement, will gain from a potential reversal in Foreign Portfolio Investor (FPI) flows.",
-              "source": "Business Standard",
+              "headline": "Banking stocks rally 0.6%, state-owned lenders up 2% on FII buying and valuations",
+              "summary": "Banking stocks contributed to the market rally, with the banking index rising 0.6% and state-owned lenders gaining 2%, supported by foreign investor buying, stable earnings, and attractive valuations.",
+              "source": "Moneycontrol",
               "tickers": [
-                "HDFCBANK.NS",
-                "AXISBANK.NS",
-                "KOTAKBANK.NS",
-                "RELIANCE.NS",
-                "ULTRACEMCO.NS"
+                "BANKNIFTY.NS"
               ],
               "sentiment": "bullish"
             }
@@ -715,26 +592,29 @@
           "category": "corporate_actions",
           "items": [
             {
-              "headline": "Mahanadi Coalfields IPO Opens for Subscription Today",
-              "summary": "The Initial Public Offering (IPO) of Mahanadi Coalfields, a subsidiary of Coal India, opens for subscription today, November 19, with a price band of ₹129–₹136 per share.",
-              "source": "Moneycontrol",
+              "headline": "Mahanadi Coalfields Ltd (MCL) ₹8,981 crore IPO opens today",
+              "summary": "Mahanadi Coalfields Ltd (MCL), a subsidiary of Coal India, opened its ₹8,981 crore Initial Public Offering for subscription on November 19, offering a 10% stake by Coal India with a price band of ₹129–₹136 per share.",
+              "source": "Business Standard",
               "tickers": [
                 "COALINDIA.NS"
               ],
               "sentiment": "neutral"
             },
             {
-              "headline": "Sky Gold & Diamond Board Approves Raising Up to ₹1,800 Crore via Public/Private Offerings",
-              "summary": "Sky Gold and Diamond's board has approved plans to raise up to ₹1,800 crore through public or private offerings, including a Qualified Institutional Placement (QIP).",
+              "headline": "Dalmia Bharat board to consider equity share buyback on November 23",
+              "summary": "The board of Dalmia Bharat is scheduled to meet on November 23 to evaluate a proposal for the buyback of its fully paid-up equity shares.",
               "source": "Economic Times",
+              "tickers": [
+                "DALBHARAT.NS"
+              ],
               "sentiment": "neutral"
             },
             {
-              "headline": "NALCO Signs MoU with RUSAL for Scandium Recovery from Red Mud",
-              "summary": "National Aluminium Company (NALCO) has entered into a Memorandum of Understanding (MoU) with RUSAL to collaborate on the recovery of Scandium from Red Mud.",
-              "source": "Business Standard",
+              "headline": "Institutional investors acquire 13.24% stake in IIFL Finance for ₹3,488 crore from Fairfax",
+              "summary": "Domestic and global institutional investors, including SBI Mutual Fund, Rimco India, and Goldman Sachs, purchased a 13.24% stake in IIFL Finance for ₹3,488 crore from Fairfax group, which is exiting the company.",
+              "source": "Livemint",
               "tickers": [
-                "NATIONALUM.NS"
+                "IIFL.NS"
               ],
               "sentiment": "bullish"
             }
@@ -744,58 +624,48 @@
           "category": "stocks_in_focus",
           "items": [
             {
-              "headline": "Physicswallah Targets Significant Revenue Growth to ₹9,000–₹10,000 Crore by FY30",
-              "summary": "Physicswallah expects its revenue to grow substantially, aiming to reach ₹9,000–₹10,000 crore by FY30, up from ₹3,900 crore in FY26.",
-              "source": "Livemint",
+              "headline": "Defence stocks BEL, BDL in focus after India-Israel Barak missile upgrade deal",
+              "summary": "Shares of defence companies like Bharat Dynamics Ltd (BDL) and Bharat Electronics Ltd (BEL) are attracting investor attention following India's ₹1,976.40 crore agreement with Israel Aerospace Industries (IAI) to upgrade the Indian Navy's Barak point defence missile system.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "BDL.NS",
+                "BEL.NS"
+              ],
               "sentiment": "bullish"
             },
             {
-              "headline": "Market Experts Identify Sun TV Network, Dr Reddy's, GAIL, Adani Power as Top Stock Picks",
-              "summary": "Market experts have recommended Sun TV Network, Dr Reddy's Laboratories, GAIL, and Adani Power as strong stock picks for the day, projecting potential gains of 4-8%.",
-              "source": "Moneycontrol",
+              "headline": "Gold financiers Manappuram, Muthoot Finance to be watched amid falling gold prices",
+              "summary": "Gold financing companies Manappuram Finance and Muthoot Finance are expected to be in focus due to the overnight fall in gold prices, which can impact their asset valuations and lending operations.",
+              "source": "Economic Times",
               "tickers": [
-                "SUNTV.NS",
-                "DRREDDY.NS",
-                "GAIL.NS",
-                "ADANIPOWER.NS"
+                "MANAPPURAM.NS",
+                "MUTHOOTFIN.NS"
               ],
-              "sentiment": "bullish"
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "Wires & Cables companies in focus as copper prices rebound",
+              "summary": "Companies in the wires and cables sector, including Polycab, KEI Industries, Havells, and Hindustan Copper, are seeing increased attention following a rebound in copper prices, which impacts their raw material costs and product pricing.",
+              "source": "Business Standard",
+              "tickers": [
+                "POLYCAB.NS",
+                "KEI.NS",
+                "HAVELLS.NS",
+                "HINDCOPPER.NS"
+              ],
+              "sentiment": "neutral"
             }
           ]
         }
       ],
       "streetRecommendations": [
         {
-          "ticker": "TBOTEK.NS",
-          "name": "TBO Tek",
-          "brokerage": "Jefferies",
-          "action": "buy",
-          "target": 1905,
-          "rationale": "The recommendation is driven by TBO Tek's recent acquisition in the luxury travel business and its strong focus on the B2B segment, which is expected to fuel future growth."
-        },
-        {
-          "ticker": "BELRISE.NS",
-          "name": "Belrise Industries",
-          "brokerage": "Jefferies",
-          "action": "buy",
-          "target": 280,
-          "rationale": "Jefferies reiterates its 'Buy' rating due to Belrise Industries' entry into electronics manufacturing and the securing of new orders in the automotive sector."
-        },
-        {
-          "ticker": "KAYNES.NS",
-          "name": "Kaynes Technology",
-          "brokerage": "Jefferies",
-          "action": "buy",
-          "target": 3625,
-          "rationale": "Despite a Q2 earnings miss, Jefferies retained its 'Buy' rating, citing significant upside potential from the revised target price given the company's long-term prospects."
-        },
-        {
           "ticker": "EICHERMOT.NS",
           "name": "Eicher Motors",
           "brokerage": "Jefferies",
           "action": "buy",
           "target": 9300,
-          "rationale": "The 'Buy' recommendation is based on the strong demand for Royal Enfield motorcycles and the ongoing premiumization trend within the automotive industry."
+          "rationale": "Strong demand for Royal Enfield and expected benefits from industry premiumisation, with margin pressure peaking."
         },
         {
           "ticker": "MCX.NS",
@@ -803,7 +673,7 @@
           "brokerage": "Jefferies",
           "action": "buy",
           "target": 4300,
-          "rationale": "Jefferies believes MCX deserves a higher premium due to its strong sector penetration and growth opportunities in the commodities exchange market."
+          "rationale": "Deserves higher premium due to sector penetration and new product opportunities, with a forecast of 25% 3-year revenue/PAT CAGR through FY29e."
         },
         {
           "ticker": "GRASIM.NS",
@@ -811,39 +681,15 @@
           "brokerage": "Jefferies",
           "action": "buy",
           "target": 3910,
-          "rationale": "The 'Buy' rating is attributed to strong H2 guidance for its paints business and the potential for easing input costs, which could boost profitability."
+          "rationale": "Positive outlook due to management retaining FY27 growth guidance of 50% for its paint business and expectations of a strong December quarter."
         },
         {
-          "ticker": "CMSINFO.NS",
-          "name": "CMS Info Systems",
+          "ticker": "BELRISE.NS",
+          "name": "Belrise Industries",
           "brokerage": "Jefferies",
           "action": "buy",
-          "target": 315,
-          "rationale": "Jefferies highlights low valuations and the potential for a re-rating if the company sustains its revenue and profit growth."
-        },
-        {
-          "ticker": "UNOMINDA.NS",
-          "name": "Uno Minda",
-          "brokerage": "Motilal Oswal",
-          "action": "buy",
-          "target": 1560,
-          "rationale": "Motilal Oswal issued a 'Buy' rating following Uno Minda's strong Q2FY27 performance, which showcased broad-based growth across its segments."
-        },
-        {
-          "ticker": "GABRIEL.NS",
-          "name": "Gabriel India",
-          "brokerage": "Motilal Oswal",
-          "action": "buy",
-          "target": 1664,
-          "rationale": "The 'Buy' recommendation is based on Gabriel India's robust Q2FY27 results and the expected benefits from its recent acquisitions."
-        },
-        {
-          "ticker": "NSE.NS",
-          "name": "National Stock Exchange (NSE)",
-          "brokerage": "Motilal Oswal",
-          "action": "buy",
-          "target": 2300,
-          "rationale": "Motilal Oswal projects strong revenue and EBITDA CAGR for NSE, underpinning their 'Buy' rating."
+          "target": 280,
+          "rationale": "Company's foray into electronics manufacturing with a significant order (potentially from an Apple ecosystem partner) and new auto orders are key drivers."
         },
         {
           "ticker": "EQUITASBNK.NS",
@@ -851,91 +697,87 @@
           "brokerage": "Motilal Oswal",
           "action": "buy",
           "target": 75,
-          "rationale": "The 'Buy' rating is driven by expectations of a gradual growth recovery and stable asset quality for Equitas Small Finance Bank."
+          "rationale": "Seen returning to a growth trajectory driven by secured retail segments and stable asset quality leading to lower credit costs."
         },
         {
-          "ticker": "EUREKAFORB.NS",
-          "name": "Eureka Forbes",
-          "brokerage": "Nomura",
+          "ticker": "IIFL.NS",
+          "name": "IIFL Finance",
+          "brokerage": "Motilal Oswal",
           "action": "buy",
-          "target": 501,
-          "rationale": "Nomura assigned a 'Buy' rating, citing the company's strong Q2 performance and growth trajectory from new product launches."
+          "target": 850,
+          "rationale": "Recent capital infusion addresses balance-sheet constraints and provides growth capital, with Blackstone's participation seen as institutional endorsement."
         },
         {
-          "ticker": "BEL.NS",
-          "name": "Bharat Electronics",
-          "brokerage": "Nomura",
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "brokerage": "Motilal Oswal Financial Services Ltd",
           "action": "buy",
-          "target": 520,
-          "rationale": "The 'Buy' recommendation for Bharat Electronics stems from its robust order pipeline and significant opportunities in the defense electronics sector."
-        },
-        {
-          "ticker": "NIVABUPA.NS",
-          "name": "Niva Bupa Health Insurance Company",
-          "brokerage": "Nomura",
-          "action": "buy",
-          "target": 105,
-          "rationale": "Nomura's 'Buy' rating is driven by Niva Bupa's strong Q2 core performance and healthy premium growth."
-        },
-        {
-          "ticker": "LUPIN.NS",
-          "name": "Lupin",
-          "brokerage": "Nomura",
-          "action": "buy",
-          "target": 2780,
-          "rationale": "Nomura views recent stock weakness as a buying opportunity given Lupin's strong balance sheet and promising pipeline of complex generic drugs."
+          "target": 2230,
+          "rationale": "Bullish candle formation and a potential fresh pole-and-flag breakout."
         }
       ],
       "corporateActions": [
         {
-          "ticker": "Antarctica Limited",
-          "name": "Antarctica Limited",
-          "type": "results",
+          "ticker": "ROYALARC",
+          "name": "Royal Arc Electrodes Ltd",
+          "type": "dividend",
+          "date": "2026-11-18"
+        },
+        {
+          "ticker": "PAGEIND",
+          "name": "Page Industries Ltd",
+          "type": "dividend",
+          "date": "2026-11-18"
+        },
+        {
+          "ticker": "VIBRANTG",
+          "name": "Vibrant Global Capital Limited",
+          "type": "dividend",
           "date": "2026-11-19"
         },
         {
-          "ticker": "Jamna Auto Industries",
-          "name": "Jamna Auto Industries",
+          "ticker": "INGERRAND",
+          "name": "Ingersoll Rand (India) Limited",
           "type": "dividend",
-          "date": "2026-11-20"
+          "date": "2026-11-19"
         },
         {
-          "ticker": "Oil India Limited",
-          "name": "Oil India Limited",
-          "type": "dividend",
-          "date": "2026-11-23"
-        },
-        {
-          "ticker": "TTK Healthcare Limited",
-          "name": "TTK Healthcare Limited",
-          "type": "bonus",
-          "date": "2026-11-23"
-        },
-        {
-          "ticker": "Bombay Coated and Special Steels Limited",
-          "name": "Bombay Coated and Special Steels Limited",
+          "ticker": "GVPINFOTECH",
+          "name": "GVP Infotech Limited",
           "type": "results",
-          "date": "2026-11-23"
+          "date": "2026-11-18"
         },
         {
-          "ticker": "Bharat Road Network Limited",
-          "name": "Bharat Road Network Limited",
+          "ticker": "BLS",
+          "name": "BLS Polymers Limited",
           "type": "results",
-          "date": "2026-11-28"
+          "date": "2026-11-18"
+        },
+        {
+          "ticker": "ANSALAPI",
+          "name": "Ansal Properties & Infrastructure Limited",
+          "type": "results",
+          "date": "2026-11-18"
+        },
+        {
+          "ticker": "ANTARCTICA",
+          "name": "Antarctica Limited",
+          "type": "results",
+          "date": "2026-11-19"
         }
       ],
       "derivatives": {
-        "pcrOi": 0.85,
-        "pcrVolume": 1.04,
+        "pcrOi": 1.48,
+        "pcrVolume": null,
         "callVolumePct": null,
         "putVolumePct": null,
         "asOf": "2026-11-18"
       },
       "sentiment": {
-        "composite": 75,
+        "composite": 60,
         "regime": "Greed",
-        "session": "closing",
-        "asOf": "2026-11-19T10:15:44.059Z",
+        "session": "morning",
+        "asOf": "2026-11-19T10:44:57.834Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -958,11 +800,11 @@
             "regime": "Extreme Greed",
             "label": "Institutional Flows",
             "weight": 0.25,
-            "summary": "Strong institutional accumulation (FII: +₹5,867 Cr)",
+            "summary": "Strong institutional accumulation (FII: +₹5,866.78 Cr)",
             "metrics": {
-              "fiiNet": 5867,
-              "diiNet": -3160,
-              "totalNet": 2707,
+              "fiiNet": 5866.78,
+              "diiNet": -3159.9,
+              "totalNet": 2706.8799999999997,
               "asOf": "2026-11-18"
             }
           },
@@ -974,20 +816,20 @@
             "summary": "Normal market volatility (India VIX at 16.11)",
             "metrics": {
               "vix": 16.11,
-              "vixChangePct": 3.8783906,
-              "goldChangePct": -0.41155303,
-              "usdinrChangePct": -0.021395938
+              "vixChangePct": 3.8015473,
+              "goldChangePct": -0.28327465,
+              "usdinrChangePct": -0.18189403
             }
           },
           "derivatives": {
-            "score": 65,
-            "regime": "Greed",
+            "score": 5,
+            "regime": "Extreme Fear",
             "label": "Derivatives & Options Skew",
             "weight": 0.25,
-            "summary": "Balanced options hedging posture (Nifty PCR at 0.85)",
+            "summary": "Heavy protective put buying & hedging (Nifty PCR elevated at 1.48, oversold)",
             "metrics": {
-              "pcrOi": 0.85,
-              "pcrVolume": 1.04,
+              "pcrOi": 1.48,
+              "pcrVolume": null,
               "callVolumePct": null,
               "putVolumePct": null
             }
@@ -995,14 +837,14 @@
         }
       }
     },
-    "outlook": "The Indian market saw a negative closing with NIFTY and SENSEX both down over 0.6%, reflecting broad-based selling pressure. Market breadth was significantly negative, indicating a cautious sentiment before the open. FIIs were net buyers, which was partially offset by DII selling.",
+    "outlook": "Indian markets are poised for a positive open after yesterday's strong close, with NIFTY and SENSEX gaining over 1.1% on broad market strength. Favorable market breadth and significant FII inflows supported the rally. The Auto sector was a standout performer, while IT stocks experienced notable selling pressure.",
     "keyTakeaways": [
-      "NIFTY 50 and SENSEX registered losses of -0.63% and -0.61% respectively.",
-      "Market breadth was poor with 15 advances against 43 declines.",
-      "NIFTY Metal was the biggest sectoral loser at -2.46%, followed by NIFTY Auto (-1.35%) and NIFTY IT (-1.24%).",
-      "NIFTY Pharma was the sole gaining sector, up by 0.15%.",
-      "FIIs injected 5867cr into the market, while DIIs pulled out 3160cr.",
-      "TITAN.NS (-5.3%) and VEDL.NS (-3.8%) were among the top losers, while SBIN.NS (+2.4%) and CIPLA.NS (+2.1%) were top gainers."
+      "Indian benchmarks closed robustly higher, with NIFTY 50 up +1.14% and SENSEX up +1.21%.",
+      "Market breadth was overwhelmingly positive, with 49 advances against 9 declines.",
+      "The Auto sector surged by +4.40%, with Maruti, Hero MotoCorp, Eicher Motors, and M&M leading gainers.",
+      "IT stocks were the primary laggards, with TCS, Tech Mahindra, and Infosys among top losers, pulling NIFTY IT down -1.10%.",
+      "FIIs recorded substantial net buying of 5866.78cr, while DIIs were net sellers.",
+      "Nifty Bank (+1.65%) and Nifty FMCG (+2.09%) also posted strong gains, contributing to the overall positive sentiment."
     ],
     "retro": {
       "date": "2026-11-19",
@@ -1365,5 +1207,5 @@
     }
   },
   "emailSent": true,
-  "checksum": "sha256:7252ab45a231c449e8b3ba93f7129aa11c2d5e0b68f2fc8f22200df8546a18a0"
+  "checksum": "sha256:67607ef8799f903896899c399a0cd4e9ba06ac68e952abe563bc28bb39b16b65"
 }
