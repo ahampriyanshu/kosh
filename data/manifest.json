@@ -1,6 +1,14 @@
 {
   "reports": [
     {
+      "id": "daily-2026-11-21",
+      "type": "daily",
+      "dateKey": "2026-11-21",
+      "date": "2026-11-20",
+      "path": "reports/2026/11/daily/daily-2026-11-21.json",
+      "checksum": "sha256:d807858599c604069a86816874f9ee3e18944796208b92059fadbfc808970816"
+    },
+    {
       "id": "daily-2026-11-20",
       "type": "daily",
       "dateKey": "2026-11-20",
@@ -1242,7 +1250,7 @@
     }
   ],
   "latest": {
-    "daily": "daily-2026-11-20",
+    "daily": "daily-2026-11-21",
     "weekly": "weekly-2026-W47",
     "recap": "recap-2026-10-03",
     "monthly": "monthly-2026-10",
