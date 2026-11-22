@@ -849,5 +849,39 @@
     "triggers": "Relative Volume Surge > 1.8x; 7-day return +1.0%; RSI > 58",
     "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
     "status": "active"
+  },
+  {
+    "id": "st-2026-11-22-indusindbk",
+    "ticker": "INDUSINDBK",
+    "name": "IndusInd Bank",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-22",
+    "expiryDate": "2026-12-06",
+    "entryPrice": 1003,
+    "targetPrice": 1083,
+    "stopLossPrice": 963,
+    "quantScore": 85,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +8.6%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
+  },
+  {
+    "id": "st-2026-11-22-apollohosp",
+    "ticker": "APOLLOHOSP",
+    "name": "Apollo Hospitals",
+    "horizon": "short_term",
+    "category": "High-Momentum 52W Breakout",
+    "action": "buy",
+    "callDate": "2026-11-22",
+    "expiryDate": "2026-12-09",
+    "entryPrice": 9200,
+    "targetPrice": 9936,
+    "stopLossPrice": 8832,
+    "quantScore": 82,
+    "triggers": "Relative Volume Surge > 1.8x; 7-day return +5.3%; RSI > 58",
+    "thesis": "Weekly momentum leader with sustained accumulation volume and breakout past resistance.",
+    "status": "active"
   }
 ]
