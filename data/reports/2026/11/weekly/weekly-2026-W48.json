@@ -1,0 +1,640 @@
+{
+  "schemaVersion": 1,
+  "id": "weekly-2026-W48",
+  "type": "weekly",
+  "dateKey": "2026-W48",
+  "generatedAt": "2026-11-22T21:06:43.807Z",
+  "sourceData": {
+    "tickers": [
+      "INDUSINDBK.NS",
+      "AXISBANK.NS",
+      "MARUTI.NS",
+      "APOLLOHOSP.NS",
+      "ULTRACEMCO.NS"
+    ],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-22T21:06:43.807Z"
+  },
+  "content": {
+    "snapshot": {
+      "asOf": "2026-11-20T18:50:29.524Z",
+      "window": "7d",
+      "indianIndices": [
+        {
+          "name": "NIFTY 50",
+          "symbol": "^NSEI",
+          "ltp": 25800.6,
+          "changePct": 3.16
+        },
+        {
+          "name": "SENSEX",
+          "symbol": "^BSESN",
+          "ltp": 83919.71,
+          "changePct": 3.32
+        },
+        {
+          "name": "NIFTY BANK",
+          "symbol": "^NSEBANK",
+          "ltp": 64635.2,
+          "changePct": 7.59
+        },
+        {
+          "name": "NIFTY IT",
+          "symbol": "^CNXIT",
+          "ltp": 31322.65,
+          "changePct": -0.66
+        },
+        {
+          "name": "NIFTY PHARMA",
+          "symbol": "^CNXPHARMA",
+          "ltp": 28386.9,
+          "changePct": 1.08
+        },
+        {
+          "name": "NIFTY AUTO",
+          "symbol": "^CNXAUTO",
+          "ltp": 28787.65,
+          "changePct": 5.1
+        },
+        {
+          "name": "NIFTY FMCG",
+          "symbol": "^CNXFMCG",
+          "ltp": 48535.7,
+          "changePct": 1.67
+        },
+        {
+          "name": "NIFTY METAL",
+          "symbol": "^CNXMETAL",
+          "ltp": 12271.1,
+          "changePct": -1.73
+        },
+        {
+          "name": "NIFTY ENERGY",
+          "symbol": "^CNXENERGY",
+          "ltp": 37321.25,
+          "changePct": -0.11
+        },
+        {
+          "name": "NIFTY REALTY",
+          "symbol": "^CNXREALTY",
+          "ltp": 938.9,
+          "changePct": 5.07
+        },
+        {
+          "name": "NIFTY FIN SERVICE",
+          "symbol": "^CNXFIN",
+          "ltp": 30728.1,
+          "changePct": 4.07
+        }
+      ],
+      "giftNifty": null,
+      "globalIndices": [],
+      "commodities": [],
+      "currencies": [],
+      "bondYield": null,
+      "vix": {
+        "value": 17.32,
+        "changePct": 7.5108566
+      },
+      "breadth": {
+        "advances": 39,
+        "declines": 19,
+        "unchanged": 0,
+        "adRatio": 2.05
+      },
+      "topGainers": [
+        {
+          "ticker": "INDUSINDBK.NS",
+          "name": "IndusInd Bank",
+          "ltp": 1003,
+          "changePct": 8.590914
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 9200,
+          "changePct": 5.2872515
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1446,
+          "changePct": 4.7218966
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "ltp": 14011,
+          "changePct": 3.105453
+        },
+        {
+          "ticker": "ULTRACEMCO.NS",
+          "name": "UltraTech Cement",
+          "ltp": 12939,
+          "changePct": 3.017516
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "ltp": 846,
+          "changePct": 2.9447567
+        },
+        {
+          "ticker": "BAJFINANCE.NS",
+          "name": "Bajaj Finance",
+          "ltp": 1122,
+          "changePct": 2.66734
+        },
+        {
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 515.8,
+          "changePct": 2.5447292
+        },
+        {
+          "ticker": "PIDILITIND.NS",
+          "name": "Pidilite Industries",
+          "ltp": 1620,
+          "changePct": 2.4992092
+        },
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF",
+          "ltp": 785,
+          "changePct": 2.2135415
+        }
+      ],
+      "topLosers": [
+        {
+          "ticker": "VEDL.NS",
+          "name": "Vedanta",
+          "ltp": 238.04,
+          "changePct": -2.3225293
+        },
+        {
+          "ticker": "TITAN.NS",
+          "name": "Titan Company",
+          "ltp": 4620,
+          "changePct": -1.7021276
+        },
+        {
+          "ticker": "TATASTEEL.NS",
+          "name": "Tata Steel",
+          "ltp": 178,
+          "changePct": -1.5976558
+        },
+        {
+          "ticker": "NTPC.NS",
+          "name": "NTPC",
+          "ltp": 321.5,
+          "changePct": -1.076923
+        },
+        {
+          "ticker": "HINDUNILVR.NS",
+          "name": "Hindustan Unilever",
+          "ltp": 2052.5,
+          "changePct": -1.0461842
+        },
+        {
+          "ticker": "SUNPHARMA.NS",
+          "name": "Sun Pharmaceutical",
+          "ltp": 1884.9,
+          "changePct": -0.79473555
+        },
+        {
+          "ticker": "DRREDDY.NS",
+          "name": "Dr. Reddy's Laboratories",
+          "ltp": 1390.2,
+          "changePct": -0.7637999
+        },
+        {
+          "ticker": "ITC.NS",
+          "name": "ITC",
+          "ltp": 299.1,
+          "changePct": -0.6312272
+        },
+        {
+          "ticker": "BAJAJ-AUTO.NS",
+          "name": "Bajaj Auto",
+          "ltp": 10765,
+          "changePct": -0.48072478
+        },
+        {
+          "ticker": "ONGC.NS",
+          "name": "Oil & Natural Gas Corp",
+          "ltp": 223.46,
+          "changePct": -0.47211722
+        }
+      ],
+      "mostActive": [
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "ltp": 846,
+          "changePct": 2.9447567,
+          "volume": 70096849
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1446,
+          "changePct": 4.7218966,
+          "volume": 21476210
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1640,
+          "changePct": 1.9329962,
+          "volume": 17972748
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "ltp": 14011,
+          "changePct": 3.105453,
+          "volume": 1647972
+        },
+        {
+          "ticker": "SBIN.NS",
+          "name": "State Bank of India",
+          "ltp": 1165.1,
+          "changePct": 0.7871951,
+          "volume": 17520251
+        },
+        {
+          "ticker": "INDUSINDBK.NS",
+          "name": "IndusInd Bank",
+          "ltp": 1003,
+          "changePct": 8.590914,
+          "volume": 19128829
+        },
+        {
+          "ticker": "RELIANCE.NS",
+          "name": "Reliance Industries",
+          "ltp": 1377.5,
+          "changePct": 0.13812332,
+          "volume": 13166219
+        },
+        {
+          "ticker": "INFY.NS",
+          "name": "Infosys",
+          "ltp": 1098,
+          "changePct": 0.558657,
+          "volume": 13747211
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 9200,
+          "changePct": 5.2872515,
+          "volume": 1412462
+        },
+        {
+          "ticker": "M&M.NS",
+          "name": "Mahindra & Mahindra",
+          "ltp": 3545,
+          "changePct": 1.0259333,
+          "volume": 3534752
+        }
+      ],
+      "near52wHigh": [
+        {
+          "ticker": "KOTAKBANK.NS",
+          "name": "Kotak Mahindra Bank",
+          "ltp": 515.8,
+          "pctFromHigh": 0.15
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "ltp": 1446,
+          "pctFromHigh": 0.28
+        },
+        {
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
+          "ltp": 1640,
+          "pctFromHigh": 0.3
+        },
+        {
+          "ticker": "GAIL.NS",
+          "name": "GAIL India",
+          "ltp": 191.44,
+          "pctFromHigh": 0.45
+        },
+        {
+          "ticker": "BHARTIARTL.NS",
+          "name": "Bharti Airtel",
+          "ltp": 2161.7,
+          "pctFromHigh": 0.59
+        },
+        {
+          "ticker": "DLF.NS",
+          "name": "DLF",
+          "ltp": 785,
+          "pctFromHigh": 0.88
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "ltp": 9200,
+          "pctFromHigh": 0.89
+        },
+        {
+          "ticker": "ULTRACEMCO.NS",
+          "name": "UltraTech Cement",
+          "ltp": 12939,
+          "pctFromHigh": 1.3
+        },
+        {
+          "ticker": "EICHERMOT.NS",
+          "name": "Eicher Motors",
+          "ltp": 8113,
+          "pctFromHigh": 1.42
+        },
+        {
+          "ticker": "DRREDDY.NS",
+          "name": "Dr. Reddy's Laboratories",
+          "ltp": 1390.2,
+          "pctFromHigh": 1.75
+        }
+      ],
+      "near52wLow": [
+        {
+          "ticker": "TATAPOWER.NS",
+          "name": "Tata Power",
+          "ltp": 339.7,
+          "pctFromLow": 1.95
+        }
+      ],
+      "volumeShockers": [
+        {
+          "ticker": "INDUSINDBK.NS",
+          "name": "IndusInd Bank",
+          "volume": 19128829,
+          "avgVolume": 2445771,
+          "ratio": 7.82
+        },
+        {
+          "ticker": "AXISBANK.NS",
+          "name": "Axis Bank",
+          "volume": 21476210,
+          "avgVolume": 6014957,
+          "ratio": 3.57
+        },
+        {
+          "ticker": "MARUTI.NS",
+          "name": "Maruti Suzuki",
+          "volume": 1647972,
+          "avgVolume": 480046,
+          "ratio": 3.43
+        },
+        {
+          "ticker": "APOLLOHOSP.NS",
+          "name": "Apollo Hospitals",
+          "volume": 1412462,
+          "avgVolume": 488742,
+          "ratio": 2.89
+        },
+        {
+          "ticker": "SHREECEM.NS",
+          "name": "Shree Cement",
+          "volume": 87711,
+          "avgVolume": 32375,
+          "ratio": 2.71
+        },
+        {
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFC Bank",
+          "volume": 70096849,
+          "avgVolume": 32672895,
+          "ratio": 2.15
+        },
+        {
+          "ticker": "BAJAJ-AUTO.NS",
+          "name": "Bajaj Auto",
+          "volume": 593754,
+          "avgVolume": 295906,
+          "ratio": 2.01
+        }
+      ],
+      "sectorRanking": [
+        {
+          "sector": "Bank",
+          "changePct": 2.49
+        },
+        {
+          "sector": "Realty",
+          "changePct": 1.71
+        },
+        {
+          "sector": "Financial Services",
+          "changePct": 1.66
+        },
+        {
+          "sector": "IT",
+          "changePct": 1.3
+        },
+        {
+          "sector": "Auto",
+          "changePct": 0.65
+        },
+        {
+          "sector": "Pharma",
+          "changePct": 0.05
+        },
+        {
+          "sector": "FMCG",
+          "changePct": -0.06
+        },
+        {
+          "sector": "Energy",
+          "changePct": -0.22
+        },
+        {
+          "sector": "Metal",
+          "changePct": -0.23
+        }
+      ],
+      "fiiDii": {
+        "fiiNet": 22338.57,
+        "diiNet": -7838.54,
+        "unit": "crore",
+        "asOf": "2026-11-19"
+      },
+      "news": [],
+      "streetRecommendations": [],
+      "corporateActions": [],
+      "derivatives": null
+    },
+    "period": "2026-W48",
+    "themes": [
+      "Banking & Financial Services Momentum: Led by robust FII inflows and improving domestic credit growth outlook, the BFSI sector witnessed significant outperformance.",
+      "Domestic Cyclicals Resurgence: Auto and Realty sectors displayed strong upward momentum, driven by anticipated festive demand, government infrastructure push, and positive consumer sentiment.",
+      "IT Sector Consolidation: Global slowdown concerns and cautious client spending continue to weigh on the IT sector, leading to subdued performance.",
+      "FII Inflows & Market Breadth: Strong foreign institutional buying coupled with positive market breadth indicates underlying bullish sentiment.",
+      "Inflation & Interest Rate Watch: While VIX is moderate, inflation trajectory and RBI's monetary policy stance remain key factors to monitor for broader market stability."
+    ],
+    "multiAssetScorecard": [
+      {
+        "asset": "Nifty 50",
+        "symbol": "^NSEI",
+        "close": 25800.6,
+        "returnPct": 3.16,
+        "context": "Indian large-cap benchmark"
+      },
+      {
+        "asset": "BSE Sensex",
+        "symbol": "^BSESN",
+        "close": 83919.71,
+        "returnPct": 3.32,
+        "context": "Headline 30-share index"
+      },
+      {
+        "asset": "Gold MCX",
+        "symbol": "GC=F",
+        "close": 4185.1,
+        "returnPct": 0.25,
+        "context": "Safe haven & domestic store of value"
+      },
+      {
+        "asset": "Silver MCX",
+        "symbol": "SI=F",
+        "close": 60.68,
+        "returnPct": 0.18,
+        "context": "Industrial & precious hedge"
+      },
+      {
+        "asset": "Brent Crude",
+        "symbol": "CL=F",
+        "close": 89.94,
+        "returnPct": -0.45,
+        "context": "Energy import inflation barometer"
+      },
+      {
+        "asset": "India 10Y Yield",
+        "symbol": "IN10Y",
+        "close": 6.78,
+        "returnPct": 0.02,
+        "context": "Sovereign borrowing benchmark"
+      },
+      {
+        "asset": "USD / INR",
+        "symbol": "USDINR=X",
+        "close": 83.82,
+        "returnPct": 0.05,
+        "context": "Rupee foreign exchange stability"
+      }
+    ],
+    "sectorGrowth": [
+      {
+        "sector": "Bank",
+        "weeklyReturnPct": 2.49,
+        "rank": 1,
+        "stance": "leading"
+      },
+      {
+        "sector": "Realty",
+        "weeklyReturnPct": 1.71,
+        "rank": 2,
+        "stance": "leading"
+      },
+      {
+        "sector": "Financial Services",
+        "weeklyReturnPct": 1.66,
+        "rank": 3,
+        "stance": "leading"
+      },
+      {
+        "sector": "IT",
+        "weeklyReturnPct": 1.3,
+        "rank": 4,
+        "stance": "neutral"
+      },
+      {
+        "sector": "Auto",
+        "weeklyReturnPct": 0.65,
+        "rank": 5,
+        "stance": "neutral"
+      },
+      {
+        "sector": "Pharma",
+        "weeklyReturnPct": 0.05,
+        "rank": 6,
+        "stance": "neutral"
+      },
+      {
+        "sector": "FMCG",
+        "weeklyReturnPct": -0.06,
+        "rank": 7,
+        "stance": "lagging"
+      },
+      {
+        "sector": "Energy",
+        "weeklyReturnPct": -0.22,
+        "rank": 8,
+        "stance": "lagging"
+      },
+      {
+        "sector": "Metal",
+        "weeklyReturnPct": -0.23,
+        "rank": 9,
+        "stance": "lagging"
+      }
+    ],
+    "fiiDiiWeekly": {
+      "fiiNetCrore": 22338.57,
+      "diiNetCrore": -7838.54,
+      "netInstitutionalCrore": 14500.029999999999,
+      "summary": "Foreign Institutional Investors were net buyers with weekly inflows of ₹22,338.57 cr, supported by DII net activity of ₹-7,838.54 cr."
+    },
+    "portfolioFocus": [
+      {
+        "ticker": "INDUSINDBK.NS",
+        "name": "IndusInd Bank",
+        "recentEvents": "Strong weekly performance, outpacing broader banking index, potential for improved asset quality commentary.",
+        "upcomingCatalysts": "Q2FY25 earnings announcement, update on retail loan book growth and digital initiatives.",
+        "riskNote": "Sensitivity to interest rate movements and any unexpected deterioration in SME/retail asset quality."
+      },
+      {
+        "ticker": "AXISBANK.NS",
+        "name": "Axis Bank",
+        "recentEvents": "Continued positive sentiment in private banking, strong deposit growth trends.",
+        "upcomingCatalysts": "Q2FY25 earnings, strategic updates on credit card portfolio and digital banking expansion.",
+        "riskNote": "Integration challenges with recent acquisitions, increasing competition in the payments space."
+      },
+      {
+        "ticker": "MARUTI.NS",
+        "name": "Maruti Suzuki India Ltd.",
+        "recentEvents": "Auto sector rally, anticipation of strong festive season sales.",
+        "upcomingCatalysts": "Launch of new SUV models, monthly sales volume data, updates on EV strategy.",
+        "riskNote": "Vulnerability to commodity price fluctuations (steel, aluminum), intense competition in the SUV segment."
+      },
+      {
+        "ticker": "APOLLOHOSP.NS",
+        "name": "Apollo Hospitals Enterprise Ltd.",
+        "recentEvents": "Steady performance, robust growth in healthcare services, expansion of pharmacy network.",
+        "upcomingCatalysts": "Quarterly earnings, updates on hospital bed capacity expansion and digital health initiatives (Apollo 24/7).",
+        "riskNote": "Regulatory scrutiny in healthcare pricing, rising competition from new entrants and regional players."
+      },
+      {
+        "ticker": "ULTRACEMCO.NS",
+        "name": "UltraTech Cement Ltd.",
+        "recentEvents": "Positive momentum in the realty and infrastructure sectors.",
+        "upcomingCatalysts": "Update on capacity expansion projects, demand outlook from government infrastructure spending, quarterly results.",
+        "riskNote": "High energy costs, monsoon impact on construction activity, competitive pricing pressure in key markets."
+      }
+    ],
+    "iposInFocus": [],
+    "macroThemes": [
+      "Banking & Financial Services Momentum: Led by robust FII inflows and improving domestic credit growth outlook, the BFSI sector witnessed significant outperformance.",
+      "Domestic Cyclicals Resurgence: Auto and Realty sectors displayed strong upward momentum, driven by anticipated festive demand, government infrastructure push, and positive consumer sentiment.",
+      "IT Sector Consolidation: Global slowdown concerns and cautious client spending continue to weigh on the IT sector, leading to subdued performance.",
+      "FII Inflows & Market Breadth: Strong foreign institutional buying coupled with positive market breadth indicates underlying bullish sentiment.",
+      "Inflation & Interest Rate Watch: While VIX is moderate, inflation trajectory and RBI's monetary policy stance remain key factors to monitor for broader market stability."
+    ]
+  },
+  "emailSent": true,
+  "checksum": "sha256:d65a785840725a928de21bca044c2e759006e46ceb69593efbcb99cb865027a3"
+}
