@@ -3,15 +3,107 @@
   "id": "daily-2026-11-24",
   "type": "daily",
   "dateKey": "2026-11-24",
-  "generatedAt": "2026-11-24T03:01:01.979Z",
+  "generatedAt": "2026-11-24T10:16:05.136Z",
   "sourceData": {
-    "tickers": [],
-    "priceSnapshot": {},
-    "searchTimestamp": "2026-11-24T03:01:01.979Z"
+    "tickers": [
+      "ABREL.BO",
+      "AMBUJACEM.BO",
+      "BANDHANBNK.NS",
+      "BDL.BO",
+      "BEL.BO",
+      "BRITANNIA.BO",
+      "BSOFT.NS",
+      "CASTROLIND.NS",
+      "CENTRALBK.BO",
+      "DIXON.NS",
+      "EXIDEIND.NS",
+      "FIRSTCRY.BO",
+      "GMRAIRPORT.BO",
+      "GODREJCP.BO",
+      "HAVELLS.BO",
+      "HCLTECH.BO",
+      "HDFCBANK.NS",
+      "HINDUNILVR.BO",
+      "INFY.BO",
+      "IRCTC.NS",
+      "IREDA.NS",
+      "ITC.BO",
+      "ITCHOTELS.BO",
+      "JWL.NS",
+      "KAMATHOTEL.NS",
+      "LICI.BO",
+      "LODHA.NS",
+      "M&M.NS",
+      "MAGADSUGAR.NS",
+      "MANKIND.NS",
+      "MAXHEALTH.BO",
+      "NEWGEN.BO",
+      "NHPC.BO",
+      "ONGC.BO",
+      "PRESTIGE.BO",
+      "PSB.BO",
+      "RELIANCE.NS",
+      "SBIN.NS",
+      "TATASTEEL.BO",
+      "TCS.BO",
+      "TMPV.BO",
+      "ULTRACEMCO.BO",
+      "VBL.NS",
+      "VMM.BO",
+      "WIPRO.BO"
+    ],
+    "priceSnapshot": {
+      "ABREL.BO": 1257.25,
+      "AMBUJACEM.BO": 392,
+      "BANDHANBNK.NS": 172.4,
+      "BDL.BO": 1020,
+      "BEL.BO": 396,
+      "BRITANNIA.BO": 4835.05,
+      "BSOFT.NS": 304.7,
+      "CASTROLIND.NS": 190.35,
+      "CENTRALBK.BO": 33.38,
+      "DIXON.NS": 13390,
+      "EXIDEIND.NS": 401.85,
+      "FIRSTCRY.BO": 168.75,
+      "GMRAIRPORT.BO": 102.53,
+      "GODREJCP.BO": 912,
+      "HAVELLS.BO": 1183.4,
+      "HCLTECH.BO": 1363,
+      "HDFCBANK.NS": 817.8,
+      "HINDUNILVR.BO": 2020.95,
+      "INFY.BO": 1104.1,
+      "IRCTC.NS": 447.2,
+      "IREDA.NS": 132.2,
+      "ITC.BO": 301,
+      "ITCHOTELS.BO": 184.1,
+      "JWL.NS": 185.39,
+      "KAMATHOTEL.NS": 224.81,
+      "LICI.BO": 408.6,
+      "LODHA.NS": 1219,
+      "M&M.NS": 3487.4,
+      "MAGADSUGAR.NS": 521.75,
+      "MANKIND.NS": 2615.1,
+      "MAXHEALTH.BO": 1086.6,
+      "NEWGEN.BO": 411.3,
+      "NHPC.BO": 75.3,
+      "ONGC.BO": 222.9,
+      "PRESTIGE.BO": 1682,
+      "PSB.BO": 22,
+      "RELIANCE.NS": 1351,
+      "SBIN.NS": 1132.65,
+      "TATASTEEL.BO": 163.25,
+      "TCS.BO": 2457.4,
+      "TMPV.BO": 259,
+      "ULTRACEMCO.BO": 12621.9,
+      "VBL.NS": 427.15,
+      "VMM.BO": 94.57,
+      "WIPRO.BO": 187.15
+    },
+    "searchTimestamp": "2026-11-24T10:16:05.136Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-24T03:01:01.979Z",
+      "asOf": "2026-11-24T10:16:05.136Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -800,8 +892,8 @@
       "sentiment": {
         "composite": 52,
         "regime": "Neutral",
-        "session": "morning",
-        "asOf": "2026-11-24T03:01:01.979Z",
+        "session": "closing",
+        "asOf": "2026-11-24T10:16:05.136Z",
         "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
         "categories": {
           "breadth": {
@@ -1018,7 +1110,7 @@
           "name": "IREDA",
           "price": 132.2,
           "changePct": 0.38,
-          "note": "+0.4% vs prev close, vol 1.2x avg"
+          "note": "+0.4% vs prev close, vol 1.1x avg"
         },
         {
           "ticker": "ITC.BO",
@@ -1095,7 +1187,7 @@
           "name": "NEWGEN",
           "price": 411.3,
           "changePct": -0.59,
-          "note": "-0.6% vs prev close, vol 1.1x avg — flags: below 50DMA support"
+          "note": "-0.6% vs prev close, vol 1.3x avg — flags: below 50DMA support"
         },
         {
           "ticker": "NHPC.BO",
@@ -1151,7 +1243,7 @@
           "name": "TCS",
           "price": 2457.4,
           "changePct": 3.47,
-          "note": "+3.5% vs prev close, vol 2.4x avg — flags: volume>2x avg"
+          "note": "+3.5% vs prev close, vol 2.3x avg — flags: volume>2x avg"
         },
         {
           "ticker": "TMPV.BO",
@@ -1165,7 +1257,7 @@
           "name": "ULTRACEMCO",
           "price": 12621.9,
           "changePct": -2.36,
-          "note": "-2.4% vs prev close, vol 0.3x avg"
+          "note": "-2.4% vs prev close, vol 0.4x avg"
         },
         {
           "ticker": "VBL.NS",
@@ -1179,31 +1271,50 @@
           "name": "VMM",
           "price": 94.57,
           "changePct": 2.79,
-          "note": "+2.8% vs prev close, vol 2.8x avg — flags: volume>2x avg"
+          "note": "+2.8% vs prev close, vol 2.6x avg — flags: volume>2x avg"
         },
         {
           "ticker": "WIPRO.BO",
           "name": "WIPRO",
           "price": 187.15,
           "changePct": 0.89,
-          "note": "+0.9% vs prev close, vol 0.9x avg"
+          "note": "+0.9% vs prev close, vol 1.0x avg"
         }
       ],
       "alerts": [
         {
-          "ticker": "TATASTEEL.BO",
-          "name": "TATASTEEL",
-          "reason": "Significant 8.2% drawdown on average volume due to negative investor reaction to the announced acquisition of APL Apollo Tubes and sale of its tubes business, perceiving a lack of clarity in the complex deal.",
+          "ticker": "HDFCBANK.NS",
+          "name": "HDFCBANK",
+          "reason": "Significant sector-wide weakness in banking with a substantial drawdown and above-average selling volume.",
           "severity": "high",
           "triggeredRules": [
             "drawdown>3%"
           ]
         },
         {
-          "ticker": "HDFCBANK.NS",
-          "name": "HDFCBANK",
-          "reason": "3.3% drawdown with above-average volume, as banking stocks led a broader market downturn and profit booking after a recent strong recovery.",
+          "ticker": "JWL.NS",
+          "name": "JWL",
+          "reason": "Significant price drawdown and breach of 50DMA support, indicating technical weakness during a broad market correction.",
           "severity": "medium",
+          "triggeredRules": [
+            "drawdown>3%",
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "NEWGEN.BO",
+          "name": "NEWGEN",
+          "reason": "Underperformance within a strong IT sector, coupled with a break below 50DMA support on elevated volume.",
+          "severity": "medium",
+          "triggeredRules": [
+            "below 50DMA support"
+          ]
+        },
+        {
+          "ticker": "TATASTEEL.BO",
+          "name": "TATASTEEL",
+          "reason": "Severe 8.2% decline driven by the worst-performing metal sector and negative company-specific acquisition news.",
+          "severity": "high",
           "triggeredRules": [
             "drawdown>3%"
           ]
@@ -1211,16 +1322,16 @@
         {
           "ticker": "TMPV.BO",
           "name": "TMPV",
-          "reason": "2.6% drop on slightly below-average volume, indicative of ongoing weakness and negative sentiment, previously hitting 52-week lows, amidst a broader market decline.",
+          "reason": "Underperformance relative to the broader market's decline and a breach below 50DMA support.",
           "severity": "medium",
           "triggeredRules": [
             "below 50DMA support"
           ]
         }
       ],
-      "summary": "The Indian market was closed on Nov 24, 2026; data reflects Nov 23, 2026, which saw a broad market sell-off. Genuine sell signals include Tata Steel due to a strategic acquisition, HDFC Bank on profit booking and banking sector weakness, and TMPV due to ongoing negative sentiment."
+      "summary": "The market experienced a significant sell-off on November 23, 2026, with banking and metal sectors hit hardest, leading to genuine sell signals for HDFCBANK and TATASTEEL, alongside risk signals for JWL, NEWGEN, and TMPV due to technical breaches and underperformance."
     }
   },
   "emailSent": true,
-  "checksum": "sha256:7cd6e935e0f93a871e9c5ac35f130a0fc9564aa4ba78417f4780672cafbdf42d"
+  "checksum": "sha256:67112baeadff62280a4aca5391d5a0d288e9065f19ff1f70f7815dfee6413191"
 }
