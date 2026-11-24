@@ -3,107 +3,15 @@
   "id": "daily-2026-11-24",
   "type": "daily",
   "dateKey": "2026-11-24",
-  "generatedAt": "2026-11-23T22:14:32.557Z",
+  "generatedAt": "2026-11-24T03:01:01.979Z",
   "sourceData": {
-    "tickers": [
-      "ABREL.BO",
-      "AMBUJACEM.BO",
-      "BANDHANBNK.NS",
-      "BDL.BO",
-      "BEL.BO",
-      "BRITANNIA.BO",
-      "BSOFT.NS",
-      "CASTROLIND.NS",
-      "CENTRALBK.BO",
-      "DIXON.NS",
-      "EXIDEIND.NS",
-      "FIRSTCRY.BO",
-      "GMRAIRPORT.BO",
-      "GODREJCP.BO",
-      "HAVELLS.BO",
-      "HCLTECH.BO",
-      "HDFCBANK.NS",
-      "HINDUNILVR.BO",
-      "INFY.BO",
-      "IRCTC.NS",
-      "IREDA.NS",
-      "ITC.BO",
-      "ITCHOTELS.BO",
-      "JWL.NS",
-      "KAMATHOTEL.NS",
-      "LICI.BO",
-      "LODHA.NS",
-      "M&M.NS",
-      "MAGADSUGAR.NS",
-      "MANKIND.NS",
-      "MAXHEALTH.BO",
-      "NEWGEN.BO",
-      "NHPC.BO",
-      "ONGC.BO",
-      "PRESTIGE.BO",
-      "PSB.BO",
-      "RELIANCE.NS",
-      "SBIN.NS",
-      "TATASTEEL.BO",
-      "TCS.BO",
-      "TMPV.BO",
-      "ULTRACEMCO.BO",
-      "VBL.NS",
-      "VMM.BO",
-      "WIPRO.BO"
-    ],
-    "priceSnapshot": {
-      "ABREL.BO": 1257.25,
-      "AMBUJACEM.BO": 392,
-      "BANDHANBNK.NS": 172.4,
-      "BDL.BO": 1020,
-      "BEL.BO": 396,
-      "BRITANNIA.BO": 4835.05,
-      "BSOFT.NS": 304.7,
-      "CASTROLIND.NS": 190.35,
-      "CENTRALBK.BO": 33.38,
-      "DIXON.NS": 13390,
-      "EXIDEIND.NS": 401.85,
-      "FIRSTCRY.BO": 168.75,
-      "GMRAIRPORT.BO": 102.53,
-      "GODREJCP.BO": 912,
-      "HAVELLS.BO": 1183.4,
-      "HCLTECH.BO": 1363,
-      "HDFCBANK.NS": 817.8,
-      "HINDUNILVR.BO": 2020.95,
-      "INFY.BO": 1104.1,
-      "IRCTC.NS": 447.2,
-      "IREDA.NS": 132.2,
-      "ITC.BO": 301,
-      "ITCHOTELS.BO": 184.1,
-      "JWL.NS": 185.39,
-      "KAMATHOTEL.NS": 224.81,
-      "LICI.BO": 408.6,
-      "LODHA.NS": 1219,
-      "M&M.NS": 3487.4,
-      "MAGADSUGAR.NS": 521.75,
-      "MANKIND.NS": 2615.1,
-      "MAXHEALTH.BO": 1086.6,
-      "NEWGEN.BO": 411.3,
-      "NHPC.BO": 75.3,
-      "ONGC.BO": 222.9,
-      "PRESTIGE.BO": 1682,
-      "PSB.BO": 22,
-      "RELIANCE.NS": 1351,
-      "SBIN.NS": 1132.65,
-      "TATASTEEL.BO": 163.25,
-      "TCS.BO": 2457.4,
-      "TMPV.BO": 259,
-      "ULTRACEMCO.BO": 12621.9,
-      "VBL.NS": 427.15,
-      "VMM.BO": 94.57,
-      "WIPRO.BO": 187.15
-    },
-    "searchTimestamp": "2026-11-23T22:14:32.557Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-24T03:01:01.979Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-23T22:14:32.557Z",
+      "asOf": "2026-11-24T03:01:01.979Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -174,10 +82,73 @@
         }
       ],
       "giftNifty": null,
-      "globalIndices": [],
-      "commodities": [],
-      "currencies": [],
-      "bondYield": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 49595.31,
+          "changePct": 3.0073953
+        },
+        {
+          "name": "NASDAQ",
+          "symbol": "^IXIC",
+          "ltp": 24089.559,
+          "changePct": 6.5073996
+        },
+        {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "ltp": 7237.17,
+          "changePct": 4.7288184
+        },
+        {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "ltp": 58675.79,
+          "changePct": 3.9675293
+        },
+        {
+          "name": "Hang Seng",
+          "symbol": "^HSI",
+          "ltp": 22439.76,
+          "changePct": 0.25026885
+        },
+        {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "ltp": 10480.82,
+          "changePct": 1.2997879
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 3637.6,
+          "changePct": -0.3779319
+        },
+        {
+          "name": "Silver",
+          "value": 42.665,
+          "changePct": -1.1809618
+        },
+        {
+          "name": "Crude Oil",
+          "value": 79.95,
+          "changePct": -0.27441838
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 92.9,
+          "changePct": 0
+        }
+      ],
+      "bondYield": {
+        "name": "India 10Y",
+        "value": 7.203,
+        "changeBps": 1
+      },
       "vix": {
         "value": 17.6975,
         "changePct": 2.1795642
@@ -499,23 +470,345 @@
           "changePct": -3.68
         }
       ],
-      "fiiDii": null,
-      "news": [],
-      "streetRecommendations": [],
-      "corporateActions": [],
-      "derivatives": null,
+      "fiiDii": {
+        "fiiNet": 5673,
+        "diiNet": -2760,
+        "unit": "crore",
+        "asOf": "2026-11-23"
+      },
+      "news": [
+        {
+          "category": "macro_policy",
+          "items": [
+            {
+              "headline": "India's Wholesale and Retail Inflation Exceed RBI Limits in October 2026",
+              "summary": "Wholesale price inflation rose to 12.29%, and retail inflation hit 6.09%, both above RBI's tolerance limits, leading to expectations of a 25 bps repo rate hike in December.",
+              "source": "Economic Times",
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "RBI Amends Securitisation Directions, Plans VRR Auction",
+              "summary": "RBI finalized securitisation direction amendments effective April 2027 and announced a \n₹50,000 crore one-day variable rate repo (VRR) auction for liquidity management.",
+              "source": "Livemint",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Indian Government to Integrate AI for Inclusive Public Benefit Delivery",
+              "summary": "Chief Secretary directed government agencies to integrate AI systems to ensure inclusive delivery of public benefits, emphasizing reform-driven growth.",
+              "source": "Business Standard",
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "global_cues",
+          "items": [
+            {
+              "headline": "Goldman Sachs Upgrades India to 'Overweight', Nifty Target 28,500 by Dec 2027",
+              "summary": "Goldman Sachs turned bullish on India, citing anticipated earnings growth, resilient domestic demand, and revival in FPI inflows, setting a Nifty target of 28,500.",
+              "source": "Reuters",
+              "tickers": [
+                "NIFTY.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "earnings",
+          "items": [
+            {
+              "headline": "Nomura Reports Strong 31% YoY Earnings Growth for Indian Companies in Q2FY27",
+              "summary": "Nomura's review of 264 BSE 200+ companies showed 31% YoY earnings growth, beating consensus by 14%, largely driven by the oil & gas sector.",
+              "source": "Moneycontrol",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Several Companies Set to Announce Q2 Results Today, November 24, 2026",
+              "summary": "Heads UP Ventures, Lexus Granito, Mitshi India, Natural Biocon, Starbeam Ventures, Wiscon Industries, Setco Automotive, SVA India, and M. K. Sons Fine Jewels are scheduled to announce quarterly results.",
+              "source": "BSE India",
+              "tickers": [
+                "HEADSUPV.NS",
+                "LEXUSG.NS",
+                "MITSHI.NS",
+                "NATURALBI.NS",
+                "STARBEAM.NS",
+                "WISCON.NS",
+                "SETCOAUTO.NS",
+                "SVAINDIA.NS",
+                "MKSONSFJ.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "sectoral",
+          "items": [
+            {
+              "headline": "Goldman Sachs Favors Domestic Cyclicals, Underweights IT and Healthcare",
+              "summary": "Goldman Sachs is 'Overweight' on banks, industrials, defense, utilities, telecom, and internet, while 'Underweight' on IT, healthcare, metals, cement, and chemicals, preferring domestic-facing sectors.",
+              "source": "Economic Times",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Axis Securities Bullish on Banking, Telecom, Capital Goods, and Select Auto Stocks",
+              "summary": "Axis Securities maintains an 'Overweight' stance on banking, telecom, capital goods, industrials, healthcare, pharma, and select auto stocks, also favoring mid-cap IT and consumer businesses.",
+              "source": "Financial Express",
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "corporate_actions",
+          "items": [
+            {
+              "headline": "APL Apollo Tubes to Acquire Tata Steel Colors and Tubes Business",
+              "summary": "APL Apollo Tubes received approval to acquire 100% equity of Tata Steel Colors Private Limited and the tubes business of Tata Steel Limited.",
+              "source": "Business Standard",
+              "tickers": [
+                "APLAPOLLO.NS",
+                "TATASTEEL.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Dalmia Bharat Board to Consider Equity Share Buy-back",
+              "summary": "Dalmia Bharat Ltd's board is scheduled to consider a buy-back of fully paid-up equity shares on November 23, 2026.",
+              "source": "Livemint",
+              "tickers": [
+                "DALBHARAT.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "Jefferies Recommends 'Buy' for TCI Express, Gateway Distriparks, Adani Green",
+              "summary": "Jefferies issued 'Buy' ratings for TCI Express (target \n₹770), Gateway Distriparks (target \n₹63), and Adani Green Energy (target \n₹1,695), citing strong upside potential.",
+              "source": "CNBC-TV18",
+              "tickers": [
+                "TCIEXP.NS",
+                "GDL.NS",
+                "ADANIGREEN.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Goldman Sachs Initiates 'Buy' on HDFC Bank, ICICI Bank, Zomato, and HAL",
+              "summary": "Goldman Sachs initiated 'Buy' ratings on several high-growth stocks including HDFC Bank, ICICI Bank, Zomato, and Hindustan Aeronautics, projecting strong EPS growth.",
+              "source": "Economic Times",
+              "tickers": [
+                "HDFCBANK.NS",
+                "ICICIBANK.NS",
+                "ZOMATO.NS",
+                "HAL.NS"
+              ],
+              "sentiment": "bullish"
+            }
+          ]
+        }
+      ],
+      "streetRecommendations": [
+        {
+          "ticker": "TCIEXP.NS",
+          "name": "TCI Express",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 770,
+          "rationale": "The company has an approximate 62% upside potential as of November 20, 2026."
+        },
+        {
+          "ticker": "GDL.NS",
+          "name": "Gateway Distriparks",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 63,
+          "rationale": "The company has an approximate 33% upside potential as of November 20, 2026."
+        },
+        {
+          "ticker": "ADANIGREEN.NS",
+          "name": "Adani Green Energy",
+          "brokerage": "Jefferies",
+          "action": "buy",
+          "target": 1695,
+          "rationale": "Based on the company's growth trajectory in renewable energy."
+        },
+        {
+          "ticker": "LUPIN.NS",
+          "name": "Lupin Ltd.",
+          "brokerage": "Nomura",
+          "action": "buy",
+          "target": 2780,
+          "rationale": "Target price raised from \n₹2,675, indicating a 41% upside."
+        },
+        {
+          "ticker": "AVALON.NS",
+          "name": "Avalon Technologies",
+          "brokerage": "Nomura",
+          "action": "buy",
+          "target": 2580,
+          "rationale": "Revised target price, indicating a 27% upside."
+        },
+        {
+          "ticker": "UNOMINDA.NS",
+          "name": "Uno Minda",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 1560,
+          "rationale": "Implies an 18% upside."
+        },
+        {
+          "ticker": "IIFL.NS",
+          "name": "IIFL Finance",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 850,
+          "rationale": "Implies a 25% upside."
+        },
+        {
+          "ticker": "EQUITASBNK.NS",
+          "name": "Equitas Small Finance Bank",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 75,
+          "rationale": "Implies a 30% upside."
+        },
+        {
+          "ticker": "BSE.NS",
+          "name": "BSE",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 3700,
+          "rationale": "Recommended as a 'Buy' call for November 2, 2026."
+        }
+      ],
+      "corporateActions": [
+        {
+          "ticker": "Heads UP Ventures Limited",
+          "name": "Heads UP Ventures Limited",
+          "type": "results",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Lexus Granito (India) Limited",
+          "name": "Lexus Granito (India) Limited",
+          "type": "results",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "M. K. Sons Fine Jewels Limited",
+          "name": "M. K. Sons Fine Jewels Limited",
+          "type": "results",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Setco Automotive Limited",
+          "name": "Setco Automotive Limited",
+          "type": "results",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Siemens Energy India Limited",
+          "name": "Siemens Energy India Limited",
+          "type": "results",
+          "date": "2026-11-25"
+        },
+        {
+          "ticker": "Siemens Energy India Limited",
+          "name": "Siemens Energy India Limited",
+          "type": "dividend",
+          "date": "2026-11-25"
+        },
+        {
+          "ticker": "Bombay Coated and Special Steels Limited",
+          "name": "Bombay Coated and Special Steels Limited",
+          "type": "results",
+          "date": "2026-11-23"
+        },
+        {
+          "ticker": "Biocon Limited",
+          "name": "Biocon Limited",
+          "type": "results",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Pashupati Cotspin Limited",
+          "name": "Pashupati Cotspin Limited",
+          "type": "dividend",
+          "date": "2026-11-23"
+        },
+        {
+          "ticker": "Vraj Iron and Steel Limited",
+          "name": "Vraj Iron and Steel Limited",
+          "type": "dividend",
+          "date": "2026-11-25"
+        },
+        {
+          "ticker": "Fusion CX Limited",
+          "name": "Fusion CX Limited",
+          "type": "dividend",
+          "date": "2026-11-27"
+        },
+        {
+          "ticker": "Varvee Global Limited",
+          "name": "Varvee Global Limited",
+          "type": "split",
+          "date": "2026-11-27"
+        },
+        {
+          "ticker": "Interarch Building Solutions Limited",
+          "name": "Interarch Building Solutions Limited",
+          "type": "split",
+          "date": "2026-11-30"
+        },
+        {
+          "ticker": "Starbeam Ventures",
+          "name": "Starbeam Ventures",
+          "type": "results",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Starbeam Ventures",
+          "name": "Starbeam Ventures",
+          "type": "agm",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Sansera Engineering Ltd",
+          "name": "Sansera Engineering Ltd",
+          "type": "agm",
+          "date": "2026-11-24"
+        },
+        {
+          "ticker": "Innovators Facade Systems Ltd",
+          "name": "Innovators Facade Systems Ltd",
+          "type": "agm",
+          "date": "2026-11-25"
+        }
+      ],
+      "derivatives": {
+        "pcrOi": 0.7,
+        "pcrVolume": null,
+        "callVolumePct": null,
+        "putVolumePct": null,
+        "asOf": "2026-11-23"
+      },
       "sentiment": {
-        "composite": 27,
-        "regime": "Fear",
-        "session": "closing",
-        "asOf": "2026-11-23T22:14:32.557Z",
-        "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
+        "composite": 52,
+        "regime": "Neutral",
+        "session": "morning",
+        "asOf": "2026-11-24T03:01:01.979Z",
+        "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
         "categories": {
           "breadth": {
             "score": 11,
             "regime": "Extreme Fear",
             "label": "Breadth & Price Action",
-            "weight": 0.34,
+            "weight": 0.25,
             "summary": "Pervasive market distribution (44 Declines vs 13 Advances, A/D 0.30)",
             "metrics": {
               "adRatio": 0.3,
@@ -527,48 +820,56 @@
             }
           },
           "flows": {
-            "score": 50,
-            "regime": "Neutral",
+            "score": 95,
+            "regime": "Extreme Greed",
             "label": "Institutional Flows",
-            "weight": 0.33,
-            "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+            "weight": 0.25,
+            "summary": "Strong institutional accumulation (FII: +₹5,673 Cr)",
             "metrics": {
-              "fiiNet": 0,
-              "diiNet": 0,
-              "totalNet": 0,
-              "asOf": null
+              "fiiNet": 5673,
+              "diiNet": -2760,
+              "totalNet": 2913,
+              "asOf": "2026-11-23"
             }
           },
           "volatility": {
             "score": 21,
             "regime": "Extreme Fear",
             "label": "Volatility & Risk Appetite",
-            "weight": 0.33,
+            "weight": 0.25,
             "summary": "Elevated volatility & systemic risk (India VIX at 17.70, +2.2%)",
             "metrics": {
               "vix": 17.6975,
               "vixChangePct": 2.1795642,
-              "goldChangePct": 0,
+              "goldChangePct": -0.3779319,
               "usdinrChangePct": 0
             }
           },
           "derivatives": {
-            "score": 50,
-            "regime": "Neutral",
+            "score": 80,
+            "regime": "Extreme Greed",
             "label": "Derivatives & Options Skew",
-            "weight": 0,
-            "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+            "weight": 0.25,
+            "summary": "Complacent call-dominated options posture (Nifty PCR low at 0.70, froth elevated)",
             "metrics": {
-              "pcrOi": null,
+              "pcrOi": 0.7,
               "pcrVolume": null,
-              "available": "pending"
+              "callVolumePct": null,
+              "putVolumePct": null
             }
           }
         }
       }
     },
-    "outlook": "Market session concluded on 2026-11-24. Portfolio surveillance and risk screening complete.",
-    "keyTakeaways": [],
+    "outlook": "The Indian market witnessed a broad-based correction with NIFTY 50 and SENSEX both declining by approximately 1.75%. Banking and Metal sectors were significant underperformers, while the IT sector displayed notable resilience. Negative market breadth indicates widespread selling pressure, suggesting a cautious start to the day.",
+    "keyTakeaways": [
+      "NIFTY 50 and SENSEX both closed down around 1.75%.",
+      "NIFTY BANK experienced a sharp decline of 3.17%, with IndusInd Bank and Axis Bank among top losers.",
+      "NIFTY IT was a standout performer, gaining 1.69%, driven by TCS, TechM, and HCLTech.",
+      "NIFTY METAL suffered the largest sectoral fall, down 3.68%, led by Tata Steel's 8.4% drop.",
+      "Market breadth was heavily skewed towards declines with 13 advances and 44 declines.",
+      "FIIs were net buyers with 5673cr, while DIIs were net sellers at -2760cr."
+    ],
     "retro": {
       "date": "2026-11-24",
       "evaluated": [
@@ -921,5 +1222,5 @@
     }
   },
   "emailSent": true,
-  "checksum": "sha256:84c2380175553e007751da3183b86bcdaf2682e94eb98d56a34354eed237f8e5"
+  "checksum": "sha256:7cd6e935e0f93a871e9c5ac35f130a0fc9564aa4ba78417f4780672cafbdf42d"
 }
