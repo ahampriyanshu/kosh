@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-24T20:52:51.744Z",
+  "asOf": "2026-11-25T03:01:12.235Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,10 +70,73 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
-  "bondYield": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 50018.7,
+      "changePct": 0.85369086
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 23733.535,
+      "changePct": -1.477916
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7201.09,
+      "changePct": -0.4985385
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 56710.43,
+      "changePct": -3.2981694
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 22454.77,
+      "changePct": 1.0581081
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10467.07,
+      "changePct": -0.13099661
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 3552.7,
+      "changePct": -0.25828776
+    },
+    {
+      "name": "Silver",
+      "value": 40.605,
+      "changePct": -0.43401977
+    },
+    {
+      "name": "Crude Oil",
+      "value": 80.79,
+      "changePct": -1.5356516
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 92.9,
+      "changePct": 0
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 7.203,
+    "changeBps": 2
+  },
   "vix": {
     "value": 17.6975,
     "changePct": 2.1795642
@@ -395,23 +458,229 @@
       "changePct": -3.68
     }
   ],
-  "fiiDii": null,
-  "news": [],
-  "streetRecommendations": [],
-  "corporateActions": [],
-  "derivatives": null,
+  "fiiDii": {
+    "fiiNet": 5672.99,
+    "diiNet": -2760.12,
+    "unit": "crore",
+    "asOf": "2026-11-23"
+  },
+  "news": [
+    {
+      "category": "macro_policy",
+      "items": [
+        {
+          "headline": "Goldman Sachs upgrades Indian equities to \"Overweight,\" Nifty 50 target at 28,500 by Dec 2027",
+          "summary": "Goldman Sachs cites an expected earnings growth of 15% in calendar years 2027 and 2028, resilient domestic demand, and renewed foreign investment. They project the Nifty 50 to reach 28,500 by December 2027, with real GDP growth moderating slightly to 7.2% in 2027 from 7.9% in 2026.",
+          "source": "Goldman Sachs",
+          "tickers": [
+            "NIFTY50.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "India's weight in MSCI Emerging Markets index rises, further increases expected",
+          "summary": "Axis Capital noted a rise in India's weight in the MSCI Emerging Markets index by 400 basis points since October 1st, reaching 14.7%, with further increases expected in the coming weeks.",
+          "source": "Axis Capital",
+          "sentiment": "bullish"
+        }
+      ]
+    },
+    {
+      "category": "global_cues",
+      "items": [
+        {
+          "headline": "Indian markets poised for a gap-up opening despite mixed global cues",
+          "summary": "GIFT Nifty futures indicate a positive start for Indian equities, contrasting with lower Asian markets that mirrored Wall Street's weakness due to a sell-off in US technology shares like Nvidia. Crude oil prices have recovered, and the Indian Rupee remains stable.",
+          "source": "Economic Times",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "earnings",
+      "items": [
+        {
+          "headline": "Q2FY27 earnings season resilient with strong growth, Nomura reports",
+          "summary": "Nomura's review of 264 companies in the BSE 200+ universe for Q2FY27 revealed a 31% year-on-year earnings growth, surpassing Bloomberg consensus estimates by 14%, though core margins hit a four-year low. The oil and gas sector was a significant contributor to the overall earnings beat.",
+          "source": "Nomura",
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Several companies to announce Q2FY27 results today, November 25, 2026",
+          "summary": "Anya Polytech & Fertilizers, Simbhaoli Sugars, Ajwa Projects, Siemens Energy India (audited results and final dividend), RBM Infracon, and Pulsar International are scheduled to announce their quarterly and half-yearly results today.",
+          "source": "Livemint",
+          "tickers": [
+            "SIEMENS.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "sectoral",
+      "items": [
+        {
+          "headline": "IT and realty sectors see buying interest; banking and metal face selling pressure",
+          "summary": "On Monday, the IT and realty sectors experienced buying interest in the market. Conversely, banking and metal sectors faced selling pressure during the same period.",
+          "source": "Moneycontrol",
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Goldman Sachs overweight on banks, industrials, defense; underweight on IT, healthcare",
+          "summary": "Goldman Sachs holds an \"Overweight\" stance on banks, industrials, defense, utilities, telecom, and the internet sectors. They maintain an \"Underweight\" position on information technology, healthcare, metals, cement, and chemicals.",
+          "source": "Goldman Sachs",
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "corporate_actions",
+      "items": [
+        {
+          "headline": "Arvind expands manufacturing capabilities; Sterling and Wilson secure new energy projects",
+          "summary": "Arvind is enhancing its manufacturing capabilities by integrating 3D weaving technology. Separately, Sterling and Wilson have successfully secured three new renewable energy projects.",
+          "source": "Business Standard",
+          "tickers": [
+            "ARVIND.NS",
+            "SWSOLAR.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "3B BlackBio Dx to acquire Epistem Limited; Tata Steel undergoes business restructuring",
+          "summary": "3B BlackBio Dx is set to acquire UK-based Epistem Limited for £723,000. Additionally, Tata Steel plans to maintain its EBITDA per tonne through the acquisition of downstream assets from APL Apollo, an announcement that led to APL Apollo Tubes shares falling 22% and Tata Steel slumping 10%.",
+          "source": "Economic Times",
+          "tickers": [
+            "TATASTEEL.NS",
+            "APLAPOLLO.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    },
+    {
+      "category": "stocks_in_focus",
+      "items": [
+        {
+          "headline": "Adani Energy Solutions subsidiary secures 1,750 MW renewable energy order",
+          "summary": "Adani Energy Solutions (AESL) subsidiary, Powerpulse Trading Solutions Ltd., has secured an order from West Bengal State Electricity Distribution Co. Ltd. to supply 1,750 MW of round-the-clock renewable energy for a period of 25 years.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "AESL.NS"
+          ],
+          "sentiment": "bullish"
+        },
+        {
+          "headline": "Tata Motors PV and Hyundai Motor India to raise vehicle prices",
+          "summary": "Both Tata Motors PV and Hyundai Motor India are planning to increase their vehicle prices. This move is aimed at offsetting the rising input costs they are currently facing.",
+          "source": "Reuters",
+          "tickers": [
+            "TATAMOTORS.NS"
+          ],
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  ],
+  "streetRecommendations": [
+    {
+      "ticker": "TCIEXP.NS",
+      "name": "TCI Express",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 770,
+      "rationale": "The recommendation is based on the company's ongoing capacity expansion initiatives and improving operating performance."
+    },
+    {
+      "ticker": "BHARTIHEXA.NS",
+      "name": "Bharti Hexacom",
+      "brokerage": "Jefferies",
+      "action": "buy",
+      "target": 2080,
+      "rationale": "Bharti Hexacom demonstrated the strongest revenue growth among leading telecom operators in the September 2026 quarter."
+    },
+    {
+      "ticker": "UNOMINDA.NS",
+      "name": "Uno Minda",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1560,
+      "rationale": "The company exhibited strong Q2FY27 performance with broad-based growth and is expected to benefit from new project launches."
+    },
+    {
+      "ticker": "GABRIEL.NS",
+      "name": "Gabriel India",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1664,
+      "rationale": "Strong Q2FY27 performance, healthy festive demand, and strategic acquisitions are strengthening the company's market presence."
+    },
+    {
+      "ticker": "TATACONSUM.NS",
+      "name": "Tata Consumer Products",
+      "brokerage": "Motilal Oswal",
+      "action": "buy",
+      "target": 1330,
+      "rationale": "The company is expected to sustain growth momentum through portfolio strengthening, premiumization, and a focus on health & wellness."
+    },
+    {
+      "ticker": "ONGC.NS",
+      "name": "ONGC",
+      "brokerage": "Kotak Institutional Equities",
+      "action": "buy",
+      "target": 355,
+      "rationale": "ONGC has the highest indicated upside among Nifty 50 stocks, with a significant potential gain to its fair value estimate."
+    },
+    {
+      "ticker": "STLTECH.NS",
+      "name": "Sterlite Technologies",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 1350,
+      "rationale": "The recommendation is driven by strong demand for optical and digital connectivity infrastructure, including data-center connectivity solutions."
+    },
+    {
+      "ticker": "JINDALSTEL.NS",
+      "name": "Jindal Steel & Power",
+      "brokerage": "Nomura",
+      "action": "buy",
+      "target": 1300,
+      "rationale": "Jindal Steel's Q2FY27 consolidated EBITDA beat Nomura's estimate, indicating stronger-than-expected financial performance."
+    }
+  ],
+  "corporateActions": [
+    {
+      "ticker": "Vraj Iron and Steel",
+      "name": "Vraj Iron and Steel",
+      "type": "dividend",
+      "date": "2026-11-25"
+    },
+    {
+      "ticker": "Fusion CX",
+      "name": "Fusion CX",
+      "type": "dividend",
+      "date": "2026-11-27"
+    }
+  ],
+  "derivatives": {
+    "pcrOi": 0.74,
+    "pcrVolume": 1.18,
+    "callVolumePct": 45.885,
+    "putVolumePct": 54.115,
+    "asOf": "2026-11-23"
+  },
   "sentiment": {
-    "composite": 27,
-    "regime": "Fear",
-    "session": "closing",
-    "asOf": "2026-11-24T20:52:51.744Z",
-    "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
+    "composite": 50,
+    "regime": "Neutral",
+    "session": "morning",
+    "asOf": "2026-11-25T03:01:12.235Z",
+    "summary": "Equilibrium regime: balanced cash market participation and calm volatility as participants await fresh directional catalysts.",
     "categories": {
       "breadth": {
         "score": 11,
         "regime": "Extreme Fear",
         "label": "Breadth & Price Action",
-        "weight": 0.34,
+        "weight": 0.25,
         "summary": "Pervasive market distribution (44 Declines vs 13 Advances, A/D 0.30)",
         "metrics": {
           "adRatio": 0.3,
@@ -423,41 +692,42 @@
         }
       },
       "flows": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 95,
+        "regime": "Extreme Greed",
         "label": "Institutional Flows",
-        "weight": 0.33,
-        "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+        "weight": 0.25,
+        "summary": "Strong institutional accumulation (FII: +₹5,672.99 Cr)",
         "metrics": {
-          "fiiNet": 0,
-          "diiNet": 0,
-          "totalNet": 0,
-          "asOf": null
+          "fiiNet": 5672.99,
+          "diiNet": -2760.12,
+          "totalNet": 2912.87,
+          "asOf": "2026-11-23"
         }
       },
       "volatility": {
         "score": 21,
         "regime": "Extreme Fear",
         "label": "Volatility & Risk Appetite",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Elevated volatility & systemic risk (India VIX at 17.70, +2.2%)",
         "metrics": {
           "vix": 17.6975,
           "vixChangePct": 2.1795642,
-          "goldChangePct": 0,
+          "goldChangePct": -0.25828776,
           "usdinrChangePct": 0
         }
       },
       "derivatives": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 71,
+        "regime": "Greed",
         "label": "Derivatives & Options Skew",
-        "weight": 0,
-        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "weight": 0.25,
+        "summary": "Complacent call-dominated options posture (Nifty PCR low at 0.74, froth elevated)",
         "metrics": {
-          "pcrOi": null,
-          "pcrVolume": null,
-          "available": "pending"
+          "pcrOi": 0.74,
+          "pcrVolume": 1.18,
+          "callVolumePct": 45.885,
+          "putVolumePct": 54.115
         }
       }
     }
