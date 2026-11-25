@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-25T10:16:18.342Z",
+  "asOf": "2026-11-25T11:43:57.210Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -92,50 +92,50 @@
     {
       "name": "Nikkei 225",
       "symbol": "^N225",
-      "ltp": 56710.43,
-      "changePct": -3.2981694
+      "ltp": 57011.62,
+      "changePct": -2.7845821
     },
     {
       "name": "Hang Seng",
       "symbol": "^HSI",
-      "ltp": 22454.77,
-      "changePct": 1.0581081
+      "ltp": 21966.01,
+      "changePct": -1.1415149
     },
     {
       "name": "FTSE 100",
       "symbol": "^FTSE",
-      "ltp": 10467.07,
-      "changePct": -0.13099661
+      "ltp": 10493.85,
+      "changePct": 0.25584328
     }
   ],
   "commodities": [
     {
       "name": "Gold",
-      "value": 3552.7,
-      "changePct": -0.25828776
+      "value": 3546.4,
+      "changePct": -1.2447493
     },
     {
       "name": "Silver",
-      "value": 40.605,
-      "changePct": -0.43401977
+      "value": 40.35,
+      "changePct": -2.1865618
     },
     {
       "name": "Crude Oil",
-      "value": 80.79,
-      "changePct": -1.5356516
+      "value": 81.6,
+      "changePct": -0.5484516
     }
   ],
   "currencies": [
     {
       "pair": "USD/INR",
-      "value": 92.9,
-      "changePct": 0
+      "value": 92.22,
+      "changePct": -0.7319702
     }
   ],
   "bondYield": {
     "name": "India 10Y",
     "value": 7.203,
-    "changeBps": 2
+    "changeBps": 0
   },
   "vix": {
     "value": 17.6975,
@@ -406,8 +406,8 @@
       "ticker": "DABUR.NS",
       "name": "Dabur India",
       "volume": 17376201,
-      "avgVolume": 2004810,
-      "ratio": 8.67
+      "avgVolume": 1983191,
+      "ratio": 8.76
     },
     {
       "ticker": "BAJAJFINSV.NS",
@@ -420,8 +420,8 @@
       "ticker": "TATASTEEL.NS",
       "name": "Tata Steel",
       "volume": 134579457,
-      "avgVolume": 28077985,
-      "ratio": 4.79
+      "avgVolume": 28135361,
+      "ratio": 4.78
     },
     {
       "ticker": "HINDUNILVR.NS",
@@ -434,8 +434,8 @@
       "ticker": "CIPLA.NS",
       "name": "Cipla",
       "volume": 2837239,
-      "avgVolume": 1126159,
-      "ratio": 2.52
+      "avgVolume": 1131518,
+      "ratio": 2.51
     },
     {
       "ticker": "HDFCLIFE.NS",
@@ -469,8 +469,8 @@
       "ticker": "HINDALCO.NS",
       "name": "Hindalco Industries",
       "volume": 10170575,
-      "avgVolume": 4808539,
-      "ratio": 2.12
+      "avgVolume": 4830067,
+      "ratio": 2.11
     }
   ],
   "sectorRanking": [
@@ -512,8 +512,8 @@
     }
   ],
   "fiiDii": {
-    "fiiNet": 5672.99,
-    "diiNet": -2760.12,
+    "fiiNet": 5673,
+    "diiNet": -2760,
     "unit": "crore",
     "asOf": "2026-11-23"
   },
@@ -522,19 +522,18 @@
       "category": "macro_policy",
       "items": [
         {
-          "headline": "Goldman Sachs upgrades Indian equities to \"Overweight,\" Nifty 50 target at 28,500 by Dec 2027",
-          "summary": "Goldman Sachs cites an expected earnings growth of 15% in calendar years 2027 and 2028, resilient domestic demand, and renewed foreign investment. They project the Nifty 50 to reach 28,500 by December 2027, with real GDP growth moderating slightly to 7.2% in 2027 from 7.9% in 2026.",
-          "source": "Goldman Sachs",
-          "tickers": [
-            "NIFTY50.NS"
-          ],
+          "headline": "Lower Crude Prices Bolster India's Inflation Outlook and Rupee Stability",
+          "summary": "Reduced global crude oil prices are acting as a significant positive catalyst for India, helping to manage inflation and improve the country's external balance. Measures by the Reserve Bank of India to support foreign exchange have further strengthened the rupee.",
+          "source": "Economic Times",
+          "tickers": [],
           "sentiment": "bullish"
         },
         {
-          "headline": "India's weight in MSCI Emerging Markets index rises, further increases expected",
-          "summary": "Axis Capital noted a rise in India's weight in the MSCI Emerging Markets index by 400 basis points since October 1st, reaching 14.7%, with further increases expected in the coming weeks.",
-          "source": "Axis Capital",
-          "sentiment": "bullish"
+          "headline": "Global Investors Await US PCE Inflation Data for Fed Policy Direction",
+          "summary": "International markets are keenly watching the upcoming US Personal Consumption Expenditures (PCE) inflation release. This key economic indicator is expected to provide crucial insights into the inflation trajectory and will likely influence the US Federal Reserve's future monetary policy decisions.",
+          "source": "Reuters",
+          "tickers": [],
+          "sentiment": "neutral"
         }
       ]
     },
@@ -542,10 +541,18 @@
       "category": "global_cues",
       "items": [
         {
-          "headline": "Indian markets poised for a gap-up opening despite mixed global cues",
-          "summary": "GIFT Nifty futures indicate a positive start for Indian equities, contrasting with lower Asian markets that mirrored Wall Street's weakness due to a sell-off in US technology shares like Nvidia. Crude oil prices have recovered, and the Indian Rupee remains stable.",
-          "source": "Economic Times",
-          "sentiment": "neutral"
+          "headline": "Asian Markets Fall Amid AI Stock Sell-off and US Tariff Concerns",
+          "summary": "Global markets exhibited a mixed to weak performance, with Asian indices like South Korea's Kospi, Japan's Nikkei, China's Shanghai Composite, and Hong Kong's Hang Seng broadly declining. This downturn was primarily driven by a renewed sell-off in AI-related stocks and lingering concerns over potential US tariffs.",
+          "source": "Livemint",
+          "tickers": [],
+          "sentiment": "bearish"
+        },
+        {
+          "headline": "Global Capital Shifts from AI to Indian Equities, Boosting Market Resilience",
+          "summary": "A notable trend in global capital flows indicates a rotation away from markets heavily invested in Artificial Intelligence (AI) and towards Indian equities. This strategic shift is contributing significantly to India's market resilience and positive sentiment despite weaker global cues.",
+          "source": "Moneycontrol",
+          "tickers": [],
+          "sentiment": "bullish"
         }
       ]
     },
@@ -553,19 +560,13 @@
       "category": "earnings",
       "items": [
         {
-          "headline": "Q2FY27 earnings season resilient with strong growth, Nomura reports",
-          "summary": "Nomura's review of 264 companies in the BSE 200+ universe for Q2FY27 revealed a 31% year-on-year earnings growth, surpassing Bloomberg consensus estimates by 14%, though core margins hit a four-year low. The oil and gas sector was a significant contributor to the overall earnings beat.",
-          "source": "Nomura",
-          "sentiment": "bullish"
-        },
-        {
-          "headline": "Several companies to announce Q2FY27 results today, November 25, 2026",
-          "summary": "Anya Polytech & Fertilizers, Simbhaoli Sugars, Ajwa Projects, Siemens Energy India (audited results and final dividend), RBM Infracon, and Pulsar International are scheduled to announce their quarterly and half-yearly results today.",
-          "source": "Livemint",
+          "headline": "South Indian Bank Reports 21% Net Profit Surge in Q2 FY27",
+          "summary": "South Indian Bank announced a robust financial performance for the second quarter of fiscal year 2027, with its net profit increasing by 21% year-on-year, reaching \b426 crore. This marks a strong showing in the ongoing Q2FY27 earnings season.",
+          "source": "Business Standard",
           "tickers": [
-            "SIEMENS.NS"
+            "SOUTHBANK.NS"
           ],
-          "sentiment": "neutral"
+          "sentiment": "bullish"
         }
       ]
     },
@@ -573,16 +574,18 @@
       "category": "sectoral",
       "items": [
         {
-          "headline": "IT and realty sectors see buying interest; banking and metal face selling pressure",
-          "summary": "On Monday, the IT and realty sectors experienced buying interest in the market. Conversely, banking and metal sectors faced selling pressure during the same period.",
-          "source": "Moneycontrol",
-          "sentiment": "neutral"
+          "headline": "Nifty FMCG Leads Sectoral Gains, Bank Nifty Also Trades Higher",
+          "summary": "The Nifty FMCG sector emerged as a top performer among Indian sectoral indices, recording significant gains. The Bank Nifty and Nifty Financial Services also traded in positive territory, contributing to the overall market's strong opening.",
+          "source": "Economic Times",
+          "tickers": [],
+          "sentiment": "bullish"
         },
         {
-          "headline": "Goldman Sachs overweight on banks, industrials, defense; underweight on IT, healthcare",
-          "summary": "Goldman Sachs holds an \"Overweight\" stance on banks, industrials, defense, utilities, telecom, and the internet sectors. They maintain an \"Underweight\" position on information technology, healthcare, metals, cement, and chemicals.",
-          "source": "Goldman Sachs",
-          "sentiment": "neutral"
+          "headline": "Nifty Metal and Realty Sectors Experience Declines",
+          "summary": "While most Indian sectoral indices traded positively, the Nifty Metal and Nifty Realty sectors were exceptions, both closing in negative territory. This indicates selective pressure on commodity-linked and real estate stocks.",
+          "source": "Moneycontrol",
+          "tickers": [],
+          "sentiment": "bearish"
         }
       ]
     },
@@ -590,22 +593,30 @@
       "category": "corporate_actions",
       "items": [
         {
-          "headline": "Arvind expands manufacturing capabilities; Sterling and Wilson secure new energy projects",
-          "summary": "Arvind is enhancing its manufacturing capabilities by integrating 3D weaving technology. Separately, Sterling and Wilson have successfully secured three new renewable energy projects.",
-          "source": "Business Standard",
+          "headline": "Tata Steel Divests Tube and Coated Steel Businesses to APL Apollo Tubes",
+          "summary": "Tata Steel has announced two significant divestment transactions, selling its tubes and metal and coated steel businesses to APL Apollo Tubes. This strategic move aims to streamline Tata Steel's operations and focus on core areas.",
+          "source": "Livemint",
           "tickers": [
-            "ARVIND.NS",
-            "SWSOLAR.NS"
+            "TATASTEEL.NS",
+            "APLAPOLLO.NS"
+          ],
+          "sentiment": "neutral"
+        },
+        {
+          "headline": "Jupiter Wagons Forms JV with Woojin Industrial Systems for Metro Trains",
+          "summary": "Jupiter Wagons has signed a framework agreement with South Korea's Woojin Industrial Systems to establish a joint venture. The collaboration focuses on manufacturing metro trains and propulsion systems within India, signaling expansion into new rail segments.",
+          "source": "Moneycontrol",
+          "tickers": [
+            "JUPITERWAGN.NS"
           ],
           "sentiment": "bullish"
         },
         {
-          "headline": "3B BlackBio Dx to acquire Epistem Limited; Tata Steel undergoes business restructuring",
-          "summary": "3B BlackBio Dx is set to acquire UK-based Epistem Limited for £723,000. Additionally, Tata Steel plans to maintain its EBITDA per tonne through the acquisition of downstream assets from APL Apollo, an announcement that led to APL Apollo Tubes shares falling 22% and Tata Steel slumping 10%.",
+          "headline": "Tata Motors Announces 0.5% Price Hike for Passenger Vehicles from December 1",
+          "summary": "Tata Motors has declared an average price increase of 0.5% across its passenger vehicle range, set to take effect from December 1. This adjustment is likely in response to rising input costs and aims to maintain profitability.",
           "source": "Economic Times",
           "tickers": [
-            "TATASTEEL.NS",
-            "APLAPOLLO.NS"
+            "TATAMOTORS.NS"
           ],
           "sentiment": "neutral"
         }
@@ -615,50 +626,33 @@
       "category": "stocks_in_focus",
       "items": [
         {
-          "headline": "Adani Energy Solutions subsidiary secures 1,750 MW renewable energy order",
-          "summary": "Adani Energy Solutions (AESL) subsidiary, Powerpulse Trading Solutions Ltd., has secured an order from West Bengal State Electricity Distribution Co. Ltd. to supply 1,750 MW of round-the-clock renewable energy for a period of 25 years.",
-          "source": "Moneycontrol",
-          "tickers": [
-            "AESL.NS"
-          ],
+          "headline": "Indian Benchmark Indices Sensex and Nifty Open Sharply Higher",
+          "summary": "Defying weaker global trends, Indian benchmark indices, Sensex and Nifty, opened and traded sharply higher on Wednesday, November 25, 2026. This strong opening added substantial market capitalization, indicating robust domestic investor confidence.",
+          "source": "Economic Times",
+          "tickers": [],
           "sentiment": "bullish"
         },
         {
-          "headline": "Tata Motors PV and Hyundai Motor India to raise vehicle prices",
-          "summary": "Both Tata Motors PV and Hyundai Motor India are planning to increase their vehicle prices. This move is aimed at offsetting the rising input costs they are currently facing.",
-          "source": "Reuters",
+          "headline": "HFCL and Sterlite Technologies Shares Drop on AI Data Center Spending Concerns",
+          "summary": "Shares of telecom equipment providers HFCL and Sterlite Technologies experienced declines amidst growing concerns over potential slowdowns in AI data center spending. Investors fear that reduced investments in this area could impact future orders and revenues for these companies.",
+          "source": "Livemint",
           "tickers": [
-            "TATAMOTORS.NS"
+            "HFCL.NS",
+            "STLTECH.NS"
           ],
-          "sentiment": "neutral"
+          "sentiment": "bearish"
         }
       ]
     }
   ],
   "streetRecommendations": [
     {
-      "ticker": "TCIEXP.NS",
-      "name": "TCI Express",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 770,
-      "rationale": "The recommendation is based on the company's ongoing capacity expansion initiatives and improving operating performance."
-    },
-    {
-      "ticker": "BHARTIHEXA.NS",
-      "name": "Bharti Hexacom",
-      "brokerage": "Jefferies",
-      "action": "buy",
-      "target": 2080,
-      "rationale": "Bharti Hexacom demonstrated the strongest revenue growth among leading telecom operators in the September 2026 quarter."
-    },
-    {
       "ticker": "UNOMINDA.NS",
       "name": "Uno Minda",
       "brokerage": "Motilal Oswal",
       "action": "buy",
       "target": 1560,
-      "rationale": "The company exhibited strong Q2FY27 performance with broad-based growth and is expected to benefit from new project launches."
+      "rationale": "The 'Buy' rating is driven by strong Q2FY27 results, broad-based growth, and anticipated benefits from upcoming new project launches and capacity expansion."
     },
     {
       "ticker": "GABRIEL.NS",
@@ -666,68 +660,89 @@
       "brokerage": "Motilal Oswal",
       "action": "buy",
       "target": 1664,
-      "rationale": "Strong Q2FY27 performance, healthy festive demand, and strategic acquisitions are strengthening the company's market presence."
+      "rationale": "The recommendation is based on strong Q2FY27 performance, healthy festive demand, and strategic acquisitions and joint ventures positioning the company for growth."
     },
     {
-      "ticker": "TATACONSUM.NS",
-      "name": "Tata Consumer Products",
+      "ticker": "APLAPOLLO.NS",
+      "name": "APL Apollo Tubes",
       "brokerage": "Motilal Oswal",
       "action": "buy",
-      "target": 1330,
-      "rationale": "The company is expected to sustain growth momentum through portfolio strengthening, premiumization, and a focus on health & wellness."
+      "target": 2220,
+      "rationale": "The 'Buy' rating is maintained with a significant upside potential, primarily due to the proposed acquisition of Tata Steel's tubes and coated steel businesses, which is seen as a major catalyst."
     },
     {
-      "ticker": "ONGC.NS",
-      "name": "ONGC",
-      "brokerage": "Kotak Institutional Equities",
+      "ticker": "NSE.NS",
+      "name": "National Stock Exchange",
+      "brokerage": "ICICI Securities",
       "action": "buy",
-      "target": 355,
-      "rationale": "ONGC has the highest indicated upside among Nifty 50 stocks, with a significant potential gain to its fair value estimate."
+      "target": 2650,
+      "rationale": "ICICI Securities initiated a 'Buy' rating, highlighting NSE's dominant market position, significant growth headroom, and projected profit growth driven by increasing participation from younger investors."
     },
     {
-      "ticker": "STLTECH.NS",
-      "name": "Sterlite Technologies",
-      "brokerage": "Nomura",
+      "ticker": "WELCORP.NS",
+      "name": "Welspun Corp",
+      "brokerage": "Jefferies",
       "action": "buy",
-      "target": 1350,
-      "rationale": "The recommendation is driven by strong demand for optical and digital connectivity infrastructure, including data-center connectivity solutions."
+      "target": 3250,
+      "rationale": "Jefferies reiterated its 'Buy' rating, citing robust growth potential supported by a strong order book, ongoing capacity expansion, and increasing demand from key international markets like the US and Middle East."
     },
     {
-      "ticker": "JINDALSTEL.NS",
-      "name": "Jindal Steel & Power",
-      "brokerage": "Nomura",
+      "ticker": "ICICIBANK.NS",
+      "name": "ICICI Bank",
+      "brokerage": "Jefferies",
       "action": "buy",
-      "target": 1300,
-      "rationale": "Jindal Steel's Q2FY27 consolidated EBITDA beat Nomura's estimate, indicating stronger-than-expected financial performance."
+      "target": 1880,
+      "rationale": "ICICI Bank is a preferred large-cap banking stock due to its lower exposure to riskier lending segments, which positions it for sustained growth and resilience."
+    },
+    {
+      "ticker": "KOTAKBANK.NS",
+      "name": "Kotak Mahindra Bank",
+      "brokerage": "Goldman Sachs",
+      "action": "buy",
+      "rationale": "Goldman Sachs upgraded Indian equities to 'Overweight' and identified Kotak Mahindra Bank as a 'high-growth' stock and the only company on its conviction list, driven by expected strong earnings growth."
+    },
+    {
+      "ticker": "THANGAMAYL.NS",
+      "name": "Thangamayil Jewellery",
+      "brokerage": "BOB Capital Markets",
+      "action": "buy",
+      "target": 5697,
+      "rationale": "BOB Capital Markets maintained its 'Buy' rating, expecting significant growth driven by new store expansions and improved profitability in the jewellery segment."
     }
   ],
   "corporateActions": [
     {
-      "ticker": "Vraj Iron and Steel",
+      "ticker": "VRAJIRON",
       "name": "Vraj Iron and Steel",
       "type": "dividend",
       "date": "2026-11-25"
     },
     {
-      "ticker": "Fusion CX",
+      "ticker": "FUSIONCX",
       "name": "Fusion CX",
       "type": "dividend",
+      "date": "2026-11-27"
+    },
+    {
+      "ticker": "VARVEE",
+      "name": "Varvee Global",
+      "type": "split",
       "date": "2026-11-27"
     }
   ],
   "derivatives": {
-    "pcrOi": 0.74,
-    "pcrVolume": 1.18,
-    "callVolumePct": 45.885,
-    "putVolumePct": 54.115,
-    "asOf": "2026-11-23"
+    "pcrOi": 0.7,
+    "pcrVolume": 0.79,
+    "callVolumePct": null,
+    "putVolumePct": null,
+    "asOf": "2026-11-25"
   },
   "sentiment": {
-    "composite": 74,
-    "regime": "Greed",
-    "session": "closing",
-    "asOf": "2026-11-25T10:16:18.342Z",
-    "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
+    "composite": 77,
+    "regime": "Extreme Greed",
+    "session": "morning",
+    "asOf": "2026-11-25T11:43:57.210Z",
+    "summary": "Speculative euphoria: depleted options hedging and compressed volatility indicate elevated mean-reversion risk.",
     "categories": {
       "breadth": {
         "score": 95,
@@ -749,11 +764,11 @@
         "regime": "Extreme Greed",
         "label": "Institutional Flows",
         "weight": 0.25,
-        "summary": "Strong institutional accumulation (FII: +₹5,672.99 Cr)",
+        "summary": "Strong institutional accumulation (FII: +₹5,673 Cr)",
         "metrics": {
-          "fiiNet": 5672.99,
-          "diiNet": -2760.12,
-          "totalNet": 2912.87,
+          "fiiNet": 5673,
+          "diiNet": -2760,
+          "totalNet": 2913,
           "asOf": "2026-11-23"
         }
       },
@@ -766,21 +781,21 @@
         "metrics": {
           "vix": 17.6975,
           "vixChangePct": 0,
-          "goldChangePct": -0.25828776,
-          "usdinrChangePct": 0
+          "goldChangePct": -1.2447493,
+          "usdinrChangePct": -0.7319702
         }
       },
       "derivatives": {
-        "score": 71,
-        "regime": "Greed",
+        "score": 80,
+        "regime": "Extreme Greed",
         "label": "Derivatives & Options Skew",
         "weight": 0.25,
-        "summary": "Complacent call-dominated options posture (Nifty PCR low at 0.74, froth elevated)",
+        "summary": "Complacent call-dominated options posture (Nifty PCR low at 0.70, froth elevated)",
         "metrics": {
-          "pcrOi": 0.74,
-          "pcrVolume": 1.18,
-          "callVolumePct": 45.885,
-          "putVolumePct": 54.115
+          "pcrOi": 0.7,
+          "pcrVolume": 0.79,
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
