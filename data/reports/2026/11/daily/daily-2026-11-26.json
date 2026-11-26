@@ -3,107 +3,15 @@
   "id": "daily-2026-11-26",
   "type": "daily",
   "dateKey": "2026-11-26",
-  "generatedAt": "2026-11-26T10:16:13.920Z",
+  "generatedAt": "2026-11-26T11:29:03.646Z",
   "sourceData": {
-    "tickers": [
-      "ABREL.BO",
-      "AMBUJACEM.BO",
-      "BANDHANBNK.NS",
-      "BDL.BO",
-      "BEL.BO",
-      "BRITANNIA.BO",
-      "BSOFT.NS",
-      "CASTROLIND.NS",
-      "CENTRALBK.BO",
-      "DIXON.NS",
-      "EXIDEIND.NS",
-      "FIRSTCRY.BO",
-      "GMRAIRPORT.BO",
-      "GODREJCP.BO",
-      "HAVELLS.BO",
-      "HCLTECH.BO",
-      "HDFCBANK.NS",
-      "HINDUNILVR.BO",
-      "INFY.BO",
-      "IRCTC.NS",
-      "IREDA.NS",
-      "ITC.BO",
-      "ITCHOTELS.BO",
-      "JWL.NS",
-      "KAMATHOTEL.NS",
-      "LICI.BO",
-      "LODHA.NS",
-      "M&M.NS",
-      "MAGADSUGAR.NS",
-      "MANKIND.NS",
-      "MAXHEALTH.BO",
-      "NEWGEN.BO",
-      "NHPC.BO",
-      "ONGC.BO",
-      "PRESTIGE.BO",
-      "PSB.BO",
-      "RELIANCE.NS",
-      "SBIN.NS",
-      "TATASTEEL.BO",
-      "TCS.BO",
-      "TMPV.BO",
-      "ULTRACEMCO.BO",
-      "VBL.NS",
-      "VMM.BO",
-      "WIPRO.BO"
-    ],
-    "priceSnapshot": {
-      "ABREL.BO": 1290.2,
-      "AMBUJACEM.BO": 391.35,
-      "BANDHANBNK.NS": 169.49,
-      "BDL.BO": 1033,
-      "BEL.BO": 404.8,
-      "BRITANNIA.BO": 5174,
-      "BSOFT.NS": 303.5,
-      "CASTROLIND.NS": 190.05,
-      "CENTRALBK.BO": 32.92,
-      "DIXON.NS": 12718,
-      "EXIDEIND.NS": 387.05,
-      "FIRSTCRY.BO": 161.7,
-      "GMRAIRPORT.BO": 101.3,
-      "GODREJCP.BO": 953,
-      "HAVELLS.BO": 1180,
-      "HCLTECH.BO": 1465,
-      "HDFCBANK.NS": 862,
-      "HINDUNILVR.BO": 2130,
-      "INFY.BO": 1182.1,
-      "IRCTC.NS": 454.2,
-      "IREDA.NS": 127,
-      "ITC.BO": 306.8,
-      "ITCHOTELS.BO": 185.1,
-      "JWL.NS": 238.69,
-      "KAMATHOTEL.NS": 220.96,
-      "LICI.BO": 409.8,
-      "LODHA.NS": 1261.2,
-      "M&M.NS": 3487.5,
-      "MAGADSUGAR.NS": 552.6,
-      "MANKIND.NS": 2685,
-      "MAXHEALTH.BO": 1085.6,
-      "NEWGEN.BO": 418.5,
-      "NHPC.BO": 75.87,
-      "ONGC.BO": 223.05,
-      "PRESTIGE.BO": 1830,
-      "PSB.BO": 21.11,
-      "RELIANCE.NS": 1396.2,
-      "SBIN.NS": 1136.65,
-      "TATASTEEL.BO": 163.35,
-      "TCS.BO": 2640,
-      "TMPV.BO": 261.05,
-      "ULTRACEMCO.BO": 12728.5,
-      "VBL.NS": 428.4,
-      "VMM.BO": 96,
-      "WIPRO.BO": 196.5
-    },
-    "searchTimestamp": "2026-11-26T10:16:13.920Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-26T11:29:03.646Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-26T10:16:13.920Z",
+      "asOf": "2026-11-26T11:29:03.646Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -196,54 +104,54 @@
         {
           "name": "Nikkei 225",
           "symbol": "^N225",
-          "ltp": 57886.95,
-          "changePct": 1.5353503
+          "ltp": 57499.16,
+          "changePct": 0.8551573
         },
         {
           "name": "Hang Seng",
           "symbol": "^HSI",
-          "ltp": 22523.74,
-          "changePct": 2.5390613
+          "ltp": 22226.88,
+          "changePct": 1.1876125
         },
         {
           "name": "FTSE 100",
           "symbol": "^FTSE",
-          "ltp": 10426.94,
-          "changePct": -0.38339174
+          "ltp": 10593.64,
+          "changePct": 1.5987357
         }
       ],
       "commodities": [
         {
           "name": "Gold",
-          "value": 3618.3,
-          "changePct": 1.506479
+          "value": 3594.4,
+          "changePct": 0.83599293
         },
         {
           "name": "Silver",
-          "value": 42.12,
-          "changePct": 3.9025133
+          "value": 41.79,
+          "changePct": 3.0884671
         },
         {
           "name": "Crude Oil",
-          "value": 83.84,
-          "changePct": 0.19119985
+          "value": 84.39,
+          "changePct": 0.84846926
         }
       ],
       "currencies": [
         {
           "pair": "USD/INR",
-          "value": 92.22,
-          "changePct": 0
+          "value": 92.54,
+          "changePct": 0.34699598
         }
       ],
       "bondYield": {
         "name": "India 10Y",
-        "value": 7.17,
-        "changeBps": -5
+        "value": 7.18,
+        "changeBps": -4
       },
       "vix": {
         "value": 16.835,
-        "changePct": -4.8811603
+        "changePct": -4.873576
       },
       "breadth": {
         "advances": 27,
@@ -573,50 +481,154 @@
         "unit": "crore",
         "asOf": "2026-11-25"
       },
-      "news": [],
+      "news": [
+        {
+          "category": "macro_policy",
+          "items": [
+            {
+              "headline": "RBI under pressure as WPI inflation hits 12.29%, retail inflation crosses 6% in October",
+              "summary": "Wholesale Price Index (WPI) inflation surged to 12.29% in October 2026, and retail inflation reached 6.1%, driven by soaring fuel and food prices, heightening expectations for a further interest rate hike by the RBI in December.",
+              "source": "Economic Times",
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "PM Modi expresses concern over lack of corporate investment and wage growth",
+              "summary": "Prime Minister Modi highlighted concerns about inadequate investment and wage growth from Indian companies despite government incentives, pointing to challenges in achieving sustainable growth and job creation.",
+              "source": "Livemint",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "RBI's November bulletin highlights strong economic outlook despite fiscal deficit concerns",
+              "summary": "The RBI's November 2026 bulletin noted India's strong economic resilience, favorable outlook, and improving capital flows, but also underscored concerns over the fiscal deficit, projected at 7.1% of GDP for 2026-30.",
+              "source": "Business Standard",
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "global_cues",
+          "items": [
+            {
+              "headline": "US equity markets close mixed; Nasdaq and S&P 500 lower, Dow gains",
+              "summary": "On November 25, US equity markets showed mixed performance, with Nasdaq Composite down 0.62% and S&P 500 down 0.25%, while Dow Jones Industrial Average rose 0.33%.",
+              "source": "Reuters",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Asian markets rebound with Kospi, Nikkei, Hang Seng up, Shanghai marginally down",
+              "summary": "Asian markets showed mixed trends, with South Korea's Kospi, Japan's Nikkei 225, and Hong Kong's Hang Seng index rebounding, while Shanghai's SSE Composite index saw a marginal decline.",
+              "source": "Bloomberg",
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Brent crude trades higher at $95.30 per barrel",
+              "summary": "Brent crude, the global oil benchmark, increased by 0.77%, trading at $95.30 per barrel.",
+              "source": "Economic Times",
+              "sentiment": "bearish"
+            },
+            {
+              "headline": "Robust FII inflows of USD 14.15 billion into Indian market in November",
+              "summary": "Foreign institutional investors (FIIs) have been strong buyers in the Indian market, with inflows reaching USD 14.15 billion so far in November, driven by global fund rotation.",
+              "source": "Moneycontrol",
+              "sentiment": "bullish"
+            }
+          ]
+        },
+        {
+          "category": "earnings",
+          "items": [
+            {
+              "headline": "Indian indices open positive, initially climbing before trading lower",
+              "summary": "Benchmark equity indices Sensex and Nifty climbed in early trade on Thursday, supported by sustained foreign fund inflows, but later traded lower during early trading hours.",
+              "source": "PTI",
+              "sentiment": "neutral"
+            }
+          ]
+        },
+        {
+          "category": "sectoral",
+          "items": [
+            {
+              "headline": "IT, Metal, Realty, Pharma sectors show gains in early trade",
+              "summary": "Sectoral indices showed mixed movements, with Nifty IT up 1.67%, Nifty Metal up 0.92%, Nifty Realty up 0.85%, and Nifty Pharma up 0.35% in early trade.",
+              "source": "Business Standard",
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "FMCG, Auto, Private and PSU Bank sectors decline in early trade",
+              "summary": "Nifty FMCG was down 1.13%, Nifty Auto down 0.71%, Nifty Private Bank down 0.20%, and Nifty PSU Bank down 0.19% in early trade.",
+              "source": "Economic Times",
+              "sentiment": "bearish"
+            }
+          ]
+        },
+        {
+          "category": "corporate_actions",
+          "items": []
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "Infosys, TCS, HCL Tech, Tech Mahindra among top Sensex gainers",
+              "summary": "Infosys, Tata Consultancy Services (TCS), HCL Tech, and Tech Mahindra were among the top performing stocks on the Sensex in early trade, along with HDFC Bank and Tata Steel.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "INFY.NS",
+                "TCS.NS",
+                "HCLTECH.NS",
+                "TECHM.NS",
+                "HDFCBANK.NS",
+                "TATASTEEL.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Bajaj Finance, Maruti, UltraTech Cement, Bajaj Finserv weigh on market",
+              "summary": "Bajaj Finance, Maruti, UltraTech Cement, and Bajaj Finserv were on the losing side in early trade, contributing to the broader market downturn.",
+              "source": "Livemint",
+              "tickers": [
+                "BAJFINANCE.NS",
+                "MARUTI.NS",
+                "ULTRACEMCO.NS",
+                "BAJAJFINSV.NS"
+              ],
+              "sentiment": "bearish"
+            }
+          ]
+        }
+      ],
       "streetRecommendations": [],
       "corporateActions": [
         {
-          "ticker": "Vraj Iron & Steel Ltd",
-          "name": "Vraj Iron & Steel Ltd",
+          "ticker": "Vraj Iron & Steel Ltd.",
+          "name": "Vraj Iron & Steel Ltd.",
           "type": "dividend",
           "date": "2026-11-25"
+        },
+        {
+          "ticker": "Fusion CX Ltd.",
+          "name": "Fusion CX Ltd.",
+          "type": "dividend",
+          "date": "2026-11-27"
         },
         {
           "ticker": "Altius Telecom Infrastructure Trust",
           "name": "Altius Telecom Infrastructure Trust",
           "type": "dividend",
-          "date": "2026-11-30"
+          "date": "2026-11-25"
         },
         {
-          "ticker": "Fusion CX Ltd",
-          "name": "Fusion CX Ltd",
-          "type": "dividend",
-          "date": "2026-11-27"
+          "ticker": "GB Logistics Commerce Ltd.",
+          "name": "GB Logistics Commerce Ltd.",
+          "type": "results",
+          "date": "2026-11-26"
         },
         {
-          "ticker": "Varvee Global Ltd",
-          "name": "Varvee Global Ltd",
-          "type": "split",
-          "date": "2026-11-27"
-        },
-        {
-          "ticker": "Mono Pharmacare Ltd",
-          "name": "Mono Pharmacare Ltd",
+          "ticker": "Mono Pharmacare Ltd.",
+          "name": "Mono Pharmacare Ltd.",
           "type": "results",
           "date": "2026-11-28"
-        },
-        {
-          "ticker": "Interarch Building Solutions Ltd",
-          "name": "Interarch Building Solutions Ltd",
-          "type": "split",
-          "date": "2026-11-30"
-        },
-        {
-          "ticker": "S P Apparels Ltd",
-          "name": "S P Apparels Ltd",
-          "type": "split",
-          "date": "2026-12-10"
         }
       ],
       "derivatives": {
@@ -629,8 +641,8 @@
       "sentiment": {
         "composite": 60,
         "regime": "Greed",
-        "session": "closing",
-        "asOf": "2026-11-26T10:16:13.920Z",
+        "session": "morning",
+        "asOf": "2026-11-26T11:29:03.646Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
@@ -669,9 +681,9 @@
             "summary": "Normal market volatility (India VIX at 16.84)",
             "metrics": {
               "vix": 16.835,
-              "vixChangePct": -4.8811603,
-              "goldChangePct": 1.506479,
-              "usdinrChangePct": 0
+              "vixChangePct": -4.873576,
+              "goldChangePct": 0.83599293,
+              "usdinrChangePct": 0.34699598
             }
           },
           "derivatives": {
@@ -690,14 +702,14 @@
         }
       }
     },
-    "outlook": "The Indian market is set for a positive start, propelled by broad-based buying across major indices and robust domestic and foreign institutional flows. A significant rally in sectors like FMCG and Pharma underpinned the strong positive sentiment, overshadowing mild weakness in the Metal sector. This widespread bullish momentum suggests continued investor confidence heading into the open.",
+    "outlook": "Indian equities are poised for a mixed opening following a session where benchmark indices NIFTY 50 and SENSEX closed higher despite negative market breadth. Strong foreign and domestic institutional inflows are notable, while sector-specific movements, particularly in IT and Realty, will be key drivers. Conversely, banking, auto, and FMCG sectors showed weakness, suggesting potential headwinds.",
     "keyTakeaways": [
-      "Major indices NIFTY 50 (+1.85%) and SENSEX (+1.82%) recorded significant gains.",
-      "Strong institutional buying with FIIs injecting 4479cr and DIIs 4019cr.",
-      "FMCG (+3.79%) and Pharma (+2.38%) were the top performing sectors.",
-      "Market breadth was highly positive with 49 advances against 9 declines.",
-      "NIFTY Metal (-2.04%) was the sole significant laggard, weighing on index.",
-      "DABUR.NS (+7.8%) and HINDUNILVR.NS (+6.1%) were among the top individual stock gainers."
+      "NIFTY 50 and SENSEX ended positive, but market breadth was negative (27 advances to 31 declines).",
+      "IT and Realty sectors were top performers, surging by +3.66% and +3.27% respectively.",
+      "NIFTY BANK, NIFTY AUTO, and NIFTY FMCG were laggards, with declines of -0.26%, -0.69%, and -0.94% respectively.",
+      "Heavy buying by FIIs (4479cr) and DIIs (4019cr) provided support.",
+      "Top gainers were dominated by IT majors, while ASIANPAINT, BAJFINANCE, and NESTLEIND were among the top losers.",
+      "VIX stands at 16.835, indicating moderate volatility."
     ],
     "retro": {
       "date": "2026-11-26",
@@ -1033,5 +1045,5 @@
     }
   },
   "emailSent": true,
-  "checksum": "sha256:4f55a82f5cdcc95dfe8b053f791442c286315c2632f5b3537f13516c65659e7d"
+  "checksum": "sha256:259ba5d186069db5e6cac66d804bfc2d7fa24387e611df2675409f50a837336b"
 }
