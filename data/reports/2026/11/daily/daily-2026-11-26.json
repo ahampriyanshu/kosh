@@ -3,107 +3,15 @@
   "id": "daily-2026-11-26",
   "type": "daily",
   "dateKey": "2026-11-26",
-  "generatedAt": "2026-11-25T20:12:10.575Z",
+  "generatedAt": "2026-11-26T03:01:14.895Z",
   "sourceData": {
-    "tickers": [
-      "ABREL.BO",
-      "AMBUJACEM.BO",
-      "BANDHANBNK.NS",
-      "BDL.BO",
-      "BEL.BO",
-      "BRITANNIA.BO",
-      "BSOFT.NS",
-      "CASTROLIND.NS",
-      "CENTRALBK.BO",
-      "DIXON.NS",
-      "EXIDEIND.NS",
-      "FIRSTCRY.BO",
-      "GMRAIRPORT.BO",
-      "GODREJCP.BO",
-      "HAVELLS.BO",
-      "HCLTECH.BO",
-      "HDFCBANK.NS",
-      "HINDUNILVR.BO",
-      "INFY.BO",
-      "IRCTC.NS",
-      "IREDA.NS",
-      "ITC.BO",
-      "ITCHOTELS.BO",
-      "JWL.NS",
-      "KAMATHOTEL.NS",
-      "LICI.BO",
-      "LODHA.NS",
-      "M&M.NS",
-      "MAGADSUGAR.NS",
-      "MANKIND.NS",
-      "MAXHEALTH.BO",
-      "NEWGEN.BO",
-      "NHPC.BO",
-      "ONGC.BO",
-      "PRESTIGE.BO",
-      "PSB.BO",
-      "RELIANCE.NS",
-      "SBIN.NS",
-      "TATASTEEL.BO",
-      "TCS.BO",
-      "TMPV.BO",
-      "ULTRACEMCO.BO",
-      "VBL.NS",
-      "VMM.BO",
-      "WIPRO.BO"
-    ],
-    "priceSnapshot": {
-      "ABREL.BO": 1282.7,
-      "AMBUJACEM.BO": 391.1,
-      "BANDHANBNK.NS": 171.69,
-      "BDL.BO": 1028,
-      "BEL.BO": 403.9,
-      "BRITANNIA.BO": 5075,
-      "BSOFT.NS": 299.25,
-      "CASTROLIND.NS": 190.26,
-      "CENTRALBK.BO": 33.32,
-      "DIXON.NS": 12978,
-      "EXIDEIND.NS": 395.9,
-      "FIRSTCRY.BO": 164.95,
-      "GMRAIRPORT.BO": 102.5,
-      "GODREJCP.BO": 961,
-      "HAVELLS.BO": 1190,
-      "HCLTECH.BO": 1378.4,
-      "HDFCBANK.NS": 846.2,
-      "HINDUNILVR.BO": 2141,
-      "INFY.BO": 1129,
-      "IRCTC.NS": 441.85,
-      "IREDA.NS": 124.75,
-      "ITC.BO": 309,
-      "ITCHOTELS.BO": 186.7,
-      "JWL.NS": 222.46,
-      "KAMATHOTEL.NS": 219.75,
-      "LICI.BO": 407.8,
-      "LODHA.NS": 1202,
-      "M&M.NS": 3509.5,
-      "MAGADSUGAR.NS": 518.2,
-      "MANKIND.NS": 2685,
-      "MAXHEALTH.BO": 1075,
-      "NEWGEN.BO": 413.05,
-      "NHPC.BO": 75.62,
-      "ONGC.BO": 221.95,
-      "PRESTIGE.BO": 1684.3,
-      "PSB.BO": 21.56,
-      "RELIANCE.NS": 1373.9,
-      "SBIN.NS": 1138.15,
-      "TATASTEEL.BO": 159.1,
-      "TCS.BO": 2515,
-      "TMPV.BO": 262.2,
-      "ULTRACEMCO.BO": 12810,
-      "VBL.NS": 437.1,
-      "VMM.BO": 94.54,
-      "WIPRO.BO": 188.7
-    },
-    "searchTimestamp": "2026-11-25T20:12:10.575Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-26T03:01:14.895Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-25T20:12:10.575Z",
+      "asOf": "2026-11-26T03:01:14.895Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -174,10 +82,73 @@
         }
       ],
       "giftNifty": null,
-      "globalIndices": [],
-      "commodities": [],
-      "currencies": [],
-      "bondYield": null,
+      "globalIndices": [
+        {
+          "name": "Dow Jones",
+          "symbol": "^DJI",
+          "ltp": 50182.95,
+          "changePct": 0.3283772
+        },
+        {
+          "name": "NASDAQ",
+          "symbol": "^IXIC",
+          "ltp": 23585.803,
+          "changePct": -0.62246275
+        },
+        {
+          "name": "S&P 500",
+          "symbol": "^GSPC",
+          "ltp": 7182.78,
+          "changePct": -0.25426787
+        },
+        {
+          "name": "Nikkei 225",
+          "symbol": "^N225",
+          "ltp": 57886.95,
+          "changePct": 1.5353503
+        },
+        {
+          "name": "Hang Seng",
+          "symbol": "^HSI",
+          "ltp": 22523.74,
+          "changePct": 2.5390613
+        },
+        {
+          "name": "FTSE 100",
+          "symbol": "^FTSE",
+          "ltp": 10426.94,
+          "changePct": -0.38339174
+        }
+      ],
+      "commodities": [
+        {
+          "name": "Gold",
+          "value": 3618.3,
+          "changePct": 1.506479
+        },
+        {
+          "name": "Silver",
+          "value": 42.12,
+          "changePct": 3.9025133
+        },
+        {
+          "name": "Crude Oil",
+          "value": 83.84,
+          "changePct": 0.19119985
+        }
+      ],
+      "currencies": [
+        {
+          "pair": "USD/INR",
+          "value": 92.22,
+          "changePct": 0
+        }
+      ],
+      "bondYield": {
+        "name": "India 10Y",
+        "value": 7.17,
+        "changeBps": -5
+      },
       "vix": {
         "value": 17.6975,
         "changePct": 0
@@ -552,23 +523,77 @@
           "changePct": -2.04
         }
       ],
-      "fiiDii": null,
+      "fiiDii": {
+        "fiiNet": 4479,
+        "diiNet": 4019,
+        "unit": "crore",
+        "asOf": "2026-11-25"
+      },
       "news": [],
       "streetRecommendations": [],
-      "corporateActions": [],
-      "derivatives": null,
+      "corporateActions": [
+        {
+          "ticker": "Vraj Iron & Steel Ltd",
+          "name": "Vraj Iron & Steel Ltd",
+          "type": "dividend",
+          "date": "2026-11-25"
+        },
+        {
+          "ticker": "Altius Telecom Infrastructure Trust",
+          "name": "Altius Telecom Infrastructure Trust",
+          "type": "dividend",
+          "date": "2026-11-30"
+        },
+        {
+          "ticker": "Fusion CX Ltd",
+          "name": "Fusion CX Ltd",
+          "type": "dividend",
+          "date": "2026-11-27"
+        },
+        {
+          "ticker": "Varvee Global Ltd",
+          "name": "Varvee Global Ltd",
+          "type": "split",
+          "date": "2026-11-27"
+        },
+        {
+          "ticker": "Mono Pharmacare Ltd",
+          "name": "Mono Pharmacare Ltd",
+          "type": "results",
+          "date": "2026-11-28"
+        },
+        {
+          "ticker": "Interarch Building Solutions Ltd",
+          "name": "Interarch Building Solutions Ltd",
+          "type": "split",
+          "date": "2026-11-30"
+        },
+        {
+          "ticker": "S P Apparels Ltd",
+          "name": "S P Apparels Ltd",
+          "type": "split",
+          "date": "2026-12-10"
+        }
+      ],
+      "derivatives": {
+        "pcrOi": 1,
+        "pcrVolume": 0.79,
+        "callVolumePct": null,
+        "putVolumePct": null,
+        "asOf": "2026-11-25"
+      },
       "sentiment": {
-        "composite": 61,
+        "composite": 70,
         "regime": "Greed",
-        "session": "closing",
-        "asOf": "2026-11-25T20:12:10.575Z",
+        "session": "morning",
+        "asOf": "2026-11-26T03:01:14.895Z",
         "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
         "categories": {
           "breadth": {
             "score": 95,
             "regime": "Extreme Greed",
             "label": "Breadth & Price Action",
-            "weight": 0.34,
+            "weight": 0.25,
             "summary": "Bullish breadth expansion (49 Adv / 9 Dec, A/D 5.44, 6 near 52W highs)",
             "metrics": {
               "adRatio": 5.44,
@@ -580,48 +605,56 @@
             }
           },
           "flows": {
-            "score": 50,
-            "regime": "Neutral",
+            "score": 95,
+            "regime": "Extreme Greed",
             "label": "Institutional Flows",
-            "weight": 0.33,
-            "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+            "weight": 0.25,
+            "summary": "Strong institutional accumulation (FII: +₹4,479 Cr)",
             "metrics": {
-              "fiiNet": 0,
-              "diiNet": 0,
-              "totalNet": 0,
-              "asOf": null
+              "fiiNet": 4479,
+              "diiNet": 4019,
+              "totalNet": 8498,
+              "asOf": "2026-11-25"
             }
           },
           "volatility": {
             "score": 36,
             "regime": "Fear",
             "label": "Volatility & Risk Appetite",
-            "weight": 0.33,
+            "weight": 0.25,
             "summary": "Normal market volatility (India VIX at 17.70)",
             "metrics": {
               "vix": 17.6975,
               "vixChangePct": 0,
-              "goldChangePct": 0,
+              "goldChangePct": 1.506479,
               "usdinrChangePct": 0
             }
           },
           "derivatives": {
-            "score": 50,
+            "score": 55,
             "regime": "Neutral",
             "label": "Derivatives & Options Skew",
-            "weight": 0,
-            "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+            "weight": 0.25,
+            "summary": "Balanced options hedging posture (Nifty PCR at 1.00)",
             "metrics": {
-              "pcrOi": null,
-              "pcrVolume": null,
-              "available": "pending"
+              "pcrOi": 1,
+              "pcrVolume": 0.79,
+              "callVolumePct": null,
+              "putVolumePct": null
             }
           }
         }
       }
     },
-    "outlook": "Market session concluded on 2026-11-26. Portfolio surveillance and risk screening complete.",
-    "keyTakeaways": [],
+    "outlook": "The Indian market is set for a positive start, propelled by broad-based buying across major indices and robust domestic and foreign institutional flows. A significant rally in sectors like FMCG and Pharma underpinned the strong positive sentiment, overshadowing mild weakness in the Metal sector. This widespread bullish momentum suggests continued investor confidence heading into the open.",
+    "keyTakeaways": [
+      "Major indices NIFTY 50 (+1.85%) and SENSEX (+1.82%) recorded significant gains.",
+      "Strong institutional buying with FIIs injecting 4479cr and DIIs 4019cr.",
+      "FMCG (+3.79%) and Pharma (+2.38%) were the top performing sectors.",
+      "Market breadth was highly positive with 49 advances against 9 declines.",
+      "NIFTY Metal (-2.04%) was the sole significant laggard, weighing on index.",
+      "DABUR.NS (+7.8%) and HINDUNILVR.NS (+6.1%) were among the top individual stock gainers."
+    ],
     "retro": {
       "date": "2026-11-26",
       "evaluated": [
@@ -946,5 +979,5 @@
     }
   },
   "emailSent": true,
-  "checksum": "sha256:4b6f8e1fe2f8da205fcdaf1b6d6bfb3939f7d5b823c26bd44da86e3bce0cadd0"
+  "checksum": "sha256:93d386b40d2cf6f58ec3e813a1a9148e22cc199bbec4afcfbf74af8c2c013da9"
 }

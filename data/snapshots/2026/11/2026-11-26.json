@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-25T20:12:10.575Z",
+  "asOf": "2026-11-26T03:01:14.895Z",
   "window": "1d",
   "indianIndices": [
     {
@@ -70,10 +70,73 @@
     }
   ],
   "giftNifty": null,
-  "globalIndices": [],
-  "commodities": [],
-  "currencies": [],
-  "bondYield": null,
+  "globalIndices": [
+    {
+      "name": "Dow Jones",
+      "symbol": "^DJI",
+      "ltp": 50182.95,
+      "changePct": 0.3283772
+    },
+    {
+      "name": "NASDAQ",
+      "symbol": "^IXIC",
+      "ltp": 23585.803,
+      "changePct": -0.62246275
+    },
+    {
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "ltp": 7182.78,
+      "changePct": -0.25426787
+    },
+    {
+      "name": "Nikkei 225",
+      "symbol": "^N225",
+      "ltp": 57886.95,
+      "changePct": 1.5353503
+    },
+    {
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "ltp": 22523.74,
+      "changePct": 2.5390613
+    },
+    {
+      "name": "FTSE 100",
+      "symbol": "^FTSE",
+      "ltp": 10426.94,
+      "changePct": -0.38339174
+    }
+  ],
+  "commodities": [
+    {
+      "name": "Gold",
+      "value": 3618.3,
+      "changePct": 1.506479
+    },
+    {
+      "name": "Silver",
+      "value": 42.12,
+      "changePct": 3.9025133
+    },
+    {
+      "name": "Crude Oil",
+      "value": 83.84,
+      "changePct": 0.19119985
+    }
+  ],
+  "currencies": [
+    {
+      "pair": "USD/INR",
+      "value": 92.22,
+      "changePct": 0
+    }
+  ],
+  "bondYield": {
+    "name": "India 10Y",
+    "value": 7.17,
+    "changeBps": -5
+  },
   "vix": {
     "value": 17.6975,
     "changePct": 0
@@ -448,23 +511,77 @@
       "changePct": -2.04
     }
   ],
-  "fiiDii": null,
+  "fiiDii": {
+    "fiiNet": 4479,
+    "diiNet": 4019,
+    "unit": "crore",
+    "asOf": "2026-11-25"
+  },
   "news": [],
   "streetRecommendations": [],
-  "corporateActions": [],
-  "derivatives": null,
+  "corporateActions": [
+    {
+      "ticker": "Vraj Iron & Steel Ltd",
+      "name": "Vraj Iron & Steel Ltd",
+      "type": "dividend",
+      "date": "2026-11-25"
+    },
+    {
+      "ticker": "Altius Telecom Infrastructure Trust",
+      "name": "Altius Telecom Infrastructure Trust",
+      "type": "dividend",
+      "date": "2026-11-30"
+    },
+    {
+      "ticker": "Fusion CX Ltd",
+      "name": "Fusion CX Ltd",
+      "type": "dividend",
+      "date": "2026-11-27"
+    },
+    {
+      "ticker": "Varvee Global Ltd",
+      "name": "Varvee Global Ltd",
+      "type": "split",
+      "date": "2026-11-27"
+    },
+    {
+      "ticker": "Mono Pharmacare Ltd",
+      "name": "Mono Pharmacare Ltd",
+      "type": "results",
+      "date": "2026-11-28"
+    },
+    {
+      "ticker": "Interarch Building Solutions Ltd",
+      "name": "Interarch Building Solutions Ltd",
+      "type": "split",
+      "date": "2026-11-30"
+    },
+    {
+      "ticker": "S P Apparels Ltd",
+      "name": "S P Apparels Ltd",
+      "type": "split",
+      "date": "2026-12-10"
+    }
+  ],
+  "derivatives": {
+    "pcrOi": 1,
+    "pcrVolume": 0.79,
+    "callVolumePct": null,
+    "putVolumePct": null,
+    "asOf": "2026-11-25"
+  },
   "sentiment": {
-    "composite": 61,
+    "composite": 70,
     "regime": "Greed",
-    "session": "closing",
-    "asOf": "2026-11-25T20:12:10.575Z",
+    "session": "morning",
+    "asOf": "2026-11-26T03:01:14.895Z",
     "summary": "Risk-on expansion: broad cash participation and healthy institutional accumulation support trend continuation.",
     "categories": {
       "breadth": {
         "score": 95,
         "regime": "Extreme Greed",
         "label": "Breadth & Price Action",
-        "weight": 0.34,
+        "weight": 0.25,
         "summary": "Bullish breadth expansion (49 Adv / 9 Dec, A/D 5.44, 6 near 52W highs)",
         "metrics": {
           "adRatio": 5.44,
@@ -476,41 +593,42 @@
         }
       },
       "flows": {
-        "score": 50,
-        "regime": "Neutral",
+        "score": 95,
+        "regime": "Extreme Greed",
         "label": "Institutional Flows",
-        "weight": 0.33,
-        "summary": "Neutral institutional flow (FII: +0 Cr, DII: +0 Cr)",
+        "weight": 0.25,
+        "summary": "Strong institutional accumulation (FII: +₹4,479 Cr)",
         "metrics": {
-          "fiiNet": 0,
-          "diiNet": 0,
-          "totalNet": 0,
-          "asOf": null
+          "fiiNet": 4479,
+          "diiNet": 4019,
+          "totalNet": 8498,
+          "asOf": "2026-11-25"
         }
       },
       "volatility": {
         "score": 36,
         "regime": "Fear",
         "label": "Volatility & Risk Appetite",
-        "weight": 0.33,
+        "weight": 0.25,
         "summary": "Normal market volatility (India VIX at 17.70)",
         "metrics": {
           "vix": 17.6975,
           "vixChangePct": 0,
-          "goldChangePct": 0,
+          "goldChangePct": 1.506479,
           "usdinrChangePct": 0
         }
       },
       "derivatives": {
-        "score": 50,
+        "score": 55,
         "regime": "Neutral",
         "label": "Derivatives & Options Skew",
-        "weight": 0,
-        "summary": "Derivatives Open Interest data pending / neutral baseline (PCR ~ 1.00)",
+        "weight": 0.25,
+        "summary": "Balanced options hedging posture (Nifty PCR at 1.00)",
         "metrics": {
-          "pcrOi": null,
-          "pcrVolume": null,
-          "available": "pending"
+          "pcrOi": 1,
+          "pcrVolume": 0.79,
+          "callVolumePct": null,
+          "putVolumePct": null
         }
       }
     }
