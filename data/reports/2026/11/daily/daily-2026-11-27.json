@@ -3,107 +3,15 @@
   "id": "daily-2026-11-27",
   "type": "daily",
   "dateKey": "2026-11-27",
-  "generatedAt": "2026-11-27T10:16:09.900Z",
+  "generatedAt": "2026-11-27T11:25:16.310Z",
   "sourceData": {
-    "tickers": [
-      "ABREL.BO",
-      "AMBUJACEM.BO",
-      "BANDHANBNK.NS",
-      "BDL.BO",
-      "BEL.BO",
-      "BRITANNIA.BO",
-      "BSOFT.NS",
-      "CASTROLIND.NS",
-      "CENTRALBK.BO",
-      "DIXON.NS",
-      "EXIDEIND.NS",
-      "FIRSTCRY.BO",
-      "GMRAIRPORT.BO",
-      "GODREJCP.BO",
-      "HAVELLS.BO",
-      "HCLTECH.BO",
-      "HDFCBANK.NS",
-      "HINDUNILVR.BO",
-      "INFY.BO",
-      "IRCTC.NS",
-      "IREDA.NS",
-      "ITC.BO",
-      "ITCHOTELS.BO",
-      "JWL.NS",
-      "KAMATHOTEL.NS",
-      "LICI.BO",
-      "LODHA.NS",
-      "M&M.NS",
-      "MAGADSUGAR.NS",
-      "MANKIND.NS",
-      "MAXHEALTH.BO",
-      "NEWGEN.BO",
-      "NHPC.BO",
-      "ONGC.BO",
-      "PRESTIGE.BO",
-      "PSB.BO",
-      "RELIANCE.NS",
-      "SBIN.NS",
-      "TATASTEEL.BO",
-      "TCS.BO",
-      "TMPV.BO",
-      "ULTRACEMCO.BO",
-      "VBL.NS",
-      "VMM.BO",
-      "WIPRO.BO"
-    ],
-    "priceSnapshot": {
-      "ABREL.BO": 1261.15,
-      "AMBUJACEM.BO": 386.4,
-      "BANDHANBNK.NS": 166.66,
-      "BDL.BO": 1078.5,
-      "BEL.BO": 411.1,
-      "BRITANNIA.BO": 5070,
-      "BSOFT.NS": 299.15,
-      "CASTROLIND.NS": 189.65,
-      "CENTRALBK.BO": 33.03,
-      "DIXON.NS": 13138,
-      "EXIDEIND.NS": 399.1,
-      "FIRSTCRY.BO": 160.3,
-      "GMRAIRPORT.BO": 99.22,
-      "GODREJCP.BO": 921.5,
-      "HAVELLS.BO": 1144.8,
-      "HCLTECH.BO": 1423.8,
-      "HDFCBANK.NS": 857.25,
-      "HINDUNILVR.BO": 2120,
-      "INFY.BO": 1152,
-      "IRCTC.NS": 458.65,
-      "IREDA.NS": 125.59,
-      "ITC.BO": 304.5,
-      "ITCHOTELS.BO": 184,
-      "JWL.NS": 224.84,
-      "KAMATHOTEL.NS": 223.03,
-      "LICI.BO": 405.2,
-      "LODHA.NS": 1251.8,
-      "M&M.NS": 3450,
-      "MAGADSUGAR.NS": 568.55,
-      "MANKIND.NS": 2689.4,
-      "MAXHEALTH.BO": 1068.4,
-      "NEWGEN.BO": 419.5,
-      "NHPC.BO": 75.6,
-      "ONGC.BO": 224.2,
-      "PRESTIGE.BO": 1795,
-      "PSB.BO": 21.21,
-      "RELIANCE.NS": 1382.6,
-      "SBIN.NS": 1123.9,
-      "TATASTEEL.BO": 164.1,
-      "TCS.BO": 2575,
-      "TMPV.BO": 258,
-      "ULTRACEMCO.BO": 12555.15,
-      "VBL.NS": 424.9,
-      "VMM.BO": 96,
-      "WIPRO.BO": 192.2
-    },
-    "searchTimestamp": "2026-11-27T10:16:09.900Z"
+    "tickers": [],
+    "priceSnapshot": {},
+    "searchTimestamp": "2026-11-27T11:25:16.310Z"
   },
   "content": {
     "snapshot": {
-      "asOf": "2026-11-27T10:16:09.900Z",
+      "asOf": "2026-11-27T11:25:16.310Z",
       "window": "1d",
       "indianIndices": [
         {
@@ -196,54 +104,54 @@
         {
           "name": "Nikkei 225",
           "symbol": "^N225",
-          "ltp": 58172.04,
-          "changePct": 1.1702412
+          "ltp": 58711.11,
+          "changePct": 2.1077685
         },
         {
           "name": "Hang Seng",
           "symbol": "^HSI",
-          "ltp": 22389.13,
-          "changePct": 0.73002684
+          "ltp": 22694.77,
+          "changePct": 2.1050577
         },
         {
           "name": "FTSE 100",
           "symbol": "^FTSE",
-          "ltp": 10609.3,
-          "changePct": 1.7489251
+          "ltp": 10693.27,
+          "changePct": 0.7914713
         }
       ],
       "commodities": [
         {
           "name": "Gold",
-          "value": 3654.1,
-          "changePct": 2.5108006
+          "value": 3702.2,
+          "changePct": 3.8601763
         },
         {
           "name": "Silver",
-          "value": 43.865,
-          "changePct": 8.207123
+          "value": 44.51,
+          "changePct": 9.798215
         },
         {
           "name": "Crude Oil",
-          "value": 85.64,
-          "changePct": 2.342255
+          "value": 85.3,
+          "changePct": 1.9359497
         }
       ],
       "currencies": [
         {
           "pair": "USD/INR",
-          "value": 92.435,
-          "changePct": 0
+          "value": 92.98,
+          "changePct": 0.5896098
         }
       ],
       "bondYield": {
         "name": "India 10Y",
-        "value": 7.21,
-        "changeBps": 4
+        "value": 7.24,
+        "changeBps": 7
       },
       "vix": {
         "value": 16.545,
-        "changePct": -1.709396
+        "changePct": -1.7225959
       },
       "breadth": {
         "advances": 10,
@@ -521,28 +429,22 @@
           "category": "macro_policy",
           "items": [
             {
-              "headline": "RBI Conducts Overnight VRR Auction for ₹75,000 Crore to Address Liquidity",
-              "summary": "The Reserve Bank of India (RBI) conducted an overnight Variable Rate Repo (VRR) auction for ₹75,000 crore on November 26, reversing today, November 27, to manage short-term systemic liquidity needs.",
+              "headline": "RBI Likely to Hike Interest Rates Amidst Persistent Inflationary Pressures",
+              "summary": "Retail inflation exceeded 6% in October 2026 and is anticipated to remain elevated in November due to continued pressure on food prices, increasing the likelihood of another interest rate hike by the RBI in its December policy review.",
               "source": "Economic Times",
-              "url": "https://economictimes.indiatimes.com/markets/stocks/news/rbi-conducts-vrr-auction-for-rs-75000-cr-to-address-liquidity/articleshow/9587654321.cms",
               "sentiment": "neutral"
             },
             {
-              "headline": "RBI Paper Highlights Generalized Inflationary Pressure, Rate Hike Anticipated",
-              "summary": "An RBI paper on November 26, 2026, indicated accelerating headline CPI inflation to 6.1% in October, mainly due to food and beverages. Analysts foresee a 25-basis-point rate hike from the RBI on December 4, with Malhotra & Co. raising FY27 inflation forecast to 5.2%.",
-              "source": "Livemint",
-              "url": "https://www.livemint.com/economy/rbi-paper-warns-of-generalized-inflation-rate-hike-looming-11700870400000.htm",
-              "sentiment": "bearish"
+              "headline": "Government Approves Capital Expenditure for Critical Minerals and Urea Plants",
+              "summary": "The Union Cabinet approved ₹2,814 crore for domestic processing of lithium and nickel to reduce import dependence, and sanctioned six new brownfield urea plants to boost domestic production.",
+              "source": "Business Standard",
+              "sentiment": "bullish"
             },
             {
-              "headline": "NSE Approved by RBI to Launch Corporate Bond Index Futures",
-              "summary": "The National Stock Exchange (NSE) has received approval from the Reserve Bank of India to launch futures contracts linked to corporate bond indices, opening new avenues for hedging and investment in the fixed income market.",
-              "source": "Business Standard",
-              "url": "https://www.business-standard.com/markets/nse-gets-rbi-nod-for-corp-bond-index-futures/articleshow/9587654323.cms",
-              "tickers": [
-                "NSE.NS"
-              ],
-              "sentiment": "bullish"
+              "headline": "RBI Urges Banks to Strengthen Cybersecurity and API Ownership",
+              "summary": "The RBI has directed banks to enhance monitoring of peripheral systems around core banking platforms and take full ownership of their APIs to combat rising cyberattacks and fraud.",
+              "source": "Livemint",
+              "sentiment": "neutral"
             }
           ]
         },
@@ -550,25 +452,16 @@
           "category": "global_cues",
           "items": [
             {
-              "headline": "Indian Markets Brace for Cautious Opening Amid Mixed Global Signals",
-              "summary": "Indian benchmark indices are expected to open lower today, influenced by mixed global market signals, despite Asian markets showing a cautious rebound from a recent AI-led sell-off.",
+              "headline": "Indian Markets Face Mixed Global Cues; Brent Crude at Monthly Highs",
+              "summary": "Indian benchmark indices are expected to open lower or flat due to mixed global market signals, with Brent crude prices hovering near monthly highs driven by increased attacks in West Asia.",
               "source": "Reuters",
-              "url": "https://www.reuters.com/markets/india/indian-markets-cautious-opening-amid-mixed-global-cues/2026/11/27/market-preview.html",
               "sentiment": "neutral"
             },
             {
-              "headline": "FPIs Inject ₹5,843 Crore into Indian Equities, Sustaining Inflows",
-              "summary": "Foreign portfolio investors (FPIs) were net buyers on Thursday, injecting ₹5,843 crore into Indian equities, indicating sustained foreign fund inflows supporting the market. Domestic institutional investors (DIIs) were net sellers.",
+              "headline": "Asian Markets Show Modest Gains with Recovery in AI Stocks",
+              "summary": "Asian markets observed a modest positive trend in early trading, partly due to a recovery in artificial intelligence (AI)-related stocks, although profit-taking limited overall gains.",
               "source": "Moneycontrol",
-              "url": "https://www.moneycontrol.com/news/business/markets/fpis-inject-rs-5843-cr-into-indian-equities-sustaining-inflows/articleshow/9587654324.cms",
               "sentiment": "bullish"
-            },
-            {
-              "headline": "Brent Crude on Track for First Weekly Gain Amid West Asia Volatility",
-              "summary": "Brent crude is trading around $92.35 and is set for its first weekly gain this month, reflecting geopolitical volatility in West Asia, which could impact energy costs globally.",
-              "source": "Bloomberg",
-              "url": "https://www.bloomberg.com/news/articles/2026-11-27/brent-crude-gains-on-west-asia-volatility-first-weekly-rise",
-              "sentiment": "neutral"
             }
           ]
         },
@@ -576,17 +469,15 @@
           "category": "earnings",
           "items": [
             {
-              "headline": "India Inc. Reports Robust Q2 FY27 Earnings with Nifty-50 PAT Up 27%",
-              "summary": "India Inc. delivered a strong performance in Q2 FY27, with Nifty 500 companies reporting 23% revenue, 27% EBITDA, and 28% profit growth. The Nifty-50's 27% YoY PAT growth is its highest in 17 quarters, driven by 28 out of 39 sectors meeting or exceeding estimates.",
-              "source": "Motilal Oswal Financial Services",
-              "url": "https://www.motilaloswal.com/news-views/q2-fy27-earnings-review-india-inc-shines/9587654325.html",
+              "headline": "Corporate India Reports Strong Q2 FY27 Earnings with Robust Profit and Revenue Growth",
+              "summary": "Corporate India delivered a strong performance in the July-September 2026 quarter, with aggregate net profit for 3,568 listed companies rising by 26.2% year-on-year, and aggregate revenue growing by 22.6%.",
+              "source": "Economic Times",
               "sentiment": "bullish"
             },
             {
-              "headline": "Several Companies Set to Announce Quarterly Results Today",
-              "summary": "Mitshi India, Setco Automotive, SVA India, Hampton Sky Realty (audited results), and C2C Advanced Systems are among the companies scheduled to announce their quarterly results on November 27, 2026.",
-              "source": "EquityBulls",
-              "url": "https://www.equitybulls.com/q2-fy27-results-expected-today-nov-27/9587654326.html",
+              "headline": "ICRA Projects Healthy Q3 FY27 Revenue Growth Despite Margin Compression",
+              "summary": "ICRA forecasts healthy year-on-year revenue growth of 18-20% for its sample set of 3,103 listed companies in Q3 FY27, though inflationary pressures are likely to compress operating profit margins by 50-75 basis points.",
+              "source": "Business Standard",
               "sentiment": "neutral"
             }
           ]
@@ -595,18 +486,16 @@
           "category": "sectoral",
           "items": [
             {
-              "headline": "IT and Metal Sectors See Buying Interest, Telecommunication and FMCG Lag",
-              "summary": "On Thursday, the IT and Metal sectors experienced strong buying interest, with the Nifty IT index surging over 3%. Conversely, the telecommunication and FMCG sectors saw selling pressure.",
-              "source": "Economic Times",
-              "url": "https://economictimes.indiatimes.com/markets/stocks/news/it-metal-sectors-gain-fmcg-telecom-lose-on-thursday/articleshow/9587654327.cms",
+              "headline": "Nifty Metal and Chemical Indices Witness Gains, Lenders and Hotels Show Strong Performance",
+              "summary": "On November 27, Nifty Metal and Nifty Chemical indices saw gains. Jefferies noted a rare trend of earnings upgrades for lenders and hotel companies, indicating strong sectoral performance.",
+              "source": "Moneycontrol",
               "sentiment": "bullish"
             },
             {
-              "headline": "Nifty Capital Markets, IT, and Realty Lead Sectoral Gains",
-              "summary": "On November 26, Nifty Capital Markets led sectoral gains (+3.86%), followed by Nifty IT (+3.66%) and Nifty Realty (+3.27%). Nifty Small Finance Banks & Microfinance Institutions and Nifty NBFC were among the laggards.",
-              "source": "Livemint",
-              "url": "https://www.livemint.com/market/sectoral-performance-nifty-capital-markets-it-realty-lead-gains/articleshow/9587654328.cms",
-              "sentiment": "bullish"
+              "headline": "IT, Realty Lead Gains While Consumer Durables, FMCG, Auto, PSU Banks Face Pressure",
+              "summary": "On November 26, the IT and Realty sectors led gains in the market, while Consumer Durables, FMCG, Auto, and PSU Banks experienced pressure, showing mixed sectoral performance.",
+              "source": "Economic Times",
+              "sentiment": "neutral"
             }
           ]
         },
@@ -614,141 +503,179 @@
           "category": "corporate_actions",
           "items": [
             {
-              "headline": "Mahanadi Coalfields Set for Listing Today as Government Unlocks PSU Value",
-              "summary": "Mahanadi Coalfields, a subsidiary of Coal India, is slated for listing today, aligning with the government's ongoing efforts to unlock value from public sector enterprises.",
+              "headline": "NSE Receives RBI Approval for Corporate Bond Index Futures",
+              "summary": "The National Stock Exchange (NSE) has secured approval from the Reserve Bank of India (RBI) to launch futures contracts linked to corporate bond indices.",
+              "source": "Livemint",
+              "tickers": [
+                "NSE.NS"
+              ],
+              "sentiment": "bullish"
+            },
+            {
+              "headline": "Tata Motors Increases Stake in Automobile Corporation of Goa, Making it a Subsidiary",
+              "summary": "Tata Motors' stake in Automobile Corporation of Goa Limited (ACGL) rose to 50.17% following a share buyback, resulting in ACGL becoming a subsidiary.",
               "source": "Business Standard",
-              "url": "https://www.business-standard.com/markets/ipo/mahanadi-coalfields-listing-today-as-govt-monetizes-psus/articleshow/9587654329.cms",
               "tickers": [
-                "COALINDIA.NS"
+                "TATAMOTORS.NS"
               ],
               "sentiment": "bullish"
             },
             {
-              "headline": "Texmaco Rail Secures ₹55.63 Crore Wagon Order from Utkal Alumina",
-              "summary": "Texmaco Rail & Engineering secured a substantial order valued at ₹55.63 crore for wagons from Utkal Alumina International, boosting its order book and outlook.",
-              "source": "Zee Business",
-              "url": "https://www.zeebiz.com/companies/news-texmaco-rail-secures-rs-55-cr-wagon-order-from-utkal-alumina-269382.html",
-              "tickers": [
-                "TEXRAIL.NS"
-              ],
-              "sentiment": "bullish"
-            },
-            {
-              "headline": "Exide Industries Infuses ₹249.99 Crore into Subsidiary EESL for Growth",
-              "summary": "Exide Industries has infused ₹249.99 crore into its wholly-owned subsidiary, Exide Energy Solutions Limited (EESL), through a rights issue, strengthening its presence in the energy solutions segment.",
+              "headline": "Zydus Lifesciences Receives USFDA Complete Response Letter for Saroglitazar NDA",
+              "summary": "Zydus Lifesciences' US subsidiary received a Complete Response Letter (CRL) from the USFDA for its New Drug Application (NDA) for Saroglitazar, linked to observations from an inspection of its Moraiya facility.",
               "source": "Moneycontrol",
-              "url": "https://www.moneycontrol.com/news/companies/exide-industries-infuses-rs-249-99-cr-into-subsidiary-eesl/articleshow/9587654330.cms",
               "tickers": [
-                "EXIDEIND.NS"
+                "ZYDUSLIFE.NS"
               ],
-              "sentiment": "bullish"
-            }
-          ]
-        },
-        {
-          "category": "stocks_in_focus",
-          "items": [
-            {
-              "headline": "Tata Group Stocks in Focus Amid Investigation Request into Tata Sons Proposal",
-              "summary": "Tata Group stocks are likely to be in focus following an urgent investigation request into Sir Dorabji Tata Trust's proposal to initiate legal proceedings against Tata Sons.",
-              "source": "NDTV Profit",
-              "url": "https://www.ndtvprofit.com/markets/tata-group-stocks-in-focus-amid-probe-request-on-tata-sons/2026/11/27/news-update.html",
-              "tickers": [
-                "TATACHEM.NS",
-                "TATASTEEL.NS",
-                "TCS.NS"
-              ],
-              "sentiment": "neutral"
+              "sentiment": "bearish"
             },
             {
-              "headline": "Wipro, Infosys, HCL Tech Lead IT Sector Gains; Maintain Investor Focus",
-              "summary": "Wipro, Infosys, and HCL Technologies are expected to maintain investor focus after leading the IT sector gains, with investors shifting away from global AI-linked stocks.",
-              "source": "Reuters",
-              "url": "https://www.reuters.com/markets/india/wipro-infosys-hcl-tech-lead-it-sector-gains/2026/11/27/it-stocks-in-focus.html",
-              "tickers": [
-                "WIPRO.NS",
-                "INFY.NS",
-                "HCLTECH.NS"
-              ],
-              "sentiment": "bullish"
-            },
-            {
-              "headline": "Reliance, HDFC Bank, Axis Bank, Kotak Mahindra Bank Eyed as FPI Inflow Beneficiaries",
-              "summary": "Jefferies identifies Reliance Industries, HDFC Bank, Axis Bank, and Kotak Mahindra Bank as key beneficiaries of a potential reversal in FPI flows, highlighting their strong market positions.",
-              "source": "Jefferies Research (via ET Now)",
-              "url": "https://www.etnow.com/markets/jefferies-identifies-fpi-inflow-beneficiaries-reliance-hdfc-bank/articleshow/9587654332.cms",
-              "tickers": [
-                "RELIANCE.NS",
-                "HDFCBANK.NS",
-                "AXISBANK.NS",
-                "KOTAKBANK.NS"
-              ],
-              "sentiment": "bullish"
-            }
-          ]
-        },
-        {
-          "category": "stocks_in_focus",
-          "items": [
-            {
-              "headline": "KPI Green Energy Commissions Additional Hybrid IPP Project Capacity",
-              "summary": "KPI Green Energy has commissioned an additional 16.10 MW (DC) capacity of a Hybrid IPP project, comprising 16.10 MW solar and 10.50 MW wind at Bhungar site, advancing its renewable energy portfolio.",
-              "source": "Business World",
-              "url": "https://www.businessworld.in/article/KPI-Green-Energy-Commissions-Additional-Hybrid-IPP-Project-Capacity/27-11-2026/512345.html",
+              "headline": "KPI Green Energy Commissions Additional 65.1 MWp Capacity",
+              "summary": "KPI Green Energy has commissioned an additional 65.1 MWp capacity as part of its hybrid independent power producer (IPP) project in Gujarat.",
+              "source": "Economic Times",
               "tickers": [
                 "KPIGREEN.NS"
               ],
               "sentiment": "bullish"
             }
           ]
+        },
+        {
+          "category": "stocks_in_focus",
+          "items": [
+            {
+              "headline": "Zydus Lifesciences, NSE, and BSE in Focus Following Recent Developments",
+              "summary": "Zydus Lifesciences is in focus after its USFDA Complete Response Letter, while NSE and BSE are watched following RBI approval for corporate bond index futures.",
+              "source": "Moneycontrol",
+              "tickers": [
+                "ZYDUSLIFE.NS",
+                "BSE.NS"
+              ],
+              "sentiment": "neutral"
+            },
+            {
+              "headline": "Titan Sees Gains While IT, Auto, and Banking Majors Lag",
+              "summary": "On Friday, Titan was a top gainer, while major IT companies (HCL Tech, TCS, Infosys, Tech Mahindra), auto (Maruti), and banking stocks (Axis Bank, Kotak Mahindra Bank, ICICI Bank, HDFC Bank) were among the laggards.",
+              "source": "Economic Times",
+              "tickers": [
+                "TITAN.NS",
+                "HCLTECH.NS",
+                "TCS.NS",
+                "INFY.NS",
+                "MARUTI.NS",
+                "TECHM.NS",
+                "AXISBANK.NS",
+                "KOTAKBANK.NS",
+                "ICICIBANK.NS",
+                "HDFCBANK.NS"
+              ],
+              "sentiment": "neutral"
+            }
+          ]
         }
       ],
       "streetRecommendations": [
         {
-          "ticker": "INDIGO.NS",
-          "name": "InterGlobe Aviation",
+          "ticker": "PBFINTECH.NS",
+          "name": "PB Fintech",
           "brokerage": "Jefferies",
           "action": "buy",
-          "target": 7025,
-          "rationale": "Jefferies maintained a 'Buy' rating citing strong growth prospects within the aviation sector, driven by increasing air travel demand."
+          "target": 1540,
+          "rationale": "Jefferies maintains a 'Buy' rating on PB Fintech, citing strong growth potential and market leadership in the fintech sector, expecting a significant upside."
         },
         {
-          "ticker": "ADANIENT.NS",
-          "name": "Adani Enterprises",
+          "ticker": "ICICIBANK.NS",
+          "name": "ICICI Bank",
           "brokerage": "Jefferies",
           "action": "buy",
-          "target": 3200,
-          "rationale": "Jefferies maintained its 'Buy' rating, projecting continued diversified business growth and potential for further value unlocking across its various ventures."
+          "target": 1880,
+          "rationale": "Jefferies retains its 'Buy' rating on ICICI Bank, viewing it as a preferred lender with robust fundamentals and promising growth prospects in the Indian banking sector."
         },
         {
-          "ticker": "KFINTECH.NS",
-          "name": "Kfin Technologies",
+          "ticker": "AUBANK.NS",
+          "name": "AU Small Finance Bank",
           "brokerage": "Jefferies",
           "action": "buy",
-          "target": 1440,
-          "rationale": "Jefferies maintained a 'Buy' rating, highlighting the company's favorable market position in the financial services technology sector and growth potential."
+          "target": 1250,
+          "rationale": "Jefferies has a 'Buy' rating on AU Small Finance Bank, anticipating strong performance and continued market share gains within the small finance banking segment."
         },
         {
-          "ticker": "IDFCFIRSTB.NS",
-          "name": "IDFC First Bank",
-          "brokerage": "Nomura",
+          "ticker": "TATASTEEL.NS",
+          "name": "Tata Steel",
+          "brokerage": "Jefferies",
           "action": "buy",
-          "target": 105,
-          "rationale": "Nomura initiated coverage with a 'Buy' rating, anticipating significant growth potential in the banking sector supported by improving asset quality and expanding retail presence."
+          "target": 240,
+          "rationale": "Jefferies maintains a 'Buy' rating on Tata Steel, driven by expectations of strong demand and improved margins in the steel sector, suggesting significant upside."
+        },
+        {
+          "ticker": "UNOMINDA.NS",
+          "name": "Uno Minda",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 1560,
+          "rationale": "Motilal Oswal recommends 'Buy' for Uno Minda, highlighting its strong order book and clear growth visibility in the auto components manufacturing industry."
+        },
+        {
+          "ticker": "GABRIEL.NS",
+          "name": "Gabriel India",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 1664,
+          "rationale": "Motilal Oswal advises 'Buy' for Gabriel India, expecting the company to benefit from increased automobile production and recent client acquisitions."
+        },
+        {
+          "ticker": "DIXON.NS",
+          "name": "Dixon Technologies (India) Limited",
+          "brokerage": "Motilal Oswal",
+          "action": "buy",
+          "target": 15900,
+          "rationale": "Motilal Oswal recommends 'Buy' for Dixon Technologies, citing robust demand for electronic manufacturing services and supportive government policies for local production."
+        },
+        {
+          "ticker": "SIEMENS.NS",
+          "name": "Siemens",
+          "brokerage": "Emkay",
+          "action": "buy",
+          "target": 4300,
+          "rationale": "Emkay has a 'Buy' recommendation for Siemens, supported by its strong order backlog and sustained capital expenditure momentum across key sectors like data centers and railways."
         }
       ],
       "corporateActions": [
         {
-          "ticker": "TECHM",
-          "name": "Tech Mahindra Ltd",
-          "type": "bonus",
-          "date": "2026-11-30"
+          "ticker": "PATANJALI",
+          "name": "Patanjali Foods Limited",
+          "type": "dividend",
+          "date": "2026-11-26"
         },
         {
-          "ticker": "SPAL",
-          "name": "S P Apparels Ltd",
+          "ticker": "VARVEEGLOB",
+          "name": "Varvee Global Ltd.",
           "type": "split",
-          "date": "2026-12-10"
+          "date": "2026-11-26"
+        },
+        {
+          "ticker": "GBLCL",
+          "name": "GB Logistics Commerce Ltd.",
+          "type": "results",
+          "date": "2026-11-26"
+        },
+        {
+          "ticker": "MAXWELL",
+          "name": "Maxwell Engineering Solutions Ltd.",
+          "type": "results",
+          "date": "2026-11-26"
+        },
+        {
+          "ticker": "FUSIONCX",
+          "name": "Fusion CX Limited",
+          "type": "dividend",
+          "date": "2026-11-27"
+        },
+        {
+          "ticker": "INTERARCH",
+          "name": "Interarch Building Solutions Limited",
+          "type": "split",
+          "date": "2026-11-30"
         }
       ],
       "derivatives": {
@@ -759,10 +686,10 @@
         "asOf": "2026-11-26"
       },
       "sentiment": {
-        "composite": 43,
+        "composite": 41,
         "regime": "Fear",
-        "session": "closing",
-        "asOf": "2026-11-27T10:16:09.900Z",
+        "session": "morning",
+        "asOf": "2026-11-27T11:25:16.310Z",
         "summary": "Defensive positioning dominates: institutional outflows and breadth deterioration counsel strict capital discipline.",
         "categories": {
           "breadth": {
@@ -794,16 +721,16 @@
             }
           },
           "volatility": {
-            "score": 24,
+            "score": 16,
             "regime": "Extreme Fear",
             "label": "Volatility & Risk Appetite",
             "weight": 0.25,
             "summary": "Elevated volatility & systemic risk (India VIX at 16.55, -1.7%)",
             "metrics": {
               "vix": 16.545,
-              "vixChangePct": -1.709396,
-              "goldChangePct": 2.5108006,
-              "usdinrChangePct": 0
+              "vixChangePct": -1.7225959,
+              "goldChangePct": 3.8601763,
+              "usdinrChangePct": 0.5896098
             }
           },
           "derivatives": {
@@ -822,14 +749,14 @@
         }
       }
     },
-    "outlook": "The Indian market closed with NIFTY and SENSEX in positive territory, supported by robust institutional buying from both FIIs and DIIs. Despite overall positive indices, market breadth leaned towards declines, indicating selective participation. IT and Realty sectors were standout performers, while Banking, Auto, and FMCG faced some pressure.",
+    "outlook": "Indian indices, NIFTY and SENSEX, concluded significantly lower, reflecting a broad-based market decline with weak breadth. Despite the negative close, both FIIs and DIIs recorded strong buying. Investors should observe if the Metal sector's outperformance continues to defy the overall negative sentiment.",
     "keyTakeaways": [
-      "NIFTY 50 (+0.25%) and SENSEX (+0.46%) registered gains.",
-      "NIFTY IT (+3.66%) and NIFTY REALTY (+3.27%) were the top performing sectors.",
-      "Major IT stocks like HCLTECH (+6.4%) and TCS (+4.9%) were among top gainers.",
-      "NIFTY BANK (-0.26%), NIFTY AUTO (-0.69%), and NIFTY FMCG (-0.94%) saw declines.",
-      "Strong institutional flows with FIIs buying 5843cr and DIIs buying 5631cr.",
-      "Market breadth was negative with 31 decliners versus 27 advancers."
+      "NIFTY 50 and SENSEX both closed over 1% down, indicating broad market weakness.",
+      "Market breadth was poor with 48 decliners compared to only 10 advancers.",
+      "FIIs injected 5843cr and DIIs 5631cr, showing strong institutional buying.",
+      "Metal sector significantly outperformed, gaining +1.4%, while Energy also saw marginal gains.",
+      "IT sector was a major laggard, down -1.88%, with Auto and Realty also posting notable declines.",
+      "Top losers included major IT stocks like HCLTECH, INFY, and TCS, alongside BAJAJ-AUTO."
     ],
     "retro": {
       "date": "2026-11-27",
@@ -1193,5 +1120,5 @@
     }
   },
   "emailSent": true,
-  "checksum": "sha256:d35c69967d90f4653093556f7d8b13018813567eaf2aab50f6bf9a5e6c4e5834"
+  "checksum": "sha256:adefb50febcbd2fcaf7599a0e2249b08081f0316a6b06d144fdb50efe44c05f1"
 }
